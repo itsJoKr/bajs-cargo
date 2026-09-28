@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+# Non-finite scan of every float render target, in each state of STATES.
+#
+# A NaN or Inf does not crash: it propagates silently and surfaces as a black
+# or garbled frame several passes downstream, so this fails on any non-finite
+# value anywhere and names the first offending pass (execution order).
+#
+# False-green guards, per state: the frame must have drawn something, the
+# readback must have produced targets, and at least one target must hold
+# non-zero data. A clean scan of an empty frame or blank buffers proves
+# nothing (.claude/rules/flutter-scene.md, "Render-graph capture").
+set -uo pipefail
+
+if [ "${1:-}" = "--describe" ]; then
+  echo '{"name":"render-nonfinite","tier":1,"summary":"no NaN/Inf in any float render target","needs":["device"]}'
+  exit 0
+fi
+
+cd "$(dirname "$0")/../../.." || exit 1
+
+STATES_TO_SCAN="zagreb.square zagreb.driving"
+
+STATES=$(fvm dart tool/probe.dart states 2>&1)
+code=$?
+if [ "$code" -eq 3 ]; then
+  echo "no running debug build reachable"
+  exit 77
+fi
+if [ "$code" -ne 0 ]; then
+  echo "$STATES"
+  exit 1
+fi
+
+status=0
+for state in $STATES_TO_SCAN; do
+  if ! fvm dart tool/probe.dart enterState --state "$state" >/dev/null 2>&1; then
+    echo "FAIL  could not enter $state"
+    status=1
+    continue
+  fi
+  OUT=$(fvm dart tool/probe.dart nonFinite 2>&1)
+  if [ $? -ne 0 ]; then
+    echo "FAIL  $state: nonFinite scan failed"
+    echo "$OUT"
+    status=1
+    continue
+  fi
+  echo "$OUT" | STATE="$state" python3 -c '
+import os, sys, json
+raw = sys.stdin.read()
+state = os.environ["STATE"]
+data = json.loads(raw[raw.index("{"):])
+draws = data.get("draws")
+scanned = data.get("scanned", 0)
+with_content = data.get("withContent", 0)
+clean = data.get("clean")
+print(f"{state}: draws={draws} scanned={scanned} withContent={with_content} clean={clean}")
+if data.get("empty"):
+    print(f"FAIL {state}: the captured frame drew nothing; a clean scan of it is not evidence")
+    raise SystemExit(1)
+if scanned == 0:
+    print(f"FAIL {state}: the readback produced no float targets")
+    raise SystemExit(1)
+if with_content == 0:
+    print(f"FAIL {state}: every scanned target read back all zero")
+    raise SystemExit(1)
+if clean:
+    raise SystemExit(0)
+first = (data.get("offenders") or [{}])[0]
+print(f"FAIL {state}: non-finite values; first offender {first.get(\"key\")} "
+      f"(pass {first.get(\"pass\")}, nan={first.get(\"nan\")}, inf={first.get(\"inf\")})")
+raise SystemExit(1)
+'
+  [ $? -ne 0 ] && status=1
+done
+exit $status

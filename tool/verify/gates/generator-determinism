@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+# Determinism gate for everything the city generator bakes.
+#
+# tool/generate_zagreb.dart reads only the committed snapshots under data/
+# and writes whole documents from scratch, minting ids from its own fixed
+# range in a fixed order, so a rerun must reproduce the committed bytes.
+#
+# Non-destructive and non-vacuous by construction: ZAGREB_ASSET_ROOT points
+# every output path (tool/src/fscene_writer.dart's assetPath) at an EMPTY
+# scratch directory. Nothing is seeded, so a generator that silently writes
+# nothing, or writes one file fewer, shows up as "missing" rather than as a
+# byte-identical copy of what was already there. Every tracked output is
+# compared, and so is the set of files: an extra file fails too.
+set -uo pipefail
+
+if [ "${1:-}" = "--describe" ]; then
+  echo '{"name":"generator-determinism","tier":1,"summary":"generators reproduce the committed baked assets byte for byte","needs":[]}'
+  exit 0
+fi
+
+cd "$(dirname "$0")/../../.." || exit 1
+
+# Directories whose every file is a generator output.
+OUTPUT_DIRS=(assets/city)
+
+SCRATCH="$(mktemp -d)"
+if [ -z "$SCRATCH" ] || [ ! -d "$SCRATCH" ]; then
+  echo "mktemp -d failed; refusing to run generators against the tracked tree"
+  exit 1
+fi
+trap 'rm -rf "$SCRATCH"' EXIT
+
+export ZAGREB_ASSET_ROOT="$SCRATCH"
+# Plain `dart`, not `dart run`: `dart run` runs the build hook first, which
+# compiles every chunk and is irrelevant to what the generator writes.
+if ! fvm dart tool/generate_zagreb.dart >"$SCRATCH.log" 2>&1; then
+  cat "$SCRATCH.log"
+  echo "generate_zagreb.dart failed"
+  rm -f "$SCRATCH.log"
+  exit 1
+fi
+rm -f "$SCRATCH.log"
+
+status=0
+compared=0
+for dir in "${OUTPUT_DIRS[@]}"; do
+  tracked=$(cd "$dir" 2>/dev/null && find . -type f ! -name '.gitkeep' | sort)
+  fresh=$(cd "$SCRATCH/$dir" 2>/dev/null && find . -type f | sort)
+  if [ "$tracked" != "$fresh" ]; then
+    echo "DIFFERS    $dir: the set of files changed"
+    diff <(echo "$tracked") <(echo "$fresh") | head -20
+    status=1
+  fi
+  for rel in $tracked; do
+    path="$dir/${rel#./}"
+    if [ ! -f "$SCRATCH/$path" ]; then
+      echo "MISSING    $path (the rerun did not write it)"
+      status=1
+    elif cmp -s "$path" "$SCRATCH/$path"; then
+      compared=$((compared + 1))
+    else
+      echo "DIFFERS    $path"
+      status=1
+    fi
+  done
+done
+
+if [ "$compared" -eq 0 ] && [ "$status" -eq 0 ]; then
+  echo "FAIL  nothing was compared; is assets/city empty?"
+  exit 1
+fi
+echo "identical  $compared files"
+exit "$status"

@@ -1,0 +1,175 @@
+#!/usr/bin/env bash
+# Frame comparison for every pinned shot the running game declares.
+#
+# The shots are the game's pinned debug parks, listed in SHOTS below. A park
+# freezes the car, the camera and anything animated, so two captures of one
+# park compare equal; a live state (zagreb.driving) is never a shot.
+#
+# There are no committed golden images. The baseline is the last accepted
+# frame, kept as a local artifact. Unchanged frames pass with no judgment at
+# all; a changed frame exits 78, which the runner reports as "review" and
+# which means a human or a model compares the pair and picks one. That keeps
+# model judgment off the common path, where nothing moved.
+#
+# A missing baseline is ambiguous on its own: it is either a first capture or
+# a deleted one, and `rm artifacts/frames/baseline/<shot>.png` must not be a
+# way to turn a real regression green. A local ledger at
+# artifacts/frames/compared/<shot> records, as an ISO-8601 UTC timestamp, the
+# last time this machine actually compared that shot against a baseline. A
+# missing baseline with no marker is genuinely a first capture (review, 78);
+# a missing baseline with a marker means the baseline was there and is now
+# gone (fail).
+#
+# Pixel comparison is per-device. The pinned state rasterizes differently on an
+# Adreno/Mali phone than on the emulator's Metal host GPU, so one baseline
+# cannot judge both -- a phone would either report every shot MOVED or, worse,
+# a phone change could hide behind an emulator baseline that happens to sit
+# within the noise tolerance. The store is therefore scoped: baselines,
+# current captures and the ledger all move together under
+#   $ZAGREB_FRAME_SCOPE, else $ZAGREB_DEVICE, else the shared root.
+# ZAGREB_DEVICE is the variable ensure_device.sh already reads to pick the
+# device, so naming the device names its frame store too; the explicit scope
+# variable is for a device that has no adb serial to hang the store on. Unset
+# -- the default emulator path -- keeps the original layout, so the emulator's
+# existing baselines and ledger stay valid. Scoping only moves the paths: a
+# missing baseline with a marker is still a FAIL, for the scope that owns it,
+# and there is no cross-device fallback -- borrowing another device's frame
+# would be exactly the false green this gate exists to refuse.
+set -uo pipefail
+
+if [ "${1:-}" = "--describe" ]; then
+  echo '{"name":"frame-shots","tier":2,"summary":"pinned shots match the last accepted frame","needs":["device"]}'
+  exit 0
+fi
+
+cd "$(dirname "$0")/../../.." || exit 1
+
+SCOPE="${ZAGREB_FRAME_SCOPE:-${ZAGREB_DEVICE:-}}"
+if [ -n "$SCOPE" ]; then
+  FRAMES="artifacts/frames/scopes/$SCOPE"
+else
+  FRAMES="artifacts/frames"
+fi
+BASELINE="$FRAMES/baseline"
+CURRENT="$FRAMES/current"
+COMPARED="$FRAMES/compared"
+mkdir -p "$BASELINE" "$CURRENT" "$COMPARED"
+if [ -n "$SCOPE" ]; then
+  echo "scope $SCOPE: baselines under $BASELINE"
+fi
+
+STATES=$(fvm dart tool/probe.dart states 2>&1)
+code=$?
+if [ "$code" -eq 3 ]; then
+  echo "no running debug build reachable"
+  exit 77
+fi
+if [ "$code" -ne 0 ]; then
+  echo "$STATES"
+  exit 1
+fi
+
+SHOTS="zagreb.square zagreb.ilica zagreb.cathedral"
+
+if [ -z "$SHOTS" ]; then
+  echo "no shots configured"
+  exit 77
+fi
+
+status=0
+changed=0
+firstcap=0
+for shot in $SHOTS; do
+  if ! fvm dart tool/probe.dart enterState --state "$shot" >/dev/null 2>&1; then
+    echo "FAIL  $shot: could not enter the state"
+    status=1
+    continue
+  fi
+  # Settle before trusting a capture: streamed chunks and the car's springs
+  # need a few frames after a park. Capture until two consecutive frames
+  # agree; that is the steady state, and it is self-verifying.
+  settled=0
+  for attempt in 1 2 3 4 5 6; do
+    if ! fvm dart tool/probe.dart frame --out "$CURRENT/$shot.png" >/dev/null 2>&1; then
+      echo "FAIL  $shot: could not capture a frame"
+      status=1
+      break
+    fi
+    if [ -f "$CURRENT/$shot.prev.png" ] &&        cmp -s "$CURRENT/$shot.prev.png" "$CURRENT/$shot.png"; then
+      settled=1
+      break
+    fi
+    cp "$CURRENT/$shot.png" "$CURRENT/$shot.prev.png"
+  done
+  rm -f "$CURRENT/$shot.prev.png"
+  if [ "$status" -ne 0 ]; then continue; fi
+  if [ "$settled" -ne 1 ]; then
+    echo "FAIL  $shot: never settled; six captures in a row all differed"
+    status=1
+    continue
+  fi
+  if [ ! -f "$BASELINE/$shot.png" ]; then
+    if [ -f "$COMPARED/$shot" ]; then
+      # This shot has a ledger entry but no baseline file: the baseline was
+      # compared at least once, so it did not simply never exist -- someone
+      # or something removed it. Do not write a fresh baseline here; that
+      # would hand a deleted baseline the exact pass it was trying to buy.
+      stamp=$(cat "$COMPARED/$shot")
+      echo "FAIL  $shot: the baseline is gone, and the ledger says this shot"
+      echo "        was compared before, at \"$stamp\". Deleting a baseline is"
+      echo "        not a way to pass this gate -- to legitimately re-baseline,"
+      echo "        accept the current frame: cp $CURRENT/$shot.png $BASELINE/$shot.png"
+      status=1
+      continue
+    fi
+    cp "$CURRENT/$shot.png" "$BASELINE/$shot.png"
+    date -u +%Y-%m-%dT%H:%M:%SZ > "$COMPARED/$shot"
+    echo "new   $shot: first capture, stored as the baseline"
+    firstcap=1
+    continue
+  fi
+  # Byte comparison first: it is free, and settles the common case where
+  # nothing touched the render at all.
+  if cmp -s "$BASELINE/$shot.png" "$CURRENT/$shot.png"; then
+    echo "same  $shot (byte-identical)"
+    date -u +%Y-%m-%dT%H:%M:%SZ > "$COMPARED/$shot"
+    continue
+  fi
+  # Otherwise decode and measure, so a dozen anti-aliased edge pixels do not
+  # send a human to look at two frames nobody could tell apart.
+  REPORT=$(python3 tool/verify/compare_frames.py     "$BASELINE/$shot.png" "$CURRENT/$shot.png")
+  case $? in
+    0)
+      echo "same  $shot ($REPORT)"
+      date -u +%Y-%m-%dT%H:%M:%SZ > "$COMPARED/$shot"
+      ;;
+    78)
+      echo "MOVED $shot"
+      echo "        $REPORT"
+      echo "        before: $BASELINE/$shot.png"
+      echo "        after:  $CURRENT/$shot.png"
+      date -u +%Y-%m-%dT%H:%M:%SZ > "$COMPARED/$shot"
+      changed=1
+      ;;
+    *) echo "FAIL  $shot: could not compare"; echo "$REPORT"; status=1 ;;
+  esac
+done
+
+if [ "$status" -ne 0 ]; then exit "$status"; fi
+if [ "$changed" -ne 0 ] || [ "$firstcap" -ne 0 ]; then
+  echo ""
+  if [ "$changed" -ne 0 ]; then
+    echo "The frame moved. Compare the pair and pick the better one -- a binary"
+    echo "A-or-B choice, not a score, because a score assigned to a single frame"
+    echo "drifts upward when the grader is also the author. Accept by replacing"
+    echo "the baseline with the new frame."
+  fi
+  if [ "$firstcap" -ne 0 ]; then
+    echo "A shot had no baseline and no ledger record of ever being compared"
+    echo "here, so it was stored as the new baseline rather than passed silently."
+    echo "A first capture is not evidence of anything either way -- look at it"
+    echo "once before trusting future runs to compare against it."
+  fi
+  exit 78
+fi
+exit 0

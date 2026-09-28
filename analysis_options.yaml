@@ -1,0 +1,10 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - artifacts/**
+    - build/**
+    - android/**
+    - macos/**
+    - .art/**
+    - .venv/**

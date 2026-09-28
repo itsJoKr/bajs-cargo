@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Full Dart test suite. Passes only on the literal "All tests passed!".
+set -uo pipefail
+
+if [ "${1:-}" = "--describe" ]; then
+  echo '{"name":"unit-tests","tier":1,"summary":"fvm flutter test prints All tests passed!","needs":[]}'
+  exit 0
+fi
+
+cd "$(dirname "$0")/../../.." || exit 1
+OUT=$(fvm flutter test 2>&1)
+code=$?
+echo "$OUT" | tail -40
+if [ "$code" -ne 0 ] || ! echo "$OUT" | grep -q "All tests passed!"; then
+  exit 1
+fi
+exit 0

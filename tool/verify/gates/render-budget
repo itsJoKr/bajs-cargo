@@ -1,0 +1,112 @@
+#!/usr/bin/env bash
+# Frame-budget gate. For every state in STATES below: enter it, force one real
+# frame, and assert
+#   - pipelineBuilds == 0 (every material was in the warmed set; a "pipeline
+#     build took N ms mid-frame" log is a failure, not a warning),
+#   - colour-pass draws (the `ScenePass` of view 0) <= that state's ceiling,
+#   - total vertices over the frame (all passes) <= that state's ceiling.
+#
+# The emulator's timings are meaningless but its counts match a phone, so CPU
+# time is reported and deliberately not asserted on.
+#
+# The city streams chunks around the car, so a ceiling measured at spawn says
+# nothing about the far side of the city. The `perimeter.*` parks sit around
+# the full box and are measured one by one; see docs/verification.md
+# "Render budget" for the readings each ceiling came from. A ceiling is a
+# measurement plus headroom -- never raise one to make a red run green
+# without re-measuring and writing down why.
+set -uo pipefail
+
+if [ "${1:-}" = "--describe" ]; then
+  echo '{"name":"render-budget","tier":1,"summary":"warm pipelines; colour-pass draws and vertices under each state ceiling","needs":["device"]}'
+  exit 0
+fi
+
+cd "$(dirname "$0")/../../.." || exit 1
+
+# "<state> <max colour-pass draws> <max total vertices>"; states the running
+# build does not register are reported and fail, so a renamed park cannot drop
+# out of the budget silently.
+BUDGET_FILE="tool/verify/render-budget.txt"
+if [ ! -f "$BUDGET_FILE" ]; then
+  echo "FAIL  $BUDGET_FILE is missing"
+  exit 1
+fi
+
+STATES=$(fvm dart tool/probe.dart states 2>&1)
+code=$?
+if [ "$code" -eq 3 ]; then
+  echo "no running debug build reachable"
+  exit 77
+fi
+if [ "$code" -ne 0 ]; then
+  echo "$STATES"
+  exit 1
+fi
+
+status=0
+while read -r state max_draws max_vertices; do
+  case "$state" in ''|'#'*) continue ;; esac
+  if ! echo "$STATES" | grep -q "\"$state\""; then
+    echo "FAIL  $state: not registered by the running build"
+    status=1
+    continue
+  fi
+  if ! fvm dart tool/probe.dart enterState --state "$state" >/dev/null 2>&1; then
+    echo "FAIL  could not enter $state"
+    status=1
+    continue
+  fi
+  OUT=$(fvm dart tool/probe.dart renderStats 2>&1)
+  if [ $? -ne 0 ]; then
+    echo "FAIL  $state: renderStats failed"
+    echo "$OUT"
+    status=1
+    continue
+  fi
+  echo "$OUT" | STATE="$state" MAX_DRAWS="$max_draws" MAX_VERTICES="$max_vertices" python3 -c '
+import os, sys, json
+raw = sys.stdin.read()
+data = json.loads(raw[raw.index("{"):])
+state = os.environ["STATE"]
+max_draws = int(os.environ["MAX_DRAWS"])
+max_vertices = int(os.environ["MAX_VERTICES"])
+latest = data.get("latest")
+if latest is None:
+    print(f"FAIL {state}: no frame has completed yet")
+    raise SystemExit(1)
+counters = latest["counters"]
+total_draws = counters["draws"]
+vertices = counters["vertices"]
+builds = counters["pipelineBuilds"]
+colour = None
+for view in latest.get("views", []):
+    if view.get("offscreen"):
+        continue
+    for p in view.get("passes", []):
+        if p["name"] == "ScenePass":
+            colour = (colour or 0) + p["counters"]["draws"]
+if colour is None:
+    print(f"FAIL {state}: no ScenePass in the frame; passes were "
+          f"{[p[\"name\"] for v in latest.get(\"views\", []) for p in v.get(\"passes\", [])]}")
+    raise SystemExit(1)
+print(f"{state}: colour draws={colour} total draws={total_draws} vertices={vertices} "
+      f"pipelineBuilds={builds} cpu={latest[\"cpuMicros\"]/1000:.1f}ms")
+if total_draws == 0:
+    print(f"FAIL {state}: the frame drew nothing, so no budget was exercised")
+    raise SystemExit(1)
+failed = False
+if builds != 0:
+    print(f"FAIL {state}: {builds} pipeline(s) built mid-frame; warm them in Scene.warmUp")
+    failed = True
+if colour > max_draws:
+    print(f"FAIL {state}: colour-pass draws {colour} over ceiling {max_draws}")
+    failed = True
+if vertices > max_vertices:
+    print(f"FAIL {state}: vertices {vertices} over ceiling {max_vertices}")
+    failed = True
+raise SystemExit(1 if failed else 0)
+'
+  [ $? -ne 0 ] && status=1
+done < "$BUDGET_FILE"
+exit $status

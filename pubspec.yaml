@@ -1,0 +1,36 @@
+name: zagreb_drive
+description: "Free-roam driving through a 3D model of central Zagreb."
+publish_to: none
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.13.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  audioplayers: ^6.8.1
+  flutter_riverpod: ^3.3.1
+  flutter_scene:
+    path: ../flutter_scene/packages/flutter_scene
+  hooks: ^2.0.0
+  vector_math: ^2.1.4
+
+dependency_overrides:
+  scene:
+    path: ../flutter_scene/packages/scene
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  # tool/probe.dart drives the running game's ext.zagrebdrive.* extensions.
+  vm_service: ^15.3.0
+  clipper2: ^0.0.3
+
+flutter:
+  uses-material-design: true
+  assets:
+    - flutter_scene_generated/
+    - assets/city/
+    - assets/audio/

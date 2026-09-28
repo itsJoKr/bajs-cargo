@@ -1,0 +1,106 @@
+# Zagreb Drive project guide
+
+Zagreb Drive is a full-screen, landscape, free-roam driving game set in a
+recognisable 3D model of central Zagreb, rendered with Flutter Scene
+(`flutter_scene`). A personal pet project. This file is the next session's
+only memory: keep it current. `docs/decisions.md` records why things are the
+way they are; `docs/progress.md` records what each phase delivered.
+
+## Toolchain
+
+- Flutter 3.47.2 through FVM (`.fvmrc`): `fvm flutter ...`, `fvm dart ...`.
+- `fvm flutter analyze` and `fvm flutter test` only count as passing when
+  they print the literal `No issues found!` / `All tests passed!`. A
+  sandboxed run that cannot write the SDK cache under
+  `~/fvm/versions/3.47.2/bin/cache` prints nothing and exits non-zero, which
+  reads like a clean run if you only grep for diagnostics.
+- Tools run with plain `fvm dart tool/<tool>.dart`, not `dart run`: `dart
+  run` runs `hook/build.dart` first, which compiles every city chunk.
+- Riverpod for app state. Every interactive widget gets a stable
+  `ValueKey<String>`.
+- `fvm flutter build apk --debug` for the Android build gate.
+- Secrets only in the git-ignored `.env` (e.g. `GOOGLE_MAPS_API_KEY`), never
+  in source, logs or docs. Raw downloads live in the git-ignored `.art/`;
+  only processed textures under `assets/` are committed. Evidence goes to
+  the git-ignored `artifacts/`.
+
+## The emulator
+
+Device work runs on the **`Slim_1`** AVD (API 37, Google APIs, arm64, 1.5 GB
+guest; see Doomscrool's AGENTS.md for why this image). `tool/ensure_device.sh`
+boots it, starts a debug build with `--enable-flutter-gpu`, writes the VM
+service URI to `/tmp/flutter-zagrebdrive-vmservice.json` and waits until the
+probe answers. It resolves the adb serial by asking each emulator
+`adb -s <serial> emu avd name`, because `emulator-5554` is only this AVD when
+it booted first. `--print-serial` prints the serial, `--stop` stops the
+session and force-stops `com.joeitsolutions.zagrebdrive`. `ZAGREB_AVD` and
+`ZAGREB_DEVICE` override the AVD and the serial.
+
+Slim_1 renders Impeller on **OpenGLES**; phones use Vulkan. Its counts match a
+phone, its timings do not. When an app cannot launch ("failed to attach",
+"start timeout" in `adb logcat -d`), run `~/.local/bin/avdslim on <serial>`
+before suspecting code (rules file, "Checking the result").
+
+## Coordinates
+
+Local metres in a tangent plane with the origin at the Ban Jelačić statue
+(45.81303 N, 15.97713 E): **x east, y up, z north**. flutter_scene's world is
+left-handed, so a camera looking along +z (north) has +x (east) on its right
+and nothing renders mirrored. `lib/drive/domain/geo.dart` (`geoToLocal`,
+`localToGeo`) is the only conversion; tools import it too. Headings are
+radians clockwise from north (0 = north, pi/2 = east).
+
+## Layout
+
+- `lib/drive/domain/` — pure Dart, no Flutter GPU, unit-testable: geo,
+  terrain, collision, car physics.
+- `lib/drive/scene/` — maps simulation state onto the scene graph
+  (`DriveWorld` owns sky/sun/look/camera, `DriveGame` owns the rest).
+- `lib/drive/widgets/` — `LoadingScreen` (static, calls warm-up), `DriveView`
+  (the `SceneView`, controls and HUD).
+- `lib/drive/debug/scene_probe.dart` — `ext.zagrebdrive.*` service
+  extensions; `tool/probe.dart` is the client.
+- `tool/` — generators and gates. `data/` — committed source snapshots.
+
+## Flutter Scene
+
+The fork lives at `/Users/jokr/Projects/flutter_scene` and is a path
+dependency (`flutter_scene` plus a `dependency_overrides` entry for `scene`).
+Don't modify it unless an engine bug blocks you; if you must, commit the
+change on a separate branch there and write it up in `docs/decisions.md`.
+
+The version-matched agent skills are installed under `.claude/skills/`
+(`fvm dart run flutter_scene:skills`; `--check` reports updates). Do not edit
+the installed copies. `.claude/rules/flutter-scene.md` holds the engine traps;
+add to it whenever something costs time.
+
+- Run flag: `--enable-flutter-gpu` (also set in the Android manifest and the
+  macOS Info.plist).
+- `EnvironmentSettings` carries `environment`, `skybox` and `sunLight` too:
+  assigning it clears them, so set the look first and the sky after.
+- `hook/build.dart` lists every `assets/city/*.fscene` for `buildScenes`
+  (sorted) and compiles `.fmat` files with `buildMaterials`.
+
+## Debug parks and the probe
+
+`DriveView` registers states `zagreb.<park>` for each park in
+`DriveGame.parks` (`square`, `ilica`, `cathedral`) plus the live
+`zagreb.driving`. Parks freeze everything animated so frames settle.
+
+```sh
+tool/ensure_device.sh
+fvm dart tool/probe.dart states
+fvm dart tool/probe.dart enterState --state zagreb.square
+fvm dart tool/probe.dart frame --out artifacts/shot.png
+fvm dart tool/probe.dart renderStats
+fvm dart tool/probe.dart command --name <command> [--key value ...]
+```
+
+## Verification gates
+
+`fvm dart tool/verify.dart` runs `tool/verify/gates/*`: `analyze`,
+`unit-tests`, `scene-assets`, `generator-determinism` (tier 1, no device),
+`render-budget`, `render-nonfinite` (tier 1, device) and `frame-shots`
+(tier 2, device; a moved frame is a review, not a failure). Ceilings for
+`render-budget` live in `tool/verify/render-budget.txt`. See
+`docs/verification.md`.
