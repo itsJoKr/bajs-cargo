@@ -67,8 +67,8 @@ if with_content == 0:
 if clean:
     raise SystemExit(0)
 first = (data.get("offenders") or [{}])[0]
-print(f"FAIL {state}: non-finite values; first offender {first.get(\"key\")} "
-      f"(pass {first.get(\"pass\")}, nan={first.get(\"nan\")}, inf={first.get(\"inf\")})")
+print(f"FAIL {state}: non-finite values; first offender {first.get("key")} "
+      f"(pass {first.get("pass")}, nan={first.get("nan")}, inf={first.get("inf")})")
 raise SystemExit(1)
 '
   [ $? -ne 0 ] && status=1

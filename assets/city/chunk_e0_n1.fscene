@@ -1,0 +1,263 @@
+{
+  "fscene": 5,
+  "documentId": "WX9KDM6CN57A9D9MQAA3AHPWCM",
+  "payloadSource": "chunk_e0_n1.payloads.fsceneb",
+  "stage": {},
+  "resources": {
+    "mat:00000000048Q2": {
+      "kind": "material",
+      "type": "physicallyBased",
+      "properties": {
+        "baseColor": {
+          "c": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "emissive": {
+          "c": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "emissiveStrength": {
+          "d": 1.0
+        },
+        "metallic": {
+          "d": 0.0
+        },
+        "roughness": {
+          "d": 0.92
+        },
+        "occlusionStrength": {
+          "d": 1.0
+        },
+        "normalScale": {
+          "d": 1.0
+        },
+        "doubleSided": {
+          "b": false
+        },
+        "alphaMode": {
+          "s": "opaque"
+        },
+        "alphaCutoff": {
+          "d": 0.5
+        }
+      },
+      "name": "facade"
+    },
+    "geo:00000000048Q6": {
+      "kind": "geometry",
+      "vertices": "chunk:00000000048Q8",
+      "indices": "chunk:00000000048QA",
+      "bounds": {
+        "min": [
+          -14.340049743652344,
+          -0.6000000238418579,
+          188.3174285888672
+        ],
+        "max": [
+          229.4407958984375,
+          20.899999618530273,
+          370.81072998046875
+        ]
+      }
+    },
+    "mat:00000000048QC": {
+      "kind": "material",
+      "type": "physicallyBased",
+      "properties": {
+        "baseColor": {
+          "c": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "emissive": {
+          "c": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "emissiveStrength": {
+          "d": 1.0
+        },
+        "metallic": {
+          "d": 0.0
+        },
+        "roughness": {
+          "d": 0.8
+        },
+        "occlusionStrength": {
+          "d": 1.0
+        },
+        "normalScale": {
+          "d": 1.0
+        },
+        "doubleSided": {
+          "b": false
+        },
+        "alphaMode": {
+          "s": "opaque"
+        },
+        "alphaCutoff": {
+          "d": 0.5
+        }
+      },
+      "name": "roof"
+    },
+    "geo:00000000048QG": {
+      "kind": "geometry",
+      "vertices": "chunk:00000000048QJ",
+      "indices": "chunk:00000000048QM",
+      "bounds": {
+        "min": [
+          -14.340049743652344,
+          3.199990749359131,
+          188.3174285888672
+        ],
+        "max": [
+          229.4407958984375,
+          20.900001525878906,
+          370.81072998046875
+        ]
+      }
+    }
+  },
+  "nodes": {
+    "n:00000000048Q0": {
+      "name": "Buildings",
+      "transform": {
+        "trs": {
+          "t": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "r": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "s": [
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "children": [
+        "n:00000000048Q4",
+        "n:00000000048QE"
+      ]
+    },
+    "n:00000000048Q4": {
+      "name": "Facades",
+      "transform": {
+        "trs": {
+          "t": [
+            0,
+            0,
+            0
+          ],
+          "r": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "s": [
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "properties": {
+            "geometry": {
+              "rref": "geo:00000000048Q6"
+            },
+            "material": {
+              "rref": "mat:00000000048Q2"
+            }
+          }
+        }
+      ]
+    },
+    "n:00000000048QE": {
+      "name": "Roofs",
+      "transform": {
+        "trs": {
+          "t": [
+            0,
+            0,
+            0
+          ],
+          "r": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "s": [
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "properties": {
+            "geometry": {
+              "rref": "geo:00000000048QG"
+            },
+            "material": {
+              "rref": "mat:00000000048QC"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "roots": [
+    "n:00000000048Q0"
+  ],
+  "payloads": {
+    "chunk:00000000048Q8": {
+      "encoding": "vertexBuffer",
+      "layout": "unskinned_soa_uv1_tangent",
+      "length": 168480
+    },
+    "chunk:00000000048QA": {
+      "encoding": "indexBuffer",
+      "format": "uint16",
+      "length": 7020
+    },
+    "chunk:00000000048QJ": {
+      "encoding": "vertexBuffer",
+      "layout": "unskinned_soa_uv1_tangent",
+      "length": 101592
+    },
+    "chunk:00000000048QM": {
+      "encoding": "indexBuffer",
+      "format": "uint16",
+      "length": 3558
+    }
+  },
+  "editor": {}
+}

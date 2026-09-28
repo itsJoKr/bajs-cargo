@@ -1,0 +1,149 @@
+{
+  "chunkSize": 200.0,
+  "chunks": [
+    {
+      "name": "chunk_w2_s2",
+      "i": -2,
+      "j": -2,
+      "minX": -400.0,
+      "minZ": -400.0,
+      "size": 200.0,
+      "buildings": 42
+    },
+    {
+      "name": "chunk_w1_s2",
+      "i": -1,
+      "j": -2,
+      "minX": -200.0,
+      "minZ": -400.0,
+      "size": 200.0,
+      "buildings": 53
+    },
+    {
+      "name": "chunk_e0_s2",
+      "i": 0,
+      "j": -2,
+      "minX": 0.0,
+      "minZ": -400.0,
+      "size": 200.0,
+      "buildings": 15
+    },
+    {
+      "name": "chunk_e1_s2",
+      "i": 1,
+      "j": -2,
+      "minX": 200.0,
+      "minZ": -400.0,
+      "size": 200.0,
+      "buildings": 25
+    },
+    {
+      "name": "chunk_w2_s1",
+      "i": -2,
+      "j": -1,
+      "minX": -400.0,
+      "minZ": -200.0,
+      "size": 200.0,
+      "buildings": 40
+    },
+    {
+      "name": "chunk_w1_s1",
+      "i": -1,
+      "j": -1,
+      "minX": -200.0,
+      "minZ": -200.0,
+      "size": 200.0,
+      "buildings": 80
+    },
+    {
+      "name": "chunk_e0_s1",
+      "i": 0,
+      "j": -1,
+      "minX": 0.0,
+      "minZ": -200.0,
+      "size": 200.0,
+      "buildings": 33
+    },
+    {
+      "name": "chunk_e1_s1",
+      "i": 1,
+      "j": -1,
+      "minX": 200.0,
+      "minZ": -200.0,
+      "size": 200.0,
+      "buildings": 38
+    },
+    {
+      "name": "chunk_w2_n0",
+      "i": -2,
+      "j": 0,
+      "minX": -400.0,
+      "minZ": 0.0,
+      "size": 200.0,
+      "buildings": 33
+    },
+    {
+      "name": "chunk_w1_n0",
+      "i": -1,
+      "j": 0,
+      "minX": -200.0,
+      "minZ": 0.0,
+      "size": 200.0,
+      "buildings": 50
+    },
+    {
+      "name": "chunk_e0_n0",
+      "i": 0,
+      "j": 0,
+      "minX": 0.0,
+      "minZ": 0.0,
+      "size": 200.0,
+      "buildings": 51
+    },
+    {
+      "name": "chunk_e1_n0",
+      "i": 1,
+      "j": 0,
+      "minX": 200.0,
+      "minZ": 0.0,
+      "size": 200.0,
+      "buildings": 28
+    },
+    {
+      "name": "chunk_w2_n1",
+      "i": -2,
+      "j": 1,
+      "minX": -400.0,
+      "minZ": 200.0,
+      "size": 200.0,
+      "buildings": 20
+    },
+    {
+      "name": "chunk_w1_n1",
+      "i": -1,
+      "j": 1,
+      "minX": -200.0,
+      "minZ": 200.0,
+      "size": 200.0,
+      "buildings": 57
+    },
+    {
+      "name": "chunk_e0_n1",
+      "i": 0,
+      "j": 1,
+      "minX": 0.0,
+      "minZ": 200.0,
+      "size": 200.0,
+      "buildings": 34
+    },
+    {
+      "name": "chunk_e1_n1",
+      "i": 1,
+      "j": 1,
+      "minX": 200.0,
+      "minZ": 200.0,
+      "size": 200.0,
+      "buildings": 5
+    }
+  ]
+}

@@ -38,3 +38,30 @@ overturn) them.
   (45.803–45.818 N, 15.962–15.988 E), so growing the city never needs a
   refetch. 3,364 buildings, 157 building parts, 7 MB of JSON, one element per
   line so it diffs.
+
+## Phase 1
+
+- **Generator-owned documents are written whole.** `SceneDocBuilder` mints
+  ids from 70000 in a fixed order and derives each chunk's `documentId` from
+  a seeded `Random` over its name, so reruns are byte-identical without
+  Doomscrool's release-and-reclaim dance.
+- **`generator-determinism` runs into an EMPTY scratch root**, not one
+  seeded with the committed files, and also compares the file set. A
+  generator that writes nothing fails as "missing". Perturbing one colour
+  turned every payload red; reverting turned it green.
+- **Roofs are planar regions over a box, not a straight skeleton.** Robust
+  for any footprint (concave, courtyards): triangulate, clip each triangle
+  into convex regions, height from the region's plane; walls split at the
+  roof's kinks. Real L/U-shaped roofs are approximated by one ridge.
+- **Courtyard buildings default to 1-2 storeys.** OSM rarely tags them and
+  the 4-storey district default filled every courtyard.
+- **Chunks: 200 m squares on a grid anchored at the origin, buildings by
+  centroid** (a building never splits across chunks; its chunk's bounds just
+  grow a little).
+- **`.fscene` sources are not Flutter assets.** Only the build hook reads
+  `assets/city/`; runtime data (`city_index.json`, later collision/terrain)
+  lives in `assets/data/`, the one listed asset directory besides audio and
+  the generated tree.
+- **`tool/reload.sh`** hot-reloads/restarts through `flutter run`'s
+  SIGUSR1/SIGUSR2, which (unlike Marionette's hot-restart in Doomscrool) did
+  pick up source changes. New chunks still need a full relaunch.

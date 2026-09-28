@@ -47,7 +47,7 @@ fi
 status=0
 while read -r state max_draws max_vertices; do
   case "$state" in ''|'#'*) continue ;; esac
-  if ! echo "$STATES" | grep -q "\"$state\""; then
+  if ! echo "$STATES" | grep -q ""$state""; then
     echo "FAIL  $state: not registered by the running build"
     status=1
     continue
@@ -88,10 +88,10 @@ for view in latest.get("views", []):
             colour = (colour or 0) + p["counters"]["draws"]
 if colour is None:
     print(f"FAIL {state}: no ScenePass in the frame; passes were "
-          f"{[p[\"name\"] for v in latest.get(\"views\", []) for p in v.get(\"passes\", [])]}")
+          f"{[p["name"] for v in latest.get("views", []) for p in v.get("passes", [])]}")
     raise SystemExit(1)
 print(f"{state}: colour draws={colour} total draws={total_draws} vertices={vertices} "
-      f"pipelineBuilds={builds} cpu={latest[\"cpuMicros\"]/1000:.1f}ms")
+      f"pipelineBuilds={builds} cpu={latest["cpuMicros"]/1000:.1f}ms")
 if total_draws == 0:
     print(f"FAIL {state}: the frame drew nothing, so no budget was exercised")
     raise SystemExit(1)

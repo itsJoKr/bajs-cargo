@@ -62,6 +62,22 @@ radians clockwise from north (0 = north, pi/2 = east).
   extensions; `tool/probe.dart` is the client.
 - `tool/` — generators and gates. `data/` — committed source snapshots.
 
+## The city pipeline
+
+`fvm dart tool/generate_zagreb.dart` (plain `dart`) bakes the OSM snapshot
+into `assets/city/chunk_<e|w><i>_<n|s><j>.fscene` (200 m chunks, origin
+anchored, one mesh per material per chunk) and `assets/data/city_index.json`.
+Never edit baked chunks; change the generator (`tool/src/`: `osm.dart`
+parsing and multipolygons, `geom.dart` earcut/clipping/boxes,
+`buildings.dart` heights and roofs, `city.dart` the model,
+`fscene_writer.dart` the document writer) and rerun. After baking, relaunch
+the app (`tool/ensure_device.sh --stop && tool/ensure_device.sh`): the hook
+must recompile the chunks, a hot restart does not.
+
+At runtime `ChunkStreamer` loads/shows/releases chunks by distance from the
+focus (camera now, car later) and `CityMaterials.adopt` points every chunk
+at one shared material per name.
+
 ## Flutter Scene
 
 The fork lives at `/Users/jokr/Projects/flutter_scene` and is a path
@@ -84,8 +100,9 @@ add to it whenever something costs time.
 ## Debug parks and the probe
 
 `DriveView` registers states `zagreb.<park>` for each park in
-`DriveGame.parks` (`square`, `ilica`, `cathedral`) plus the live
-`zagreb.driving`. Parks freeze everything animated so frames settle.
+`DriveGame.parks` (`square`, `ilica`, `cathedral`, `overview`) plus the live
+`zagreb.driving`. Parks freeze everything animated so frames settle, and
+are only `ready` once the streamer has loaded everything around them.
 
 ```sh
 tool/ensure_device.sh
@@ -93,7 +110,9 @@ fvm dart tool/probe.dart states
 fvm dart tool/probe.dart enterState --state zagreb.square
 fvm dart tool/probe.dart frame --out artifacts/shot.png
 fvm dart tool/probe.dart renderStats
-fvm dart tool/probe.dart command --name <command> [--key value ...]
+fvm dart tool/probe.dart command --name look --ex -100 --ey 3 --ez 2 --tx 30 --ty 7 --tz 18
+fvm dart tool/probe.dart command --name tune --exposure .5 --fog .001
+tool/reload.sh [--restart]   # hot reload/restart the running build
 ```
 
 ## Verification gates

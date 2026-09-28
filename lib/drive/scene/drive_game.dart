@@ -1,6 +1,12 @@
+import 'dart:convert';
+
+import 'package:flutter/services.dart';
 import 'package:flutter_scene/scene.dart';
 import 'package:vector_math/vector_math.dart' as vm;
 
+import '../domain/city_index.dart';
+import 'chunk_streamer.dart';
+import 'city_materials.dart';
 import 'drive_world.dart';
 
 /// A pinned debug view: where the camera sits and what it looks at. Parks
@@ -12,22 +18,25 @@ class Park {
 
 /// Everything the drive view shows, loaded and warmed up.
 class DriveGame {
-  DriveGame._(this.world);
+  DriveGame._(this.world, this.streamer);
 
   final DriveWorld world;
+  final ChunkStreamer streamer;
   Scene get scene => world.scene;
 
   /// The debug parks, in local metres (x east, y up, z north). Registered as
   /// `zagreb.<name>` by the view.
   static const parks = <String, Park>{
-    // From the south-west corner of the square, looking north-east across
-    // the statue toward Manduševac and the Cathedral's spires.
-    'square': Park((-70, 2.2, -45), (40, 8, 60)),
-    // Down Ilica's first blocks from Frankopanska, looking east toward the
-    // square.
-    'ilica': Park((-420, 2.2, -12), (-150, 6, 4)),
-    // The Cathedral from Kaptol square's south-west.
-    'cathedral': Park((150, 2.5, 90), (212, 40, 165)),
+    // From the square's west end, where Ilica opens onto it, looking east
+    // past the statue (13, 17) toward Manduševac and the east side.
+    'square': Park((-100, 2.2, 2), (30, 7, 18)),
+    // Down Ilica's first pedestrian blocks, looking east toward the square.
+    'ilica': Park((-300, 2.2, 9), (-110, 5, 9)),
+    // The Cathedral's west front and twin spires from Kaptol square.
+    'cathedral': Park((105, 2.2, 150), (180, 38, 167)),
+    // High over the square from the south-west: the perimeter blocks and
+    // their courtyards.
+    'overview': Park((-230, 230, -330), (10, 0, 20)),
   };
 
   String? parked;
@@ -35,10 +44,17 @@ class DriveGame {
   static Future<DriveGame> load() async {
     final world = DriveWorld();
     await world.initialize();
-    final game = DriveGame._(world);
+    final index = CityIndex.fromJson(
+      jsonDecode(await rootBundle.loadString('assets/data/city_index.json'))
+          as Map<String, Object?>,
+    );
+    final streamer = ChunkStreamer(world.scene, index, CityMaterials());
+    final game = DriveGame._(world, streamer);
     game._buildGround();
     game.park('square');
-    await world.warmUp();
+    final eye = world.camera.position;
+    await streamer.preload(eye.x, eye.z);
+    await streamer.warmUp(world.warmUp);
     return game;
   }
 
@@ -76,5 +92,11 @@ class DriveGame {
     world.orbit(vm.Vector3.zero(), heading: 0, pitch: .35, distance: 60);
   }
 
-  void tick(double dt) {}
+  /// Whether [name] is parked and its surroundings are streamed in.
+  bool isParked(String name) => parked == name && streamer.settled;
+
+  void tick(double dt) {
+    final eye = world.camera.position;
+    streamer.update(eye.x, eye.z);
+  }
 }

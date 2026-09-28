@@ -27,7 +27,7 @@ class _DriveViewState extends State<DriveView> {
       for (final name in DriveGame.parks.keys)
         name: GameState(
           enter: () => game.park(name),
-          ready: () => game.parked == name,
+          ready: () => game.isParked(name),
         ),
       'driving': GameState(enter: game.drive, ready: () => game.parked == null),
     });
