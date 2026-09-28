@@ -26,6 +26,7 @@ import 'src/fscene_writer.dart';
 import 'src/ground.dart';
 import 'src/osm.dart';
 import 'src/props.dart';
+import 'src/runtime_data.dart';
 
 const chunkSize = 200.0;
 
@@ -154,6 +155,31 @@ void main(List<String> args) {
     });
   }
   writeProps();
+
+  // Runtime data for the domain layer: footprints for collision (every
+  // building, grouped by the chunk that bakes it), the terrain grid and the
+  // road mask that tells kerb level from road level.
+  final footprints = <(int, int), List<Polygon>>{};
+  for (final b in city.buildings) {
+    final c = b.center;
+    final key = ((c.x / chunkSize).floor(), (c.y / chunkSize).floor());
+    (footprints[key] ??= []).add(b.polygon);
+  }
+  writeAsset('assets/data/collision.bin', collisionBytes(footprints));
+  const terrainCell = 10.0;
+  final tx0 = (extent.minX / terrainCell).floor() * terrainCell - terrainCell;
+  final tz0 = (extent.minZ / terrainCell).floor() * terrainCell - terrainCell;
+  final tColumns = ((extent.maxX - tx0) / terrainCell).ceil() + 2;
+  final tRows = ((extent.maxZ - tz0) / terrainCell).ceil() + 2;
+  writeAsset(
+    'assets/data/terrain.bin',
+    terrainBytes(tx0, tz0, terrainCell, tColumns, tRows, [
+      for (var r = 0; r < tRows; r++)
+        for (var c = 0; c < tColumns; c++)
+          terrain(Vector2(tx0 + c * terrainCell, tz0 + r * terrainCell)),
+    ]),
+  );
+  writeAsset('assets/data/roadmask.bin', roadMaskBytes(ground.road, extent));
   final previewAt = args.indexOf('--preview');
   if (previewAt >= 0) {
     writePreview(args[previewAt + 1], city, ground);

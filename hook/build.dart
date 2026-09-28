@@ -25,7 +25,7 @@ void main(List<String> args) async {
     buildScenes(
       buildInput: input,
       buildOutput: output,
-      inputFilePaths: [...chunks],
+      inputFilePaths: [...chunks, 'assets/models/car-concept.glb'],
     );
     // Compile .fmat materials under assets/, loadable by source path with
     // loadFmatMaterial. A no-op when there are none.

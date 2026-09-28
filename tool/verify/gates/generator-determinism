@@ -21,7 +21,7 @@ fi
 cd "$(dirname "$0")/../../.." || exit 1
 
 # Directories whose every file is a generator output.
-OUTPUT_DIRS=(assets/city)
+OUTPUT_DIRS=(assets/city assets/data)
 
 SCRATCH="$(mktemp -d)"
 if [ -z "$SCRATCH" ] || [ ! -d "$SCRATCH" ]; then

@@ -32,3 +32,8 @@ with the date and the build they came from.
 | Date | State | colour draws | total draws | vertices |
 | --- | --- | --- | --- | --- |
 | 2026-09-28 | phase 0, `zagreb.square` | 2 | 10 | 60 |
+| 2026-09-28 | phase 1, `zagreb.square` | 22 | 100 | 317k |
+| 2026-09-28 | phase 2, `zagreb.square` | 38 | 164 | 1.09 M |
+| 2026-09-28 | phase 3 (car, 109 parts unmerged), `zagreb.square` | 152 | 380 | 2.0 M |
+| 2026-09-28 | phase 3 (car merged per material), `zagreb.square` | 80 | 246 | 2.34 M |
+| 2026-09-28 | phase 3, `zagreb.driving` at spawn | 61 | 183 | 2.08 M |

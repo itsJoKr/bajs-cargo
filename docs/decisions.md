@@ -85,3 +85,23 @@ overturn) them.
   Zrinjevac; halve it if vertices ever matter.
 - **Squares are paved at sidewalk level with no kerb inside them**; a
   street that ends at a square gets a kerb where its asphalt stops.
+
+## Phase 3
+
+- **The car is a kinematic bicycle, not a tyre model.** It carries one
+  signed speed along its heading; walls remove the into-wall component and
+  swing the nose along the wall. Predictable, testable, and it feels like
+  Sky Drop's arcade car.
+- **Collision is 2D footprints only.** The car can drive anywhere else,
+  pedestrian zones and parks included (the brief allows it); kerbs are a
+  height step, not a wall. Bollards are not in the data yet.
+- **Wall response aligns the heading.** The first version only removed the
+  normal velocity; a 20 degree hit with the throttle held then ground to
+  0.3 m/s against the wall. The slide test caught it.
+- **Merging the car per material** at load (five rigid groups) instead of
+  editing the model: the asset stays the unchanged Khronos file.
+- **Engine pitch uses audioplayers' `PlayerMode.lowLatency`**: on Android
+  that is a SoundPool stream, whose rate resamples (pitch follows); a
+  MediaPlayer rate time-stretches at constant pitch.
+- **Parks place the car 9 m in front of the eye** so the shots show it, and
+  freeze the simulation.

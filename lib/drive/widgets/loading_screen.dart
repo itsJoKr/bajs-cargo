@@ -23,7 +23,10 @@ class LoadingScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final game = ref.watch(driveGameProvider);
     return switch (game) {
-      AsyncData(:final value) => DriveView(game: value),
+      AsyncData(:final value) => Scaffold(
+        backgroundColor: const Color(0xFF0E1116),
+        body: DriveView(game: value),
+      ),
       AsyncError(:final error) => _Message(
         key: const ValueKey('startup_error'),
         title: 'ZAGREB DRIVE',

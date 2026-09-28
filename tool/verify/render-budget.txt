@@ -1,6 +1,7 @@
 # <state> <max colour-pass draws> <max total vertices, all passes>
 # Ceilings are measurements plus headroom; see docs/verification.md
-# "Render budget" for where each number came from.
+# "Render budget" for where each number came from. The brief's target is
+# <= ~150 colour-pass draws anywhere in the city.
 zagreb.square    150 3000000
 zagreb.ilica     150 3000000
 zagreb.cathedral 150 3000000

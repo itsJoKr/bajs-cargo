@@ -324,3 +324,25 @@ rules; this file holds the traps.
   --dart-define=SMOKE_ONLY=<id>`; the driver writes each scene's frame to
   `build/smoke/<id>.png`, and that is the harness upstream CI runs on every
   backend.
+
+## Zagreb Drive
+
+- `loadScene('x.glb')` returns the model in the glTF's own units (metres
+  for Khronos samples). Doomscrool's 45.9x scale on Car Concept belonged to
+  its editor import; copying it made a 200 m car.
+- An imported model's mesh parts are one draw each: Car Concept's 97 parts
+  pushed the colour pass from 38 to 152 draws. Merge rigid groups per
+  material (`Geometry.extractMeshData().transformed(...)`,
+  `MeshData.merge`, `MeshGeometry.fromMeshData`).
+- Measure anything that needs a node's `combinedLocalBounds` (wheel
+  centres, axles) BEFORE moving its geometry into new child nodes: the
+  parent's cached bounds went stale and the wheels were "not found".
+- `EnvironmentSettings` includes `environment`, `skybox` and `sunLight`;
+  assigning a settings object without them clears the sky.
+- A widget tree under `SceneView` with no `Material`/`Scaffold` ancestor
+  renders every `Text` with the yellow double underline.
+- The `clipper2` Dart port's `Clipper.rectClip` can throw a RangeError on
+  real city paths; intersect with a rectangle path instead. A union whose
+  subject is empty returns empty, not the clip.
+- `flutter run`'s own hot reload/restart (SIGUSR1/SIGUSR2, `tool/reload.sh`)
+  picks up Dart changes reliably; rebaked chunks still need a relaunch.

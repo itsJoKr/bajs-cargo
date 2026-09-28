@@ -76,3 +76,32 @@ One entry per phase: what shipped, what was checked, what is open.
   (instanced trees and the shadow cascades), `pipelineBuilds=0`.
   Screenshots: `artifacts/phase-2/square.png` (rails across the square),
   `zrinjevac.png`, `zrinjevac_north.png` (kerbs), `map.png`.
+
+## Phase 3: the car (2026-09-28)
+
+- `lib/drive/domain/car.dart`: a bicycle model at a fixed 1/120 s step on
+  the ground height field (terrain + 15 cm kerb off the carriageway, from
+  `assets/data/terrain.bin` and `roadmask.bin`). Engine pull falls off to a
+  28 m/s top speed, the brake reverses at a standstill, the steering lock
+  narrows with speed and a grip limit makes it understeer. The body keeps
+  Sky Drop's sprung pitch/roll/heave (kerbs thump the suspension) and each
+  wheel's travel, steer and spin.
+- Collision: three circles along the body against the building footprints
+  (`assets/data/collision.bin`, grouped per chunk). Head-on stops the car; a
+  glancing hit swings the nose along the wall and scrapes speed off.
+- `ChaseCamera`: lags the heading, eases position, pulls in at once when a
+  ray from the car to the eye crosses a footprint, eases back out.
+- Controls: steering stick (left), BRAKE/GAS pedals (right), WASD/arrows;
+  a speedometer. Engine loop pitched by speed via audioplayers' low-latency
+  (SoundPool) mode.
+- Car Concept model (CC BY, `assets/ATTRIBUTION.md`): loaded in metres (no
+  45.9x scale, that belonged to Doomscrool's import), turned to face +z,
+  stood on its tyres from its bounds. Its 97 mesh nodes are merged per
+  material into five rigid groups (body + four wheels): colour draws at the
+  square went 152 -> 80. Shadows come from three proxy shapes.
+- Tests: accelerate/brake/reverse, steering sense, stopping at a wall,
+  sliding along one, 36,000 random steps across the real city never inside
+  a footprint, terrain continuity across chunk borders, camera pull-in,
+  controls, pedals and stick.
+- Screenshots: `artifacts/phase-3/spawn.png`, `driving_hud.png` (75 km/h in
+  a left turn, with the controls), `square_park.png`.
