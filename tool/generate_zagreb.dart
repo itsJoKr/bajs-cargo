@@ -22,6 +22,7 @@ import 'package:vector_math/vector_math.dart';
 
 import 'src/buildings.dart';
 import 'src/city.dart';
+import 'src/facades.dart';
 import 'src/fscene_writer.dart';
 import 'src/ground.dart';
 import 'src/osm.dart';
@@ -61,6 +62,7 @@ Vector4 colorHex(int rgb, {double alpha = 1}) => Vector4(
 void main(List<String> args) {
   final watch = Stopwatch()..start();
   final osm = OsmData.load('data/osm/zagreb_centre.json');
+  final styles = FacadeStyles.load('data/facade_styles.json');
   final city = City(osm, coreExtent)..build();
 
   final ground = Ground(osm, city)..build();
@@ -90,13 +92,7 @@ void main(List<String> args) {
     final key = ((c.x / chunkSize).floor(), (c.y / chunkSize).floor());
     final meshes = chunks.putIfAbsent(key, BuildingMeshes.new);
     counts[key] = (counts[key] ?? 0) + 1;
-    emitBuilding(
-      b,
-      meshes,
-      ground: terrain(c),
-      wallColor: colorHex(0x9A968F),
-      roofColor: colorHex(0x7A5A4E),
-    );
+    emitBuilding(b, meshes, ground: terrain(c), styles: styles);
   }
 
   final keys = chunks.keys.toList()

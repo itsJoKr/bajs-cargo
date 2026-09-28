@@ -8,6 +8,7 @@ import 'dart:math' as math;
 import 'package:vector_math/vector_math.dart';
 
 import 'buildings.dart';
+import 'facades.dart';
 import 'geom.dart';
 import 'osm.dart';
 
@@ -95,6 +96,84 @@ class City {
   void build() {
     _readStreets();
     _readBuildings();
+    _dressBuildings();
+  }
+
+  /// Picks each building's style and colours and classifies its walls:
+  /// against a neighbour (party), toward a street, or into a courtyard.
+  void _dressBuildings() {
+    // Buildings by 20 m cell, for "is this point inside a neighbour".
+    const cell = 20.0;
+    final grid = <int, List<Building>>{};
+    int key(int i, int j) => (i + 5000) * 10000 + (j + 5000);
+    for (final b in buildings) {
+      var x0 = double.infinity, x1 = -double.infinity;
+      var z0 = double.infinity, z1 = -double.infinity;
+      for (final p in b.polygon.outer) {
+        x0 = math.min(x0, p.x);
+        x1 = math.max(x1, p.x);
+        z0 = math.min(z0, p.y);
+        z1 = math.max(z1, p.y);
+      }
+      for (var i = (x0 / cell).floor(); i <= (x1 / cell).floor(); i++) {
+        for (var j = (z0 / cell).floor(); j <= (z1 / cell).floor(); j++) {
+          (grid[key(i, j)] ??= []).add(b);
+        }
+      }
+    }
+    Building? neighbourAt(Vector2 p, Building self) {
+      for (final other in grid[key((p.x / cell).floor(), (p.y / cell).floor())] ??
+          const <Building>[]) {
+        if (!identical(other, self) && other.polygon.contains(p)) return other;
+      }
+      return null;
+    }
+
+    for (final b in buildings) {
+      final upper = isUpperTown(b.center);
+      b.style = styleFor(
+        id: b.id,
+        tags: b.tags,
+        upperTown: upper,
+        eave: b.eave,
+        flatRoof: b.roof == RoofShape.flat,
+        area: b.area,
+      );
+      b.paint = paintFor(b.id, upperTown: upper);
+      final kind = b.tags['building'] ?? b.tags['building:part'] ?? '';
+      if (const {'church', 'cathedral', 'chapel', 'tower', 'bell_tower'}
+              .contains(kind) ||
+          b.tags['amenity'] == 'place_of_worship' ||
+          b.tags['building:part'] == 'tower' ||
+          (b.tags['building:part'] != null && b.eave > 30)) {
+        b.style = 'stone';
+        b.paint = Vector4(.88, .86, .82, 1);
+      }
+      b.roofTint = roofTintFor(b.id);
+      final walls = <WallKind>[];
+      for (final (a, c) in b.polygon.edges) {
+        final d = c - a;
+        final length = d.length;
+        if (length < 1e-6) {
+          walls.add(WallKind.party);
+          continue;
+        }
+        final n = Vector2(d.y, -d.x) / length;
+        // A neighbour directly outside most of the edge: party wall.
+        var inside = 0;
+        for (final t in const [.2, .5, .8]) {
+          if (neighbourAt(a + d * t + n * .7, b) != null) inside++;
+        }
+        if (inside >= 2) {
+          walls.add(WallKind.party);
+        } else if (streetGrid.nearest((a + c) * .5 + n * 5, 12) < 12) {
+          walls.add(WallKind.street);
+        } else {
+          walls.add(WallKind.courtyard);
+        }
+      }
+      b.walls = walls;
+    }
   }
 
   void _readStreets() {

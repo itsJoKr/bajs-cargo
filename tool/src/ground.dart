@@ -13,7 +13,7 @@ import 'dart:math' as math;
 
 import 'package:vector_math/vector_math.dart';
 
-import 'buildings.dart' show parseMetres;
+import 'buildings.dart' show isUpperTown, parseMetres;
 import 'city.dart';
 import 'clip.dart';
 import 'fscene_writer.dart';
@@ -28,16 +28,20 @@ const gauge = 1.435, railWidth = .11;
 /// Surface kinds. The index is the tile the atlas material samples
 /// (`uv1.x`); see `lib/drive/scene/city_materials.dart`.
 enum Surface {
-  asphalt(0, 0x4A4B4E, 4, .85),
-  sidewalk(1, 0x9E9B95, 2, .9),
-  paving(2, 0xBDB3A2, 2.5, .8),
-  grass(3, 0x5F7B3C, 4, .95),
-  gravel(4, 0xBBAB8B, 2, .95),
-  kerb(5, 0xB5B1A9, 1, .75),
-  rails(9, 0x55504C, 2, .45);
+  asphalt(0, 0xFFFFFF, 4, .85),
+  sidewalk(1, 0xF4F4F4, 2, .9),
+  paving(2, 0xFFF1DE, 2.5, .75),
+  grass(3, 0xEEEEEE, 4, .95),
+  gravel(4, 0xFFFFFF, 2, .95),
+  kerb(5, 0xFFFFFF, 1, .7),
+  rails(9, 0xFFFFFF, 2, .35),
+  cobbles(12, 0xFFFFFF, 2, .8);
 
   const Surface(this.tile, this.color, this.period, this.roughness);
-  final int tile, color;
+  final int tile;
+
+  /// A tint multiplied over the atlas tile (sRGB hex; white keeps it).
+  final int color;
 
   /// World-planar UV period in metres. Every period divides the 200 m
   /// chunk, so chunk-local UVs line up across chunk borders.
@@ -201,29 +205,36 @@ class Ground {
     final gravelHere = gravel.clipRect(minX, minZ, maxX, maxZ);
     final sidewalk = rect - roadHere - pavingHere - grassHere - gravelHere;
 
-    void fill(Shape shape, Surface kind, double lift) {
-      final color = _color(kind);
+    void fill(Shape shape, Surface baseKind, double lift) {
       for (final polygon in shape.polygons) {
         final all = [...polygon.outer, ...polygon.holes.expand((h) => h)];
         final tris = earcut(polygon.outer, polygon.holes);
         final ids = <int, int>{};
-        int vertex(int i) => ids.putIfAbsent(i, () {
-          final p = all[i];
-          return surface.vertex(
-            Vector3(p.x, height(p) + lift, p.y),
-            Vector3(0, 1, 0),
-            (p.x - originX) / kind.period,
-            (p.y - originZ) / kind.period,
-            u1: kind.tile.toDouble(),
-            color: _tint(color, p, kind),
-          );
-        });
+        int vertex(int i, Surface kind) =>
+            ids.putIfAbsent(i * 16 + kind.index, () {
+              final p = all[i];
+              return surface.vertex(
+                Vector3(p.x, height(p) + lift, p.y),
+                Vector3(0, 1, 0),
+                (p.x - originX) / kind.period,
+                (p.y - originZ) / kind.period,
+                u1: kind.tile.toDouble(),
+                v1: kind.roughness,
+                color: _tint(_color(kind), p, kind),
+              );
+            });
         final up = Vector3(0, 1, 0);
         for (var i = 0; i < tris.length; i += 3) {
+          // Gornji grad's and Kaptol's streets are cobbled.
+          var kind = baseKind;
+          if (baseKind == Surface.asphalt) {
+            final c = (all[tris[i]] + all[tris[i + 1]] + all[tris[i + 2]]) / 3;
+            if (isUpperTown(c)) kind = Surface.cobbles;
+          }
           surface.triangle(
-            vertex(tris[i]),
-            vertex(tris[i + 1]),
-            vertex(tris[i + 2]),
+            vertex(tris[i], kind),
+            vertex(tris[i + 1], kind),
+            vertex(tris[i + 2], kind),
             up,
           );
         }
@@ -258,14 +269,15 @@ class Ground {
         final normal = Vector3(-d.y, 0, d.x) / length;
         final s = (a - Vector2(originX, originZ)).dot(d / length);
         final ha = height(a), hb = height(b);
+        const tile = 5.0, rough = .7;
         final v0 = surface.vertex(Vector3(a.x, ha, a.y), normal, s, 0,
-            u1: Surface.kerb.tile.toDouble(), color: kerbColor);
+            u1: tile, v1: rough, color: kerbColor);
         final v1 = surface.vertex(Vector3(b.x, hb, b.y), normal, s + length,
-            0, u1: Surface.kerb.tile.toDouble(), color: kerbColor);
+            0, u1: tile, v1: rough, color: kerbColor);
         final v2 = surface.vertex(Vector3(b.x, hb + kerbHeight, b.y), normal,
-            s + length, 1, u1: Surface.kerb.tile.toDouble(), color: kerbColor);
+            s + length, kerbHeight, u1: tile, v1: rough, color: kerbColor);
         final v3 = surface.vertex(Vector3(a.x, ha + kerbHeight, a.y), normal,
-            s, 1, u1: Surface.kerb.tile.toDouble(), color: kerbColor);
+            s, kerbHeight, u1: tile, v1: rough, color: kerbColor);
         surface.triangle(v0, v1, v2, normal);
         surface.triangle(v0, v2, v3, normal);
       }
@@ -313,6 +325,7 @@ class Ground {
                 k == 0 || k == 3 ? 0 : 1,
                 (along + (k == 1 || k == 2 ? length : 0)) / Surface.rails.period,
                 u1: Surface.rails.tile.toDouble(),
+                v1: Surface.rails.roughness,
                 color: railColor,
               ),
           ];
@@ -349,7 +362,7 @@ class Ground {
       linear((kind.color >> 16) & 0xff),
       linear((kind.color >> 8) & 0xff),
       linear(kind.color & 0xff),
-      kind.roughness,
+      1,
     );
   }
 

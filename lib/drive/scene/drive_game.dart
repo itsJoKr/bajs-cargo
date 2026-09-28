@@ -81,7 +81,7 @@ class DriveGame {
       HeightGrid.fromBytes(await data('terrain.bin')),
       RoadMask.fromBytes(await data('roadmask.bin')),
     );
-    final materials = CityMaterials();
+    final materials = await CityMaterials.load();
     final trees = await Trees.load(materials);
     final streamer = ChunkStreamer(
       world.scene,

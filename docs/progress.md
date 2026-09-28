@@ -105,3 +105,40 @@ One entry per phase: what shipped, what was checked, what is open.
   controls, pedals and stick.
 - Screenshots: `artifacts/phase-3/spawn.png`, `driving_hud.png` (75 km/h in
   a left turn, with the controls), `square_park.png`.
+
+## Phase 4: Zagreb style kit (2026-09-28)
+
+- 12 facade styles and 11 surfaces generated with the gen-image skill
+  (`tool/gen_textures.sh`, prompts in the script; raws in `.art/gen/`):
+  historicist (three), Secession floral and late, interwar, post-war,
+  Upper Town Baroque, Biedermeier, arcade, commercial, courtyard; asphalt,
+  sidewalk slabs, square stone, grass, gravel, granite kerb, clay/flat/copper
+  roofs, cobbles, stucco.
+- `tool/prepare_textures.py` cuts each facade into ground floor, first floor
+  (piano nobile), repeating upper storey and cornice cells (bay period
+  detected, rows read off ruler overlays into `tool/facade_overrides.json`),
+  makes them seamless, levels the stucco and writes a tint mask in alpha.
+  Outputs `assets/textures/facade_atlas.png` (2048^2, 8x8 cells) and
+  `surface_atlas.png` (1024^2, 4x4), plus `data/facade_styles.json`.
+- `assets/materials/city_atlas.fmat`: one lit material; UV1 = (tile,
+  roughness), UV0 counts repeats, `fract` inside padded cells with
+  `textureGrad` on the unwrapped UVs. Facades, roofs, ground and rails all
+  use it (rails a depth-biased instance).
+- Generator: each wall gets a whole number of bays (never a window cut at a
+  corner) and rows from sidewalk to eave; street walls wear the building's
+  style, courtyard walls the courtyard style, party walls and gables plain
+  stucco. Style from `start_date`, levels, district (Gornji grad/Kaptol get
+  Baroque/Biedermeier) and a hash of the OSM id; paint from a palette of
+  Zagreb facade colours, roof tint per building. Churches are plain stone
+  until their Phase 5 models. Gornji grad streets are cobbled.
+- Texture memory: both atlases are cooked to supercompressed `.fstex` and
+  transcode to ETC2 on Slim_1 (ASTC/BC in Chrome): 2048^2 + 1024^2 at 1 byte
+  per texel with mips = 5.6 + 1.4 = 7.0 MB of GPU memory (28 MB if they had
+  stayed RGBA8).
+- Slim_1: `zagreb.square` 80 colour draws / 246 total / 2.8 M vertices,
+  `pipelineBuilds=0` (the facade bands roughly doubled the vertex count).
+  Screenshots: `artifacts/phase-4/square.png`, `ilica.png`, `overview.png`.
+- **Web**: added the web platform. `flutter build web` succeeds (after the
+  probe stopped naming the native-only `rawExtendedRgba128` format) and the
+  release build renders the same scene in Chrome through flutter_scene's
+  WebGL2 backend. See docs/decisions.md.

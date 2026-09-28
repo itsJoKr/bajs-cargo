@@ -105,3 +105,25 @@ overturn) them.
   MediaPlayer rate time-stretches at constant pitch.
 - **Parks place the car 9 m in front of the eye** so the shots show it, and
   freeze the simulation.
+
+## Phase 4
+
+- **One atlas material for the whole city** (`CityAtlas.fmat`) instead of a
+  material per style: a chunk stays one facade draw and one ground/roof
+  draw however many styles it holds.
+- **Tint mask in alpha**: generated facades are painted a neutral stucco
+  and every building's paint comes from its vertex colour, masked so glass,
+  frames and stone trims keep their own colour.
+- **Storey cuts were read by eye** (ruler overlays) after autocorrelation
+  proved unreliable on storeys; bays are detected. The overrides file is
+  small and explicit.
+- **Codex needs `-m gpt-5.5`**: the configured default model requires a
+  newer Codex CLI than the installed 0.144.6. The prompts ask Codex to save
+  images unprocessed (it otherwise post-processes them itself).
+- **The web is a target too** (the user asked mid-phase 4). flutter_scene
+  ships a WebGL2 backend, so the same code runs in a browser, touch
+  controls included. What differs there: no VM service, so the probe gates
+  stay on Android; the release bundle is about 100 MB (58 MB of assets,
+  11.7 MB of it the car) and needs slimming for mobile data; audio can only
+  start after a user gesture; the emulator's counts are the budget, a phone
+  browser's frame rate is unmeasured.

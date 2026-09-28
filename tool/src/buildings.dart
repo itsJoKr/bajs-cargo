@@ -7,9 +7,17 @@ import 'dart:math' as math;
 
 import 'package:vector_math/vector_math.dart';
 
+import 'facades.dart';
 import 'fscene_writer.dart';
 import 'geom.dart';
 import 'osm.dart';
+
+/// What a wall edge faces, which decides what it wears.
+enum WallKind { street, courtyard, party }
+
+/// The sidewalk sits this far above the terrain (ground.dart kerbHeight);
+/// facades start there.
+const _sidewalk = .15;
 
 /// One storey, and the extra a ground floor gets (shop fronts, portals).
 const storeyHeight = 3.4, groundFloorExtra = 1.2;
@@ -43,11 +51,15 @@ class Building {
   final RoofShape roof;
   final OrientedBox box;
 
-  /// Filled in by the city after streets are known: 1 per edge of
-  /// [Polygon.edges] when the edge faces a street, 0 for courtyards and
-  /// party walls.
-  List<bool> streetFacing = const [];
-  List<bool> partyWall = const [];
+  /// Filled in by the city once streets and neighbours are known: one per
+  /// edge of [Polygon.edges], in order.
+  List<WallKind> walls = const [];
+
+  /// The facade style its street walls wear, its paint (a vertex colour
+  /// multiplying the atlas stucco) and its roof tint.
+  String style = 'historicist_plain';
+  Vector4 paint = Vector4(1, 1, 1, 1);
+  Vector4 roofTint = Vector4(1, 1, 1, 1);
 
   Vector2 get center => centroid(polygon.outer);
   double get area => polygon.area;
@@ -266,6 +278,7 @@ class RoofModel {
     double eaveY, {
     required Vector4 color,
     required double tile,
+    double roughness = .8,
   }) {
     final box = building.box;
     final axis = box.axis, across = box.across;
@@ -300,6 +313,7 @@ class RoofModel {
             p.dot(along) / 2.0,
             p.dot(downhill) * stretch / 2.0,
             u1: tile,
+            v1: roughness,
             color: color,
           ),
       ];
@@ -317,61 +331,110 @@ class BuildingMeshes {
   final roofs = MeshWriter();
 }
 
+/// Surface atlas tiles for roofs (tool/prepare_textures.py SURFACES).
+const clayRoofTile = 6, flatRoofTile = 7;
+
 /// Emits [b]'s walls into [out.facades] and roof into [out.roofs]. [ground]
 /// is the terrain height under the building (flat until phase 6).
+///
+/// Street walls wear the building's style, courtyard walls the courtyard
+/// style, party walls (against a neighbour) and gables plain stucco. Each
+/// wall gets a whole number of bays, so no window is ever cut by a corner,
+/// and rows (ground floor, first floor, upper storeys, cornice) fill the
+/// wall from the sidewalk to the eave.
 void emitBuilding(
   Building b,
   BuildingMeshes out, {
   required double ground,
-  required Vector4 wallColor,
-  required Vector4 roofColor,
+  required FacadeStyles styles,
 }) {
   final roof = RoofModel(b);
   final baseY = ground + b.base - (b.base == 0 ? .6 : 0);
   final eaveY = ground + b.eave;
+  final sidewalkY = ground + _sidewalk;
+  final facadeHeight = eaveY - sidewalkY;
+  final street = styles[b.style == 'stone' ? 'courtyard' : b.style];
+  final courtyard = styles['courtyard'];
+  final streetRows = FacadeStyles.rows(street, facadeHeight);
+  final courtyardRows = FacadeStyles.rows(courtyard, facadeHeight);
+  final plain = styles.plainTile.toDouble();
+  // Churches and towers are dressed stone, not rows of flats.
+  final stone = b.style == 'stone';
+  const roughness = .9;
 
-  // Walls: every ring edge from the base to the roof line, split where the
-  // roof kinks so the wall top meets the roof exactly.
+  var edgeIndex = -1;
   for (final (a, c) in b.polygon.edges) {
+    edgeIndex++;
     final d = c - a;
     final length = d.length;
     if (length < .05) continue;
     final normal = Vector3(d.y, 0, -d.x) / length;
+    final kind = edgeIndex < b.walls.length ? b.walls[edgeIndex] : WallKind.street;
+    final style = kind == WallKind.courtyard ? courtyard : street;
+    final rows = kind == WallKind.party || stone
+        ? null
+        : (kind == WallKind.courtyard ? courtyardRows : streetRows);
+    final bays = math.max(1, (length / style.bay).round());
     final ts = [0.0, ...roof.breaks(a, c), 1.0];
+
+    void quad(
+      Vector2 p0,
+      Vector2 p1,
+      double y00,
+      double y01,
+      double y10,
+      double y11,
+      double u0,
+      double u1,
+      double v00,
+      double v01,
+      double v10,
+      double v11,
+      double tile,
+    ) {
+      final ids = [
+        out.facades.vertex(Vector3(p0.x, y00, p0.y), normal, u0, v00,
+            u1: tile, v1: roughness, color: b.paint),
+        out.facades.vertex(Vector3(p1.x, y01, p1.y), normal, u1, v01,
+            u1: tile, v1: roughness, color: b.paint),
+        out.facades.vertex(Vector3(p1.x, y11, p1.y), normal, u1, v11,
+            u1: tile, v1: roughness, color: b.paint),
+        out.facades.vertex(Vector3(p0.x, y10, p0.y), normal, u0, v10,
+            u1: tile, v1: roughness, color: b.paint),
+      ];
+      out.facades.triangle(ids[0], ids[1], ids[2], normal);
+      out.facades.triangle(ids[0], ids[2], ids[3], normal);
+    }
+
     for (var i = 0; i < ts.length - 1; i++) {
       final p0 = a + d * ts[i], p1 = a + d * ts[i + 1];
       final s0 = ts[i] * length, s1 = ts[i + 1] * length;
       final top0 = eaveY + roof.heightAt(p0), top1 = eaveY + roof.heightAt(p1);
-      final v00 = out.facades.vertex(
-        Vector3(p0.x, baseY, p0.y),
-        normal,
-        s0 / 3.4,
-        (baseY - ground) / storeyHeight,
-        color: wallColor,
-      );
-      final v01 = out.facades.vertex(
-        Vector3(p1.x, baseY, p1.y),
-        normal,
-        s1 / 3.4,
-        (baseY - ground) / storeyHeight,
-        color: wallColor,
-      );
-      final v10 = out.facades.vertex(
-        Vector3(p0.x, top0, p0.y),
-        normal,
-        s0 / 3.4,
-        (top0 - ground) / storeyHeight,
-        color: wallColor,
-      );
-      final v11 = out.facades.vertex(
-        Vector3(p1.x, top1, p1.y),
-        normal,
-        s1 / 3.4,
-        (top1 - ground) / storeyHeight,
-        color: wallColor,
-      );
-      out.facades.triangle(v00, v01, v11, normal);
-      out.facades.triangle(v00, v11, v10, normal);
+      if (rows == null) {
+        // Party wall: plain stucco from the base to the roof line, UVs in
+        // 3 m units.
+        quad(p0, p1, baseY, baseY, top0, top1, s0 / 3, s1 / 3,
+            (baseY - sidewalkY) / 3, (baseY - sidewalkY) / 3,
+            (top0 - sidewalkY) / 3, (top1 - sidewalkY) / 3, plain);
+        continue;
+      }
+      final u0 = ts[i] * bays, u1 = ts[i + 1] * bays;
+      for (var r = 0; r < rows.length; r++) {
+        final row = rows[r];
+        // The ground floor also covers the few centimetres below the
+        // sidewalk down to the wall's base, which the sidewalk hides.
+        final y0 = r == 0 ? baseY : sidewalkY + row.y0;
+        final y1 = sidewalkY + row.y1;
+        final v0 = r == 0 ? (baseY - sidewalkY) / (row.y1 - row.y0) : 0.0;
+        quad(p0, p1, y0, y0, y1, y1, u0, u1, v0 * row.repeats, v0 * row.repeats,
+            row.repeats, row.repeats, row.tile.toDouble());
+      }
+      // Gable: plain stucco between the eave and the roof line.
+      if (top0 > eaveY + .01 || top1 > eaveY + .01) {
+        quad(p0, p1, eaveY, eaveY, top0, top1, s0 / 3, s1 / 3,
+            (eaveY - sidewalkY) / 3, (eaveY - sidewalkY) / 3,
+            (top0 - sidewalkY) / 3, (top1 - sidewalkY) / 3, plain);
+      }
     }
   }
 
@@ -381,13 +444,15 @@ void emitBuilding(
   final holes = b.polygon.holes;
   final all = [...outer, ...holes.expand((h) => h)];
   final tris = earcut(outer, holes);
+  final flat = b.roof == RoofShape.flat;
   for (var i = 0; i < tris.length; i += 3) {
     roof.emitTriangle(
       out.roofs,
       [all[tris[i]], all[tris[i + 1]], all[tris[i + 2]]],
       eaveY,
-      color: roofColor,
-      tile: 6,
+      color: flat ? Vector4(.9, .9, .9, 1) : b.roofTint,
+      tile: (flat ? flatRoofTile : clayRoofTile).toDouble(),
+      roughness: flat ? .9 : .75,
     );
   }
 }

@@ -565,11 +565,18 @@ abstract final class SceneProbe {
   static bool _isFloatFormat(CapturedResource resource) =>
       resource.format?.toString().contains('Float') ?? false;
 
+  /// `rawExtendedRgba128` exists on native engines only; looked up by name
+  /// so the web build (which has no float readback) still compiles.
+  static final ImageByteFormat _floatFormat = ImageByteFormat.values.firstWhere(
+    (f) => f.name == 'rawExtendedRgba128',
+    orElse: () => ImageByteFormat.rawRgba,
+  );
+
   static Future<List<double>?> _readFloats(gpu.Texture source) async {
     final image = source.asImage();
     try {
       final data = await image.toByteData(
-        format: ImageByteFormat.rawExtendedRgba128,
+        format: _floatFormat,
       );
       if (data == null) return null;
       return data.buffer.asFloat32List(

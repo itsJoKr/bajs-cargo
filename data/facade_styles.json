@@ -1,0 +1,162 @@
+{
+  "plainTile": 48,
+  "columns": 8,
+  "styles": {
+    "historicist_a": {
+      "bay": 3.217,
+      "ground": 4.769,
+      "first": 3.803,
+      "upper": 3.7,
+      "cornice": 0.617,
+      "tiles": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "historicist_b": {
+      "bay": 3.256,
+      "ground": 4.905,
+      "first": 4.017,
+      "upper": 3.7,
+      "cornice": 0.634,
+      "tiles": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "historicist_plain": {
+      "bay": 3.055,
+      "ground": 4.417,
+      "first": 3.503,
+      "upper": 3.6,
+      "cornice": 0.681,
+      "tiles": [
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    "secession_floral": {
+      "bay": 3.005,
+      "ground": 4.262,
+      "first": 3.312,
+      "upper": 3.6,
+      "cornice": 0.864,
+      "tiles": [
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "secession_late": {
+      "bay": 3.053,
+      "ground": 4.317,
+      "first": 3.597,
+      "upper": 3.5,
+      "cornice": 0.778,
+      "tiles": [
+        16,
+        17,
+        18,
+        19
+      ]
+    },
+    "interwar": {
+      "bay": 3.582,
+      "ground": 4.007,
+      "first": 3.387,
+      "upper": 3.1,
+      "cornice": 0.689,
+      "tiles": [
+        20,
+        21,
+        22,
+        23
+      ]
+    },
+    "postwar": {
+      "bay": 3.09,
+      "ground": 5.54,
+      "first": 3.55,
+      "upper": 3.0,
+      "cornice": 0.45,
+      "tiles": [
+        24,
+        25,
+        26,
+        27
+      ]
+    },
+    "baroque_upper": {
+      "bay": 2.869,
+      "ground": 4.162,
+      "first": 3.483,
+      "upper": 3.3,
+      "cornice": 0.55,
+      "tiles": [
+        28,
+        29,
+        30,
+        31
+      ]
+    },
+    "biedermeier": {
+      "bay": 2.947,
+      "ground": 4.004,
+      "first": 3.636,
+      "upper": 3.4,
+      "cornice": 0.803,
+      "tiles": [
+        32,
+        33,
+        34,
+        35
+      ]
+    },
+    "arcade": {
+      "bay": 3.346,
+      "ground": 5.137,
+      "first": 3.593,
+      "upper": 3.7,
+      "cornice": 1.019,
+      "tiles": [
+        36,
+        37,
+        38,
+        39
+      ]
+    },
+    "commercial": {
+      "bay": 3.722,
+      "ground": 4.164,
+      "first": 2.684,
+      "upper": 3.4,
+      "cornice": 1.253,
+      "tiles": [
+        40,
+        41,
+        42,
+        43
+      ]
+    },
+    "courtyard": {
+      "bay": 3.042,
+      "ground": 3.526,
+      "first": 2.228,
+      "upper": 3.1,
+      "cornice": 0.388,
+      "tiles": [
+        44,
+        45,
+        46,
+        47
+      ]
+    }
+  }
+}

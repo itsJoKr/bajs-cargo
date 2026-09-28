@@ -28,8 +28,19 @@ void main(List<String> args) async {
       inputFilePaths: [...chunks, 'assets/models/car-concept.glb'],
     );
     // Compile .fmat materials under assets/, loadable by source path with
-    // loadFmatMaterial. A no-op when there are none.
+    // loadFmatMaterial.
     await buildMaterials(buildInput: input, buildOutput: output);
+    // The style-kit atlases, cooked to supercompressed .fstex (transcoded to
+    // the device's block format at load, with mips), loaded with
+    // loadTexture. Built by tool/prepare_textures.py.
+    buildTextures(
+      buildInput: input,
+      buildOutput: output,
+      textures: const [
+        'assets/textures/facade_atlas.png',
+        'assets/textures/surface_atlas.png',
+      ],
+    );
     // flutter_scene:init:end
   });
 }
