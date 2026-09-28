@@ -1,0 +1,152 @@
+{
+  "fscene": 5,
+  "documentId": "NXX4X304NN4TQE7GBSPJN8JRZM",
+  "payloadSource": "props.payloads.fsceneb",
+  "stage": {},
+  "resources": {
+    "mat:0000000005FS2": {
+      "kind": "material",
+      "type": "physicallyBased",
+      "properties": {
+        "baseColor": {
+          "c": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "emissive": {
+          "c": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "emissiveStrength": {
+          "d": 1.0
+        },
+        "metallic": {
+          "d": 0.0
+        },
+        "roughness": {
+          "d": 0.92
+        },
+        "occlusionStrength": {
+          "d": 1.0
+        },
+        "normalScale": {
+          "d": 1.0
+        },
+        "doubleSided": {
+          "b": false
+        },
+        "alphaMode": {
+          "s": "opaque"
+        },
+        "alphaCutoff": {
+          "d": 0.5
+        }
+      },
+      "name": "tree"
+    },
+    "geo:0000000005FS6": {
+      "kind": "geometry",
+      "vertices": "chunk:0000000005FS8",
+      "indices": "chunk:0000000005FSA",
+      "bounds": {
+        "min": [
+          -3.3558263778686523,
+          0.0,
+          -3.9116897583007812
+        ],
+        "max": [
+          3.7529072761535645,
+          10.643333435058594,
+          3.120168685913086
+        ]
+      }
+    }
+  },
+  "nodes": {
+    "n:0000000005FS0": {
+      "name": "Tree",
+      "transform": {
+        "trs": {
+          "t": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "r": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "s": [
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "children": [
+        "n:0000000005FS4"
+      ]
+    },
+    "n:0000000005FS4": {
+      "name": "Tree mesh",
+      "transform": {
+        "trs": {
+          "t": [
+            0,
+            0,
+            0
+          ],
+          "r": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "s": [
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "properties": {
+            "geometry": {
+              "rref": "geo:0000000005FS6"
+            },
+            "material": {
+              "rref": "mat:0000000005FS2"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "roots": [
+    "n:0000000005FS0"
+  ],
+  "payloads": {
+    "chunk:0000000005FS8": {
+      "encoding": "vertexBuffer",
+      "layout": "unskinned_soa_uv1_tangent",
+      "length": 36288
+    },
+    "chunk:0000000005FSA": {
+      "encoding": "indexBuffer",
+      "format": "uint16",
+      "length": 1032
+    }
+  },
+  "editor": {}
+}

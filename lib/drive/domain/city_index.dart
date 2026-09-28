@@ -10,10 +10,14 @@ class ChunkInfo {
     required this.minX,
     required this.minZ,
     required this.size,
+    this.trees = const [],
   });
 
   final String name;
   final double minX, minZ, size;
+
+  /// Street trees in this chunk: x, z, base y, scale, yaw (radians).
+  final List<List<double>> trees;
 
   /// The source path `loadScene` resolves.
   String get path => 'assets/city/$name.fscene';
@@ -39,6 +43,10 @@ class CityIndex {
           minX: (c['minX'] as num).toDouble(),
           minZ: (c['minZ'] as num).toDouble(),
           size: (c['size'] as num).toDouble(),
+          trees: [
+            for (final t in (c['trees'] as List? ?? const []).cast<List>())
+              [for (final v in t) (v as num).toDouble()],
+          ],
         ),
     ],
   );

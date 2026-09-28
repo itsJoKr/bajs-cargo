@@ -52,3 +52,27 @@ One entry per phase: what shipped, what was checked, what is open.
   perimeter blocks with their courtyards, the Cathedral spires behind),
   `square.png`, `ilica.png` (Ilica 1's tower at the end), `cathedral.png`
   (with the round Kaptol tower).
+
+## Phase 2: streets (2026-09-28)
+
+- `tool/src/ground.dart`: carriageways are every street centreline
+  thickened to its width (`width`, else `lanes` x 3.3 m + parking, else a
+  per-class default) and unioned with Clipper2, so junctions are single
+  polygons. Tram corridors (3.2 m per track) join the road except inside
+  pedestrian zones, where the rails lie flush in the paving.
+- Surfaces: asphalt at terrain level; sidewalks, squares/pedestrian zones,
+  park lawns and gravel park paths 15 cm up, with a kerb face along every
+  road edge. Parks win over squares (Zrinjevac is tagged both).
+- Tram rails: two 11 cm strips per track at standard gauge, on a separate
+  `rails` material with `depthBias` 0.04 instead of a lift.
+- UVs are world-planar relative to each chunk's origin, with periods (1, 2,
+  2.5, 4 m) that divide the 200 m chunk.
+- Trees: 3,549 (tagged trees plus tree rows every 8 m), one baked tree mesh
+  in `assets/city/props.fscene`, one `InstancedMesh` per chunk.
+- `generate_zagreb.dart --preview map.ppm` draws a 1 px = 1 m map with a
+  100 m grid (red lines through the statue); the way to pick viewpoints.
+- Look: exposure 0.26, IBL 0.5 (asphalt read almost white at 0.5/0.85).
+- Slim_1: `zagreb.square` 38 colour draws / 164 total / 1.09 M vertices
+  (instanced trees and the shadow cascades), `pipelineBuilds=0`.
+  Screenshots: `artifacts/phase-2/square.png` (rails across the square),
+  `zrinjevac.png`, `zrinjevac_north.png` (kerbs), `map.png`.

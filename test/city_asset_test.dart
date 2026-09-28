@@ -61,6 +61,7 @@ void main() {
         .map((f) => f.uri.pathSegments.last)
         .where((n) => n.endsWith('.fscene'))
         .map((n) => n.replaceAll('.fscene', ''))
+        .where((n) => n != 'props')
         .toSet();
     expect(baked, index.chunks.map((c) => c.name).toSet());
   });

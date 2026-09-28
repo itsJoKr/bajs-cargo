@@ -65,3 +65,23 @@ overturn) them.
 - **`tool/reload.sh`** hot-reloads/restarts through `flutter run`'s
   SIGUSR1/SIGUSR2, which (unlike Marionette's hot-restart in Doomscrool) did
   pick up source changes. New chunks still need a full relaunch.
+
+## Phase 2
+
+- **Clipper2 (pub `clipper2` 0.0.3) is a dev dependency for the tools.** Its
+  `rectClip` throws a RangeError on some city paths in this port, so
+  `Shape.clipRect` uses a general intersection; and a union with an empty
+  subject returns nothing, so `Shape |` short-circuits.
+- **One ground mesh per chunk for every surface kind.** Asphalt, sidewalk,
+  paving, grass, gravel and kerbs share the `ground` material and differ by
+  vertex colour and a tile id in UV1 (for the atlas material to come), so a
+  chunk's ground is one draw. Only the rails, which stack, get a second.
+- **Sidewalk is the default ground**, not a buffer around roads: in the
+  centre everything between kerb and facade is paved, and courtyards are
+  paved too. Building walls start 0.6 m below ground, hiding the seam.
+- **Trees are instanced from one baked mesh** (loaded from `props.fscene`),
+  positions and a position-hashed scale/yaw per chunk in the index. Their
+  vertex count (about 500 each) dominates the vertex budget near
+  Zrinjevac; halve it if vertices ever matter.
+- **Squares are paved at sidewalk level with no kerb inside them**; a
+  street that ends at a square gets a kerb where its asphalt stops.

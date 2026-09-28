@@ -16,6 +16,21 @@ class CityMaterials {
       ..baseColorFactor = vm.Vector4(1, 1, 1, 1)
       ..roughnessFactor = .8
       ..metallicFactor = 0,
+    'ground': PhysicallyBasedMaterial()
+      ..baseColorFactor = vm.Vector4(1, 1, 1, 1)
+      ..roughnessFactor = .9
+      ..metallicFactor = 0,
+    // Rails lie on the road and paving; the bias (metres toward the camera)
+    // keeps them in front instead of lifting the geometry.
+    'rails': PhysicallyBasedMaterial()
+      ..baseColorFactor = vm.Vector4(1, 1, 1, 1)
+      ..roughnessFactor = .45
+      ..metallicFactor = .6
+      ..depthBias = .04,
+    'tree': PhysicallyBasedMaterial()
+      ..baseColorFactor = vm.Vector4(1, 1, 1, 1)
+      ..roughnessFactor = .92
+      ..metallicFactor = 0,
   };
 
   /// Replaces every primitive's material under [root] by the shared one of

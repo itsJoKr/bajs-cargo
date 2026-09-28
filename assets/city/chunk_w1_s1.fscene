@@ -131,6 +131,137 @@
           -4.368102073669434
         ]
       }
+    },
+    "mat:00000000048QR": {
+      "kind": "material",
+      "type": "physicallyBased",
+      "properties": {
+        "baseColor": {
+          "c": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "emissive": {
+          "c": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "emissiveStrength": {
+          "d": 1.0
+        },
+        "metallic": {
+          "d": 0.0
+        },
+        "roughness": {
+          "d": 0.9
+        },
+        "occlusionStrength": {
+          "d": 1.0
+        },
+        "normalScale": {
+          "d": 1.0
+        },
+        "doubleSided": {
+          "b": false
+        },
+        "alphaMode": {
+          "s": "opaque"
+        },
+        "alphaCutoff": {
+          "d": 0.5
+        }
+      },
+      "name": "ground"
+    },
+    "geo:00000000048QW": {
+      "kind": "geometry",
+      "vertices": "chunk:00000000048QY",
+      "indices": "chunk:00000000048R0",
+      "bounds": {
+        "min": [
+          -200.0,
+          0.0,
+          -200.0
+        ],
+        "max": [
+          0.0,
+          0.15000000596046448,
+          0.0
+        ]
+      }
+    },
+    "mat:00000000048R2": {
+      "kind": "material",
+      "type": "physicallyBased",
+      "properties": {
+        "baseColor": {
+          "c": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "emissive": {
+          "c": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "emissiveStrength": {
+          "d": 1.0
+        },
+        "metallic": {
+          "d": 0.0
+        },
+        "roughness": {
+          "d": 0.45
+        },
+        "occlusionStrength": {
+          "d": 1.0
+        },
+        "normalScale": {
+          "d": 1.0
+        },
+        "doubleSided": {
+          "b": false
+        },
+        "alphaMode": {
+          "s": "opaque"
+        },
+        "alphaCutoff": {
+          "d": 0.5
+        },
+        "depthBias": {
+          "d": 0.04
+        }
+      },
+      "name": "rails"
+    },
+    "geo:00000000048R6": {
+      "kind": "geometry",
+      "vertices": "chunk:00000000048R8",
+      "indices": "chunk:00000000048RA",
+      "bounds": {
+        "min": [
+          -79.9827651977539,
+          0.15000000596046448,
+          -18.958810806274414
+        ],
+        "max": [
+          12.434840202331543,
+          0.15000000596046448,
+          1.083003282546997
+        ]
+      }
     }
   },
   "nodes": {
@@ -232,10 +363,110 @@
           }
         }
       ]
+    },
+    "n:00000000048QP": {
+      "name": "Ground",
+      "transform": {
+        "trs": {
+          "t": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "r": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "s": [
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "children": [
+        "n:00000000048QT",
+        "n:00000000048R4"
+      ]
+    },
+    "n:00000000048QT": {
+      "name": "Surface",
+      "transform": {
+        "trs": {
+          "t": [
+            0,
+            0,
+            0
+          ],
+          "r": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "s": [
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "properties": {
+            "geometry": {
+              "rref": "geo:00000000048QW"
+            },
+            "material": {
+              "rref": "mat:00000000048QR"
+            }
+          }
+        }
+      ]
+    },
+    "n:00000000048R4": {
+      "name": "Rails",
+      "transform": {
+        "trs": {
+          "t": [
+            0,
+            0,
+            0
+          ],
+          "r": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "s": [
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "properties": {
+            "geometry": {
+              "rref": "geo:00000000048R6"
+            },
+            "material": {
+              "rref": "mat:00000000048R2"
+            }
+          }
+        }
+      ]
     }
   },
   "roots": [
-    "n:00000000048Q0"
+    "n:00000000048Q0",
+    "n:00000000048QP"
   ],
   "payloads": {
     "chunk:00000000048Q8": {
@@ -257,6 +488,26 @@
       "encoding": "indexBuffer",
       "format": "uint16",
       "length": 8748
+    },
+    "chunk:00000000048QY": {
+      "encoding": "vertexBuffer",
+      "layout": "unskinned_soa_uv1_tangent",
+      "length": 95904
+    },
+    "chunk:00000000048R0": {
+      "encoding": "indexBuffer",
+      "format": "uint16",
+      "length": 5610
+    },
+    "chunk:00000000048R8": {
+      "encoding": "vertexBuffer",
+      "layout": "unskinned_soa_uv1_tangent",
+      "length": 4608
+    },
+    "chunk:00000000048RA": {
+      "encoding": "indexBuffer",
+      "format": "uint16",
+      "length": 192
     }
   },
   "editor": {}

@@ -24,7 +24,11 @@ class ChunkStreamer {
     this.viewRadius = 460,
     this.loadRadius = 540,
     this.releaseRadius = 700,
+    this.onLoaded,
   });
+
+  /// Decorates a freshly loaded chunk (trees, props) before it is added.
+  final void Function(ChunkInfo chunk, Node node)? onLoaded;
 
   final Scene scene;
   final CityIndex index;
@@ -98,6 +102,7 @@ class ChunkStreamer {
       final node = await loadScene(chunk.path);
       materials.adopt(node);
       node.name = chunk.name;
+      onLoaded?.call(chunk, node);
       _loaded[chunk.name] = node;
       scene.add(node);
     } catch (error) {

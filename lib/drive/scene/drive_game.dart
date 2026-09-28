@@ -8,6 +8,7 @@ import '../domain/city_index.dart';
 import 'chunk_streamer.dart';
 import 'city_materials.dart';
 import 'drive_world.dart';
+import 'trees.dart';
 
 /// A pinned debug view: where the camera sits and what it looks at. Parks
 /// freeze everything animated, so two captures of one park compare equal.
@@ -48,7 +49,14 @@ class DriveGame {
       jsonDecode(await rootBundle.loadString('assets/data/city_index.json'))
           as Map<String, Object?>,
     );
-    final streamer = ChunkStreamer(world.scene, index, CityMaterials());
+    final materials = CityMaterials();
+    final trees = await Trees.load(materials);
+    final streamer = ChunkStreamer(
+      world.scene,
+      index,
+      materials,
+      onLoaded: trees.plant,
+    );
     final game = DriveGame._(world, streamer);
     game._buildGround();
     game.park('square');
@@ -60,12 +68,15 @@ class DriveGame {
 
   void _buildGround() {
     final ground = PhysicallyBasedMaterial()
-      ..baseColorFactor = vm.Vector4(.42, .43, .42, 1)
+      ..baseColorFactor = vm.Vector4(.30, .30, .28, 1)
       ..roughnessFactor = .95
       ..metallicFactor = 0;
     scene.add(
       Node(
         name: 'Ground',
+        // Below the baked streets (roads sit at y = 0), so it only shows
+        // past the edge of the city and never z-fights a road.
+        localTransform: vm.Matrix4.translationValues(0, -.4, 0),
         mesh: Mesh(PlaneGeometry(width: 4000, depth: 4000), ground),
       ),
     );

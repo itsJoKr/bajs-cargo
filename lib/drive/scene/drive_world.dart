@@ -40,8 +40,8 @@ class DriveWorld {
       toneMapping: ToneMappingMode.aces,
       // The physical sky reads 1.2-2.0 in linear HDR and sunlit ground about
       // the same; at exposure 1 ACES washed both out to near white.
-      exposure: .5,
-      environmentIntensity: .85,
+      exposure: .26,
+      environmentIntensity: .5,
       ambientOcclusionEnabled: true,
       ambientOcclusionIntensity: .8,
       ambientOcclusionHalfResolution: true,
