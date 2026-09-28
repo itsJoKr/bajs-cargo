@@ -32,12 +32,14 @@ void main(List<String> args) async {
     await buildMaterials(buildInput: input, buildOutput: output);
     // The style-kit atlases, cooked to supercompressed .fstex (transcoded to
     // the device's block format at load, with mips), loaded with
-    // loadTexture. Built by tool/prepare_textures.py.
+    // loadTexture. Built by tool/prepare_textures.py; the hero atlas of
+    // Street View facades by tool/prepare_facades.py.
     buildTextures(
       buildInput: input,
       buildOutput: output,
       textures: const [
         'assets/textures/facade_atlas.png',
+        'assets/textures/hero_atlas.png',
         'assets/textures/surface_atlas.png',
       ],
     );

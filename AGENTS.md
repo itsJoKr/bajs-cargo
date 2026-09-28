@@ -74,6 +74,32 @@ parsing and multipolygons, `geom.dart` earcut/clipping/boxes,
 the app (`tool/ensure_device.sh --stop && tool/ensure_device.sh`): the hook
 must recompile the chunks, a hot restart does not.
 
+### Hero facades (real buildings)
+
+Around Trg bana Jelačića the street walls wear the real buildings, not the
+style kit. The pipeline, per section (`square` so far):
+
+1. `fvm dart tool/list_hero_facades.dart square` lists the street-facing
+   walls (`<building id>_e<edge>`) with a viewpoint and heading each.
+2. `tool/sv_plan.py` picks a Street View panorama and aim per wall;
+   `tool/sv_batch.py emit` writes navigate/wait/screenshot batches for the
+   claude-in-chrome `browser_batch` tool (the user's Chrome, no API key),
+   `sv_batch.py file` copies the screenshots into `.art/streetview/frames/`.
+   The URL fov is over a 900 px reference: `f = 450 / tan(fov/2)` px.
+3. `data/hero/<section>.json` (committed, written by hand while looking at
+   the frames): per facade the frame, crop box, walls, bays, storeys and a
+   description.
+4. `.venv/bin/python tool/prepare_facades.py crop|generate|pack [name...]`:
+   crops, redraws each with gen-image (Codex, photo attached) into an
+   orthographic elevation, then packs `assets/textures/hero_atlas.png` and
+   `data/hero/atlas.json`. Look at every `raw.png` beside its `photo.png`
+   before packing; rerun `generate <name>` for a bad one.
+5. `tool/generate_zagreb.dart` reads `data/hero/atlas.json`: those walls
+   get one quad each (UV1.x = -1 selects `hero_atlas` in
+   `city_atlas.fmat`), and the building's eave becomes
+   `storeys * 3.7 + 1.0` m so the picture keeps its proportions. It exits
+   non-zero if a named wall no longer exists.
+
 At runtime `ChunkStreamer` loads/shows/releases chunks by distance from the
 focus (camera now, car later) and `CityMaterials.adopt` points every chunk
 at one shared material per name.

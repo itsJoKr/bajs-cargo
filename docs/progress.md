@@ -142,3 +142,32 @@ One entry per phase: what shipped, what was checked, what is open.
   probe stopped naming the native-only `rawExtendedRgba128` format) and the
   release build renders the same scene in Chrome through flutter_scene's
   WebGL2 backend. See docs/decisions.md.
+
+## Phase 5a: the real Trg bana Jelačića (2026-09-28)
+
+The user asked for the actual buildings instead of generic ones, starting
+with a small section, using Street View in their own Chrome and gen-image.
+
+- 17 facades (20 walls) around the square, each photographed in Street
+  View through the user's Chrome (official Jul 2024 panorama, a Sep 2022
+  photosphere, one Aug 2011 capture), cropped, and redrawn by gen-image as a
+  straight-on elevation with the counted bays and storeys: Gradska
+  štedionica, Harmica, Kuća Rado, Kuća Popović, Kuća Stanković, Kuća
+  Živković, Kuća Čuk, the Končar block, the Allianz corner, the interwar
+  north-west corner and the rest. Each was checked against its photo; all
+  17 kept (Kuća Čuk's yellow is a little more saturated than the real
+  ochre).
+- `tool/prepare_facades.py` packs them into `assets/textures/hero_atlas.png`
+  (2048x4096, 512 px per facade height, gutters; half the height is free
+  for the next section). The generator gives each hero wall one picture
+  from the sidewalk to the eave and sets the eave to the picture's scale.
+- Same draw as the kit facades: `zagreb.square` 80 colour draws / 246 total
+  / 2.87 M vertices, `pipelineBuilds=0`. GPU memory +5.6 MB (ETC2 RGB)
+  to +11.2 MB (ETC2 RGBA) with mips; the block format was not measured.
+- Gates: all pass; `frame-shots` moved on `square` and `ilica` (the square
+  is in Ilica's view), reviewed and re-baselined. Web release builds.
+- Screenshots: `artifacts/phase-5/square.png`, `north_side.png`,
+  `east_side.png`.
+- Not yet: the statue, Manduševac and the other landmarks; roofs and
+  gables above the hero walls are still generic; loading got slower on
+  Slim_1 (the 8 M-texel atlas transcodes at start).

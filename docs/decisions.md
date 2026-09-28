@@ -127,3 +127,44 @@ overturn) them.
   11.7 MB of it the car) and needs slimming for mobile data; audio can only
   start after a user gesture; the emulator's counts are the budget, a phone
   browser's frame rate is unmeasured.
+
+## Phase 5: real facades (Trg bana Jelačića)
+
+- **Real buildings over a style kit, one section first.** The user asked
+  for the actual buildings, photographed in Street View and redrawn with
+  gen-image, starting with a small area. The square's 17 street facades are
+  done; everything else still wears the Phase 4 kit.
+- **Street View through the user's Chrome, no API key.** The user asked
+  for it. Frames are Maps URLs (`@lat,lng,3a,<fov>y,<heading>h,<tilt>t`
+  with the panorama id) opened in their browser and screenshotted by the
+  Chrome extension; `tool/sv_plan.py` picks the panorama and aim per
+  facade, `tool/sv_batch.py` emits the navigate/wait/screenshot batches.
+  Nothing is billed and no key exists in the repo. Raw frames and crops
+  stay in the git-ignored `.art/`.
+- **Official panoramas beat photospheres.** A user photosphere's position
+  and heading can be metres and degrees off, so aiming by geometry missed.
+  The square's sources are two panoramas (Jul 2024 official, Sep 2022
+  photosphere) chosen for coverage, framed by eye where aim was off.
+- **The URL fov is over a 900 px reference width**: the focal length in
+  screen pixels is `450 / tan(fov/2)` whatever the viewport. Found by
+  projecting known corners; the naive viewport-width model was 1.74x off.
+- **gen-image redraws, it doesn't rectify.** A homography of the photo
+  would keep the lamp posts, trams, awnings and the statue that stand in
+  front of every facade. Codex (`-m gpt-5.5`, photo attached with `-i`
+  AFTER the prompt, stdin closed) is asked for an orthographic, evenly lit
+  elevation with the counted bays and storeys, pavement to cornice. Each
+  result was compared with its photo before packing
+  (`.art/facades/manifest.json`).
+- **One quad per wall, no tiling.** A hero wall is one picture from the
+  sidewalk to the eave (UV1.x = -1, UV0 = the atlas coordinate), split by
+  length across a corner building's consecutive edges. The building's
+  eave is set to `storeys * 3.7 + 1.0` m, the scale the picture was sized
+  at, so it is never stretched vertically. Gables and roofs stay generic.
+- **Hero atlas 2048 wide, 512 px per facade height** (32 px/m at a 16 m
+  eave), first-fit shelves with a 4 px replicated gutter so mips don't
+  bleed, height rounded to a power of two (2048x4096 for 17 facades, with
+  room for the next section). It rides the same `CityAtlas` material and
+  draw as the kit facades.
+- **Licensing caveat.** The textures are AI redrawings of Google Street
+  View imagery; fine for this personal project, but Google's terms need a
+  look before anything is published. `assets/ATTRIBUTION.md` says so.

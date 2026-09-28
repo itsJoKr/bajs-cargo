@@ -10,6 +10,7 @@ import 'package:vector_math/vector_math.dart';
 import 'facades.dart';
 import 'fscene_writer.dart';
 import 'geom.dart';
+import 'hero.dart';
 import 'osm.dart';
 
 /// What a wall edge faces, which decides what it wears.
@@ -91,6 +92,7 @@ Building makeBuilding(
   Polygon polygon, {
   required bool interior,
   Vector2? ridgeAxis,
+  double? heroEave,
 }) {
   final area = polygon.area;
   // Donji grad roofs run their ridge along the street, whatever the plot's
@@ -162,6 +164,9 @@ Building makeBuilding(
     // Donji grad's perimeter blocks: four storeys over a tall ground floor.
     eave = 4 * storeyHeight + groundFloorExtra + .6;
   }
+  // A hero facade's picture runs from the pavement to its cornice at a
+  // fixed storey height; the wall matches it rather than the tags.
+  if (heroEave != null) eave = heroEave;
   if (tags['roof:shape'] == null && eave > 30) {
     shape = RoofShape.flat;
     rise = 0;
@@ -342,11 +347,16 @@ const clayRoofTile = 6, flatRoofTile = 7;
 /// wall gets a whole number of bays, so no window is ever cut by a corner,
 /// and rows (ground floor, first floor, upper storeys, cornice) fill the
 /// wall from the sidewalk to the eave.
+///
+/// A wall [hero] has a Street View picture for wears that picture instead,
+/// once, from the sidewalk to the eave (UV1.x = -1 selects the hero atlas
+/// in `city_atlas.fmat`, UV0 is the atlas coordinate itself).
 void emitBuilding(
   Building b,
   BuildingMeshes out, {
   required double ground,
   required FacadeStyles styles,
+  HeroAtlas? hero,
 }) {
   final roof = RoofModel(b);
   final baseY = ground + b.base - (b.base == 0 ? .6 : 0);
@@ -361,6 +371,8 @@ void emitBuilding(
   // Churches and towers are dressed stone, not rows of flats.
   final stone = b.style == 'stone';
   const roughness = .9;
+  final spans = hero?.spansFor(b.id, b.polygon) ?? const <int, HeroSpan>{};
+  final white = Vector4(1, 1, 1, 1);
 
   var edgeIndex = -1;
   for (final (a, c) in b.polygon.edges) {
@@ -390,17 +402,19 @@ void emitBuilding(
       double v01,
       double v10,
       double v11,
-      double tile,
-    ) {
+      double tile, {
+      Vector4? color,
+    }) {
+      final paint = color ?? b.paint;
       final ids = [
         out.facades.vertex(Vector3(p0.x, y00, p0.y), normal, u0, v00,
-            u1: tile, v1: roughness, color: b.paint),
+            u1: tile, v1: roughness, color: paint),
         out.facades.vertex(Vector3(p1.x, y01, p1.y), normal, u1, v01,
-            u1: tile, v1: roughness, color: b.paint),
+            u1: tile, v1: roughness, color: paint),
         out.facades.vertex(Vector3(p1.x, y11, p1.y), normal, u1, v11,
-            u1: tile, v1: roughness, color: b.paint),
+            u1: tile, v1: roughness, color: paint),
         out.facades.vertex(Vector3(p0.x, y10, p0.y), normal, u0, v10,
-            u1: tile, v1: roughness, color: b.paint),
+            u1: tile, v1: roughness, color: paint),
       ];
       out.facades.triangle(ids[0], ids[1], ids[2], normal);
       out.facades.triangle(ids[0], ids[2], ids[3], normal);
@@ -410,12 +424,32 @@ void emitBuilding(
       final p0 = a + d * ts[i], p1 = a + d * ts[i + 1];
       final s0 = ts[i] * length, s1 = ts[i + 1] * length;
       final top0 = eaveY + roof.heightAt(p0), top1 = eaveY + roof.heightAt(p1);
-      if (rows == null) {
-        // Party wall: plain stucco from the base to the roof line, UVs in
-        // 3 m units.
-        quad(p0, p1, baseY, baseY, top0, top1, s0 / 3, s1 / 3,
-            (baseY - sidewalkY) / 3, (baseY - sidewalkY) / 3,
+      // Gable: plain stucco between the eave and the roof line.
+      if (top0 > eaveY + .01 || top1 > eaveY + .01) {
+        quad(p0, p1, eaveY, eaveY, top0, top1, s0 / 3, s1 / 3,
+            (eaveY - sidewalkY) / 3, (eaveY - sidewalkY) / 3,
             (top0 - sidewalkY) / 3, (top1 - sidewalkY) / 3, plain);
+      }
+      final span = spans[edgeIndex];
+      if (span != null) {
+        // The picture, pavement to cornice; below the sidewalk its bottom
+        // row stretches down to the wall's base, which the sidewalk hides.
+        final hu0 = span.u0 + (span.u1 - span.u0) * ts[i];
+        final hu1 = span.u0 + (span.u1 - span.u0) * ts[i + 1];
+        quad(p0, p1, baseY, baseY, sidewalkY, sidewalkY, hu0, hu1,
+            span.bottom, span.bottom, span.bottom, span.bottom, -1,
+            color: white);
+        quad(p0, p1, sidewalkY, sidewalkY, eaveY, eaveY, hu0, hu1,
+            span.bottom, span.bottom, span.top, span.top, -1,
+            color: white);
+        continue;
+      }
+      if (rows == null) {
+        // Party wall: plain stucco from the base to the eave, UVs in 3 m
+        // units.
+        quad(p0, p1, baseY, baseY, eaveY, eaveY, s0 / 3, s1 / 3,
+            (baseY - sidewalkY) / 3, (baseY - sidewalkY) / 3,
+            (eaveY - sidewalkY) / 3, (eaveY - sidewalkY) / 3, plain);
         continue;
       }
       final u0 = ts[i] * bays, u1 = ts[i + 1] * bays;
@@ -428,12 +462,6 @@ void emitBuilding(
         final v0 = r == 0 ? (baseY - sidewalkY) / (row.y1 - row.y0) : 0.0;
         quad(p0, p1, y0, y0, y1, y1, u0, u1, v0 * row.repeats, v0 * row.repeats,
             row.repeats, row.repeats, row.tile.toDouble());
-      }
-      // Gable: plain stucco between the eave and the roof line.
-      if (top0 > eaveY + .01 || top1 > eaveY + .01) {
-        quad(p0, p1, eaveY, eaveY, top0, top1, s0 / 3, s1 / 3,
-            (eaveY - sidewalkY) / 3, (eaveY - sidewalkY) / 3,
-            (top0 - sidewalkY) / 3, (top1 - sidewalkY) / 3, plain);
       }
     }
   }

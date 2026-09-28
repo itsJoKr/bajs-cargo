@@ -85,10 +85,14 @@ class SegmentGrid {
 }
 
 class City {
-  City(this.osm, this.extent);
+  City(this.osm, this.extent, {this.heroEaves = const {}});
 
   final OsmData osm;
   final Extent extent;
+
+  /// Building id -> eave for buildings wearing a hero facade
+  /// (`HeroAtlas.eaves`).
+  final Map<String, double> heroEaves;
   final buildings = <Building>[];
   final streets = <Street>[];
   final streetGrid = SegmentGrid(25);
@@ -256,13 +260,15 @@ class City {
             ridge = (b - a).normalized();
           }
         }
+        final id = area.polygons.length == 1 ? area.id : '${area.id}_$i';
         buildings.add(
           makeBuilding(
-            area.polygons.length == 1 ? area.id : '${area.id}_$i',
+            id,
             area.tags,
             polygon,
             interior: interior,
             ridgeAxis: ridge,
+            heroEave: heroEaves[id],
           ),
         );
       }

@@ -346,3 +346,14 @@ rules; this file holds the traps.
   subject is empty returns empty, not the clip.
 - `flutter run`'s own hot reload/restart (SIGUSR1/SIGUSR2, `tool/reload.sh`)
   picks up Dart changes reliably; rebaked chunks still need a relaunch.
+- `codex exec` for gen-image: put `-i photo.png` AFTER the prompt (`-i`
+  takes any number of files and swallows the prompt otherwise) and close
+  stdin (`stdin=DEVNULL`), or it waits forever for more prompt input.
+- Street View via Maps URLs: `pano=<id>` only resolves official panoramas;
+  a user photosphere needs the `@lat,lng,3a,<fov>y,<h>h,<t>t/data=!3m4!1e1
+  !3m2!1s<id>!2e10` form. Screenshots saved by the Chrome extension land in
+  a per-session `claude-chrome-screenshots-*` directory; name it explicitly.
+- A 2048x4096 texture adds noticeable start-up time on Slim_1 (transcode to
+  ETC2 before the probe appears); `ensure_device.sh` may report "never
+  published ext.zagrebdrive.*" while it is still loading. Poll the probe
+  before assuming a crash.

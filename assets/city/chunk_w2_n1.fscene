@@ -368,12 +368,12 @@
     "chunk:00000000048Q8": {
       "encoding": "vertexBuffer",
       "layout": "unskinned_soa_uv1_tangent",
-      "length": 518976
+      "length": 560160
     },
     "chunk:00000000048QA": {
       "encoding": "indexBuffer",
       "format": "uint16",
-      "length": 21624
+      "length": 23340
     },
     "chunk:00000000048QJ": {
       "encoding": "vertexBuffer",

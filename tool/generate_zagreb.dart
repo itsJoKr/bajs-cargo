@@ -25,6 +25,7 @@ import 'src/city.dart';
 import 'src/facades.dart';
 import 'src/fscene_writer.dart';
 import 'src/ground.dart';
+import 'src/hero.dart';
 import 'src/osm.dart';
 import 'src/props.dart';
 import 'src/runtime_data.dart';
@@ -63,7 +64,8 @@ void main(List<String> args) {
   final watch = Stopwatch()..start();
   final osm = OsmData.load('data/osm/zagreb_centre.json');
   final styles = FacadeStyles.load('data/facade_styles.json');
-  final city = City(osm, coreExtent)..build();
+  final hero = HeroAtlas.load('data/hero/atlas.json');
+  final city = City(osm, coreExtent, heroEaves: hero.eaves)..build();
 
   final ground = Ground(osm, city)..build();
   stdout.writeln(
@@ -87,12 +89,22 @@ void main(List<String> args) {
       counts[(i, j)] = 0;
     }
   }
+  var heroWalls = 0;
+  for (final b in city.buildings) {
+    heroWalls += hero.spansFor(b.id, b.polygon).length;
+  }
+  final heroEdges = hero.facades.fold(0, (n, f) => n + f.edges.length);
+  stdout.writeln('Hero facades: $heroWalls of $heroEdges walls found');
+  if (heroWalls != heroEdges) {
+    stderr.writeln('data/hero/atlas.json names walls the city does not have');
+    exit(1);
+  }
   for (final b in city.buildings) {
     final c = b.center;
     final key = ((c.x / chunkSize).floor(), (c.y / chunkSize).floor());
     final meshes = chunks.putIfAbsent(key, BuildingMeshes.new);
     counts[key] = (counts[key] ?? 0) + 1;
-    emitBuilding(b, meshes, ground: terrain(c), styles: styles);
+    emitBuilding(b, meshes, ground: terrain(c), styles: styles, hero: hero);
   }
 
   final keys = chunks.keys.toList()

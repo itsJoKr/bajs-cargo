@@ -30,6 +30,9 @@ class CityMaterials {
   static Future<CityMaterials> load() async {
     final facadeAtlas = await loadTexture('assets/textures/facade_atlas.png');
     final surfaceAtlas = await loadTexture('assets/textures/surface_atlas.png');
+    // Street View facades of real buildings (tool/prepare_facades.py),
+    // selected per vertex by UV1.x < 0.
+    final heroAtlas = await loadTexture('assets/textures/hero_atlas.png');
 
     Future<Material> atlasMaterial(
       TextureSource atlas,
@@ -42,6 +45,11 @@ class CityMaterials {
           'atlas',
           atlas.sampledTexture!,
           sampler: atlas.sampledSampler,
+        )
+        ..setTexture(
+          'hero_atlas',
+          heroAtlas.sampledTexture!,
+          sampler: heroAtlas.sampledSampler,
         )
         ..setFloat('columns', columns)
         ..setFloat('padding', 16 / 256);

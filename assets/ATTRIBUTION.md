@@ -25,3 +25,12 @@ CC0 1.0, shaped by Doomscrool's `tool/prepare_game_sfx.py` and copied here.
 City geometry is derived from OpenStreetMap data, © OpenStreetMap
 contributors, available under the Open Database License (ODbL 1.0):
 https://www.openstreetmap.org/copyright
+
+## Hero facades
+
+`textures/hero_atlas.png`: the real facades around Trg bana Jelačića,
+redrawn as straight-on elevations by an image model (gen-image, OpenAI
+gpt-image) from Google Street View screenshots taken in a browser
+(imagery © Google, panoramas listed per facade in `data/hero/square.json`).
+The screenshots themselves are not distributed. Check Google's Maps/Street
+View terms before publishing this atlas beyond personal use.

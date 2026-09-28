@@ -1,0 +1,232 @@
+{
+  "facades": {
+    "allianz_white_corner": {
+      "edges": [
+        "w375381225_e10",
+        "w375381225_e9"
+      ],
+      "rect": [
+        0.6806640625,
+        0.3818359375,
+        0.9873046875,
+        0.5068359375
+      ],
+      "source": "Street View Aug 2011",
+      "storeys": 5
+    },
+    "cream_corner_tower": {
+      "edges": [
+        "w105486205_e0"
+      ],
+      "rect": [
+        0.26318359375,
+        0.5087890625,
+        0.501953125,
+        0.6337890625
+      ],
+      "source": "Street View Jul 2024",
+      "storeys": 4
+    },
+    "felbinger_panpek": {
+      "edges": [
+        "w97235393_e7",
+        "w97235393_e6"
+      ],
+      "rect": [
+        0.001953125,
+        0.1279296875,
+        0.537109375,
+        0.2529296875
+      ],
+      "source": "Street View Jul 2024",
+      "storeys": 3
+    },
+    "feller_stern_white": {
+      "edges": [
+        "r3853100_e3"
+      ],
+      "rect": [
+        0.001953125,
+        0.6357421875,
+        0.2109375,
+        0.7607421875
+      ],
+      "source": "Street View Sep 2022 photosphere",
+      "storeys": 7
+    },
+    "gradska_stedionica": {
+      "edges": [
+        "w105487407_e5"
+      ],
+      "rect": [
+        0.001953125,
+        0.2548828125,
+        0.41796875,
+        0.3798828125
+      ],
+      "source": "Street View Sep 2022 photosphere",
+      "storeys": 6
+    },
+    "grey_neoclassical": {
+      "edges": [
+        "w105489672_e3"
+      ],
+      "rect": [
+        0.65283203125,
+        0.0009765625,
+        0.9794921875,
+        0.1259765625
+      ],
+      "source": "Street View Sep 2022 photosphere",
+      "storeys": 3
+    },
+    "harmica_yellow": {
+      "edges": [
+        "w105490828_e3",
+        "w105490828_e2"
+      ],
+      "rect": [
+        0.421875,
+        0.2548828125,
+        0.83154296875,
+        0.3798828125
+      ],
+      "source": "Street View Jul 2024",
+      "storeys": 4
+    },
+    "interwar_nw_corner": {
+      "edges": [
+        "w105484833_e6"
+      ],
+      "rect": [
+        0.7373046875,
+        0.5087890625,
+        0.94873046875,
+        0.6337890625
+      ],
+      "source": "Street View Jul 2024",
+      "storeys": 8
+    },
+    "koncar_block": {
+      "edges": [
+        "w1061535097_e4"
+      ],
+      "rect": [
+        0.505859375,
+        0.5087890625,
+        0.7333984375,
+        0.6337890625
+      ],
+      "source": "Street View Aug 2011",
+      "storeys": 6
+    },
+    "kuca_cuk": {
+      "edges": [
+        "w105489670_e7"
+      ],
+      "rect": [
+        0.83544921875,
+        0.2548828125,
+        0.99462890625,
+        0.3798828125
+      ],
+      "source": "Street View Sep 2022 photosphere",
+      "storeys": 5
+    },
+    "kuca_popovic": {
+      "edges": [
+        "w288838575_e17"
+      ],
+      "rect": [
+        0.40185546875,
+        0.6357421875,
+        0.52490234375,
+        0.7607421875
+      ],
+      "source": "Street View Jul 2024",
+      "storeys": 6
+    },
+    "kuca_rado": {
+      "edges": [
+        "w105485745_e0"
+      ],
+      "rect": [
+        0.21484375,
+        0.6357421875,
+        0.39794921875,
+        0.7607421875
+      ],
+      "source": "Street View Jul 2024",
+      "storeys": 6
+    },
+    "kuca_stankovic": {
+      "edges": [
+        "w365493822_e0"
+      ],
+      "rect": [
+        0.001953125,
+        0.0009765625,
+        0.64892578125,
+        0.1259765625
+      ],
+      "source": "Street View Jul 2024",
+      "storeys": 4
+    },
+    "kuca_zivkovic": {
+      "edges": [
+        "w105489668_e8"
+      ],
+      "rect": [
+        0.541015625,
+        0.1279296875,
+        0.98095703125,
+        0.2529296875
+      ],
+      "source": "Street View Sep 2022 photosphere",
+      "storeys": 4
+    },
+    "octagon_windows": {
+      "edges": [
+        "w584464569_e1"
+      ],
+      "rect": [
+        0.001953125,
+        0.5087890625,
+        0.25927734375,
+        0.6337890625
+      ],
+      "source": "Street View Jul 2024",
+      "storeys": 7
+    },
+    "pink_arcades": {
+      "edges": [
+        "w105486195_e4"
+      ],
+      "rect": [
+        0.001953125,
+        0.3818359375,
+        0.35302734375,
+        0.5068359375
+      ],
+      "source": "Street View Jul 2024",
+      "storeys": 4
+    },
+    "salmon_pilasters": {
+      "edges": [
+        "w97235397_e5"
+      ],
+      "rect": [
+        0.35693359375,
+        0.3818359375,
+        0.6767578125,
+        0.5068359375
+      ],
+      "source": "Street View Aug 2011 (in 2024 it is wrapped in scaffolding)",
+      "storeys": 4
+    }
+  },
+  "groundExtra": 1.0,
+  "height": 4096,
+  "storey": 3.7,
+  "width": 2048
+}
