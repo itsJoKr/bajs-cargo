@@ -257,3 +257,16 @@ bake does not need to stay byte-identical.
   `roof:colour`, else from style and a stable hash weighted toward old
   clay (`tool/src/roofs.dart`), plus a world-space weathering pattern in
   the shader so big roofs are not one stamped tile.
+
+## Flutter removed; the web version is the project (2026-09-29)
+
+The user asked to keep only the three.js version. The Flutter app, its
+flutter_scene dependency, the Android/macOS/web shells, the `.fscene`
+chunks, the device probe and the verification gates are gone from `main`;
+the last state with all of it (including uncommitted Flutter edits from
+before this session) is the `flutter-archive` branch, commit 6d27cdb. The
+city pipeline stayed, as a plain Dart CLI package (`pubspec.yaml`:
+`vector_math`, `clipper2`): `MeshWriter` moved to `tool/src/mesh_writer.dart`,
+`geo.dart` to `tool/src/`. The export was byte-identical before and after
+the split. Entries above that talk about the Flutter build, Slim_1, the
+probe or `generate_zagreb.dart` describe history.

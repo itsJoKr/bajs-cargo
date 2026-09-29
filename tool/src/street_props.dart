@@ -12,7 +12,7 @@ import 'dart:math' as math;
 
 import 'package:vector_math/vector_math.dart';
 
-import 'fscene_writer.dart';
+import 'mesh_writer.dart';
 import 'geom.dart';
 import 'osm.dart';
 

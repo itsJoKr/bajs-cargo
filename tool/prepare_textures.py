@@ -12,7 +12,7 @@ Reads the git-ignored raws in `.art/gen/<name>/<name>.png` (made by
   gables and party walls.
 - `assets/textures/surface_atlas.png`: 1024 x 1024, 4 x 4 cells (SURFACES).
 - `data/facade_styles.json`: each style's tile ids and metre proportions,
-  which `tool/generate_zagreb.dart` reads to lay bays and storeys out.
+  which `tool/src/facades.dart` reads to lay bays and storeys out.
 
 Every cell holds a 224 px tile with 16 px of padding: wrapped tile content
 on axes the tile repeats along, clamped edge pixels on the others, so

@@ -1,11 +1,10 @@
-/// The one geo -> local conversion every generator, tool and runtime query
-/// uses. Pure Dart (no Flutter), so `tool/` scripts import it too.
+/// The one geo -> local conversion every tool uses (the Python tools repeat
+/// the same constants).
 ///
 /// Local frame (see AGENTS.md "Coordinates"): metres in a tangent plane
 /// whose origin is the Ban Jelačić statue. `x` is east, `y` is up, `z` is
-/// north. flutter_scene's world is left-handed (a camera looking along +z
-/// has +x on its right), so a driver facing north sees east on the right:
-/// x = east, z = north renders unmirrored.
+/// north. The web export mirrors z (web: z south), because three.js is
+/// right-handed.
 library;
 
 import 'dart:math' as math;

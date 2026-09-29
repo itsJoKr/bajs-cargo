@@ -1,4 +1,4 @@
-// Copies what the web build shares with the Flutter build (the texture
+// Copies the texture atlases from ../assets/textures (the city pipeline's
 // atlases) and the Draco decoder the car model needs into public/.
 // Runs before `npm run dev` and `npm run build`.
 import { cpSync, existsSync, mkdirSync } from 'node:fs';

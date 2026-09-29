@@ -96,8 +96,7 @@ class City {
   static const smallStructureKinds = {'kiosk', 'roof', 'gazebo', 'carport', 'shelter'};
 
   /// When set, [smallStructureKinds] go to [smallStructures] (for props)
-  /// instead of becoming buildings with facades and roofs. Off for the
-  /// Flutter bake, which keeps its committed output.
+  /// instead of becoming buildings with facades and roofs.
   final bool separateSmallStructures;
   final smallStructures = <(String, Tags, Polygon)>[];
 

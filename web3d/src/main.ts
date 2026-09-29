@@ -326,7 +326,7 @@ async function main() {
   }
 }
 
-/** The Flutter build's debug parks, z mirrored into the web frame. */
+/** Fixed camera parks for comparisons (`?park=<name>`), web frame. */
 const parks: Record<string, [[number, number, number], [number, number, number]]> = {
   square: [[-100, 2.2, -2], [30, 7, -18]],
   ilica: [[-300, 2.2, -9], [-110, 5, -9]],

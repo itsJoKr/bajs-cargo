@@ -190,3 +190,17 @@ npm install && npm run dev`, then http://localhost:5180/.
 - Look: physical sky + IBL, sun shadows following the car, GTAO, ACES.
 - Checks: `node tools/sim.ts` (16 physics checks), `npm run build`,
   `node tools/shot.mjs` (headless Chrome screenshots over CDP).
+
+## Web 2: real facades only, roofs, features, Flutter removed (2026-09-29)
+
+- Walls without a Street View facade are plain stucco;
+  `data/hero/coverage.json` tracks 20 of 859 street walls done.
+- The 17 square facades redrawn faithfully (every sign kept), atlas at
+  768 px per facade height.
+- Roof set of eight coverings with real repeat sizes and weathering; roofs
+  slope down to every street wall (no more vertical "gables" over fronts).
+- `data/buildings.json`: per-building roof/tag overrides and 3D features
+  (first one: the Allianz rooftop sign); `zg.lookAtWall`.
+- The `recreate-building` skill.
+- The Flutter app removed from `main` (archived on `flutter-archive`); the
+  pipeline is a plain Dart CLI.

@@ -1,17 +1,15 @@
-# zagreb_drive
+# Zagreb Drive
 
-A new Flutter project.
+A free-roam driving game in a recognisable 3D model of central Zagreb:
+three.js and Rapier in the browser, the city baked from OpenStreetMap,
+Copernicus terrain and Google Street View facades.
 
-## Getting Started
+```sh
+cd web3d && npm install && npm run dev   # http://localhost:5180/
+```
 
-This project is a starting point for a Flutter application.
+W/↑ gas · S/↓ brake and reverse · A/D steer · Space handbrake · R reset ·
+0 back to the start · O ambient occlusion.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+See `AGENTS.md` for the layout, the city pipeline and how buildings are
+recreated. The original Flutter app is on the `flutter-archive` branch.

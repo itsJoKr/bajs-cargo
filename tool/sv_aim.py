@@ -5,7 +5,7 @@
 
 Prints, per facade in reach, the heading/pitch/fov that frames it from the
 panorama at (LAT, LNG), and the @-style Maps URL for it (append the pano's
-own data suffix). Geometry matches lib/drive/domain/geo.dart.
+own data suffix). Geometry matches tool/src/geo.dart.
 """
 import json, math, sys
 

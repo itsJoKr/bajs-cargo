@@ -20,7 +20,7 @@ crowns, and at 21 x 31 m per pixel a narrow street is mostly roof. So:
 
 Writes data/terrain/ground.json (the full box plus a margin, 10 m cells)
 and data/terrain/far.json (a 200 m grid, 24 x 24 km, DSM minimum-filtered and smoothed, for
-the horizon: Medvednica to the north). Both use the Flutter frame: x east,
+the horizon: Medvednica to the north). Both use the pipeline frame: x east,
 z NORTH, row-major with z rising.
 """
 import json, math, os

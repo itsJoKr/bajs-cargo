@@ -24,7 +24,7 @@ import 'dart:io';
 import 'dart:math' as math;
 
 import 'package:vector_math/vector_math.dart';
-import 'package:zagreb_drive/drive/domain/geo.dart';
+import 'src/geo.dart';
 
 import 'src/buildings.dart';
 import 'src/city.dart';

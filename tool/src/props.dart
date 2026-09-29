@@ -1,4 +1,4 @@
-// Shared props baked once and instanced at runtime: for now, the street tree.
+// The street tree mesh, instanced at runtime, and its per-tree instance data.
 // ignore_for_file: depend_on_referenced_packages
 library;
 
@@ -6,13 +6,7 @@ import 'dart:math' as math;
 
 import 'package:vector_math/vector_math.dart';
 
-import 'fscene_writer.dart';
-
-const treeMaterial = MaterialSpec('tree', roughness: .92);
-
-/// Where the props document lives. Excluded from the chunk index; the
-/// runtime loads it once.
-const propsPath = 'assets/city/props.fscene';
+import 'mesh_writer.dart';
 
 /// One tree instance for the runtime: [x, z, base y, scale, yaw], rounded to
 /// keep the index small and stable.
@@ -138,14 +132,4 @@ MeshWriter treeMesh() {
   lobe(Vector3(0, 7.4, 0), 3.6, 1);
   lobe(Vector3(1.2, 8.8, .6), 2.6, 2);
   return mesh;
-}
-
-void writeProps() {
-  final doc = SceneDocBuilder(
-    relativePath: propsPath,
-    firstToken: 90000,
-    seedName: 'props',
-  );
-  doc.addGroup('Tree', [('Tree mesh', treeMaterial, treeMesh())]);
-  doc.save();
 }

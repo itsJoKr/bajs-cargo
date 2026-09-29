@@ -176,7 +176,7 @@ function loadTexture(loader: THREE.TextureLoader, url: string, anisotropy: numbe
   return loader.loadAsync(url).catch(() => {
     throw new Error(`could not load ${url}`);
   }).then((t) => {
-    // The atlases address rows from the top, like the Flutter build.
+    // The atlases address rows from the top (v = 0 is the first row).
     t.flipY = false;
     t.colorSpace = THREE.SRGBColorSpace;
     t.anisotropy = anisotropy;

@@ -6,7 +6,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:vector_math/vector_math.dart';
-import 'package:zagreb_drive/drive/domain/geo.dart';
+import 'geo.dart';
 
 import 'geom.dart';
 

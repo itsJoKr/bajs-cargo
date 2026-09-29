@@ -1,28 +1,27 @@
-// Exports the same city the Flutter build bakes, as one glTF binary for the
-// three.js version in web3d/.
+// Bakes central Zagreb for the three.js game in web3d/: one glTF binary with
+// the buildings, roofs, streets, props and Street View facades, plus the
+// JSON the game reads alongside it.
 //
 //   fvm dart tool/export_web.dart [--extent minX,minZ,maxX,maxZ] [--flat]
 //
-// Plain `dart`, like generate_zagreb.dart. It reuses the generator's model
-// (City, Ground, emitBuilding, the hero atlas), so both builds show the same
-// buildings, roofs, streets and Street View facades. Two things the
-// Flutter bake does not have (yet): the ground follows the terrain from
-// data/terrain/ground.json (tool/prepare_terrain.py; --flat turns it off),
-// and street furniture -- kiosks, canopies, the Ban Jelačić statue,
-// Manduševac, street lamps -- are props instead of tiny buildings.
+// Reads only data/ (never the network), so reruns are byte identical. The
+// ground follows the terrain from data/terrain/ground.json
+// (tool/prepare_terrain.py; --flat turns it off). Walls without a real
+// facade are plain stucco; data/hero/coverage.json lists which are done.
 //
-// three.js is right-handed, so the export mirrors z: web x = east, y = up,
-// z = SOUTH (north is -z, three.js's usual convention). Each triangle's
-// winding is then chosen so its geometric normal agrees with the vertex
-// normal, i.e. counter-clockwise from the front, as three.js expects.
+// The pipeline frame is x east, y up, z north; three.js is right-handed, so
+// the export mirrors z: web x = east, y = up, z = SOUTH (north is -z). Each
+// triangle's winding is then chosen so its geometric normal agrees with the
+// vertex normal, i.e. counter-clockwise from the front, as three.js expects.
 //
 // Writes:
 //   web3d/public/city/zagreb.glb   one node per 200 m chunk and material
-//                                  (facade, roof, ground, rails), plus the
-//                                  tree mesh;
-//   web3d/public/city/city.json    extent, chunk list, tree and lamp
-//                                  instances, place names;
-//   web3d/public/city/terrain.json, far.json   copies of data/terrain/.
+//                                  (facade, roof, ground, rails), props,
+//                                  glass, the tree and the lamp;
+//   web3d/public/city/city.json    extent, chunks, trees, lamps, trams,
+//                                  place names, coverage, features, walls;
+//   web3d/public/city/terrain.json, far.json   copies of data/terrain/;
+//   data/hero/coverage.json        real-facade coverage per street wall.
 // ignore_for_file: depend_on_referenced_packages
 library;
 
@@ -36,7 +35,7 @@ import 'package:vector_math/vector_math.dart';
 import 'src/buildings.dart';
 import 'src/city.dart';
 import 'src/facades.dart';
-import 'src/fscene_writer.dart';
+import 'src/mesh_writer.dart';
 import 'src/geom.dart' show centroid;
 import 'src/ground.dart';
 import 'src/hero.dart';
@@ -419,7 +418,7 @@ void main(List<String> args) {
   File('$out/zagreb.glb').writeAsBytesSync(glb.bytes());
   File('$out/city.json').writeAsStringSync(
     '${jsonEncode({
-      'note': 'x east, y up, z SOUTH (mirrored from the Flutter build)',
+      'note': 'web frame: x east, y up, z SOUTH',
       'extent': [extent.minX, -extent.maxZ, extent.maxX, -extent.minZ],
       'chunkSize': chunkSize,
       'chunks': chunkList,

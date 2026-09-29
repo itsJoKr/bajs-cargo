@@ -1,24 +1,6 @@
 # Asset attribution
 
-## Concept sports car
-
-`models/car-concept.glb`: Car Concept from Khronos glTF Sample Assets.
-Model and textures by Eric Chadwick, © 2024 Darmstadt Graphics Group GmbH.
-Licensed under Creative Commons Attribution 4.0 International:
-https://creativecommons.org/licenses/by/4.0/
-
-Source: https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/CarConcept
-Downloaded unchanged (copied from Doomscrool); the game scales and positions
-the model at runtime. Khronos and 3D Commerce marks embedded in the source
-asset are subject to:
-https://github.com/KhronosGroup/glTF-Sample-Assets/blob/main/LICENSES/LicenseRef-LegalMark-Khronos.txt
-No affiliation or endorsement is implied.
-
-## Car engine loop
-
-`audio/car-engine.wav`: `Car_Engine_Loop_2` from ggbotnet's
-[Car Sound Effects Pack (Low Quality)](https://opengameart.org/content/car-sound-effects-pack-low-quality),
-CC0 1.0, shaped by Doomscrool's `tool/prepare_game_sfx.py` and copied here.
+The car model is listed in `web3d/ATTRIBUTION.md`.
 
 ## Map data
 
@@ -34,3 +16,15 @@ gpt-image) from Google Street View screenshots taken in a browser
 (imagery © Google, panoramas listed per facade in `data/hero/square.json`).
 The screenshots themselves are not distributed. Check Google's Maps/Street
 View terms before publishing this atlas beyond personal use.
+
+## Terrain
+
+`data/terrain/`: derived from Copernicus GLO-30 (© DLR e.V. 2010-2014 and
+© Airbus Defence and Space GmbH 2014-2018, provided under COPERNICUS by the
+European Union and ESA; all rights reserved), filtered to ground by
+`tool/prepare_terrain.py`.
+
+## Roof set
+
+`textures/roof_atlas.png`: generated with gen-image (OpenAI gpt-image);
+prompts in `tool/gen_textures.sh`.

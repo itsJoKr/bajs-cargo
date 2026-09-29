@@ -1,2 +1,2 @@
 @AGENTS.md
-@.claude/rules/flutter-scene.md
+@.claude/rules/zagreb-web.md

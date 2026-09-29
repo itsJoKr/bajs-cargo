@@ -1,11 +1,8 @@
-include: package:flutter_lints/flutter.yaml
+include: package:lints/recommended.yaml
 
 analyzer:
   exclude:
     - artifacts/**
-    - build/**
-    - android/**
-    - macos/**
     - .art/**
     - .venv/**
-    - web/**
+    - web3d/**

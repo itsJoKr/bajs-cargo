@@ -16,7 +16,7 @@ import 'package:vector_math/vector_math.dart';
 import 'buildings.dart' show isUpperTown, parseMetres;
 import 'city.dart';
 import 'clip.dart';
-import 'fscene_writer.dart';
+import 'mesh_writer.dart';
 import 'geom.dart';
 import 'osm.dart';
 
@@ -26,7 +26,7 @@ const kerbHeight = .15;
 const gauge = 1.435, railWidth = .11;
 
 /// Surface kinds. The index is the tile the atlas material samples
-/// (`uv1.x`); see `lib/drive/scene/city_materials.dart`.
+/// (`uv1.x`); see the atlas material in `web3d/src/city.ts`.
 enum Surface {
   asphalt(0, 0xFFFFFF, 4, .85),
   sidewalk(1, 0xF4F4F4, 2, .9),
