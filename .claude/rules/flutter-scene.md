@@ -357,3 +357,23 @@ rules; this file holds the traps.
   ETC2 before the probe appears); `ensure_device.sh` may report "never
   published ext.zagrebdrive.*" while it is still loading. Poll the probe
   before assuming a crash.
+
+## three.js web version (web3d/)
+
+- GLTFLoader sanitizes node names (`/`, `.`, `:`, `[`, `]` are dropped), so
+  `chunk_e0_n0/facade` arrives as `chunk_e0_n0facade`. Identify exported
+  meshes by their glTF material name instead.
+- The Chrome extension froze on the game page twice (screenshots and
+  `Runtime.evaluate` timed out, then the tab group vanished). Use
+  `web3d/tools/shot.mjs` (its own headless Chrome over CDP) for stills and
+  console output instead.
+- Rapier's `DynamicRayCastVehicleController` applies the brake only to a
+  wheel with zero engine force, has no rolling resistance by default (a
+  coasting car rolls forever), and `setIndexForwardAxis` is a setter
+  property, not a method (`controller.setIndexForwardAxis = 2`).
+- A "holds on a slope with the brake" check is vacuous when the brake pedal
+  reverses at a standstill: the car drives away backwards and `speed < 0`
+  passes. Hold with the handbrake and measure the drift.
+- Copernicus GLO-30 is a surface model: in dense old towns nearly every
+  pixel is mostly roof. Dropping covered pixels fills a hilltop from the
+  valley; subtract the building heights instead (`tool/prepare_terrain.py`).

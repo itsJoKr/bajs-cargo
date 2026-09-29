@@ -11,6 +11,7 @@ import 'facades.dart';
 import 'fscene_writer.dart';
 import 'geom.dart';
 import 'hero.dart';
+import 'roofs.dart';
 import 'osm.dart';
 
 /// What a wall edge faces, which decides what it wears.
@@ -141,7 +142,9 @@ Building makeBuilding(
       : math.min(slope * halfWidth, maxRise);
   final roofHeight = parseMetres(tags['roof:height']);
   if (roofHeight != null && shape != RoofShape.flat) {
-    rise = math.min(roofHeight, rise * 1.5);
+    // Mapped roof heights are honoured: the Cathedral's spires are 34 m
+    // pyramids, not 8 m caps.
+    rise = roofHeight;
   }
 
   double eave;
@@ -196,7 +199,12 @@ class RoofRegion {
 }
 
 class RoofModel {
-  RoofModel(this.building) {
+  /// [streetEaves]: the roof also slopes down to the eave along every
+  /// street wall, instead of only along its bounding box. Without it, a
+  /// street wall set back inside the box gets a vertical stucco "gable" up
+  /// to the roof surface (Gradska štedionica's front showed a grey
+  /// trapezoid where its roof should be).
+  RoofModel(this.building, {bool streetEaves = false}) {
     final b = building;
     final w = b.box.halfWidth, l = b.box.halfLength;
     rise = b.roofRise;
@@ -234,16 +242,95 @@ class RoofModel {
           ),
       ];
     }
+    if (streetEaves) _addStreetEaves();
+  }
+
+  /// Rebuilds [regions] as the lower envelope of the box's roof planes plus
+  /// one plane rising from each street wall that the box roof leaves above
+  /// the eave, clamped at the eave. Each plane is `k + ku * u + kv * v` in
+  /// the box frame; its region is where it is the lowest.
+  void _addStreetEaves() {
+    final b = building;
+    final box = b.box;
+    final planes = <(double, double, double)>[];
+    for (final r in regions) {
+      if (!planes.contains((r.k, r.ku, r.kv))) planes.add((r.k, r.ku, r.kv));
+    }
+    var i = 0;
+    for (final (a, c) in b.polygon.edges) {
+      final edge = i++;
+      if (edge >= b.walls.length || b.walls[edge] != WallKind.street) continue;
+      final d = c - a;
+      if (d.length < 2) continue;
+      final mid = (a + c) * .5;
+      if (_boxHeight(mid) < .3) continue;
+      var n = Vector2(-d.y, d.x).normalized();
+      if (!b.polygon.contains(mid + n * .2)) n = -n;
+      if (!b.polygon.contains(mid + n * .2)) continue;
+      planes.add((
+        slope * n.dot(box.center - a),
+        slope * n.dot(box.axis),
+        slope * n.dot(box.across),
+      ));
+    }
+    if (planes.length == regions.length) return;
+    final out = <RoofRegion>[];
+    for (var p = 0; p < planes.length; p++) {
+      final (k, ku, kv) = planes[p];
+      final hp = <(double, double, double)>[];
+      var empty = false;
+      for (var q = 0; q < planes.length; q++) {
+        if (q == p) continue;
+        final (k2, ku2, kv2) = planes[q];
+        // P_q - P_p >= 0; ties go to the lower index.
+        final a = ku2 - ku, bb = kv2 - kv;
+        final cc = k - k2 + (q < p ? 1e-6 : -1e-6);
+        if (a.abs() < 1e-9 && bb.abs() < 1e-9) {
+          if (cc > 0) empty = true;
+          continue;
+        }
+        hp.add((a, bb, cc));
+      }
+      if (empty) continue;
+      // Above the eave: the plane itself; below it: flat at the eave.
+      out.add(RoofRegion([...hp, if (ku.abs() + kv.abs() > 1e-9) (ku, kv, -k)], k, ku, kv));
+      if (ku.abs() + kv.abs() > 1e-9) {
+        out.add(RoofRegion([...hp, (-ku, -kv, k)], 0, 0, 0));
+      }
+    }
+    regions = out;
+    _envelope = planes;
+  }
+
+  List<(double, double, double)>? _envelope;
+
+  double _boxHeight(Vector2 p) {
+    final b = building;
+    final (u, v) = b.box.local(p);
+    final w = b.box.halfWidth, l = b.box.halfLength;
+    final run = b.roof == RoofShape.gabled
+        ? w - v.abs()
+        : math.min(w - v.abs(), l - u.abs());
+    return math.min(math.max(run, 0) * slope, rise);
   }
 
   final Building building;
-  late final List<RoofRegion> regions;
+  late List<RoofRegion> regions;
   double slope = 0, rise = 0;
 
   /// Roof height above the eave at [p].
   double heightAt(Vector2 p) {
     final b = building;
     if (b.roof == RoofShape.flat || rise <= 0) return 0;
+    final env = _envelope;
+    if (env != null) {
+      final (u, v) = b.box.local(p);
+      var h = double.infinity;
+      for (final (k, ku, kv) in env) {
+        h = math.min(h, k + ku * u + kv * v);
+      }
+      return math.max(0, h);
+    }
     final (u, v) = b.box.local(p);
     final w = b.box.halfWidth, l = b.box.halfLength;
     final run = b.roof == RoofShape.gabled
@@ -284,6 +371,7 @@ class RoofModel {
     required Vector4 color,
     required double tile,
     double roughness = .8,
+    double period = 2.0,
   }) {
     final box = building.box;
     final axis = box.axis, across = box.across;
@@ -315,8 +403,8 @@ class RoofModel {
           mesh.vertex(
             Vector3(p.x, h(p), p.y),
             normal,
-            p.dot(along) / 2.0,
-            p.dot(downhill) * stretch / 2.0,
+            p.dot(along) / period,
+            p.dot(downhill) * stretch / period,
             u1: tile,
             v1: roughness,
             color: color,
@@ -337,10 +425,11 @@ class BuildingMeshes {
 }
 
 /// Surface atlas tiles for roofs (tool/prepare_textures.py SURFACES).
-const clayRoofTile = 6, flatRoofTile = 7;
+const clayRoofTile = 6, flatRoofTile = 7, copperRoofTile = 8, stoneTile = 14;
 
 /// Emits [b]'s walls into [out.facades] and roof into [out.roofs]. [ground]
-/// is the terrain height under the building (flat until phase 6).
+/// is the terrain height under the building's centre, [foot] the lowest
+/// under its footprint (the same when the ground is flat).
 ///
 /// Street walls wear the building's style, courtyard walls the courtyard
 /// style, party walls (against a neighbour) and gables plain stucco. Each
@@ -357,12 +446,18 @@ void emitBuilding(
   required double ground,
   required FacadeStyles styles,
   HeroAtlas? hero,
+  double? foot,
+  double Function(Vector2)? terrain,
+  Vector4? plainWalls,
+  RoofChoice? roofCover,
 }) {
-  final roof = RoofModel(b);
-  final baseY = ground + b.base - (b.base == 0 ? .6 : 0);
+  final roof = RoofModel(b, streetEaves: plainWalls != null);
+  // On a slope the walls reach down to the lowest ground under the
+  // footprint ([foot]), so the downhill side never floats.
+  final baseY = math.min(ground, foot ?? ground) + b.base - (b.base == 0 ? .6 : 0);
   final eaveY = ground + b.eave;
-  final sidewalkY = ground + _sidewalk;
-  final facadeHeight = eaveY - sidewalkY;
+  final buildingSidewalkY = ground + _sidewalk;
+  final facadeHeight = eaveY - buildingSidewalkY;
   final street = styles[b.style == 'stone' ? 'courtyard' : b.style];
   final courtyard = styles['courtyard'];
   final streetRows = FacadeStyles.rows(street, facadeHeight);
@@ -383,9 +478,23 @@ void emitBuilding(
     final normal = Vector3(d.y, 0, -d.x) / length;
     final kind = edgeIndex < b.walls.length ? b.walls[edgeIndex] : WallKind.street;
     final style = kind == WallKind.courtyard ? courtyard : street;
-    final rows = kind == WallKind.party || stone
-        ? null
-        : (kind == WallKind.courtyard ? courtyardRows : streetRows);
+    // On sloped ground ([terrain] given) each wall starts its rows at the
+    // lowest sidewalk along it, so no row repeats below the pavement; the
+    // uphill end buries a little of the ground floor instead.
+    var sidewalkY = buildingSidewalkY;
+    var wallRows = kind == WallKind.courtyard ? courtyardRows : streetRows;
+    if (terrain != null) {
+      final low = math.min(terrain(a), math.min(terrain(c), terrain((a + c) * .5)));
+      sidewalkY = math.min(low + _sidewalk, eaveY - 2);
+      wallRows = FacadeStyles.rows(
+        kind == WallKind.courtyard ? courtyard : street,
+        eaveY - sidewalkY,
+      );
+    }
+    // [plainWalls]: every wall without a real (hero) facade is plain
+    // stucco in that colour, so the photographed buildings stand out and
+    // nothing pretends to be a real facade that is not.
+    final rows = kind == WallKind.party || stone || plainWalls != null ? null : wallRows;
     final bays = math.max(1, (length / style.bay).round());
     final ts = [0.0, ...roof.breaks(a, c), 1.0];
 
@@ -428,7 +537,8 @@ void emitBuilding(
       if (top0 > eaveY + .01 || top1 > eaveY + .01) {
         quad(p0, p1, eaveY, eaveY, top0, top1, s0 / 3, s1 / 3,
             (eaveY - sidewalkY) / 3, (eaveY - sidewalkY) / 3,
-            (top0 - sidewalkY) / 3, (top1 - sidewalkY) / 3, plain);
+            (top0 - sidewalkY) / 3, (top1 - sidewalkY) / 3, plain,
+            color: plainWalls);
       }
       final span = spans[edgeIndex];
       if (span != null) {
@@ -446,10 +556,12 @@ void emitBuilding(
       }
       if (rows == null) {
         // Party wall: plain stucco from the base to the eave, UVs in 3 m
-        // units.
+        // units. Churches and towers: dressed stone.
         quad(p0, p1, baseY, baseY, eaveY, eaveY, s0 / 3, s1 / 3,
             (baseY - sidewalkY) / 3, (baseY - sidewalkY) / 3,
-            (eaveY - sidewalkY) / 3, (eaveY - sidewalkY) / 3, plain);
+            (eaveY - sidewalkY) / 3, (eaveY - sidewalkY) / 3,
+            stone ? -(100.0 + stoneTile) : plain,
+            color: stone ? null : plainWalls);
         continue;
       }
       final u0 = ts[i] * bays, u1 = ts[i + 1] * bays;
@@ -473,13 +585,33 @@ void emitBuilding(
   final all = [...outer, ...holes.expand((h) => h)];
   final tris = earcut(outer, holes);
   final flat = b.roof == RoofShape.flat;
+  final copper = b.tags['roof:material'] == 'copper' ||
+      (b.tags['roof:colour'] ?? '').contains('green');
+  // A tall pointed roof with no material mapped is a stone spire.
+  final spire = !copper && b.tags['roof:material'] == null && b.roofRise > 12;
   for (var i = 0; i < tris.length; i += 3) {
     roof.emitTriangle(
       out.roofs,
       [all[tris[i]], all[tris[i + 1]], all[tris[i + 2]]],
       eaveY,
-      color: flat ? Vector4(.9, .9, .9, 1) : b.roofTint,
-      tile: (flat ? flatRoofTile : clayRoofTile).toDouble(),
+      color: roofCover != null && !spire
+          ? roofCover.shade
+          : flat || copper || spire
+              ? Vector4(.9, .9, .9, 1)
+              : b.roofTint,
+      tile: roofCover != null
+          // The roof set lives in its own atlas; a spire's stone is a
+          // surface-atlas tile, coded -(100 + tile).
+          ? (spire ? -(100.0 + stoneTile) : roofCover.tile)
+          : (flat
+                  ? flatRoofTile
+                  : copper
+                      ? copperRoofTile
+                      : spire
+                          ? stoneTile
+                          : clayRoofTile)
+              .toDouble(),
+      period: roofCover == null || spire ? 2.0 : roofCover.metres,
       roughness: flat ? .9 : .75,
     );
   }

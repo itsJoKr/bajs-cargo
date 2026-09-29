@@ -6,6 +6,41 @@ recognisable 3D model of central Zagreb, rendered with Flutter Scene
 only memory: keep it current. `docs/decisions.md` records why things are the
 way they are; `docs/progress.md` records what each phase delivered.
 
+## The web version (main line)
+
+Since 2026-09-29 the game is developed as the three.js version in `web3d/`
+(Vite, TypeScript, three.js, Rapier). The Flutter app below is the
+original; its city pipeline is the base the web export reuses, and its bake
+no longer has to stay byte-identical.
+
+- `cd web3d && npm run dev` (port 5180; `predev` copies the atlases and the
+  Draco decoder into `public/`). `npm run check` typechecks,
+  `npm run build` builds, `node tools/sim.ts` runs the physics checks.
+- `fvm dart tool/export_web.dart` (plain `dart`) writes
+  `web3d/public/city/zagreb.glb` + `city.json` + the terrain grids. Rerun
+  after any change to `tool/src/`, then reload the page.
+- `.venv/bin/python tool/prepare_terrain.py` rebuilds `data/terrain/`
+  from `.art/dem/N45_E01{5,6}.tif` (Copernicus GLO-30, see decisions).
+- **Web frame: x east, y up, z SOUTH** (north = -z). The export mirrors
+  z; `tool/` and `data/` stay in the Flutter frame (z north).
+- Screenshots without the Chrome extension: `node tools/shot.mjs --eval
+  "zg.look([x,y,z],[tx,ty,tz],fov)" --sleep 800 --shot out.png`
+  (headless Chrome over CDP, prints the page console). `window.zg` has
+  `look`, `drive`, `teleport(x, z, heading)`, `groundAt`, `vehicle`,
+  `trams`; `?park=square` parks the camera, `?ao=0` disables GTAO.
+- **Recreating buildings: use the `recreate-building` project skill**
+  (`.claude/skills/recreate-building/SKILL.md`): every street side from
+  Street View, faithful facades (signs spelled as photographed), the roof
+  (`data/buildings.json`, `data/roofs.json`) and 3D features (signs,
+  awnings, terraces, scaffolding, domes, models). Walls without a real
+  facade are plain stucco on purpose; `data/hero/coverage.json` is the
+  done/todo list.
+- `web3d/src/`: `vehicle.ts` (Rapier car, no three.js), `carModel.ts`,
+  `city.ts` (GLB, atlas material, props, colliders), `features.ts`
+  (data/buildings.json features), `terrain.ts`, `trams.ts`,
+  `chaseCamera.ts`, `input.ts`, `places.ts`, `main.ts`. `zg.lookAtWall(id,
+  distance, eyeHeight)` frames any street wall straight on.
+
 ## Toolchain
 
 - Flutter 3.47.2 through FVM (`.fvmrc`): `fvm flutter ...`, `fvm dart ...`.

@@ -4,6 +4,7 @@ import 'package:flutter_scene/scene.dart';
 import 'package:vector_math/vector_math.dart' as vm;
 
 import '../audio/engine_audio.dart';
+import '../debug/render_options.dart';
 import '../debug/scene_probe.dart';
 import '../domain/car.dart';
 import '../scene/drive_game.dart';
@@ -24,6 +25,12 @@ class DriveView extends StatefulWidget {
 class _DriveViewState extends State<DriveView> with WidgetsBindingObserver {
   DriveGame get game => widget.game;
   final _speed = ValueNotifier<int>(0);
+  final _options = RenderOptions.current;
+
+  /// Frame periods of the current measuring window, and the last window's
+  /// summary for the readout.
+  final _frames = <double>[];
+  final _frameTime = ValueNotifier<String>('');
   late final EngineAudio _engine = EngineAudio();
   final _focus = FocusNode(debugLabel: 'drive');
 
@@ -116,11 +123,37 @@ class _DriveViewState extends State<DriveView> with WidgetsBindingObserver {
     SceneProbe.unregisterStates('zagreb');
     _engine.dispose();
     _speed.dispose();
+    _frameTime.dispose();
     _focus.dispose();
     super.dispose();
   }
 
+  void _measure(double dt) {
+    _frames.add(dt);
+    final total = _frames.fold(0.0, (s, d) => s + d);
+    if (total < 3) return;
+    final sorted = [..._frames]..sort();
+    final mean = total / _frames.length * 1000;
+    final p95 = sorted[(sorted.length * .95).floor()] * 1000;
+    final summary =
+        '${(1000 / mean).toStringAsFixed(1)} fps  '
+        '${mean.toStringAsFixed(1)} ms  p95 ${p95.toStringAsFixed(1)} ms';
+    _frameTime.value = summary;
+    if (_options.bench) {
+      final scene = game.scene;
+      // Picked up from the browser console by the measuring session.
+      debugPrint(
+        '[bench] ${_options.describe()} | $summary | '
+        'scale ${scene.renderScale}x${scene.adaptiveRenderScale} '
+        'aa ${scene.effectiveAntiAliasingMode.name}',
+      );
+    }
+    _frames.clear();
+  }
+
   void _tick(double dt) {
+    if (_options.showFrameTime) _measure(dt);
+    if (_options.bench) game.benchStep(dt);
     game.tick(dt);
     final car = game.car;
     _speed.value = car.kmh.abs().round();
@@ -187,6 +220,23 @@ class _DriveViewState extends State<DriveView> with WidgetsBindingObserver {
                 onBrake: (value) => game.controls.brakePedal = value,
               ),
             ),
+            if (_options.showFrameTime)
+              Positioned(
+                right: 20,
+                top: 14,
+                child: ValueListenableBuilder<String>(
+                  valueListenable: _frameTime,
+                  builder: (context, text, _) => Text(
+                    text,
+                    key: const ValueKey('frame_time'),
+                    style: const TextStyle(
+                      color: Color(0xFFF4EBDD),
+                      fontSize: 13,
+                      fontFeatures: [FontFeature.tabularFigures()],
+                    ),
+                  ),
+                ),
+              ),
             Positioned(
               left: 20,
               top: 14,

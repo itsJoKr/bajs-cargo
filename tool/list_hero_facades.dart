@@ -2,6 +2,14 @@
 // viewpoint for each, as the work list for photographing real buildings.
 //
 //   fvm dart tool/list_hero_facades.dart [section] > .art/streetview/<section>.json
+//   fvm dart tool/list_hero_facades.dart --building w105487407,w97235393 \
+//       > .art/streetview/<name>.json
+//
+// `--building` lists EVERY street-facing wall of those buildings (a corner
+// building is seen from two or more streets, and each side needs its own
+// picture), whatever space it faces; ids are OSM ids as in
+// data/hero/coverage.json (`w<way>` or `r<relation>`, `_<n>` for a
+// multipolygon's n-th part).
 //
 // Sections are named areas (see `sections`). A facade is one street-facing
 // footprint edge of a building whose outward side opens onto the section's
@@ -30,18 +38,24 @@ const sections = {
 };
 
 void main(List<String> args) {
-  final section = args.isEmpty ? 'square' : args.first;
+  final at = args.indexOf('--building');
+  final only = at >= 0 ? args[at + 1].split(',').toSet() : null;
+  final section = only != null ? 'buildings' : (args.isEmpty ? 'square' : args.first);
   final osm = OsmData.load('data/osm/zagreb_centre.json');
-  final city = City(osm, coreExtent)..build();
-  final way = osm.ways[sections[section]]!;
-  final area = Polygon(cleanRing(osm.points(way)));
-  // The square's outline runs along the facades, so test a little inside.
-  bool facesArea(Vector2 p) =>
-      area.contains(p) ||
-      area.edges.any((e) => distanceToSegment(p, e.$1, e.$2) < 6);
+  final city = City(osm, coreExtent, separateSmallStructures: true)..build();
+  bool Function(Vector2) facesArea = (_) => true;
+  if (only == null) {
+    final way = osm.ways[sections[section]]!;
+    final area = Polygon(cleanRing(osm.points(way)));
+    // The square's outline runs along the facades, so test a little inside.
+    facesArea = (p) =>
+        area.contains(p) ||
+        area.edges.any((e) => distanceToSegment(p, e.$1, e.$2) < 6);
+  }
 
   final facades = <Map<String, Object?>>[];
   for (final b in city.buildings) {
+    if (only != null && !only.contains(b.id)) continue;
     var edge = -1;
     for (final (a, c) in b.polygon.edges) {
       edge++;

@@ -196,8 +196,9 @@ class Ground {
     double originZ,
     MeshWriter surface,
     MeshWriter rails,
-    double Function(Vector2) height,
-  ) {
+    double Function(Vector2) height, {
+    double tessellate = 0,
+  }) {
     final rect = Shape.rect(minX, minZ, maxX, maxZ);
     final roadHere = road.clipRect(minX, minZ, maxX, maxZ);
     final pavingHere = paving.clipRect(minX, minZ, maxX, maxZ);
@@ -205,8 +206,33 @@ class Ground {
     final gravelHere = gravel.clipRect(minX, minZ, maxX, maxZ);
     final sidewalk = rect - roadHere - pavingHere - grassHere - gravelHere;
 
+    // On sloped terrain, large polygons are cut into [tessellate]-metre
+    // cells first, so the surface follows the ground between its vertices
+    // (earcut alone spans a whole street with one triangle). Two levels:
+    // 50 m blocks, then cells, so each clip works on a small shape.
+    Iterable<Polygon> pieces(Shape shape) sync* {
+      if (tessellate <= 0) {
+        yield* shape.polygons;
+        return;
+      }
+      const block = 50.0;
+      for (var bz = minZ; bz < maxZ - 1e-6; bz += block) {
+        for (var bx = minX; bx < maxX - 1e-6; bx += block) {
+          final part = shape.clipRect(bx, bz, math.min(bx + block, maxX),
+              math.min(bz + block, maxZ));
+          if (part.isEmpty) continue;
+          for (var cz = bz; cz < math.min(bz + block, maxZ) - 1e-6; cz += tessellate) {
+            for (var cx = bx; cx < math.min(bx + block, maxX) - 1e-6; cx += tessellate) {
+              final cell = part.clipRect(cx, cz, cx + tessellate, cz + tessellate);
+              if (!cell.isEmpty) yield* cell.polygons;
+            }
+          }
+        }
+      }
+    }
+
     void fill(Shape shape, Surface baseKind, double lift) {
-      for (final polygon in shape.polygons) {
+      for (final polygon in pieces(shape)) {
         final all = [...polygon.outer, ...polygon.holes.expand((h) => h)];
         final tris = earcut(polygon.outer, polygon.holes);
         final ids = <int, int>{};
@@ -260,9 +286,20 @@ class Ground {
     }
 
     final kerbColor = _color(Surface.kerb);
-    for (final polygon in roadHere.polygons) {
+    Iterable<(Vector2, Vector2)> kerbEdges(Polygon polygon) sync* {
       for (final (a, b) in polygon.edges) {
         if (onBorder(a, b)) continue;
+        final n = tessellate > 0 ? (a.distanceTo(b) / tessellate).ceil() : 1;
+        // Exact endpoints, so an undivided edge is bit-for-bit (a, b).
+        Vector2 at(int k) => k == 0 ? a : k == n ? b : a + (b - a) * (k / n);
+        for (var k = 0; k < n; k++) {
+          yield (at(k), at(k + 1));
+        }
+      }
+    }
+
+    for (final polygon in roadHere.polygons) {
+      for (final (a, b) in kerbEdges(polygon)) {
         final d = b - a;
         final length = d.length;
         if (length < .01) continue;
@@ -288,7 +325,19 @@ class Ground {
     final railColor = _color(Surface.rails);
     final up = Vector3(0, 1, 0);
     final chunkRect = Extent(minX, minZ, maxX, maxZ);
-    for (final line in tramLines) {
+    for (final original in tramLines) {
+      // Short segments on slopes, so the rails stay on the surface.
+      final line = tessellate <= 0
+          ? original
+          : [
+              for (var i = 0; i < original.length - 1; i++)
+                for (var k = 0,
+                        n = (original[i].distanceTo(original[i + 1]) / 4).ceil().clamp(1, 1000);
+                    k < n;
+                    k++)
+                  original[i] + (original[i + 1] - original[i]) * (k / n),
+              original.last,
+            ];
       var along = 0.0;
       for (var i = 0; i < line.length - 1; i++) {
         final a = line[i], b = line[i + 1];

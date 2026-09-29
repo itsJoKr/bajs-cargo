@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_scene/scene.dart';
 import 'package:vector_math/vector_math.dart' as vm;
 
+import '../debug/render_options.dart';
 import '../domain/car.dart';
 import '../domain/chase_camera.dart';
 import '../domain/city_index.dart';
@@ -87,7 +88,7 @@ class DriveGame {
       world.scene,
       index,
       materials,
-      onLoaded: trees.plant,
+      onLoaded: RenderOptions.current.trees ? trees.plant : null,
     );
     final car = Car(
       ground: ground,
@@ -173,6 +174,20 @@ class DriveGame {
       vm.Vector3(camera.eyeX, camera.eyeY, camera.eyeZ),
       vm.Vector3(camera.targetX, camera.targetY, camera.targetZ),
     );
+  }
+
+  /// The bench flight (`?bench=1`): the camera circles the square at eye
+  /// height looking across it, once every [benchPeriod] seconds, so every
+  /// frame redraws the heaviest view in the city.
+  static const benchPeriod = 40.0;
+  double _benchTime = 0;
+
+  void benchStep(double dt) {
+    _benchTime += dt;
+    final a = _benchTime / benchPeriod * 2 * math.pi;
+    final centre = vm.Vector3(-15, 2.2, 22);
+    final eye = centre + vm.Vector3(math.sin(a) * 40, 0, math.cos(a) * 25);
+    lookAt(eye, vm.Vector3(-15 - math.sin(a) * 60, 8, 22 - math.cos(a) * 40));
   }
 
   /// Whether [name] is parked and its surroundings are streamed in.

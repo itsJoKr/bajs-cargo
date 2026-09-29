@@ -1,0 +1,144 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #9fb3c8;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: #fff;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+#app canvas {
+  display: block;
+}
+#loading {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  background: linear-gradient(#6d8fb3, #c7d3dd);
+  transition: opacity 0.6s;
+}
+#loading.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+#loading h1 {
+  margin: 0 0 8px;
+  font-size: 44px;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 12px #0005;
+}
+#hud {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  text-shadow: 0 1px 4px #000a;
+}
+#place {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: #0003;
+  white-space: nowrap;
+}
+#place:empty {
+  display: none;
+}
+#meter {
+  position: absolute;
+  right: 22px;
+  bottom: 18px;
+  font-variant-numeric: tabular-nums;
+}
+#speed {
+  font-size: 54px;
+  font-weight: 700;
+}
+#meter small {
+  margin-left: 4px;
+  font-size: 16px;
+  opacity: 0.85;
+}
+#gear {
+  margin-left: 12px;
+  font-size: 22px;
+}
+#help {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  font-size: 13px;
+  opacity: 0.85;
+}
+#touch {
+  display: none;
+}
+@media (pointer: coarse) {
+  #help,
+  #meter {
+    display: none;
+  }
+  #touch {
+    display: block;
+  }
+  #touch #stick {
+    position: fixed;
+    left: 24px;
+    bottom: 24px;
+    width: 200px;
+    height: 64px;
+    border-radius: 32px;
+    background: #0004;
+    border: 2px solid #fff6;
+  }
+  #stick .knob {
+    position: absolute;
+    left: calc(50% - 26px);
+    top: 4px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #fffc;
+  }
+  #pedals {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+  }
+  .pedal {
+    display: grid;
+    place-content: center;
+    width: 78px;
+    height: 96px;
+    border-radius: 14px;
+    background: #0005;
+    border: 2px solid #fff6;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  #hand {
+    height: 60px;
+  }
+  #place {
+    top: 10px;
+  }
+}
+#coverage {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  font-size: 13px;
+  opacity: 0.85;
+}

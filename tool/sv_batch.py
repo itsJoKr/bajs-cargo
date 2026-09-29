@@ -5,10 +5,13 @@ shots, and files the screenshots it saved.
     python3 tool/sv_batch.py emit TAB i j k      # print the batch JSON
     python3 tool/sv_batch.py file i j k          # copy the newest screenshots
                                                  # to .art/streetview/shots/<id>.jpg
+
+The work list is .art/streetview/square_todo.json unless SV_TODO names
+another (e.g. SV_TODO=.art/streetview/stedionica_todo.json).
 """
 import glob, json, os, shutil, sys
 
-TODO = ".art/streetview/square_todo.json"
+TODO = os.environ.get("SV_TODO", ".art/streetview/square_todo.json")
 SHOTS_DIR = glob.glob("/var/folders/*/*/T/claude-chrome-screenshots-*")
 todo = json.load(open(TODO))
 cmd = sys.argv[1]

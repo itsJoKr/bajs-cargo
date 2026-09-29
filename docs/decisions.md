@@ -168,3 +168,92 @@ overturn) them.
 - **Licensing caveat.** The textures are AI redrawings of Google Street
   View imagery; fine for this personal project, but Google's terms need a
   look before anything is published. `assets/ATTRIBUTION.md` says so.
+
+## Engine: ETC1S textures in the fork (2026-09-28)
+
+The web build is heavy to download (the hero atlas alone is a 7.9 MB
+`.fstex`), and the user asked for a proper engine feature rather than a
+game workaround. The change is too large for the running fork branch, so
+it lives on two stacked branches in a separate worktree,
+`~/Projects/flutter_scene-etc1s`, based on upstream master. The game's
+checkout (`codex/editor-static-resources-open-race`) is untouched.
+
+- **`feat/etc1s-transcode`**: standard KTX2 ETC1S textures transcode
+  straight to ETC1/ETC2 (lossless) or BC1/BC3 on the device instead of
+  decoding to rgba8. Byte-exact against basisu 2.50, GPU-checked on Metal,
+  Android GLES and headless Chrome.
+- **`feat/etc1s-encoder`**: a pure-Dart ETC1S encoder behind
+  `buildTextures(encoding: TextureEncoding.etc1s(quality: ...))`. Its
+  files validate and decode identically in basisu's reference transcoder,
+  and it is within about 0.3 dB of basisu at equal size (ahead at low
+  rates). The facade atlas goes from 3.5 MB to 0.72 MB.
+- **Not yet used by the game.** Switching the city atlases needs the game
+  on these branches (or upstream once merged). The branches are not
+  pushed: pushing and opening PRs waits for the user.
+
+## The three.js version becomes the main line (2026-09-29)
+
+The user asked for the game rebuilt in three.js inside this repo, with a
+better car and better physics than the Flutter build, and said the Flutter
+city is only a base: the web version should improve on it, and the Flutter
+bake does not need to stay byte-identical.
+
+- **Physics: Rapier's raycast vehicle** (`@dimforge/rapier3d-compat`,
+  `DynamicRayCastVehicleController`, a Bullet `btRaycastVehicle` port).
+  Suspension, weight transfer, grip limits and handbrake slides come out
+  of the solver instead of the Flutter bicycle model's hand rules; kerbs,
+  walls, trees, lamps, props and trams are real colliders. Tuned against
+  `web3d/tools/sim.ts` (0-100 in 4.8 s, 185 km/h, 31 m from 100 km/h,
+  ~1.35 g, climbs 12%, handbrake holds on it).
+- **Car: the Ferrari 458 from the three.js examples** (CC BY), separate
+  wheel nodes posed from the controller.
+- **City: exported, not rewritten.** `tool/export_web.dart` runs the same
+  generator (`City`, `Ground`, `emitBuilding`, hero atlas) and writes one
+  GLB; the atlas material is ported to `onBeforeCompile`. Two builds from
+  one model kept the Street View facades and roof work.
+- **Web frame: x east, y up, z SOUTH.** three.js is right-handed, so the
+  export mirrors z and rewinds every triangle to agree with its normal;
+  the Flutter frame (z north) stays everywhere in `tool/` and `data/`.
+- **Terrain from Copernicus GLO-30.** It is a surface model, and in
+  Gornji grad nearly every 30 m pixel is mostly roof, so dropping covered
+  pixels filled the plateau from the lower town (escarpment 150 m too far
+  north). Instead each pixel's ground estimate is the surface minus 65% of
+  the mean OSM building height over it (spires clamped), weighted by its
+  open share squared, then a 25 m Gaussian. Result: Markov trg +36 m,
+  Kaptol +5.5, Dolac +4.9, Zrinjevac -2 relative to the statue.
+  Buildings stand at the lowest ground along their street walls; each
+  wall starts its storeys at its own lowest sidewalk.
+- **Street furniture as props, not buildings.** `building=kiosk|roof|
+  gazebo|...` went through the building pass and came out as small
+  stone palaces; they are now kiosks and canopies. Tram platforms,
+  shelters, café terraces, statues, busts, fountains and lamps come from
+  OSM too. Mapped `roof:height` is honoured (the Cathedral's 34 m spires).
+- **`city_atlas.fmat` got a guard** for the web's surface-tile code on
+  walls (UV1.x = -(100 + tile)), so a Flutter rebake shows plain stone,
+  not a hero-atlas smear. The Flutter bake is otherwise not maintained.
+
+## Only real facades; faithful copies; a roof set (2026-09-29)
+
+- **The style kit is gone from the web build.** The first pass dressed
+  every wall with invented facades that look plausible but are not the
+  real buildings, which hid how much is actually done. Walls without a
+  Street View facade are now plain light stucco (`plainWalls` in
+  `emitBuilding`), and `tool/export_web.dart` writes
+  `data/hero/coverage.json`: every street wall of 4 m or more, done or to
+  do, the work list for the next pass. The HUD shows the count.
+- **Hero facades are faithful copies.** The first prompt removed shop
+  signs, lettering and ads; the user wants the building as it is: every
+  shop name, sign, ad, plaque, crack and stain, spelled as photographed.
+  Only what stands in front (people, cars, poles, trees, free-standing
+  umbrellas) goes. The old raws stay as `raw_clean.png`. The hero atlas
+  went to 768 px per facade height (from 512) so lettering stays legible,
+  4096 wide, no power-of-two padding.
+- **A roof set.** One clay tile, tinted per building and repeated every
+  2 m in a 224 px cell, averaged to flat pink-beige from the street. Now
+  eight gen-image coverings (old beaver-tail, red interlocking, dark
+  brown, pale, grey fibre-cement, dark zinc, green copper, flat gravel) in
+  `roof_atlas.png` (512 px cells), each with its real repeat size
+  (`data/roofs.json`), picked per building from `roof:material` /
+  `roof:colour`, else from style and a stable hash weighted toward old
+  clay (`tool/src/roofs.dart`), plus a world-space weathering pattern in
+  the shader so big roofs are not one stamped tile.

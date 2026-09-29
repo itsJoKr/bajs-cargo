@@ -37,7 +37,12 @@ fragment {
     vec2 info = GetUV1();
     vec4 tint = GetVertexColor();
     vec4 tex;
-    if (info.x < -0.5) {
+    if (info.x < -50.0) {
+      // -(100 + tile): a surface-atlas tile on a wall (church stone), which
+      // the web build samples; this material has no surface atlas bound
+      // for facades, so plain light stone.
+      tex = vec4(0.78, 0.76, 0.72, 1.0);
+    } else if (info.x < -0.5) {
       tex = texture(hero_atlas, uv);
     } else {
       float cols = material_params.columns;

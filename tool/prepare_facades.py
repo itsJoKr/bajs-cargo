@@ -27,26 +27,12 @@ redo just those facades):
 `.art/facades/manifest.json` records a verdict per facade
 (cropped / generated / packed / rejected + reason).
 
-The gen-image prompt (Codex CLI with the photo attached via -i):
-
-    The attached photo is a Google Street View picture of one real building
-    facade on Ban Jelačić Square in Zagreb, Croatia: {look}. Produce a
-    texture of exactly this building's facade for a 3D city model: a
-    perfectly orthographic, straight-on front elevation (no perspective, no
-    vanishing lines, all verticals vertical and all floors level), evenly
-    lit by soft overcast daylight with no cast shadows. Keep the real
-    architecture exactly as in the photo: {bays} window bays across and
-    {storeys} storeys from the pavement up to the main cornice, the same
-    window shapes and surrounds, ornament, balconies, colours and
-    materials, and the same ground-floor openings. Show only this one
-    building, from the pavement at the bottom edge to the top of its eaves
-    cornice at the top edge, filling the whole image edge to edge; include
-    no roof above the cornice, no sky, no street, no neighbouring
-    buildings. Remove everything that is not the building: people, cars,
-    trams, lamp posts, poles, statues, flags, trees, café awnings and
-    umbrellas, advertising banners, shop signs, lettering and any map
-    interface overlay; where they hid the facade, continue the
-    architecture consistently. Photorealistic, sharp, {width}x{height}.
+The gen-image prompt (Codex CLI with the photo attached via -i) is PROMPT
+below. Since 2026-09-29 it asks for a faithful copy: shop names, signs,
+ads, plaques, lettering, cracks and stains stay, spelled as photographed;
+only what stands in front of the building goes. (The first 17 were drawn
+with a prompt that removed signs and lettering; those raws are kept as
+`raw_clean.png`.)
 
 gen-image output is saved unprocessed; this script only resizes it.
 """
@@ -65,25 +51,35 @@ ROOT = Path(__file__).resolve().parent.parent
 FRAMES = ROOT / ".art" / "streetview" / "frames"
 WORK = ROOT / ".art" / "facades"
 MANIFEST = WORK / "manifest.json"
-SECTIONS = ["square"]
-ROW, ATLAS, GUTTER = 512, 2048, 4
+# Every data/hero/<section>.json (not atlas.json / coverage.json).
+SECTIONS = sorted(
+    p.stem for p in (ROOT / "data" / "hero").glob("*.json")
+    if p.stem not in ("atlas", "coverage")
+)
+# 768 px per facade height (about 40 px/m) keeps shop lettering legible.
+ROW, ATLAS, GUTTER = 768, 4096, 4
 STOREY, GROUND_EXTRA = 3.7, 1.0
 
 PROMPT = """The attached photo is a Google Street View picture of one real building \
-facade on Ban Jelačić Square in Zagreb, Croatia: {look}. Produce a texture of exactly \
-this building's facade for a 3D city model: a perfectly orthographic, straight-on front \
-elevation (no perspective, no vanishing lines, all verticals vertical and all floors \
-level), evenly lit by soft overcast daylight with no cast shadows. Keep the real \
-architecture exactly as in the photo: {bays} window bays across and {storeys} storeys \
-from the pavement up to the main cornice, the same window shapes and surrounds, \
-ornament, balconies, colours and materials, and the same ground-floor openings. Show \
-only this one building, from the pavement at the bottom edge to the top of its eaves \
-cornice at the top edge, filling the whole image edge to edge; include no roof above \
-the cornice, no sky, no street, no neighbouring buildings. Remove everything that is \
-not the building: people, cars, trams, lamp posts, poles, statues, flags, trees, café \
-awnings and umbrellas, advertising banners, shop signs, lettering and any map interface \
-overlay; where they hid the facade, continue the architecture consistently. \
-Photorealistic, sharp, {width}x{height}."""
+facade in {place}, Zagreb, Croatia: {look}. Produce a faithful texture of \
+exactly this building's facade for a 3D city model: a perfectly orthographic, straight-on \
+front elevation (no perspective, no vanishing lines, all verticals vertical and all \
+floors level), evenly lit by soft overcast daylight with no cast shadows. Copy the real \
+building exactly as it is in the photo, including everything on it: {bays} window bays \
+across and {storeys} storeys from the pavement up to the main cornice, the same window \
+shapes and surrounds, ornament, balconies, colours and materials, the same ground-floor \
+openings and shop fronts. Keep every shop name, sign, logo, letter, number, plaque, \
+poster and advertisement that is on the building, in the same place, size, colours and \
+typeface, spelled letter for letter exactly as in the photo, and invent no text that is \
+not there. Keep awnings and canopies fixed to the facade, window blinds and curtains, \
+cables, air-conditioning units, satellite dishes, cracks, stains, weathering, peeling \
+paint and graffiti as they are. Show only this one building, from the pavement at the \
+bottom edge to the top of its eaves cornice at the top edge, filling the whole image \
+edge to edge; include no roof above the cornice, no sky, no street, no neighbouring \
+buildings. Remove only what stands in front of the building and is not attached to it: \
+people, cars, trams, lamp posts, poles, traffic signs, statues, trees, free-standing \
+café umbrellas and furniture, and any map interface overlay; where they hid the facade, \
+continue what is visible around them. Photorealistic, sharp, {width}x{height}."""
 
 
 def facades() -> list[dict]:
@@ -143,7 +139,8 @@ def generate(f: dict, force: bool) -> subprocess.Popen | None:
     width, height = size_for(f)
     aspect = width / height
     w, h = (1536, 1024) if aspect > 1.25 else (1024, 1536) if aspect < 0.8 else (1024, 1024)
-    prompt = PROMPT.format(look=f["look"], bays=f["bays"], storeys=f["storeys"],
+    prompt = PROMPT.format(look=f["look"], place=f.get("place", "the historic centre"),
+                           bays=f["bays"], storeys=f["storeys"],
                            width=w, height=h)
     (work / "prompt.txt").write_text(prompt + "\n")
     if out.exists():
@@ -191,7 +188,8 @@ def pack() -> None:
             shelves.append(0)
         cells.append((f, raw, w, shelves[row] + GUTTER, row * stride + GUTTER))
         shelves[row] += need
-    height = 1 << (len(shelves) * stride - 1).bit_length()
+    # WebGL2 mips any size: no power-of-two padding (it doubled the atlas).
+    height = len(shelves) * stride
     atlas = np.full((height, ATLAS, 3), 128, np.uint8)
     rects = {}
     for f, raw, w, x, y in cells:

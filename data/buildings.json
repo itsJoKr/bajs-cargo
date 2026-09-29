@@ -1,0 +1,22 @@
+{
+  "_comment": "Per-building corrections and 3D features, written while recreating a building from Street View (.claude/skills/recreate-building). Keys are building ids as in data/hero/coverage.json. tags: OSM tag overrides (roof:shape, roof:height, height, building:levels, ...). roof: a covering from data/roofs.json. features: 3D things on or in front of a wall; see the skill for every type.",
+  "w105487407": {
+    "name": "Gradska štedionica",
+    "roof": "slate_grey"
+  },
+  "w375381225": {
+    "name": "Allianz corner (Trg bana Jelačića / Ilica)",
+    "features": [
+      {
+        "type": "sign",
+        "wall": "w375381225_e10",
+        "mount": "roof",
+        "image": "allianz.png",
+        "at": 0.55,
+        "width": 9.5,
+        "aboveEave": 0.6,
+        "source": "Street View Aug 2011 (frame f30), redrawn flat by gen-image"
+      }
+    ]
+  }
+}

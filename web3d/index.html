@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Zagreb Drive</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="loading">
+      <h1>Zagreb Drive</h1>
+      <p id="status">Loading…</p>
+    </div>
+    <div id="hud">
+      <div id="place"></div>
+      <div id="coverage"></div>
+      <div id="meter"><span id="speed">0</span><small>km/h</small><b id="gear">D</b></div>
+      <div id="help">W/↑ gas · S/↓ brake &amp; reverse · A/D steer · Space handbrake · R reset · 0 spawn · O occlusion</div>
+    </div>
+    <div id="touch">
+      <div id="stick"><div class="knob"></div></div>
+      <div id="pedals">
+        <div id="hand" class="pedal">HB</div>
+        <div id="brake" class="pedal">BRAKE</div>
+        <div id="gas" class="pedal">GAS</div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

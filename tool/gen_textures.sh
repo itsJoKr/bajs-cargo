@@ -46,6 +46,19 @@ add surf_roof_copper "Oxidised copper roof sheeting with standing seams running 
 add surf_cobbles "Old grey granite cobblestones of a historic Upper Town street, small square setts in curved rows. $SURFACE_RULES"
 add surf_stucco "Plain light warm grey painted stucco render wall, very subtle texture and faint weathering, perfectly uniform light colour (#E6E2DA). $SURFACE_RULES"
 
+# Roof set (web3d roof atlas, tool/prepare_roofs.py): each image covers a
+# known roof area, so the prompts fix the number of tile rows or seams.
+ROOF_RULES="Seamless tileable roof covering texture, seen perfectly straight-on and perpendicular to the roof plane (orthographic, no perspective, no horizon, no sky, no ridge, no eaves, no chimneys, no windows), filling the frame edge to edge, flat even diffuse overcast lighting, equal brightness at all edges so it tiles on both axes. Rows run exactly horizontally. Photorealistic material for a 3D city game, 1024x1024."
+
+add roof_biber_old "Old weathered Central European beaver-tail (Biberschwanz) clay roof tiles in a double-lap pattern, exactly 12 rows of tiles from top to bottom and about 16 tiles across, warm red-brown terracotta with darker soot, faint lichen and a few replaced lighter tiles, as on 19th-century roofs in Zagreb. $ROOF_RULES"
+add roof_clay_red "Newer orange-red interlocking clay roof tiles (Falzziegel, Mediterranean-style ribbed profile), exactly 10 rows of tiles from top to bottom and about 10 tiles across, clean with slight colour variation between tiles. $ROOF_RULES"
+add roof_clay_brown "Dark aged brown clay roof tiles with rounded ends, exactly 12 rows from top to bottom, heavy soot, dark weathering streaks and patches of moss, as on old courtyard buildings in a Central European city. $ROOF_RULES"
+add roof_clay_pale "Sun-bleached pale salmon-orange clay roof tiles with rounded beaver-tail ends, exactly 12 rows from top to bottom, faded and dusty with gentle tile-to-tile colour variation. $ROOF_RULES"
+add roof_slate_grey "Grey fibre-cement (eternit) roof slates laid in a diamond pattern, exactly 10 rows of diamonds from top to bottom, medium grey with slight weathering and faint streaks, as on post-war and 1930s roofs in Zagreb. $ROOF_RULES"
+add roof_zinc_dark "Dark grey zinc standing-seam sheet metal roof, exactly 8 evenly spaced thin raised seams running vertically from top to bottom, matte slightly weathered zinc with faint streaks. $ROOF_RULES"
+add roof_copper_green "Oxidised copper standing-seam roof sheeting, exactly 8 evenly spaced raised seams running vertically from top to bottom, pale green verdigris patina with darker streaks and slight colour variation, as on church and palace roofs in Zagreb. $ROOF_RULES"
+add roof_flat_gravel "A flat roof covered with dark grey bitumen membrane and scattered light gravel, a faint seam line across it, weathered. $ROOF_RULES"
+
 want=("$@")
 run_one() {
   local name="$1" prompt="$2"

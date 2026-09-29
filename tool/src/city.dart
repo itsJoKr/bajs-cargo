@@ -85,7 +85,21 @@ class SegmentGrid {
 }
 
 class City {
-  City(this.osm, this.extent, {this.heroEaves = const {}});
+  City(
+    this.osm,
+    this.extent, {
+    this.heroEaves = const {},
+    this.separateSmallStructures = false,
+  });
+
+  /// `building=` values that are street furniture rather than buildings.
+  static const smallStructureKinds = {'kiosk', 'roof', 'gazebo', 'carport', 'shelter'};
+
+  /// When set, [smallStructureKinds] go to [smallStructures] (for props)
+  /// instead of becoming buildings with facades and roofs. Off for the
+  /// Flutter bake, which keeps its committed output.
+  final bool separateSmallStructures;
+  final smallStructures = <(String, Tags, Polygon)>[];
 
   final OsmData osm;
   final Extent extent;
@@ -261,6 +275,11 @@ class City {
           }
         }
         final id = area.polygons.length == 1 ? area.id : '${area.id}_$i';
+        if (separateSmallStructures &&
+            smallStructureKinds.contains(area.tags['building'])) {
+          smallStructures.add((id, area.tags, polygon));
+          continue;
+        }
         buildings.add(
           makeBuilding(
             id,

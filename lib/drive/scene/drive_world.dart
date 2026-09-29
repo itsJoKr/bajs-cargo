@@ -3,6 +3,8 @@ import 'dart:math' as math;
 import 'package:flutter_scene/scene.dart';
 import 'package:vector_math/vector_math.dart' as vm;
 
+import '../debug/render_options.dart';
+
 /// The scene graph shell: sky, sun, lighting look and the camera. City
 /// chunks, the car and everything else hang off [scene] from the systems
 /// that own them; this class only owns what every view shares.
@@ -29,6 +31,7 @@ class DriveWorld {
 
   Future<void> initialize() async {
     await Scene.initializeStaticResources();
+    final options = RenderOptions.current;
     sky = PhysicalSkySource(
       sunDirection: sunDirection.clone(),
       turbidity: 3.5,
@@ -42,7 +45,7 @@ class DriveWorld {
       // the same; at exposure 1 ACES washed both out to near white.
       exposure: .26,
       environmentIntensity: .5,
-      ambientOcclusionEnabled: true,
+      ambientOcclusionEnabled: options.ambientOcclusion,
       ambientOcclusionIntensity: .8,
       ambientOcclusionHalfResolution: true,
       fogEnabled: true,
@@ -57,13 +60,20 @@ class DriveWorld {
     );
     scene.skybox = Skybox(sky);
     scene.environment = EnvironmentMap.fromSky(sky);
+    if (options.scale case final scale?) scene.renderScale = scale;
+    if (options.antiAliasing case final aa?) {
+      scene.antiAliasingMode = AntiAliasingMode.values.firstWhere(
+        (m) => m.name == aa,
+        orElse: () => AntiAliasingMode.auto,
+      );
+    }
     scene.sunLight = SunLight(
       sky,
-      castsShadow: true,
+      castsShadow: options.shadows,
       intensityScale: 1.05,
       shadowMaxDistance: 220,
-      shadowCascadeCount: 3,
-      shadowMapResolution: 2048,
+      shadowCascadeCount: options.shadowCascades ?? 3,
+      shadowMapResolution: options.shadowResolution ?? 2048,
       shadowDepthBias: .05,
       shadowNormalBias: .18,
     );

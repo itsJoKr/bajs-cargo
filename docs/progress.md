@@ -171,3 +171,22 @@ with a small section, using Street View in their own Chrome and gen-image.
 - Not yet: the statue, Manduševac and the other landmarks; roofs and
   gables above the hero walls are still generic; loading got slower on
   Slim_1 (the 8 M-texel atlas transcodes at start).
+
+## Web 1: the three.js drive (2026-09-29)
+
+`web3d/` (Vite + TypeScript + three.js r186 + Rapier 0.21). `cd web3d &&
+npm install && npm run dev`, then http://localhost:5180/.
+
+- Car: Rapier raycast vehicle + the three.js examples' Ferrari; keyboard,
+  gamepad and touch; chase camera that pulls in at walls (Rapier ray).
+- City: the core (591 buildings, hero facades) exported by
+  `tool/export_web.dart`; on terrain from Copernicus GLO-30
+  (`tool/prepare_terrain.py`, `data/terrain/`), with Medvednica on the
+  horizon in a separate far pass.
+- Props: 8 kiosks, 5 canopies, 2 tram platforms with shelters, 35 café
+  terraces, 30 monuments (Ban Jelačić, Prizemljeno sunce, the Marian
+  column, busts...), fountains (Manduševac, Gljiva), 95 street lamps.
+- 11 ZET trams on the real tracks, articulated, stopping for the car.
+- Look: physical sky + IBL, sun shadows following the car, GTAO, ACES.
+- Checks: `node tools/sim.ts` (16 physics checks), `npm run build`,
+  `node tools/shot.mjs` (headless Chrome screenshots over CDP).
