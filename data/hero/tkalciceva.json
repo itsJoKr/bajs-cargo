@@ -1,0 +1,437 @@
+{
+ "facades": [
+  {
+   "name": "tkalciceva_otto_frank",
+   "photo": ".art/streetview/tkalciceva/e1.png",
+   "edges": [
+    "w293352410_e4"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "Street View Jul 2025 (rectified from hand-picked frames of an official pano)",
+   "look": "a two-storey old town house on the east side of Tkalčićeva in cream-white plaster with worn patchy walls, seen from the west. Three bays of small rectangular windows with dark brown wooden frames and brown surrounds under a deep eaves cornice with a steel rain gutter, above it a steep brown-red clay-tile roof band with two small dormers with red-brown frames. Ground floor: a long grey-taupe retractable awning across the whole front carrying the small round logo and 'RÖMERQUELLE' at the LEFT end and the script name 'Otto&Frank' in dark letters at the RIGHT-centre; under it dark open café fronts with black chalkboards, dark arched doorway, a blue shopfront and a cash machine at the far RIGHT. Copy the lettering exactly, no other text. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_al_paso",
+   "photo": ".art/streetview/tkalciceva/e2.png",
+   "edges": [
+    "w293357016_e4"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "Street View Jul 2025 (rectified from hand-picked frames of an official pano)",
+   "look": "a two-storey white-plastered old town house, three bays, the first floor with three brown-framed windows each with a flower box of pink geraniums, a moulded cornice under a steep red clay-tile roof with three dormers with white-framed windows. Ground floor: a long dark bottle-green awning across the front with a white horse-and-rider logo and the white capitals 'AL PASO', a small Römerquelle logo at the right end; below it a sand-coloured rendered ground floor with a dark shopfront and glazed door in the middle, a small painted window at the LEFT, and a big dark brown arched double gate at the RIGHT. Copy the lettering exactly, no other text. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_ornate_mint",
+   "photo": ".art/streetview/tkalciceva/e3.png",
+   "edges": [
+    "w293357019_e5"
+   ],
+   "bays": 5,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "Street View Jul 2025 (rectified from hand-picked frames of an official pano)",
+   "look": "a two-storey historicist house in white stucco with rich neo-renaissance ornament, five bays: on the first floor tall rectangular windows with brown wooden frames in moulded surrounds under garland-ornamented lintels and, second from the RIGHT, an arched window with a small statue niche; a strong dentilled cornice and stucco festoons under the roof edge, a red clay-tile roof with two white dormers above. Ground floor: pale mint-green painted walls with two dark rectangular doors/windows, a dark red brown arched door at the far RIGHT and a green awning end at the far RIGHT edge. No lettering. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_royal_india",
+   "photo": ".art/streetview/tkalciceva/e4.png",
+   "edges": [
+    "w293357168_e4"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "Street View Jul 2025 (rectified from hand-picked frames of an official pano)",
+   "look": "a two-storey house on the east side of Tkalčićeva with a pale cream-yellow plastered front, three bays of first floor windows with brown wooden double frames in plain white surrounds, a small red-and-white house sign board hanging at the RIGHT of the middle window, an old street lantern bracket on the wall at the LEFT, a simple cornice and a red clay-tile roof behind. Ground floor: a long taupe-grey retractable awning with the white script 'Coca-Cola' and a small brand text at the right end; below it dark brown wooden shopfront doors, a black-and-gold sign board 'Royal India' with a gold elephant emblem at the LEFT, and at the far LEFT a filigree dark brown gate with a balustrade above it. Copy the lettering exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_jamnica",
+   "photo": ".art/streetview/tkalciceva/e5.png",
+   "edges": [
+    "w293357169_e3"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "Street View Jul 2025 (rectified from hand-picked frames of an official pano)",
+   "look": "a two-storey white-plastered baroque house whose gable rises in a curved scalloped wavy pediment with a small oval attic window, three bays of first floor windows with brown wooden frames in thin white surrounds and shallow window sills; ground floor: a wide dark blue awning with the white script 'Jamnica' and small text '1828' at the RIGHT and a round 'Pizza Gelato' style logo at the LEFT of the awning, under it a glazed ice-cream shopfront with posters, a number plate '28' at the far RIGHT edge beside a narrow dark brown filigree gate. Copy the lettering exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_souvenirs",
+   "photo": ".art/streetview/tkalciceva/e7.png",
+   "edges": [
+    "w293357439_e5"
+   ],
+   "bays": 5,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "Street View Jul 2025 (rectified from hand-picked frames of an official pano)",
+   "look": "a two-storey house in cream-beige plaster with weathered patches, five bays of first floor windows with white wooden casement frames and white surrounds, a plain projecting cornice with a zinc gutter and, above it, a red clay-tile roof with four small white-framed gabled dormers. Ground floor: a dark grey retractable awning with the white italic text 'Lapis Art Jewelry' at the LEFT (cut by the picture edge, shown as 'Jewelry'), a second dark grey awning over a souvenir shop with postcards racks, a dark open door in the middle, a red hanging blade sign 'SOUVENIRS' on an iron bracket at the RIGHT, and another awning with white letters 'SOUVENIRS' at the far RIGHT. Copy the lettering exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_stretto",
+   "photo": ".art/streetview/tkalciceva/e8.png",
+   "edges": [
+    "w293357440_e7"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "Street View Jul 2025 (rectified from hand-picked frames of an official pano)",
+   "look": "a two-storey cream-yellow plastered old town house: three bays at the first floor, two tall white-framed windows with white surrounds and a plain band cornice with two shallow panels below the sills, ground floor with a black-and-red hanging sign 'Stretto' on a wall bracket at the RIGHT, a dark brown iron-latticed double door, the house number '34' on a small plate, a black wall lantern with a flower basket, small dark shop windows and a dark grey awning starting at the far RIGHT with the white italic text 'Lapis Art'. Copy the lettering exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_meet_eat",
+   "photo": ".art/streetview/tkalciceva/w1.png",
+   "edges": [
+    "w289908898_e0"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "Street View Jul 2025 (rectified from hand-picked frames of an official pano)",
+   "look": "a two-storey cream-yellow plastered old town house on the WEST side of Tkalčićeva with a long dark brown wooden gallery balcony with slender vertical balusters along the whole first floor, supported by rough wooden posts, the brown eaves above and a row of five small dark-brown wooden dormers on the roof; first floor: three tall brown windows and a brown door onto the gallery; ground floor: a white-framed arched dark-brown double door with the number '31' above, at the LEFT a window with brown wooden shutters, and to the RIGHT the shop front with white letters 'meet&eat' and black menu boards. Copy the lettering exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_saphira_block",
+   "photo": ".art/streetview/tkalciceva/a1.png",
+   "edges": [
+    "w735313510_e10"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Tkalčićeva ulica",
+   "source": "Street View Jul 2025 (official pano 5 m from the wall, rectified, blurry)",
+   "look": "a modern four-storey block of white smooth plaster on the west side of Tkalčićeva, seen from the east: three upper floors of tall rectangular casement windows with white steel frames, several with a low glass or steel balcony rail at the sill, plain flat white surfaces with a flat top cornice; the LEFT end is a narrow taller white part. Ground floor: a wide dark grey-black retractable awning across the left two thirds with the white script 'Coca-Cola', a small blue rectangular sign on the wall above its left end, glazed shopfronts under it, and a grey rough-stone plinth at the far LEFT with graffiti. Copy the lettering exactly, no other text. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_pink_palace",
+   "photo": ".art/streetview/tkalciceva/c_pink.png",
+   "edges": [
+    "w289908952_e6"
+   ],
+   "bays": 7,
+   "storeys": 4,
+   "place": "Tkalčićeva ulica",
+   "source": "Maps user photosphere Dec 2016 (reference only, wall match approximate)",
+   "look": "a long four-storey neo-renaissance palace in pale dusty-pink stucco: a raised rusticated ground floor with small square basement windows at the pavement and a dark entrance door near the RIGHT, above it two main floors of tall rectangular white-framed windows with strong moulded pediments and sill brackets and stucco garlands between the floors, a top row of small windows under a projecting cornice, seven bays. No lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_mihokovic",
+   "photo": ".art/streetview/tkalciceva/c_miho.png",
+   "edges": [
+    "w289908823_e19"
+   ],
+   "bays": 7,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "Maps user photosphere Dec 2016 (Kuća Mihoković, Croatian Naive Art gallery)",
+   "look": "a low two-storey old house, Kuća Mihoković, in worn cream-grey lime plaster with peeling patches at the base, seven bays; first-floor windows with white casements in plain pale surrounds, a deep eaves line; ground floor: on the LEFT a stone-framed arched carriage gate with two small black plaques beside it, a small stone-framed window with black iron-hinged shutters, a white rectangular sign board reading 'Croatian Naive Art' and 'Gallery Mirko Virius' in black letters above it, then to the RIGHT a larger stone-framed window with brown frame and open black iron-hinged shutters; an old black iron street lantern on a bracket on the wall. Copy the lettering exactly, no other text. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_balcony_house",
+   "photo": ".art/streetview/tkalciceva/inv_balcony_house.png",
+   "edges": [
+    "w289908881_e0"
+   ],
+   "bays": 5,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED (the only frame shows the neighbouring Meet & Eat house; style of it)",
+   "look": "INVENTED facade (no photograph exists of this house): the attached picture is only a flat swatch of the wall colour, so ignore any wording about copying a photo and design this building freely: a two-storey old town house in pale cream-yellow plaster with a long brown weathered wooden gallery balcony on slim posts across the whole first floor (plank balustrade with a top rail), five bays, brown wooden doors and shuttered windows under the gallery, one low arched door, a plain eaves line. No lettering at all. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_romerquelle",
+   "photo": ".art/streetview/tkalciceva/c_romer.png",
+   "edges": [
+    "w289908903_e0"
+   ],
+   "bays": 4,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "Street View Jul 2025 (official pano d, 3 m from the wall)",
+   "look": "a two-storey house in cream plaster whose ground floor carries a wide red banner-awning across the whole front with a white round logo and the white capitals 'RÖMERQUELLE' and below them the smaller words 'OŽIVLJAVA OSJETILA'; under it an ice-cream cafe with a big arched glazed door, a big poster of an ice-cream cone in pink and cream at the RIGHT, small posters at the LEFT and a house number plate '27'; above the awning first-floor windows with brown frames and a plain cornice. Copy the lettering exactly, no other text. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_white_dormers",
+   "photo": ".art/streetview/tkalciceva/r_u.png",
+   "edges": [
+    "w293357170_e4"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "Street View Jul 2025 (official panos c and d rectified, blurry)",
+   "look": "a two-storey white-plastered house with three first-floor windows with brown wooden shutters and thin white surrounds, a cornice and two small roof dormers above; ground floor: a pale awning over glazed shop fronts with a small orange round sign at the LEFT and a blue awning strip at the RIGHT, postcards and posters in the windows. No other lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_modern_east",
+   "photo": ".art/streetview/tkalciceva/r_o.png",
+   "edges": [
+    "w289908815_e16"
+   ],
+   "bays": 3,
+   "storeys": 6,
+   "place": "Tkalčićeva ulica",
+   "source": "Street View Jul 2025 (official pano a, rectified)",
+   "look": "a modern six-storey residential block of pale cream-white plaster with a stack of deep continuous balconies with glass and white metal railings on every upper floor, three bays, a flat roofline with a slightly recessed top floor; ground floor: glazed shop fronts with a dark grey fascia and small shop signs. No readable lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_east_tenement",
+   "photo": ".art/streetview/tkalciceva/inv_east_tenement.png",
+   "edges": [
+    "w289863031_e7",
+    "w289863031_e8"
+   ],
+   "bays": 8,
+   "storeys": 5,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED (no usable Street View or Maps photo; style of the neighbouring real facades)",
+   "look": "INVENTED facade (no photograph exists of this house): the attached picture is only a flat swatch of the wall colour, so ignore any wording about copying a photo and design this building freely and plausibly, as a real old-town house of Tkalčićeva street in Zagreb: a five-storey historicist tenement in warm cream-yellow plaster, eight bays, tall rectangular windows with white moulded surrounds and small cornices on the first floor and simple ones above, shallow stucco string courses between the floors, a strong projecting main cornice, a ground floor of shop fronts with dark brown wooden frames and glass, a wide arched carriage entrance in the middle with a wooden double door. No lettering at all. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_low_pink",
+   "photo": ".art/streetview/tkalciceva/inv_low_pink.png",
+   "edges": [
+    "w289863012_e3"
+   ],
+   "bays": 5,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED (no usable Street View or Maps photo; style of the neighbouring real facades)",
+   "look": "INVENTED facade (no photograph exists of this house): the attached picture is only a flat swatch of the wall colour, so ignore any wording about copying a photo and design this building freely and plausibly, as a real old-town house of Tkalčićeva street in Zagreb: a two-storey low baroque house in pale pink plaster, five bays, first-floor windows with brown wooden double casements and white surrounds with small flower boxes, a moulded cornice, ground floor with two shop fronts in dark green wood and one arched door. No lettering at all. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_ochre_three",
+   "photo": ".art/streetview/tkalciceva/inv_ochre_three.png",
+   "edges": [
+    "w289863013_e2"
+   ],
+   "bays": 6,
+   "storeys": 3,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED (no usable Street View or Maps photo; style of the neighbouring real facades)",
+   "look": "INVENTED facade (no photograph exists of this house): the attached picture is only a flat swatch of the wall colour, so ignore any wording about copying a photo and design this building freely and plausibly, as a real old-town house of Tkalčićeva street in Zagreb: a three-storey historicist house in ochre plaster with cream window surrounds, six bays, pedimented first-floor windows, simple flat second-floor windows, a dentilled cornice, a ground floor with dark shopfronts and a tall arched door on the LEFT. No lettering at all. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_blue_grey_four",
+   "photo": ".art/streetview/tkalciceva/inv_blue_grey_four.png",
+   "edges": [
+    "w735313512_e1"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED (no usable Street View or Maps photo; style of the neighbouring real facades)",
+   "look": "INVENTED facade (no photograph exists of this house): the attached picture is only a flat swatch of the wall colour, so ignore any wording about copying a photo and design this building freely and plausibly, as a real old-town house of Tkalčićeva street in Zagreb: a four-storey late-nineteenth-century house in pale blue-grey plaster with white pilasters at the corners, five bays of tall windows with white surrounds, small wrought-iron balconies on the first floor, a heavy cornice, ground floor with two dark shop fronts and a narrow door. No lettering at all. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_cream_three",
+   "photo": ".art/streetview/tkalciceva/inv_cream_three.png",
+   "edges": [
+    "w735313511_e41"
+   ],
+   "bays": 4,
+   "storeys": 3,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED (no usable Street View or Maps photo; style of the neighbouring real facades)",
+   "look": "INVENTED facade (no photograph exists of this house): the attached picture is only a flat swatch of the wall colour, so ignore any wording about copying a photo and design this building freely and plausibly, as a real old-town house of Tkalčićeva street in Zagreb: a three-storey house in cream plaster, four bays, tall windows with brown shutters folded open and light stone sills, a simple cornice, ground floor with a shop front in dark wood and a plain arched door. No lettering at all. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_green_long",
+   "photo": ".art/streetview/tkalciceva/inv_green_long.png",
+   "edges": [
+    "w431186024_e0"
+   ],
+   "bays": 7,
+   "storeys": 3,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED (no usable Street View or Maps photo; style of the neighbouring real facades)",
+   "look": "INVENTED facade (no photograph exists of this house): the attached picture is only a flat swatch of the wall colour, so ignore any wording about copying a photo and design this building freely and plausibly, as a real old-town house of Tkalčićeva street in Zagreb: a long three-storey house in pale sage-green plaster, seven bays, white window frames with slim white surrounds and shallow triangular pediments on the first floor, a moulded cornice, ground floor with shop fronts in dark grey with glass and two arched doors. No lettering at all. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_demeter",
+   "photo": ".art/streetview/tkalciceva/inv_demeter.png",
+   "edges": [
+    "r6414116_e4"
+   ],
+   "bays": 6,
+   "storeys": 4,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED (no usable Street View or Maps photo; style of the neighbouring real facades)",
+   "look": "INVENTED facade (no photograph exists of this house): the attached picture is only a flat swatch of the wall colour, so ignore any wording about copying a photo and design this building freely and plausibly, as a real old-town house of Tkalčićeva street in Zagreb: a four-storey renovated house in smooth bright white plaster, six bays of tall windows with slim grey frames and no ornament apart from a plain profiled cornice and a raised base band in light grey stone, ground floor with shop fronts with dark glass. No lettering at all. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_low_yellow_long",
+   "photo": ".art/streetview/tkalciceva/inv_low_yellow_long.png",
+   "edges": [
+    "w289908814_e2"
+   ],
+   "bays": 7,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED (no usable Street View or Maps photo; style of the neighbouring real facades)",
+   "look": "INVENTED facade (no photograph exists of this house): the attached picture is only a flat swatch of the wall colour, so ignore any wording about copying a photo and design this building freely and plausibly, as a real old-town house of Tkalčićeva street in Zagreb: a long two-storey baroque house in warm yellow plaster, seven bays, first-floor windows with white casements, brown shutters and white surrounds, a simple cornice, ground floor with an arched carriage gate in dark brown wood and small shuttered windows. No lettering at all. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_yellow_side_a",
+   "photo": ".art/streetview/tkalciceva/inv_yellow_side_a.png",
+   "edges": [
+    "w289908814_e3"
+   ],
+   "bays": 4,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED (no usable Street View or Maps photo; style of the neighbouring real facades)",
+   "look": "INVENTED facade (no photograph exists of this house): the attached picture is only a flat swatch of the wall colour, so ignore any wording about copying a photo and design this building freely and plausibly, as a real old-town house of Tkalčićeva street in Zagreb: a two-storey side wall of a house in warm yellow plaster, four bays, small windows with brown shutters, one ground-floor arched door. No lettering at all. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_yellow_side_b",
+   "photo": ".art/streetview/tkalciceva/inv_yellow_side_b.png",
+   "edges": [
+    "w289908814_e10"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED (no usable Street View or Maps photo; style of the neighbouring real facades)",
+   "look": "INVENTED facade (no photograph exists of this house): the attached picture is only a flat swatch of the wall colour, so ignore any wording about copying a photo and design this building freely and plausibly, as a real old-town house of Tkalčićeva street in Zagreb: a two-storey side wall of a house in yellow plaster, three bays, small windows with brown shutters, a plain door. No lettering at all. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_modern_east_four",
+   "photo": ".art/streetview/tkalciceva/inv_modern_east_four.png",
+   "edges": [
+    "w735337384_e1"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED (no usable Street View or Maps photo; style of the neighbouring real facades)",
+   "look": "INVENTED facade (no photograph exists of this house): the attached picture is only a flat swatch of the wall colour, so ignore any wording about copying a photo and design this building freely and plausibly, as a real old-town house of Tkalčićeva street in Zagreb: a four-storey plain house in light beige plaster, three bays of tall windows with dark frames, a plain cornice, ground floor with a glass shop front. No lettering at all. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_kinderman",
+   "photo": ".art/streetview/tkalciceva/inv_kinderman.png",
+   "edges": [
+    "w293352156_e3"
+   ],
+   "bays": 4,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED (no usable Street View or Maps photo; style of the neighbouring real facades)",
+   "look": "INVENTED facade (no photograph exists of this house): the attached picture is only a flat swatch of the wall colour, so ignore any wording about copying a photo and design this building freely and plausibly, as a real old-town house of Tkalčićeva street in Zagreb: a two-storey house in pale rose plaster, four bays, first-floor windows with white casements in cream surrounds, a moulded cornice, ground floor with a shop window and a door in dark brown wood. No lettering at all. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_debic_side",
+   "photo": ".art/streetview/tkalciceva/inv_debic_side.png",
+   "edges": [
+    "w293352410_e3"
+   ],
+   "bays": 5,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED (no usable Street View or Maps photo; style of the neighbouring real facades)",
+   "look": "INVENTED facade (no photograph exists of this house): the attached picture is only a flat swatch of the wall colour, so ignore any wording about copying a photo and design this building freely and plausibly, as a real old-town house of Tkalčićeva street in Zagreb: a two-storey side wall of a house in cream-white plaster, five bays of small windows with brown frames, a big brown wooden double door at the LEFT, a simple eaves cornice, patchy weathering. No lettering at all. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_golli",
+   "photo": ".art/streetview/tkalciceva/inv_golli.png",
+   "edges": [
+    "w289908854_e3"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED (no usable Street View or Maps photo; style of the neighbouring real facades)",
+   "look": "INVENTED facade (no photograph exists of this house): the attached picture is only a flat swatch of the wall colour, so ignore any wording about copying a photo and design this building freely and plausibly, as a real old-town house of Tkalčićeva street in Zagreb: a small two-storey house in white plaster, three bays, brown wooden shutters, a stone door frame at the RIGHT. No lettering at all. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_plemenitas",
+   "photo": ".art/streetview/tkalciceva/inv_plemenitas.png",
+   "edges": [
+    "w289908857_e0"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED (no usable Street View or Maps photo; style of the neighbouring real facades)",
+   "look": "INVENTED facade (no photograph exists of this house): the attached picture is only a flat swatch of the wall colour, so ignore any wording about copying a photo and design this building freely and plausibly, as a real old-town house of Tkalčićeva street in Zagreb: a small two-storey house in pale yellow-cream plaster, three bays, first-floor windows with brown wooden frames and white surrounds, a cornice, ground floor with a shop front and a door. No lettering at all. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_yard_a",
+   "photo": ".art/streetview/tkalciceva/inv_yard_a.png",
+   "edges": [
+    "w293357019_e4"
+   ],
+   "bays": 6,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED (no usable Street View or Maps photo; style of the neighbouring real facades)",
+   "look": "INVENTED facade (no photograph exists of this house): the attached picture is only a flat swatch of the wall colour, so ignore any wording about copying a photo and design this building freely and plausibly, as a real old-town house of Tkalčićeva street in Zagreb: a long two-storey plain courtyard wall of a house in weathered cream plaster, six bays of small windows with brown frames, one arched door, a plain eaves cornice. No lettering at all. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_yard_b",
+   "photo": ".art/streetview/tkalciceva/inv_yard_b.png",
+   "edges": [
+    "w293357168_e3"
+   ],
+   "bays": 5,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED (no usable Street View or Maps photo; style of the neighbouring real facades)",
+   "look": "INVENTED facade (no photograph exists of this house): the attached picture is only a flat swatch of the wall colour, so ignore any wording about copying a photo and design this building freely and plausibly, as a real old-town house of Tkalčićeva street in Zagreb: a two-storey plain courtyard wall in weathered cream-beige plaster, five bays of small windows with brown shutters, a plain eaves cornice, a low plain door. No lettering at all. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_yard_c",
+   "photo": ".art/streetview/tkalciceva/inv_yard_c.png",
+   "edges": [
+    "w293357169_e0"
+   ],
+   "bays": 5,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED (no usable Street View or Maps photo; style of the neighbouring real facades)",
+   "look": "INVENTED facade (no photograph exists of this house): the attached picture is only a flat swatch of the wall colour, so ignore any wording about copying a photo and design this building freely and plausibly, as a real old-town house of Tkalčićeva street in Zagreb: a two-storey plain courtyard wall in white plaster, five bays of small windows with brown frames, a plain eaves cornice, a low door. No lettering at all. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_north_east",
+   "photo": ".art/streetview/tkalciceva/inv_north_east.png",
+   "edges": [
+    "w293357492_e4"
+   ],
+   "bays": 4,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED (no usable Street View or Maps photo; style of the neighbouring real facades)",
+   "look": "INVENTED facade (no photograph exists of this house): the attached picture is only a flat swatch of the wall colour, so ignore any wording about copying a photo and design this building freely and plausibly, as a real old-town house of Tkalčićeva street in Zagreb: a two-storey house in ochre-yellow plaster, four bays, first-floor windows with white casements in white surrounds, a moulded cornice, ground floor with a dark shop front and a door. No lettering at all. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_north_end",
+   "photo": ".art/streetview/tkalciceva/inv_north_end.png",
+   "edges": [
+    "w296513223_e0"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED (no usable Street View or Maps photo; style of the neighbouring real facades)",
+   "look": "INVENTED facade (no photograph exists of this house): the attached picture is only a flat swatch of the wall colour, so ignore any wording about copying a photo and design this building freely and plausibly, as a real old-town house of Tkalčićeva street in Zagreb: a four-storey house in beige plaster, three bays of tall windows with white surrounds, a strong cornice, ground floor with a dark glazed shop front. No lettering at all. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tkalciceva_b_tall_east",
+   "photo": ".art/streetview/tkalciceva/inv_tall_east.png",
+   "edges": [
+    "w735337391_e32"
+   ],
+   "bays": 3,
+   "storeys": 6,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED (no usable Street View or Maps photo; style of the neighbouring real facades)",
+   "look": "INVENTED facade (no photograph exists of this house): the attached picture is only a flat swatch of the wall colour, so ignore any wording about copying a photo and design this building freely and plausibly, as a real old-town house of Tkalčićeva street in Zagreb: a six-storey mid-century residential block in light grey-beige plaster, three bays of wide windows with dark frames and shallow balconies, a flat roofline, ground floor with a glazed shop front. No lettering at all. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  }
+ ]
+}

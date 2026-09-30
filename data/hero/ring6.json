@@ -1,0 +1,234 @@
+{
+ "facades": [
+  {
+   "name": "bogo_palace",
+   "photo": ".art/streetview/rect/bg_palace_c.png",
+   "edges": [
+    "w579294869_e9"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Bogovićeva ulica",
+   "source": "Street View Jul 2025 (rectified from 2 frames of pano bXPC2z...)",
+   "look": "a historicist neo-baroque palace in yellow-cream stucco on the south side of Bogovićeva: a rusticated ground floor with horizontal joints and arched windows over small square basement windows, a stone string course and balustrades under tall arched windows on the first floor, each with sculpted garland pediments on brackets, a frieze of small square attic windows under a deep cornice; at the LEFT end a projecting portal bay with paired columns, a balcony with a stone balustrade over a carriage arch with a dark iron gate, and above it a big arched window under a triangular pediment with sculpture. A blue rectangular plaque on the ground floor. Four storeys. Draw NO lamp post, NO café umbrella, NO egg sculpture, NO text at all"
+  },
+  {
+   "name": "bogo_beige",
+   "photo": ".art/streetview/rect/bg_beige_c.png",
+   "edges": [
+    "w435116997_e0"
+   ],
+   "bays": 4,
+   "storeys": 5,
+   "place": "Bogovićeva ulica",
+   "source": "Street View Jul 2025 (rectified from 2 frames of pano bXPC2z...)",
+   "look": "a plain 1950s-60s five-storey block in beige-grey render on the south side of Bogovićeva: four bays, on each of the four upper floors a pair of casement windows with white roller shutters (some open, showing dark interiors), flat roof with a thin railing; NO ornament. The ground floor was hidden by a cafe umbrella in the photo: draw glazed shop fronts (a green display window on the left, a dark glazed door in the middle-left, a patterned side panel and a white glazed door at the right) with no readable text. Draw NO umbrella, NO lamp, NO people, NO cables"
+  },
+  {
+   "name": "bogo_sw_palace",
+   "photo": ".art/streetview/rect/bg_nwp_c.png",
+   "edges": [
+    "w435116999_e0"
+   ],
+   "bays": 7,
+   "storeys": 4,
+   "source": "Street View Aug 2019 photosphere, oblique frame",
+   "look": "the yellow-cream neo-baroque palace on the SOUTH side of Bogovićeva, west of the palace with the carriage arch (same yellow-cream colour and style): rusticated ground floor with horizontal joints, arched ground-floor windows over small square basement windows with iron bars, a stone string course and balustrades below tall arched first-floor windows with sculpted pediments and garlands, a deep cornice with a frieze; a dark plaque on the ground floor. Four storeys, six bays across, straight-on elevation. A golden sphere sculpture, a bicycle and a person stand in front: leave them out. NO signs, no text. Seven bays across",
+   "place": "Bogovićeva ulica"
+  },
+  {
+   "name": "bogo_bulldog",
+   "photo": ".art/streetview/rect/bg_grun_c.png",
+   "edges": [
+    "w290551252_e16"
+   ],
+   "bays": 6,
+   "storeys": 6,
+   "source": "Street View Aug 2019 photosphere, two oblique frames (montage)",
+   "look": "the cream-beige early-20th-century building of the Bulldog cafe on the north side of Bogovićeva, seen in two oblique photos (combine into ONE straight-on elevation of its FLAT street front only, about 19 m wide): smooth cream render, six storeys, rows of tall narrow windows with small stone sills, shallow curved oriel balconies at intervals, a dark cornice; the ground floor with dark timber-framed cafe fronts and tan awnings. IMPORTANT: draw only the flat face edge to edge: the RIGHT end is a plain flat wall end (the curved corner with the green 'BULLDOG' sign is a separate picture, so draw NO corner, NO curve and NO 'BULLDOG' sign here; the ground-floor cafe fronts simply continue to the right edge, the wooden fascia over the doors reads only 'BULLDOG' once in the middle bay). Leave out umbrellas, tables and people",
+   "place": "Bogovićeva ulica"
+  },
+  {
+   "name": "bogo_bulldog_lane",
+   "photo": ".art/streetview/rect/bg_grun_west_c.png",
+   "edges": [
+    "w290551252_e1"
+   ],
+   "bays": 8,
+   "storeys": 6,
+   "source": "Street View Aug 2019 photosphere, oblique frame",
+   "look": "the EAST side wall of the cream-beige Bulldog corner building, facing a narrow lane (about 26 m long), FLAT face only: smooth cream render, six storeys, rows of tall narrow windows with small balconies and oriels, a dark cornice; ground floor with dark timber cafe fronts and awnings. It is seen at a steep angle from below: straighten it, eight bays across. IMPORTANT: the LEFT end is a plain flat wall end (the curved corner with the green 'BULLDOG' board is a separate picture): draw NO curved corner and NO 'BULLDOG' board at the left end. Leave out umbrellas, tables and people",
+   "place": "Bogovićeva ulica"
+  },
+  {
+   "name": "bogo_n008",
+   "photo": ".art/streetview/rect/bg_n008_c.png",
+   "edges": [
+    "w375381008_e11",
+    "w375381008_e12"
+   ],
+   "bays": 5,
+   "storeys": 7,
+   "source": "Street View Jul 2025 pano, very oblique frame; partly invented",
+   "look": "a seven-storey 1930s-50s residential block on the north side of Bogovićeva (about 15 m wide), beige-grey render, five bays: narrow vertical windows with roller shutters and small balconies with metal railings stacked in bays, a plain cornice. Only a thin oblique sliver is visible in the photo: complete the whole elevation in the same style. The ground floor: dark shop fronts. NO readable text",
+   "place": "Bogovićeva ulica"
+  },
+  {
+   "name": "bogo_n951",
+   "photo": ".art/streetview/rect/bg_n951_c.png",
+   "edges": [
+    "w375375951_e11"
+   ],
+   "bays": 5,
+   "storeys": 7,
+   "source": "Street View Jul 2025 pano, oblique frame",
+   "look": "the seven-storey building at the east end of the north side of Bogovićeva (about 16 m wide): a travertine-clad ground floor with dark glazed shop fronts, above it a dark-metal band with big slanted dark-blue glass bays across the first floors, then beige-grey render with rows of narrow windows and small balconies with black railings on the upper floors, a flat roof. Seen at a very steep angle: straighten it. NO readable text",
+   "place": "Bogovićeva ulica"
+  },
+  {
+   "name": "bogo_napretkova",
+   "photo": ".art/streetview/rect/bg_napret_c.png",
+   "edges": [
+    "w288852937_e17"
+   ],
+   "bays": 5,
+   "storeys": 6,
+   "source": "Street View Jul 2025 pano, oblique frame",
+   "look": "the round-cornered 1930s modernist building (Napretkova zadruga) on the south side of Bogovićeva at its east end, drawn as its street front (about 8 m wide, five bays): pale grey render, eight storeys with continuous horizontal bands of tall windows in metal frames with blue-grey reveals, the curved front, a crenellated parapet at the top with a chimney behind; a low glazed ground floor with dark shop fronts. Draw NO readable text, NO van, NO lamp posts",
+   "place": "Bogovićeva ulica"
+  },
+  {
+   "name": "bogo_adidas",
+   "photo": ".art/streetview/rect/bg_adidas_c.png",
+   "edges": [
+    "w435116996_e6"
+   ],
+   "bays": 6,
+   "storeys": 7,
+   "source": "Street View Jul 2025 pano, oblique frame (scaffolded)",
+   "look": "a seven-storey building on the south side of Bogovićeva wrapped from the pavement to the roof in off-white scaffold netting with a steel scaffold frame and vertical ladder at its right end, a large printed advertisement picture on the netting at the left on the third floor, and printed text on the net that is illegible (draw the print as pale blurred smudges, NO readable words); dark timber hoarding at the ground floor. About 18 m wide, six bays, straight-on elevation. Leave out the van and lamp post",
+   "place": "Bogovićeva ulica"
+  },
+  {
+   "name": "bogo_napretkova_side",
+   "photo": ".art/streetview/rect/g_napret.png",
+   "edges": [
+    "w288852937_e11"
+   ],
+   "bays": 9,
+   "storeys": 6,
+   "source": "invented from the same building's street front (no view of this wall)",
+   "look": "INVENTED FACADE: the side wall of the pale grey 1930s modernist building (the same building as the attached picture) facing the passage, about 17 m wide: pale grey render, continuous horizontal bands of tall windows in metal frames with blue-grey reveals, nine bays, six storeys, low dark glazed ground floor. NO signs, NO text",
+   "place": "Bogovićeva ulica"
+  },
+  {
+   "name": "bogo_adidas_side",
+   "photo": ".art/streetview/rect/g_adidas.png",
+   "edges": [
+    "w435116996_e4"
+   ],
+   "bays": 4,
+   "storeys": 7,
+   "source": "invented from the same building's scaffolded front (no view of this wall)",
+   "look": "INVENTED FACADE: the side wall of the same scaffolded seven-storey building (attached picture) facing the passage, about 10 m wide: also wrapped in off-white scaffold netting with a steel frame, four bays of windows faintly visible through the net, dark timber hoarding at the ground floor. NO readable text",
+   "place": "Bogovićeva ulica"
+  },
+  {
+   "name": "bogo_n951_side",
+   "photo": ".art/streetview/rect/g_n951.png",
+   "edges": [
+    "w375375951_e16"
+   ],
+   "bays": 6,
+   "storeys": 7,
+   "source": "invented from the same building's street front (no view of this wall)",
+   "look": "INVENTED FACADE: the side wall of the same seven-storey building (attached picture) facing the passage, about 15 m wide: plain beige-grey render, six bays of narrow windows with roller shutters, small balconies with black railings on some, a plain ground floor with a dark door. NO signs, NO text",
+   "place": "Bogovićeva ulica"
+  },
+  {
+   "name": "bogo_lane_a",
+   "photo": ".art/streetview/rect/g_grun.png",
+   "edges": [
+    "w375381223_e7"
+   ],
+   "bays": 7,
+   "storeys": 6,
+   "source": "invented in the style of the neighbouring Bulldog building",
+   "look": "INVENTED FACADE: a continuation of the cream-beige early-20th-century street wall along a narrow lane (about 17 m wide), in the same style as the attached picture: smooth cream render, six storeys, rows of narrow windows with stone sills, a few shallow oriel balconies, a dark cornice; the ground floor with a dark timber door and small shop windows. NO signs, NO text",
+   "place": "Bogovićeva ulica"
+  },
+  {
+   "name": "bogo_lane_b",
+   "photo": ".art/streetview/rect/g_grun.png",
+   "edges": [
+    "w375381224_e9"
+   ],
+   "bays": 7,
+   "storeys": 6,
+   "source": "invented in the style of the neighbouring Bulldog building",
+   "look": "INVENTED FACADE: a second stretch of the cream-beige early-20th-century street wall along the narrow lane (about 18 m wide), in the same style as the attached picture but slightly darker beige with different window spacing: six storeys, narrow windows with sills, two shallow oriels, a dark cornice; a ground floor with a dark gateway and small windows. NO signs, NO text",
+   "place": "Bogovićeva ulica"
+  },
+  {
+   "name": "bogo_sw_palace",
+   "photo": ".art/streetview/rect/bg_nwp_c.png",
+   "edges": [
+    "w435116999_e0"
+   ],
+   "bays": 7,
+   "storeys": 4,
+   "source": "Street View Aug 2019 photosphere, oblique frame",
+   "look": "the yellow-cream neo-baroque palace on the SOUTH side of Bogovićeva, west of the palace with the carriage arch (same yellow-cream colour and style): rusticated ground floor with horizontal joints, arched ground-floor windows over small square basement windows with iron bars, a stone string course and balustrades below tall arched first-floor windows with sculpted pediments and garlands, a deep cornice with a frieze; a dark plaque on the ground floor. Four storeys, six bays across, straight-on elevation. A golden sphere sculpture, a bicycle and a person stand in front: leave them out. NO signs, no text. Seven bays across",
+   "place": "Bogovićeva ulica"
+  },
+  {
+   "name": "bogo_bulldog",
+   "photo": ".art/streetview/rect/bg_grun_c.png",
+   "edges": [
+    "w290551252_e16"
+   ],
+   "bays": 6,
+   "storeys": 6,
+   "source": "Street View Aug 2019 photosphere, two oblique frames (montage)",
+   "look": "the cream-beige early-20th-century building of the Bulldog cafe on the north side of Bogovićeva, seen in two oblique photos (combine into ONE straight-on elevation of its FLAT street front only, about 19 m wide): smooth cream render, six storeys, rows of tall narrow windows with small stone sills, shallow curved oriel balconies at intervals, a dark cornice; the ground floor with dark timber-framed cafe fronts and tan awnings. IMPORTANT: draw only the flat face edge to edge: the RIGHT end is a plain flat wall end (the curved corner with the green 'BULLDOG' sign is a separate picture, so draw NO corner, NO curve and NO 'BULLDOG' sign here; the ground-floor cafe fronts simply continue to the right edge, the wooden fascia over the doors reads only 'BULLDOG' once in the middle bay). Leave out umbrellas, tables and people",
+   "place": "Bogovićeva ulica"
+  },
+  {
+   "name": "bogo_bulldog_lane",
+   "photo": ".art/streetview/rect/bg_grun_west_c.png",
+   "edges": [
+    "w290551252_e1"
+   ],
+   "bays": 8,
+   "storeys": 6,
+   "source": "Street View Aug 2019 photosphere, oblique frame",
+   "look": "the EAST side wall of the cream-beige Bulldog corner building, facing a narrow lane (about 26 m long), FLAT face only: smooth cream render, six storeys, rows of tall narrow windows with small balconies and oriels, a dark cornice; ground floor with dark timber cafe fronts and awnings. It is seen at a steep angle from below: straighten it, eight bays across. IMPORTANT: the LEFT end is a plain flat wall end (the curved corner with the green 'BULLDOG' board is a separate picture): draw NO curved corner and NO 'BULLDOG' board at the left end. Leave out umbrellas, tables and people",
+   "place": "Bogovićeva ulica"
+  },
+  {
+   "name": "bogo_q_store",
+   "photo": ".art/streetview/rect/bg_q_south_c.png",
+   "edges": [
+    "w375381009_e13"
+   ],
+   "bays": 6,
+   "storeys": 7,
+   "place": "Bogovićeva ulica",
+   "source": "Street View Jul 2025, two oblique frames (montage)",
+   "look": "the seven-storey cream 1960s modernist block on the north side of Bogovićeva at the east corner of a narrow lane (about 18.6 m wide), seen in two oblique photos: combine into ONE straight-on elevation: smooth cream-white render, upper floors with wide horizontal bands of windows with inset frames and sunshades (six upper floors), a flat roof; the ground floor: at the LEFT (west) a large glass corner shop front whose fascia carries the metal letters 'Q STORE', in the middle a dark jeweller's shop front under a black fascia with white letters 'ZLATARNA' and a smaller line 'Zvonko Marić', at the RIGHT a dark shop front with a grey sign. Leave out people, umbrellas and awnings"
+  },
+  {
+   "name": "bogo_q_store_lane",
+   "photo": ".art/streetview/rect/bg_q_west_c.png",
+   "edges": [
+    "w375381009_e11",
+    "w375381009_e12"
+   ],
+   "bays": 8,
+   "storeys": 7,
+   "place": "Bogovićeva ulica",
+   "source": "Aug 2019 photosphere, oblique frame",
+   "look": "the WEST side wall of the same seven-storey cream 1960s block facing the narrow lane (about 21 m long): smooth cream render, horizontal bands of wide windows with inset frames and sunshades on the six upper floors, flat roof; the ground floor with dark shop fronts and a glass corner shop at the RIGHT end (towards Bogovićeva) with metal letters 'Q STORE'. Seen at a steep angle from below: straighten it, eight bays. Leave out umbrellas and people"
+  }
+ ]
+}

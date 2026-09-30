@@ -1,0 +1,186 @@
+{
+ "facades": [
+  {
+   "name": "skalinska_rade_a",
+   "photo": ".art/streetview/skalinska/sw_ochre.png",
+   "edges": [
+    "w289908875_e7"
+   ],
+   "bays": 12,
+   "storeys": 2,
+   "place": "Skalinska ulica",
+   "source": "INVENTED (no official Street View on this stepped lane, indoor photospheres only; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a two-storey Upper Town Baroque-classicist house in warm ochre plaster: a long run of tall white-framed upper windows with shallow flat hoods on a plain white stringcourse, small square barred windows and two wooden doors with stone frames on the ground floor, a plain projecting eaves cornice, no shop lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "skalinska_rade_b",
+   "photo": ".art/streetview/skalinska/sw_ochre.png",
+   "edges": [
+    "w289908875_e9"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Skalinska ulica",
+   "source": "INVENTED (no official Street View on this stepped lane, indoor photospheres only; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a two-storey Upper Town Baroque-classicist house in warm ochre plaster: three tall white-framed upper windows, a stringcourse, a wooden door and small barred windows below, plain eaves cornice, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "skalinska_kinderman_a",
+   "photo": ".art/streetview/skalinska/sw_rose.png",
+   "edges": [
+    "w293352156_e4"
+   ],
+   "bays": 5,
+   "storeys": 2,
+   "place": "Skalinska ulica",
+   "source": "INVENTED (no official Street View on this stepped lane, indoor photospheres only; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a two-storey Upper Town Baroque-classicist house in faded rose plaster (Kuća Kinderman): five bays, white-framed upper windows with triangular hoods, white pilaster strips at the corners, an arched door with stone frame and small barred windows on the ground floor, plain cornice, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "skalinska_kinderman_b",
+   "photo": ".art/streetview/skalinska/sw_rose.png",
+   "edges": [
+    "w293352156_e3"
+   ],
+   "bays": 4,
+   "storeys": 2,
+   "place": "Skalinska ulica",
+   "source": "INVENTED (no official Street View on this stepped lane, indoor photospheres only; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a two-storey Upper Town Baroque-classicist house in faded rose plaster: four bays of white-framed upper windows with flat hoods, a stringcourse, small ground floor windows with iron grilles and a wooden door, plain cornice, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "skalinska_h687",
+   "photo": ".art/streetview/skalinska/sw_cream.png",
+   "edges": [
+    "w299519687_e0"
+   ],
+   "bays": 5,
+   "storeys": 2,
+   "place": "Skalinska ulica",
+   "source": "INVENTED (no official Street View on this stepped lane, indoor photospheres only; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a two-storey Upper Town Baroque-classicist house in pale cream plaster: five bays of tall white-framed upper windows with green wooden shutters, a white stringcourse, an arched doorway with a dark wooden door and small square windows below, a plain cornice, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "skalinska_h686",
+   "photo": ".art/streetview/skalinska/sw_sage.png",
+   "edges": [
+    "w299519686_e6"
+   ],
+   "bays": 5,
+   "storeys": 2,
+   "place": "Skalinska ulica",
+   "source": "INVENTED (no official Street View on this stepped lane, indoor photospheres only; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a two-storey Upper Town Baroque-classicist house in pale sage-green plaster: five bays, white-framed upper windows with segmental hoods, a stringcourse, ground floor with a wooden door and small barred windows, plain cornice, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "skalinska_h685_a",
+   "photo": ".art/streetview/skalinska/sw_white.png",
+   "edges": [
+    "w299519685_e0"
+   ],
+   "bays": 8,
+   "storeys": 3,
+   "place": "Skalinska ulica",
+   "source": "INVENTED (no official Street View on this stepped lane, indoor photospheres only; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a tall three-storey Upper Town historicist tenement in off-white plaster: white-framed windows with hoods on the first floor, plainer windows above, white pilaster strips between bays, a stringcourse, heavy plain cornice, ground floor with small windows and a wooden door Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "skalinska_h685_b",
+   "photo": ".art/streetview/skalinska/sw_white.png",
+   "edges": [
+    "w299519685_e1"
+   ],
+   "bays": 3,
+   "storeys": 3,
+   "place": "Skalinska ulica",
+   "source": "INVENTED (no official Street View on this stepped lane, indoor photospheres only; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a tall three-storey Upper Town historicist tenement in off-white plaster: three bays, white-framed windows, a stringcourse, a plain cornice, a ground floor with a wooden door and barred windows, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "skalinska_miletic_w",
+   "photo": ".art/streetview/skalinska/sw_cream.png",
+   "edges": [
+    "r10165667_e0"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Skalinska ulica",
+   "source": "INVENTED (no official Street View on this stepped lane, indoor photospheres only; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a tall four-storey Upper Town historicist tenement in cream plaster (Kuća Miletić): five bays, first floor windows with triangular and segmental hoods, plain framed windows above, white stringcourses, a heavy plain cornice, ground floor with an arched door and small windows Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "skalinska_miletic_n",
+   "photo": ".art/streetview/skalinska/sw_ochre.png",
+   "edges": [
+    "r10165667_e4"
+   ],
+   "bays": 7,
+   "storeys": 4,
+   "place": "Skalinska ulica",
+   "source": "INVENTED (no official Street View on this stepped lane, indoor photospheres only; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a tall four-storey Upper Town historicist tenement in ochre plaster (Kuća Miletić): seven bays, tall white-framed windows with hoods on the first floor, white pilaster strips, stringcourses, heavy cornice, ground floor with two arched doors and small barred windows Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "skalinska_miletic_e",
+   "photo": ".art/streetview/skalinska/sw_cream.png",
+   "edges": [
+    "r10165667_e8",
+    "r10165667_e9"
+   ],
+   "bays": 10,
+   "storeys": 4,
+   "place": "Skalinska ulica",
+   "source": "INVENTED (no official Street View on this stepped lane, indoor photospheres only; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a tall four-storey Upper Town historicist tenement in pale cream plaster (Kuća Miletić): white-framed windows with flat hoods on the first floor, plain windows above, stringcourses, heavy plain cornice, ground floor with an arched carriage gate and small windows Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "skalinska_miletic_s",
+   "photo": ".art/streetview/skalinska/sw_cream.png",
+   "edges": [
+    "r10165667_e7"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Skalinska ulica",
+   "source": "INVENTED (no official Street View on this stepped lane, indoor photospheres only; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a tall four-storey Upper Town historicist tenement in pale cream plaster (Kuća Miletić): three narrow bays of white-framed windows, stringcourses, heavy plain cornice, ground floor with a wooden door Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "skalinska_h385_a",
+   "photo": ".art/streetview/skalinska/sw_grey.png",
+   "edges": [
+    "w735337385_e2"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Skalinska ulica",
+   "source": "INVENTED (no official Street View on this stepped lane, indoor photospheres only; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a tall four-storey Upper Town historicist tenement in pale grey-beige plaster: five bays of white-framed windows with hoods, stringcourses, a heavy plain cornice, ground floor with an arched gate and small windows Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "skalinska_h385_b",
+   "photo": ".art/streetview/skalinska/sw_blue.png",
+   "edges": [
+    "w735337385_e0",
+    "w735337385_e1"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Skalinska ulica",
+   "source": "INVENTED (no official Street View on this stepped lane, indoor photospheres only; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a tall four-storey Upper Town historicist tenement in pale blue-grey plaster: five bays of white-framed windows, stringcourses, a plain cornice, ground floor with a wooden door and small barred windows Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "skalinska_h381",
+   "photo": ".art/streetview/skalinska/sw_grey.png",
+   "edges": [
+    "w735337381_e3"
+   ],
+   "bays": 3,
+   "storeys": 1,
+   "place": "Skalinska ulica",
+   "source": "INVENTED (no official Street View on this stepped lane, indoor photospheres only; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a low one-storey stone-and-plaster garden or outbuilding wall in weathered grey plaster: three small square windows with iron grilles and a plain wooden door, a plain cornice, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  }
+ ]
+}

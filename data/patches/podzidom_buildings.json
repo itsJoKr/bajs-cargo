@@ -1,0 +1,44 @@
+{
+ "w292203493": {
+  "roof": "flat_gravel",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w292203493_e0",
+    "from": 0.02,
+    "to": 0.39,
+    "y": 2.1,
+    "drop": 0.5,
+    "depth": 0.9,
+    "texture": "podzidom_awning_grey.jpg",
+    "repeat": 1.5,
+    "source": "Street View Sep 2011 (grey-white striped awning over the Mondis shop)"
+   }
+  ]
+ },
+ "w292203494": {
+  "roof": "flat_gravel",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w292203494_e0",
+    "from": 0.01,
+    "to": 0.46,
+    "y": 2.0,
+    "drop": 0.5,
+    "depth": 0.9,
+    "texture": "podzidom_awning_red.jpg",
+    "repeat": 2,
+    "source": "Street View Sep 2011 (red awning over the POD ZIDOM shop)"
+   }
+  ]
+ },
+ "w105486200": {
+  "roof": "clay_brown",
+  "features": []
+ },
+ "w295793324": {
+  "roof": "clay_brown",
+  "features": []
+ }
+}

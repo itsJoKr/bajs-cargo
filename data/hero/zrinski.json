@@ -1,0 +1,167 @@
+{
+ "facades": [
+  {
+   "name": "zrinski_vranyczany",
+   "photo": ".art/streetview/zrinski/ph_zrinski_vranyczany_all.png",
+   "edges": [
+    "w137106310_e13",
+    "w137106310_e0"
+   ],
+   "bays": 11,
+   "storeys": 4,
+   "place": "Trg Nikole Šubića Zrinskog",
+   "source": "Street View Oct 2011 (official pano, rectified from 2 frames)",
+   "look": "Palača Vranyczany-Dobrinović on the west side of the Zrinjevac park: a four-storey neo-renaissance palace in warm ochre-yellow stucco, eleven bays, with a heavily rusticated ground floor and mezzanine (horizontal ochre bands, small windows in plain frames) on a grey granite plinth; in the exact centre a projecting portal with a tall dark double doorway under a semicircular arched fanlight window, flanked by two pairs of stout free-standing stone columns with carved capitals that carry a balustraded stone balcony across the five central bays of the first floor, behind the balcony a large arched window in a pedimented frame; tall first-floor windows with triangular and segmental pediments on brackets, paler cream-yellow upper storeys, small stone balconies with balustrades at both ends of the first floor, a balustraded main cornice; two tall white vertical banners with printed pictures (no readable text) hang between the columns to the left and right of the portal. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "zrinski_north_adria",
+   "photo": ".art/streetview/zrinski/r_north.png",
+   "edges": [
+    "w579294902_e4",
+    "w579294902_e5"
+   ],
+   "bays": 7,
+   "storeys": 4,
+   "place": "Trg Nikole Šubića Zrinskog",
+   "source": "Street View Oct 2011 (official pano, rectified from 2 frames, partial)",
+   "look": "a four-storey neo-baroque apartment house in off-white cream stucco north of the yellow Vranyczany palace on the west side of Zrinjevac: about seven bays of tall windows, first-floor windows with small carved hoods on brackets, upper windows plain with bracketed sills, horizontal stringcourses, a plain projecting cornice; ground floor of stone-grey rustication with three glazed shop fronts under three dark navy-blue retractable awnings with red patterns, above the first awning the bold blue capital lettering 'ADRIA' (followed by a smaller word that is not legible: draw nothing after ADRIA). Copy exactly. The photo is only a partial straight-on view: flat grey areas (and any leftover smear or Street View panel remnants) are UNKNOWN, so draw them as a natural continuation of the same building with the same window rhythm, colours, mouldings and ground floor style; never leave grey and never copy text into them. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "zrinski_south_blue",
+   "photo": ".art/streetview/zrinski/r_south.png",
+   "edges": [
+    "w579294884_e2"
+   ],
+   "bays": 6,
+   "storeys": 3,
+   "place": "Trg Nikole Šubića Zrinskog",
+   "source": "Street View Oct 2011 (official pano, rectified from 2 frames, partial)",
+   "look": "a three-storey historicist house in pale grey-cream stucco south of the yellow Vranyczany palace on the west side of Zrinjevac: about six bays, first-floor windows with triangular pediments on scroll brackets, second-floor windows in plain frames, a stringcourse and a cornice; ground floor a modern glass shop front under a plain white fascia with a small blue square sign at its left part. Copy exactly. The photo is only a partial straight-on view: flat grey areas (and any leftover smear or Street View panel remnants) are UNKNOWN, so draw them as a natural continuation of the same building with the same window rhythm, colours, mouldings and ground floor style; never leave grey and never copy text into them. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "zrinski_palace_e",
+   "photo": ".art/streetview/zrinski/ph_zrinski_palace_e_all.png",
+   "edges": [
+    "w390984160_e8"
+   ],
+   "bays": 25,
+   "storeys": 4,
+   "place": "Trg Nikole Šubića Zrinskog",
+   "source": "Street View Oct 2011 (official pano, rectified from 2 frames, partial)",
+   "look": "a monumental four-storey neo-renaissance palace (a court building) in white-cream rusticated stone facing the Zrinjevac park from the east: strong horizontal rustication, a ground floor with tall round-arched dark openings under a slightly projecting central pavilion with paired pilasters and tall arched first-floor windows, a Croatian red-white-blue tricolour flag with its coat of arms hanging on the pavilion, to the right a plainer long wing with small square ground-floor windows above a stone plinth, tall first-floor windows with dark green-grey glazing under small carved masks, a row of second-floor windows, a heavy cornice. Copy exactly. The photo is only a partial straight-on view: flat grey areas (and any leftover smear or Street View panel remnants) are UNKNOWN, so draw them as a natural continuation of the same building with the same window rhythm, colours, mouldings and ground floor style; never leave grey and never copy text into them. This picture is ONE SECTION of a longer facade of the same building: the wall continues beyond its left and right edges, so cut windows and mouldings naturally at the sides, draw no building corner and no free-standing edge, and keep the same storey heights and cornice line as the other sections. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "zrinski_green_secession",
+   "photo": ".art/streetview/zrinski/r_green.png",
+   "edges": [
+    "w390984148_e0"
+   ],
+   "bays": 5,
+   "storeys": 3,
+   "place": "Trg Nikole Šubića Zrinskog",
+   "source": "Street View Oct 2011 (official pano, rectified from 1 frame, partial)",
+   "look": "Kuća Antolković, a three-storey secession-era house on the east side of Zrinjevac, south of the white palace: a rusticated ground floor and first-floor band in yellow-ochre stucco, the upper floors covered with fields of teal-blue floral ceramic ornament on cream between the windows, five bays, ground-floor windows with rust-brown wooden shutters and small window boxes, a dark wooden entrance door right of the centre, small basement vent grilles, a deep decorated frieze under the cornice. Copy exactly. The photo is only a partial straight-on view: flat grey areas and any blurred patch are UNKNOWN, draw them as natural continuation. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "zrinski_inv_e_south",
+   "photo": ".art/streetview/zrinski/ph_zrinski_inv_e_south_all.png",
+   "edges": [
+    "w390984158_e12",
+    "w390984158_e13"
+   ],
+   "bays": 16,
+   "storeys": 4,
+   "place": "Trg Nikole Šubića Zrinskog",
+   "source": "INVENTED (no usable Street View: grazing or too far from every official pano)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. The attached image is only a flat colour swatch for the wall colour. a four-storey Zagreb historicist apartment house in dusty mauve-grey stucco with white stone window surrounds on the east side of Zrinjevac: sixteen bays of tall windows, first-floor windows with small triangular hoods and stone balcony balustrades under some of them, second floor plain frames, stringcourses, a heavy cornice, ground floor with arched openings and shopfronts, no readable signs. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "zrinski_inv_buratti",
+   "photo": ".art/streetview/zrinski/ph_zrinski_inv_buratti_all.png",
+   "edges": [
+    "w137106329_e0"
+   ],
+   "bays": 13,
+   "storeys": 5,
+   "place": "Trg Nikole Šubića Zrinskog",
+   "source": "INVENTED (no usable Street View: grazing or too far from every official pano)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. The attached image is only a flat colour swatch for the wall colour. Palača Buratti, a five-storey Zagreb historicist palace in pale cream-grey stucco on the north side of Zrinjevac: thirteen bays, a rusticated ground floor with arched shop openings, first-floor windows with triangular and segmental pediments on brackets and a continuous balcony band, upper floors with plain framed windows, stringcourses, a heavy dentilled cornice, no readable signs. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "zrinski_inv_n1",
+   "photo": ".art/streetview/zrinski/ph_zrinski_inv_n1_all.png",
+   "edges": [
+    "w137106309_e0",
+    "w137106309_e1"
+   ],
+   "bays": 8,
+   "storeys": 3,
+   "place": "Trg Nikole Šubića Zrinskog",
+   "source": "INVENTED (no usable Street View: grazing or too far from every official pano)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. The attached image is only a flat colour swatch for the wall colour. a three-storey Zagreb historicist house in sand-cream stucco on the north side of Zrinjevac: eight bays of tall windows with bracketed sills and small hoods, stringcourses, a modest cornice, ground floor with arched shop openings and plain dark shopfronts, no readable signs. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "zrinski_inv_n2",
+   "photo": ".art/streetview/zrinski/sw_zrinski_inv_n2.png",
+   "edges": [
+    "w137106331_e2",
+    "w137106331_e3"
+   ],
+   "bays": 9,
+   "storeys": 4,
+   "place": "Trg Nikole Šubića Zrinskog",
+   "source": "INVENTED (no usable Street View: grazing or too far from every official pano)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. The attached image is only a flat colour swatch for the wall colour. a four-storey Zagreb historicist apartment house in off-white cream stucco on the north side of Zrinjevac: nine bays of tall windows, first floor with triangular hoods on brackets and stone balcony slabs, plain windows above, stringcourses, a dentilled cornice, ground floor with glazed shopfronts and one arched gateway, no readable signs. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "zrinski_inv_e_north",
+   "photo": ".art/streetview/zrinski/sw_zrinski_inv_e_north.png",
+   "edges": [
+    "w390984144_e10"
+   ],
+   "bays": 5,
+   "storeys": 3,
+   "place": "Trg Nikole Šubića Zrinskog",
+   "source": "INVENTED (no usable Street View: grazing or too far from every official pano)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. The attached image is only a flat colour swatch for the wall colour. a three-storey Zagreb historicist house in pale sand-grey stucco on the east side of Zrinjevac: five bays of tall windows with plain white frames, a stringcourse, a plain cornice, a ground floor with an arched entrance and shop windows, no readable signs. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "zrinski_inv_palace_n",
+   "photo": ".art/streetview/zrinski/sw_zrinski_inv_palace_n.png",
+   "edges": [
+    "w390984160_e7"
+   ],
+   "bays": 6,
+   "storeys": 4,
+   "place": "Trg Nikole Šubića Zrinskog",
+   "source": "INVENTED (no usable Street View: grazing or too far from every official pano)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. The attached image is only a flat colour swatch for the wall colour. the north side of the white court palace on the east of Zrinjevac: a four-storey facade in white-cream rusticated stone with horizontal rustication on the ground floor, tall first-floor windows with dark green-grey glazing under small carved masks, rows of plain windows above, a heavy cornice, small square ground-floor windows above a stone plinth, no signs. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "zrinski_inv_ozegovic",
+   "photo": ".art/streetview/zrinski/ph_zrinski_inv_ozegovic_all.png",
+   "edges": [
+    "w249753112_e5",
+    "w249753112_e6"
+   ],
+   "bays": 12,
+   "storeys": 4,
+   "place": "Trg Nikole Šubića Zrinskog",
+   "source": "INVENTED (no usable Street View: grazing or too far from every official pano)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. The attached image is only a flat colour swatch for the wall colour. Palača Ožegović, a four-storey Zagreb historicist palace in pale yellow-cream stucco on the west side of Zrinjevac: twelve bays, a rusticated ground floor with arched openings, first-floor windows with pediments on brackets and a stone balcony, plain framed windows above, stringcourses, a heavy cornice, no readable signs. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "zrinski_inv_s_corner",
+   "photo": ".art/streetview/zrinski/sw_zrinski_inv_s_corner.png",
+   "edges": [
+    "w584348045_e10",
+    "w584348045_e0"
+   ],
+   "bays": 6,
+   "storeys": 4,
+   "place": "Trg Nikole Šubića Zrinskog",
+   "source": "INVENTED (no usable Street View: grazing or too far from every official pano)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. The attached image is only a flat colour swatch for the wall colour. a four-storey Zagreb historicist apartment house in warm grey-beige stucco on the west side of Zrinjevac: six bays of tall windows with bracketed sills and small hoods, stringcourses, a dentilled cornice, ground floor with arched shop openings, no readable signs. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  }
+ ]
+}

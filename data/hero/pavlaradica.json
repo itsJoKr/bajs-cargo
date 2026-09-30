@@ -1,0 +1,388 @@
+{
+ "facades": [
+  {
+   "name": "pavlaradica_pink_dormers",
+   "photo": ".art/streetview/pavlaradica/c_pink_dormers.png",
+   "edges": [
+    "w97089777_e1"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Ulica Pavla Radića",
+   "source": "Street View Jul 2024 (crop, pano at 3 Radićeva)",
+   "look": "the west-side corner house at the bottom of Radićeva in faded dusty-pink stucco, four storeys under a roof with three small dormers with pointed hoods. On the upper floors tall rectangular windows with dark brown-red frames, each under a carved stone cornice hood with a round medallion in the frieze below the window sill; a projecting flat cornice with brackets under the eave; on the ground floor arched windows with blue-grey frames. Copy exactly, no lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_blau_line",
+   "photo": ".art/streetview/pavlaradica/c_blau_line.png",
+   "edges": [
+    "r9374001_e9",
+    "r9374001_e0"
+   ],
+   "bays": 4,
+   "storeys": 2,
+   "place": "Ulica Pavla Radića",
+   "source": "Street View Jul 2024 (crop)",
+   "look": "a two-storey cream-yellow historicist house with a rich cornice with dentils and a frieze under the eave. The first floor has four tall windows, each with a triangular-topped cornice hood on brackets, a stringcourse under the sills. Ground floor at the LEFT: a dark brown shop front with a dark fascia carrying the letters 'BLAU - LINE' in light spaced capitals, glazed display windows with mannequins; to the right a brown arched wooden door and two small dark shopfronts with dark awnings. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_cream_ornate",
+   "photo": ".art/streetview/pavlaradica/c_cream_ornate.png",
+   "edges": [
+    "w97091862_e0",
+    "w97091862_e1"
+   ],
+   "bays": 5,
+   "storeys": 3,
+   "place": "Ulica Pavla Radića",
+   "source": "Street View Jul 2024 (small oblique crop)",
+   "look": "a three-storey white-cream historicist house with five window axes, first-floor windows with pediment hoods, a heavy cornice with a frieze, and small dark shopfronts with awnings on the ground floor. No readable lettering; do not invent any. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_joyful",
+   "photo": ".art/streetview/pavlaradica/c_joyful.png",
+   "edges": [
+    "w97091852_e19",
+    "w97091852_e20"
+   ],
+   "bays": 6,
+   "storeys": 2,
+   "place": "Ulica Pavla Radića",
+   "source": "Street View Jul 2024 (crop, pano at 14 Radićeva)",
+   "look": "a two-storey pale-cream house with a plain eave and dark-grey framed tall windows with slim stone sills. The ground floor has a row of round-arched shopfront openings framed in green, with a wide cream fascia carrying the green script lettering 'Joyful Kitchen' (a partly hidden word before it ends in 'ZA'); a bakery display window at the right. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_yellow_dormers",
+   "photo": ".art/streetview/pavlaradica/c_yellow_dormers.png",
+   "edges": [
+    "w97091865_e0",
+    "w97091865_e1"
+   ],
+   "bays": 5,
+   "storeys": 2,
+   "place": "Ulica Pavla Radića",
+   "source": "Street View Jul 2024 (crop)",
+   "look": "a two-storey ochre-yellow house with white-grey window frames and a wide roof projection with three dormers with pointed gables. Five windows on the upper floor, the left three above arched shop windows in stone frames filled with souvenirs, at the right a dark shop entrance under a dark sign 'HairLife' in gold letters, blue-white sign 'APARTMAN MARINAC', a black chalkboard sign, and a dark shopfront with a white round sign and dark fascia with white letters 'HEP?'. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_palace_ana",
+   "photo": ".art/streetview/pavlaradica/c_palace_ana.png",
+   "edges": [
+    "w97091864_e0",
+    "w97091864_e1"
+   ],
+   "bays": 5,
+   "storeys": 3,
+   "place": "Ulica Pavla Radića",
+   "source": "Street View Jul 2024 (crop, pano at 19 Radićeva)",
+   "look": "a three-storey white-cream palace with green window frames and shutters. The upper floors have tall windows with green frames, under each window a stucco panel with a diamond lattice pattern, a stringcourse, and three attic dormers. Ground floor: a large round-arched stone gateway with a heavy green double door and number '19', a green-framed shop door with a hanging sign, a green-framed shop window with a black chalkboard sign reading 'GALERIE ANA', postcards and souvenirs; far left a red-white chequered 'GRIĆ' souvenir shop. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_moda21",
+   "photo": ".art/streetview/pavlaradica/c_moda21.png",
+   "edges": [
+    "w97091860_e0"
+   ],
+   "bays": 4,
+   "storeys": 2,
+   "place": "Ulica Pavla Radića",
+   "source": "Street View Jul 2024 (crop, pano at 19 Radićeva)",
+   "look": "a run-down two-storey house with crumbling grey-brown plaster and exposed brick patches, house number '21' on a small black plate. Upper floor: four windows with weathered frames, one with open casements. Ground floor: a heavy dark carved wooden door with a stone frame on the LEFT, a black sign with white letters 'MODA' above a shop window with a light-blue dress, a second glazed shop door and a dark grey shutter door. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_palace_white",
+   "photo": ".art/streetview/pavlaradica/c_palace_white.png",
+   "edges": [
+    "w97091854_e1"
+   ],
+   "bays": 7,
+   "storeys": 2,
+   "place": "Ulica Pavla Radića",
+   "source": "Street View Jul 2024 (crop, pano at 25 Radićeva)",
+   "look": "a long two-storey cream-white classicist palace with a projecting cornice with a dentil frieze, three to four small dormers with pointed roofs above, first-floor windows with pediments and small stucco ornaments under the sills, pilaster strips between the bays. Ground floor: round-arched brown wooden doors, a large arched gateway with double door, small windows with white curtains; a blue-green plaque and a red tie shop poster near the gate. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_kravata",
+   "photo": ".art/streetview/pavlaradica/c_kravata.png",
+   "edges": [
+    "w97091863_e6"
+   ],
+   "bays": 5,
+   "storeys": 3,
+   "place": "Ulica Pavla Radića",
+   "source": "Street View Jul 2024 (crop)",
+   "look": "a three-storey weathered sand-brown Baroque house with patchy peeling plaster, five window axes. First-floor windows with segmental curved cornice hoods on brackets, below them a stone balustrade balcony band, top-floor windows with plain frames. Ground floor: five round-arched openings with stone arch frames, brown wooden shutters and doors, house number '21', a hanging red-white sign with the word 'KRAVATA' with a chequered Croatian crest, red ties hanging in an open door, small shop windows at the right. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_white_north",
+   "photo": ".art/streetview/pavlaradica/c_white_north.png",
+   "edges": [
+    "w735313538_e0"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Ulica Pavla Radića",
+   "source": "Street View Jul 2024 (small crop)",
+   "look": "a plain white four-storey house with three window axes, simple grey window frames and a slim cornice; on the ground floor a round-arched stone-framed brown door and a brown wooden door. No lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_sand",
+   "photo": ".art/streetview/pavlaradica/c_sand.png",
+   "edges": [
+    "w97091861_e0"
+   ],
+   "bays": 5,
+   "storeys": 3,
+   "place": "Ulica Pavla Radića",
+   "source": "Street View Jul 2024 (crop, pano at 35 Radićeva)",
+   "look": "a three-storey sand-yellow historicist palace with a rusticated stone ground floor of rough bossed blocks, pilaster strips, and a richly ornamented central entrance with a curved shell hood over a green double door with leaded glass; house number '35'. First-floor windows with curved hoods on both wings, a stucco relief frieze and a balcony with a stone balustrade above the centre, a top cornice with a small pediment. Ground floor: a round-arched green-framed window at the left, a large arched shop window at the right with a hanging blade sign, a small chalkboard in the window. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_radiona",
+   "photo": ".art/streetview/pavlaradica/c_radiona.png",
+   "edges": [
+    "w97091855_e0",
+    "w97091855_e1"
+   ],
+   "bays": 5,
+   "storeys": 2,
+   "place": "Ulica Pavla Radića",
+   "source": "Street View Jul 2024 (crop)",
+   "look": "a two-storey white plastered house with plain windows and a sand-stone corner quoin band at the left; on the ground floor a dark shop entrance with dark green door, black grilled display cases and a round black hanging sign with white lettering 'RADIONA', a blue-green painted wooden shutter door at the right. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_dometh",
+   "photo": ".art/streetview/pavlaradica/c_dometh.png",
+   "edges": [
+    "r3853043_e4",
+    "r3853043_e5"
+   ],
+   "bays": 8,
+   "storeys": 4,
+   "place": "Ulica Pavla Radića",
+   "source": "Street View Jul 2024 (rectified crop, partly hidden by crowds)",
+   "look": "Palača Dömöthorfy, a four-storey white-cream classicist palace on the east side of Radićeva, eight window axes, first-floor windows with triangular and segmental pediments, second floor with a balcony band with iron railing above the entrance, richly moulded window surrounds and a strong cornice. Ground floor: a stone portal at the right end, rectangular windows with grilles, plain pale plaster. Copy exactly, no lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_salmon",
+   "photo": ".art/streetview/pavlaradica/c_salmon.png",
+   "edges": [
+    "w289908817_e5"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Ulica Pavla Radića",
+   "source": "Street View Jul 2024 (crop, pano at 35 Radićeva)",
+   "look": "Zgrada Prve hrvatske štedionice, a four-storey neo-Renaissance palace with salmon-orange stucco, cream-white pilaster strips and window surrounds. Ground floor with horizontal rustication in salmon-red and three tall round-arched windows in white archivolts, at the LEFT a large round-arched double door in a stone portal with a fanlight, and a small plain rectangular plaque beside it (no readable text). First floor with round-headed windows, above them windows with balustrades (small balconies with stone balusters), and a heavy top cornice with sculpted brackets. At the far right a big dark arched gateway with a lantern. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_albrecht",
+   "photo": ".art/streetview/pavlaradica/c_albrecht.png",
+   "edges": [
+    "r6414121_e6",
+    "r6414121_e7"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Ulica Pavla Radića",
+   "source": "Street View Jul 2024 (oblique crop)",
+   "look": "Tiskara Albrecht, a four-storey ochre-tan historicist house with wide horizontal rustication on the ground floor, brown-framed rectangular windows with mullions, a decorated cornice frieze under the eave and small stone-framed cellar windows at the pavement, drainpipes between the bays. Copy exactly, no lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_blue_pale",
+   "photo": ".art/streetview/pavlaradica/c_blue_pale.png",
+   "edges": [
+    "r6414116_e8",
+    "r6414116_e9"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Ulica Pavla Radića",
+   "source": "Street View Jul 2024 (rectified from frames at 25 Radićeva)",
+   "look": "Kuća Demeter-Corvin, a four-storey house in pale duck-egg green-blue stucco with cream pilasters and cream window surrounds. Upper floors: tall windows with black frames and curtains, under-sill stucco garlands; a large wrought-iron balcony with scrolling ironwork on stone brackets above the entrance at the RIGHT; ground floor with horizontal rustication, a large round-arched stone portal with a black carved double door and number '24', big black-framed windows with stone sills. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_bacura",
+   "photo": ".art/streetview/pavlaradica/c_bacura.png",
+   "edges": [
+    "w289908918_e0",
+    "w289908918_e1"
+   ],
+   "bays": 4,
+   "storeys": 2,
+   "place": "Ulica Pavla Radića",
+   "source": "Street View Jul 2024 (rectified from frames at 19 Radićeva)",
+   "look": "Kuća Cerovšek, a two-storey plain white-grey plastered house with cracked plaster, wide window frames with brown wooden windows and stone sills on the upper floor, a rusty iron bracket sign arm at the centre. Ground floor at the LEFT a black shop front with the grey letters 'IVANA BAČURA' and below 'HANDMADE JEWELLERY', a white-framed glass door with a jewellery vending display 'IVANA BAČURA SILVER JEWELLERY'; in the middle a stone-framed recessed door with steps; at the RIGHT a dark brown-framed shop window with a poster 'TEETH AS ART' and vertical white graffiti letters. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_ochre_balcony",
+   "photo": ".art/streetview/pavlaradica/c_ochre_balcony.png",
+   "edges": [
+    "w735313511_e29"
+   ],
+   "bays": 5,
+   "storeys": 3,
+   "place": "Ulica Pavla Radića",
+   "source": "Street View Jul 2024 (oblique crop)",
+   "look": "a three-storey ochre-yellow historicist house with rusticated ground floor with round-arched openings in stone arches (a shop with a dark arched sign reading 'COVER STORE'), first-floor windows with cornice hoods and a wrought-iron balcony with a scrolled railing on the upper left, moulded window surrounds, a strong cornice. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_museum",
+   "photo": ".art/streetview/pavlaradica/c_museum.png",
+   "edges": [
+    "w289863011_e6"
+   ],
+   "bays": 5,
+   "storeys": 3,
+   "place": "Ulica Pavla Radića",
+   "source": "Street View Jul 2024 (oblique crop, pano at 14 Radićeva)",
+   "look": "a three-storey grey-cream house with simple rectangular white-framed windows; at the LEFT of the ground floor a stone-arched passage entrance with blue-pink museum banners, above it a projecting rectangular blue sign with red border and yellow letters 'SELFIE & MEMORIES MUSEUM ZAGREB', a small yellow sign 'BAREFOOT SHOES', a white shopfront at the right. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_grey14",
+   "photo": ".art/streetview/pavlaradica/c_grey14.png",
+   "edges": [
+    "w289863009_e1"
+   ],
+   "bays": 3,
+   "storeys": 3,
+   "place": "Ulica Pavla Radića",
+   "source": "Street View Jul 2024 (rectified from frames at 14 Radićeva)",
+   "look": "a three-storey grey-lilac plastered house with horizontal joint lines on the ground floor, house number '14' on a small plate, first-floor windows in white frames with slim stringcourse cornice, one window with a purple blind; ground floor two wide white-framed shop openings (a shop door on the left, a display window with postcards on the right), a green blade sign hanging in the centre. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_blue_zlatarna",
+   "photo": ".art/streetview/pavlaradica/c_blue_zlatarna.png",
+   "edges": [
+    "w289863013_e0"
+   ],
+   "bays": 5,
+   "storeys": 3,
+   "place": "Ulica Pavla Radića",
+   "source": "Street View Jul 2024 (oblique crop, pano at 14 Radićeva)",
+   "look": "a three-storey house with a cobalt-blue and white striped facade: white pilaster strips and cobalt-blue wall panels; first-floor windows with white ornate cornice hoods with sculpted festoons and stucco relief panels under the sills; ground floor clad in blue ceramic tiles with white joints, an octagonal dark red sign with the word 'ZLATARNA' (draw only the word ZLATARNA), a red souvenir sign at the far right, a dark shop door and window. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_feniks",
+   "photo": ".art/streetview/pavlaradica/c_feniks.png",
+   "edges": [
+    "w289863012_e0"
+   ],
+   "bays": 4,
+   "storeys": 2,
+   "place": "Ulica Pavla Radića",
+   "source": "Street View Jul 2024 (oblique crop, pano at 3 Radićeva)",
+   "look": "a two-storey brown-grey plastered house with white window frames and decorated cornice hoods, dormers under the eave; ground floor a black fascia with gold wheat-ear symbols and the letters 'FENIKS', small text 'Bakery Bäckerei' at the left and 'Pekara Panetterie' at the right, two shopfronts with 'FENIKS' bread posters. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_snogu",
+   "photo": ".art/streetview/pavlaradica/c_snogu.png",
+   "edges": [
+    "w289863031_e1",
+    "w289863031_e2"
+   ],
+   "bays": 12,
+   "storeys": 3,
+   "place": "Ulica Pavla Radića",
+   "source": "Street View Jul 2024 (crop, pano at 3 Radićeva)",
+   "look": "the east-side ochre-yellow historicist block at the Ban Jelačić end, a VERY LONG wide facade (about three times as wide as tall, twelve window axes across, two rows of windows above the ground floor): upper floors with rows of white-framed windows and a projecting cornice; ground floor at the LEFT a bright orange shop front with a perforated orange ventilation panel and orange fascia with a black running-figure logo and the text 'SNOGU' and 'street wok bar', big display windows, a red Coca-Cola menu column and a black chalkboard 'love is love'; at the RIGHT a dark brown jeweller's front with grey lettering 'ZLATAR' and a grey striped awning with script 'Zlatar', display windows with jewellery. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_inv_w97091857_e7",
+   "photo": ".art/streetview/pavlaradica/sw/inv_w97091857_e7.png",
+   "edges": [
+    "w97091857_e7"
+   ],
+   "bays": 6,
+   "storeys": 2,
+   "place": "Ulica Pavla Radića",
+   "source": "INVENTED (no usable Street View photo)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. A two-storey historicist house in cream stucco with six bays, plain dark-framed windows with slim sills, a stringcourse, a plain cornice, round-arched shop openings on the ground floor with dark shutters, in the style of the neighbouring Radićeva houses. No lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_inv_r10165081",
+   "photo": ".art/streetview/pavlaradica/sw/inv_r10165081.png",
+   "edges": [
+    "r10165081_e0"
+   ],
+   "bays": 3,
+   "storeys": 3,
+   "place": "Ulica Pavla Radića",
+   "source": "INVENTED (no usable Street View photo)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. A three-storey off-white classicist house with three bays, white window frames with slim hoods on the first floor, a stringcourse and plain cornice, a ground floor with an arched shopfront. No lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_inv_r10165080",
+   "photo": ".art/streetview/pavlaradica/sw/inv_r10165080.png",
+   "edges": [
+    "r10165080_e0"
+   ],
+   "bays": 7,
+   "storeys": 3,
+   "place": "Ulica Pavla Radića",
+   "source": "INVENTED (no usable Street View photo)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. A three-storey pale-yellow historicist house, seven bays, first-floor windows with triangular hoods and stucco garlands, second floor with plain frames, a strong cornice, ground floor with rustication, two arched doors and small shop windows. No lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_inv_w97091858_e1",
+   "photo": ".art/streetview/pavlaradica/sw/inv_w97091858_e1.png",
+   "edges": [
+    "w97091858_e1"
+   ],
+   "bays": 8,
+   "storeys": 4,
+   "place": "Ulica Pavla Radića",
+   "source": "INVENTED (no usable Street View photo)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. A four-storey terracotta-brown historicist house, eight bays, windows with simple stone frames, first-floor window hoods on brackets, a stringcourse between each floor, deep cornice, ground floor with round-arched shop windows. No lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_inv_w289908927_e11",
+   "photo": ".art/streetview/pavlaradica/sw/inv_w289908927_e11.png",
+   "edges": [
+    "w289908927_e11"
+   ],
+   "bays": 6,
+   "storeys": 4,
+   "place": "Ulica Pavla Radića",
+   "source": "INVENTED (no usable Street View photo)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. A four-storey pale sand-yellow historicist house, six bays, first-floor windows in stone frames with pediments, a wrought-iron balcony, a rusticated ground floor with round-arched openings and a wide doorway, a heavy cornice. No lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_inv_r3881852_e0",
+   "photo": ".art/streetview/pavlaradica/sw/inv_r3881852_e0.png",
+   "edges": [
+    "r3881852_e0"
+   ],
+   "bays": 9,
+   "storeys": 3,
+   "place": "Ulica Pavla Radića",
+   "source": "INVENTED (no usable Street View photo)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. A three-storey pale-yellow historicist corner block near Trg bana Jelačića, nine bays, first-floor window hoods, a stringcourse, a cornice, ground floor with rectangular shop windows and dark fascias without text. No lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_inv_w674631580_e2",
+   "photo": ".art/streetview/pavlaradica/sw/inv_w674631580_e2.png",
+   "edges": [
+    "w674631580_e2"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Ulica Pavla Radića",
+   "source": "INVENTED (no usable Street View photo)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. A four-storey cream historicist house, three bays, framed windows with hoods on the first floor, a plain cornice, ground floor with a shop window. No lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "pavlaradica_inv_w674631582",
+   "photo": ".art/streetview/pavlaradica/sw/inv_w674631582.png",
+   "edges": [
+    "w674631582_e2",
+    "w674631582_e3"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Ulica Pavla Radića",
+   "source": "INVENTED (no usable Street View photo)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. A four-storey pinkish-beige historicist house, five bays, tall framed windows, first-floor hoods, a cornice, ground floor with two round-arched shopfronts. No lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  }
+ ]
+}

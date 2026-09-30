@@ -1,0 +1,295 @@
+{
+ "facades": [
+  {
+   "name": "opatovina_h225",
+   "photo": ".art/streetview/opatovina/sw_ochre.png",
+   "edges": [
+    "w296513225_e0"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Opatovina",
+   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a two-storey Upper Town Baroque-classicist house in warm ochre plaster: three tall white-framed upper windows with flat hoods, a stringcourse, a wooden door and small barred windows below, plain eaves cornice, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "opatovina_h254a",
+   "photo": ".art/streetview/opatovina/sw_rose.png",
+   "edges": [
+    "w296513254_e2"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Opatovina",
+   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a two-storey Upper Town Baroque-classicist house in faded rose plaster: three white-framed upper windows with green shutters, a stringcourse, an arched wooden door with stone frame, plain cornice, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "opatovina_h254b",
+   "photo": ".art/streetview/opatovina/sw_cream.png",
+   "edges": [
+    "w296513254_e3"
+   ],
+   "bays": 6,
+   "storeys": 2,
+   "place": "Opatovina",
+   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a two-storey Upper Town Baroque-classicist house in pale cream plaster: three tall white-framed windows with segmental hoods per floor, small square barred ground floor windows and a wooden door, plain eaves cornice, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "opatovina_h260a",
+   "photo": ".art/streetview/opatovina/sw_sage.png",
+   "edges": [
+    "w296513260_e1"
+   ],
+   "bays": 6,
+   "storeys": 2,
+   "place": "Opatovina",
+   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a two-storey Upper Town Baroque-classicist house in pale sage-green plaster: white-framed upper windows with flat hoods, a white stringcourse, ground floor with small barred windows and a wooden door, plain cornice, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "opatovina_h260b",
+   "photo": ".art/streetview/opatovina/sw_yellow.png",
+   "edges": [
+    "w296513260_e2"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Opatovina",
+   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a two-storey Upper Town Baroque-classicist house in pale yellow plaster: three white-framed upper windows, a stringcourse, a wooden door and small barred windows below, plain cornice, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "opatovina_dornik",
+   "photo": ".art/streetview/opatovina/sw_salmon.png",
+   "edges": [
+    "w296513271_e2"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Opatovina",
+   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a two-storey Upper Town Baroque-classicist house in faded salmon plaster (Kuća Dornik-Dutković): three white-framed upper windows with triangular hoods, corner pilaster strips, an arched door with stone frame and small barred windows below, plain cornice, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "opatovina_fuchs",
+   "photo": ".art/streetview/opatovina/sw_cream.png",
+   "edges": [
+    "w296513276_e4"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Opatovina",
+   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a two-storey Upper Town Baroque-classicist house in pale cream plaster (Kuća Fuchs): three tall white-framed upper windows with shutters, white stringcourse, wooden door and small windows with iron grilles below, plain cornice, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "opatovina_h280",
+   "photo": ".art/streetview/opatovina/sw_grey.png",
+   "edges": [
+    "w296513280_e0"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Opatovina",
+   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a four-storey Upper Town historicist tenement in pale grey-beige plaster: five bays of white-framed windows with hoods on the first floor, plainer windows above, white stringcourses, heavy plain cornice, ground floor with an arched gate and small barred windows, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "opatovina_h688",
+   "photo": ".art/streetview/opatovina/sw_blue.png",
+   "edges": [
+    "w299519688_e0"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Opatovina",
+   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a two-storey Upper Town Baroque-classicist house in pale blue-grey plaster: three white-framed upper windows, a stringcourse, an arched wooden door and small barred windows below, plain cornice, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "opatovina_h375",
+   "photo": ".art/streetview/opatovina/sw_ochre.png",
+   "edges": [
+    "w735337375_e1"
+   ],
+   "bays": 3,
+   "storeys": 3,
+   "place": "Opatovina",
+   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a three-storey Upper Town historicist house in ochre plaster: three bays of white-framed windows with flat hoods on the first floor, plainer above, stringcourses, plain cornice, ground floor with a wooden door and barred windows, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "opatovina_h392",
+   "photo": ".art/streetview/opatovina/sw_rose.png",
+   "edges": [
+    "w735337392_e4"
+   ],
+   "bays": 3,
+   "storeys": 3,
+   "place": "Opatovina",
+   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a three-storey Upper Town historicist house in faded rose plaster: three bays of white-framed windows with hoods, pilaster strips at the corners, stringcourses, plain cornice, ground floor with a wooden door and small windows, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "opatovina_h644_e3",
+   "photo": ".art/streetview/opatovina/sw_white.png",
+   "edges": [
+    "w290024644_e3"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Opatovina",
+   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a two-storey Upper Town Baroque-classicist house in off-white plaster: three white-framed upper windows, a stringcourse, a wooden door and small barred windows below, plain cornice, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "opatovina_h644_e4",
+   "photo": ".art/streetview/opatovina/sw_yellow.png",
+   "edges": [
+    "w290024644_e4"
+   ],
+   "bays": 6,
+   "storeys": 2,
+   "place": "Opatovina",
+   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a two-storey Upper Town Baroque-classicist house in pale yellow plaster: white-framed upper windows with flat hoods, a stringcourse, small barred ground floor windows and a wooden door, plain eaves cornice, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "opatovina_h644_e6",
+   "photo": ".art/streetview/opatovina/sw_yellow.png",
+   "edges": [
+    "w290024644_e6"
+   ],
+   "bays": 6,
+   "storeys": 2,
+   "place": "Opatovina",
+   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a two-storey Upper Town Baroque-classicist house in pale yellow plaster: white-framed upper windows with flat hoods, a stringcourse, small barred ground floor windows and an arched wooden door, plain eaves cornice, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "opatovina_h644_e7",
+   "photo": ".art/streetview/opatovina/sw_yellow.png",
+   "edges": [
+    "w290024644_e7"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Opatovina",
+   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a two-storey Upper Town Baroque-classicist house in pale yellow plaster: three white-framed upper windows, a stringcourse, a wooden door and small barred windows below, plain cornice, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "opatovina_h644_e8",
+   "photo": ".art/streetview/opatovina/sw_yellow.png",
+   "edges": [
+    "w290024644_e8"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Opatovina",
+   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a two-storey Upper Town Baroque-classicist house in pale yellow plaster: three white-framed upper windows, a stringcourse, wooden door and small barred windows below, plain cornice, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "opatovina_h932",
+   "photo": ".art/streetview/opatovina/sw_salmon.png",
+   "edges": [
+    "w289908932_e0"
+   ],
+   "bays": 3,
+   "storeys": 3,
+   "place": "Opatovina",
+   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a three-storey Upper Town historicist house in faded salmon plaster: three bays of white-framed windows with hoods, stringcourse, plain cornice, ground floor with a wooden door and barred windows, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "opatovina_prepozitura",
+   "photo": ".art/streetview/opatovina/sw_cream.png",
+   "edges": [
+    "w289908937_e1"
+   ],
+   "bays": 3,
+   "storeys": 3,
+   "place": "Opatovina",
+   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a three-storey Upper Town historicist house in pale cream plaster (Kurija prepoziture, a canonical curia): three bays of white-framed windows with flat hoods, a stringcourse, an arched stone-framed door, plain cornice, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "opatovina_h702",
+   "photo": ".art/streetview/opatovina/sw_grey.png",
+   "edges": [
+    "w290024702_e5",
+    "w290024702_e6"
+   ],
+   "bays": 4,
+   "storeys": 3,
+   "place": "Opatovina",
+   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a three-storey Upper Town historicist house in pale grey plaster: four bays of white-framed windows, a stringcourse, a wooden door and small barred windows below, plain cornice, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "opatovina_g1",
+   "photo": ".art/streetview/opatovina/sw_sage.png",
+   "edges": [
+    "w1106372268_e1"
+   ],
+   "bays": 5,
+   "storeys": 3,
+   "place": "Opatovina",
+   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a three-storey Upper Town historicist house in pale sage-green plaster: five bays of white-framed windows with flat hoods on the first floor, plainer windows above, white stringcourses, plain cornice, ground floor with two wooden doors and small barred windows, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "opatovina_g3",
+   "photo": ".art/streetview/opatovina/sw_ochre.png",
+   "edges": [
+    "w1106372268_e3"
+   ],
+   "bays": 3,
+   "storeys": 3,
+   "place": "Opatovina",
+   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a three-storey Upper Town historicist house in warm ochre plaster: three bays of white-framed windows, stringcourses, plain cornice, ground floor with a wooden door and barred windows, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "opatovina_g5",
+   "photo": ".art/streetview/opatovina/sw_cream.png",
+   "edges": [
+    "w1106372268_e5",
+    "w1106372268_e6",
+    "w1106372268_e7"
+   ],
+   "bays": 8,
+   "storeys": 3,
+   "place": "Opatovina",
+   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a three-storey Upper Town historicist house in pale cream plaster: a long run of white-framed windows with flat hoods on the first floor, plainer above, white stringcourses, plain cornice, ground floor with an arched carriage gate, small barred windows and wooden doors, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "opatovina_g8",
+   "photo": ".art/streetview/opatovina/sw_rose.png",
+   "edges": [
+    "w1106372268_e8"
+   ],
+   "bays": 4,
+   "storeys": 3,
+   "place": "Opatovina",
+   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a three-storey Upper Town historicist house in faded rose plaster: four bays of white-framed windows with hoods, stringcourses, plain cornice, ground floor with a wooden door and barred windows, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "opatovina_g10",
+   "photo": ".art/streetview/opatovina/sw_white.png",
+   "edges": [
+    "w1106372268_e10"
+   ],
+   "bays": 16,
+   "storeys": 3,
+   "place": "Opatovina",
+   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a three-storey Upper Town historicist house in off-white plaster: a long run of white-framed windows with flat hoods on the first floor, plainer windows above, white pilaster strips, stringcourses, a plain cornice, ground floor with small barred windows and wooden doors, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  }
+ ]
+}

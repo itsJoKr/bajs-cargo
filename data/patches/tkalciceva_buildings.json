@@ -1,0 +1,235 @@
+{
+ "w293352410": {
+  "name": "Otto&Frank (Tkalčićeva)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w293352410_e4",
+    "from": 0.05,
+    "to": 0.99,
+    "y": 3.4,
+    "drop": 1.2,
+    "depth": 1.3,
+    "color": "#ffffff",
+    "texture": "tkalciceva_awning_ottofrank.jpg",
+    "repeat": 10.2,
+    "source": "Street View Jul 2025 (official pano, hand-picked frames)"
+   },
+   {
+    "type": "terrace",
+    "wall": "w293352410_e4",
+    "from": 0.05,
+    "to": 0.99,
+    "depth": 2.6,
+    "color": "#e9e3cf",
+    "source": "Street View Jul 2025 (official pano, hand-picked frames)"
+   }
+  ]
+ },
+ "w293357016": {
+  "name": "Al Paso",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w293357016_e4",
+    "from": 0.0,
+    "to": 1.0,
+    "y": 3.75,
+    "drop": 0.8,
+    "depth": 1.3,
+    "color": "#ffffff",
+    "texture": "tkalciceva_awning_green.jpg",
+    "repeat": 8.5,
+    "source": "Street View Jul 2025 (official pano, hand-picked frames)"
+   },
+   {
+    "type": "terrace",
+    "wall": "w293357016_e4",
+    "from": 0.05,
+    "to": 0.95,
+    "depth": 3.0,
+    "color": "#2f6b4f",
+    "source": "Street View Jul 2025 (official pano, hand-picked frames)"
+   }
+  ]
+ },
+ "w293357019": {
+  "name": "Tkalčićeva (ornate house)",
+  "roof": "clay_red",
+  "features": []
+ },
+ "w293357168": {
+  "name": "Royal India",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w293357168_e4",
+    "from": 0.1,
+    "to": 1.0,
+    "y": 3.55,
+    "drop": 0.5,
+    "depth": 1.3,
+    "color": "#ffffff",
+    "texture": "tkalciceva_awning_taupe.jpg",
+    "repeat": 7.5,
+    "source": "Street View Jul 2025 (official pano, hand-picked frames)"
+   },
+   {
+    "type": "terrace",
+    "wall": "w293357168_e4",
+    "from": 0.1,
+    "to": 1.0,
+    "depth": 2.6,
+    "color": "#c9b99a",
+    "source": "Street View Jul 2025 (official pano, hand-picked frames)"
+   }
+  ]
+ },
+ "w293357169": {
+  "name": "Jamnica / Paga Gelato",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w293357169_e3",
+    "from": 0.02,
+    "to": 1.0,
+    "y": 2.75,
+    "drop": 0.4,
+    "depth": 1.2,
+    "color": "#ffffff",
+    "texture": "tkalciceva_awning_blue.jpg",
+    "repeat": 6.7,
+    "source": "Street View Jul 2025 (official pano, hand-picked frames)"
+   },
+   {
+    "type": "terrace",
+    "wall": "w293357169_e3",
+    "from": 0.05,
+    "to": 1.0,
+    "depth": 2.4,
+    "color": "#f2eee2",
+    "source": "Street View Jul 2025 (official pano, hand-picked frames)"
+   }
+  ]
+ },
+ "w293357439": {
+  "name": "Lapis Art Jewelry / Souvenirs",
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w293357439_e5",
+    "from": 0.01,
+    "to": 0.33,
+    "y": 3.4,
+    "drop": 0.4,
+    "depth": 1.2,
+    "color": "#ffffff",
+    "texture": "tkalciceva_awning_grey.jpg",
+    "repeat": 3.8,
+    "source": "Street View Jul 2025 (official pano, hand-picked frames)"
+   },
+   {
+    "type": "awning",
+    "wall": "w293357439_e5",
+    "from": 0.34,
+    "to": 0.75,
+    "y": 3.4,
+    "drop": 0.4,
+    "depth": 1.2,
+    "color": "#ffffff",
+    "texture": "tkalciceva_awning_greyplain.jpg",
+    "repeat": 4.8,
+    "source": "Street View Jul 2025 (official pano, hand-picked frames)"
+   },
+   {
+    "type": "awning",
+    "wall": "w293357439_e5",
+    "from": 0.75,
+    "to": 0.99,
+    "y": 3.4,
+    "drop": 0.4,
+    "depth": 1.2,
+    "color": "#ffffff",
+    "texture": "tkalciceva_awning_greyplain.jpg",
+    "repeat": 2.8,
+    "source": "Street View Jul 2025 (official pano, hand-picked frames)"
+   },
+   {
+    "type": "sign",
+    "wall": "w293357439_e5",
+    "mount": "projecting",
+    "image": "tkalciceva_sign_souvenirs.png",
+    "at": 0.71,
+    "y": 3.6,
+    "width": 1.1,
+    "out": 0.75,
+    "source": "Street View Jul 2025 (official pano, hand-picked frames), redrawn flat by gen-image"
+   }
+  ]
+ },
+ "w293357440": {
+  "name": "Stretto (Tkalčićeva 34 area)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "sign",
+    "wall": "w293357440_e7",
+    "mount": "projecting",
+    "image": "tkalciceva_sign_stretto.png",
+    "at": 0.56,
+    "y": 3.3,
+    "width": 0.75,
+    "out": 0.8,
+    "source": "Street View Jul 2025 (official pano, hand-picked frames), redrawn flat by gen-image"
+   }
+  ]
+ },
+ "w289908898": {
+  "name": "Kuća Vran (meet&eat)",
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w289908898_e0",
+    "at": 0.5,
+    "out": 0.8,
+    "width": 13.6,
+    "depth": 1.6,
+    "height": 0.22,
+    "y": 3.85,
+    "color": "#ffffff",
+    "texture": "tkalciceva_gallery.jpg",
+    "repeat": 1.0,
+    "source": "Street View Jul 2025 (official pano, hand-picked frames) (wooden gallery slab)"
+   },
+   {
+    "type": "box",
+    "wall": "w289908898_e0",
+    "at": 0.5,
+    "out": 1.55,
+    "width": 13.6,
+    "depth": 0.08,
+    "height": 1.05,
+    "y": 4.07,
+    "color": "#ffffff",
+    "texture": "tkalciceva_gallery.jpg",
+    "repeat": 1.0,
+    "source": "Street View Jul 2025 (official pano, hand-picked frames) (gallery balustrade)"
+   },
+   {
+    "type": "terrace",
+    "wall": "w289908898_e0",
+    "from": 0.1,
+    "to": 1.0,
+    "depth": 3.0,
+    "color": "#3a3a3a",
+    "source": "Street View Jul 2025 (official pano, hand-picked frames)"
+   }
+  ]
+ }
+}

@@ -1,0 +1,73 @@
+{
+ "w289908903": {
+  "name": "Kuća Klemenčić (Römerquelle / ice-cream shop)",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w289908903_e0",
+    "from": 0.0,
+    "to": 1.0,
+    "y": 3.96,
+    "drop": 0.95,
+    "depth": 1.2,
+    "color": "#ffffff",
+    "texture": "tkalciceva_awning_romer.jpg",
+    "repeat": 12.7,
+    "source": "Street View Jul 2025 (official pano d, 3 m from the wall); banner measured on raw.png (3.68 to 4.91 m)"
+   }
+  ]
+ },
+ "w289908823": {
+  "name": "Kuća Mihoković (Croatian Naive Art gallery)",
+  "features": [
+   {
+    "type": "sign",
+    "wall": "w289908823_e19",
+    "mount": "wall",
+    "image": "tkalciceva_sign_naive.png",
+    "at": 0.46,
+    "width": 3.6,
+    "y": 3.2,
+    "out": 0.06,
+    "source": "Maps user photosphere Dec 2016: white board 'Croatian Naive Art / Gallery Mirko Virius', redrawn flat by gen-image"
+   }
+  ]
+ },
+ "w289908952": {
+  "name": "Tkalčićeva pink palace",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w289908952_e6",
+    "at": 0.5,
+    "width": 19.6,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "color": "#ffffff",
+    "texture": "tkalciceva_cornice_pink.jpg",
+    "repeat": 1.2,
+    "source": "Maps user photosphere Dec 2016 (projecting cornice of the pink palace)"
+   }
+  ]
+ },
+ "w735313510": {
+  "name": "Tkalčićeva white block (Coca-Cola awning)",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w735313510_e10",
+    "from": 0.06,
+    "to": 0.99,
+    "y": 4.05,
+    "drop": 0.65,
+    "depth": 1.2,
+    "color": "#ffffff",
+    "texture": "tkalciceva_awning_greyplain.jpg",
+    "repeat": 9.0,
+    "source": "Street View Jul 2025 (official pano a): dark grey awning with Coca-Cola lettering; measured on raw.png (3.77 to 4.7 m)"
+   }
+  ]
+ }
+}

@@ -1,0 +1,1144 @@
+{
+ "facades": [
+  {
+   "name": "fill_w97091857_e6",
+   "photo": ".art/facades/fill_w97091857_e6/photo.png",
+   "edges": [
+    "w97091857_e6"
+   ],
+   "bays": 4,
+   "storeys": 2,
+   "place": "Ulica Pavla Radića",
+   "source": "INVENTED filler: crop of pavlaradica_inv_w97091857_e7 (neighbour style, 2 storeys)",
+   "look": "INVENTED filler cropped from pavlaradica_inv_w97091857_e7"
+  },
+  {
+   "name": "fill_w97091860_e9",
+   "photo": ".art/facades/fill_w97091860_e9/photo.png",
+   "edges": [
+    "w97091860_e9"
+   ],
+   "bays": 2,
+   "storeys": 2,
+   "place": "Ulica Pavla Radića",
+   "source": "INVENTED filler: crop of pavlaradica_inv_w97091857_e7 (neighbour style, 2 storeys)",
+   "look": "INVENTED filler cropped from pavlaradica_inv_w97091857_e7"
+  },
+  {
+   "name": "fill_w97091865_e2",
+   "photo": ".art/facades/fill_w97091865_e2/photo.png",
+   "edges": [
+    "w97091865_e2"
+   ],
+   "bays": 5,
+   "storeys": 2,
+   "place": "Ulica Pavla Radića",
+   "source": "INVENTED filler: crop of pavlaradica_inv_w97091857_e7 (neighbour style, 2 storeys)",
+   "look": "INVENTED filler cropped from pavlaradica_inv_w97091857_e7"
+  },
+  {
+   "name": "fill_w105484833_e9",
+   "photo": ".art/facades/fill_w105484833_e9/photo.png",
+   "edges": [
+    "w105484833_e9"
+   ],
+   "bays": 1,
+   "storeys": 7,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of octagon_windows (neighbour style, 7 storeys)",
+   "look": "INVENTED filler cropped from octagon_windows"
+  },
+  {
+   "name": "fill_w105490847_e0",
+   "photo": ".art/facades/fill_w105490847_e0/photo.png",
+   "edges": [
+    "w105490847_e0"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Stube kralja Ladislava",
+   "source": "INVENTED filler: crop of tkalciceva_b_modern_east_four (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from tkalciceva_b_modern_east_four"
+  },
+  {
+   "name": "fill_w105490847_e2",
+   "photo": ".art/facades/fill_w105490847_e2/photo.png",
+   "edges": [
+    "w105490847_e2"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Stube kralja Ladislava",
+   "source": "INVENTED filler: crop of stube_mary_e5 (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from stube_mary_e5"
+  },
+  {
+   "name": "fill_w105490847_e4",
+   "photo": ".art/facades/fill_w105490847_e4/photo.png",
+   "edges": [
+    "w105490847_e4"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Stube kralja Ladislava",
+   "source": "INVENTED filler: crop of stube_mary_e5 (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from stube_mary_e5"
+  },
+  {
+   "name": "fill_w137106308_e5",
+   "photo": ".art/facades/fill_w137106308_e5/photo.png",
+   "edges": [
+    "w137106308_e5"
+   ],
+   "bays": 7,
+   "storeys": 3,
+   "place": "Petrinjska ulica",
+   "source": "INVENTED filler: crop of zrinski_inv_e_north (neighbour style, 3 storeys)",
+   "look": "INVENTED filler cropped from zrinski_inv_e_north"
+  },
+  {
+   "name": "fill_w138251851_e14",
+   "photo": ".art/facades/fill_w138251851_e14/photo.png",
+   "edges": [
+    "w138251851_e14"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Kaptol",
+   "source": "INVENTED filler: crop of kaptol_h51_e13 (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from kaptol_h51_e13"
+  },
+  {
+   "name": "fill_w138251853_e4",
+   "photo": ".art/facades/fill_w138251853_e4/photo.png",
+   "edges": [
+    "w138251853_e4"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Kaptol",
+   "source": "INVENTED filler: crop of kaptol_h54_e12 (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from kaptol_h54_e12"
+  },
+  {
+   "name": "fill_w138251853_e11",
+   "photo": ".art/facades/fill_w138251853_e11/photo.png",
+   "edges": [
+    "w138251853_e11"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Kaptol",
+   "source": "INVENTED filler: crop of kaptol_kd_e8 (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from kaptol_kd_e8"
+  },
+  {
+   "name": "fill_w249753112_e7",
+   "photo": ".art/facades/fill_w249753112_e7/photo.png",
+   "edges": [
+    "w249753112_e7"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Berislavićeva ulica",
+   "source": "INVENTED filler: crop of zrinski_inv_ozegovic (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from zrinski_inv_ozegovic"
+  },
+  {
+   "name": "fill_w289863009_e5",
+   "photo": ".art/facades/fill_w289863009_e5/photo.png",
+   "edges": [
+    "w289863009_e5"
+   ],
+   "bays": 3,
+   "storeys": 3,
+   "place": "Ulica Pavla Radića",
+   "source": "INVENTED filler: crop of tkalciceva_b_ochre_three (neighbour style, 3 storeys)",
+   "look": "INVENTED filler cropped from tkalciceva_b_ochre_three"
+  },
+  {
+   "name": "fill_w289863011_e2",
+   "photo": ".art/facades/fill_w289863011_e2/photo.png",
+   "edges": [
+    "w289863011_e2"
+   ],
+   "bays": 1,
+   "storeys": 3,
+   "place": "Ulica Pavla Radića",
+   "source": "INVENTED filler: crop of tkalciceva_b_cream_three (neighbour style, 3 storeys)",
+   "look": "INVENTED filler cropped from tkalciceva_b_cream_three"
+  },
+  {
+   "name": "fill_w289863031_e6",
+   "photo": ".art/facades/fill_w289863031_e6/photo.png",
+   "edges": [
+    "w289863031_e6"
+   ],
+   "bays": 2,
+   "storeys": 5,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of tkalciceva_b_east_tenement (neighbour style, 5 storeys)",
+   "look": "INVENTED filler cropped from tkalciceva_b_east_tenement"
+  },
+  {
+   "name": "fill_w289908814_e6",
+   "photo": ".art/facades/fill_w289908814_e6/photo.png",
+   "edges": [
+    "w289908814_e6"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of tkalciceva_b_yellow_side_a (neighbour style, 2 storeys)",
+   "look": "INVENTED filler cropped from tkalciceva_b_yellow_side_a"
+  },
+  {
+   "name": "fill_w289908815_e18",
+   "photo": ".art/facades/fill_w289908815_e18/photo.png",
+   "edges": [
+    "w289908815_e18"
+   ],
+   "bays": 2,
+   "storeys": 6,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of stube_blk_e15 (neighbour style, 6 storeys)",
+   "look": "INVENTED filler cropped from stube_blk_e15"
+  },
+  {
+   "name": "fill_w289908815_e19",
+   "photo": ".art/facades/fill_w289908815_e19/photo.png",
+   "edges": [
+    "w289908815_e19"
+   ],
+   "bays": 2,
+   "storeys": 6,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of stube_blk_e15 (neighbour style, 6 storeys)",
+   "look": "INVENTED filler cropped from stube_blk_e15"
+  },
+  {
+   "name": "fill_w289908815_e20",
+   "photo": ".art/facades/fill_w289908815_e20/photo.png",
+   "edges": [
+    "w289908815_e20"
+   ],
+   "bays": 1,
+   "storeys": 6,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of stube_blk_e15 (neighbour style, 6 storeys)",
+   "look": "INVENTED filler cropped from stube_blk_e15"
+  },
+  {
+   "name": "fill_w289908815_e21",
+   "photo": ".art/facades/fill_w289908815_e21/photo.png",
+   "edges": [
+    "w289908815_e21"
+   ],
+   "bays": 2,
+   "storeys": 6,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of stube_blk_e15 (neighbour style, 6 storeys)",
+   "look": "INVENTED filler cropped from stube_blk_e15"
+  },
+  {
+   "name": "fill_w289908815_e22",
+   "photo": ".art/facades/fill_w289908815_e22/photo.png",
+   "edges": [
+    "w289908815_e22"
+   ],
+   "bays": 2,
+   "storeys": 6,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of tkalciceva_b_tall_east (neighbour style, 6 storeys)",
+   "look": "INVENTED filler cropped from tkalciceva_b_tall_east"
+  },
+  {
+   "name": "fill_w289908815_e23",
+   "photo": ".art/facades/fill_w289908815_e23/photo.png",
+   "edges": [
+    "w289908815_e23"
+   ],
+   "bays": 1,
+   "storeys": 6,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of tkalciceva_b_tall_east (neighbour style, 6 storeys)",
+   "look": "INVENTED filler cropped from tkalciceva_b_tall_east"
+  },
+  {
+   "name": "fill_w289908817_e6",
+   "photo": ".art/facades/fill_w289908817_e6/photo.png",
+   "edges": [
+    "w289908817_e6"
+   ],
+   "bays": 1,
+   "storeys": 4,
+   "place": "Ulica Pavla Radića",
+   "source": "INVENTED filler: crop of pavlaradica_inv_w97091858_e1 (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from pavlaradica_inv_w97091858_e1"
+  },
+  {
+   "name": "fill_w289908823_e1",
+   "photo": ".art/facades/fill_w289908823_e1/photo.png",
+   "edges": [
+    "w289908823_e1"
+   ],
+   "bays": 2,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of tkalciceva_b_yellow_side_b (neighbour style, 2 storeys)",
+   "look": "INVENTED filler cropped from tkalciceva_b_yellow_side_b"
+  },
+  {
+   "name": "fill_w289908854_e1",
+   "photo": ".art/facades/fill_w289908854_e1/photo.png",
+   "edges": [
+    "w289908854_e1"
+   ],
+   "bays": 2,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of tkalciceva_b_golli (neighbour style, 2 storeys)",
+   "look": "INVENTED filler cropped from tkalciceva_b_golli"
+  },
+  {
+   "name": "fill_w289908854_e2",
+   "photo": ".art/facades/fill_w289908854_e2/photo.png",
+   "edges": [
+    "w289908854_e2"
+   ],
+   "bays": 2,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of tkalciceva_b_golli (neighbour style, 2 storeys)",
+   "look": "INVENTED filler cropped from tkalciceva_b_golli"
+  },
+  {
+   "name": "fill_w289908870_e2",
+   "photo": ".art/facades/fill_w289908870_e2/photo.png",
+   "edges": [
+    "w289908870_e2"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Kaptol",
+   "source": "INVENTED filler: crop of opatovina_fuchs (neighbour style, 2 storeys)",
+   "look": "INVENTED filler cropped from opatovina_fuchs"
+  },
+  {
+   "name": "fill_w289908875_e0",
+   "photo": ".art/facades/fill_w289908875_e0/photo.png",
+   "edges": [
+    "w289908875_e0"
+   ],
+   "bays": 2,
+   "storeys": 2,
+   "place": "Skalinska ulica",
+   "source": "INVENTED filler: crop of skalinska_rade_a (neighbour style, 2 storeys)",
+   "look": "INVENTED filler cropped from skalinska_rade_a"
+  },
+  {
+   "name": "fill_w289908903_e1",
+   "photo": ".art/facades/fill_w289908903_e1/photo.png",
+   "edges": [
+    "w289908903_e1"
+   ],
+   "bays": 2,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of tkalciceva_b_plemenitas (neighbour style, 2 storeys)",
+   "look": "INVENTED filler cropped from tkalciceva_b_plemenitas"
+  },
+  {
+   "name": "fill_w289908903_e2",
+   "photo": ".art/facades/fill_w289908903_e2/photo.png",
+   "edges": [
+    "w289908903_e2"
+   ],
+   "bays": 1,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of tkalciceva_b_plemenitas (neighbour style, 2 storeys)",
+   "look": "INVENTED filler cropped from tkalciceva_b_plemenitas"
+  },
+  {
+   "name": "fill_w289908932_e2",
+   "photo": ".art/facades/fill_w289908932_e2/photo.png",
+   "edges": [
+    "w289908932_e2"
+   ],
+   "bays": 1,
+   "storeys": 4,
+   "place": "Opatovina",
+   "source": "INVENTED filler: crop of opatovina_h280 (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from opatovina_h280"
+  },
+  {
+   "name": "fill_w290024644_e10",
+   "photo": ".art/facades/fill_w290024644_e10/photo.png",
+   "edges": [
+    "w290024644_e10"
+   ],
+   "bays": 2,
+   "storeys": 2,
+   "place": "Opatovina",
+   "source": "INVENTED filler: crop of opatovina_h644_e8 (neighbour style, 2 storeys)",
+   "look": "INVENTED filler cropped from opatovina_h644_e8"
+  },
+  {
+   "name": "fill_w290024644_e12",
+   "photo": ".art/facades/fill_w290024644_e12/photo.png",
+   "edges": [
+    "w290024644_e12"
+   ],
+   "bays": 2,
+   "storeys": 2,
+   "place": "Opatovina",
+   "source": "INVENTED filler: crop of opatovina_h644_e8 (neighbour style, 2 storeys)",
+   "look": "INVENTED filler cropped from opatovina_h644_e8"
+  },
+  {
+   "name": "fill_w292203494_e1",
+   "photo": ".art/facades/fill_w292203494_e1/photo.png",
+   "edges": [
+    "w292203494_e1"
+   ],
+   "bays": 1,
+   "storeys": 4,
+   "place": "Pod zidom",
+   "source": "INVENTED filler: crop of podzidom_292_e2 (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from podzidom_292_e2"
+  },
+  {
+   "name": "fill_w292203494_e2",
+   "photo": ".art/facades/fill_w292203494_e2/photo.png",
+   "edges": [
+    "w292203494_e2"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Pod zidom",
+   "source": "INVENTED filler: crop of podzidom_292_e2 (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from podzidom_292_e2"
+  },
+  {
+   "name": "fill_w292203495_e3",
+   "photo": ".art/facades/fill_w292203495_e3/photo.png",
+   "edges": [
+    "w292203495_e3"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Opatovina",
+   "source": "INVENTED filler: crop of kaptol_kd_e4 (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from kaptol_kd_e4"
+  },
+  {
+   "name": "fill_w292203496_e7",
+   "photo": ".art/facades/fill_w292203496_e7/photo.png",
+   "edges": [
+    "w292203496_e7"
+   ],
+   "bays": 2,
+   "storeys": 3,
+   "place": "Opatovina",
+   "source": "INVENTED filler: crop of kaptol_strezoj_e8 (neighbour style, 3 storeys)",
+   "look": "INVENTED filler cropped from kaptol_strezoj_e8"
+  },
+  {
+   "name": "fill_w292203496_e9",
+   "photo": ".art/facades/fill_w292203496_e9/photo.png",
+   "edges": [
+    "w292203496_e9"
+   ],
+   "bays": 2,
+   "storeys": 3,
+   "place": "Kaptol",
+   "source": "INVENTED filler: crop of kaptol_strezoj_e8 (neighbour style, 3 storeys)",
+   "look": "INVENTED filler cropped from kaptol_strezoj_e8"
+  },
+  {
+   "name": "fill_w293352156_e1",
+   "photo": ".art/facades/fill_w293352156_e1/photo.png",
+   "edges": [
+    "w293352156_e1"
+   ],
+   "bays": 2,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of tkalciceva_b_debic_side (neighbour style, 2 storeys)",
+   "look": "INVENTED filler cropped from tkalciceva_b_debic_side"
+  },
+  {
+   "name": "fill_w293357440_e2",
+   "photo": ".art/facades/fill_w293357440_e2/photo.png",
+   "edges": [
+    "w293357440_e2"
+   ],
+   "bays": 2,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of tkalciceva_b_north_east (neighbour style, 2 storeys)",
+   "look": "INVENTED filler cropped from tkalciceva_b_north_east"
+  },
+  {
+   "name": "fill_w293357441_e2",
+   "photo": ".art/facades/fill_w293357441_e2/photo.png",
+   "edges": [
+    "w293357441_e2"
+   ],
+   "bays": 2,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of tkalciceva_b_north_east (neighbour style, 2 storeys)",
+   "look": "INVENTED filler cropped from tkalciceva_b_north_east"
+  },
+  {
+   "name": "fill_w293357492_e3",
+   "photo": ".art/facades/fill_w293357492_e3/photo.png",
+   "edges": [
+    "w293357492_e3"
+   ],
+   "bays": 1,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of tkalciceva_b_north_east (neighbour style, 2 storeys)",
+   "look": "INVENTED filler cropped from tkalciceva_b_north_east"
+  },
+  {
+   "name": "fill_w296513277_e0",
+   "photo": ".art/facades/fill_w296513277_e0/photo.png",
+   "edges": [
+    "w296513277_e0"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Opatovina",
+   "source": "INVENTED filler: crop of opatovina_h225 (neighbour style, 2 storeys)",
+   "look": "INVENTED filler cropped from opatovina_h225"
+  },
+  {
+   "name": "fill_w299519687_e4",
+   "photo": ".art/facades/fill_w299519687_e4/photo.png",
+   "edges": [
+    "w299519687_e4"
+   ],
+   "bays": 1,
+   "storeys": 2,
+   "place": "Skalinska ulica",
+   "source": "INVENTED filler: crop of skalinska_h687 (neighbour style, 2 storeys)",
+   "look": "INVENTED filler cropped from skalinska_h687"
+  },
+  {
+   "name": "fill_w299520898_e0",
+   "photo": ".art/facades/fill_w299520898_e0/photo.png",
+   "edges": [
+    "w299520898_e0"
+   ],
+   "bays": 2,
+   "storeys": 1,
+   "place": "Opatovina",
+   "source": "INVENTED filler: crop of skalinska_h381 (neighbour style, 1 storeys)",
+   "look": "INVENTED filler cropped from skalinska_h381"
+  },
+  {
+   "name": "fill_w299520898_e1",
+   "photo": ".art/facades/fill_w299520898_e1/photo.png",
+   "edges": [
+    "w299520898_e1"
+   ],
+   "bays": 2,
+   "storeys": 1,
+   "place": "Opatovina",
+   "source": "INVENTED filler: crop of skalinska_h381 (neighbour style, 1 storeys)",
+   "look": "INVENTED filler cropped from skalinska_h381"
+  },
+  {
+   "name": "fill_w299520898_e2",
+   "photo": ".art/facades/fill_w299520898_e2/photo.png",
+   "edges": [
+    "w299520898_e2"
+   ],
+   "bays": 2,
+   "storeys": 1,
+   "place": "Opatovina",
+   "source": "INVENTED filler: crop of skalinska_h381 (neighbour style, 1 storeys)",
+   "look": "INVENTED filler cropped from skalinska_h381"
+  },
+  {
+   "name": "fill_w375221482_e1",
+   "photo": ".art/facades/fill_w375221482_e1/photo.png",
+   "edges": [
+    "w375221482_e1"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Vlaška ulica",
+   "source": "INVENTED filler: crop of vlaska_e482 (neighbour style, 2 storeys)",
+   "look": "INVENTED filler cropped from vlaska_e482"
+  },
+  {
+   "name": "fill_w375221516_e1",
+   "photo": ".art/facades/fill_w375221516_e1/photo.png",
+   "edges": [
+    "w375221516_e1"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Vlaška ulica",
+   "source": "INVENTED filler: crop of vlaska_e852 (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from vlaska_e852"
+  },
+  {
+   "name": "fill_w375221517_e7",
+   "photo": ".art/facades/fill_w375221517_e7/photo.png",
+   "edges": [
+    "w375221517_e7"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Vlaška ulica",
+   "source": "INVENTED filler: crop of vlaska_e852 (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from vlaska_e852"
+  },
+  {
+   "name": "fill_w435118933_e21",
+   "photo": ".art/facades/fill_w435118933_e21/photo.png",
+   "edges": [
+    "w435118933_e21"
+   ],
+   "bays": 2,
+   "storeys": 3,
+   "place": "Ulica Nikole Tesle",
+   "source": "INVENTED filler: crop of tesle_inv_n_c_b (neighbour style, 3 storeys)",
+   "look": "INVENTED filler cropped from tesle_inv_n_c_b"
+  },
+  {
+   "name": "fill_w435118933_e23",
+   "photo": ".art/facades/fill_w435118933_e23/photo.png",
+   "edges": [
+    "w435118933_e23"
+   ],
+   "bays": 2,
+   "storeys": 3,
+   "place": "Ulica Nikole Tesle",
+   "source": "INVENTED filler: crop of tesle_inv_n_c_b (neighbour style, 3 storeys)",
+   "look": "INVENTED filler cropped from tesle_inv_n_c_b"
+  },
+  {
+   "name": "fill_w544516553_e2",
+   "photo": ".art/facades/fill_w544516553_e2/photo.png",
+   "edges": [
+    "w544516553_e2"
+   ],
+   "bays": 1,
+   "storeys": 4,
+   "place": "Stube kralja Ladislava",
+   "source": "INVENTED filler: crop of stube_blk3 (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from stube_blk3"
+  },
+  {
+   "name": "fill_w544516553_e32",
+   "photo": ".art/facades/fill_w544516553_e32/photo.png",
+   "edges": [
+    "w544516553_e32"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Stube kralja Ladislava",
+   "source": "INVENTED filler: crop of stube_mary_e12 (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from stube_mary_e12"
+  },
+  {
+   "name": "fill_w579294884_e1",
+   "photo": ".art/facades/fill_w579294884_e1/photo.png",
+   "edges": [
+    "w579294884_e1"
+   ],
+   "bays": 2,
+   "storeys": 3,
+   "place": "Berislavićeva ulica",
+   "source": "INVENTED filler: crop of berislavic_n884 (neighbour style, 3 storeys)",
+   "look": "INVENTED filler cropped from berislavic_n884"
+  },
+  {
+   "name": "fill_w579294888_e3",
+   "photo": ".art/facades/fill_w579294888_e3/photo.png",
+   "edges": [
+    "w579294888_e3"
+   ],
+   "bays": 2,
+   "storeys": 3,
+   "place": "Berislavićeva ulica",
+   "source": "INVENTED filler: crop of berislavic_n888 (neighbour style, 3 storeys)",
+   "look": "INVENTED filler cropped from berislavic_n888"
+  },
+  {
+   "name": "fill_w579294895_e1",
+   "photo": ".art/facades/fill_w579294895_e1/photo.png",
+   "edges": [
+    "w579294895_e1"
+   ],
+   "bays": 2,
+   "storeys": 3,
+   "place": "Ulica Nikole Tesle",
+   "source": "INVENTED filler: crop of gajeva_b_uriho_s (neighbour style, 3 storeys)",
+   "look": "INVENTED filler cropped from gajeva_b_uriho_s"
+  },
+  {
+   "name": "fill_w579294902_e6",
+   "photo": ".art/facades/fill_w579294902_e6/photo.png",
+   "edges": [
+    "w579294902_e6"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Ulica Nikole Tesle",
+   "source": "INVENTED filler: crop of zrinski_inv_n2 (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from zrinski_inv_n2"
+  },
+  {
+   "name": "fill_w579295116_e0",
+   "photo": ".art/facades/fill_w579295116_e0/photo.png",
+   "edges": [
+    "w579295116_e0"
+   ],
+   "bays": 2,
+   "storeys": 3,
+   "place": "Berislavićeva ulica",
+   "source": "INVENTED filler: crop of berislavic_s1151 (neighbour style, 3 storeys)",
+   "look": "INVENTED filler cropped from berislavic_s1151"
+  },
+  {
+   "name": "fill_w579295116_e1",
+   "photo": ".art/facades/fill_w579295116_e1/photo.png",
+   "edges": [
+    "w579295116_e1"
+   ],
+   "bays": 2,
+   "storeys": 3,
+   "place": "Berislavićeva ulica",
+   "source": "INVENTED filler: crop of berislavic_s1151 (neighbour style, 3 storeys)",
+   "look": "INVENTED filler cropped from berislavic_s1151"
+  },
+  {
+   "name": "fill_w735313510_e3",
+   "photo": ".art/facades/fill_w735313510_e3/photo.png",
+   "edges": [
+    "w735313510_e3"
+   ],
+   "bays": 1,
+   "storeys": 4,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of tkalciceva_b_blue_grey_four (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from tkalciceva_b_blue_grey_four"
+  },
+  {
+   "name": "fill_w735313510_e4",
+   "photo": ".art/facades/fill_w735313510_e4/photo.png",
+   "edges": [
+    "w735313510_e4"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of tkalciceva_b_blue_grey_four (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from tkalciceva_b_blue_grey_four"
+  },
+  {
+   "name": "fill_w735313510_e5",
+   "photo": ".art/facades/fill_w735313510_e5/photo.png",
+   "edges": [
+    "w735313510_e5"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of tkalciceva_b_blue_grey_four (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from tkalciceva_b_blue_grey_four"
+  },
+  {
+   "name": "fill_w735313511_e31",
+   "photo": ".art/facades/fill_w735313511_e31/photo.png",
+   "edges": [
+    "w735313511_e31"
+   ],
+   "bays": 2,
+   "storeys": 3,
+   "place": "Ulica Pavla Radića",
+   "source": "INVENTED filler: crop of tkalciceva_b_cream_three (neighbour style, 3 storeys)",
+   "look": "INVENTED filler cropped from tkalciceva_b_cream_three"
+  },
+  {
+   "name": "fill_w735313511_e39",
+   "photo": ".art/facades/fill_w735313511_e39/photo.png",
+   "edges": [
+    "w735313511_e39"
+   ],
+   "bays": 2,
+   "storeys": 3,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of tkalciceva_b_cream_three (neighbour style, 3 storeys)",
+   "look": "INVENTED filler cropped from tkalciceva_b_cream_three"
+  },
+  {
+   "name": "fill_w735313512_e3",
+   "photo": ".art/facades/fill_w735313512_e3/photo.png",
+   "edges": [
+    "w735313512_e3"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of tkalciceva_b_blue_grey_four (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from tkalciceva_b_blue_grey_four"
+  },
+  {
+   "name": "fill_w735313515_e1",
+   "photo": ".art/facades/fill_w735313515_e1/photo.png",
+   "edges": [
+    "w735313515_e1"
+   ],
+   "bays": 2,
+   "storeys": 1,
+   "place": "Ulica Pavla Radića",
+   "source": "INVENTED filler: crop of skalinska_h381 (neighbour style, 1 storeys)",
+   "look": "INVENTED filler cropped from skalinska_h381"
+  },
+  {
+   "name": "fill_w735313516_e6",
+   "photo": ".art/facades/fill_w735313516_e6/photo.png",
+   "edges": [
+    "w735313516_e6"
+   ],
+   "bays": 1,
+   "storeys": 1,
+   "place": "Ulica Pavla Radića",
+   "source": "INVENTED filler: crop of skalinska_h381 (neighbour style, 1 storeys)",
+   "look": "INVENTED filler cropped from skalinska_h381"
+  },
+  {
+   "name": "fill_w735337377_e1",
+   "photo": ".art/facades/fill_w735337377_e1/photo.png",
+   "edges": [
+    "w735337377_e1"
+   ],
+   "bays": 2,
+   "storeys": 1,
+   "place": "Stube kralja Ladislava",
+   "source": "INVENTED filler: crop of skalinska_h381 (neighbour style, 1 storeys)",
+   "look": "INVENTED filler cropped from skalinska_h381"
+  },
+  {
+   "name": "fill_w735337379_e3",
+   "photo": ".art/facades/fill_w735337379_e3/photo.png",
+   "edges": [
+    "w735337379_e3"
+   ],
+   "bays": 2,
+   "storeys": 1,
+   "place": "Skalinska ulica",
+   "source": "INVENTED filler: crop of skalinska_h381 (neighbour style, 1 storeys)",
+   "look": "INVENTED filler cropped from skalinska_h381"
+  },
+  {
+   "name": "fill_w735337383_e2",
+   "photo": ".art/facades/fill_w735337383_e2/photo.png",
+   "edges": [
+    "w735337383_e2"
+   ],
+   "bays": 2,
+   "storeys": 1,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of skalinska_h381 (neighbour style, 1 storeys)",
+   "look": "INVENTED filler cropped from skalinska_h381"
+  },
+  {
+   "name": "fill_w735337391_e27",
+   "photo": ".art/facades/fill_w735337391_e27/photo.png",
+   "edges": [
+    "w735337391_e27"
+   ],
+   "bays": 2,
+   "storeys": 6,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of tkalciceva_b_tall_east (neighbour style, 6 storeys)",
+   "look": "INVENTED filler cropped from tkalciceva_b_tall_east"
+  },
+  {
+   "name": "fill_w735337391_e33",
+   "photo": ".art/facades/fill_w735337391_e33/photo.png",
+   "edges": [
+    "w735337391_e33"
+   ],
+   "bays": 2,
+   "storeys": 6,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of tkalciceva_b_tall_east (neighbour style, 6 storeys)",
+   "look": "INVENTED filler cropped from tkalciceva_b_tall_east"
+  },
+  {
+   "name": "fill_w735339086_e0",
+   "photo": ".art/facades/fill_w735339086_e0/photo.png",
+   "edges": [
+    "w735339086_e0"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Stube kralja Ladislava",
+   "source": "INVENTED filler: crop of stube_w735_e4 (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from stube_w735_e4"
+  },
+  {
+   "name": "fill_w735339086_e1",
+   "photo": ".art/facades/fill_w735339086_e1/photo.png",
+   "edges": [
+    "w735339086_e1"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Stube kralja Ladislava",
+   "source": "INVENTED filler: crop of stube_w735_e4 (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from stube_w735_e4"
+  },
+  {
+   "name": "fill_w735339086_e3",
+   "photo": ".art/facades/fill_w735339086_e3/photo.png",
+   "edges": [
+    "w735339086_e3"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Tkalčićeva ulica",
+   "source": "INVENTED filler: crop of stube_w735_e4 (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from stube_w735_e4"
+  },
+  {
+   "name": "fill_w735339086_e5",
+   "photo": ".art/facades/fill_w735339086_e5/photo.png",
+   "edges": [
+    "w735339086_e5"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Stube kralja Ladislava",
+   "source": "INVENTED filler: crop of stube_w735_e4 (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from stube_w735_e4"
+  },
+  {
+   "name": "fill_w780992318_e0",
+   "photo": ".art/facades/fill_w780992318_e0/photo.png",
+   "edges": [
+    "w780992318_e0"
+   ],
+   "bays": 2,
+   "storeys": 1,
+   "place": "Kaptol",
+   "source": "INVENTED filler: crop of skalinska_h381 (neighbour style, 1 storeys)",
+   "look": "INVENTED filler cropped from skalinska_h381"
+  },
+  {
+   "name": "fill_w860324918_e5",
+   "photo": ".art/facades/fill_w860324918_e5/photo.png",
+   "edges": [
+    "w860324918_e5"
+   ],
+   "bays": 2,
+   "storeys": 3,
+   "place": "Ulica Milana Amruša",
+   "source": "INVENTED filler: crop of zrinski_inv_e_north (neighbour style, 3 storeys)",
+   "look": "INVENTED filler cropped from zrinski_inv_e_north"
+  },
+  {
+   "name": "fill_w1073971965_e1",
+   "photo": ".art/facades/fill_w1073971965_e1/photo.png",
+   "edges": [
+    "w1073971965_e1"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Opatovina",
+   "source": "INVENTED filler: crop of skalinska_miletic_e (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from skalinska_miletic_e"
+  },
+  {
+   "name": "fill_w1073971966_e2",
+   "photo": ".art/facades/fill_w1073971966_e2/photo.png",
+   "edges": [
+    "w1073971966_e2"
+   ],
+   "bays": 2,
+   "storeys": 2,
+   "place": "Kaptol",
+   "source": "INVENTED filler: crop of opatovina_h644_e6 (neighbour style, 2 storeys)",
+   "look": "INVENTED filler cropped from opatovina_h644_e6"
+  },
+  {
+   "name": "fill_w1083565866_e2",
+   "photo": ".art/facades/fill_w1083565866_e2/photo.png",
+   "edges": [
+    "w1083565866_e2"
+   ],
+   "bays": 1,
+   "storeys": 1,
+   "place": "Gajeva ulica",
+   "source": "INVENTED filler: crop of skalinska_h381 (neighbour style, 1 storeys)",
+   "look": "INVENTED filler cropped from skalinska_h381"
+  },
+  {
+   "name": "fill_w1106372268_e20",
+   "photo": ".art/facades/fill_w1106372268_e20/photo.png",
+   "edges": [
+    "w1106372268_e20"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Opatovina",
+   "source": "INVENTED filler: crop of opatovina_h280 (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from opatovina_h280"
+  },
+  {
+   "name": "fill_w1265244131_e0",
+   "photo": ".art/facades/fill_w1265244131_e0/photo.png",
+   "edges": [
+    "w1265244131_e0"
+   ],
+   "bays": 2,
+   "storeys": 1,
+   "place": "Kaptol",
+   "source": "INVENTED filler: crop of skalinska_h381 (neighbour style, 1 storeys)",
+   "look": "INVENTED filler cropped from skalinska_h381"
+  },
+  {
+   "name": "fill_w1265244133_e1",
+   "photo": ".art/facades/fill_w1265244133_e1/photo.png",
+   "edges": [
+    "w1265244133_e1"
+   ],
+   "bays": 1,
+   "storeys": 1,
+   "place": "Kaptol",
+   "source": "INVENTED filler: crop of skalinska_h381 (neighbour style, 1 storeys)",
+   "look": "INVENTED filler cropped from skalinska_h381"
+  },
+  {
+   "name": "fill_w1452341039_e11",
+   "photo": ".art/facades/fill_w1452341039_e11/photo.png",
+   "edges": [
+    "w1452341039_e11"
+   ],
+   "bays": 2,
+   "storeys": 2,
+   "place": "Stube kralja Ladislava",
+   "source": "INVENTED filler: crop of kaptol_dolac_e12_13 (neighbour style, 2 storeys)",
+   "look": "INVENTED filler cropped from kaptol_dolac_e12_13"
+  },
+  {
+   "name": "fill_w1498441663_e7",
+   "photo": ".art/facades/fill_w1498441663_e7/photo.png",
+   "edges": [
+    "w1498441663_e7"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Pod zidom",
+   "source": "INVENTED filler: crop of podzidom_1663_e5 (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from podzidom_1663_e5"
+  },
+  {
+   "name": "fill_r3853043_e3",
+   "photo": ".art/facades/fill_r3853043_e3/photo.png",
+   "edges": [
+    "r3853043_e3"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Ulica Pavla Radića",
+   "source": "INVENTED filler: crop of pavlaradica_inv_w97091858_e1 (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from pavlaradica_inv_w97091858_e1"
+  },
+  {
+   "name": "fill_r10165667_e2",
+   "photo": ".art/facades/fill_r10165667_e2/photo.png",
+   "edges": [
+    "r10165667_e2"
+   ],
+   "bays": 1,
+   "storeys": 4,
+   "place": "Skalinska ulica",
+   "source": "INVENTED filler: crop of skalinska_miletic_w (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from skalinska_miletic_w"
+  },
+  {
+   "name": "fill_r10165667_e6",
+   "photo": ".art/facades/fill_r10165667_e6/photo.png",
+   "edges": [
+    "r10165667_e6"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Opatovina",
+   "source": "INVENTED filler: crop of skalinska_miletic_s (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from skalinska_miletic_s"
+  },
+  {
+   "name": "fill_r10165667_e13",
+   "photo": ".art/facades/fill_r10165667_e13/photo.png",
+   "edges": [
+    "r10165667_e13"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Skalinska ulica",
+   "source": "INVENTED filler: crop of skalinska_miletic_w (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from skalinska_miletic_w"
+  },
+  {
+   "name": "fill_r10165667_e14",
+   "photo": ".art/facades/fill_r10165667_e14/photo.png",
+   "edges": [
+    "r10165667_e14"
+   ],
+   "bays": 1,
+   "storeys": 4,
+   "place": "Skalinska ulica",
+   "source": "INVENTED filler: crop of skalinska_miletic_w (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from skalinska_miletic_w"
+  },
+  {
+   "name": "fill_r10165667_e15",
+   "photo": ".art/facades/fill_r10165667_e15/photo.png",
+   "edges": [
+    "r10165667_e15"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Skalinska ulica",
+   "source": "INVENTED filler: crop of skalinska_miletic_w (neighbour style, 4 storeys)",
+   "look": "INVENTED filler cropped from skalinska_miletic_w"
+  },
+  {
+   "name": "fill_w735337387_e0",
+   "photo": ".art/facades/fill_w735337387_e0/photo.png",
+   "edges": [
+    "w735337387_e0"
+   ],
+   "bays": 2,
+   "storeys": 1,
+   "place": "Pod zidom",
+   "source": "INVENTED filler: crop of skalinska_h381 (neighbour style, 1 storeys)",
+   "look": "INVENTED filler cropped from skalinska_h381"
+  },
+  {
+   "name": "fill_w735337389_e2",
+   "photo": ".art/facades/fill_w735337389_e2/photo.png",
+   "edges": [
+    "w735337389_e2"
+   ],
+   "bays": 2,
+   "storeys": 1,
+   "place": "Pod zidom",
+   "source": "INVENTED filler: crop of skalinska_h381 (neighbour style, 1 storeys)",
+   "look": "INVENTED filler cropped from skalinska_h381"
+  }
+ ]
+}

@@ -1,0 +1,314 @@
+{
+ "w137106316": {
+  "name": "Ulica Milana Amruša (Sisters Kurtoš)",
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w137106316_e2",
+    "at": 0.5,
+    "width": 30.4,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): brown plaster main cornice"
+   }
+  ]
+ },
+ "w137106308": {
+  "name": "Ulica Milana Amruša (dm corner house)",
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w137106308_e3",
+    "at": 0.5,
+    "width": 21.4,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): brown plaster main cornice"
+   },
+   {
+    "type": "sign",
+    "wall": "w137106308_e3",
+    "mount": "projecting",
+    "image": "amrus_dm.png",
+    "at": 0.03,
+    "width": 0.8,
+    "y": 3.6,
+    "out": 0.5,
+    "source": "Street View Jul 2024 (pano F Amruša frames h0/h60): projecting 'dm' drugstore sign on the west corner pier, redrawn flat by gen-image"
+   }
+  ]
+ },
+ "w390984144": {
+  "name": "Ulica Milana Amruša (palace, south side)",
+  "roof": "slate_grey",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w390984144_e9",
+    "at": 0.5,
+    "width": 48.8,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): cream plaster main cornice"
+   }
+  ]
+ },
+ "w286611971": {
+  "name": "Ulica Milana Amruša (sand-brown house)",
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286611971_e6",
+    "at": 0.5,
+    "width": 21.1,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): brown plaster main cornice"
+   }
+  ]
+ },
+ "w286611968": {
+  "name": "Ulica Milana Amruša (secession house)",
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286611968_e6",
+    "at": 0.5,
+    "width": 18.2,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): brown plaster main cornice"
+   },
+   {
+    "type": "box",
+    "wall": "w286611968_e6",
+    "at": 0.53,
+    "width": 15.0,
+    "height": 0.35,
+    "depth": 0.8,
+    "out": 0.4,
+    "y": 5.85,
+    "texture": "amrus_balcony_stone.jpg",
+    "repeat": 1.0,
+    "source": "Street View Jul 2024 (pano B Amruša frame h0): stone balcony band with baluster panels over the ground floor; y measured on the rectified photo"
+   }
+  ]
+ },
+ "w785980273": {
+  "name": "Ulica Milana Amruša (white oriel house)",
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w785980273_e6",
+    "at": 0.5,
+    "width": 16.6,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): cream plaster main cornice"
+   }
+  ]
+ },
+ "w286611967": {
+  "name": "Ulica Milana Amruša (taupe secession house)",
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286611967_e7",
+    "at": 0.5,
+    "width": 20.5,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): brown plaster main cornice"
+   }
+  ]
+ },
+ "w286611963": {
+  "name": "Ulica Milana Amruša (medallion house)",
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286611963_e2",
+    "at": 0.5,
+    "width": 17.4,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): brown plaster main cornice"
+   }
+  ]
+ },
+ "w286611969": {
+  "name": "Ulica Milana Amruša (ochre oriel house)",
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286611969_e0",
+    "at": 0.5,
+    "width": 18.1,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): brown plaster main cornice"
+   }
+  ]
+ },
+ "w286611970": {
+  "name": "Ulica Milana Amruša (arched-attic house)",
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286611970_e0",
+    "at": 0.5,
+    "width": 15.8,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): brown plaster main cornice"
+   }
+  ]
+ },
+ "w286611962": {
+  "name": "Ulica Milana Amruša (five-storey palace)",
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286611962_e6",
+    "at": 0.5,
+    "width": 31.5,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): brown plaster main cornice"
+   }
+  ]
+ },
+ "w286614549": {
+  "name": "Poliklinika Amruševa",
+  "roof": "flat_gravel",
+  "features": []
+ },
+ "w286614550": {
+  "name": "Ulica Milana Amruša (red house)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286614550_e6",
+    "at": 0.57,
+    "width": 14.0,
+    "height": 0.6,
+    "depth": 0.9,
+    "out": 0.45,
+    "y": 5.9,
+    "color": "#c9695c",
+    "texture": "amrus_balcony_stone.jpg",
+    "repeat": 1.5,
+    "source": "Street View Jul 2024 (pano C Amruša frame h180): heavy red-painted balcony band over the entrance, tinted texture"
+   }
+  ]
+ },
+ "w286614547": {
+  "name": "Chrisma office block",
+  "roof": "flat_gravel",
+  "features": []
+ },
+ "w860324918": {
+  "name": "Ulica Milana Amruša (VIP Travel house)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w860324918_e1",
+    "at": 0.5,
+    "width": 24.9,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): cream plaster main cornice"
+   },
+   {
+    "type": "sign",
+    "wall": "w860324918_e1",
+    "mount": "projecting",
+    "image": "amrus_vip.png",
+    "at": 0.95,
+    "width": 0.8,
+    "y": 2.9,
+    "out": 0.5,
+    "source": "Street View Jul 2024 (pano D Amruša frame h180): blue 'VIP TRAVEL' blade sign at the west end, redrawn flat by gen-image"
+   }
+  ]
+ },
+ "w286614548": {
+  "name": "Yezi building",
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286614548_e12",
+    "at": 0.5,
+    "width": 44.7,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): cream plaster main cornice"
+   }
+  ]
+ }
+}

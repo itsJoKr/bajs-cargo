@@ -1,0 +1,318 @@
+{
+ "facades": [
+  {
+   "name": "kaptol_klet",
+   "photo": ".art/streetview/kaptol/c_klet.png",
+   "edges": [
+    "w290024699_e10"
+   ],
+   "bays": 6,
+   "storeys": 2,
+   "place": "Kaptol",
+   "source": "Street View Jul 2024 (pano 2 Kaptol, rectified from 2 frames); halves stitched",
+   "look": "a two-storey Baroque-classicist town house in soft butter-yellow plaster on the west side of Kaptol, six bays: on the upper floor six tall windows with white frames and shallow triangular white hoods, set between flat white pilasters, a white stringcourse under them and a plain white eaves cornice; the ground floor is cream: at the LEFT a white stone-framed segmental arched entrance with a dark timber door and above its door the white letters 'KAPTOLSKA KLET' on a dark panel, a black menu board and an old street lantern to its left, then smaller square white-framed windows at ground level, and further right the plain cream wall with more small square windows (the real front is hidden behind café umbrellas and planters: continue it plainly). Copy exactly, the only text is 'KAPTOLSKA KLET'. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_brick_a",
+   "photo": ".art/streetview/kaptol/c_brick10.png",
+   "edges": [
+    "w290024543_e10"
+   ],
+   "bays": 2,
+   "storeys": 3,
+   "place": "Kaptol",
+   "source": "Street View Jul 2024 (pano 6 Kaptol, rectified from 3 frames)",
+   "look": "the left part of a two-storey red-brick neo-Romanesque house (Kaptol 6) with a pitched roof: bare exposed red brick with pale mortar, a decorative dentil frieze under the eaves, a corbelled brick stringcourse between the floors, tall round-arched upper windows with white frames and arched brick hoods, and a row of small round-arched ground floor windows with white frames; the lowest fifth of the photo is hidden behind a blue bus: continue the brick ground floor with the small arched windows and a low plinth. Small black iron cross-shaped wall anchors are visible. No text. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_brick_b",
+   "photo": ".art/streetview/kaptol/c_brick15.png",
+   "edges": [
+    "w290024543_e15"
+   ],
+   "bays": 2,
+   "storeys": 3,
+   "place": "Kaptol",
+   "source": "Street View Jul 2024 (pano 6 Kaptol, rectified from 3 frames)",
+   "look": "the right part of a two-storey red-brick neo-Romanesque house (Kaptol 6): bare exposed red brick with pale mortar, a decorative dentil frieze under the eaves, a corbelled brick stringcourse between the floors, tall round-arched upper windows with white frames and arched brick hoods, and a row of small round-arched ground floor windows with white frames, a small dark plaque beside the last one; the lowest fifth of the photo is hidden behind a blue bus: continue the brick ground floor with the small arched windows and a low plinth. Small black iron cross-shaped wall anchors. No text. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_tome",
+   "photo": ".art/streetview/kaptol/c_tome.png",
+   "edges": [
+    "w289908912_e4"
+   ],
+   "bays": 8,
+   "storeys": 2,
+   "place": "Kaptol",
+   "source": "Street View Jul 2024 (pano 27 Kaptol, rectified from 3 frames, grazing angle); halves stitched",
+   "look": "a long two-storey Baroque town house (Kurija Tome Kovačevića) in grey-blue stucco with white plaster pilasters, window frames and raised ornamental panels: at the LEFT end a wide segmental-arched stone portal with a rusticated stone frame and a closed dark door, above it a balcony with a white stone balustrade and two stone ball finials and a tall balcony window, then a long run of tall upper windows with white frames and shallow panels between them on the RIGHT, the ground floor below with grey rusticated panels and tall barred windows; a lamp post and a hanging flower basket and a blue sign stand in front (leave them out). Roof edge with a plain cornice. No text. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_kurija_n",
+   "photo": ".art/streetview/kaptol/c_kk11.png",
+   "edges": [
+    "w138251852_e11"
+   ],
+   "bays": 4,
+   "storeys": 2,
+   "place": "Kaptol",
+   "source": "Street View Jul 2024 (pano 2 Kaptol, rectified from 2 frames)",
+   "look": "the north face of a two-storey canonry house (Kanonička kurija) in warm cream-ochre plaster, four bays: four tall upper windows with white frames and arched plaster hoods with a sand-coloured panel below each, separated by wide white pilasters, a white stringcourse, a heavy plain cornice; the ground floor is a lower band of horizontal cream and sand stripes with small square white-framed windows and a small white notice board at the LEFT; a tree hides the right edge (continue the plain wall). No text except the tiny notice board. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_kurija_w",
+   "photo": ".art/streetview/kaptol/c_kd9.png",
+   "edges": [
+    "w292203495_e9"
+   ],
+   "bays": 7,
+   "storeys": 2,
+   "place": "Kaptol",
+   "source": "Street View Jul 2024 (pano 2 Kaptol, rectified from 2 frames, oblique); halves stitched",
+   "look": "a low two-storey canonry house (Kanonička kurija) in pale cream-ochre plaster, seven bays, seen along its long front: seven tall upper windows with white frames and shallow sills, evenly spaced, a plain stringcourse, a wide overhanging plain eaves cornice; the ground floor is largely hidden behind parked vans: continue it plainly with small square windows and a wooden door. Weathered plaster. No text. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_dolac_e7",
+   "photo": ".art/streetview/kaptol/sw_ochre.png",
+   "edges": [
+    "w1452341039_e7"
+   ],
+   "bays": 8,
+   "storeys": 2,
+   "place": "Kaptol",
+   "source": "INVENTED (no Street View coverage of this wall; neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a plain two-storey market building wall in pale ochre plaster: a ground floor of tall round-arched openings with dark green metal shutters and doors, a white stringcourse, an upper floor with a regular row of small square windows with grey shutters, a simple plain cornice, no shop lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_dolac_e8",
+   "photo": ".art/streetview/kaptol/sw_ochre.png",
+   "edges": [
+    "w1452341039_e8"
+   ],
+   "bays": 8,
+   "storeys": 2,
+   "place": "Kaptol",
+   "source": "INVENTED (no Street View coverage of this wall; neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a plain two-storey market building wall in pale ochre plaster: a ground floor of tall round-arched openings with dark green metal shutters and doors, a white stringcourse, an upper floor with a regular row of small square windows with grey shutters, a simple plain cornice, no shop lettering; the picture is a repeating tile of the wall Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_dolac_e10",
+   "photo": ".art/streetview/kaptol/sw_ochre.png",
+   "edges": [
+    "w1452341039_e10"
+   ],
+   "bays": 8,
+   "storeys": 2,
+   "place": "Kaptol",
+   "source": "INVENTED (no Street View coverage of this wall; neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a plain two-storey market building wall in pale ochre plaster: a ground floor of tall round-arched openings with dark green metal shutters and doors, a white stringcourse, an upper floor with a regular row of small square windows with grey shutters, a simple plain cornice, no shop lettering; the picture is a repeating tile of the wall Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_dolac_e9",
+   "photo": ".art/streetview/kaptol/sw_ochre.png",
+   "edges": [
+    "w1452341039_e9"
+   ],
+   "bays": 8,
+   "storeys": 2,
+   "place": "Kaptol",
+   "source": "INVENTED (no Street View coverage of this wall; neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a plain two-storey market building wall in pale ochre plaster: a ground floor of tall round-arched openings with dark green metal shutters and doors, a white stringcourse, an upper floor with a regular row of small square windows with grey shutters, a simple plain cornice, no shop lettering; the picture is a repeating tile of the wall Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_dolac_e2",
+   "photo": ".art/streetview/kaptol/sw_ochre.png",
+   "edges": [
+    "w1452341039_e2"
+   ],
+   "bays": 8,
+   "storeys": 2,
+   "place": "Kaptol",
+   "source": "INVENTED (no Street View coverage of this wall; neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a plain two-storey market building wall in pale ochre plaster: a ground floor of tall round-arched openings with dark green metal shutters and doors, a white stringcourse, an upper floor with a regular row of small square windows with grey shutters, a simple plain cornice, no shop lettering; the picture is a repeating tile of the wall Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_dolac_e12_13",
+   "photo": ".art/streetview/kaptol/sw_ochre.png",
+   "edges": [
+    "w1452341039_e12",
+    "w1452341039_e13"
+   ],
+   "bays": 8,
+   "storeys": 2,
+   "place": "Kaptol",
+   "source": "INVENTED (no Street View coverage of this wall; neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a plain two-storey market building wall in pale ochre plaster: a ground floor of tall round-arched openings with dark green metal shutters and doors, a white stringcourse, an upper floor with a regular row of small square windows with grey shutters, a simple plain cornice, no shop lettering; the picture is a repeating tile of the wall Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_kd_e4",
+   "photo": ".art/streetview/kaptol/sw_cream.png",
+   "edges": [
+    "w292203495_e4"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Kaptol",
+   "source": "INVENTED (no Street View coverage of this wall; neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a tall four-storey Zagreb historicist canonry house in warm cream plaster: three bays of tall white-framed windows with triangular and segmental hoods on the first floor, plain framed windows above, a stringcourse between floors, a heavy plain cornice, a small arched door on the ground floor Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_kd_e6",
+   "photo": ".art/streetview/kaptol/sw_ochre.png",
+   "edges": [
+    "w292203495_e6"
+   ],
+   "bays": 4,
+   "storeys": 4,
+   "place": "Kaptol",
+   "source": "INVENTED (no Street View coverage of this wall; neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a tall four-storey Zagreb historicist canonry house in ochre plaster: four bays of tall white-framed windows, first floor windows with flat hoods on brackets, plain stringcourses, a deep plain cornice, ground floor with two arched doors and small barred windows Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_kd_e7",
+   "photo": ".art/streetview/kaptol/sw_cream.png",
+   "edges": [
+    "w292203495_e7"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Kaptol",
+   "source": "INVENTED (no Street View coverage of this wall; neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a tall four-storey Zagreb historicist canonry house in pale cream plaster: three bays of white-framed windows, a stringcourse, a plain cornice, a ground floor with a wide arched carriage gate in stone and small barred windows Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_kd_e8",
+   "photo": ".art/streetview/kaptol/sw_rose.png",
+   "edges": [
+    "w292203495_e8"
+   ],
+   "bays": 4,
+   "storeys": 4,
+   "place": "Kaptol",
+   "source": "INVENTED (no Street View coverage of this wall; neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a tall four-storey Zagreb historicist canonry house in faded rose-pink plaster with white pilaster strips: four bays of white-framed windows, plain cornice, ground floor with small barred windows and a wooden door Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_strezoj_e5",
+   "photo": ".art/streetview/kaptol/sw_orange.png",
+   "edges": [
+    "w292203496_e5"
+   ],
+   "bays": 3,
+   "storeys": 3,
+   "place": "Kaptol",
+   "source": "INVENTED (no Street View coverage of this wall; neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a three-storey Zagreb historicist canonry house in terracotta-orange plaster: three bays of white-framed windows with flat hoods, white pilaster strips, a plain cornice, a ground floor with an arched door Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_strezoj_e8",
+   "photo": ".art/streetview/kaptol/sw_orange.png",
+   "edges": [
+    "w292203496_e8"
+   ],
+   "bays": 4,
+   "storeys": 3,
+   "place": "Kaptol",
+   "source": "INVENTED (no Street View coverage of this wall; neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a three-storey Zagreb historicist canonry house in terracotta-orange plaster: four bays of white-framed windows with white moulded surrounds, tall white pilasters, a plain cornice, a ground floor with two small windows and an arched door Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_h53_e13",
+   "photo": ".art/streetview/kaptol/sw_cream.png",
+   "edges": [
+    "w138251853_e13"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Kaptol",
+   "source": "INVENTED (no Street View coverage of this wall; neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a tall four-storey Zagreb historicist canonry house in pale yellow plaster: five bays of white-framed windows with hoods, a stringcourse, a heavy plain cornice, a ground floor with arched openings Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_h54_e12",
+   "photo": ".art/streetview/kaptol/sw_grey.png",
+   "edges": [
+    "w138251854_e12"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Kaptol",
+   "source": "INVENTED (no Street View coverage of this wall; neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a tall four-storey Zagreb historicist canonry house in pale grey plaster: three bays of white-framed windows, a plain cornice, a ground floor with a wooden door and small windows Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_h54_e16",
+   "photo": ".art/streetview/kaptol/sw_ochre.png",
+   "edges": [
+    "w138251854_e16",
+    "w138251854_e17"
+   ],
+   "bays": 10,
+   "storeys": 4,
+   "place": "Kaptol",
+   "source": "INVENTED (no Street View coverage of this wall; neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a tall four-storey Zagreb historicist canonry house in ochre plaster: ten bays of tall white-framed windows with hoods on the first floor, a stringcourse, a deep cornice, a ground floor with several arched doors and small barred windows Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_h735_e0",
+   "photo": ".art/streetview/kaptol/sw_cream.png",
+   "edges": [
+    "w735337403_e0"
+   ],
+   "bays": 4,
+   "storeys": 3,
+   "place": "Kaptol",
+   "source": "INVENTED (no Street View coverage of this wall; neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a three-storey Zagreb historicist canonry house in cream plaster: four bays of white-framed windows, a plain cornice, a ground floor with an arched door and small windows Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_h735_e5",
+   "photo": ".art/streetview/kaptol/sw_grey.png",
+   "edges": [
+    "w735337395_e5"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Kaptol",
+   "source": "INVENTED (no Street View coverage of this wall; neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a tall four-storey Zagreb historicist canonry house in pale grey-beige plaster: three bays of white-framed windows with hoods, a heavy plain cornice, a ground floor with an arched gate Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_kk_e8",
+   "photo": ".art/streetview/kaptol/sw_ochre.png",
+   "edges": [
+    "w138251852_e8"
+   ],
+   "bays": 4,
+   "storeys": 4,
+   "place": "Kaptol",
+   "source": "INVENTED (no Street View coverage of this wall; neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a tall four-storey Zagreb historicist canonry house in warm cream-ochre plaster like its north face: four bays of white-framed windows with sand panels below, white pilasters, a heavy plain cornice, a ground floor with small square windows and a door Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_h51_e13",
+   "photo": ".art/streetview/kaptol/sw_cream.png",
+   "edges": [
+    "w138251851_e13"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Kaptol",
+   "source": "INVENTED (no Street View coverage of this wall; neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a tall four-storey Zagreb historicist canonry house in pale cream plaster: three bays of white-framed windows, a plain cornice, a ground floor with an arched door Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "kaptol_east_e3",
+   "photo": ".art/streetview/kaptol/sw_white.png",
+   "edges": [
+    "w292203017_e3"
+   ],
+   "bays": 6,
+   "storeys": 3,
+   "place": "Kaptol",
+   "source": "INVENTED (no Street View coverage of this wall; neighbour-style)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a three-storey white-cream plastered Zagreb town house on the east side of Kaptol: six bays of dark-brown framed windows with white surrounds, the first floor windows with small flat hoods, a plain stringcourse and a plain cornice, a ground floor with a wide arched carriage gate and small windows Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  }
+ ]
+}

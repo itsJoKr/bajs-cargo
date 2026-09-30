@@ -1,0 +1,244 @@
+{
+ "facades": [
+  {
+   "name": "petrinjska_artotel",
+   "photo": ".art/streetview/petrinjska/petrinjska_artotel.png",
+   "edges": [
+    "w286614548_e0"
+   ],
+   "bays": 6,
+   "storeys": 6,
+   "place": "Petrinjska ulica",
+   "source": "Street View Jul 2024 (official panos on Petrinjska, rectified from 2-3 frames)",
+   "look": "the art'otel (Park Plaza) building, a six-storey 1930s cream-white smooth-stucco block, six window bays: upper floors have small square white-framed windows with slim sills between shallow vertical piers that end in stepped capitals under a deep bracketed cornice; a Greek-key (meander) frieze band runs across the building above the first floor; the ground floor is tall, with big dark-framed glass shop windows with white sheer curtains behind, an entrance of dark glass double doors under a flat black-edged white canopy with the lettering 'art'otel' and in small letters 'BY PARKPLAZA', and two narrow dark doors at the far RIGHT Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "petrinjska_crna_kula",
+   "photo": ".art/streetview/petrinjska/petrinjska_crna_kula.png",
+   "edges": [
+    "w286614559_e0"
+   ],
+   "bays": 3,
+   "storeys": 6,
+   "place": "Petrinjska ulica",
+   "source": "Street View Jul 2024 (official panos on Petrinjska, rectified from 2-3 frames)",
+   "look": "a narrow six-storey modern tower on the east side of Petrinjska clad in black polished stone panels: at the far LEFT a tall pale-grey concrete pier with a round porthole window in the black stone, at the centre-left stepped balconies with white railings, at the right two horizontal ribbon windows with blue-tinted glass, and a black vertical louvre grille; at ground level a dark open passage / portal with a stone stair leading to a courtyard, a small glass display box on its left, and at the RIGHT a shop front with a white fabric awning Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "petrinjska_kuca_frisch",
+   "photo": ".art/streetview/petrinjska/petrinjska_kuca_frisch.png",
+   "edges": [
+    "w286614560_e0"
+   ],
+   "bays": 6,
+   "storeys": 6,
+   "place": "Petrinjska ulica",
+   "source": "Street View Jul 2024 (official panos on Petrinjska, rectified from 2-3 frames)",
+   "look": "Kuća Frisch, a weathered 1960s concrete building in beige-grey with horizontal ribbon windows with white roller blinds and some brown wooden shutters, six storeys, bays of paired windows; ground floor: at the LEFT a grey barred grille panel, then two shop fronts with orange panels and a big orange sun-spiral logo, and at the RIGHT a shop with a small white awning with lettering; keep any lettering as photographed Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "petrinjska_ptice_a",
+   "photo": ".art/streetview/petrinjska/petrinjska_ptice_a.png",
+   "edges": [
+    "w860324912_e15"
+   ],
+   "bays": 6,
+   "storeys": 7,
+   "place": "Petrinjska ulica",
+   "source": "Street View Jul 2024 (official panos on Petrinjska, rectified from 2-3 frames)",
+   "look": "the north part of a seven-storey 1930s white-plaster modernist apartment block with rounded corners: rows of rectangular windows with white roller blinds and here and there small folding awnings, flat horizontal window sills, plain smooth wall, a slightly darker cornice band under the roof; the ground floor is glazed with a café front (leave out the big grey parasols) Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "petrinjska_ptice_b",
+   "photo": ".art/streetview/petrinjska/petrinjska_ptice_b.png",
+   "edges": [
+    "w860324912_e0"
+   ],
+   "bays": 5,
+   "storeys": 7,
+   "place": "Petrinjska ulica",
+   "source": "Street View Jul 2024 (official panos on Petrinjska, rectified from 2-3 frames)",
+   "look": "the south part of a seven-storey 1930s white-plaster modernist apartment block: window rows with white roller blinds, and at the far RIGHT the rounded corner with stacked curved balconies with blue-grey metal railings and potted shrubs; at ground level a fruit and vegetable shop with a cream fabric awning carrying the lettering 'VOĆARNA PTIČEK', the shopfront framed in blue tiles, and a second awning beyond it at the far RIGHT Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "petrinjska_kuca_705",
+   "photo": ".art/streetview/petrinjska/petrinjska_kuca_705.png",
+   "edges": [
+    "w288920705_e0"
+   ],
+   "bays": 4,
+   "storeys": 2,
+   "place": "Petrinjska ulica",
+   "source": "Street View Jul 2024 (pano at Petrinjska 25)",
+   "look": "a run-down two-storey historicist house in weathered grey-brown stucco with large patches of peeled plaster: the ground floor has three doorways/shop openings each under a small red-orange fabric canopy and a brown wooden double door at the far RIGHT; the first floor has four tall white-framed windows, each with a moulded hood and a small garland relief panel under the sill, a projecting cornice above, and three small dormers with red roofs on the roof (not part of the wall) Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "petrinjska_zakrivljena_707",
+   "photo": ".art/streetview/petrinjska/petrinjska_zakrivljena_707.png",
+   "edges": [
+    "w288920707_e0"
+   ],
+   "bays": 3,
+   "storeys": 6,
+   "place": "Petrinjska ulica",
+   "source": "Street View Jul 2024 (panos at Petrinjska 25 and 31)",
+   "look": "a six-storey 1930s beige-grey plastered apartment building with rounded, wavy projecting balcony bands under the window rows, windows with brown roller shutters; the ground floor has glazed dark shopfronts Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "petrinjska_luk_708",
+   "photo": ".art/streetview/petrinjska/petrinjska_luk_708.png",
+   "edges": [
+    "w288920708_e0"
+   ],
+   "bays": 5,
+   "storeys": 6,
+   "place": "Petrinjska ulica",
+   "source": "Street View Jul 2024 (pano at Petrinjska 31)",
+   "look": "a six-storey rose-beige plastered 1930s apartment building, five window axes: at the LEFT narrow paired windows with white roller blinds and white metal balcony railings on the French windows, a slightly wavy cornice line, small square windows at the RIGHT; the ground floor is set back under the building on a heavy grey bearing edge: at the LEFT glazed shop windows with a dark fascia, in the CENTRE a wide dark passage / arch to a courtyard, at the RIGHT a narrow door and a purple advertisement panel Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "petrinjska_inovine_710",
+   "photo": ".art/streetview/petrinjska/petrinjska_inovine_710.png",
+   "edges": [
+    "w288920710_e0"
+   ],
+   "bays": 4,
+   "storeys": 6,
+   "place": "Petrinjska ulica",
+   "source": "Street View Jul 2024 (pano at Petrinjska 31)",
+   "look": "a six-storey cream-peach plastered 1930s apartment building: on the LEFT-CENTRE three stacked balconies with rounded fronts, windows with brown roller shutters, a small awning window at top left; ground floor: a shop with a dark-blue awning and a dark-blue fascia with the white serif lettering 'iNovine' (and a line of small white text below it), a glass shopfront, and at the RIGHT a café with a yellow fabric awning Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "petrinjska_palaca_a",
+   "photo": ".art/streetview/petrinjska/petrinjska_palaca_a.png",
+   "edges": [
+    "w390984167_e2"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Petrinjska ulica",
+   "source": "Street View Jul 2024 (official panos on Petrinjska, rectified from 2-3 frames)",
+   "look": "a grand neo-Renaissance palace, pale cream smooth stucco on the upper floors and a rusticated grey-beige ashlar ground floor with tall rectangular windows closed by black wrought-iron grilles that bulge outwards at the bottom, small barred basement windows at the pavement; first-floor windows with tall triangular pediments on scroll brackets above small stone balustrade panels under every sill, a fine string course, a deep dentilled cornice, and above the cornice a low band of dark glazed attic windows in the roof; a green copper downpipe runs down the wall, the SOUTH-EAST end of the palace Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "petrinjska_palaca_b",
+   "photo": ".art/streetview/petrinjska/petrinjska_palaca_b.png",
+   "edges": [
+    "w390984164_e1"
+   ],
+   "bays": 4,
+   "storeys": 4,
+   "place": "Petrinjska ulica",
+   "source": "Street View Jul 2024 (official panos on Petrinjska, rectified from 2-3 frames)",
+   "look": "a grand neo-Renaissance palace, pale cream smooth stucco on the upper floors and a rusticated grey-beige ashlar ground floor with tall rectangular windows closed by black wrought-iron grilles that bulge outwards at the bottom, small barred basement windows at the pavement; first-floor windows with tall triangular pediments on scroll brackets above small stone balustrade panels under every sill, a fine string course, a deep dentilled cornice, and above the cornice a low band of dark glazed attic windows in the roof; a green copper downpipe runs down the wall, the middle of the palace Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "petrinjska_palaca_c",
+   "photo": ".art/streetview/petrinjska/petrinjska_palaca_c.png",
+   "edges": [
+    "w390984144_e8"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Petrinjska ulica",
+   "source": "Street View Jul 2024 (official panos on Petrinjska, rectified from 2-3 frames)",
+   "look": "a grand neo-Renaissance palace, pale cream smooth stucco on the upper floors and a rusticated grey-beige ashlar ground floor with tall rectangular windows closed by black wrought-iron grilles that bulge outwards at the bottom, small barred basement windows at the pavement; first-floor windows with tall triangular pediments on scroll brackets above small stone balustrade panels under every sill, a fine string course, a deep dentilled cornice, and above the cornice a low band of dark glazed attic windows in the roof; a green copper downpipe runs down the wall, the north-west wing of the palace Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "petrinjska_palaca_d",
+   "photo": ".art/streetview/petrinjska/petrinjska_palaca_d.png",
+   "edges": [
+    "w390984167_e1"
+   ],
+   "bays": 7,
+   "storeys": 4,
+   "place": "Petrinjska ulica",
+   "source": "Street View Jul 2024 (official panos on Petrinjska, rectified from 2-3 frames)",
+   "look": "a grand neo-Renaissance palace, pale cream smooth stucco on the upper floors and a rusticated grey-beige ashlar ground floor with tall rectangular windows closed by black wrought-iron grilles that bulge outwards at the bottom, small barred basement windows at the pavement; first-floor windows with tall triangular pediments on scroll brackets above small stone balustrade panels under every sill, a fine string course, a deep dentilled cornice, and above the cornice a low band of dark glazed attic windows in the roof; a green copper downpipe runs down the wall; at the RIGHT end a tall round-arched dark-brown double door with carved stone surround, columns with carved figures either side and a balcony above it Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "petrinjska_zeleni_kapci",
+   "photo": ".art/streetview/petrinjska/petrinjska_zeleni_kapci.png",
+   "edges": [
+    "w390984146_e7"
+   ],
+   "bays": 7,
+   "storeys": 2,
+   "place": "Petrinjska ulica",
+   "source": "Street View Jul 2024 (official panos on Petrinjska, rectified from 2-3 frames)",
+   "look": "a two-storey pale cream Baroque-classicist townhouse with a low roof edge: seven bays, all windows with dark green wooden frames and shutters; ground floor: three arched windows with white sills on each side and at the right-centre a large round-arched carriage gateway with a dark passage, a dark plaque beside the gate and a small black number plate '12' above the gateway; first floor: seven rectangular green windows under a plain cornice Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "petrinjska_havana_a",
+   "photo": ".art/streetview/petrinjska/petrinjska_havana_a.png",
+   "edges": [
+    "w390984149_e13"
+   ],
+   "bays": 3,
+   "storeys": 5,
+   "place": "Petrinjska ulica",
+   "source": "Street View Jul 2024 (official panos on Petrinjska, rectified from 2-3 frames)",
+   "look": "the south part of a five-storey weathered dark grey-brown historicist corner house with moulded window surrounds, small stucco garlands and geometric relief panels between the floors, windows with white frames; a faded painted band above the ground floor carries big letters that read 'HAVANA'; ground floor: a plain stone base and a café entrance Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "petrinjska_havana_b",
+   "photo": ".art/streetview/petrinjska/petrinjska_havana_b.png",
+   "edges": [
+    "w390984149_e0"
+   ],
+   "bays": 3,
+   "storeys": 5,
+   "place": "Petrinjska ulica",
+   "source": "Street View Jul 2024 (official panos on Petrinjska, rectified from 2-3 frames)",
+   "look": "the north part of a five-storey weathered dark grey-brown historicist house with moulded window surrounds, small stucco garlands and geometric relief panels between the floors, windows with white frames; the faded painted band above the ground floor at its LEFT end carries the letters 'HAVANA' (partly), ground floor: a tall dark-brown wooden double door at the LEFT, a narrow dark shop entrance in the middle and a window with brown shutters at the RIGHT. The photo shows a round orange fork-and-knife map pin icon in the doorway: that is a map interface overlay, NOT part of the building, do not draw it Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "petrinjska_koracell",
+   "photo": ".art/streetview/petrinjska/petrinjska_koracell.png",
+   "edges": [
+    "w286611971_e3"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Petrinjska ulica",
+   "source": "Street View Jul 2025 (pano at the Jurišićeva end, rectified)",
+   "look": "a four-storey sand-coloured stone Secession house, five bays: the middle three window axes are grouped in a tall vertical strip of narrow paired windows between stone pilasters, under a triangular pediment on the roof; the RIGHT end curves as a rounded corner with a balcony with white balustrade at the top; stone-clad ground floor with dark shop fronts: at the LEFT a small shop with a dark fascia whose white letters end '...DOR', in the CENTRE an entrance under a black fascia with gold lettering 'Koracell', at the RIGHT a large shop window under a yellow fascia with black lettering 'Koracell' and below it 'KUĆANSKI APARATI' Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "petrinjska_bijela",
+   "photo": ".art/streetview/petrinjska/petrinjska_bijela.png",
+   "edges": [
+    "w286611972_e0"
+   ],
+   "bays": 4,
+   "storeys": 5,
+   "place": "Petrinjska ulica",
+   "source": "Street View Jul 2025 (pano at the Jurišićeva end, rectified)",
+   "look": "a five-storey white-painted Neoclassical / Secession block on the east side of Petrinjska: in the right half giant fluted pilasters running up three floors with tall rectangular windows between them and a round decorative medallion over the cornice, in the left half a wing with arched and small rectangular windows and a plain cornice; ground floor: a wide flat dark-grey canopy over glazed shop fronts (leave out the grey parasols and tables of the café in front) Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "petrinjska_orna",
+   "photo": ".art/streetview/petrinjska/petrinjska_orna.png",
+   "edges": [
+    "w286614545_e0"
+   ],
+   "bays": 8,
+   "storeys": 5,
+   "place": "Petrinjska ulica",
+   "source": "Street View Jul 2025 (pano at the Jurišićeva end, rectified)",
+   "look": "an ornate five-storey Historicist palace in grey-beige stone with rich carved stucco: window surrounds with pediments and scrolls, tall arched top-floor windows with garlands, heavy string courses; the ground floor is a rusticated stone base with shop fronts: a pharmacy with a green-and-purple fascia carrying the lettering 'LAVANDA-MIA' (repeated on a projecting green-and-violet blade sign with a white cross), a black-fronted shop with the white lettering 'LUSH' and 'FRESH HANDMADE COSMETICS', and dark wooden shop doors Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "petrinjska_skola",
+   "photo": ".art/streetview/petrinjska/petrinjska_skola_st.png",
+   "edges": [
+    "r5854157_e9"
+   ],
+   "bays": 12,
+   "storeys": 4,
+   "place": "Petrinjska ulica",
+   "source": "Street View Jul 2024 (panos at Petrinjska 25 and 31, rectified in two halves)",
+   "look": "the very long school building on the west side of Petrinjska (Zagreb), 62 metres of facade. IMPORTANT: this photo has been STRETCHED VERTICALLY about 2.6 times so that the extremely long wall fits the picture: everything looks tall and narrow; DRAW IT EXACTLY THE SAME STRETCHED WAY and do not correct the proportions or the aspect. Twelve window bays across: three floors of ordinary rectangular dark-green-framed windows with white surrounds, the ground floor a plain pale-beige rusticated base with barred windows with black wrought-iron grilles that bulge outwards, the first floor with plastered frames and panels between the windows and a wavy string course, a shallow cornice; a dark-brown downpipe every few bays; a round-arched entrance door with a dark-green door leaf at the LEFT end and a plaque Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  }
+ ]
+}

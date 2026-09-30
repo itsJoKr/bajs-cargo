@@ -1,0 +1,114 @@
+{
+ "r3890429": {
+  "features": [
+   {
+    "type": "box",
+    "wall": "r3890429_e2",
+    "at": 0.5,
+    "width": 25.8,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "jurisic_cornice_brick.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2025 (pano on Jurišićeva): brick-and-stone main cornice of the Pošta building, texture redrawn flat by gen-image"
+   },
+   {
+    "type": "box",
+    "wall": "r3890429_e3",
+    "at": 0.5,
+    "width": 20.4,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "jurisic_cornice_brick.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2025 (pano on Jurišićeva): brick-and-stone main cornice of the Pošta building, texture redrawn flat by gen-image"
+   },
+   {
+    "type": "box",
+    "wall": "r3890429_e4",
+    "at": 0.5,
+    "width": 22.0,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "jurisic_cornice_brick.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2025 (pano on Jurišićeva): brick-and-stone main cornice of the Pošta building, texture redrawn flat by gen-image"
+   },
+   {
+    "type": "box",
+    "wall": "r3890429_e5",
+    "at": 0.5,
+    "width": 13.7,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "jurisic_cornice_brick.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2025 (pano on Jurišićeva): brick-and-stone main cornice of the Pošta building, texture redrawn flat by gen-image"
+   },
+   {
+    "type": "sign",
+    "wall": "r3890429_e3",
+    "mount": "projecting",
+    "image": "jurisic_posta.png",
+    "at": 0.5,
+    "width": 0.9,
+    "y": 3.8,
+    "out": 0.6,
+    "source": "Street View Jul 2025 (pano on Jurišićeva): yellow diamond 'Pošta' blade sign over the post office door, redrawn flat by gen-image"
+   },
+   {
+    "type": "sign",
+    "wall": "r3890429_e4",
+    "mount": "projecting",
+    "image": "jurisic_posta.png",
+    "at": 0.14,
+    "width": 0.9,
+    "y": 3.6,
+    "out": 0.6,
+    "source": "Street View Jul 2025 (pano on Jurišićeva): second yellow 'Pošta' blade sign at the west end of the ground floor, redrawn flat by gen-image"
+   }
+  ]
+ },
+ "w286611976": {
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286611976_e2",
+    "at": 0.5,
+    "width": 24.2,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "jurisic_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2025 (pano on Jurišićeva): heavy cream cornice of the brick palace, texture redrawn flat by gen-image"
+   }
+  ]
+ },
+ "w286611974": {
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286611974_e4",
+    "at": 0.5,
+    "width": 20.8,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "jurisic_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2025 (pano on Jurišićeva): projecting cream main cornice of the yellow house, texture redrawn flat by gen-image"
+   }
+  ]
+ }
+}

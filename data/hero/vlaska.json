@@ -1,0 +1,245 @@
+{
+ "facades": [
+  {
+   "name": "vlaska_bab",
+   "photo": ".art/streetview/vlaska/c_bab.png",
+   "edges": [
+    "w289863017_e0"
+   ],
+   "bays": 8,
+   "storeys": 2,
+   "place": "Vlaška ulica",
+   "source": "Street View Jul 2020 (pano 12 Vlaška, rectified from 2 frames); left part unknown; halves stitched",
+   "look": "a long two-storey cream-white plastered house on the north side of Vlaška (Vlaška 12 and the shop beside it), with dormers in the roof above (not drawn): on the upper floor a row of tall white-framed casement windows with shallow sills, evenly spaced, under a plain projecting cornice, a plain stringcourse between the floors. Ground floor from RIGHT to LEFT: a shop with a white band sign carrying a blue folk-art floral and bird pattern and the white letters 'BABUSHKA' in the middle with a small script line under them, an air-conditioner above its glazed door, two dark display windows with framed photographs on the wall beside the door, a blue square sign 'HOSTEL Center' with a small number plate '7' and a narrow dark passage entrance to its left, then a souvenir shop with a black fascia carrying small white lettering 'OLIVE OIL - CHEESE - TRUFFLES' and below it a white sign board with a round emblem and the small words 'SOUVENIR', 'ONLY CROATIA', 'GIFTS', and two dark glazed shopfront panels with black frames. Copy exactly. Flat grey areas and smeared blurry areas of the photo (its far left) are UNKNOWN: draw them as a natural continuation with the same window rhythm, cream colour and a simple shopfront, no text. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "vlaska_kerekovic",
+   "photo": ".art/streetview/vlaska/sw_ochre.png",
+   "edges": [
+    "w227152836_e3"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Vlaška ulica",
+   "source": "INVENTED (no usable Street View of this wall; neighbour-style, storeys from the eave)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a four-storey Zagreb historicist town house in warm ochre-yellow plaster (Kuća Kereković): five bays of tall white-framed windows, the first floor windows with triangular and segmental hoods on brackets and stone sills, arched windows on the top floor, white stringcourses between floors, a heavy dentilled cornice, a ground floor of rusticated plaster with an arched carriage gate and two small shop windows with a dark fascia (no lettering) Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "vlaska_e852",
+   "photo": ".art/streetview/vlaska/sw_cream.png",
+   "edges": [
+    "w286612852_e1"
+   ],
+   "bays": 7,
+   "storeys": 4,
+   "place": "Vlaška ulica",
+   "source": "INVENTED (no usable Street View of this wall; neighbour-style, storeys from the eave)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a four-storey Zagreb historicist town house in pale cream plaster: seven bays of white-framed windows with flat hoods on the first floor, a stringcourse between floors, a plain cornice, a ground floor of four shop fronts with dark fascias and canvas awnings in dark red (no lettering) Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "vlaska_e854",
+   "photo": ".art/streetview/vlaska/sw_rose.png",
+   "edges": [
+    "w286612854_e9"
+   ],
+   "bays": 8,
+   "storeys": 4,
+   "place": "Vlaška ulica",
+   "source": "INVENTED (no usable Street View of this wall; neighbour-style, storeys from the eave)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a four-storey Zagreb historicist town house in faded rose-pink plaster with white pilaster strips: eight bays of white-framed windows with segmental hoods on the first floor, plain windows above, a deep plain cornice, a ground floor with a wide arched passage in the middle and shop fronts with dark green fascias on both sides (no lettering) Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "vlaska_e855",
+   "photo": ".art/streetview/vlaska/sw_ochre.png",
+   "edges": [
+    "w286612855_e4"
+   ],
+   "bays": 6,
+   "storeys": 4,
+   "place": "Vlaška ulica",
+   "source": "INVENTED (no usable Street View of this wall; neighbour-style, storeys from the eave)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a four-storey Zagreb historicist town house in pale ochre plaster: six bays of tall white-framed windows with triangular hoods on the first floor, stone balcony slabs under the second floor windows, a stringcourse, a heavy cornice, a ground floor with shop fronts and one arched door (no lettering) Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "vlaska_e006",
+   "photo": ".art/streetview/vlaska/sw_grey.png",
+   "edges": [
+    "w289863006_e0"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Vlaška ulica",
+   "source": "INVENTED (no usable Street View of this wall; neighbour-style, storeys from the eave)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a four-storey Zagreb historicist town house in pale grey-beige plaster: three bays of white-framed windows with flat hoods, a stringcourse, a plain cornice, a ground floor with a shop front with a dark fascia and a small arched door (no lettering) Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "vlaska_e007",
+   "photo": ".art/streetview/vlaska/sw_cream.png",
+   "edges": [
+    "w289863007_e0"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Vlaška ulica",
+   "source": "INVENTED (no usable Street View of this wall; neighbour-style, storeys from the eave)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a four-storey Zagreb historicist town house in soft yellow-cream plaster: five bays of white-framed windows, the first floor with segmental hoods on brackets, a stringcourse, a dentilled cornice, a ground floor with two shop fronts, dark fascias and a stone-framed arched entrance (no lettering) Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "vlaska_e019",
+   "photo": ".art/streetview/vlaska/sw_orange.png",
+   "edges": [
+    "w289863019_e0"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Vlaška ulica",
+   "source": "INVENTED (no usable Street View of this wall; neighbour-style, storeys from the eave)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a four-storey Zagreb historicist town house in terracotta-orange plaster with white window frames: three bays, plain hoods over the first floor windows, a stringcourse, a plain cornice, a ground floor with a shop front and a dark fascia (no lettering) Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "vlaska_e022",
+   "photo": ".art/streetview/vlaska/sw_white.png",
+   "edges": [
+    "w289863022_e0"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Vlaška ulica",
+   "source": "INVENTED (no usable Street View of this wall; neighbour-style, storeys from the eave)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a four-storey Zagreb historicist town house in white-cream plaster: five bays of white-framed windows, simple flat hoods, plain stringcourses, a plain cornice, a ground floor with wide shop windows in dark frames and a canvas awning (no lettering) Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "vlaska_lz_e0",
+   "photo": ".art/streetview/vlaska/sw_brick.png",
+   "edges": [
+    "w289863033_e0"
+   ],
+   "bays": 7,
+   "storeys": 4,
+   "place": "Vlaška ulica",
+   "source": "INVENTED (no usable Street View of this wall; neighbour-style, storeys from the eave)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a four-storey Zagreb historicist town house in terracotta-orange painted plaster over a grey stone plinth (Kuća Lacković-Žigrović): seven bays of tall white-framed windows with moulded hoods on the first floor, a stringcourse, a heavy cornice, a ground floor with two arched openings glazed as a café front and a small painted round mural panel between them (no lettering) Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "vlaska_lz_e7",
+   "photo": ".art/streetview/vlaska/sw_brick.png",
+   "edges": [
+    "w289863033_e7"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Vlaška ulica",
+   "source": "INVENTED (no usable Street View of this wall; neighbour-style, storeys from the eave)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a four-storey Zagreb historicist town house in terracotta-orange painted plaster over a grey stone plinth: three bays of white-framed windows, a stringcourse, a heavy cornice, a ground floor with an arched door and one shop window (no lettering) Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "vlaska_e039",
+   "photo": ".art/streetview/vlaska/sw_sand.png",
+   "edges": [
+    "w289863039_e0"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Vlaška ulica",
+   "source": "INVENTED (no usable Street View of this wall; neighbour-style, storeys from the eave)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a four-storey Zagreb historicist town house in sand-beige plaster: five bays of white-framed windows with flat hoods, a stringcourse, a plain cornice, a ground floor with three shop fronts with dark fascias and awnings (no lettering) Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "vlaska_e042",
+   "photo": ".art/streetview/vlaska/sw_rose.png",
+   "edges": [
+    "w289863042_e4"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Vlaška ulica",
+   "source": "INVENTED (no usable Street View of this wall; neighbour-style, storeys from the eave)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a four-storey Zagreb historicist town house in pale rose plaster: three bays of white-framed windows with segmental hoods, a stringcourse, a plain cornice, a ground floor with a shop front and an arched passage (no lettering) Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "vlaska_e045",
+   "photo": ".art/streetview/vlaska/sw_cream.png",
+   "edges": [
+    "w289863045_e0",
+    "w289863045_e1"
+   ],
+   "bays": 6,
+   "storeys": 4,
+   "place": "Vlaška ulica",
+   "source": "INVENTED (no usable Street View of this wall; neighbour-style, storeys from the eave)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a four-storey Zagreb historicist town house in cream plaster: six bays of white-framed windows with hoods on the first floor, plain windows above, a stringcourse, a dentilled cornice, a ground floor with three shop fronts and dark fascias (no lettering) Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "vlaska_e170_e0",
+   "photo": ".art/streetview/vlaska/sw_grey.png",
+   "edges": [
+    "w289863170_e0"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Vlaška ulica",
+   "source": "INVENTED (no usable Street View of this wall; neighbour-style, storeys from the eave)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a four-storey Zagreb historicist town house in pale grey plaster with white pilaster strips: five bays of white-framed windows, the first floor with flat hoods, a stringcourse, a plain cornice, a ground floor with a wide shop window and an arched door (no lettering) Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "vlaska_e170_e1",
+   "photo": ".art/streetview/vlaska/sw_ochre.png",
+   "edges": [
+    "w289863170_e1"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Vlaška ulica",
+   "source": "INVENTED (no usable Street View of this wall; neighbour-style, storeys from the eave)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a four-storey Zagreb historicist town house in ochre plaster: three bays of white-framed windows, a stringcourse, a plain cornice, a ground floor with a shop front and a plain door (no lettering) Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "vlaska_e481",
+   "photo": ".art/streetview/vlaska/sw_white.png",
+   "edges": [
+    "w375221481_e0"
+   ],
+   "bays": 4,
+   "storeys": 4,
+   "place": "Vlaška ulica",
+   "source": "INVENTED (no usable Street View of this wall; neighbour-style, storeys from the eave)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a four-storey Zagreb historicist town house in white plaster: four bays of white-framed windows with small hoods, a stringcourse, a plain cornice, a ground floor with a shop front, a dark fascia and a dark green awning (no lettering) Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "vlaska_e482",
+   "photo": ".art/streetview/vlaska/sw_cream.png",
+   "edges": [
+    "w375221482_e0"
+   ],
+   "bays": 4,
+   "storeys": 2,
+   "place": "Vlaška ulica",
+   "source": "INVENTED (no usable Street View of this wall; neighbour-style, storeys from the eave)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a low two-storey wall of a long Zagreb market-street building in cream plaster, about eleven metres of wall: on the upper floor a row of four small white-framed windows with grey shutters, a plain cornice, on the ground floor tall shop windows in dark frames with a dark fascia and a canvas awning, one plain door (no lettering); the picture is a repeating tile of the wall Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "vlaska_e525",
+   "photo": ".art/streetview/vlaska/sw_orange.png",
+   "edges": [
+    "w586039525_e1"
+   ],
+   "bays": 4,
+   "storeys": 4,
+   "place": "Vlaška ulica",
+   "source": "INVENTED (no usable Street View of this wall; neighbour-style, storeys from the eave)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a four-storey Zagreb historicist town house in warm orange-ochre plaster: four bays of white-framed windows with segmental hoods, a stringcourse, a plain cornice, a ground floor with shop fronts and dark fascias (no lettering) Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "vlaska_e526",
+   "photo": ".art/streetview/vlaska/sw_beige.png",
+   "edges": [
+    "w586039526_e4"
+   ],
+   "bays": 6,
+   "storeys": 4,
+   "place": "Vlaška ulica",
+   "source": "INVENTED (no usable Street View of this wall; neighbour-style, storeys from the eave)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a four-storey Zagreb historicist town house in beige plaster: six bays of white-framed windows, the first floor with triangular hoods, a stringcourse, a dentilled cornice, a ground floor with two shop fronts and a stone-framed arched entrance (no lettering) Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  }
+ ]
+}

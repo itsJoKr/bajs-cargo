@@ -1,0 +1,152 @@
+{
+ "facades": [
+  {
+   "name": "corner_bulldog",
+   "photo": ".art/streetview/rect/bg_grun_c.png",
+   "edges": [
+    "w290551252_e0"
+   ],
+   "bays": 1,
+   "storeys": 6,
+   "place": "Bogovićeva ulica",
+   "source": "Street View Aug 2019 photosphere",
+   "corner": "the corner is a slightly CURVED, chamfered cream-render corner, about 3 m wide, with a green sign board reading 'BULLDOG' (and below it in three small lines 'CAFFE', 'CLUB', 'BISTRO') at ground level, a black menu board with white line drawing, two red narrow poster boards, three black gooseneck lamps above the sign, a low stone plinth, and above it the same cream render with a curved oriel-like bulge and window; a tan awning starts at the right",
+   "look": "the cream-beige corner building of the Bulldog cafe on Bogovićeva, six storeys, smooth cream render, narrow windows with stone sills; its street corner is cut (chamfered) and curved. Leave out umbrellas, tables, the man with the phone and all people"
+  },
+  {
+   "name": "corner_hpb",
+   "photo": ".art/streetview/rect/c_hpb.png",
+   "edges": [
+    "w105488043_e6",
+    "w105488043_e7"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Jurišićeva / Petrinjska",
+   "source": "Street View Jul 2025",
+   "corner": "the corner is a big convex ROUNDED bay, about 6 m of wall: a dark red-brown polished-stone ground floor with the fascia 'HRVATSKA POŠTANSKA BANKA' (a small red HPB mark at its left) and glazed bank doors, above it tall paired stone pilasters/half-columns running up the upper floors between narrow arched and rectangular windows, a heavy cornice; the red 'HPB' logo sign stands on the roof above (do NOT draw it, it is separate)",
+   "look": "the Hrvatska poštanska banka palace at the corner of Jurišićeva and Petrinjska, pale grey-beige stone with pilasters, the corner rounded. Leave out the car, the umbrella, the statue, tram wires and the tree"
+  },
+  {
+   "name": "corner_praska",
+   "photo": ".art/streetview/rect/c_praska.png",
+   "edges": [
+    "w97235397_e3",
+    "w97235397_e4"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Praška ulica",
+   "source": "Street View Aug 2011",
+   "corner": "the corner is a chamfered corner about 5 m wide with a rusticated cream stone ground floor (horizontal joints) with arched shop openings: a large arched red 'školska knjiga' shop window, and above it two floors of tall windows with sculpted brackets, a heavy cornice",
+   "look": "the historicist salmon-and-cream corner house on Praška, ground floor with the shop of 'školska knjiga' (text as in the photo, small SK logo). Leave out cars, trams, people and the SINGER letters of the neighbour"
+  },
+  {
+   "name": "corner_napretkova",
+   "photo": ".art/streetview/rect/bg_napret_c.png",
+   "edges": [
+    "w288852937_e12",
+    "w288852937_e13",
+    "w288852937_e14",
+    "w288852937_e15",
+    "w288852937_e16"
+   ],
+   "bays": 6,
+   "storeys": 6,
+   "place": "Bogovićeva ulica",
+   "source": "Street View Jul 2025",
+   "corner": "the corner is a big CONVEX ROUND tower front about 11 m of wall: pale grey render, continuous horizontal bands of tall windows in metal frames with blue-grey reveals, curved glass and a curved ground-floor shop front with dark glazing, a crenellated parapet above",
+   "look": "the round-cornered 1930s modernist Napretkova zadruga building, pale grey. Draw NO readable text, NO van, NO lamp posts"
+  },
+  {
+   "name": "corner_n951",
+   "photo": ".art/streetview/rect/g_n951b.png",
+   "edges": [
+    "w375375951_e12",
+    "w375375951_e13",
+    "w375375951_e14",
+    "w375375951_e15"
+   ],
+   "bays": 3,
+   "storeys": 7,
+   "place": "Bogovićeva ulica",
+   "source": "invented in the style of the same building's front (no view)",
+   "corner": "INVENTED: the corner is a gently ROUNDED corner about 8 m of wall, same beige-grey render, narrow windows with roller shutters, a balcony with a black railing on the middle of the curve on several floors, travertine ground floor with dark glazing",
+   "look": "INVENTED FACADE: the rounded east corner of the seven-storey beige-grey building (attached picture). NO signs, NO text"
+  },
+  {
+   "name": "corner_koncar",
+   "photo": ".art/streetview/rect/c_koncar.png",
+   "edges": [
+    "w1061535097_e0",
+    "w1061535097_e1",
+    "w1061535097_e2",
+    "w1061535097_e3"
+   ],
+   "bays": 3,
+   "storeys": 6,
+   "place": "Trg bana Jelačića",
+   "source": "Street View Aug 2011",
+   "corner": "the corner is a ROUNDED corner about 9 m of wall: a curved ground floor with a glazed shop front and a wide curved balcony/terrace band with a railing above it, then the upper floors as horizontal bands of windows with sunshades curving around",
+   "look": "the modern 1960s Končar block at the west end of the square, pale cream-white with horizontal window bands; ignore the signs on the roof and ads. NO readable text"
+  },
+  {
+   "name": "corner_ilica_s",
+   "photo": ".art/streetview/rect/g_ilica_s.png",
+   "edges": [
+    "w579294816_e3"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Ilica",
+   "source": "invented from the neighbouring cream house front (no view)",
+   "corner": "INVENTED: the corner is a chamfered corner about 4.5 m wide, cream render, one window per floor with sill and cornice, ground floor with a dark shop door",
+   "look": "INVENTED FACADE: the cut corner of the cream Ilica house (attached picture) on its passage side. NO signs, NO text"
+  },
+  {
+   "name": "corner_inv_a",
+   "photo": ".art/streetview/rect/g_inv_a.png",
+   "edges": [
+    "w105486198_e6",
+    "w105486198_e7"
+   ],
+   "bays": 2,
+   "storeys": 5,
+   "place": "Bakačeva",
+   "source": "invented from the neighbouring wall",
+   "corner": "INVENTED: a chamfered corner about 5 m wide, in the same render and window style as the attached picture",
+   "look": "INVENTED FACADE: the cut corner of the Bakačeva house (attached picture). NO signs, NO text"
+  },
+  {
+   "name": "corner_inv_b",
+   "photo": ".art/streetview/rect/g_inv_b.png",
+   "edges": [
+    "w295422413_e2",
+    "w295422413_e3"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Bakačeva",
+   "source": "invented from the neighbouring wall",
+   "corner": "INVENTED: a chamfered corner about 6 m wide, in the same render and window style as the attached picture",
+   "look": "INVENTED FACADE: the cut corner of the Bakačeva house (attached picture). NO signs, NO text"
+  },
+  {
+   "name": "corner_tesle_w",
+   "photo": ".art/streetview/prad/c_corner_tesle.png",
+   "edges": [
+    "w1005273955_e20",
+    "w1005273955_e21",
+    "w1005273955_e22",
+    "w1005273955_e23",
+    "w1005273955_e24"
+   ],
+   "bays": 2,
+   "storeys": 5,
+   "place": "Preradovićeva ulica",
+   "source": "Street View Mar 2023 (2 oblique frames)",
+   "corner": "the corner is a strongly ROUNDED tower-like corner about 9 m round, in rough rusticated pale grey-beige stone blocks on the ground and first floor with two carved stone figures (caryatid statues) flanking a tall first floor window, small iron grille panels under the window, a dark street-name plate, a big dark-brown framed glass shop window on the ground floor with a louvred vent above it, above the stone base a curved balcony with a black iron railing and a tall arched-top window, yellow-ochre stucco above",
+   "look": "the yellow-ochre and grey-stone five-storey Secession corner house at the crossing of Preradovićeva and Nikole Tesle: its street corner is rounded in heavy rusticated stone with two sculpted figures; to the left and right the walls are plain flat yellow stucco with tall windows. Leave out people, cars, the tree and all street furniture"
+  }
+ ]
+}

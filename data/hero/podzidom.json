@@ -1,0 +1,196 @@
+{
+ "facades": [
+  {
+   "name": "podzidom_printshop",
+   "photo": ".art/streetview/podzidom/r_w292203493_e0.png",
+   "edges": [
+    "w292203493_e0"
+   ],
+   "bays": 6,
+   "storeys": 4,
+   "place": "Pod zidom",
+   "source": "Street View Sep 2011 (rectified from 2 frames, pano gAL62ns6LbO495WAvU7CaA)",
+   "look": "the north-west side of Pod zidom: a tall grey concrete modernist apartment block of 1930s type in weathered grey render, six bays of horizontal ribbon windows with dark roller shutters and white curtains behind glass, four bands of windows, a projecting canopy over the ground floor. At the far LEFT a beige building with a rounded corner balcony (green detail) and a red-and-white shop sign reading 'SVJET obuće'. Ground floor of the grey block from LEFT to RIGHT: a dark fascia with white script letters 'Mondiš' under a grey-and-white striped awning, a big glazed shop front under a dark fascia with white capital letters 'PRINT-SHOP' and a small 'DICK' logo in the window, a blue square parking sign with a white 'P', and a wide garage door of dark timber with glass panes. At the far RIGHT a white plastered neighbour house with a sign reading 'PALATINO ART GALERIJA' and a brown awning. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "podzidom_white_balconies",
+   "photo": ".art/streetview/podzidom/r_w292203494_e0.png",
+   "edges": [
+    "w292203494_e0"
+   ],
+   "bays": 4,
+   "storeys": 4,
+   "place": "Pod zidom",
+   "source": "Street View Sep 2011 (rectified from 2 frames, pano gAL62ns6LbO495WAvU7CaA)",
+   "look": "the north-east side of Pod zidom: a white-plastered modernist apartment block, four floors, with long continuous white balcony slabs and slim green metal railings, small square windows in dark frames at the right, a plain flat top. Ground floor: at the LEFT a dark shop front under a red-brown awning and a fascia with yellow capital letters 'POD ZIDOM', dark glazed doors in the middle, a small shop at the right. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "podzidom_no12",
+   "photo": ".art/streetview/podzidom/r_w105486200_e2.png",
+   "edges": [
+    "w105486200_e2"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Pod zidom",
+   "source": "Street View Sep 2011 (rectified from 2 frames, pano gAL62ns6LbO495WAvU7CaA)",
+   "look": "the south-east side of Pod zidom, No. 12: a four-storey sand-beige stucco house of the 1930s with round projecting balconies at the LEFT of the upper floors, tall shuttered windows with brown roller blinds, a wide plain cornice. Ground floor in grey rusticated stone: from LEFT to RIGHT a shop with a black sign carrying white capital letters 'JADRAN' and small 'ZAGREB' below, a shop window with mannequins, a second shop window under the same kind of black blade sign 'JADRAN', and a double dark-brown wooden door with a hexagonal glass transom and the house number plate '12 POD ZIDOM'. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "podzidom_pharmacy",
+   "photo": ".art/streetview/podzidom/r_w295793324_e2.png",
+   "edges": [
+    "w295793324_e2"
+   ],
+   "bays": 4,
+   "storeys": 4,
+   "place": "Pod zidom",
+   "source": "Street View Sep 2011 (rectified from 2 frames, pano gAL62ns6LbO495WAvU7CaA; a poor grazing view)",
+   "look": "the south-east side of Pod zidom at No. 10, a four-storey cream-yellow stucco corner house with a rounded projecting corner: tall windows with white frames and sills on the upper floors, a green glowing pharmacy cross projecting near the corner, a curved dark cornice band above the ground floor. Ground floor in white plaster: a dark glazed double door with the house number '10' above it, a small brass plaque, a white blade sign with red lettering, and a pharmacy shop window with red lettering. Keep it plain where unclear; invent no readable text. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "podzidom_dolac_s",
+   "photo": ".art/streetview/podzidom/sw_podzidom_dolac_s.png",
+   "edges": [
+    "w1452341039_e2"
+   ],
+   "bays": 9,
+   "storeys": 2,
+   "place": "Pod zidom",
+   "source": "INVENTED (no Street View of this side)",
+   "look": "INVENTED plain two-storey market-hall front (Dolac) in sand-ochre stucco: nine bays, on the ground floor tall round-arched openings with dark iron gates and shutters, above them a row of rectangular windows with plain frames, a simple stringcourse and a flat eave. INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. No text. Use the reference only for the colour and window style; do NOT copy any sign, balcony or bay window. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "podzidom_dolac_w",
+   "photo": ".art/streetview/podzidom/sw_podzidom_dolac_w.png",
+   "edges": [
+    "w1452341039_e7"
+   ],
+   "bays": 4,
+   "storeys": 2,
+   "place": "Pod zidom",
+   "source": "INVENTED (no Street View of this side)",
+   "look": "INVENTED plain side wall of a two-storey market hall in sand-ochre stucco: four bays, ground-floor arched openings with iron gates, above them small rectangular windows, flat eave. INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. No text. Use the reference only for the colour and window style; do NOT copy any sign, balcony or bay window. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "podzidom_dolac_e",
+   "photo": ".art/streetview/podzidom/sw_podzidom_dolac_e.png",
+   "edges": [
+    "w1452341039_e13"
+   ],
+   "bays": 4,
+   "storeys": 2,
+   "place": "Pod zidom",
+   "source": "INVENTED (no Street View of this side)",
+   "look": "INVENTED plain side wall of a two-storey market hall in sand-ochre stucco: four bays, a wide arched gate and shutters below, small rectangular windows above, flat eave. INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. No text. Use the reference only for the colour and window style; do NOT copy any sign, balcony or bay window. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "podzidom_1663_e2",
+   "photo": ".art/streetview/podzidom/sw_podzidom_1663_e2.png",
+   "edges": [
+    "w1498441663_e2"
+   ],
+   "bays": 7,
+   "storeys": 4,
+   "place": "Pod zidom",
+   "source": "INVENTED (no Street View of this side)",
+   "look": "INVENTED plain four-storey Zagreb historicist apartment house in cream-yellow stucco: seven bays of tall windows with slim white frames and small sills, a stringcourse between the first and second floors, a plain cornice, a dark ground floor with a gate and two shop fronts without lettering. INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. No text. Use the reference only for the colour and window style; do NOT copy any sign, balcony or bay window. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "podzidom_1663_e5",
+   "photo": ".art/streetview/podzidom/sw_podzidom_1663_e5.png",
+   "edges": [
+    "w1498441663_e5"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Pod zidom",
+   "source": "INVENTED (no Street View of this side)",
+   "look": "INVENTED plain four-storey historicist apartment house in pale grey-cream stucco: five bays of tall windows with white frames, stringcourses, a plain cornice, a dark ground floor with a door and a shuttered shop front. INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. No text. Use the reference only for the colour and window style; do NOT copy any sign, balcony or bay window. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "podzidom_1663_e3",
+   "photo": ".art/streetview/podzidom/sw_podzidom_1663_e3.png",
+   "edges": [
+    "w1498441663_e3"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Pod zidom",
+   "source": "INVENTED (no Street View of this side)",
+   "look": "INVENTED plain four-storey historicist apartment house in warm salmon-ochre stucco: three bays of tall windows with white frames, a plain cornice, a wooden door on the ground floor. INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. No text. Use the reference only for the colour and window style; do NOT copy any sign, balcony or bay window. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "podzidom_1663_e1",
+   "photo": ".art/streetview/podzidom/sw_podzidom_1663_e1.png",
+   "edges": [
+    "w1498441663_e1"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Pod zidom",
+   "source": "INVENTED (no Street View of this side)",
+   "look": "INVENTED plain four-storey plain apartment house side in pale grey-green stucco: three bays of tall windows with slim frames, a plain cornice, a dark ground floor door. INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. No text. Use the reference only for the colour and window style; do NOT copy any sign, balcony or bay window. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "podzidom_138_e17",
+   "photo": ".art/streetview/podzidom/sw_podzidom_138_e17.png",
+   "edges": [
+    "w138251854_e17"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Pod zidom",
+   "source": "INVENTED (no Street View of this side)",
+   "look": "INVENTED plain four-storey plain apartment house side in cream stucco: three bays of tall windows with slim white frames, a stringcourse, a plain cornice, a dark gate on the ground floor. INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. No text. Use the reference only for the colour and window style; do NOT copy any sign, balcony or bay window. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "podzidom_292_e2",
+   "photo": ".art/streetview/podzidom/sw_podzidom_292_e2.png",
+   "edges": [
+    "w292203492_e2"
+   ],
+   "bays": 6,
+   "storeys": 4,
+   "place": "Pod zidom",
+   "source": "INVENTED (no Street View of this side)",
+   "look": "INVENTED plain four-storey historicist apartment house in pale cream stucco: six bays of tall windows with white frames, a stringcourse, a plain cornice, a dark ground floor with a gate and two shop fronts without lettering. INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. No text. Use the reference only for the colour and window style; do NOT copy any sign, balcony or bay window. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "podzidom_dolac_s_b",
+   "photo": ".art/streetview/podzidom/sw_podzidom_dolac_s.png",
+   "edges": [
+    "w735337390_e12"
+   ],
+   "bays": 9,
+   "storeys": 2,
+   "place": "Pod zidom",
+   "source": "INVENTED (no Street View of this side) (twin of podzidom_dolac_s, same picture, overlapping OSM building w735337390)",
+   "look": "INVENTED plain two-storey market-hall front (Dolac) in sand-ochre stucco: nine bays, on the ground floor tall round-arched openings with dark iron gates and shutters, above them a row of rectangular windows with plain frames, a simple stringcourse and a flat eave. INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. No text. Use the reference only for the colour and window style; do NOT copy any sign, balcony or bay window. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "podzidom_dolac_w_b",
+   "photo": ".art/streetview/podzidom/sw_podzidom_dolac_w.png",
+   "edges": [
+    "w735337390_e4"
+   ],
+   "bays": 4,
+   "storeys": 2,
+   "place": "Pod zidom",
+   "source": "INVENTED (no Street View of this side) (twin of podzidom_dolac_w, same picture, overlapping OSM building w735337390)",
+   "look": "INVENTED plain side wall of a two-storey market hall in sand-ochre stucco: four bays, ground-floor arched openings with iron gates, above them small rectangular windows, flat eave. INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. No text. Use the reference only for the colour and window style; do NOT copy any sign, balcony or bay window. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "podzidom_dolac_e_b",
+   "photo": ".art/streetview/podzidom/sw_podzidom_dolac_e.png",
+   "edges": [
+    "w735337390_e9"
+   ],
+   "bays": 4,
+   "storeys": 2,
+   "place": "Pod zidom",
+   "source": "INVENTED (no Street View of this side) (twin of podzidom_dolac_e, same picture, overlapping OSM building w735337390)",
+   "look": "INVENTED plain side wall of a two-storey market hall in sand-ochre stucco: four bays, a wide arched gate and shutters below, small rectangular windows above, flat eave. INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. No text. Use the reference only for the colour and window style; do NOT copy any sign, balcony or bay window. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  }
+ ]
+}

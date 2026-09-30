@@ -1,0 +1,18 @@
+{
+ "facades": [
+  {
+   "name": "petrinjska_corner_artotel",
+   "photo": ".art/streetview/petrinjska/c_artotel.png",
+   "edges": [
+    "w286614548_e13",
+    "w286614548_e14"
+   ],
+   "bays": 2,
+   "storeys": 6,
+   "place": "Petrinjska ulica",
+   "source": "Street View Jul 2024 (pano at Petrinjska 7)",
+   "corner": "the corner is a ROUNDED bay about 8 m of wall in cream smooth stucco: its ground floor has, at the left, a tall narrow dark-framed glass door/window and, further right, a tall dark-framed glass window with white sheer curtains; above it the Greek-key (meander) frieze band runs round the curve, the upper floors have small white-framed windows between shallow piers, one with a little white balcony railing, and a curved deep bracketed cornice runs along the top",
+   "look": "the rounded corner of the art'otel building on Petrinjska, a six-storey 1930s cream-white smooth-stucco block; leave out the potted shrub and the Google watermark; the double-door entrance under the 'art'otel' canopy is on the flat wall to the RIGHT of the corner and appears only at the far right edge Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  }
+ ]
+}

@@ -1,0 +1,75 @@
+{
+ "w289863031": {
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w289863031_e1",
+    "from": 0.64,
+    "to": 1.0,
+    "y": 2.75,
+    "drop": 0.9,
+    "depth": 1.0,
+    "texture": "pavlaradica_awning.jpg",
+    "repeat": 2,
+    "source": "Street View Jul 2024 (pano 3 Radićeva, frame 90 tilt 98): grey striped awning over the ZLATAR jeweller; measured on raw.png"
+   }
+  ]
+ },
+ "r6414116": {
+  "features": [
+   {
+    "type": "box",
+    "wall": "r6414116_e9",
+    "at": 0.525,
+    "width": 7.5,
+    "height": 0.25,
+    "depth": 1.0,
+    "out": 0.5,
+    "y": 5.45,
+    "color": "#d8d2c4",
+    "texture": "pavlaradica_stone.jpg",
+    "repeat": 1,
+    "source": "Street View Jul 2024 (pano 25 Radićeva, frame 90 tilt 98): stone balcony slab with wrought-iron railing; measured on raw.png"
+   }
+  ]
+ },
+ "w97091852": {
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "terrace",
+    "wall": "w97091852_e19",
+    "from": 0.1,
+    "to": 0.95,
+    "depth": 2.5,
+    "color": "#ffffff",
+    "source": "Street View Jul 2024 (pano 14 Radićeva, frame 270): Joyful Kitchen wooden tables with white parasols"
+   }
+  ]
+ },
+ "r9374001": {
+  "features": [
+   {
+    "type": "terrace",
+    "wall": "r9374001_e9",
+    "from": 0.05,
+    "to": 0.95,
+    "depth": 2.5,
+    "color": "#e8e4dc",
+    "source": "Street View Jul 2024 (pano 3 Radićeva, frame 270): white parasols and dark high tables before Blau-Line"
+   }
+  ]
+ },
+ "w97089777": {
+  "roof": "clay_red",
+  "features": []
+ },
+ "w97091854": {
+  "roof": "clay_brown",
+  "features": []
+ },
+ "w97091865": {
+  "roof": "clay_brown",
+  "features": []
+ }
+}

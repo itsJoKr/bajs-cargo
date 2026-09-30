@@ -1,0 +1,89 @@
+{
+ "w579294879": {
+  "name": "Gajeva 12 east (peach house)",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w579294879_e6",
+    "at": 0.5,
+    "width": 19.98,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "gajeva_cornice_ochre.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (D/E pano): heavy cornice; texture reused from round 1"
+   }
+  ]
+ },
+ "w579295102": {
+  "name": "Gajeva west, south end (grey-brown house)",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w579295102_e6",
+    "at": 0.5,
+    "width": 16.6,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "gajeva_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (E pano): dentilled cornice; texture reused from round 1"
+   }
+  ]
+ },
+ "w249753108": {
+  "name": "Gajeva east, south end",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w249753108_e5",
+    "at": 0.5,
+    "width": 14.45,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "gajeva_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (E pano): plain cornice; texture reused from round 1"
+   }
+  ]
+ },
+ "w446076404": {
+  "name": "Palača Vranyczany-Dobrinović (Gajeva side)",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w446076404_e11",
+    "at": 0.5,
+    "width": 15.14,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "gajeva_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (D pano): deep cornice; texture reused from round 1"
+   }
+  ]
+ },
+ "w97235396": {
+  "name": "Hotel Dubrovnik / Znanje (Gajeva 1)",
+  "features": [
+   {
+    "type": "sign",
+    "wall": "w97235396_e1",
+    "mount": "wall",
+    "image": "gajeva_znanje.png",
+    "at": 0.78,
+    "width": 2.6,
+    "y": 3.7,
+    "source": "Street View Jul 2025 (A pano frame 45) + Google Maps place photo of Znanje Bookshop (Gajeva 1): dark sign, sun logo, 'znanje'; redrawn flat by gen-image"
+   }
+  ]
+ }
+}

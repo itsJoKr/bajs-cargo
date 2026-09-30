@@ -1,0 +1,207 @@
+{
+ "w137106310": {
+  "name": "Palača Vranyczany-Dobrinović",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w137106310_e13",
+    "at": 0.819,
+    "width": 5.12,
+    "depth": 1.0,
+    "out": 0.5,
+    "height": 0.35,
+    "texture": "zrinski_balcony_stone.jpg",
+    "repeat": 1.5,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac west road): central first-floor balcony over the portal (left part)",
+    "y": 9.7
+   },
+   {
+    "type": "box",
+    "wall": "w137106310_e0",
+    "at": 0.267,
+    "width": 10.45,
+    "depth": 1.0,
+    "out": 0.5,
+    "height": 0.35,
+    "texture": "zrinski_balcony_stone.jpg",
+    "repeat": 1.5,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac west road): central first-floor balcony over the portal (right part)",
+    "y": 9.7
+   },
+   {
+    "type": "box",
+    "wall": "w137106310_e13",
+    "at": 0.08,
+    "width": 2.3,
+    "depth": 0.8,
+    "out": 0.4,
+    "height": 0.3,
+    "texture": "zrinski_balcony_stone.jpg",
+    "repeat": 1.5,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac west road): small end balcony, south end",
+    "y": 9.6
+   },
+   {
+    "type": "box",
+    "wall": "w137106310_e0",
+    "at": 0.94,
+    "width": 2.3,
+    "depth": 0.8,
+    "out": 0.4,
+    "height": 0.3,
+    "texture": "zrinski_balcony_stone.jpg",
+    "repeat": 1.5,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac west road): small end balcony, north end",
+    "y": 9.6
+   },
+   {
+    "type": "box",
+    "wall": "w137106310_e13",
+    "at": 0.5,
+    "width": 14.15,
+    "depth": 0.5,
+    "out": 0.25,
+    "height": 0.5,
+    "texture": "zrinski_cornice_ochre.jpg",
+    "repeat": 1.2,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac west road): balustraded main cornice",
+    "aboveEave": -0.55
+   },
+   {
+    "type": "box",
+    "wall": "w137106310_e0",
+    "at": 0.5,
+    "width": 19.56,
+    "depth": 0.5,
+    "out": 0.25,
+    "height": 0.5,
+    "texture": "zrinski_cornice_ochre.jpg",
+    "repeat": 1.2,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac west road): balustraded main cornice",
+    "aboveEave": -0.55
+   }
+  ]
+ },
+ "w579294902": {
+  "name": "Trg N. Š. Zrinskog, ADRIA shopfronts",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w579294902_e4",
+    "from": 0.09,
+    "to": 0.5,
+    "y": 3.9,
+    "drop": 0.9,
+    "depth": 1.2,
+    "color": "#ffffff",
+    "texture": "zrinski_awning_navy.jpg",
+    "repeat": 3,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac west road): navy awning, measured on raw.png"
+   },
+   {
+    "type": "awning",
+    "wall": "w579294902_e4",
+    "from": 0.52,
+    "to": 0.97,
+    "y": 3.9,
+    "drop": 0.9,
+    "depth": 1.2,
+    "color": "#ffffff",
+    "texture": "zrinski_awning_navy.jpg",
+    "repeat": 3,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac west road): navy awning"
+   },
+   {
+    "type": "awning",
+    "wall": "w579294902_e5",
+    "from": 0.006,
+    "to": 0.22,
+    "y": 3.9,
+    "drop": 0.9,
+    "depth": 1.2,
+    "color": "#ffffff",
+    "texture": "zrinski_awning_navy.jpg",
+    "repeat": 3,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac west road): navy awning"
+   },
+   {
+    "type": "box",
+    "wall": "w579294902_e4",
+    "at": 0.5,
+    "width": 6.61,
+    "depth": 0.5,
+    "out": 0.25,
+    "height": 0.5,
+    "texture": "zrinski_cornice_white.jpg",
+    "repeat": 1.2,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac west road): main cornice",
+    "aboveEave": -0.55
+   },
+   {
+    "type": "box",
+    "wall": "w579294902_e5",
+    "at": 0.5,
+    "width": 14.09,
+    "depth": 0.5,
+    "out": 0.25,
+    "height": 0.5,
+    "texture": "zrinski_cornice_white.jpg",
+    "repeat": 1.2,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac west road): main cornice",
+    "aboveEave": -0.55
+   }
+  ]
+ },
+ "w579294884": {
+  "features": [
+   {
+    "type": "box",
+    "wall": "w579294884_e2",
+    "at": 0.5,
+    "width": 19.26,
+    "depth": 0.5,
+    "out": 0.25,
+    "height": 0.5,
+    "texture": "zrinski_cornice_white.jpg",
+    "repeat": 1.2,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac west road): main cornice",
+    "aboveEave": -0.55
+   }
+  ]
+ },
+ "w390984160": {
+  "features": [
+   {
+    "type": "box",
+    "wall": "w390984160_e8",
+    "at": 0.5,
+    "width": 62.81,
+    "depth": 0.6,
+    "out": 0.3,
+    "height": 0.55,
+    "texture": "zrinski_cornice_white.jpg",
+    "repeat": 1.2,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac east road): heavy white stone main cornice",
+    "aboveEave": -0.55
+   }
+  ]
+ },
+ "w390984148": {
+  "name": "Kuća Antolković",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w390984148_e0",
+    "at": 0.5,
+    "width": 20.56,
+    "depth": 0.5,
+    "out": 0.25,
+    "height": 0.5,
+    "texture": "zrinski_cornice_ochre.jpg",
+    "repeat": 1.2,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac east road): decorated cornice",
+    "aboveEave": -0.55
+   }
+  ]
+ }
+}

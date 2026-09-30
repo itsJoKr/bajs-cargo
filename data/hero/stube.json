@@ -1,0 +1,100 @@
+{
+ "facades": [
+  {
+   "name": "stube_mary_e5",
+   "photo": ".art/streetview/stube/sw_church.png",
+   "edges": [
+    "w105490847_e5"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Stube kralja Ladislava",
+   "source": "INVENTED (no Street View on the stepped footway)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. the north side wall of the nave of the small Church of St Mary (Crkva svete Marije) above Dolac in Zagreb, seen from the stepped footway Stube kralja Ladislava: a plain old whitewashed baroque church wall in weathered off-white stucco with pale grey stone plinth, three tall round-arched windows with stone surrounds high on the wall, flat pilasters between them with simple capitals, a shallow projecting cornice, one small round window, a small plain wooden door at the far left of the base. NO lettering, no signs. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO map pin icon."
+  },
+  {
+   "name": "stube_mary_e9",
+   "photo": ".art/streetview/stube/sw_church.png",
+   "edges": [
+    "w105490847_e9"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Stube kralja Ladislava",
+   "source": "INVENTED (no Street View on the stepped footway)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. the north side wall of the nave of the small Church of St Mary (Crkva svete Marije) above Dolac in Zagreb, seen from the stepped footway Stube kralja Ladislava: a plain old whitewashed baroque church wall in weathered off-white stucco with pale grey stone plinth, two tall round-arched windows with stone surrounds high on the wall, a stepped stone buttress at the right end, shallow cornice, plain stucco below with a few patches of weathering and a small barred window near the base. NO lettering, no signs. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO map pin icon."
+  },
+  {
+   "name": "stube_mary_e12",
+   "photo": ".art/streetview/stube/sw_church.png",
+   "edges": [
+    "w105490847_e12"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Stube kralja Ladislava",
+   "source": "INVENTED (no Street View on the stepped footway)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. the north side wall of the nave of the small Church of St Mary (Crkva svete Marije) above Dolac in Zagreb, seen from the stepped footway Stube kralja Ladislava: a plain old whitewashed baroque church wall in weathered off-white stucco with pale grey stone plinth, three tall round-arched windows with stone surrounds high on the wall, pilasters between, shallow cornice, plain lower wall with a small iron-barred window and a stone plinth. NO lettering, no signs. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO map pin icon."
+  },
+  {
+   "name": "stube_blk_e15",
+   "photo": ".art/streetview/stube/sw_ochre.png",
+   "edges": [
+    "w289908815_e15"
+   ],
+   "bays": 7,
+   "storeys": 6,
+   "place": "Dolac, Gornji grad",
+   "source": "INVENTED (no Street View on the stepped footway)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. the south-facing rear wall of a six-storey late-19th-century historicist apartment block in warm ochre-yellow stucco at Dolac in Zagreb: seven bays of tall rectangular windows with simple plaster frames and shutters, first floor windows with small triangular pediments, horizontal stringcourses between floors, a plain dentilled main cornice; a plain ground floor with two service doors and small barred windows. NO lettering, no signs. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO map pin icon."
+  },
+  {
+   "name": "stube_w735_e4",
+   "photo": ".art/streetview/stube/sw_pink.png",
+   "edges": [
+    "w735339086_e4"
+   ],
+   "bays": 4,
+   "storeys": 4,
+   "place": "Stube kralja Ladislava",
+   "source": "INVENTED (no Street View on the stepped footway)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a four-storey 19th-century townhouse in muted pink-beige stucco in Zagreb's Upper Town: four bays of tall rectangular windows with white frames and green wooden shutters, moulded sills, stringcourse over the ground floor, a modest projecting cornice; ground floor with a plain wooden door and two barred windows. NO lettering, no signs. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO map pin icon."
+  },
+  {
+   "name": "stube_dolac_e12",
+   "photo": ".art/streetview/stube/sw_stone.png",
+   "edges": [
+    "w1452341039_e12"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Dolac, Gornji grad",
+   "source": "INVENTED (no Street View on the stepped footway)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. the side wall of the Dolac market building in Zagreb: a two-storey structure with a rusticated pale limestone ground floor pierced by three round arches closed by dark green roller shutters, a plain cream stucco upper storey with three small square windows, a plain cornice. NO lettering, no signs. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO map pin icon."
+  },
+  {
+   "name": "stube_blk3",
+   "photo": ".art/streetview/stube/sw_cream.png",
+   "edges": [
+    "w544516553_e3"
+   ],
+   "bays": 6,
+   "storeys": 4,
+   "place": "Dolac, Gornji grad",
+   "source": "INVENTED (no Street View on the stepped footway)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. the east side of a four-storey 19th-century historicist apartment block in cream-yellow stucco above the Dolac market in Zagreb: bays of tall rectangular windows with white plaster frames and small hoods on the first floor, stringcourses between floors, a dentilled main cornice, plain ground floor with barred windows and a couple of wooden doors. NO lettering, no signs. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO map pin icon."
+  },
+  {
+   "name": "stube_dolac",
+   "photo": ".art/streetview/stube/sw_stone.png",
+   "edges": [
+    "w1452341039_e10"
+   ],
+   "bays": 8,
+   "storeys": 2,
+   "place": "Dolac, Gornji grad",
+   "source": "INVENTED (no Street View on the stepped footway)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. the long retaining front of the Dolac market building in Zagreb: a two-storey wall with a rusticated pale limestone ground floor of round arches closed by dark green roller shutters, and a plain cream stucco upper storey with small square windows, plain cornice. NO lettering, no signs. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO map pin icon."
+  }
+ ]
+}

@@ -1,0 +1,145 @@
+{
+ "w446076404": {
+  "name": "Palača Vranyczany-Dobrinović",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w446076404_e9",
+    "at": 0.5,
+    "width": 38.2,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "berislavic_cornice_stone.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (pano 9 Berislavićeva): dentilled stone main cornice"
+   },
+   {
+    "type": "box",
+    "wall": "w446076404_e10",
+    "at": 0.5,
+    "width": 16.1,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "berislavic_cornice_stone.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (pano 9 Berislavićeva): dentilled stone main cornice"
+   }
+  ]
+ },
+ "w579294879": {
+  "name": "Berislavićeva (ochre house)",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w579294879_e8",
+    "at": 0.5,
+    "width": 11.2,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "berislavic_cornice_stone.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (pano 5 Berislavićeva): heavy dentilled cornice"
+   },
+   {
+    "type": "box",
+    "wall": "w579294879_e9",
+    "at": 0.5,
+    "width": 14.2,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "berislavic_cornice_stone.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (pano 5 Berislavićeva): heavy dentilled cornice"
+   }
+  ]
+ },
+ "w249753107": {
+  "name": "Berislavićeva (sand-yellow corner house)",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w249753107_e2",
+    "at": 0.5,
+    "width": 15.7,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "berislavic_cornice_stone.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (pano 5 Berislavićeva): bracketed cornice under the top floor"
+   }
+  ]
+ },
+ "w249753112": {
+  "name": "Palača Ožegović",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w249753112_e8",
+    "at": 0.5,
+    "width": 11.5,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "berislavic_cornice_stone.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (pano 1 Berislavićeva): heavy dentilled cornice"
+   },
+   {
+    "type": "box",
+    "wall": "w249753112_e9",
+    "at": 0.5,
+    "width": 15.7,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "berislavic_cornice_stone.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (pano 1 Berislavićeva): heavy dentilled cornice"
+   }
+  ]
+ },
+ "w446076409": {
+  "name": "Berislavićeva (white two-storey house with café)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w446076409_e5",
+    "from": 0.23,
+    "to": 0.98,
+    "y": 3.53,
+    "drop": 0.57,
+    "depth": 1.2,
+    "color": "#ffffff",
+    "texture": "berislavic_awning_green.jpg",
+    "repeat": 2.0,
+    "source": "Street View Jul 2024 (pano 21 Berislavićeva): grey-green café awning; y/drop measured on raw.png (pavement 0 .. eave 8.4 m)"
+   },
+   {
+    "type": "box",
+    "wall": "w446076409_e5",
+    "at": 0.5,
+    "width": 12.7,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "berislavic_cornice_stone.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (pano 21 Berislavićeva): plain projecting eaves cornice"
+   }
+  ]
+ }
+}

@@ -1,0 +1,813 @@
+{
+ "_comment": "Real facades of the ring around Trg bana Jelacica: same format as square.json. frame = .art/streetview/frames/<frame>.jpg (1568x652 screenshots of the user's Chrome).",
+ "facades": [
+  {
+   "name": "feller_stern_south",
+   "edges": [
+    "r3853100_e0"
+   ],
+   "bays": 14,
+   "storeys": 7,
+   "place": "Jurišićeva ulica",
+   "source": "Street View Jul 2025, rectified (tool/sv_rectify.py)",
+   "look": "the front of a 1930s modernist block, SEVEN storeys tall (shop ground floor, then five storeys of windows with the top storeys stepped back and a small tower block at the top left): pale beige-grey render with regular small windows, long projecting balcony bands with thin metal railings and ochre undersides at the second and top floors, a small block set back at the top left. A dark blue fascia 'VISITOR CENTER' with white lettering over the far-left shop, a black awning 'CAMEA' over the middle shop with white lettering, white awnings over several shop fronts, a blue-and-yellow round sun sign near the right end. The round blue/white icons with a museum or bag symbol are Google Maps overlays, not part of the building: leave them out. NO round icons, badges or map pins anywhere, including over the red-and-white souvenir shop next to CAMEA (plain red awning, no sign). NO people, on the pavement or in the shop doors",
+   "photo": ".art/streetview/rect/feller_south.png"
+  },
+  {
+   "name": "varteks_pink_red",
+   "frame": "f33",
+   "crop": [
+    225,
+    125,
+    965,
+    545
+   ],
+   "edges": [
+    "w105486195_e5"
+   ],
+   "bays": 12,
+   "storeys": 4,
+   "place": "Trg bana Jelačića",
+   "source": "Street View Aug 2011",
+   "look": "an 1880s historicist palace in brick red render with cream stucco window surrounds and pediments on the two upper floors, cream rusticated pilasters and rusticated ground floor with nine round-arched shop windows, a cornice above, attic pavilion at the right end with a mansard roof. Sign lettering: 'Müller' with a small M logo at both ends of the ground floor, 'VARTEKS & VIŠE' in dark letters in the middle above the arches, a rooftop sign 'VARTEKS' along the roof edge"
+  },
+  {
+   "name": "praska_portico",
+   "photo": ".art/streetview/rect/praska_portico.png",
+   "edges": [
+    "w105489672_e5"
+   ],
+   "bays": 11,
+   "storeys": 3,
+   "place": "Praška ulica",
+   "source": "Street View Jul 2024, rectified from close-up frames (tool/sv_rectify.py)",
+   "look": "the Praška side of a neoclassical palace in pale grey-white stone: a rusticated ground floor of horizontal stone courses with round-arched barred windows (each arch has a scrolled wrought-iron grille) and one tall arched double door, a small metal plaque and a house number beside the door; above it a projecting central portico with a balustraded balcony and five giant round columns that run through the two upper floors, between them tall round-arched windows with white frames and small rectangular windows above; the two side wings recessed and plainer, with rows of rectangular windows framed by flat pilasters and a heavy cornice under the roof. Some brick shows through worn plaster. Graffiti tags on the ground floor are not part of the building: leave them out"
+  },
+  {
+   "name": "praska_generalturist",
+   "photo": ".art/streetview/rect/praska_generalturist.png",
+   "edges": [
+    "w105489667_e7"
+   ],
+   "bays": 9,
+   "storeys": 4,
+   "place": "Praška ulica",
+   "source": "Street View Jul 2024, rectified from close-up frames (tool/sv_rectify.py)",
+   "look": "left part: the plain white-grey end of a neoclassical building with tall windows in flat pilasters and a stone base with two barred windows and a wooden door; then a pale cream 19th-century historicist house (three window rows, framed windows with small ornamental cornices, string courses) and, to its right, a house with a two-storey ornate stone oriel bay window with carved figures, lower cornice, and plain windows beside it. The ground floor of the cream houses is a dark green-grey mottled marble front with a long fascia carrying the blue lettering 'GENERALTURIST', a dark gated entry passage at the left, glass shop fronts and heavy stone piers. The round blue/white map pins on the picture are Google overlays: leave them out"
+  },
+  {
+   "name": "praska_w_salmon",
+   "photo": ".art/streetview/rect/praska_w_salmon.png",
+   "edges": [
+    "w97235397_e1"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Praška ulica",
+   "source": "Street View Jul 2024, rectified from close oblique frames (tool/sv_rectify.py)",
+   "look": "an 1880s historicist house in warm salmon-orange render with cream stucco window surrounds, cornices and string courses; on the left a stone-framed arched window with a small balcony with a balustrade above a large arched entrance; a cream rusticated ground floor with shop windows and a doorway. In the photo the whole ground floor is hidden by scaffolding and a big blue advertising banner covers the right side: draw the facade WITHOUT scaffolding, netting or banner, as the finished building would look (windows continue the same rhythm on the right, shop fronts on the ground floor)"
+  },
+  {
+   "name": "praska_w_salmon2",
+   "photo": ".art/streetview/rect/praska_w_salmon2.png",
+   "edges": [
+    "w97235397_e2"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Praška ulica",
+   "source": "Street View Jul 2024, rectified from close oblique frames (tool/sv_rectify.py)",
+   "look": "the short side of the same salmon-orange historicist house as its neighbour: warm salmon render, cream window surrounds with small cornices, two window axes per floor, a cream string course, a ground floor with shop windows. The photo is very blurry and partly covered by scaffolding and a blue banner: draw it WITHOUT scaffolding or banner, in the same style as described"
+  },
+  {
+   "name": "praska_w_glass",
+   "photo": ".art/streetview/rect/praska_w_glass.png",
+   "edges": [
+    "r20144619_e0"
+   ],
+   "bays": 7,
+   "storeys": 4,
+   "place": "Praška ulica",
+   "source": "Street View Jul 2024, rectified from close oblique frames (tool/sv_rectify.py)",
+   "look": "a modern boutique hotel with an all-glass curtain-wall facade: four storeys of large glass panes in thin dark mullions that mirror the buildings across the street (pinkish-beige neoclassical facade, columns, blue sky), a dark recessed ground floor with glass doors, white capital letters 'MET BOUTIQUE HOTEL' over the entrance and a small script sign 'Pinsider' on the next shop window. The round pink hotel icon on the photo is a Google overlay: leave it out"
+  },
+  {
+   "name": "praska_w_shell",
+   "photo": ".art/streetview/rect/praska_w_shell.png",
+   "edges": [
+    "w584458873_e4"
+   ],
+   "bays": 6,
+   "storeys": 4,
+   "place": "Praška ulica",
+   "source": "Street View Jul 2024, rectified from close oblique frames (tool/sv_rectify.py)",
+   "look": "a plain late-19th-century house in pale beige render, four storeys of regular rectangular windows with small plaster window surrounds, cornices above the first floor windows, string courses, a strong main cornice, and a ground floor of dark shop fronts with awnings; the photo is blurry and partly covered by scaffolding: draw it WITHOUT scaffolding"
+  },
+  {
+   "name": "jur_hpb",
+   "photo": ".art/streetview/rect/jur_hpb.png",
+   "edges": [
+    "w105488043_e5"
+   ],
+   "bays": 9,
+   "storeys": 4,
+   "place": "Jurišićeva ulica",
+   "source": "Street View Jul 2025, rectified (tool/sv_rectify.py)",
+   "look": "the Jurišićeva side of the Hrvatska poštanska banka palace: a pale grey-white upper facade with a row of tall round-arched windows with dark roller shutters on the second floor, a curved bay-window tower with a rounded balcony band on the right, plain flat pilasters, a projecting cornice band above a mezzanine of white-framed windows set in pinkish-brown polished stone panels with black stone pilasters, and a dark grey fascia over the ground floor shop windows. Signs: white lettering 'HPB NEKRETNINE' with a small red-and-white bird logo on the left fascia, and 'HRVATSKA POŠTANSKA BANKA' with the same red logo on the right fascia; a cash machine (ATM) in the middle shop front. The round blue icon and the tree branches are not part of the building: leave them out"
+  },
+  {
+   "name": "jur_stern",
+   "photo": ".art/streetview/rect/jur_stern.png",
+   "edges": [
+    "r3853099_e0"
+   ],
+   "bays": 8,
+   "storeys": 4,
+   "place": "Jurišićeva ulica",
+   "source": "Street View Jul 2025, close-up frames from the pavement (montage) and rectified",
+   "look": "Palača Stern, Jurišićeva 3: a white neo-baroque stone palace. The four photos are close-ups of the same street front seen from the pavement at an angle (bottom row looks up at the upper floors); combine them into ONE straight-on elevation of the whole front, about 31 m wide. Ground floor: tall round arches (two storeys high) framed by rusticated stone and by giant fluted columns on tall plinths, ornate cartouches and scrolls above the arches, two arches are shop fronts with dark blue frames and a white awning with orange 'Rodea' lettering (also an orange 'Rodea' sign over the shop door), one arch is a wide wrought-iron double gate with the house number '3' on a small plate above it, further arches with pharmacy (green cross) and cafe fronts. Upper floors continue the same white stone with rich window surrounds, balustrade balconies and a heavy ornamented cornice; you cannot see them fully, so continue the rhythm of the arches with tall arched or pedimented windows, balconies on the first floor, and a strong cornice. Draw NO trees"
+  },
+  {
+   "name": "ilica_passage",
+   "photo": ".art/streetview/rect/ilica_passage.png",
+   "edges": [
+    "w97089776_e0"
+   ],
+   "bays": 7,
+   "storeys": 4,
+   "place": "Ilica",
+   "source": "Street View Jul 2024, close-up frames from the pavement (montage)",
+   "look": "the north side of Ilica, two neighbouring 19th-century stone houses, seen in several close-up photos from the pavement (combine them into ONE straight-on elevation, about 22 m wide). Left house: pale grey-beige stone facade with three tall arched windows per floor grouped with pilasters, balcony bands with carved balustrades, a cornice; a plain glass shop front with mannequins and a small fascia. Right of it the narrower central house with a tall vaulted passage entrance in the ground floor under a big bright blue rounded sign with the lower-case letters 'nama' (the department store logo), above it a stone balcony with a balustrade on two slender columns and one tall window axis crowned by a triangular pediment and carved cartouches; a small blue street-number plate '6' at the passage. Draw no people. IMPORTANT: on both houses the TOP-floor windows are plain tall RECTANGULAR windows with small cornices; only the second-floor windows are arched. Write NO shop name on the left shop (no 'chanele'): the only lettering is the big blue 'nama' over the passage and, on the right shop's blue fascia, '140' with 'godina s nama' and a small 'nama' at its right end. Where text is unreadable leave it blank instead of inventing words"
+  },
+  {
+   "name": "ilica_nama",
+   "photo": ".art/streetview/rect/ilica_nama.png",
+   "edges": [
+    "w97089760_e1"
+   ],
+   "bays": 8,
+   "storeys": 4,
+   "place": "Ilica",
+   "source": "Street View Jul 2024, close-up frames from the pavement (montage)",
+   "look": "the Nama department store building on the north side of Ilica, seen in several close-up photos from the pavement (combine into ONE straight-on elevation, about 33 m wide): a wide 19th-century historicist stone facade in grey-beige with rows of arched windows with pediments and carved keystones, balcony bands with pierced stone balustrades under every window row, a strong ornamented cornice, the ground floor a large arched shop window with a deep blue fascia carrying '140 godina s nama' in white italic script and the blue 'nama' logo, mannequins and a Triumph advertisement inside, sale posters with a red percent sign; at the left end the vaulted passage with the big blue 'nama' letters. Draw no people. The plate beside the passage reads '6'. Only ONE 'Triumph' poster; leave the tagline under 'nama' blank instead of inventing words"
+  },
+  {
+   "name": "ilica_s_cream",
+   "photo": ".art/streetview/rect/ilica_s_cream.png",
+   "edges": [
+    "w579294816_e4"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Ilica",
+   "source": "Street View Jul 2024, close-up frames from the pavement across Ilica (montage)",
+   "look": "a four-storey 19th-century historicist house on the south side of Ilica, seen in several oblique photos (combine into ONE straight-on elevation, about 19 m wide): pale cream-grey render, a heavily rusticated ground floor with three tall arched windows behind grey roller shutters and a wrought-iron double door with an arched transom at the right end, a small stone plaque beside the door; on the first floor five tall arched windows with curly baroque pediments and cartouches and a wrought-iron balcony at the right and at the left corner, on the upper floors square windows with small cornices, a strong cornice. Draw no people, no street lamps, no cables. EXACTLY FOUR storeys: rusticated ground floor, first floor with arched windows, then TWO separate rows of square windows with small cornices under the main cornice (2 rows, not 1)"
+  },
+  {
+   "name": "ilica_s_arch",
+   "photo": ".art/streetview/rect/ilica_s_arch.png",
+   "edges": [
+    "w579294808_e6",
+    "w579294808_e7"
+   ],
+   "bays": 6,
+   "storeys": 5,
+   "place": "Ilica",
+   "source": "Street View Jul 2024, close-up frames from the pavement across Ilica (montage)",
+   "look": "a five-storey ochre-cream historicist building on the south side of Ilica, seen in several oblique photos (combine into ONE straight-on elevation, about 20 m wide): a rusticated stone ground floor with a big round-arched carriage passage on the left decorated with a row of small lamps, on the right a shop with a dark glass front and an advertising poster, stone pilasters with carved figures between them; on the first floor a curved oriel-like balcony bay with a wrought-iron railing above the arch, and above it rows of paired rectangular windows with small pediments and balconies, a strong cornice. Draw no people, no street lamps, no cables. NO brand names or readable lettering anywhere. The right-hand shop is a dark glass front with one large dark poster and NO sign text or logos. Do not include the neighbouring house's iron gate or a house-number plate at the far left; the carriage arch stands in the left third and the shop at the right"
+  },
+  {
+   "name": "inv_w105484833_e1e2",
+   "photo": ".art/streetview/inv/interwar_nw_corner.png",
+   "edges": [
+    "w105484833_e1",
+    "w105484833_e2"
+   ],
+   "bays": 5,
+   "storeys": 8,
+   "place": "Trg bana Jelačića / Ilica",
+   "source": "invented from the building's known main facade (interwar_nw_corner); no Street View of this side",
+   "look": "INVENTED SIDE. The photo shows the main street front of the same building (a redraw). This picture must be a DIFFERENT side of that building, about 17 m wide: keep the same period, style, colours, render or stone, window shapes, storey heights (8 storeys), cornice and ground-floor base, but arrange it as a plainer secondary street side with regular window axes (5 bays), a simple ground floor with a door or a small dark shop window, and NO signs, NO lettering and none of the front's shop signage. Do not copy the main facade's composition, portico, tower or corner features"
+  },
+  {
+   "name": "inv_w105484833_e3",
+   "photo": ".art/streetview/inv/interwar_nw_corner.png",
+   "edges": [
+    "w105484833_e3"
+   ],
+   "bays": 2,
+   "storeys": 8,
+   "place": "Ilica",
+   "source": "invented from the building's known main facade (interwar_nw_corner); no Street View of this side",
+   "look": "INVENTED SIDE. The photo shows the main street front of the same building (a redraw). This picture must be a DIFFERENT side of that building, about 8 m wide: keep the same period, style, colours, render or stone, window shapes, storey heights (8 storeys), cornice and ground-floor base, but arrange it as a plainer secondary street side with regular window axes (2 bays), a simple ground floor with a door or a small dark shop window, and NO signs, NO lettering and none of the front's shop signage. Do not copy the main facade's composition, portico, tower or corner features"
+  },
+  {
+   "name": "inv_w105484833_e5",
+   "photo": ".art/streetview/inv/interwar_nw_corner.png",
+   "edges": [
+    "w105484833_e5"
+   ],
+   "bays": 6,
+   "storeys": 8,
+   "place": "Ilica",
+   "source": "invented from the building's known main facade (interwar_nw_corner); no Street View of this side",
+   "look": "INVENTED SIDE. The photo shows the main street front of the same building (a redraw). This picture must be a DIFFERENT side of that building, about 19 m wide: keep the same period, style, colours, render or stone, window shapes, storey heights (8 storeys), cornice and ground-floor base, but arrange it as a plainer secondary street side with regular window axes (6 bays), a simple ground floor with a door or a small dark shop window, and NO signs, NO lettering and none of the front's shop signage. Do not copy the main facade's composition, portico, tower or corner features"
+  },
+  {
+   "name": "inv_w105484833_e8",
+   "photo": ".art/streetview/inv/interwar_nw_corner.png",
+   "edges": [
+    "w105484833_e8"
+   ],
+   "bays": 8,
+   "storeys": 8,
+   "place": "Trg bana Jelačića",
+   "source": "invented from the building's known main facade (interwar_nw_corner); no Street View of this side",
+   "look": "INVENTED SIDE. The photo shows the main street front of the same building (a redraw). This picture must be a DIFFERENT side of that building, about 28 m wide: keep the same period, style, colours, render or stone, window shapes, storey heights (8 storeys), cornice and ground-floor base, but arrange it as a plainer secondary street side with regular window axes (8 bays), a simple ground floor with a door or a small dark shop window, and NO signs, NO lettering and none of the front's shop signage. Do not copy the main facade's composition, portico, tower or corner features"
+  },
+  {
+   "name": "inv_w375381225_e11",
+   "photo": ".art/streetview/inv/allianz_white_corner.png",
+   "edges": [
+    "w375381225_e11"
+   ],
+   "bays": 6,
+   "storeys": 5,
+   "place": "Ilica",
+   "source": "invented from the building's known main facade (allianz_white_corner); no Street View of this side",
+   "look": "INVENTED SIDE. The photo shows the main street front of the same building (a redraw). This picture must be a DIFFERENT side of that building, about 22 m wide: keep the same period, style, colours, render or stone, window shapes, storey heights (5 storeys), cornice and ground-floor base, but arrange it as a plainer secondary street side with regular window axes (6 bays), a simple ground floor with a door or a small dark shop window, and NO signs, NO lettering and none of the front's shop signage. Do not copy the main facade's composition, portico, tower or corner features"
+  },
+  {
+   "name": "inv_w375381225_e6",
+   "photo": ".art/streetview/inv/allianz_white_corner.png",
+   "edges": [
+    "w375381225_e6"
+   ],
+   "bays": 2,
+   "storeys": 5,
+   "place": "Ilica",
+   "source": "invented from the building's known main facade (allianz_white_corner); no Street View of this side",
+   "look": "INVENTED SIDE. The photo shows the main street front of the same building (a redraw). This picture must be a DIFFERENT side of that building, about 7 m wide: keep the same period, style, colours, render or stone, window shapes, storey heights (5 storeys), cornice and ground-floor base, but arrange it as a plainer secondary street side with regular window axes (2 bays), a simple ground floor with a door or a small dark shop window, and NO signs, NO lettering and none of the front's shop signage. Do not copy the main facade's composition, portico, tower or corner features"
+  },
+  {
+   "name": "inv_w365493822_e1e2",
+   "photo": ".art/streetview/inv/kuca_stankovic.png",
+   "edges": [
+    "w365493822_e1",
+    "w365493822_e2"
+   ],
+   "bays": 6,
+   "storeys": 4,
+   "place": "Ilica",
+   "source": "invented from the building's known main facade (kuca_stankovic); no Street View of this side",
+   "look": "INVENTED SIDE. The photo shows the main street front of the same building (a redraw). This picture must be a DIFFERENT side of that building, about 20 m wide: keep the same period, style, colours, render or stone, window shapes, storey heights (4 storeys), cornice and ground-floor base, but arrange it as a plainer secondary street side with regular window axes (6 bays), a simple ground floor with a door or a small dark shop window, and NO signs, NO lettering and none of the front's shop signage. Do not copy the main facade's composition, portico, tower or corner features"
+  },
+  {
+   "name": "inv_w105489672_e4",
+   "photo": ".art/streetview/inv/grey_neoclassical.png",
+   "edges": [
+    "w105489672_e4"
+   ],
+   "bays": 2,
+   "storeys": 3,
+   "place": "Praška ulica",
+   "source": "invented from the building's known main facade (grey_neoclassical); no Street View of this side",
+   "look": "INVENTED SIDE. The photo shows the main street front of the same building (a redraw). This picture must be a DIFFERENT side of that building, about 7 m wide: keep the same period, style, colours, render or stone, window shapes, storey heights (3 storeys), cornice and ground-floor base, but arrange it as a plainer secondary street side with regular window axes (2 bays), a simple ground floor with a door or a small dark shop window, and NO signs, NO lettering and none of the front's shop signage. Do not copy the main facade's composition, portico, tower or corner features"
+  },
+  {
+   "name": "inv_w105490828_e0",
+   "photo": ".art/streetview/inv/harmica_yellow.png",
+   "edges": [
+    "w105490828_e0"
+   ],
+   "bays": 8,
+   "storeys": 4,
+   "place": "Bakačeva",
+   "source": "invented from the building's known main facade (harmica_yellow); no Street View of this side",
+   "look": "INVENTED SIDE. The photo shows the main street front of the same building (a redraw). This picture must be a DIFFERENT side of that building, about 27 m wide: keep the same period, style, colours, render or stone, window shapes, storey heights (4 storeys), cornice and ground-floor base, but arrange it as a plainer secondary street side with regular window axes (8 bays), a simple ground floor with a door or a small dark shop window, and NO signs, NO lettering and none of the front's shop signage. Do not copy the main facade's composition, portico, tower or corner features"
+  },
+  {
+   "name": "inv_w105485745_e2",
+   "photo": ".art/streetview/inv/kuca_rado.png",
+   "edges": [
+    "w105485745_e2"
+   ],
+   "bays": 5,
+   "storeys": 6,
+   "place": "Bakačeva",
+   "source": "invented from the building's known main facade (kuca_rado); no Street View of this side",
+   "look": "INVENTED SIDE. The photo shows the main street front of the same building (a redraw). This picture must be a DIFFERENT side of that building, about 17 m wide: keep the same period, style, colours, render or stone, window shapes, storey heights (6 storeys), cornice and ground-floor base, but arrange it as a plainer secondary street side with regular window axes (5 bays), a simple ground floor with a door or a small dark shop window, and NO signs, NO lettering and none of the front's shop signage. Do not copy the main facade's composition, portico, tower or corner features"
+  },
+  {
+   "name": "inv_w288838575_e0",
+   "photo": ".art/streetview/inv/kuca_popovic.png",
+   "edges": [
+    "w288838575_e0"
+   ],
+   "bays": 5,
+   "storeys": 6,
+   "place": "Bakačeva",
+   "source": "invented from the building's known main facade (kuca_popovic); no Street View of this side",
+   "look": "INVENTED SIDE. The photo shows the main street front of the same building (a redraw). This picture must be a DIFFERENT side of that building, about 16 m wide: keep the same period, style, colours, render or stone, window shapes, storey heights (6 storeys), cornice and ground-floor base, but arrange it as a plainer secondary street side with regular window axes (5 bays), a simple ground floor with a door or a small dark shop window, and NO signs, NO lettering and none of the front's shop signage. Do not copy the main facade's composition, portico, tower or corner features"
+  },
+  {
+   "name": "inv_w288838575_e7",
+   "photo": ".art/streetview/inv/kuca_popovic.png",
+   "edges": [
+    "w288838575_e7"
+   ],
+   "bays": 5,
+   "storeys": 6,
+   "place": "Ilica",
+   "source": "invented from the building's known main facade (kuca_popovic); no Street View of this side",
+   "look": "INVENTED SIDE. The photo shows the main street front of the same building (a redraw). This picture must be a DIFFERENT side of that building, about 19 m wide: keep the same period, style, colours, render or stone, window shapes, storey heights (6 storeys), cornice and ground-floor base, but arrange it as a plainer secondary street side with regular window axes (5 bays), a simple ground floor with a door or a small dark shop window, and NO signs, NO lettering and none of the front's shop signage. Do not copy the main facade's composition, portico, tower or corner features"
+  },
+  {
+   "name": "inv_w105486205_e3",
+   "photo": ".art/streetview/inv/cream_corner_tower.png",
+   "edges": [
+    "w105486205_e3"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Bakačeva",
+   "source": "invented from the building's known main facade (cream_corner_tower); no Street View of this side",
+   "look": "INVENTED SIDE. The photo shows the main street front of the same building (a redraw). This picture must be a DIFFERENT side of that building, about 5 m wide: keep the same period, style, colours, render or stone, window shapes, storey heights (4 storeys), cornice and ground-floor base, but arrange it as a plainer secondary street side with regular window axes (2 bays), a simple ground floor with a door or a small dark shop window, and NO signs, NO lettering and none of the front's shop signage. Do not copy the main facade's composition, portico, tower or corner features"
+  },
+  {
+   "name": "inv_w584464569_e2",
+   "photo": ".art/streetview/inv/octagon_windows.png",
+   "edges": [
+    "w584464569_e2"
+   ],
+   "bays": 10,
+   "storeys": 7,
+   "place": "Ilica",
+   "source": "invented from the building's known main facade (octagon_windows); no Street View of this side",
+   "look": "INVENTED SIDE. The photo shows the main street front of the same building (a redraw). This picture must be a DIFFERENT side of that building, about 36 m wide: keep the same period, style, colours, render or stone, window shapes, storey heights (7 storeys), cornice and ground-floor base, but arrange it as a plainer secondary street side with regular window axes (10 bays), a simple ground floor with a door or a small dark shop window, and NO signs, NO lettering and none of the front's shop signage. Do not copy the main facade's composition, portico, tower or corner features"
+  },
+  {
+   "name": "inv_w105487407_e4",
+   "photo": ".art/streetview/inv/gradska_stedionica.png",
+   "edges": [
+    "w105487407_e4"
+   ],
+   "bays": 12,
+   "storeys": 6,
+   "place": "Jurišićeva ulica",
+   "source": "invented from the building's known main facade (gradska_stedionica); no Street View of this side",
+   "look": "INVENTED SIDE. The photo shows the main street front of the same building (a redraw). This picture must be a DIFFERENT side of that building, about 40 m wide: keep the same period, style, colours, render or stone, window shapes, storey heights (6 storeys), cornice and ground-floor base, but arrange it as a plainer secondary street side with regular window axes (12 bays), a simple ground floor with a door or a small dark shop window, and NO signs, NO lettering and none of the front's shop signage. Do not copy the main facade's composition, portico, tower or corner features"
+  },
+  {
+   "name": "bak_gallery",
+   "photo": ".art/streetview/rect/bak_gallery.png",
+   "edges": [
+    "w105486198_e3"
+   ],
+   "bays": 7,
+   "storeys": 5,
+   "place": "Bakačeva ulica",
+   "source": "Street View Apr 2026 photosphere on Bakačeva (montage of oblique frames)",
+   "look": "the west side of Bakačeva ulica: a five-storey pale cream-grey (light green-grey) apartment building with regular window rows of tall rectangular windows with roller shutters, flat plaster bands, a simple cornice, and a ground floor of souvenir shops along its whole length: at the left a dark red fascia with cursive white lettering 'THE GALLERY OF CROATIAN NAIVE ART' above a red awning that says 'GALERIJA BRANIMIR' and 'Croatian Naive Art' in cursive, a gallery window full of framed paintings; then a red fascia 'SOUVENIRS' with a small red heart logo and Coca-Cola logos, then darker shop fronts. Combine the oblique photos into ONE straight-on elevation, about 21 m wide. Draw no people, cars or lamp posts. FIVE storeys: ground floor plus FOUR full rows of windows. Only the first two shops carry lettering; the rest of the ground floor is plain dark shop fronts with NO fascia text (no 'Zaks', no 'Manufaktura'). No satellite dishes, no air conditioners, no cables"
+  },
+  {
+   "name": "bak_folnegovic",
+   "photo": ".art/streetview/rect/bak_folnegovic.png",
+   "edges": [
+    "w289863169_e0"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Bakačeva ulica",
+   "source": "Street View Apr 2026 photosphere on Bakačeva (montage of oblique frames)",
+   "look": "Kuća Folnegović, the old cream-yellow corner house at the end of Bakačeva: worn plaster with cracks, four storeys (souvenir shop ground floor and three upper floors) of tall windows with white-framed sashes and old stone-framed window heads with small carved pediments over the middle windows; a dark green-black shop front at the left with painted red gingerbread-heart panels and a big red awning with white lettering 'SUVENIRI ZAGREB - ŠIROK' and Coca-Cola logos, white notice sheets 'PRESELILI PREKO PUTA (LOKAL DESNO) SUVENIRI VITO ŠIROK', and at the right a large round-arched wooden double door with graffiti; a small street-name plate 'BAKAČEVA ULICA' on the corner. About 10.5 m wide. Draw no people. FOUR storeys: ground floor plus THREE rows of three windows (top row plain, middle row with a shell pediment over each, lower row with white sash windows). The image must show three upper window rows, not two"
+  },
+  {
+   "name": "bak_flags",
+   "photo": ".art/streetview/rect/bak_flags.png",
+   "edges": [
+    "w105486204_e2",
+    "w105486204_e3"
+   ],
+   "bays": 6,
+   "storeys": 5,
+   "place": "Bakačeva ulica",
+   "source": "Street View Apr 2026 photosphere on Bakačeva (montage of oblique frames)",
+   "look": "an early-20th-century office or bank palace in cream stucco with tall rectangular windows with stone surrounds and carved panels between the floors, arched windows on the upper floor, a round bay window (oriel) on the corner with a curved balcony band, a Croatian flag and an EU flag hanging from poles on the first floor, a modern glazed shop front with a small blue sign at the ground floor; five storeys, a heavy cornice. Combine the oblique photos into ONE straight-on elevation of the street side about 19 m wide. Draw no people, no vans. NO bank name or logo at all. The ground floor has a plain glazed shop front with a tiny blue sign with NO readable text, and no ATM. Draw FIVE storeys. Exactly ONE Croatian flag and ONE EU flag hanging together on poles from the first floor next to the oriel, no other flags"
+  },
+  {
+   "name": "ilica_neboder",
+   "photo": ".art/streetview/rect/neboder.png",
+   "edges": [
+    "w97165331_e0",
+    "w97165331_e1"
+   ],
+   "bays": 4,
+   "storeys": 8,
+   "place": "Ilica",
+   "source": "Street View Jul 2024, oblique frames from the pavement (montage); podium only (8 levels), the tower is its own part w9000000001",
+   "look": "the Neboder (skyscraper) at Ilica 1, seen in two oblique photos from below: a tall narrow modernist glass tower (about 16 storeys above a three-storey base): a curtain wall of dark blue-grey reflecting glass with a regular grid of window panes and thin horizontal spandrel bands, the tower stepping out slightly over the base; the two-storey glazed base under it with horizontal bands of windows; a low ground floor with an Erste Bank entrance covered by a large advertising picture of a person in red boxing gloves (leave the advertisement out and draw the shop entrance/ATM area glass instead), a 'MOCCA PIZZA' shop with a red fascia and white lettering 'MOCCA PIZZA', and dark glazed shop fronts. Draw the whole tower straight-on, top to bottom, about 13.5 m wide and very tall. Draw no people, no cables. Do not add any shop names other than MOCCA PIZZA (red fascia, white letters); NO 'BAŠIĆ' sign. Keep the dark glass tower in the LEFT half only; the right half is a lower beige-grey rendered block of about 7 storeys with white ribbon windows. The tower and block sit on a dark two-storey glazed base; ground floor is dark glazed shops around a central stone-piered entrance with a cross"
+  },
+  {
+   "name": "ilica_brown",
+   "photo": ".art/streetview/rect/ilica_brown.png",
+   "edges": [
+    "w97089771_e0",
+    "w97089771_e1"
+   ],
+   "bays": 9,
+   "storeys": 5,
+   "place": "Ilica",
+   "source": "Street View Jul 2024, oblique frames from the pavement (montage)",
+   "look": "a row of plain brown-grey rendered five-storey houses on the north side of Ilica west of the Nama store, seen at a sharp angle in two photos (combine into ONE straight-on elevation, about 32 m wide): dark brownish-grey render, regular rows of tall rectangular windows with narrow plain surrounds and shutters, a small projecting balcony with a metal railing at the left end, small round windows under the cornice in the upper floor, a simple cornice, and a ground floor of dark modern shop fronts with black fascias (a dark shop with white lettering, a clothing store with large photographs in its windows). Draw no people, no tram, no cables"
+  },
+  {
+   "name": "varteks_east",
+   "frame": "f34",
+   "crop": [
+    660,
+    140,
+    1200,
+    520
+   ],
+   "edges": [
+    "w105486195_e6"
+   ],
+   "bays": 8,
+   "storeys": 4,
+   "place": "Trg bana Jelačića (east side street)",
+   "source": "Street View Dec 2016 photosphere at night (Christmas market)",
+   "look": "the east side of the Müller / Varteks palace, photographed at night during the Advent market: brick-red render with cream stucco window surrounds, pediments on the second-floor windows, rusticated cream ground floor with tall round-arched shop windows and an orange 'Müller' sign with the M logo on the ground floor, an old-fashioned attic pavilion with a mansard roof at the far left corner. The photo is dark and covered with Christmas lights and market stalls: draw the building in plain DAYLIGHT, with NO Christmas lights, no garlands, no stalls, no people. The photo is taken at a strong angle; make it a straight-on elevation about 26 m wide, continuing the same window rhythm"
+  },
+  {
+   "name": "pet_sol",
+   "photo": ".art/streetview/rect/pet_sol.png",
+   "edges": [
+    "w105489688_e3"
+   ],
+   "bays": 8,
+   "storeys": 5,
+   "place": "Petrinjska ulica",
+   "source": "Street View Jul 2025, oblique frames from the pavement on Petrinjska",
+   "look": "a five-storey 19th-century historicist house on Petrinjska in pale cream stucco with a richly rusticated (diamond-textured) band on the lower floors, rectangular windows with small hooded cornices and small bay windows (oriels) on the upper floors, string courses, a strong cornice; ground floor is a row of restaurant fronts with dark frames: at the left a large white fascia with the red-and-grey logo 'SŌL' (a red square with dots in the O) and small text 'HRVATSKI TAPAS / CROATIAN TAPAS', in the middle a cream fascia with 'TORI KAYA' 'RAMEN BAR' in dark grey capitals and Japanese characters, with a blue awning saying 'TORI KAYA RAMEN BAR' and on its right end '1828 Jamnica' in white script, to the right a black fascia with white 'iNovine' letters and a black shopfront, then dark shop fronts with a red logo. Combine the oblique photos into ONE straight-on elevation, about 27 m wide. Draw no people, no chairs"
+  },
+  {
+   "name": "pet_hpb",
+   "photo": ".art/streetview/rect/pet_hpb.png",
+   "edges": [
+    "w105488043_e0"
+   ],
+   "bays": 9,
+   "storeys": 4,
+   "place": "Petrinjska ulica",
+   "source": "Street View Jul 2025, oblique frames from the pavement on Petrinjska",
+   "look": "the Petrinjska side of the Hrvatska poštanska banka palace: pale grey-white upper floors with rows of tall windows, the second floor with round-arched windows with dark roller shutters, a curved corner tower with a bay window and round balcony band at the left, ionic-like pilaster strips between the windows, a mezzanine of white-framed windows in pinkish-brown polished stone panels with black pilasters, a dark grey fascia with a red-and-white logo and the white text 'HPB' and more lettering, and below it a ground floor of glass shop fronts with red posters. The restaurant terrace umbrellas, plants, tables and people in front are not part of the building: leave them out. About 36 m wide"
+  },
+  {
+   "name": "inv_w286612861_e0",
+   "photo": ".art/streetview/inv/jur_stern.png",
+   "edges": [
+    "w286612861_e0"
+   ],
+   "bays": 6,
+   "storeys": 4,
+   "place": "Jurišićeva ulica",
+   "source": "invented from the known neighbouring facade (jur_stern); no Street View of this side",
+   "look": "INVENTED FACADE for a building whose street side could not be photographed (Kuća Spitzer). The photo shows a facade of a NEIGHBOURING building on the same street: use it only as a guide to the local style, materials and colour palette. Draw a DIFFERENT, plausible facade about 22 m wide: 4 storeys, 6 regular window bays, same period (late 19th / early 20th century historicist Zagreb), a base with a door and one or two dark shop windows, a cornice, a warm light plaster colour that differs from the photo, and NO signs, NO lettering, no advertisements"
+  },
+  {
+   "name": "inv_w105489675_e6",
+   "photo": ".art/streetview/inv/jur_stern.png",
+   "edges": [
+    "w105489675_e6"
+   ],
+   "bays": 6,
+   "storeys": 4,
+   "place": "Jurišićeva ulica",
+   "source": "invented from the known neighbouring facade (jur_stern); no Street View of this side",
+   "look": "INVENTED FACADE for a building whose street side could not be photographed (Kuća Berić). The photo shows a facade of a NEIGHBOURING building on the same street: use it only as a guide to the local style, materials and colour palette. Draw a DIFFERENT, plausible facade about 20 m wide: 4 storeys, 6 regular window bays, same period (late 19th / early 20th century historicist Zagreb), a base with a door and one or two dark shop windows, a cornice, a warm light plaster colour that differs from the photo, and NO signs, NO lettering, no advertisements"
+  },
+  {
+   "name": "inv_w105489675_e5",
+   "photo": ".art/streetview/inv/jur_stern.png",
+   "edges": [
+    "w105489675_e5"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Petrinjska ulica",
+   "source": "invented from the known neighbouring facade (jur_stern); no Street View of this side",
+   "look": "INVENTED FACADE for a building whose street side could not be photographed (Kuća Berić). The photo shows a facade of a NEIGHBOURING building on the same street: use it only as a guide to the local style, materials and colour palette. Draw a DIFFERENT, plausible facade about 8 m wide: 4 storeys, 2 regular window bays, same period (late 19th / early 20th century historicist Zagreb), a base with a door and one or two dark shop windows, a cornice, a warm light plaster colour that differs from the photo, and NO signs, NO lettering, no advertisements"
+  },
+  {
+   "name": "inv_w105489688_e4",
+   "photo": ".art/streetview/inv/pet_sol.png",
+   "edges": [
+    "w105489688_e4"
+   ],
+   "bays": 4,
+   "storeys": 4,
+   "place": "Petrinjska ulica",
+   "source": "invented from the known neighbouring facade (pet_sol); no Street View of this side",
+   "look": "INVENTED FACADE for a building whose street side could not be photographed. The photo shows a facade of a NEIGHBOURING building on the same street: use it only as a guide to the local style, materials and colour palette. Draw a DIFFERENT, plausible facade about 13 m wide: 4 storeys, 4 regular window bays, same period (late 19th / early 20th century historicist Zagreb), a base with a door and one or two dark shop windows, a cornice, a warm light plaster colour that differs from the photo, and NO signs, NO lettering, no advertisements"
+  },
+  {
+   "name": "inv_w105486198_e8",
+   "photo": ".art/streetview/inv/bak_gallery.png",
+   "edges": [
+    "w105486198_e8"
+   ],
+   "bays": 5,
+   "storeys": 5,
+   "place": "Bakačeva ulica",
+   "source": "invented from the known neighbouring facade (bak_gallery); no Street View of this side",
+   "look": "INVENTED FACADE for a building whose street side could not be photographed. The photo shows a facade of a NEIGHBOURING building on the same street: use it only as a guide to the local style, materials and colour palette. Draw a DIFFERENT, plausible facade about 18 m wide: 5 storeys, 5 regular window bays, same period (late 19th / early 20th century historicist Zagreb), a base with a door and one or two dark shop windows, a cornice, a warm light plaster colour that differs from the photo, and NO signs, NO lettering, no advertisements"
+  },
+  {
+   "name": "inv_w105486198_e5e4",
+   "photo": ".art/streetview/inv/bak_gallery.png",
+   "edges": [
+    "w105486198_e5",
+    "w105486198_e4"
+   ],
+   "bays": 3,
+   "storeys": 5,
+   "place": "Bakačeva ulica",
+   "source": "invented from the known neighbouring facade (bak_gallery); no Street View of this side",
+   "look": "INVENTED FACADE for a building whose street side could not be photographed. The photo shows a facade of a NEIGHBOURING building on the same street: use it only as a guide to the local style, materials and colour palette. Draw a DIFFERENT, plausible facade about 10 m wide: 5 storeys, 3 regular window bays, same period (late 19th / early 20th century historicist Zagreb), a base with a door and one or two dark shop windows, a cornice, a warm light plaster colour that differs from the photo, and NO signs, NO lettering, no advertisements"
+  },
+  {
+   "name": "inv_w295422413_e4",
+   "photo": ".art/streetview/inv/bak_flags.png",
+   "edges": [
+    "w295422413_e4"
+   ],
+   "bays": 4,
+   "storeys": 4,
+   "place": "Bakačeva ulica",
+   "source": "invented from the known neighbouring facade (bak_flags); no Street View of this side",
+   "look": "INVENTED FACADE for a building whose street side could not be photographed. The photo shows a facade of a NEIGHBOURING building on the same street: use it only as a guide to the local style, materials and colour palette. Draw a DIFFERENT, plausible facade about 13 m wide: 4 storeys, 4 regular window bays, same period (late 19th / early 20th century historicist Zagreb), a base with a door and one or two dark shop windows, a cornice, a warm light plaster colour that differs from the photo, and NO signs, NO lettering, no advertisements"
+  },
+  {
+   "name": "inv_w295422413_e1e0",
+   "photo": ".art/streetview/inv/bak_flags.png",
+   "edges": [
+    "w295422413_e1",
+    "w295422413_e0"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Dolac",
+   "source": "invented from the known neighbouring facade (bak_flags); no Street View of this side",
+   "look": "INVENTED FACADE for a building whose street side could not be photographed. The photo shows a facade of a NEIGHBOURING building on the same street: use it only as a guide to the local style, materials and colour palette. Draw a DIFFERENT, plausible facade about 16 m wide: 4 storeys, 5 regular window bays, same period (late 19th / early 20th century historicist Zagreb), a base with a door and one or two dark shop windows, a cornice, a warm light plaster colour that differs from the photo, and NO signs, NO lettering, no advertisements"
+  },
+  {
+   "name": "ilw_prahir",
+   "photo": ".art/streetview/rect/ilw_prahir.png",
+   "edges": [
+    "w97089764_e0"
+   ],
+   "bays": 7,
+   "storeys": 4,
+   "place": "Ilica",
+   "source": "Street View Jul 2024, oblique frames from the Ilica pavement (montage)",
+   "look": "Ilica 12 and neighbour, north side of Ilica, about 23.5 m wide, seen in two oblique photos from below (combine into ONE straight-on elevation). Left part: an ochre-yellow neo-Renaissance ground floor with heavy rusticated stone courses, a big round-arched shop window with a red 'högl' sign (white lowercase letters with a macron on the o, on red) and an arched carriage passage with a red-and-white oval sign 'FOTO COPY' and a red vertical sign 'FOTO STUDIO', a small number plate '12'. Right part: a dark brown neo-Renaissance stone upper facade with a large projecting stone balcony with a balustrade on carved brackets above the passage, round-arched windows with balustrades, pilaster strips and a heavy cornice; a white marble ground-floor shop front with the fascia text 'PRAHIR' in large gold serif capitals and 'FINE JEWELLERY' in small capitals, and glass showcase windows with jewellery displays. Draw no people, no cables, no flags"
+  },
+  {
+   "name": "ilw_ne",
+   "photo": ".art/streetview/rect/ilw_ne.png",
+   "edges": [
+    "w97089768_e0",
+    "w97089768_e1"
+   ],
+   "bays": 10,
+   "storeys": 4,
+   "place": "Ilica",
+   "source": "Street View Jul 2024, oblique frames from the Ilica pavement (montage)",
+   "look": "the buildings just east (to the right) of the Prahir jewellery shop on the north side of Ilica, about 33 m wide, seen at a strong angle at the right of the two photos (combine into ONE straight-on elevation): four-storey brown-pink historicist houses with rows of tall rectangular windows with pedimented cornices, string courses, a strong cornice; a ground floor of modern glass shop fronts (a grey fascia with the blue text 'MODE...' and shoe displays). Where the photos do not show enough, continue the same rhythm. Draw no people, no cables"
+  },
+  {
+   "name": "ilw_south",
+   "photo": ".art/streetview/rect/ilw_south.png",
+   "edges": [
+    "r1397601_e2"
+   ],
+   "bays": 13,
+   "storeys": 4,
+   "place": "Ilica",
+   "source": "Street View Jul 2024, oblique frames from the Ilica pavement (montage)",
+   "look": "a long four-storey cream-yellow historicist building on the south side of Ilica, about 39 m wide, seen from across the street in two oblique photos (combine into ONE straight-on elevation): warm cream stucco with ochre window surrounds and small cornices over the windows of the first floor, rectangular windows in three upper rows, rusticated lower storey, a heavy cornice; on the ground floor a row of shop fronts with dark fascias: 'Jo MALONE LONDON' in white letters on a black fascia, an arched dark gateway with green graffiti, 'PANDORA' on a cream fascia, a long black fascia with 'Optotim' and an eye logo in white over a glass optician's front, with a tall white eye-chart poster reading 'BESPLATNO PROVJERITE SVOJU DIOPTRIJU'; in reality a dark canopy with steel posts stands in front of it: draw the building WITHOUT the canopy, posts, tram, people or cables"
+  },
+  {
+   "name": "ilw_calliope",
+   "photo": ".art/streetview/rect/ilw_calliope.png",
+   "edges": [
+    "w338688381_e1"
+   ],
+   "bays": 5,
+   "storeys": 5,
+   "place": "Ilica",
+   "source": "Street View Jul 2024, frames from the Ilica pavement (montage)",
+   "look": "Ilica 11, south side, about 16 m wide, seen from across the street in two photos (combine into ONE straight-on elevation): a five-storey dark weathered brownish historicist house with two rounded three-window oriel bays with balconies and balustrades, a wrought-iron balcony in the middle, a heavy cornice; a dark two-storey shopfront of black steel-framed glazing above the shops; the ground floor: a grey fascia with the white spaced capitals 'CALLIOPE', a black narrow sign 'INVESTICIJSKO ZLATO' with 'EXCHANGE OFFICE OTKUP ZLATA' and a euro logo above a dark passage, a white fascia with green 'farmacia+ farmacia+' lettering over a pharmacy front with an orange frame, a red 'SALE -50%' sticker. Draw no people, no white van, no cables"
+  },
+  {
+   "name": "ilw_franchi",
+   "photo": ".art/streetview/rect/ilw_franchi.png",
+   "edges": [
+    "w338688382_e0"
+   ],
+   "bays": 5,
+   "storeys": 5,
+   "place": "Ilica",
+   "source": "Street View Jul 2024, frames from the Ilica pavement (montage)",
+   "look": "the cream-yellow neo-baroque house to the right of the pharmacy on the south side of Ilica, about 17 m wide, seen at an angle in the photos (combine into ONE straight-on elevation): five storeys of tall rectangular windows with small cornices, wrought-iron balconies on the first and second floors and a stone balustrade balcony, a cornice, dark reddish-brown window shutters; ground floor: a dark brown fascia with a gold logo and the text 'ELISABETTA FRANCHI', a black-framed glass shop front, then a plain shop with graffiti. Draw no people, no cables"
+  },
+  {
+   "name": "ilw_terranova",
+   "photo": ".art/streetview/rect/ilw_terranova.png",
+   "edges": [
+    "w338688380_e3"
+   ],
+   "bays": 5,
+   "storeys": 6,
+   "place": "Ilica",
+   "source": "Street View Jul 2024, frames from the Ilica pavement (montage)",
+   "look": "the Terranova building on the south side of Ilica, about 13 m wide, on the LEFT of the first photo: a six-storey plain modern grey-beige rendered block with regular rectangular windows in small dark frames (several with small blue 'terranova' banners), a flat roof edge; ground floor: two black fascias with the white text 'Terranova' and a big row of fashion advertising panels showing models, a glazed shop front. Draw no cars, people or cables"
+  },
+  {
+   "name": "inv_w97089772_e0",
+   "photo": ".art/streetview/rect/ilw_franchi.png",
+   "edges": [
+    "w97089772_e0"
+   ],
+   "bays": 2,
+   "storeys": 2,
+   "place": "Ilica",
+   "source": "invented from the neighbouring Ilica facades; no Street View of this wall",
+   "look": "INVENTED FACADE for an Ilica house whose front could not be photographed. The photo shows neighbouring Ilica houses: use it only as a guide to the local style, palette and materials. Draw a DIFFERENT plausible historicist Ilica house front about 6 m wide: 2 storeys, 2 regular window bays with small cornices, a cornice, warm plaster (cream, pale ochre or grey), and a plain ground floor with a dark shop window and a door; NO signs, NO lettering, no advertisements"
+  },
+  {
+   "name": "inv_w97089772_e1",
+   "photo": ".art/streetview/rect/ilw_franchi.png",
+   "edges": [
+    "w97089772_e1"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Ilica",
+   "source": "invented from the neighbouring Ilica facades; no Street View of this wall",
+   "look": "INVENTED FACADE for an Ilica house whose front could not be photographed. The photo shows neighbouring Ilica houses: use it only as a guide to the local style, palette and materials. Draw a DIFFERENT plausible historicist Ilica house front about 9 m wide: 2 storeys, 3 regular window bays with small cornices, a cornice, warm plaster (cream, pale ochre or grey), and a plain ground floor with a dark shop window and a door; NO signs, NO lettering, no advertisements"
+  },
+  {
+   "name": "inv_w585938445_e4",
+   "photo": ".art/streetview/rect/ilw_franchi.png",
+   "edges": [
+    "w585938445_e4"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Ilica",
+   "source": "invented from the neighbouring Ilica facades; no Street View of this wall",
+   "look": "INVENTED FACADE for an Ilica house whose front could not be photographed. The photo shows neighbouring Ilica houses: use it only as a guide to the local style, palette and materials. Draw a DIFFERENT plausible historicist Ilica house front about 11 m wide: 4 storeys, 3 regular window bays with small cornices, a cornice, warm plaster (cream, pale ochre or grey), and a plain ground floor with a dark shop window and a door; NO signs, NO lettering, no advertisements"
+  },
+  {
+   "name": "inv_w97089769_e1",
+   "photo": ".art/streetview/rect/ilw_franchi.png",
+   "edges": [
+    "w97089769_e1"
+   ],
+   "bays": 3,
+   "storeys": 3,
+   "place": "Ilica",
+   "source": "invented from the neighbouring Ilica facades; no Street View of this wall",
+   "look": "INVENTED FACADE for an Ilica house whose front could not be photographed. The photo shows neighbouring Ilica houses: use it only as a guide to the local style, palette and materials. Draw a DIFFERENT plausible historicist Ilica house front about 10 m wide: 3 storeys, 3 regular window bays with small cornices, a cornice, warm plaster (cream, pale ochre or grey), and a plain ground floor with a dark shop window and a door; NO signs, NO lettering, no advertisements"
+  },
+  {
+   "name": "inv_w338686824_e2",
+   "photo": ".art/streetview/rect/ilw_franchi.png",
+   "edges": [
+    "w338686824_e2"
+   ],
+   "bays": 2,
+   "storeys": 4,
+   "place": "Ilica",
+   "source": "invented from the neighbouring Ilica facades; no Street View of this wall",
+   "look": "INVENTED FACADE for an Ilica house whose front could not be photographed. The photo shows neighbouring Ilica houses: use it only as a guide to the local style, palette and materials. Draw a DIFFERENT plausible historicist Ilica house front about 8 m wide: 4 storeys, 2 regular window bays with small cornices, a cornice, warm plaster (cream, pale ochre or grey), and a plain ground floor with a dark shop window and a door; NO signs, NO lettering, no advertisements"
+  },
+  {
+   "name": "inv_w338688383_e1",
+   "photo": ".art/streetview/rect/ilw_franchi.png",
+   "edges": [
+    "w338688383_e1"
+   ],
+   "bays": 5,
+   "storeys": 5,
+   "place": "Ilica",
+   "source": "invented from the neighbouring Ilica facades; no Street View of this wall",
+   "look": "INVENTED FACADE for an Ilica house whose front could not be photographed. The photo shows neighbouring Ilica houses: use it only as a guide to the local style, palette and materials. Draw a DIFFERENT plausible historicist Ilica house front about 17 m wide: 5 storeys, 5 regular window bays with small cornices, a cornice, warm plaster (cream, pale ochre or grey), and a plain ground floor with a dark shop window and a door; NO signs, NO lettering, no advertisements"
+  },
+  {
+   "name": "inv_w338688383_e2",
+   "photo": ".art/streetview/rect/ilw_franchi.png",
+   "edges": [
+    "w338688383_e2"
+   ],
+   "bays": 4,
+   "storeys": 5,
+   "place": "Ilica",
+   "source": "invented from the neighbouring Ilica facades; no Street View of this wall",
+   "look": "INVENTED FACADE for an Ilica house whose front could not be photographed. The photo shows neighbouring Ilica houses: use it only as a guide to the local style, palette and materials. Draw a DIFFERENT plausible historicist Ilica house front about 14 m wide: 5 storeys, 4 regular window bays with small cornices, a cornice, warm plaster (cream, pale ochre or grey), and a plain ground floor with a dark shop window and a door; NO signs, NO lettering, no advertisements"
+  },
+  {
+   "name": "tower_s",
+   "photo": ".art/facades/tower_s/photo.png",
+   "edges": [
+    "w9000000001_e2"
+   ],
+   "bays": 8,
+   "storeys": 18,
+   "place": "Ilica",
+   "source": "drawn by tool/make_glass_tower.py after Street View Jul 2024 and Aug 2011",
+   "look": "dark blue-black glass curtain wall of the Neboder tower"
+  },
+  {
+   "name": "tower_e",
+   "photo": ".art/facades/tower_e/photo.png",
+   "edges": [
+    "w9000000001_e3",
+    "w9000000001_e4",
+    "w9000000001_e5"
+   ],
+   "bays": 8,
+   "storeys": 18,
+   "place": "Ilica",
+   "source": "drawn by tool/make_glass_tower.py after Street View Jul 2024 and Aug 2011",
+   "look": "dark blue-black glass curtain wall of the Neboder tower"
+  },
+  {
+   "name": "tower_n",
+   "photo": ".art/facades/tower_n/photo.png",
+   "edges": [
+    "w9000000001_e0"
+   ],
+   "bays": 8,
+   "storeys": 18,
+   "place": "Ilica",
+   "source": "drawn by tool/make_glass_tower.py after Street View Jul 2024 and Aug 2011",
+   "look": "dark blue-black glass curtain wall of the Neboder tower"
+  },
+  {
+   "name": "tower_w",
+   "photo": ".art/facades/tower_w/photo.png",
+   "edges": [
+    "w9000000001_e1"
+   ],
+   "bays": 8,
+   "storeys": 18,
+   "place": "Ilica",
+   "source": "drawn by tool/make_glass_tower.py after Street View Jul 2024 and Aug 2011",
+   "look": "dark blue-black glass curtain wall of the Neboder tower"
+  },
+  {
+   "name": "podium_w",
+   "photo": ".art/facades/podium_w/photo.png",
+   "edges": [
+    "w97165331_e3",
+    "w97165331_e4"
+   ],
+   "bays": 8,
+   "storeys": 8,
+   "place": "Ilica",
+   "source": "drawn by tool/make_glass_tower.py after Street View Jul 2024 (beige rendered block)",
+   "look": "beige rendered podium side of the Neboder with white-framed windows"
+  },
+  {
+   "name": "podium_s",
+   "photo": ".art/facades/podium_s/photo.png",
+   "edges": [
+    "w97165331_e5",
+    "w97165331_e6",
+    "w97165331_e7"
+   ],
+   "bays": 8,
+   "storeys": 8,
+   "place": "Ilica",
+   "source": "drawn by tool/make_glass_tower.py after Street View Jul 2024 (beige rendered block)",
+   "look": "beige rendered podium side of the Neboder with white-framed windows"
+  },
+  {
+   "name": "podium_e",
+   "photo": ".art/facades/podium_e/photo.png",
+   "edges": [
+    "w97165331_e8",
+    "w97165331_e9",
+    "w97165331_e10"
+   ],
+   "bays": 8,
+   "storeys": 8,
+   "place": "Ilica",
+   "source": "drawn by tool/make_glass_tower.py after Street View Jul 2024 (beige rendered block)",
+   "look": "beige rendered podium side of the Neboder with white-framed windows"
+  }
+ ]
+}

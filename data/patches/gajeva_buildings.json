@@ -1,0 +1,374 @@
+{
+ "w435118933": {
+  "name": "Gajeva 4 (Uriho / Crvenac block)",
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w435118933_e8",
+    "at": 0.5,
+    "width": 17.8,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "y": 11.45,
+    "texture": "gajeva_cornice_ochre.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2025 (B pano, dentilled cornice)"
+   },
+   {
+    "type": "box",
+    "wall": "w435118933_e9",
+    "at": 0.5,
+    "width": 23.0,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "y": 11.45,
+    "texture": "gajeva_cornice_ochre.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2025 (B pano, dentilled cornice)"
+   },
+   {
+    "type": "awning",
+    "wall": "w435118933_e9",
+    "from": 0.73,
+    "to": 0.965,
+    "y": 3.5,
+    "drop": 0.35,
+    "depth": 0.9,
+    "color": "#ffffff",
+    "texture": "gajeva_awning_navy.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2025 (B pano frame 270): dark navy awning right of the Crvenac shop; measured on raw.png"
+   },
+   {
+    "type": "sign",
+    "wall": "w435118933_e9",
+    "mount": "projecting",
+    "image": "gajeva_crvenac.png",
+    "at": 0.44,
+    "width": 0.9,
+    "y": 3.6,
+    "out": 0.55,
+    "source": "Street View Jul 2025 (B pano frame 270): black blade sign with diamond logo 'CRVENAC', redrawn flat by gen-image"
+   }
+  ]
+ },
+ "w97235509": {
+  "name": "Boban",
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w97235509_e1",
+    "from": 0.02,
+    "to": 0.99,
+    "y": 3.9,
+    "drop": 0.35,
+    "depth": 1.3,
+    "color": "#ffffff",
+    "texture": "gajeva_awning_beige.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2025 (B pano frame 90): beige retractable awning over the terrace; measured on raw.png"
+   },
+   {
+    "type": "terrace",
+    "wall": "w97235509_e1",
+    "from": 0.08,
+    "to": 0.95,
+    "depth": 3.5,
+    "color": "#e8e0c8",
+    "source": "Street View Jul 2025 (B pano frames 90/135/225): Boban cafe terrace with tables"
+   },
+   {
+    "type": "sign",
+    "wall": "w97235509_e1",
+    "mount": "projecting",
+    "image": "gajeva_boban.png",
+    "at": 0.01,
+    "width": 1.0,
+    "y": 4.2,
+    "out": 0.6,
+    "source": "Street View Jul 2025 (B pano frame 90): purple 'boban' blade sign, redrawn flat by gen-image"
+   }
+  ]
+ },
+ "w579294918": {
+  "name": "Gajeva 5-11 (Frizer / Dinara row)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w579294918_e15",
+    "at": 0.3,
+    "width": 1.5,
+    "height": 1.5,
+    "depth": 1.4,
+    "out": -1.2,
+    "y": 8.6,
+    "texture": "gajeva_tile_red.jpg",
+    "repeat": 0.9,
+    "source": "Street View Jul 2024 (C pano frames 225/270): row of tiled dormers over the eaves"
+   },
+   {
+    "type": "box",
+    "wall": "w579294918_e15",
+    "at": 0.42,
+    "width": 1.5,
+    "height": 1.5,
+    "depth": 1.4,
+    "out": -1.2,
+    "y": 8.6,
+    "texture": "gajeva_tile_red.jpg",
+    "repeat": 0.9,
+    "source": "Street View Jul 2024 (C pano frames 225/270): row of tiled dormers over the eaves"
+   },
+   {
+    "type": "box",
+    "wall": "w579294918_e15",
+    "at": 0.54,
+    "width": 1.5,
+    "height": 1.5,
+    "depth": 1.4,
+    "out": -1.2,
+    "y": 8.6,
+    "texture": "gajeva_tile_red.jpg",
+    "repeat": 0.9,
+    "source": "Street View Jul 2024 (C pano frames 225/270): row of tiled dormers over the eaves"
+   },
+   {
+    "type": "box",
+    "wall": "w579294918_e15",
+    "at": 0.66,
+    "width": 1.5,
+    "height": 1.5,
+    "depth": 1.4,
+    "out": -1.2,
+    "y": 8.6,
+    "texture": "gajeva_tile_red.jpg",
+    "repeat": 0.9,
+    "source": "Street View Jul 2024 (C pano frames 225/270): row of tiled dormers over the eaves"
+   },
+   {
+    "type": "box",
+    "wall": "w579294918_e15",
+    "at": 0.78,
+    "width": 1.5,
+    "height": 1.5,
+    "depth": 1.4,
+    "out": -1.2,
+    "y": 8.6,
+    "texture": "gajeva_tile_red.jpg",
+    "repeat": 0.9,
+    "source": "Street View Jul 2024 (C pano frames 225/270): row of tiled dormers over the eaves"
+   },
+   {
+    "type": "box",
+    "wall": "w579294918_e15",
+    "at": 0.9,
+    "width": 1.5,
+    "height": 1.5,
+    "depth": 1.4,
+    "out": -1.2,
+    "y": 8.6,
+    "texture": "gajeva_tile_red.jpg",
+    "repeat": 0.9,
+    "source": "Street View Jul 2024 (C pano frames 225/270): row of tiled dormers over the eaves"
+   }
+  ]
+ },
+ "w579294895": {
+  "name": "Obzor putovanja house",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w579294895_e2",
+    "at": 0.5,
+    "width": 19.3,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "y": 11.6,
+    "texture": "gajeva_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (C pano frame 90, main cornice)"
+   }
+  ]
+ },
+ "w249753107": {
+  "name": "Gajeva 17 palace",
+  "roof": "slate_grey",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w249753107_e3",
+    "at": 0.5,
+    "width": 10.5,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "y": 15.3,
+    "texture": "gajeva_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (E pano frame 90, main cornice)"
+   },
+   {
+    "type": "box",
+    "wall": "w249753107_e4",
+    "at": 0.5,
+    "width": 11.3,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "y": 15.3,
+    "texture": "gajeva_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (E pano frame 90, main cornice)"
+   }
+  ]
+ },
+ "w1537669597": {
+  "name": "Gajeva 15",
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w1537669597_e0",
+    "at": 0.5,
+    "width": 9.3,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "y": 15.3,
+    "texture": "gajeva_cornice_ochre.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (E pano frame 90, top cornice)"
+   },
+   {
+    "type": "box",
+    "wall": "w1537669597_e1",
+    "at": 0.5,
+    "width": 9.8,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "y": 15.3,
+    "texture": "gajeva_cornice_ochre.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (E pano frame 90, top cornice)"
+   }
+  ]
+ },
+ "w446076402": {
+  "name": "Gajeva 12",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w446076402_e7",
+    "at": 0.5,
+    "width": 11.3,
+    "height": 0.55,
+    "depth": 0.55,
+    "out": 0.28,
+    "y": 6.2,
+    "texture": "gajeva_balustrade.jpg",
+    "repeat": 1.0,
+    "source": "Street View Jul 2024 (D pano frame 270): stone balustrade band over the rusticated ground floor; measured on raw.png"
+   },
+   {
+    "type": "box",
+    "wall": "w446076402_e7",
+    "at": 0.5,
+    "width": 11.3,
+    "height": 0.6,
+    "depth": 0.7,
+    "out": 0.35,
+    "y": 15.15,
+    "texture": "gajeva_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (D pano frame 270, ornate cornice)",
+    "color": "#f6e6b8"
+   }
+  ]
+ },
+ "w579295108": {
+  "name": "Gajeva 14",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w579295108_e2",
+    "at": 0.87,
+    "width": 1.4,
+    "height": 0.4,
+    "depth": 0.55,
+    "out": 0.28,
+    "y": 5.0,
+    "texture": "gajeva_balustrade.jpg",
+    "repeat": 1.0,
+    "source": "Street View Jul 2024 (E pano frame 270): small balustrade balcony in the right bay"
+   },
+   {
+    "type": "box",
+    "wall": "w579295108_e2",
+    "at": 0.5,
+    "width": 14.2,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "y": 11.6,
+    "texture": "gajeva_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (E pano frame 270, main cornice)"
+   }
+  ]
+ },
+ "w579295105": {
+  "name": "Gajeva 16",
+  "roof": "zinc_dark",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w579295105_e2",
+    "at": 0.73,
+    "width": 1.5,
+    "height": 0.45,
+    "depth": 0.5,
+    "out": 0.25,
+    "y": 5.35,
+    "texture": "gajeva_balustrade.jpg",
+    "repeat": 1.0,
+    "source": "Street View Jul 2024 (E pano frame 270): first-floor balustrade balcony"
+   },
+   {
+    "type": "box",
+    "wall": "w579295105_e2",
+    "at": 0.89,
+    "width": 1.5,
+    "height": 0.45,
+    "depth": 0.5,
+    "out": 0.25,
+    "y": 5.35,
+    "texture": "gajeva_balustrade.jpg",
+    "repeat": 1.0,
+    "source": "Street View Jul 2024 (E pano frame 270): first-floor balustrade balcony"
+   },
+   {
+    "type": "box",
+    "wall": "w579295105_e2",
+    "at": 0.5,
+    "width": 22.1,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "y": 11.6,
+    "texture": "gajeva_cornice_ochre.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (E pano frame 270, top cornice)"
+   }
+  ]
+ }
+}

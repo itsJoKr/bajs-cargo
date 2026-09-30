@@ -1,0 +1,94 @@
+{
+ "w290024699": {
+  "name": "Kaptolska klet (Kaptol 5)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "terrace",
+    "wall": "w290024699_e10",
+    "from": 0.28,
+    "to": 0.95,
+    "depth": 3.0,
+    "color": "#ffffff",
+    "source": "Street View Jul 2024 (pano 2 Kaptol, frame 0): white parasols and planters along the restaurant front"
+   },
+   {
+    "type": "box",
+    "wall": "w290024699_e10",
+    "at": 0.5,
+    "width": 25.3,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "kaptol_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (pano 2 Kaptol): plain white eaves cornice"
+   }
+  ]
+ },
+ "w289908912": {
+  "name": "Kurija Tome Kovačevića",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w289908912_e4",
+    "at": 0.08,
+    "width": 3.0,
+    "height": 0.25,
+    "depth": 1.0,
+    "out": 0.5,
+    "y": 4.6,
+    "texture": "kaptol_balcony_stone.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (pano 27 Kaptol): stone balcony slab with balustrade over the portal; measured on the rectified photo"
+   }
+  ]
+ },
+ "w138251852": {
+  "name": "Kanonička kurija (Kaptol, north face)",
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w138251852_e11",
+    "at": 0.17,
+    "width": 0.9,
+    "height": 1.0,
+    "depth": 0.9,
+    "out": -1.2,
+    "aboveEave": 0.9,
+    "texture": "kaptol_dormer_tile.jpg",
+    "repeat": 0.8,
+    "source": "Street View Jul 2024 (pano 2 Kaptol, frame 180): roof dormers, first"
+   },
+   {
+    "type": "box",
+    "wall": "w138251852_e11",
+    "at": 0.4,
+    "width": 0.9,
+    "height": 1.0,
+    "depth": 0.9,
+    "out": -1.2,
+    "aboveEave": 0.9,
+    "texture": "kaptol_dormer_tile.jpg",
+    "repeat": 0.8,
+    "source": "Street View Jul 2024 (pano 2 Kaptol, frame 180): roof dormers, second"
+   },
+   {
+    "type": "box",
+    "wall": "w138251852_e11",
+    "at": 0.63,
+    "width": 0.9,
+    "height": 1.0,
+    "depth": 0.9,
+    "out": -1.2,
+    "aboveEave": 0.9,
+    "texture": "kaptol_dormer_tile.jpg",
+    "repeat": 0.8,
+    "source": "Street View Jul 2024 (pano 2 Kaptol, frame 180): roof dormers, third"
+   }
+  ]
+ }
+}

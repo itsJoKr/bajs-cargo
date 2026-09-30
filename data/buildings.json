@@ -1,22 +1,3133 @@
 {
-  "_comment": "Per-building corrections and 3D features, written while recreating a building from Street View (.claude/skills/recreate-building). Keys are building ids as in data/hero/coverage.json. tags: OSM tag overrides (roof:shape, roof:height, height, building:levels, ...). roof: a covering from data/roofs.json. features: 3D things on or in front of a wall; see the skill for every type.",
-  "w105487407": {
-    "name": "Gradska štedionica",
-    "roof": "slate_grey"
+ "_comment": "Per-building corrections and 3D features, written while recreating a building from Street View (.claude/skills/recreate-building). Keys are building ids as in data/hero/coverage.json. tags: OSM tag overrides (roof:shape, roof:height, height, building:levels, ...). roof: a covering from data/roofs.json. features: 3D things on or in front of a wall; see the skill for every type.",
+ "w105487407": {
+  "name": "Gradska štedionica",
+  "roof": "slate_grey"
+ },
+ "w375381225": {
+  "name": "Allianz corner (Trg bana Jelačića / Ilica)",
+  "features": [
+   {
+    "type": "sign",
+    "wall": "w375381225_e10",
+    "mount": "roof",
+    "image": "allianz.png",
+    "at": 0.55,
+    "width": 9.5,
+    "aboveEave": 0.6,
+    "source": "Street View Aug 2011 (frame f30), redrawn flat by gen-image"
+   }
+  ]
+ },
+ "r3853100": {
+  "name": "Kuća Feller-Stern (Jurišićeva side)",
+  "roof": "flat_gravel",
+  "tags": {
+   "roof:shape": "flat"
   },
-  "w375381225": {
-    "name": "Allianz corner (Trg bana Jelačića / Ilica)",
-    "features": [
-      {
-        "type": "sign",
-        "wall": "w375381225_e10",
-        "mount": "roof",
-        "image": "allianz.png",
-        "at": 0.55,
-        "width": 9.5,
-        "aboveEave": 0.6,
-        "source": "Street View Aug 2011 (frame f30), redrawn flat by gen-image"
-      }
-    ]
+  "features": [
+   {
+    "type": "awning",
+    "wall": "r3853100_e0",
+    "from": 0.022,
+    "to": 0.131,
+    "y": 3.75,
+    "drop": 1.5,
+    "depth": 1.3,
+    "color": "#f0eee8",
+    "source": "Street View Jul 2025 (frame f32)"
+   },
+   {
+    "type": "awning",
+    "wall": "r3853100_e0",
+    "from": 0.468,
+    "to": 0.56,
+    "y": 3.7,
+    "drop": 1.9,
+    "depth": 1.3,
+    "color": "#2c2c30",
+    "source": "Street View Jul 2025 (frame f32)"
+   },
+   {
+    "type": "awning",
+    "wall": "r3853100_e0",
+    "from": 0.56,
+    "to": 0.652,
+    "y": 3.7,
+    "drop": 1.1,
+    "depth": 1.3,
+    "color": "#c93a40",
+    "source": "Street View Jul 2025 (frame f32)"
+   },
+   {
+    "type": "awning",
+    "wall": "r3853100_e0",
+    "from": 0.648,
+    "to": 0.749,
+    "y": 3.9,
+    "drop": 1.5,
+    "depth": 1.3,
+    "color": "#f0eee8",
+    "source": "Street View Jul 2025 (frame f32)"
+   },
+   {
+    "type": "awning",
+    "wall": "r3853100_e0",
+    "from": 0.752,
+    "to": 0.856,
+    "y": 3.95,
+    "drop": 1.45,
+    "depth": 1.3,
+    "color": "#f0eee8",
+    "source": "Street View Jul 2025 (frame f32)"
+   }
+  ]
+ },
+ "w105486195": {
+  "name": "Varteks / Müller building",
+  "roof": "slate_grey"
+ },
+ "w105489672": {
+  "name": "Palača Praška (portico building)",
+  "roof": "clay_red"
+ },
+ "w105489667": {
+  "name": "Praška 5 (Generalturist)",
+  "roof": "clay_red"
+ },
+ "w97235397": {
+  "name": "Praška salmon house",
+  "roof": "clay_red"
+ },
+ "r20144619": {
+  "name": "MET Boutique Hotel (glass)",
+  "roof": "flat_gravel",
+  "tags": {
+   "roof:shape": "flat"
   }
+ },
+ "w584458873": {
+  "name": "Kuća Shell",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w584458873_e4",
+    "from": 0.025,
+    "to": 0.15,
+    "y": 2.9,
+    "depth": 1.1,
+    "color": "#1d1d20",
+    "source": "Street View Jul 2024-2026, see data/hero/ring1.json"
+   },
+   {
+    "type": "awning",
+    "wall": "w584458873_e4",
+    "from": 0.19,
+    "to": 0.31,
+    "y": 2.9,
+    "depth": 1.1,
+    "color": "#1d1d20",
+    "source": "Street View Jul 2024-2026, see data/hero/ring1.json"
+   },
+   {
+    "type": "awning",
+    "wall": "w584458873_e4",
+    "from": 0.35,
+    "to": 0.48,
+    "y": 2.9,
+    "depth": 1.1,
+    "color": "#1d1d20",
+    "source": "Street View Jul 2024-2026, see data/hero/ring1.json"
+   },
+   {
+    "type": "awning",
+    "wall": "w584458873_e4",
+    "from": 0.51,
+    "to": 0.64,
+    "y": 2.9,
+    "depth": 1.1,
+    "color": "#1d1d20",
+    "source": "Street View Jul 2024-2026, see data/hero/ring1.json"
+   },
+   {
+    "type": "awning",
+    "wall": "w584458873_e4",
+    "from": 0.68,
+    "to": 0.81,
+    "y": 2.9,
+    "depth": 1.1,
+    "color": "#1d1d20",
+    "source": "Street View Jul 2024-2026, see data/hero/ring1.json"
+   },
+   {
+    "type": "awning",
+    "wall": "w584458873_e4",
+    "from": 0.85,
+    "to": 0.98,
+    "y": 2.9,
+    "depth": 1.1,
+    "color": "#1d1d20",
+    "source": "Street View Jul 2024-2026, see data/hero/ring1.json"
+   }
+  ]
+ },
+ "r3853099": {
+  "name": "Palača Stern",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "r3853099_e0",
+    "from": 0.16,
+    "to": 0.245,
+    "y": 2.7,
+    "depth": 1.3,
+    "color": "#f0eee8",
+    "source": "Street View Jul 2024-2026, see data/hero/ring1.json"
+   },
+   {
+    "type": "awning",
+    "wall": "r3853099_e0",
+    "from": 0.41,
+    "to": 0.485,
+    "y": 2.7,
+    "depth": 1.3,
+    "color": "#f0eee8",
+    "source": "Street View Jul 2024-2026, see data/hero/ring1.json"
+   }
+  ]
+ },
+ "w105488043": {
+  "name": "Hrvatska poštanska banka",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "terrace",
+    "wall": "w105488043_e0",
+    "from": 0.08,
+    "to": 0.92,
+    "depth": 4.0,
+    "color": "#d9d2bf",
+    "source": "Street View Jul 2025: restaurant terrace with parasols in front of HPB"
+   }
+  ]
+ },
+ "w97089776": {
+  "name": "Ilica passage house",
+  "roof": "clay_brown"
+ },
+ "w97089760": {
+  "name": "Nama",
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "sign",
+    "wall": "w97089760_e1",
+    "mount": "wall",
+    "image": "nama.png",
+    "at": 0.13,
+    "width": 6.0,
+    "y": 4.6,
+    "source": "Street View Jul 2024-2026, see data/hero/ring1.json",
+    "out": 0.2
+   }
+  ]
+ },
+ "w97089771": {
+  "name": "Ilica brown houses",
+  "roof": "clay_brown"
+ },
+ "w579294816": {
+  "name": "Ilica south cream house",
+  "roof": "clay_brown"
+ },
+ "w579294808": {
+  "name": "Ilica south arch house",
+  "roof": "clay_brown"
+ },
+ "w97165331": {
+  "name": "Neboder",
+  "roof": "flat_gravel",
+  "tags": {
+   "roof:shape": "flat"
+  }
+ },
+ "w105486198": {
+  "name": "Bakačeva gallery house",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w105486198_e3",
+    "from": 0.02,
+    "to": 0.29,
+    "y": 3.95,
+    "depth": 1.4,
+    "color": "#a3242c",
+    "source": "Street View Jul 2024-2026, see data/hero/ring1.json"
+   },
+   {
+    "type": "awning",
+    "wall": "w105486198_e3",
+    "from": 0.31,
+    "to": 0.55,
+    "y": 4.25,
+    "drop": 0.4,
+    "depth": 1.4,
+    "color": "#a3242c",
+    "source": "Street View Jul 2024-2026, see data/hero/ring1.json"
+   }
+  ]
+ },
+ "w289863169": {
+  "name": "Kuća Folnegović",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w289863169_e0",
+    "from": 0.02,
+    "to": 0.98,
+    "y": 5.0,
+    "drop": 0.55,
+    "depth": 1.2,
+    "color": "#a3242c",
+    "source": "Street View Jul 2024-2026, see data/hero/ring1.json"
+   }
+  ]
+ },
+ "w105486204": {
+  "name": "Bakačeva flags palace",
+  "roof": "clay_red"
+ },
+ "w105489688": {
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w105489688_e3",
+    "from": 0.3,
+    "to": 0.6,
+    "y": 4.45,
+    "drop": 0.6,
+    "depth": 1.5,
+    "color": "#1d2f6a",
+    "source": "Street View Jul 2024-2026, see data/hero/ring1.json"
+   }
+  ]
+ },
+ "w97089764": {
+  "name": "Ilica 12 (Prahir)",
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "sign",
+    "wall": "w97089764_e0",
+    "mount": "projecting",
+    "image": "foto_copy.png",
+    "at": 0.347,
+    "width": 1.3,
+    "y": 4.5,
+    "out": 0.5,
+    "source": "Street View Jul 2024 (frames in .art/streetview/ilw)"
+   }
+  ]
+ },
+ "w97089768": {
+  "name": "Ilica north row",
+  "roof": "clay_brown"
+ },
+ "r1397601": {
+  "name": "Ilica south long building",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "r1397601_e2",
+    "from": 0.0,
+    "to": 1.0,
+    "y": 4.5,
+    "depth": 3.0,
+    "color": "#2a2c30",
+    "source": "Street View Jul 2024 (frames in .art/streetview/ilw): the dark steel canopy over the pavement in front of Jo Malone / Pandora / Optotim"
+   }
+  ]
+ },
+ "w338688381": {
+  "name": "Ilica 11 (Calliope)",
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "sign",
+    "wall": "w338688381_e1",
+    "mount": "projecting",
+    "image": "pharmacy_cross.png",
+    "at": 0.975,
+    "width": 0.8,
+    "y": 3.1,
+    "out": 0.6,
+    "source": "Street View Jul 2024 (frames in .art/streetview/ilw)"
+   }
+  ]
+ },
+ "w338688382": {
+  "name": "Ilica south (Franchi)",
+  "roof": "clay_red"
+ },
+ "w338688380": {
+  "name": "Terranova building",
+  "roof": "flat_gravel",
+  "tags": {
+   "roof:shape": "flat"
+  }
+ },
+ "w97089772": {
+  "name": "Ilica low house",
+  "roof": "clay_red"
+ },
+ "w585938445": {
+  "name": "Ilica house",
+  "roof": "clay_red"
+ },
+ "w97089769": {
+  "name": "Ilica house",
+  "roof": "clay_brown"
+ },
+ "w338686824": {
+  "name": "Ilica house",
+  "roof": "clay_red"
+ },
+ "w338688383": {
+  "name": "Ilica house",
+  "roof": "clay_brown"
+ },
+ "w9000000001": {
+  "name": "Neboder tower",
+  "part": [
+   [
+    -85.4,
+    -8.0
+   ],
+   [
+    -91.8,
+    -7.5
+   ],
+   [
+    -91.8,
+    -33.5
+   ],
+   [
+    -88.0,
+    -33.6
+   ],
+   [
+    -86.6,
+    -19.2
+   ],
+   [
+    -86.0,
+    -15.6
+   ]
+  ],
+  "roof": "flat_gravel",
+  "tags": {
+   "roof:shape": "flat",
+   "height": "68"
+  }
+ },
+ "w435116997": {
+  "name": "Bogovićeva beige block",
+  "roof": "flat_gravel",
+  "tags": {
+   "roof:shape": "flat"
+  },
+  "features": [
+   {
+    "type": "terrace",
+    "wall": "w435116997_e0",
+    "from": 0.0,
+    "to": 1.0,
+    "depth": 4.0,
+    "color": "#cdbb9a",
+    "source": "Street View Jul 2025 (café umbrellas)"
+   }
+  ]
+ },
+ "w579294869": {
+  "name": "Bogovićeva palace",
+  "roof": "slate_grey",
+  "tags": {
+   "roof:shape": "hipped",
+   "roof:height": "4"
+  }
+ },
+ "w290551252": {
+  "name": "Bogovićeva NW palace",
+  "roof": "slate_grey",
+  "tags": {
+   "roof:shape": "hipped",
+   "roof:height": "4"
+  },
+  "features": [
+   {
+    "type": "terrace",
+    "wall": "w290551252_e16",
+    "from": 0.0,
+    "to": 1.0,
+    "depth": 3.0,
+    "color": "#b59a6a",
+    "source": "Street View Aug 2019 (Bulldog umbrellas)"
+   }
+  ]
+ },
+ "w375381009": {
+  "name": "Grunsberg (Q Store block)",
+  "roof": "flat_gravel",
+  "tags": {
+   "roof:shape": "flat"
+  },
+  "features": []
+ },
+ "w375381008": {
+  "name": "Bogovićeva north block",
+  "roof": "flat_gravel",
+  "tags": {
+   "roof:shape": "flat"
+  }
+ },
+ "w375375951": {
+  "name": "Bogovićeva east north block",
+  "roof": "flat_gravel",
+  "tags": {
+   "roof:shape": "flat"
+  }
+ },
+ "w288852937": {
+  "name": "Napretkova zadruga",
+  "roof": "flat_gravel",
+  "tags": {
+   "roof:shape": "flat"
+  }
+ },
+ "w435116996": {
+  "name": "Bogovićeva scaffolded building",
+  "roof": "flat_gravel",
+  "tags": {
+   "roof:shape": "flat"
+  },
+  "features": [
+   {
+    "type": "scaffolding",
+    "wall": "w435116996_e6",
+    "from": 0.0,
+    "to": 1.0,
+    "aboveEave": 0.5,
+    "depth": 1.0,
+    "net": "#e4e0d2",
+    "source": "Street View Jul 2025"
+   }
+  ]
+ },
+ "w435116999": {
+  "name": "Bogovićeva SW palace",
+  "roof": "slate_grey",
+  "tags": {
+   "roof:shape": "hipped",
+   "roof:height": "4"
+  }
+ },
+ "w512839703": {
+  "features": [
+   {
+    "type": "scaffolding",
+    "wall": "w512839703_e6",
+    "from": 0.0,
+    "to": 1.0,
+    "aboveEave": 0.5,
+    "depth": 1.0,
+    "net": "#8d978d",
+    "source": "Street View 2023-2025 (Preradovićeva pass)"
+   }
+  ],
+  "name": "Preradovićeva salmon house (scaffolded)"
+ },
+ "w446070851": {
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w446070851_e6",
+    "from": 0.133,
+    "to": 0.408,
+    "y": 3.0,
+    "depth": 0.5,
+    "color": "#8a8a8c",
+    "source": "Street View 2023-2025 (Preradovićeva pass)"
+   },
+   {
+    "type": "awning",
+    "wall": "w446070851_e6",
+    "from": 0.598,
+    "to": 0.852,
+    "y": 3.0,
+    "depth": 0.5,
+    "color": "#8a8a8c",
+    "source": "Street View 2023-2025 (Preradovićeva pass)"
+   }
+  ],
+  "name": "Martin Arbanas"
+ },
+ "w512839727": {
+  "features": [
+   {
+    "type": "dome",
+    "wall": "w512839727_e0",
+    "at": 0.9,
+    "radius": 1.2,
+    "height": 0.6,
+    "aboveEave": 0.0,
+    "shape": "cone",
+    "color": "#6f6a63",
+    "source": "Street View 2023-2025 (Preradovićeva pass)"
+   }
+  ]
+ },
+ "w1005273955": {
+  "features": [
+   {
+    "type": "terrace",
+    "wall": "w1005273955_e17",
+    "from": 0.0,
+    "to": 1.0,
+    "depth": 2.2,
+    "color": "#7a6a55",
+    "source": "Street View 2023-2025 (Preradovićeva pass)"
+   },
+   {
+    "type": "box",
+    "wall": "w1005273955_e19",
+    "at": 0.088,
+    "width": 2.0,
+    "height": 0.14,
+    "depth": 0.7,
+    "out": 0.35,
+    "y": 10.3,
+    "color": "#7c7a76",
+    "texture": "example_stone.jpg",
+    "repeat": 1,
+    "source": "Street View 2023-2025 (Preradovićeva pass)"
+   },
+   {
+    "type": "box",
+    "wall": "w1005273955_e19",
+    "at": 0.296,
+    "width": 2.0,
+    "height": 0.14,
+    "depth": 0.7,
+    "out": 0.35,
+    "y": 10.3,
+    "color": "#2a2c30",
+    "source": "Street View 2023-2025 (Preradovićeva pass)"
+   },
+   {
+    "type": "box",
+    "wall": "w1005273955_e19",
+    "at": 0.488,
+    "width": 2.0,
+    "height": 0.14,
+    "depth": 0.7,
+    "out": 0.35,
+    "y": 10.3,
+    "color": "#2a2c30",
+    "source": "Street View 2023-2025 (Preradovićeva pass)"
+   },
+   {
+    "type": "box",
+    "wall": "w1005273955_e19",
+    "at": 0.671,
+    "width": 2.0,
+    "height": 0.14,
+    "depth": 0.7,
+    "out": 0.35,
+    "y": 10.3,
+    "color": "#2a2c30",
+    "source": "Street View 2023-2025 (Preradovićeva pass)"
+   }
+  ],
+  "name": "Alcatraz house"
+ },
+ "w579101703": {
+  "features": [
+   {
+    "type": "dome",
+    "wall": "w579101703_e5",
+    "at": 0.93,
+    "radius": 1.3,
+    "height": 0.8,
+    "aboveEave": 0.0,
+    "shape": "cone",
+    "color": "#4a4744",
+    "source": "Street View 2023-2025 (Preradovićeva pass)"
+   }
+  ]
+ },
+ "w446076669": {
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w446076669_e6",
+    "at": 0.5,
+    "width": 23.2,
+    "height": 0.5,
+    "depth": 0.45,
+    "out": 0.22,
+    "y": 15.3,
+    "color": "#cdbd97",
+    "source": "Street View 2023-2025 (Preradovićeva pass)"
+   }
+  ]
+ },
+ "w446076411": {
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w446076411_e3",
+    "at": 0.5,
+    "width": 14.5,
+    "height": 0.45,
+    "depth": 0.4,
+    "out": 0.2,
+    "y": 11.65,
+    "color": "#d9d1a6",
+    "source": "Street View 2023-2025 (Preradovićeva pass)"
+   }
+  ]
+ },
+ "w446076410": {
+  "roof": "slate_grey"
+ },
+ "w512839704": {
+  "roof": "clay_pale"
+ },
+ "w435118933": {
+  "name": "Gajeva 4 (Uriho / Crvenac block)",
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w435118933_e8",
+    "at": 0.5,
+    "width": 17.8,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "y": 11.45,
+    "texture": "gajeva_cornice_ochre.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2025 (B pano, dentilled cornice)"
+   },
+   {
+    "type": "box",
+    "wall": "w435118933_e9",
+    "at": 0.5,
+    "width": 23.0,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "y": 11.45,
+    "texture": "gajeva_cornice_ochre.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2025 (B pano, dentilled cornice)"
+   },
+   {
+    "type": "awning",
+    "wall": "w435118933_e9",
+    "from": 0.73,
+    "to": 0.965,
+    "y": 3.5,
+    "drop": 0.35,
+    "depth": 0.9,
+    "color": "#ffffff",
+    "texture": "gajeva_awning_navy.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2025 (B pano frame 270): dark navy awning right of the Crvenac shop; measured on raw.png"
+   },
+   {
+    "type": "sign",
+    "wall": "w435118933_e9",
+    "mount": "projecting",
+    "image": "gajeva_crvenac.png",
+    "at": 0.44,
+    "width": 0.9,
+    "y": 3.6,
+    "out": 0.55,
+    "source": "Street View Jul 2025 (B pano frame 270): black blade sign with diamond logo 'CRVENAC', redrawn flat by gen-image"
+   }
+  ]
+ },
+ "w97235509": {
+  "name": "Boban",
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w97235509_e1",
+    "from": 0.02,
+    "to": 0.99,
+    "y": 3.9,
+    "drop": 0.35,
+    "depth": 1.3,
+    "color": "#ffffff",
+    "texture": "gajeva_awning_beige.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2025 (B pano frame 90): beige retractable awning over the terrace; measured on raw.png"
+   },
+   {
+    "type": "terrace",
+    "wall": "w97235509_e1",
+    "from": 0.08,
+    "to": 0.95,
+    "depth": 3.5,
+    "color": "#e8e0c8",
+    "source": "Street View Jul 2025 (B pano frames 90/135/225): Boban cafe terrace with tables"
+   },
+   {
+    "type": "sign",
+    "wall": "w97235509_e1",
+    "mount": "projecting",
+    "image": "gajeva_boban.png",
+    "at": 0.01,
+    "width": 1.0,
+    "y": 4.2,
+    "out": 0.6,
+    "source": "Street View Jul 2025 (B pano frame 90): purple 'boban' blade sign, redrawn flat by gen-image"
+   }
+  ]
+ },
+ "w579294918": {
+  "name": "Gajeva 5-11 (Frizer / Dinara row)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w579294918_e15",
+    "at": 0.3,
+    "width": 1.5,
+    "height": 1.5,
+    "depth": 1.4,
+    "out": -1.2,
+    "y": 8.6,
+    "texture": "gajeva_tile_red.jpg",
+    "repeat": 0.9,
+    "source": "Street View Jul 2024 (C pano frames 225/270): row of tiled dormers over the eaves"
+   },
+   {
+    "type": "box",
+    "wall": "w579294918_e15",
+    "at": 0.42,
+    "width": 1.5,
+    "height": 1.5,
+    "depth": 1.4,
+    "out": -1.2,
+    "y": 8.6,
+    "texture": "gajeva_tile_red.jpg",
+    "repeat": 0.9,
+    "source": "Street View Jul 2024 (C pano frames 225/270): row of tiled dormers over the eaves"
+   },
+   {
+    "type": "box",
+    "wall": "w579294918_e15",
+    "at": 0.54,
+    "width": 1.5,
+    "height": 1.5,
+    "depth": 1.4,
+    "out": -1.2,
+    "y": 8.6,
+    "texture": "gajeva_tile_red.jpg",
+    "repeat": 0.9,
+    "source": "Street View Jul 2024 (C pano frames 225/270): row of tiled dormers over the eaves"
+   },
+   {
+    "type": "box",
+    "wall": "w579294918_e15",
+    "at": 0.66,
+    "width": 1.5,
+    "height": 1.5,
+    "depth": 1.4,
+    "out": -1.2,
+    "y": 8.6,
+    "texture": "gajeva_tile_red.jpg",
+    "repeat": 0.9,
+    "source": "Street View Jul 2024 (C pano frames 225/270): row of tiled dormers over the eaves"
+   },
+   {
+    "type": "box",
+    "wall": "w579294918_e15",
+    "at": 0.78,
+    "width": 1.5,
+    "height": 1.5,
+    "depth": 1.4,
+    "out": -1.2,
+    "y": 8.6,
+    "texture": "gajeva_tile_red.jpg",
+    "repeat": 0.9,
+    "source": "Street View Jul 2024 (C pano frames 225/270): row of tiled dormers over the eaves"
+   },
+   {
+    "type": "box",
+    "wall": "w579294918_e15",
+    "at": 0.9,
+    "width": 1.5,
+    "height": 1.5,
+    "depth": 1.4,
+    "out": -1.2,
+    "y": 8.6,
+    "texture": "gajeva_tile_red.jpg",
+    "repeat": 0.9,
+    "source": "Street View Jul 2024 (C pano frames 225/270): row of tiled dormers over the eaves"
+   }
+  ]
+ },
+ "w579294895": {
+  "name": "Obzor putovanja house",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w579294895_e2",
+    "at": 0.5,
+    "width": 19.3,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "y": 11.6,
+    "texture": "gajeva_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (C pano frame 90, main cornice)"
+   }
+  ]
+ },
+ "w249753107": {
+  "name": "Gajeva 17 palace",
+  "roof": "slate_grey",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w249753107_e3",
+    "at": 0.5,
+    "width": 10.5,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "y": 15.3,
+    "texture": "gajeva_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (E pano frame 90, main cornice)"
+   },
+   {
+    "type": "box",
+    "wall": "w249753107_e4",
+    "at": 0.5,
+    "width": 11.3,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "y": 15.3,
+    "texture": "gajeva_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (E pano frame 90, main cornice)"
+   },
+   {
+    "type": "box",
+    "wall": "w249753107_e2",
+    "at": 0.5,
+    "width": 15.7,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "berislavic_cornice_stone.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (pano 5 Berislavićeva): bracketed cornice under the top floor"
+   }
+  ]
+ },
+ "w1537669597": {
+  "name": "Gajeva 15",
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w1537669597_e0",
+    "at": 0.5,
+    "width": 9.3,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "y": 15.3,
+    "texture": "gajeva_cornice_ochre.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (E pano frame 90, top cornice)"
+   },
+   {
+    "type": "box",
+    "wall": "w1537669597_e1",
+    "at": 0.5,
+    "width": 9.8,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "y": 15.3,
+    "texture": "gajeva_cornice_ochre.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (E pano frame 90, top cornice)"
+   }
+  ]
+ },
+ "w446076402": {
+  "name": "Gajeva 12",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w446076402_e7",
+    "at": 0.5,
+    "width": 11.3,
+    "height": 0.55,
+    "depth": 0.55,
+    "out": 0.28,
+    "y": 6.2,
+    "texture": "gajeva_balustrade.jpg",
+    "repeat": 1.0,
+    "source": "Street View Jul 2024 (D pano frame 270): stone balustrade band over the rusticated ground floor; measured on raw.png"
+   },
+   {
+    "type": "box",
+    "wall": "w446076402_e7",
+    "at": 0.5,
+    "width": 11.3,
+    "height": 0.6,
+    "depth": 0.7,
+    "out": 0.35,
+    "y": 15.15,
+    "texture": "gajeva_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (D pano frame 270, ornate cornice)",
+    "color": "#f6e6b8"
+   }
+  ]
+ },
+ "w579295108": {
+  "name": "Gajeva 14",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w579295108_e2",
+    "at": 0.87,
+    "width": 1.4,
+    "height": 0.4,
+    "depth": 0.55,
+    "out": 0.28,
+    "y": 5.0,
+    "texture": "gajeva_balustrade.jpg",
+    "repeat": 1.0,
+    "source": "Street View Jul 2024 (E pano frame 270): small balustrade balcony in the right bay"
+   },
+   {
+    "type": "box",
+    "wall": "w579295108_e2",
+    "at": 0.5,
+    "width": 14.2,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "y": 11.6,
+    "texture": "gajeva_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (E pano frame 270, main cornice)"
+   }
+  ]
+ },
+ "w579295105": {
+  "name": "Gajeva 16",
+  "roof": "zinc_dark",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w579295105_e2",
+    "at": 0.73,
+    "width": 1.5,
+    "height": 0.45,
+    "depth": 0.5,
+    "out": 0.25,
+    "y": 5.35,
+    "texture": "gajeva_balustrade.jpg",
+    "repeat": 1.0,
+    "source": "Street View Jul 2024 (E pano frame 270): first-floor balustrade balcony"
+   },
+   {
+    "type": "box",
+    "wall": "w579295105_e2",
+    "at": 0.89,
+    "width": 1.5,
+    "height": 0.45,
+    "depth": 0.5,
+    "out": 0.25,
+    "y": 5.35,
+    "texture": "gajeva_balustrade.jpg",
+    "repeat": 1.0,
+    "source": "Street View Jul 2024 (E pano frame 270): first-floor balustrade balcony"
+   },
+   {
+    "type": "box",
+    "wall": "w579295105_e2",
+    "at": 0.5,
+    "width": 22.1,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "y": 11.6,
+    "texture": "gajeva_cornice_ochre.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (E pano frame 270, top cornice)"
+   }
+  ]
+ },
+ "w286614548": {
+  "roof": "flat_gravel",
+  "name": "art'otel",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286614548_e0",
+    "at": 0.315,
+    "out": 0.5,
+    "width": 5.0,
+    "depth": 1.0,
+    "height": 0.8,
+    "y": 4.1,
+    "texture": "petrinjska_awning_white.jpg",
+    "repeat": 2,
+    "color": "#303034",
+    "source": "Street View Jul 2024 (art'otel entrance canopy, pano at Petrinjska 7)"
+   },
+   {
+    "type": "sign",
+    "wall": "w286614548_e0",
+    "image": "petrinjska_sign_artotel.png",
+    "width": 4.6,
+    "at": 0.315,
+    "y": 4.2,
+    "mount": "wall",
+    "out": 1.03,
+    "source": "Street View Jul 2024 (art'otel canopy front board)"
+   },
+   {
+    "type": "box",
+    "wall": "w286614548_e0",
+    "at": 0.5,
+    "out": 0.3,
+    "width": 27.6,
+    "depth": 0.6,
+    "height": 0.55,
+    "texture": "petrinjska_cornice_stone.jpg",
+    "repeat": 2.4,
+    "color": "#f3ead8",
+    "source": "Street View Jul 2024 (projecting main cornice)",
+    "aboveEave": -0.55
+   },
+   {
+    "type": "box",
+    "wall": "w286614548_e12",
+    "at": 0.5,
+    "width": 44.7,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): cream plaster main cornice"
+   }
+  ]
+ },
+ "w286614559": {
+  "roof": "flat_gravel",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w286614559_e0",
+    "from": 0.625,
+    "to": 0.984,
+    "y": 3.64,
+    "drop": 0.8,
+    "depth": 1.0,
+    "texture": "petrinjska_awning_white.jpg",
+    "repeat": 2,
+    "color": "#f2efe6",
+    "source": "Street View Jul 2024 (shop awning, pano at Petrinjska 8)"
+   }
+  ]
+ },
+ "w286614560": {
+  "roof": "flat_gravel",
+  "name": "Kuća Frisch",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w286614560_e0",
+    "from": 0.749,
+    "to": 0.959,
+    "y": 4.04,
+    "drop": 0.93,
+    "depth": 0.9,
+    "texture": "petrinjska_awning_white.jpg",
+    "repeat": 2,
+    "color": "#f4f1ea",
+    "source": "Street View Jul 2024 (shop awning, panos at Petrinjska 8 and 12)"
+   }
+  ]
+ },
+ "w860324912": {
+  "roof": "flat_gravel",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w860324912_e0",
+    "from": 0.02,
+    "to": 0.2,
+    "y": 2.72,
+    "drop": 0.85,
+    "depth": 0.9,
+    "texture": "petrinjska_awning_white.jpg",
+    "repeat": 2,
+    "color": "#efe6d2",
+    "source": "Street View Jul 2024 (shop awning, pano at Petrinjska 21)"
+   },
+   {
+    "type": "awning",
+    "wall": "w860324912_e0",
+    "from": 0.23,
+    "to": 0.54,
+    "y": 2.48,
+    "drop": 1.07,
+    "depth": 0.95,
+    "texture": "petrinjska_awning_white.jpg",
+    "repeat": 2,
+    "color": "#efe6d2",
+    "source": "Street View Jul 2024 (shop awning, pano at Petrinjska 21)"
+   },
+   {
+    "type": "awning",
+    "wall": "w860324912_e0",
+    "from": 0.568,
+    "to": 0.925,
+    "y": 2.38,
+    "drop": 1.1,
+    "depth": 1.0,
+    "texture": "petrinjska_awning_ptice.jpg",
+    "repeat": 5.2,
+    "color": "#ffffff",
+    "source": "Street View Jul 2024 (awning lettered 'VOĆARNA PTIČEK')"
+   },
+   {
+    "type": "box",
+    "wall": "w860324912_e0",
+    "at": 0.83,
+    "out": 0.65,
+    "width": 4.9,
+    "depth": 1.3,
+    "height": 0.55,
+    "y": 4.35,
+    "texture": "petrinjska_balcony_concrete.jpg",
+    "repeat": 2,
+    "color": "#e8e2d2",
+    "source": "Street View Jul 2024 (curved corner balcony slab)"
+   },
+   {
+    "type": "box",
+    "wall": "w860324912_e0",
+    "at": 0.83,
+    "out": 1.28,
+    "width": 4.7,
+    "depth": 0.05,
+    "height": 1.0,
+    "y": 4.9,
+    "texture": "petrinjska_rail_blue.jpg",
+    "repeat": 1.2,
+    "color": "#ffffff",
+    "source": "Street View Jul 2024 (blue balcony railing)"
+   },
+   {
+    "type": "terrace",
+    "wall": "w860324912_e15",
+    "from": 0.05,
+    "to": 0.95,
+    "depth": 2.4,
+    "color": "#8d9196",
+    "source": "Street View Jul 2024 (cafe with grey parasols, pano at Petrinjska 21)"
+   }
+  ]
+ },
+ "w288920705": {
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w288920705_e0",
+    "from": 0.03,
+    "to": 0.225,
+    "y": 2.75,
+    "drop": 0.6,
+    "depth": 0.6,
+    "texture": "petrinjska_awning_red.jpg",
+    "repeat": 1.5,
+    "color": "#ffffff",
+    "source": "Street View Jul 2024 (canopy over doorway)"
+   },
+   {
+    "type": "awning",
+    "wall": "w288920705_e0",
+    "from": 0.28,
+    "to": 0.44,
+    "y": 2.75,
+    "drop": 0.6,
+    "depth": 0.6,
+    "texture": "petrinjska_awning_red.jpg",
+    "repeat": 1.5,
+    "color": "#ffffff",
+    "source": "Street View Jul 2024 (canopy over window)"
+   },
+   {
+    "type": "awning",
+    "wall": "w288920705_e0",
+    "from": 0.52,
+    "to": 0.68,
+    "y": 2.75,
+    "drop": 0.6,
+    "depth": 0.6,
+    "texture": "petrinjska_awning_red.jpg",
+    "repeat": 1.5,
+    "color": "#ffffff",
+    "source": "Street View Jul 2024 (canopy over window)"
+   }
+  ]
+ },
+ "w288920707": {
+  "roof": "flat_gravel"
+ },
+ "w288920708": {
+  "roof": "flat_gravel"
+ },
+ "w288920710": {
+  "roof": "flat_gravel",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w288920710_e0",
+    "from": 0.005,
+    "to": 0.3,
+    "y": 3.68,
+    "drop": 0.77,
+    "depth": 1.0,
+    "texture": "petrinjska_awning_inovine.jpg",
+    "repeat": 5.8,
+    "color": "#ffffff",
+    "source": "Street View Jul 2024 (navy awning of iNovine)"
+   },
+   {
+    "type": "awning",
+    "wall": "w288920710_e0",
+    "from": 0.61,
+    "to": 0.995,
+    "y": 3.78,
+    "drop": 1.32,
+    "depth": 1.0,
+    "texture": "petrinjska_awning_yellow.jpg",
+    "repeat": 2,
+    "color": "#ffffff",
+    "source": "Street View Jul 2024 (yellow cafe awning)"
+   },
+   {
+    "type": "box",
+    "wall": "w288920710_e0",
+    "at": 0.45,
+    "out": 0.7,
+    "width": 5.9,
+    "depth": 1.4,
+    "height": 1.5,
+    "y": 6.0,
+    "texture": "petrinjska_balcony_concrete.jpg",
+    "repeat": 2,
+    "color": "#f0d9a8",
+    "source": "Street View Jul 2024 (stacked balconies, pano at Petrinjska 31)"
+   },
+   {
+    "type": "box",
+    "wall": "w288920710_e0",
+    "at": 0.45,
+    "out": 0.7,
+    "width": 5.9,
+    "depth": 1.4,
+    "height": 1.5,
+    "y": 10.45,
+    "texture": "petrinjska_balcony_concrete.jpg",
+    "repeat": 2,
+    "color": "#f0d9a8",
+    "source": "Street View Jul 2024 (stacked balconies, pano at Petrinjska 31)"
+   },
+   {
+    "type": "box",
+    "wall": "w288920710_e0",
+    "at": 0.45,
+    "out": 0.7,
+    "width": 5.9,
+    "depth": 1.4,
+    "height": 1.5,
+    "y": 14.85,
+    "texture": "petrinjska_balcony_concrete.jpg",
+    "repeat": 2,
+    "color": "#f0d9a8",
+    "source": "Street View Jul 2024 (stacked balconies, pano at Petrinjska 31)"
+   },
+   {
+    "type": "box",
+    "wall": "w288920710_e0",
+    "at": 0.45,
+    "out": 0.7,
+    "width": 5.9,
+    "depth": 1.4,
+    "height": 1.5,
+    "y": 19.8,
+    "texture": "petrinjska_balcony_concrete.jpg",
+    "repeat": 2,
+    "color": "#f0d9a8",
+    "source": "Street View Jul 2024 (stacked balconies, pano at Petrinjska 31)"
+   }
+  ]
+ },
+ "w390984167": {
+  "roof": "zinc_dark",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w390984167_e2",
+    "at": 0.5,
+    "out": 0.3,
+    "width": 10.6,
+    "depth": 0.6,
+    "height": 0.55,
+    "texture": "petrinjska_cornice_stone.jpg",
+    "repeat": 2.4,
+    "color": "#f3ead8",
+    "source": "Street View Jul 2024 (projecting main cornice)",
+    "aboveEave": -0.55
+   },
+   {
+    "type": "box",
+    "wall": "w390984167_e1",
+    "at": 0.5,
+    "out": 0.3,
+    "width": 22.7,
+    "depth": 0.6,
+    "height": 0.55,
+    "texture": "petrinjska_cornice_stone.jpg",
+    "repeat": 2.4,
+    "color": "#f3ead8",
+    "source": "Street View Jul 2024 (projecting main cornice)",
+    "aboveEave": -0.55
+   }
+  ]
+ },
+ "w390984164": {
+  "roof": "zinc_dark",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w390984164_e1",
+    "at": 0.5,
+    "out": 0.3,
+    "width": 13.8,
+    "depth": 0.6,
+    "height": 0.55,
+    "texture": "petrinjska_cornice_stone.jpg",
+    "repeat": 2.4,
+    "color": "#f3ead8",
+    "source": "Street View Jul 2024 (projecting main cornice)",
+    "aboveEave": -0.55
+   }
+  ]
+ },
+ "w390984144": {
+  "roof": "zinc_dark",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w390984144_e8",
+    "at": 0.5,
+    "out": 0.3,
+    "width": 16.3,
+    "depth": 0.6,
+    "height": 0.55,
+    "texture": "petrinjska_cornice_stone.jpg",
+    "repeat": 2.4,
+    "color": "#f3ead8",
+    "source": "Street View Jul 2024 (projecting main cornice)",
+    "aboveEave": -0.55
+   },
+   {
+    "type": "box",
+    "wall": "w390984144_e9",
+    "at": 0.5,
+    "width": 48.8,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): cream plaster main cornice"
+   }
+  ],
+  "name": "Ulica Milana Amruša (palace, south side)"
+ },
+ "w390984146": {
+  "roof": "clay_brown"
+ },
+ "w390984149": {
+  "roof": "clay_brown"
+ },
+ "w286611971": {
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "sign",
+    "wall": "w286611971_e3",
+    "image": "petrinjska_sign_koracell.png",
+    "width": 3.9,
+    "at": 0.7215,
+    "y": 2.95,
+    "mount": "wall",
+    "out": 0.12,
+    "source": "Street View Jul 2025 (Koracell fascia, pano at Petrinjska 6)"
+   },
+   {
+    "type": "box",
+    "wall": "w286611971_e3",
+    "at": 0.5,
+    "out": 0.3,
+    "width": 21.1,
+    "depth": 0.6,
+    "height": 0.55,
+    "texture": "petrinjska_cornice_stone.jpg",
+    "repeat": 2.4,
+    "color": "#f3ead8",
+    "source": "Street View Jul 2025 (projecting main cornice)",
+    "aboveEave": -0.55
+   },
+   {
+    "type": "box",
+    "wall": "w286611971_e6",
+    "at": 0.5,
+    "width": 21.1,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): brown plaster main cornice"
+   }
+  ],
+  "name": "Ulica Milana Amruša (sand-brown house)"
+ },
+ "w286611972": {
+  "roof": "zinc_dark",
+  "features": [
+   {
+    "type": "terrace",
+    "wall": "w286611972_e0",
+    "from": 0.05,
+    "to": 0.9,
+    "depth": 2.4,
+    "color": "#8d9196",
+    "source": "Street View Jul 2025 (cafe with grey parasols in the pedestrian zone)"
+   }
+  ]
+ },
+ "w286614545": {
+  "roof": "flat_gravel",
+  "features": [
+   {
+    "type": "sign",
+    "wall": "w286614545_e0",
+    "image": "petrinjska_sign_lavanda.png",
+    "width": 1.0,
+    "at": 0.161,
+    "y": 3.45,
+    "mount": "projecting",
+    "out": 0.12,
+    "source": "Street View Jul 2025 (LAVANDA-MIA blade sign)"
+   },
+   {
+    "type": "box",
+    "wall": "w286614545_e0",
+    "at": 0.5,
+    "out": 0.3,
+    "width": 28.3,
+    "depth": 0.6,
+    "height": 0.55,
+    "texture": "petrinjska_cornice_stone.jpg",
+    "repeat": 2.4,
+    "color": "#f3ead8",
+    "source": "Street View Jul 2025 (projecting main cornice)",
+    "aboveEave": -0.55
+   }
+  ]
+ },
+ "r5854157": {
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "r5854157_e9",
+    "at": 0.5,
+    "out": 0.3,
+    "width": 62.6,
+    "depth": 0.6,
+    "height": 0.55,
+    "texture": "petrinjska_cornice_stone.jpg",
+    "repeat": 2.4,
+    "color": "#f3ead8",
+    "source": "Street View Jul 2024 (projecting main cornice)",
+    "aboveEave": -0.55
+   }
+  ]
+ },
+ "w293352410": {
+  "name": "Otto&Frank (Tkalčićeva)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w293352410_e4",
+    "from": 0.05,
+    "to": 0.99,
+    "y": 3.4,
+    "drop": 1.2,
+    "depth": 1.3,
+    "color": "#ffffff",
+    "texture": "tkalciceva_awning_ottofrank.jpg",
+    "repeat": 10.2,
+    "source": "Street View Jul 2025 (official pano, hand-picked frames)"
+   },
+   {
+    "type": "terrace",
+    "wall": "w293352410_e4",
+    "from": 0.05,
+    "to": 0.99,
+    "depth": 2.6,
+    "color": "#e9e3cf",
+    "source": "Street View Jul 2025 (official pano, hand-picked frames)"
+   }
+  ]
+ },
+ "w293357016": {
+  "name": "Al Paso",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w293357016_e4",
+    "from": 0.0,
+    "to": 1.0,
+    "y": 3.75,
+    "drop": 0.8,
+    "depth": 1.3,
+    "color": "#ffffff",
+    "texture": "tkalciceva_awning_green.jpg",
+    "repeat": 8.5,
+    "source": "Street View Jul 2025 (official pano, hand-picked frames)"
+   },
+   {
+    "type": "terrace",
+    "wall": "w293357016_e4",
+    "from": 0.05,
+    "to": 0.95,
+    "depth": 3.0,
+    "color": "#2f6b4f",
+    "source": "Street View Jul 2025 (official pano, hand-picked frames)"
+   }
+  ]
+ },
+ "w293357019": {
+  "name": "Tkalčićeva (ornate house)",
+  "roof": "clay_red",
+  "features": []
+ },
+ "w293357168": {
+  "name": "Royal India",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w293357168_e4",
+    "from": 0.1,
+    "to": 1.0,
+    "y": 3.55,
+    "drop": 0.5,
+    "depth": 1.3,
+    "color": "#ffffff",
+    "texture": "tkalciceva_awning_taupe.jpg",
+    "repeat": 7.5,
+    "source": "Street View Jul 2025 (official pano, hand-picked frames)"
+   },
+   {
+    "type": "terrace",
+    "wall": "w293357168_e4",
+    "from": 0.1,
+    "to": 1.0,
+    "depth": 2.6,
+    "color": "#c9b99a",
+    "source": "Street View Jul 2025 (official pano, hand-picked frames)"
+   }
+  ]
+ },
+ "w293357169": {
+  "name": "Jamnica / Paga Gelato",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w293357169_e3",
+    "from": 0.02,
+    "to": 1.0,
+    "y": 2.75,
+    "drop": 0.4,
+    "depth": 1.2,
+    "color": "#ffffff",
+    "texture": "tkalciceva_awning_blue.jpg",
+    "repeat": 6.7,
+    "source": "Street View Jul 2025 (official pano, hand-picked frames)"
+   },
+   {
+    "type": "terrace",
+    "wall": "w293357169_e3",
+    "from": 0.05,
+    "to": 1.0,
+    "depth": 2.4,
+    "color": "#f2eee2",
+    "source": "Street View Jul 2025 (official pano, hand-picked frames)"
+   }
+  ]
+ },
+ "w293357439": {
+  "name": "Lapis Art Jewelry / Souvenirs",
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w293357439_e5",
+    "from": 0.01,
+    "to": 0.33,
+    "y": 3.4,
+    "drop": 0.4,
+    "depth": 1.2,
+    "color": "#ffffff",
+    "texture": "tkalciceva_awning_grey.jpg",
+    "repeat": 3.8,
+    "source": "Street View Jul 2025 (official pano, hand-picked frames)"
+   },
+   {
+    "type": "awning",
+    "wall": "w293357439_e5",
+    "from": 0.34,
+    "to": 0.75,
+    "y": 3.4,
+    "drop": 0.4,
+    "depth": 1.2,
+    "color": "#ffffff",
+    "texture": "tkalciceva_awning_greyplain.jpg",
+    "repeat": 4.8,
+    "source": "Street View Jul 2025 (official pano, hand-picked frames)"
+   },
+   {
+    "type": "awning",
+    "wall": "w293357439_e5",
+    "from": 0.75,
+    "to": 0.99,
+    "y": 3.4,
+    "drop": 0.4,
+    "depth": 1.2,
+    "color": "#ffffff",
+    "texture": "tkalciceva_awning_greyplain.jpg",
+    "repeat": 2.8,
+    "source": "Street View Jul 2025 (official pano, hand-picked frames)"
+   },
+   {
+    "type": "sign",
+    "wall": "w293357439_e5",
+    "mount": "projecting",
+    "image": "tkalciceva_sign_souvenirs.png",
+    "at": 0.71,
+    "y": 3.6,
+    "width": 1.1,
+    "out": 0.75,
+    "source": "Street View Jul 2025 (official pano, hand-picked frames), redrawn flat by gen-image"
+   }
+  ]
+ },
+ "w293357440": {
+  "name": "Stretto (Tkalčićeva 34 area)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "sign",
+    "wall": "w293357440_e7",
+    "mount": "projecting",
+    "image": "tkalciceva_sign_stretto.png",
+    "at": 0.56,
+    "y": 3.3,
+    "width": 0.75,
+    "out": 0.8,
+    "source": "Street View Jul 2025 (official pano, hand-picked frames), redrawn flat by gen-image"
+   }
+  ]
+ },
+ "w289908898": {
+  "name": "Kuća Vran (meet&eat)",
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w289908898_e0",
+    "at": 0.5,
+    "out": 0.8,
+    "width": 13.6,
+    "depth": 1.6,
+    "height": 0.22,
+    "y": 3.85,
+    "color": "#ffffff",
+    "texture": "tkalciceva_gallery.jpg",
+    "repeat": 1.0,
+    "source": "Street View Jul 2025 (official pano, hand-picked frames) (wooden gallery slab)"
+   },
+   {
+    "type": "box",
+    "wall": "w289908898_e0",
+    "at": 0.5,
+    "out": 1.55,
+    "width": 13.6,
+    "depth": 0.08,
+    "height": 1.05,
+    "y": 4.07,
+    "color": "#ffffff",
+    "texture": "tkalciceva_gallery.jpg",
+    "repeat": 1.0,
+    "source": "Street View Jul 2025 (official pano, hand-picked frames) (gallery balustrade)"
+   },
+   {
+    "type": "terrace",
+    "wall": "w289908898_e0",
+    "from": 0.1,
+    "to": 1.0,
+    "depth": 3.0,
+    "color": "#3a3a3a",
+    "source": "Street View Jul 2025 (official pano, hand-picked frames)"
+   }
+  ]
+ },
+ "w579294879": {
+  "name": "Gajeva 12 east (peach house)",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w579294879_e6",
+    "at": 0.5,
+    "width": 19.98,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "gajeva_cornice_ochre.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (D/E pano): heavy cornice; texture reused from round 1"
+   },
+   {
+    "type": "box",
+    "wall": "w579294879_e8",
+    "at": 0.5,
+    "width": 11.2,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "berislavic_cornice_stone.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (pano 5 Berislavićeva): heavy dentilled cornice"
+   },
+   {
+    "type": "box",
+    "wall": "w579294879_e9",
+    "at": 0.5,
+    "width": 14.2,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "berislavic_cornice_stone.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (pano 5 Berislavićeva): heavy dentilled cornice"
+   }
+  ]
+ },
+ "w579295102": {
+  "name": "Gajeva west, south end (grey-brown house)",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w579295102_e6",
+    "at": 0.5,
+    "width": 16.6,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "gajeva_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (E pano): dentilled cornice; texture reused from round 1"
+   }
+  ]
+ },
+ "w249753108": {
+  "name": "Gajeva east, south end",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w249753108_e5",
+    "at": 0.5,
+    "width": 14.45,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "gajeva_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (E pano): plain cornice; texture reused from round 1"
+   }
+  ]
+ },
+ "w446076404": {
+  "name": "Palača Vranyczany-Dobrinović (Gajeva side)",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w446076404_e11",
+    "at": 0.5,
+    "width": 15.14,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "gajeva_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (D pano): deep cornice; texture reused from round 1"
+   },
+   {
+    "type": "box",
+    "wall": "w446076404_e9",
+    "at": 0.5,
+    "width": 38.2,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "berislavic_cornice_stone.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (pano 9 Berislavićeva): dentilled stone main cornice"
+   },
+   {
+    "type": "box",
+    "wall": "w446076404_e10",
+    "at": 0.5,
+    "width": 16.1,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "berislavic_cornice_stone.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (pano 9 Berislavićeva): dentilled stone main cornice"
+   }
+  ]
+ },
+ "w97235396": {
+  "name": "Hotel Dubrovnik / Znanje (Gajeva 1)",
+  "features": [
+   {
+    "type": "sign",
+    "wall": "w97235396_e1",
+    "mount": "wall",
+    "image": "gajeva_znanje.png",
+    "at": 0.78,
+    "width": 2.6,
+    "y": 3.7,
+    "source": "Street View Jul 2025 (A pano frame 45) + Google Maps place photo of Znanje Bookshop (Gajeva 1): dark sign, sun logo, 'znanje'; redrawn flat by gen-image"
+   }
+  ]
+ },
+ "w289908903": {
+  "name": "Kuća Klemenčić (Römerquelle / ice-cream shop)",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w289908903_e0",
+    "from": 0.0,
+    "to": 1.0,
+    "y": 3.96,
+    "drop": 0.95,
+    "depth": 1.2,
+    "color": "#ffffff",
+    "texture": "tkalciceva_awning_romer.jpg",
+    "repeat": 12.7,
+    "source": "Street View Jul 2025 (official pano d, 3 m from the wall); banner measured on raw.png (3.68 to 4.91 m)"
+   }
+  ]
+ },
+ "w289908823": {
+  "name": "Kuća Mihoković (Croatian Naive Art gallery)",
+  "features": [
+   {
+    "type": "sign",
+    "wall": "w289908823_e19",
+    "mount": "wall",
+    "image": "tkalciceva_sign_naive.png",
+    "at": 0.46,
+    "width": 3.6,
+    "y": 3.2,
+    "out": 0.06,
+    "source": "Maps user photosphere Dec 2016: white board 'Croatian Naive Art / Gallery Mirko Virius', redrawn flat by gen-image"
+   }
+  ]
+ },
+ "w289908952": {
+  "name": "Tkalčićeva pink palace",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w289908952_e6",
+    "at": 0.5,
+    "width": 19.6,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "color": "#ffffff",
+    "texture": "tkalciceva_cornice_pink.jpg",
+    "repeat": 1.2,
+    "source": "Maps user photosphere Dec 2016 (projecting cornice of the pink palace)"
+   }
+  ]
+ },
+ "w735313510": {
+  "name": "Tkalčićeva white block (Coca-Cola awning)",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w735313510_e10",
+    "from": 0.06,
+    "to": 0.99,
+    "y": 4.05,
+    "drop": 0.65,
+    "depth": 1.2,
+    "color": "#ffffff",
+    "texture": "tkalciceva_awning_greyplain.jpg",
+    "repeat": 9.0,
+    "source": "Street View Jul 2025 (official pano a): dark grey awning with Coca-Cola lettering; measured on raw.png (3.77 to 4.7 m)"
+   }
+  ]
+ },
+ "w292203493": {
+  "roof": "flat_gravel",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w292203493_e0",
+    "from": 0.02,
+    "to": 0.39,
+    "y": 2.1,
+    "drop": 0.5,
+    "depth": 0.9,
+    "texture": "podzidom_awning_grey.jpg",
+    "repeat": 1.5,
+    "source": "Street View Sep 2011 (grey-white striped awning over the Mondis shop)"
+   }
+  ]
+ },
+ "w292203494": {
+  "roof": "flat_gravel",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w292203494_e0",
+    "from": 0.01,
+    "to": 0.46,
+    "y": 2.0,
+    "drop": 0.5,
+    "depth": 0.9,
+    "texture": "podzidom_awning_red.jpg",
+    "repeat": 2,
+    "source": "Street View Sep 2011 (red awning over the POD ZIDOM shop)"
+   }
+  ]
+ },
+ "w105486200": {
+  "roof": "clay_brown",
+  "features": []
+ },
+ "w295793324": {
+  "roof": "clay_brown",
+  "features": []
+ },
+ "w290024699": {
+  "name": "Kaptolska klet (Kaptol 5)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "terrace",
+    "wall": "w290024699_e10",
+    "from": 0.28,
+    "to": 0.95,
+    "depth": 3.0,
+    "color": "#ffffff",
+    "source": "Street View Jul 2024 (pano 2 Kaptol, frame 0): white parasols and planters along the restaurant front"
+   },
+   {
+    "type": "box",
+    "wall": "w290024699_e10",
+    "at": 0.5,
+    "width": 25.3,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "kaptol_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (pano 2 Kaptol): plain white eaves cornice"
+   }
+  ]
+ },
+ "w289908912": {
+  "name": "Kurija Tome Kovačevića",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w289908912_e4",
+    "at": 0.08,
+    "width": 3.0,
+    "height": 0.25,
+    "depth": 1.0,
+    "out": 0.5,
+    "y": 4.6,
+    "texture": "kaptol_balcony_stone.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (pano 27 Kaptol): stone balcony slab with balustrade over the portal; measured on the rectified photo"
+   }
+  ]
+ },
+ "w138251852": {
+  "name": "Kanonička kurija (Kaptol, north face)",
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w138251852_e11",
+    "at": 0.17,
+    "width": 0.9,
+    "height": 1.0,
+    "depth": 0.9,
+    "out": -1.2,
+    "aboveEave": 0.9,
+    "texture": "kaptol_dormer_tile.jpg",
+    "repeat": 0.8,
+    "source": "Street View Jul 2024 (pano 2 Kaptol, frame 180): roof dormers, first"
+   },
+   {
+    "type": "box",
+    "wall": "w138251852_e11",
+    "at": 0.4,
+    "width": 0.9,
+    "height": 1.0,
+    "depth": 0.9,
+    "out": -1.2,
+    "aboveEave": 0.9,
+    "texture": "kaptol_dormer_tile.jpg",
+    "repeat": 0.8,
+    "source": "Street View Jul 2024 (pano 2 Kaptol, frame 180): roof dormers, second"
+   },
+   {
+    "type": "box",
+    "wall": "w138251852_e11",
+    "at": 0.63,
+    "width": 0.9,
+    "height": 1.0,
+    "depth": 0.9,
+    "out": -1.2,
+    "aboveEave": 0.9,
+    "texture": "kaptol_dormer_tile.jpg",
+    "repeat": 0.8,
+    "source": "Street View Jul 2024 (pano 2 Kaptol, frame 180): roof dormers, third"
+   }
+  ]
+ },
+ "w584458872": {
+  "name": "Kuća Betelheim",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w584458872_e5",
+    "from": 0.033,
+    "to": 0.148,
+    "y": 2.5,
+    "drop": 0.86,
+    "depth": 1.1,
+    "color": "#ffffff",
+    "texture": "tesle_canvas_cream.jpg",
+    "repeat": 1.0,
+    "source": "Street View Jul 2024: white canvas awnings with red 'KONZUM' valance over the six arches"
+   },
+   {
+    "type": "awning",
+    "wall": "w584458872_e5",
+    "from": 0.194,
+    "to": 0.308,
+    "y": 2.5,
+    "drop": 0.86,
+    "depth": 1.1,
+    "color": "#ffffff",
+    "texture": "tesle_canvas_cream.jpg",
+    "repeat": 1.0,
+    "source": "Street View Jul 2024: white canvas awnings with red 'KONZUM' valance over the six arches"
+   },
+   {
+    "type": "awning",
+    "wall": "w584458872_e5",
+    "from": 0.346,
+    "to": 0.46,
+    "y": 2.5,
+    "drop": 0.86,
+    "depth": 1.1,
+    "color": "#ffffff",
+    "texture": "tesle_canvas_cream.jpg",
+    "repeat": 1.0,
+    "source": "Street View Jul 2024: white canvas awnings with red 'KONZUM' valance over the six arches"
+   },
+   {
+    "type": "awning",
+    "wall": "w584458872_e5",
+    "from": 0.502,
+    "to": 0.615,
+    "y": 2.5,
+    "drop": 0.86,
+    "depth": 1.1,
+    "color": "#ffffff",
+    "texture": "tesle_canvas_cream.jpg",
+    "repeat": 1.0,
+    "source": "Street View Jul 2024: white canvas awnings with red 'KONZUM' valance over the six arches"
+   },
+   {
+    "type": "awning",
+    "wall": "w584458872_e5",
+    "from": 0.664,
+    "to": 0.778,
+    "y": 2.5,
+    "drop": 0.86,
+    "depth": 1.1,
+    "color": "#ffffff",
+    "texture": "tesle_canvas_cream.jpg",
+    "repeat": 1.0,
+    "source": "Street View Jul 2024: white canvas awnings with red 'KONZUM' valance over the six arches"
+   },
+   {
+    "type": "awning",
+    "wall": "w584458872_e5",
+    "from": 0.838,
+    "to": 0.952,
+    "y": 2.5,
+    "drop": 0.86,
+    "depth": 1.1,
+    "color": "#ffffff",
+    "texture": "tesle_canvas_cream.jpg",
+    "repeat": 1.0,
+    "source": "Street View Jul 2024: white canvas awnings with red 'KONZUM' valance over the six arches"
+   }
+  ]
+ },
+ "w435118930": {
+  "name": "Nikole Tesle 12 (DermaCare / Costa)",
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w435118930_e4",
+    "from": 0.55,
+    "to": 0.83,
+    "y": 3.28,
+    "drop": 0.88,
+    "depth": 1.3,
+    "color": "#ffffff",
+    "texture": "tesle_canvas_beige.jpg",
+    "repeat": 1.0,
+    "source": "Street View Jul 2025: beige awning 'DermaCare'"
+   },
+   {
+    "type": "awning",
+    "wall": "w435118930_e5",
+    "from": 0.15,
+    "to": 0.97,
+    "y": 3.28,
+    "drop": 0.88,
+    "depth": 1.5,
+    "color": "#ffffff",
+    "texture": "tesle_canvas_beige.jpg",
+    "repeat": 1.0,
+    "source": "Street View Jul 2025: long beige awning 'WE'RE SERVING COSTA COFFEE'"
+   }
+  ]
+ },
+ "w289908875": {
+  "name": "Kuća Rade",
+  "roof": "biber_old"
+ },
+ "w293352156": {
+  "name": "Kuća Kinderman",
+  "roof": "clay_red"
+ },
+ "w299519687": {
+  "roof": "clay_red"
+ },
+ "w299519686": {
+  "roof": "biber_old"
+ },
+ "w299519685": {
+  "roof": "clay_brown"
+ },
+ "r10165667": {
+  "name": "Kuća Miletić",
+  "roof": "clay_red"
+ },
+ "w735337385": {
+  "roof": "clay_brown"
+ },
+ "w735337381": {
+  "roof": "clay_pale"
+ },
+ "w289863031": {
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w289863031_e1",
+    "from": 0.64,
+    "to": 1.0,
+    "y": 2.75,
+    "drop": 0.9,
+    "depth": 1.0,
+    "texture": "pavlaradica_awning.jpg",
+    "repeat": 2,
+    "source": "Street View Jul 2024 (pano 3 Radićeva, frame 90 tilt 98): grey striped awning over the ZLATAR jeweller; measured on raw.png"
+   }
+  ]
+ },
+ "r6414116": {
+  "features": [
+   {
+    "type": "box",
+    "wall": "r6414116_e9",
+    "at": 0.525,
+    "width": 7.5,
+    "height": 0.25,
+    "depth": 1.0,
+    "out": 0.5,
+    "y": 5.45,
+    "color": "#d8d2c4",
+    "texture": "pavlaradica_stone.jpg",
+    "repeat": 1,
+    "source": "Street View Jul 2024 (pano 25 Radićeva, frame 90 tilt 98): stone balcony slab with wrought-iron railing; measured on raw.png"
+   }
+  ]
+ },
+ "w97091852": {
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "terrace",
+    "wall": "w97091852_e19",
+    "from": 0.1,
+    "to": 0.95,
+    "depth": 2.5,
+    "color": "#ffffff",
+    "source": "Street View Jul 2024 (pano 14 Radićeva, frame 270): Joyful Kitchen wooden tables with white parasols"
+   }
+  ]
+ },
+ "r9374001": {
+  "features": [
+   {
+    "type": "terrace",
+    "wall": "r9374001_e9",
+    "from": 0.05,
+    "to": 0.95,
+    "depth": 2.5,
+    "color": "#e8e4dc",
+    "source": "Street View Jul 2024 (pano 3 Radićeva, frame 270): white parasols and dark high tables before Blau-Line"
+   }
+  ]
+ },
+ "w97089777": {
+  "roof": "clay_red",
+  "features": []
+ },
+ "w97091854": {
+  "roof": "clay_brown",
+  "features": []
+ },
+ "w97091865": {
+  "roof": "clay_brown",
+  "features": []
+ },
+ "w137106310": {
+  "name": "Palača Vranyczany-Dobrinović",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w137106310_e13",
+    "at": 0.819,
+    "width": 5.12,
+    "depth": 1.0,
+    "out": 0.5,
+    "height": 0.35,
+    "texture": "zrinski_balcony_stone.jpg",
+    "repeat": 1.5,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac west road): central first-floor balcony over the portal (left part)",
+    "y": 9.7
+   },
+   {
+    "type": "box",
+    "wall": "w137106310_e0",
+    "at": 0.267,
+    "width": 10.45,
+    "depth": 1.0,
+    "out": 0.5,
+    "height": 0.35,
+    "texture": "zrinski_balcony_stone.jpg",
+    "repeat": 1.5,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac west road): central first-floor balcony over the portal (right part)",
+    "y": 9.7
+   },
+   {
+    "type": "box",
+    "wall": "w137106310_e13",
+    "at": 0.08,
+    "width": 2.3,
+    "depth": 0.8,
+    "out": 0.4,
+    "height": 0.3,
+    "texture": "zrinski_balcony_stone.jpg",
+    "repeat": 1.5,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac west road): small end balcony, south end",
+    "y": 9.6
+   },
+   {
+    "type": "box",
+    "wall": "w137106310_e0",
+    "at": 0.94,
+    "width": 2.3,
+    "depth": 0.8,
+    "out": 0.4,
+    "height": 0.3,
+    "texture": "zrinski_balcony_stone.jpg",
+    "repeat": 1.5,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac west road): small end balcony, north end",
+    "y": 9.6
+   },
+   {
+    "type": "box",
+    "wall": "w137106310_e13",
+    "at": 0.5,
+    "width": 14.15,
+    "depth": 0.5,
+    "out": 0.25,
+    "height": 0.5,
+    "texture": "zrinski_cornice_ochre.jpg",
+    "repeat": 1.2,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac west road): balustraded main cornice",
+    "aboveEave": -0.55
+   },
+   {
+    "type": "box",
+    "wall": "w137106310_e0",
+    "at": 0.5,
+    "width": 19.56,
+    "depth": 0.5,
+    "out": 0.25,
+    "height": 0.5,
+    "texture": "zrinski_cornice_ochre.jpg",
+    "repeat": 1.2,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac west road): balustraded main cornice",
+    "aboveEave": -0.55
+   }
+  ]
+ },
+ "w579294902": {
+  "name": "Trg N. Š. Zrinskog, ADRIA shopfronts",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w579294902_e4",
+    "from": 0.09,
+    "to": 0.5,
+    "y": 3.9,
+    "drop": 0.9,
+    "depth": 1.2,
+    "color": "#ffffff",
+    "texture": "zrinski_awning_navy.jpg",
+    "repeat": 3,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac west road): navy awning, measured on raw.png"
+   },
+   {
+    "type": "awning",
+    "wall": "w579294902_e4",
+    "from": 0.52,
+    "to": 0.97,
+    "y": 3.9,
+    "drop": 0.9,
+    "depth": 1.2,
+    "color": "#ffffff",
+    "texture": "zrinski_awning_navy.jpg",
+    "repeat": 3,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac west road): navy awning"
+   },
+   {
+    "type": "awning",
+    "wall": "w579294902_e5",
+    "from": 0.006,
+    "to": 0.22,
+    "y": 3.9,
+    "drop": 0.9,
+    "depth": 1.2,
+    "color": "#ffffff",
+    "texture": "zrinski_awning_navy.jpg",
+    "repeat": 3,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac west road): navy awning"
+   },
+   {
+    "type": "box",
+    "wall": "w579294902_e4",
+    "at": 0.5,
+    "width": 6.61,
+    "depth": 0.5,
+    "out": 0.25,
+    "height": 0.5,
+    "texture": "zrinski_cornice_white.jpg",
+    "repeat": 1.2,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac west road): main cornice",
+    "aboveEave": -0.55
+   },
+   {
+    "type": "box",
+    "wall": "w579294902_e5",
+    "at": 0.5,
+    "width": 14.09,
+    "depth": 0.5,
+    "out": 0.25,
+    "height": 0.5,
+    "texture": "zrinski_cornice_white.jpg",
+    "repeat": 1.2,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac west road): main cornice",
+    "aboveEave": -0.55
+   }
+  ]
+ },
+ "w579294884": {
+  "features": [
+   {
+    "type": "box",
+    "wall": "w579294884_e2",
+    "at": 0.5,
+    "width": 19.26,
+    "depth": 0.5,
+    "out": 0.25,
+    "height": 0.5,
+    "texture": "zrinski_cornice_white.jpg",
+    "repeat": 1.2,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac west road): main cornice",
+    "aboveEave": -0.55
+   }
+  ]
+ },
+ "w390984160": {
+  "features": [
+   {
+    "type": "box",
+    "wall": "w390984160_e8",
+    "at": 0.5,
+    "width": 62.81,
+    "depth": 0.6,
+    "out": 0.3,
+    "height": 0.55,
+    "texture": "zrinski_cornice_white.jpg",
+    "repeat": 1.2,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac east road): heavy white stone main cornice",
+    "aboveEave": -0.55
+   }
+  ]
+ },
+ "w390984148": {
+  "name": "Kuća Antolković",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w390984148_e0",
+    "at": 0.5,
+    "width": 20.56,
+    "depth": 0.5,
+    "out": 0.25,
+    "height": 0.5,
+    "texture": "zrinski_cornice_ochre.jpg",
+    "repeat": 1.2,
+    "source": "Street View Oct 2011 (official pano at Zrinjevac east road): decorated cornice",
+    "aboveEave": -0.55
+   }
+  ]
+ },
+ "w289863017": {
+  "name": "Vlaška 12 (Babushka)",
+  "roof": "slate_grey",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w289863017_e0",
+    "at": 0.5,
+    "width": 24.0,
+    "height": 0.5,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "vlaska_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2020 (pano 12 Vlaška, rectified frames): plain white projecting eaves cornice"
+   },
+   {
+    "type": "box",
+    "wall": "w289863017_e0",
+    "at": 0.28,
+    "width": 1.1,
+    "height": 1.3,
+    "depth": 1.0,
+    "out": -1.2,
+    "aboveEave": 0.9,
+    "texture": "vlaska_dormer_tile.jpg",
+    "repeat": 0.8,
+    "source": "Street View Jul 2020 (pano 12 Vlaška, rectified frames): red-brown tiled roof dormer, position measured on the rectified photo"
+   },
+   {
+    "type": "box",
+    "wall": "w289863017_e0",
+    "at": 0.42,
+    "width": 1.1,
+    "height": 1.3,
+    "depth": 1.0,
+    "out": -1.2,
+    "aboveEave": 0.9,
+    "texture": "vlaska_dormer_tile.jpg",
+    "repeat": 0.8,
+    "source": "Street View Jul 2020 (pano 12 Vlaška, rectified frames): red-brown tiled roof dormer, position measured on the rectified photo"
+   },
+   {
+    "type": "box",
+    "wall": "w289863017_e0",
+    "at": 0.56,
+    "width": 1.1,
+    "height": 1.3,
+    "depth": 1.0,
+    "out": -1.2,
+    "aboveEave": 0.9,
+    "texture": "vlaska_dormer_tile.jpg",
+    "repeat": 0.8,
+    "source": "Street View Jul 2020 (pano 12 Vlaška, rectified frames): red-brown tiled roof dormer, position measured on the rectified photo"
+   },
+   {
+    "type": "box",
+    "wall": "w289863017_e0",
+    "at": 0.67,
+    "width": 1.1,
+    "height": 1.3,
+    "depth": 1.0,
+    "out": -1.2,
+    "aboveEave": 0.9,
+    "texture": "vlaska_dormer_tile.jpg",
+    "repeat": 0.8,
+    "source": "Street View Jul 2020 (pano 12 Vlaška, rectified frames): red-brown tiled roof dormer, position measured on the rectified photo"
+   },
+   {
+    "type": "box",
+    "wall": "w289863017_e0",
+    "at": 0.84,
+    "width": 1.1,
+    "height": 1.3,
+    "depth": 1.0,
+    "out": -1.2,
+    "aboveEave": 0.9,
+    "texture": "vlaska_dormer_tile.jpg",
+    "repeat": 0.8,
+    "source": "Street View Jul 2020 (pano 12 Vlaška, rectified frames): red-brown tiled roof dormer, position measured on the rectified photo"
+   },
+   {
+    "type": "box",
+    "wall": "w289863017_e0",
+    "at": 0.677,
+    "width": 0.6,
+    "height": 0.45,
+    "depth": 0.06,
+    "out": 0.03,
+    "y": 2.9,
+    "color": "#2b3f9e",
+    "source": "Street View Jul 2020 (pano 12 Vlaška, rectified frames): blue 'HOSTEL Center' square sign left of the Babushka shop"
+   }
+  ]
+ },
+ "w249753112": {
+  "name": "Palača Ožegović",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w249753112_e8",
+    "at": 0.5,
+    "width": 11.5,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "berislavic_cornice_stone.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (pano 1 Berislavićeva): heavy dentilled cornice"
+   },
+   {
+    "type": "box",
+    "wall": "w249753112_e9",
+    "at": 0.5,
+    "width": 15.7,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "berislavic_cornice_stone.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (pano 1 Berislavićeva): heavy dentilled cornice"
+   }
+  ]
+ },
+ "w446076409": {
+  "name": "Berislavićeva (white two-storey house with café)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w446076409_e5",
+    "from": 0.23,
+    "to": 0.98,
+    "y": 3.53,
+    "drop": 0.57,
+    "depth": 1.2,
+    "color": "#ffffff",
+    "texture": "berislavic_awning_green.jpg",
+    "repeat": 2.0,
+    "source": "Street View Jul 2024 (pano 21 Berislavićeva): grey-green café awning; y/drop measured on raw.png (pavement 0 .. eave 8.4 m)"
+   },
+   {
+    "type": "box",
+    "wall": "w446076409_e5",
+    "at": 0.5,
+    "width": 12.7,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "berislavic_cornice_stone.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (pano 21 Berislavićeva): plain projecting eaves cornice"
+   }
+  ]
+ },
+ "r3890429": {
+  "features": [
+   {
+    "type": "box",
+    "wall": "r3890429_e2",
+    "at": 0.5,
+    "width": 25.8,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "jurisic_cornice_brick.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2025 (pano on Jurišićeva): brick-and-stone main cornice of the Pošta building, texture redrawn flat by gen-image"
+   },
+   {
+    "type": "box",
+    "wall": "r3890429_e3",
+    "at": 0.5,
+    "width": 20.4,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "jurisic_cornice_brick.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2025 (pano on Jurišićeva): brick-and-stone main cornice of the Pošta building, texture redrawn flat by gen-image"
+   },
+   {
+    "type": "box",
+    "wall": "r3890429_e4",
+    "at": 0.5,
+    "width": 22.0,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "jurisic_cornice_brick.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2025 (pano on Jurišićeva): brick-and-stone main cornice of the Pošta building, texture redrawn flat by gen-image"
+   },
+   {
+    "type": "box",
+    "wall": "r3890429_e5",
+    "at": 0.5,
+    "width": 13.7,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "jurisic_cornice_brick.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2025 (pano on Jurišićeva): brick-and-stone main cornice of the Pošta building, texture redrawn flat by gen-image"
+   },
+   {
+    "type": "sign",
+    "wall": "r3890429_e3",
+    "mount": "projecting",
+    "image": "jurisic_posta.png",
+    "at": 0.5,
+    "width": 0.9,
+    "y": 3.8,
+    "out": 0.6,
+    "source": "Street View Jul 2025 (pano on Jurišićeva): yellow diamond 'Pošta' blade sign over the post office door, redrawn flat by gen-image"
+   },
+   {
+    "type": "sign",
+    "wall": "r3890429_e4",
+    "mount": "projecting",
+    "image": "jurisic_posta.png",
+    "at": 0.14,
+    "width": 0.9,
+    "y": 3.6,
+    "out": 0.6,
+    "source": "Street View Jul 2025 (pano on Jurišićeva): second yellow 'Pošta' blade sign at the west end of the ground floor, redrawn flat by gen-image"
+   }
+  ]
+ },
+ "w286611976": {
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286611976_e2",
+    "at": 0.5,
+    "width": 24.2,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "jurisic_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2025 (pano on Jurišićeva): heavy cream cornice of the brick palace, texture redrawn flat by gen-image"
+   }
+  ]
+ },
+ "w286611974": {
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286611974_e4",
+    "at": 0.5,
+    "width": 20.8,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "jurisic_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2025 (pano on Jurišićeva): projecting cream main cornice of the yellow house, texture redrawn flat by gen-image"
+   }
+  ]
+ },
+ "w137106316": {
+  "name": "Ulica Milana Amruša (Sisters Kurtoš)",
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w137106316_e2",
+    "at": 0.5,
+    "width": 30.4,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): brown plaster main cornice"
+   }
+  ]
+ },
+ "w137106308": {
+  "name": "Ulica Milana Amruša (dm corner house)",
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w137106308_e3",
+    "at": 0.5,
+    "width": 21.4,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): brown plaster main cornice"
+   },
+   {
+    "type": "sign",
+    "wall": "w137106308_e3",
+    "mount": "projecting",
+    "image": "amrus_dm.png",
+    "at": 0.03,
+    "width": 0.8,
+    "y": 3.6,
+    "out": 0.5,
+    "source": "Street View Jul 2024 (pano F Amruša frames h0/h60): projecting 'dm' drugstore sign on the west corner pier, redrawn flat by gen-image"
+   }
+  ]
+ },
+ "w286611968": {
+  "name": "Ulica Milana Amruša (secession house)",
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286611968_e6",
+    "at": 0.5,
+    "width": 18.2,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): brown plaster main cornice"
+   },
+   {
+    "type": "box",
+    "wall": "w286611968_e6",
+    "at": 0.53,
+    "width": 15.0,
+    "height": 0.35,
+    "depth": 0.8,
+    "out": 0.4,
+    "y": 5.85,
+    "texture": "amrus_balcony_stone.jpg",
+    "repeat": 1.0,
+    "source": "Street View Jul 2024 (pano B Amruša frame h0): stone balcony band with baluster panels over the ground floor; y measured on the rectified photo"
+   }
+  ]
+ },
+ "w785980273": {
+  "name": "Ulica Milana Amruša (white oriel house)",
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w785980273_e6",
+    "at": 0.5,
+    "width": 16.6,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): cream plaster main cornice"
+   }
+  ]
+ },
+ "w286611967": {
+  "name": "Ulica Milana Amruša (taupe secession house)",
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286611967_e7",
+    "at": 0.5,
+    "width": 20.5,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): brown plaster main cornice"
+   }
+  ]
+ },
+ "w286611963": {
+  "name": "Ulica Milana Amruša (medallion house)",
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286611963_e2",
+    "at": 0.5,
+    "width": 17.4,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): brown plaster main cornice"
+   }
+  ]
+ },
+ "w286611969": {
+  "name": "Ulica Milana Amruša (ochre oriel house)",
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286611969_e0",
+    "at": 0.5,
+    "width": 18.1,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): brown plaster main cornice"
+   }
+  ]
+ },
+ "w286611970": {
+  "name": "Ulica Milana Amruša (arched-attic house)",
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286611970_e0",
+    "at": 0.5,
+    "width": 15.8,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): brown plaster main cornice"
+   }
+  ]
+ },
+ "w286611962": {
+  "name": "Ulica Milana Amruša (five-storey palace)",
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286611962_e6",
+    "at": 0.5,
+    "width": 31.5,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): brown plaster main cornice"
+   }
+  ]
+ },
+ "w286614549": {
+  "name": "Poliklinika Amruševa",
+  "roof": "flat_gravel",
+  "features": []
+ },
+ "w286614550": {
+  "name": "Ulica Milana Amruša (red house)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286614550_e6",
+    "at": 0.57,
+    "width": 14.0,
+    "height": 0.6,
+    "depth": 0.9,
+    "out": 0.45,
+    "y": 5.9,
+    "color": "#c9695c",
+    "texture": "amrus_balcony_stone.jpg",
+    "repeat": 1.5,
+    "source": "Street View Jul 2024 (pano C Amruša frame h180): heavy red-painted balcony band over the entrance, tinted texture"
+   }
+  ]
+ },
+ "w286614547": {
+  "name": "Chrisma office block",
+  "roof": "flat_gravel",
+  "features": []
+ },
+ "w860324918": {
+  "name": "Ulica Milana Amruša (VIP Travel house)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w860324918_e1",
+    "at": 0.5,
+    "width": 24.9,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "amrus_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Ulica Milana Amruša panos): cream plaster main cornice"
+   },
+   {
+    "type": "sign",
+    "wall": "w860324918_e1",
+    "mount": "projecting",
+    "image": "amrus_vip.png",
+    "at": 0.95,
+    "width": 0.8,
+    "y": 2.9,
+    "out": 0.5,
+    "source": "Street View Jul 2024 (pano D Amruša frame h180): blue 'VIP TRAVEL' blade sign at the west end, redrawn flat by gen-image"
+   }
+  ]
+ }
 }

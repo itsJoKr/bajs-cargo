@@ -1,0 +1,307 @@
+{
+ "facades": [
+  {
+   "name": "prad_burgeraj",
+   "photo": ".art/streetview/prad/c_burgeraj.png",
+   "edges": [
+    "w446076411_e3"
+   ],
+   "bays": 5,
+   "storeys": 3,
+   "place": "Preradovićeva ulica",
+   "source": "Street View Mar 2023 (rectified from 2 frames)",
+   "look": "a three-storey classicist house in soft pistachio-green stucco on the east side of Preradovićeva, five bays: on the two upper floors tall rectangular windows with white frames, the first floor windows under small flat cornice hoods, a cream stringcourse between the floors, a deep dentilled cornice under the roof. Ground floor: at the LEFT a dark green shop front with a dark fascia carrying the gold letters 'ŠIRA', in the MIDDLE-RIGHT a teal-framed shop front under a rust-brown wooden fascia with big white block letters 'BURGERAJ', a colourful abstract painted mural in the right window, and at the far RIGHT a stone archway passage entrance. Copy exactly, no other text. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "prad_karlo_east",
+   "photo": ".art/streetview/prad/c_karlo_e.png",
+   "edges": [
+    "w446076410_e6",
+    "w446076410_e7"
+   ],
+   "bays": 4,
+   "storeys": 4,
+   "place": "Preradovićeva ulica",
+   "source": "Street View Mar 2023 (rectified from 2 frames)",
+   "look": "a four-storey historicist corner house in sand-brown rusticated stucco with patchy weathered plaster, on the east side of Preradovićeva: four bays, the upper floors with tall windows in moulded brown surrounds, the first-floor windows with sculpted brackets and one with a triangular pediment, a heavy stepped cornice at the top; the ground floor is clad in pale travertine stone with a row of small three-pane mezzanine windows above a glazed bank front, and a red 'karlovačka banka' logo sign near the RIGHT end. Faded, patchy plaster as photographed. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "prad_karlo_south",
+   "photo": ".art/streetview/prad/c_karlo_s.png",
+   "edges": [
+    "w446076410_e8"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Preradovićeva ulica",
+   "source": "Street View Jul 2024 (pano AVqg2od on Berislavićeva)",
+   "look": "the south front of a four-storey historicist bank house in sand-brown rusticated stucco with patchy weathered plaster: five bays, on the first and second floors tall windows in moulded brown surrounds with bracket sills, a rusticated corner pilaster at the LEFT, an over-scaled cornice; the ground floor is clad in pale travertine: at the LEFT a tall glazed entrance with a metal frame, then a row of small three-pane mezzanine windows over a white fascia carrying the red 'karlovačka banka' logo and lower-case lettering 'karlovačka banka', below it three large glass panes with white frosted strips, a poster on the first pane, and a brown wooden door at the far RIGHT. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "prad_arbanas",
+   "photo": ".art/streetview/prad/c_arbanas.png",
+   "edges": [
+    "w446070851_e5",
+    "w446070851_e6"
+   ],
+   "bays": 4,
+   "storeys": 2,
+   "place": "Preradovićeva ulica",
+   "source": "Street View Mar 2023 (rectified from 2 frames)",
+   "look": "a two-storey low grey-brown plastered house with a plain overhanging eaves cornice on the east side of Preradovićeva: four bays, four tall white-framed windows on the first floor (one with a pink and white poster), the ground floor in dark grey cladding with, from LEFT to RIGHT: two small shop windows with grey awning strips, a shop door with colourful posters, then two shop fronts under grey rectangular signs reading 'MARTIN ARBANAS' and a black door. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "prad_ovals",
+   "photo": ".art/streetview/prad/c_ovals.png",
+   "edges": [
+    "w579101705_e35"
+   ],
+   "bays": 4,
+   "storeys": 3,
+   "place": "Preradovićeva ulica",
+   "source": "Street View Mar 2023 (rectified from 2 frames)",
+   "look": "a three-storey historicist house in warm beige-grey ribbed (horizontally grooved) stucco on the west side of Preradovićeva: four bays, each with a tall arched window in a smooth surround with a roller shutter on the upper floor, under it a smooth panel with an oval wreath medallion, and on the lower floor a rectangular window with a shutter, smooth pilaster strips between the bays, a frieze of small rosettes under the cornice. No shop front, the ground floor is plain windows. No text. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "prad_alcatraz",
+   "photo": ".art/streetview/prad/c_alcatraz.png",
+   "edges": [
+    "w1005273955_e17"
+   ],
+   "bays": 3,
+   "storeys": 5,
+   "place": "Preradovićeva ulica",
+   "source": "Street View Mar 2023 (rectified from 2 frames)",
+   "look": "a five-storey Secession corner-style house in warm yellow-ochre stucco on the west side of Preradovićeva, narrow: a rounded stone oriel (bay window) with a curved balcony with iron railing rising over the first two floors at the LEFT, plain windows and a small balcony above, a dark ground floor bar front with a black sign 'ALCATRAZ CAFFE BAR', a neon red script sign 'night bar', small beer signs and posters, closed café parasols either side. Copy the signs exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "prad_yellow",
+   "photo": ".art/streetview/prad/c_yellow.png",
+   "edges": [
+    "w1005273955_e19"
+   ],
+   "bays": 5,
+   "storeys": 5,
+   "place": "Preradovićeva ulica",
+   "source": "Street View Mar 2023 (rectified from 2 frames)",
+   "look": "a five-storey Secession apartment house in warm yellow-ochre stucco on the west side of Preradovićeva near the Nikole Tesle crossing: at the RIGHT end a rounded stone oriel bay (rusticated stone base) with a curved iron balcony on top and a stone relief panel above, to its left four bays with tall recessed windows, small iron balconies on the third floor and relief panels under the top windows, flat pilasters, an overhanging cornice; ground floor with dark-brown framed shop windows, a blue 'P' parking sign, and at the RIGHT a stone-clad shop front with a dark brown frame. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "prad_corner_w",
+   "photo": ".art/streetview/prad/c_corner_w.png",
+   "edges": [
+    "w512839727_e0"
+   ],
+   "bays": 4,
+   "storeys": 4,
+   "place": "Preradovićeva ulica",
+   "source": "Street View Mar 2023 (rectified from 2 frames)",
+   "look": "a four-storey historicist palace in pale sand-coloured stucco on the corner of Preradovićeva and Nikole Tesle, on the west side: four bays with arched windows on the second floor and rectangular windows with cornice hoods on the first, rusticated pilaster strips, a heavy dentilled cornice, a small pedimented turret-like dormer at the RIGHT rising above the roof line; ground floor with big pale-stone framed shop fronts, a green pharmacy cross sign, a blue rectangular sign. Draw NO tree, NO car, NO bronze sculpture, NO people."
+  },
+  {
+   "name": "prad_brick",
+   "photo": ".art/streetview/prad/c_brick.png",
+   "edges": [
+    "w776168864_e0"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "place": "Preradovićeva ulica",
+   "source": "Street View Mar 2023",
+   "look": "the blank side wall of a modern building in rust-brown brick, four storeys with no windows, a plain flat top with green planting above, at the ground floor a low open parking/garage opening. No text."
+  },
+  {
+   "name": "prad_cream_east",
+   "photo": ".art/streetview/prad/c_cream_east.png",
+   "edges": [
+    "w446076669_e6"
+   ],
+   "bays": 7,
+   "storeys": 4,
+   "place": "Preradovićeva ulica",
+   "source": "Street View Mar 2023 (rectified from pano 1t71Nt)",
+   "look": "a four-storey neo-baroque apartment house in warm cream-sand stucco on the east side of Preradovićeva: seven bays, rusticated horizontal bands on the ground floor, tall windows with moulded surrounds and small sculpted cartouches and pediment hoods on the first floor, plainer windows above, a balustrade band under the first floor windows, a deep cornice with small attic openings; ground floor from LEFT to RIGHT: a dark-brown glazed door with posters, a grey-blue shop with a gold sign and small lettering 'Cloud', a blue-framed shop door with a yellow-orange sign, small notice board, a stone-arch entrance with a canopy over the main doorway, further dark shop fronts with grilles. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons, NO café umbrellas."
+  },
+  {
+   "name": "prad_kic_palace",
+   "photo": ".art/streetview/prad/c_kic_palace.png",
+   "edges": [
+    "w512839704_e8"
+   ],
+   "bays": 8,
+   "storeys": 4,
+   "place": "Preradovićeva ulica",
+   "source": "Street View Jul 2025 (frame across the street, café umbrellas in front)",
+   "look": "a four-storey plain historicist apartment house in pale cream-yellow stucco on the west side of Preradovićeva: eight bays of tall rectangular windows with slim white frames and small sills, shallow cornice bands between floors, a flat cornice at the top; ground floor: dark shop fronts, one with a dark fascia showing partly the letters 'ELLA', a café terrace in front (draw NO umbrellas). Simple, symmetrical. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons, NO café umbrellas."
+  },
+  {
+   "name": "prad_citaonica",
+   "photo": ".art/streetview/prad/c_citaonica.png",
+   "edges": [
+    "r6451028_e0"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Preradovićeva ulica",
+   "source": "Street View Jul 2025 (oblique frames from 3 m, partial view)",
+   "look": "the east side of Preradovićeva, a 1960s modernist commercial building: the ground floor is a long glazed bookshop front (large glass panes in dark metal frames, books and posters visible inside) under a wide white-grey fascia carrying big dark steel letters 'KNJIŽNICA I ČITAONICA' — the word ČITAONICA starts with a Č that MUST carry its caron (háček, the little v on top), and KNJIŽNICA has a Ž with caron too (the photo shows '…NICA I ČITAONICA', complete it as 'KNJIŽNICA I ČITAONICA'), a small house number plate '5a', a fire alarm box, a glazed double door; above the fascia a blue striped retractable awning, then a band of dark reflective glazing and window frames on the first floor, and cream plain plaster upper floors with a few small windows and a deep flat cornice. Four storeys. Copy the signs as photographed. Draw NO people, NO map interface overlay (search box, info panel, mini-map), NO round map icons, NO café umbrellas."
+  },
+  {
+   "name": "prad_kic",
+   "photo": ".art/streetview/prad/c_kic.png",
+   "edges": [
+    "w435118927_e0"
+   ],
+   "bays": 8,
+   "storeys": 4,
+   "place": "Preradovićeva ulica",
+   "source": "Street View Jul 2025 (oblique frames from 3 m, partial view)",
+   "look": "the east side of Preradovićeva, a long modernist building continuing south from the bookshop: at the LEFT a glazed shop front, then a white 'Zagrebačka banka' cash machine cabinet with red logo and the word 'bankomat', then a ground floor clad in pale grooved (horizontally ribbed) cream stone with big black lower-case letters 'kic' and under them the smaller word 'klub', a black-framed illuminated display case headed 'KULTURNO INFORMATIVNI CENTAR' with colourful posters, and further right a black fascia with white block letters 'KULTURNO INFORMATIVNI CENTAR' over the entrance, a hanging blue-and-red banner on the upper floors; the upper floors in cream plaster with small windows and a few balconies with iron railings, flat roof edge. Four storeys. Draw NO people, NO map interface overlay (search box, info panel, mini-map), NO round map icons, NO café umbrellas."
+  },
+  {
+   "name": "prad_yellow_row",
+   "photo": ".art/streetview/prad/c_yellow.png",
+   "edges": [
+    "w1005273955_e18"
+   ],
+   "bays": 8,
+   "storeys": 5,
+   "place": "Preradovićeva ulica",
+   "source": "invented from the neighbouring house (e19), the wall itself is hidden by a tree and café furniture in Street View",
+   "look": "INVENTED continuation of the same five-storey Secession house in warm yellow-ochre stucco, on the west side of Preradovićeva: eight bays of tall recessed windows with small iron balconies on the third floor and small relief panels under the top windows, flat pilasters between bays, the same overhanging cornice and the same brown-framed ground floor with dark shop windows, a stone arched doorway at the LEFT end and shop fronts; do NOT copy the stone corner bay of the reference, this part is flat. No text."
+  },
+  {
+   "name": "prad_salmon",
+   "photo": ".art/streetview/prad/c_salmon.png",
+   "edges": [
+    "w512839703_e6"
+   ],
+   "bays": 10,
+   "storeys": 5,
+   "place": "Preradovićeva ulica",
+   "source": "Street View Jul 2025 (partial view across café umbrellas; ground floor invented)",
+   "look": "a five-storey historicist apartment house in salmon-terracotta painted stucco on the west side of Preradovićeva, under renovation and covered in steel scaffolding with a grey net on the upper floors: ten bays, arched windows on the upper floor and first floor with cream surrounds, cream stringcourses, a deep cornice; ground floor (not visible in the photo, invent it): dark shop fronts and an arched entrance. Draw the scaffolding as thin grey tubes and boards across the upper floors. No text. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons, NO café umbrellas."
+  },
+  {
+   "name": "prad_grey",
+   "photo": ".art/streetview/prad/c_grey.png",
+   "edges": [
+    "w579101704_e11"
+   ],
+   "bays": 5,
+   "storeys": 5,
+   "place": "Preradovićeva ulica",
+   "source": "Street View Mar 2023 (one oblique frame)",
+   "look": "a five-storey 1930s modernist apartment block in white-grey smooth render on the west side of Preradovićeva: five bays of wide horizontal ribbon windows with dark red-brown roller blinds, simple flat cornice, a slightly projecting central band, a flat roof, ground floor with a dark shop front and a blue fascia. No text. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons, NO café umbrellas."
+  },
+  {
+   "name": "prad_stone",
+   "photo": ".art/streetview/prad/c_stone.png",
+   "edges": [
+    "w1005273955_e25"
+   ],
+   "bays": 9,
+   "storeys": 5,
+   "place": "Nikole Tesle ulica",
+   "source": "Street View Mar 2023 (oblique frame, rest invented)",
+   "look": "the Nikole Tesle street front of the yellow-ochre Secession corner house: a long five-storey wall, ground floor and first floor clad in rough pale grey-beige rusticated stone blocks with tall dark-brown framed glass shop windows with louvred vents above them (one window shows a large photo of a man holding a camera and the words 'Do what you love'), small iron grille panels, a dark street-name plate; above the stone base three floors of yellow-ochre plaster with tall windows in plain frames and a few small iron balconies, cornice at the top. Nine bays. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons, NO café umbrellas."
+  },
+  {
+   "name": "prad_se_a",
+   "photo": ".art/streetview/prad/c_cream_east.png",
+   "edges": [
+    "w579295125_e4"
+   ],
+   "bays": 5,
+   "storeys": 3,
+   "place": "Preradovićeva ulica",
+   "source": "invented from the neighbouring houses (this stretch is not visible in Street View)",
+   "look": "INVENTED plain three-storey 19th-century townhouses in pale ochre and cream plaster on the east side of the southern end of Preradovićeva: nine bays of tall rectangular windows with simple moulded frames and small cornice hoods on the first floor, a stringcourse, a plain eaves cornice, ground floor with small shop fronts and two arched doorways. Calm, quiet, no text. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons, NO café umbrellas."
+  },
+  {
+   "name": "prad_se_b",
+   "photo": ".art/streetview/prad/c_cream_east.png",
+   "edges": [
+    "w579294857_e0"
+   ],
+   "bays": 5,
+   "storeys": 3,
+   "place": "Preradovićeva ulica",
+   "source": "invented from the neighbouring houses (this stretch is not visible in Street View)",
+   "look": "INVENTED plain three-storey 19th-century townhouses in pale ochre and cream plaster on the east side of the southern end of Preradovićeva: nine bays of tall rectangular windows with simple moulded frames and small cornice hoods on the first floor, a stringcourse, a plain eaves cornice, ground floor with small shop fronts and two arched doorways. Calm, quiet, no text. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons, NO café umbrellas."
+  },
+  {
+   "name": "prad_north_row",
+   "photo": ".art/streetview/prad/c_cream_east.png",
+   "edges": [
+    "w435117001_e2"
+   ],
+   "bays": 6,
+   "storeys": 4,
+   "place": "Preradovićeva ulica",
+   "source": "invented from the neighbouring houses (this stretch is not visible in Street View)",
+   "look": "INVENTED four-storey neo-baroque apartment house in cream-sand stucco at the Ilica end of Preradovićeva: nine bays, first floor windows with pediments and cartouches, plainer windows above, a balustrade band, a deep cornice, ground floor with shop fronts and one arched entrance. No text. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons, NO café umbrellas."
+  },
+  {
+   "name": "prad_tesle_side",
+   "photo": ".art/streetview/prad/c_kic_palace.png",
+   "edges": [
+    "w512839704_e7"
+   ],
+   "bays": 10,
+   "storeys": 4,
+   "place": "Nikole Tesle ulica",
+   "source": "invented from the neighbouring house (this wall is not visible in Street View)",
+   "look": "INVENTED four-storey plain historicist apartment house in pale cream-yellow stucco on Nikole Tesle: ten bays of tall rectangular windows with slim white frames, shallow cornice bands between floors, a flat cornice, ground floor with dark shop fronts and one arched doorway. No text. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons, NO café umbrellas."
+  },
+  {
+   "name": "prad_berislav",
+   "photo": ".art/streetview/prad/c_berislav.png",
+   "edges": [
+    "w579101703_e5"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Berislavićeva ulica",
+   "source": "Street View Jul 2024 (oblique frame from the south end)",
+   "look": "the south front of a four-storey neglected historicist corner house in grey-beige weathered stucco with peeling patches: a rusticated ground floor with graffiti, four shop windows with black posters reading 'Video shop', 'Home cinema shop' and 'Hi-Fi shop' (also small posters, one with a logo), a blue street-name plate, a small air-conditioner box on a window, above them two floors of tall windows with moulded surrounds and bracket sills, one wide double window in the middle, a deep cornice, and at the RIGHT end a rounded oriel turret with an arched window and a corner balcony with a rusty iron railing. Four storeys, five bays. Copy exactly. Draw NO people, NO parked cars, NO car roofs, NO street furniture, NO traffic signs, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "prad_berislav_e",
+   "photo": ".art/streetview/prad/c_berislav.png",
+   "edges": [
+    "w579101703_e6",
+    "w579101703_e7"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Preradovićeva ulica",
+   "source": "invented from the same house's south front (its Preradovićeva side is not visible in Street View)",
+   "look": "INVENTED east side of the same four-storey neglected historicist house on Preradovićeva: grey-beige weathered stucco with peeling patches, a rusticated ground floor with a shop window, a doorway and a roller shutter, above it tall windows with moulded surrounds and bracket sills, a deep cornice. No text. Draw NO people, NO parked cars, NO car roofs, NO street furniture, NO traffic signs, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "prad_kic_side",
+   "photo": ".art/facades/prad_ovals/raw.png",
+   "edges": [
+    "w435118927_e1"
+   ],
+   "bays": 8,
+   "storeys": 4,
+   "place": "Preradovićeva ulica",
+   "source": "invented (side wall of the KIC building, not visible in Street View)",
+   "look": "INVENTED plain side wall of a four-storey modernist building: cream-white smooth plaster with a few small irregular windows, a couple of iron balconies, a flat roof edge, and at the ground floor a wide dark passage gate and a plain door. No text, no signs. Draw NO people, NO parked cars, NO car roofs, NO street furniture, NO traffic signs, NO map interface overlay, NO round map icons. Use the reference only for the plaster colour and window style; do NOT copy any sign."
+  },
+  {
+   "name": "prad_north_side",
+   "photo": ".art/facades/prad_yellow/raw.png",
+   "edges": [
+    "w512839703_e7"
+   ],
+   "bays": 9,
+   "storeys": 4,
+   "place": "Preradovićeva ulica",
+   "source": "invented (side wall, not visible in Street View)",
+   "look": "INVENTED plain side wall of a four-storey historicist apartment house in warm pale-yellow stucco: nine bays of simple windows with slim white frames and small sills, a stringcourse, a plain flat cornice, a dark ground floor with a wide gate and a door. No text. Draw NO people, NO parked cars, NO car roofs, NO street furniture, NO traffic signs, NO map interface overlay, NO round map icons. Use the reference only for the colour and window style; do NOT copy any sign, balcony or bay window."
+  }
+ ]
+}

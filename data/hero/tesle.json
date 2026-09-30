@@ -1,0 +1,224 @@
+{
+ "facades": [
+  {
+   "name": "tesle_betelheim",
+   "photo": ".art/streetview/tesle/r_n_bet.png",
+   "edges": [
+    "w584458872_e5"
+   ],
+   "bays": 6,
+   "storeys": 3,
+   "place": "Ulica Nikole Tesle",
+   "source": "Street View Jul 2024 (rectified from 2 frames)",
+   "look": "the north front of Kuća Betelheim at the east end of Nikole Tesle, a three-storey neo-renaissance corner house in cream-yellow stucco with sand-coloured stone: six bays, on the first floor tall windows with triangular and segmental hoods on brackets and stone balustrade sills, on the second floor arched windows with keystones, a heavy dentilled main cornice, a rusticated stone ground floor with SIX round-arched shop openings, each closed by a white canvas awning with a red valance carrying the white lettering 'KONZUM'; a blue P (parking) sign and a blue construction fence stand in front (do not draw them). Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tesle_n_w97",
+   "photo": ".art/streetview/tesle/r_n_w97.png",
+   "edges": [
+    "w97235511_e4"
+   ],
+   "bays": 7,
+   "storeys": 4,
+   "place": "Ulica Nikole Tesle",
+   "source": "Street View Jul 2024 (rectified from 2 frames, partial)",
+   "look": "a four-storey neo-baroque apartment house in cream-white stucco on the north side of Nikole Tesle: about seven bays of tall windows with small triangular hoods on brackets, long rows of shallow stone balcony slabs under the second and third floor windows, horizontal stringcourses between floors, a plain projecting main cornice; the ground floor is a restaurant with tall arched windows above a dark grey retractable awning with hanging green plants. Copy exactly. The photo is only a partial straight-on view: flat grey areas (and any leftover smear or Street View panel remnants) are UNKNOWN, so draw them as a natural continuation of the same building with the same window rhythm, colours, mouldings and ground floor style; never leave grey and never copy text into them. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tesle_n_erker",
+   "photo": ".art/streetview/tesle/r_n_w584460.png",
+   "edges": [
+    "w584460759_e0"
+   ],
+   "bays": 9,
+   "storeys": 4,
+   "place": "Ulica Nikole Tesle",
+   "source": "Street View Jul 2024 (rectified from 3 frames)",
+   "look": "a four-storey neo-baroque apartment house in cream-white stucco on the north side of Nikole Tesle: nine bays, rows of windows with bracketed sills and small hoods, near its left third a stone corner-bay erker window with a rounded balcony carved with garlands on the first floor and a tower-like cap at the top, decorative stucco garlands between the windows of the first floor, an ornate cornice; the ground floor has arched windows behind a dark grey awning of a restaurant with hanging green plants, and at the far RIGHT a green shop sign with white letters 'OVAC' partly visible. Copy exactly. The photo is only a partial straight-on view: flat grey areas (and any leftover smear or Street View panel remnants) are UNKNOWN, so draw them as a natural continuation of the same building with the same window rhythm, colours, mouldings and ground floor style; never leave grey and never copy text into them. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tesle_n_carpaccio",
+   "photo": ".art/streetview/tesle/r_n_1960.png",
+   "edges": [
+    "w435118929_e2"
+   ],
+   "bays": 9,
+   "storeys": 3,
+   "place": "Ulica Nikole Tesle",
+   "source": "Street View Jul 2025 (rectified from 2 frames, partial)",
+   "look": "a three-storey historicist house in pale cream-grey stucco on the north side of Nikole Tesle: nine bays of tall windows in plain frames with a continuous sill band and a stringcourse between floors, a cornice at the top; ground floor with dark-framed shop windows and small planters, a small white sign reading 'Carpaccio' with the word 'RESTAURANT' below it near the right. Copy exactly. The photo is only a partial straight-on view: flat grey areas (and any leftover smear or Street View panel remnants) are UNKNOWN, so draw them as a natural continuation of the same building with the same window rhythm, colours, mouldings and ground floor style; never leave grey and never copy text into them. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tesle_n_dermacare",
+   "photo": ".art/streetview/tesle/r_n_derma.png",
+   "edges": [
+    "w435118930_e4",
+    "w435118930_e5"
+   ],
+   "bays": 7,
+   "storeys": 3,
+   "place": "Ulica Nikole Tesle",
+   "source": "Street View Jul 2025 (rectified from 2 frames)",
+   "look": "a three-storey neo-renaissance house in sand-grey stucco with olive-green pilaster strips, north side of Nikole Tesle: seven bays, the first floor windows in moulded frames with a band of decorative frieze panels between the floors, second floor windows under a heavy dentilled cornice, a balustrade of small stone balusters above the ground floor; ground floor: at the LEFT a beige awning with the lettering 'CHI' on its valance, then a shop under a dark fascia sign 'DermaCare' with a small logo, a second shop with a beige awning whose valance reads 'DermaCare', a deep arched gateway passage with dark green doors in the middle-right, then to the RIGHT a long beige awning whose valance reads 'WE'RE SERVING COSTA COFFEE' with a Costa logo, over a coffee shop with glass fronts. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tesle_n_grey",
+   "photo": ".art/streetview/tesle/r_n_blue.png",
+   "edges": [
+    "w435118932_e0"
+   ],
+   "bays": 8,
+   "storeys": 3,
+   "place": "Ulica Nikole Tesle",
+   "source": "Street View Jul 2025 (rectified from 2 frames, partial)",
+   "look": "a three-storey historicist house in light blue-grey stucco with white ornamental window hoods, north side of Nikole Tesle: eight bays, the first floor windows under bracketed segmental hoods with sill garlands, a frieze band, second floor windows with smaller hoods, a plain cornice; ground floor a grey rusticated base with tall glass shopfronts framed in pale green-grey, a beige awning at the far left. Copy exactly. The photo is only a partial straight-on view: flat grey areas (and any leftover smear or Street View panel remnants) are UNKNOWN, so draw them as a natural continuation of the same building with the same window rhythm, colours, mouldings and ground floor style; never leave grey and never copy text into them. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tesle_s_erbolario",
+   "photo": ".art/streetview/tesle/r_s_erb.png",
+   "edges": [
+    "w579294902_e7",
+    "w579294902_e8"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Ulica Nikole Tesle",
+   "source": "Street View Jul 2024 (rectified from 2 frames, partial)",
+   "look": "a four-storey neo-renaissance apartment house in warm grey-beige stucco on the south side of Nikole Tesle: five bays, tall windows on the upper floors with richly carved sculptural stucco hoods (masks, garlands, shell motifs) on brackets, moulded stone sills with rosettes, a dentilled main cornice; the ground floor is a heavily rusticated dark grey-brown stone base with tall round-arched openings: at the LEFT a white arched shop front with a louvred grille above it and a white panel with a round logo and the lettering 'L'ERBOLARIO', then a second arched shop window showing a Tuscan landscape poster, then a green wooden arched door with a small blue sign, and a white arched door at the RIGHT. Copy exactly. The photo is only a partial straight-on view: flat grey areas (and any leftover smear or Street View panel remnants) are UNKNOWN, so draw them as a natural continuation of the same building with the same window rhythm, colours, mouldings and ground floor style; never leave grey and never copy text into them. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tesle_s_hikultura",
+   "photo": ".art/streetview/tesle/r_s_pink.png",
+   "edges": [
+    "w137106314_e2"
+   ],
+   "bays": 6,
+   "storeys": 3,
+   "place": "Ulica Nikole Tesle",
+   "source": "Street View Jul 2024 (rectified from 3 frames, partial)",
+   "look": "a three-storey neo-renaissance house in salmon-pink stucco with cream stone window surrounds on the south side of Nikole Tesle: six bays, the first floor windows under triangular pediments on scroll brackets, second floor windows in plain frames, panelled sill aprons, a heavy cornice; ground floor clad in pale cream ashlar blocks with a stone arched gateway at the LEFT, then a large glass shop window with a black-and-white geometric pattern, an open entrance, and at the RIGHT another glass window with a large black-and-white pattern with the words 'DESIGN & ARCHITECTURE' running vertically, and white lettering 'hikultura' with a small heart symbol between them. Copy exactly. The photo is only a partial straight-on view: flat grey areas (and any leftover smear or Street View panel remnants) are UNKNOWN, so draw them as a natural continuation of the same building with the same window rhythm, colours, mouldings and ground floor style; never leave grey and never copy text into them. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tesle_s_lira",
+   "photo": ".art/streetview/tesle/r_s_lira.png",
+   "edges": [
+    "w579294895_e0"
+   ],
+   "bays": 5,
+   "storeys": 3,
+   "place": "Ulica Nikole Tesle",
+   "source": "Street View Jul 2024 (rectified from 2 frames, partial)",
+   "look": "a three-storey neo-renaissance house in cream stucco on the south side of Nikole Tesle: five bays, the first floor windows with triangular and segmental hoods on brackets and small garlanded frieze panels below the second floor, a stringcourse, a cornice; ground floor at the LEFT a black fascia with gold letters 'PIZZERIA LIRA' over a dark doorway with a menu board, a red hanging sign with white script 'Franck', a round green blade sign with cream lettering 'LIRA' and around its rim 'MJENJAČNICA PIZZERIA CAFFE', below it a dark green rectangular blade sign with white letters 'GRILL', and a glass shop window to the right. Copy exactly. The photo is only a partial straight-on view: flat grey areas (and any leftover smear or Street View panel remnants) are UNKNOWN, so draw them as a natural continuation of the same building with the same window rhythm, colours, mouldings and ground floor style; never leave grey and never copy text into them. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tesle_s_low_a",
+   "photo": ".art/streetview/tesle/r_s_low_a.png",
+   "edges": [
+    "w579294918_e16",
+    "w579294918_e17"
+   ],
+   "bays": 9,
+   "storeys": 2,
+   "place": "Ulica Nikole Tesle",
+   "source": "Street View Jul 2025 (rectified from 2 frames)",
+   "look": "a long two-storey classicist house in pale yellow stucco with horizontal rustication on the ground floor, south side of Nikole Tesle: nine bays of tall windows with plain white frames (the three at the left with open shutters), a slim stringcourse, a plain eave with a row of small red-roofed dormers above it (not drawn); ground floor: at the LEFT dark shopfronts, then a shop under a dusky-pink awning with lettering, a round brown plaque with a small logo, an open passage entrance, and at the RIGHT a bookshop with a blue-and-yellow fascia carrying the white lettering 'AGM' with a logo, 'knjižara' in white on a blue-white panel and a small blue sign with the words 'ZAGREBAČKI HOLDING'. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tesle_s_low_b",
+   "photo": ".art/streetview/tesle/r_s_low_b.png",
+   "edges": [
+    "w579294918_e18"
+   ],
+   "bays": 11,
+   "storeys": 2,
+   "place": "Ulica Nikole Tesle",
+   "source": "Street View Jul 2025 (rectified from 3 frames, partial)",
+   "look": "a long two-storey classicist house in pale yellow stucco with rustication on the ground floor, south side of Nikole Tesle: eleven bays of tall windows in plain white frames, a stringcourse, a plain eave; ground floor: round brown plaques with a small logo above the doors, a small dark food kiosk with a white logo at the LEFT, and further shopfronts. Copy exactly. The photo is only a partial straight-on view: flat grey areas (and any leftover smear or Street View panel remnants) are UNKNOWN, so draw them as a natural continuation of the same building with the same window rhythm, colours, mouldings and ground floor style; never leave grey and never copy text into them. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tesle_s_verbum",
+   "photo": ".art/streetview/tesle/r_s_1213.png",
+   "edges": [
+    "w446071213_e4"
+   ],
+   "bays": 5,
+   "storeys": 3,
+   "place": "Ulica Nikole Tesle",
+   "source": "Street View Jul 2025 (rectified from 1 frame)",
+   "look": "a three-storey neo-baroque house in weathered sand-brown stucco with patches of peeling plaster on the south side of Nikole Tesle: five bays, the first floor windows under segmental pediments with sculpted brackets and garlands, second floor windows in plain frames, a stringcourse, a cornice; ground floor from LEFT: a bookshop under a grey fascia with red and black lettering 'KNJIŽARA VERBUM' with a red V logo and a blade sign of the same 'VERBUM', then a black shop front with gold letters 'MIVA' showing bottles labelled 'BELVEDERE ORGANIC VODKA', a stone arched gateway with a black iron grille, then a shop with a black awning whose valance reads 'VAUDOOM' and a small white sign 'Nicos', plus a graffiti-covered window. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tesle_s_dark",
+   "photo": ".art/streetview/tesle/r_s_853.png",
+   "edges": [
+    "w446070853_e13"
+   ],
+   "bays": 6,
+   "storeys": 3,
+   "place": "Ulica Nikole Tesle",
+   "source": "Street View Jul 2025 (rectified from 2 frames, partial)",
+   "look": "a three-storey historicist house in dark grey-brown weathered stucco on the south side of Nikole Tesle: six bays of tall windows, the first floor windows with small balcony sills and moulded hoods, a heavy cornice; ground floor with a yellow-cream blade sign with script lettering 'Time', a dark doorway, a black sign with white letters 'FURLA' at the right edge. Copy exactly. The photo is only a partial straight-on view: flat grey areas (and any leftover smear or Street View panel remnants) are UNKNOWN, so draw them as a natural continuation of the same building with the same window rhythm, colours, mouldings and ground floor style; never leave grey and never copy text into them. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tesle_s_karla",
+   "photo": ".art/streetview/tesle/r_s_852.png",
+   "edges": [
+    "w446070852_e10"
+   ],
+   "bays": 6,
+   "storeys": 3,
+   "place": "Ulica Nikole Tesle",
+   "source": "Street View Jul 2025 (rectified from 2 frames, partial)",
+   "look": "a three-storey neo-renaissance house in warm salmon-beige stucco with cream stone dressing on the south side of Nikole Tesle: six bays, the top floor with arched windows, tall rectangular windows below with moulded frames, strong stringcourses, pale stone pilasters at ground floor with a rusticated stone base; ground floor of tall glass shop fronts framed by stone pilasters, the left shop window with the black letters 'KARLA' and a smaller 'KARLA' on the door, at the far left a sign ending '...ard'. Copy exactly. The photo is only a partial straight-on view: flat grey areas (and any leftover smear or Street View panel remnants) are UNKNOWN, so draw them as a natural continuation of the same building with the same window rhythm, colours, mouldings and ground floor style; never leave grey and never copy text into them. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tesle_s_romer",
+   "photo": ".art/streetview/tesle/r_s_851.png",
+   "edges": [
+    "w446070851_e4"
+   ],
+   "bays": 6,
+   "storeys": 2,
+   "place": "Ulica Nikole Tesle",
+   "source": "Street View Jul 2025 (rectified from 2 frames, partial)",
+   "look": "a two-storey weathered dark-grey house on the south side of Nikole Tesle: six bays of small windows, several with open white casement sashes, a tilted blue-white blade sign on the upper left; ground floor of grey rusticated stone with a black canvas awning-fascia carrying the white logo and lettering 'RÖMER QUELLE' twice with a small fish sketch between, over a glazed fish restaurant front, with a grey awning at the right. Copy exactly. The photo is only a partial straight-on view: flat grey areas (and any leftover smear or Street View panel remnants) are UNKNOWN, so draw them as a natural continuation of the same building with the same window rhythm, colours, mouldings and ground floor style; never leave grey and never copy text into them. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tesle_inv_n_c_a",
+   "photo": ".art/streetview/tesle/inv_n_c_a.png",
+   "edges": [
+    "w435118933_e5"
+   ],
+   "bays": 6,
+   "storeys": 3,
+   "place": "Ulica Nikole Tesle",
+   "source": "INVENTED (no usable Street View: the frames are grazing or too close)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a three-storey Zagreb historicist house in pale cream stucco like its neighbours on the north side of Nikole Tesle: six bays of tall windows with bracketed sills and small hoods, stringcourses between floors, a modest cornice, ground floor with arched shop openings and plain dark shopfronts, no readable signs. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tesle_inv_n_c_b",
+   "photo": ".art/streetview/tesle/inv_n_c_b.png",
+   "edges": [
+    "w435118933_e6"
+   ],
+   "bays": 8,
+   "storeys": 3,
+   "place": "Ulica Nikole Tesle",
+   "source": "INVENTED (no usable Street View: the frames are grazing or too close)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a three-storey Zagreb historicist house in light warm-yellow stucco with white window frames on the north side of Nikole Tesle: eight bays, first floor windows with triangular hoods, second floor plain, a stringcourse and cornice, a ground floor of glazed shopfronts and one arched gateway, no readable signs. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "tesle_inv_s_e9",
+   "photo": ".art/streetview/tesle/inv_s_e9.png",
+   "edges": [
+    "w446072042_e9",
+    "w446072042_e10"
+   ],
+   "bays": 7,
+   "storeys": 4,
+   "place": "Ulica Nikole Tesle",
+   "source": "INVENTED (no usable Street View: the frames are grazing or too close)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a four-storey Zagreb historicist house in sand-beige rusticated stucco on the south side of Nikole Tesle: seven bays, tall windows with segmental hoods on the first floor and plain frames above, a stringcourse between each floor, a heavy dentilled cornice, a ground floor of glazed shopfronts with a stone arched passage, no readable signs. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  }
+ ]
+}

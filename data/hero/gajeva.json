@@ -1,0 +1,295 @@
+{
+ "facades": [
+  {
+   "name": "gajeva_uriho",
+   "photo": ".art/streetview/gajeva/p_uriho.png",
+   "edges": [
+    "w435118933_e8",
+    "w435118933_e9"
+   ],
+   "bays": 11,
+   "storeys": 3,
+   "place": "Gajeva ulica",
+   "source": "Street View Jul 2025 (rectified from B pano frames)",
+   "look": "a three-storey historicist house on the WEST side of Gajeva, eleven bays, sand-ochre plaster with fine horizontal rustication grooves; the first-floor windows have alternating triangular and segmental-arched pediment hoods on brackets with bracket sills, the small second-floor windows sit right under a heavy dentilled cornice. Ground floor from LEFT to RIGHT: small dark shopfronts, a pale beige shopfront with the grey letters 'URIHO' on its fascia, a glass jewellery shopfront with white string lights and a small vertical sign 'LEI', a white rusticated stone ground floor with a big round-arched brown wooden carriage door, then a black sign board with silver lettering 'ZLATAR - DRAGULJAR - GRAVER' and 'CRVENAC' (a small diamond blade sign 'CRVENAC' beside it), then a shop with a dark blue awning and a grey fascia whose letters are unreadable (keep it as a plain grey fascia). Copy the lettering exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. Ignore any striped or black distortion at the very bottom edge of the reference: draw plain pavement-level base there."
+  },
+  {
+   "name": "gajeva_dinara",
+   "photo": ".art/streetview/gajeva/p_dinara.png",
+   "edges": [
+    "w579294918_e15"
+   ],
+   "bays": 11,
+   "storeys": 2,
+   "place": "Gajeva ulica",
+   "source": "Street View Jul 2024 (rectified from C pano frames)",
+   "look": "a two-storey low classicist house on the WEST side of Gajeva, off-white plaster with flat vertical pilaster strips between eleven tall upper windows with white frames, a plain eaves cornice with several small red-roofed dormers above. Ground floor from LEFT to RIGHT: white-framed shopfronts with a dark grey fascia carrying the letters 'MANUELA PICARD' and below it 'LUXURY BROWS & BEAUTY', then 'FRIZER' in dark grey block letters (with black hanging boards 'Škaro' and 'Frizer'), then an orange-brown wooden shopfront with a red oval sign 'Dinara' (small 'PEKARNE' above), white script lettering 'Delikates Pekarnica' on the orange fascia, and a last shop with a round brown sign. Copy the lettering exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. Ignore any striped or black distortion at the very bottom edge of the reference: draw plain pavement-level base there."
+  },
+  {
+   "name": "gajeva_obzor",
+   "photo": ".art/streetview/gajeva/p_obzor.png",
+   "edges": [
+    "w579294895_e2"
+   ],
+   "bays": 4,
+   "storeys": 3,
+   "place": "Gajeva ulica",
+   "source": "Street View Jul 2024 (rectified from C pano frames)",
+   "look": "a three-storey historicist corner house in pale cream-yellow plaster on the EAST side of Gajeva, four bays: first-floor windows with triangular and flat cornice hoods on brackets, small round ornamental panels in a stringcourse above the shop level, a deep cornice, second-floor windows with simple sills. Ground floor: stone-framed shop doors and windows; at the LEFT above the shop a dark navy sign with white lettering 'OBZOR PUTOVANJA' (OBZOR in bold), to the right a white sign with a red-white chequer flag and blue letters 'CROATIA AIRLINES', a metal grille panel, air-conditioning units and some graffiti at the left. At the far RIGHT a low garden gate wall. Copy the lettering exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. Ignore any striped or black distortion at the very bottom edge of the reference: draw plain pavement-level base there."
+  },
+  {
+   "name": "gajeva_boban",
+   "photo": ".art/streetview/gajeva/p_boban.png",
+   "edges": [
+    "w97235509_e1"
+   ],
+   "bays": 6,
+   "storeys": 2,
+   "place": "Gajeva ulica",
+   "source": "Street View Jul 2025 (rectified from B pano frames)",
+   "look": "a two-storey low house on the EAST side of Gajeva in smooth light-grey plaster, six bays of white-framed windows on the upper floor with a plain overhanging eaves cornice; ground floor: at the LEFT a stone arched entrance with a bronze bust in a niche, a long beige retractable awning with stylised purple hand-lettering 'boban' on its valance, white-framed shop windows, a hanging basket of purple wisteria and terrace heaters. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. Ignore any striped or black distortion at the very bottom edge of the reference: draw plain pavement-level base there."
+  },
+  {
+   "name": "gajeva_e17_palace",
+   "photo": ".art/streetview/gajeva/p_e17_palace.png",
+   "edges": [
+    "w249753107_e3",
+    "w249753107_e4"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Gajeva ulica",
+   "source": "Street View Jul 2024 (rectified from E pano frames)",
+   "look": "a four-storey neo-renaissance palace in cream-yellow stucco on the EAST side of Gajeva, five bays: rusticated ground floor with barred basement grilles, a round-arched brown wooden door with fanlight at the second bay from the RIGHT, small carved cherub figures on the stringcourse above the ground floor, first-floor windows with triangular pediments on carved pilasters, second-floor windows with segmental-arched hoods, small attic windows under a cornice, a blue street-name plate at the left and a small blue-white round sign in the ground-floor window at the LEFT and a few plaques by the door. No lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. Ignore any striped or black distortion at the very bottom edge of the reference: draw plain pavement-level base there."
+  },
+  {
+   "name": "gajeva_e17_brown",
+   "photo": ".art/streetview/gajeva/p_e17_brown.png",
+   "edges": [
+    "w1537669597_e0",
+    "w1537669597_e1"
+   ],
+   "bays": 6,
+   "storeys": 4,
+   "place": "Gajeva ulica",
+   "source": "Street View Jul 2024 (rectified from E pano frames)",
+   "look": "a four-storey historicist apartment house in worn taupe-brown stucco on the EAST side of Gajeva, six bays: rusticated ground floor with small barred windows and a big dark wooden gateway at the RIGHT, first-floor windows with pediment hoods and bracket sills, second-floor windows in plain frames, small top-floor windows under a cornice, stained patchy plaster. At the far RIGHT a yellow optician's sign with a black glasses symbol. Copy exactly. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. Ignore any striped or black distortion at the very bottom edge of the reference: draw plain pavement-level base there."
+  },
+  {
+   "name": "gajeva_no12",
+   "photo": ".art/streetview/gajeva/p_no12.png",
+   "edges": [
+    "w446076402_e7"
+   ],
+   "bays": 4,
+   "storeys": 4,
+   "place": "Gajeva ulica",
+   "source": "Street View Jul 2024 (rectified from D pano frames)",
+   "look": "a four-storey historicist palace in warm yellow-ochre stucco on the WEST side of Gajeva, four bays: a ground floor of rusticated orange-brown stone with round-arched windows (graffiti-covered glazing) and a green metal gate at the LEFT, a stone balustrade balcony band above, first-floor windows with triangular pediments on brackets, second-floor windows with segmental hoods, ornate frieze and deep cornice with small attic windows. No lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. Ignore any striped or black distortion at the very bottom edge of the reference: draw plain pavement-level base there."
+  },
+  {
+   "name": "gajeva_w_white",
+   "photo": ".art/streetview/gajeva/p_w_white.png",
+   "edges": [
+    "w579295108_e2"
+   ],
+   "bays": 5,
+   "storeys": 3,
+   "place": "Gajeva ulica",
+   "source": "Street View Jul 2024 (rectified from E pano frames)",
+   "look": "a three-storey historicist house in white-cream stucco on the WEST side of Gajeva, five bays: raised ground floor with barred basement grilles below and tall windows with ornate bracketed hoods (a dark shutter at the far RIGHT), first-floor windows with sculpted hood ornaments, second-floor windows under a cornice, a projecting bay with a small balustrade balcony at the RIGHT, a grey drainpipe at the right third, a plaque left of the middle window and a small pink round sign on a window. No lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. Ignore any striped or black distortion at the very bottom edge of the reference: draw plain pavement-level base there."
+  },
+  {
+   "name": "gajeva_w_brown",
+   "photo": ".art/streetview/gajeva/p_w_brown.png",
+   "edges": [
+    "w579295105_e2"
+   ],
+   "bays": 6,
+   "storeys": 3,
+   "place": "Gajeva ulica",
+   "source": "Street View Jul 2024 (rectified from E pano frames)",
+   "look": "a three-storey ornate historicist house in weathered ochre-brown stucco on the WEST side of Gajeva, six bays: rusticated ground floor with small barred windows and a stone-framed passage entrance with a dark wooden door and fanlight near the RIGHT, first-floor windows with heavily ornamented pediment hoods and carved pilasters, two small balustrade balconies over the entrance, second-floor windows under a cornice; patchy weathered plaster. A small black blade sign by the entrance. No lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. Ignore any striped or black distortion at the very bottom edge of the reference: draw plain pavement-level base there."
+  },
+  {
+   "name": "gajeva_b_hotel_dubrovnik",
+   "photo": ".art/streetview/gajeva/p_b_passage.png",
+   "edges": [
+    "w97235396_e1"
+   ],
+   "bays": 14,
+   "storeys": 4,
+   "place": "Gajeva ulica",
+   "source": "Street View Jul 2025 (A pano, grazing) + Google Maps place 'Znanje Bookshop', Gajeva 1, Hotel Dubrovnik",
+   "look": "the long east front of Hotel Dubrovnik on Gajeva: a modern blue-green glass curtain wall with thin white horizontal and vertical mullions, fourteen narrow bays, stepped back in ribbons; at the RIGHT end (toward the square) a glazed two-storey shop base with a dark sign carrying a white sun logo and the lowercase word 'znanje' (Znanje bookshop), full of book displays. The LEFT (south) end is a travertine-clad building with a green-framed high passage entrance 'MARIČEV PROLAZ' and a display window. Only the sign text 'znanje' and 'MARIČEV PROLAZ' are legible; add no other lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. The reference is a blurry, stretched rectification: use it only for colours, storeys and window rhythm and draw crisp clean architecture; ignore smeared or striped areas."
+  },
+  {
+   "name": "gajeva_b_east_a",
+   "photo": ".art/streetview/gajeva/p_b_east_a.png",
+   "edges": [
+    "w584460758_e1"
+   ],
+   "bays": 8,
+   "storeys": 6,
+   "place": "Gajeva ulica",
+   "source": "Street View Jul 2024/2025 (grazing, blurry rectification from pano frames)",
+   "look": "a six-storey 1930s modernist apartment block in light grey-beige plaster on the EAST side of Gajeva, eight bays of small square-ish white-framed windows in regular rows, projecting rounded oriel bay windows and small balconies on the upper floors, plain flat cornice; ground floor with mostly small dark shop windows with blue and red signs (no legible text) and a stone-framed doorway. No lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. The reference is a blurry, stretched rectification: use it only for colours, storeys and window rhythm and draw crisp clean architecture; ignore smeared or striped areas."
+  },
+  {
+   "name": "gajeva_b_curve_n",
+   "photo": ".art/streetview/gajeva/p_b_curve.png",
+   "edges": [
+    "w331291327_e0"
+   ],
+   "bays": 8,
+   "storeys": 6,
+   "place": "Gajeva ulica",
+   "source": "Street View Jul 2025 (A pano frame, curved west block seen from the south); ground-floor shop names from that frame",
+   "look": "a six-storey modern curved white-grey stone block on the WEST side of Gajeva near the square, rows of wide horizontal window openings with thin dark frames in every floor and plain flat bands between floors; ground floor of dark glass luxury shopfronts. No lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. The reference is a blurry, stretched rectification: use it only for colours, storeys and window rhythm and draw crisp clean architecture; ignore smeared or striped areas."
+  },
+  {
+   "name": "gajeva_b_curve_mid",
+   "photo": ".art/streetview/gajeva/p_b_curve.png",
+   "edges": [
+    "w375375279_e5"
+   ],
+   "bays": 6,
+   "storeys": 7,
+   "place": "Gajeva ulica",
+   "source": "Street View Jul 2025 (A pano frame, curved west block seen from the south)",
+   "look": "a seven-storey modern curved white-grey stone block on the WEST side of Gajeva, six bays of wide horizontal window openings with thin dark frames on every floor, plain bands between floors, a thin flat cornice; ground floor: dark glazed luxury shopfronts with thin gold letters 'OPTIKA' on a dark fascia. Only that text. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. The reference is a blurry, stretched rectification: use it only for colours, storeys and window rhythm and draw crisp clean architecture; ignore smeared or striped areas."
+  },
+  {
+   "name": "gajeva_b_curve_s",
+   "photo": ".art/streetview/gajeva/p_b_curve.png",
+   "edges": [
+    "w375375950_e4"
+   ],
+   "bays": 8,
+   "storeys": 6,
+   "place": "Gajeva ulica",
+   "source": "Street View Jul 2025 (A pano frame, curved west block seen from the south)",
+   "look": "a six-storey modern (real building is gently curved, but draw it as a PERFECTLY FLAT rectangular elevation with straight vertical left and right edges and a straight flat roof line, filling the image edge to edge, no curved silhouette, no sky at the sides)  white-grey stone block on the WEST side of Gajeva, eight bays of wide horizontal window openings with thin dark frames on every floor, plain bands between floors; ground floor: a black shopfront with a dark fascia carrying thin silver letters 'DOLCE & GABBANA', beside it a glass optician's shopfront. Only that text. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. The reference is a blurry, stretched rectification: use it only for colours, storeys and window rhythm and draw crisp clean architecture; ignore smeared or striped areas."
+  },
+  {
+   "name": "gajeva_b_uriho_s",
+   "photo": ".art/streetview/gajeva/p_uriho.png",
+   "edges": [
+    "w435118933_e7"
+   ],
+   "bays": 7,
+   "storeys": 3,
+   "place": "Gajeva ulica",
+   "source": "INVENTED: continuation of the neighbouring Uriho house (same building), the wall itself is hidden in Street View",
+   "look": "INVENTED plausible southern continuation of the same three-storey sand-ochre historicist house (the Uriho house in the reference): seven bays, the same rusticated grooves, the same first-floor windows with alternating triangular and segmental pediment hoods on brackets, the same dentilled cornice; ground floor with two plain dark shopfronts and one round-arched wooden door. No lettering, do NOT copy the reference's shop signs. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. The reference is a blurry, stretched rectification: use it only for colours, storeys and window rhythm and draw crisp clean architecture; ignore smeared or striped areas."
+  },
+  {
+   "name": "gajeva_b_boban_s",
+   "photo": ".art/streetview/gajeva/p_b_boban_s.png",
+   "edges": [
+    "w97235511_e2"
+   ],
+   "bays": 4,
+   "storeys": 4,
+   "place": "Gajeva ulica",
+   "source": "INVENTED from a grazing Street View (Jul 2025, B pano) that only shows cream ornate plaster and a beige awning; the wall is mostly hidden",
+   "look": "INVENTED plausible four-storey cream-white historicist house on the EAST side of Gajeva, four bays: first-floor windows with pediment hoods on brackets, plain second and third floors with simple sills, a deep cornice, ground floor with a stone-framed shop window and a door. No lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. The reference is a blurry, stretched rectification: use it only for colours, storeys and window rhythm and draw crisp clean architecture; ignore smeared or striped areas."
+  },
+  {
+   "name": "gajeva_b_obzor_s",
+   "photo": ".art/streetview/gajeva/p_b_obzor_s.png",
+   "edges": [
+    "w579294895_e3"
+   ],
+   "bays": 3,
+   "storeys": 3,
+   "place": "Gajeva ulica",
+   "source": "Street View Jul 2024 (C pano, grazing side view of the Obzor corner house)",
+   "look": "the side wall of the same three-storey cream-yellow historicist corner house (Obzor), three bays: stone-framed shop door and window at the RIGHT of the ground floor, an air-conditioning unit near the left door, first-floor windows with a triangular hood on brackets and a floral relief stringcourse under the second-floor windows, deep cornice. No lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. The reference is a blurry, stretched rectification: use it only for colours, storeys and window rhythm and draw crisp clean architecture; ignore smeared or striped areas."
+  },
+  {
+   "name": "gajeva_b_dinara_s",
+   "photo": ".art/streetview/gajeva/p_b_dinara_s.png",
+   "edges": [
+    "w579294918_e14"
+   ],
+   "bays": 4,
+   "storeys": 2,
+   "place": "Gajeva ulica",
+   "source": "Street View Jul 2024 (C pano)",
+   "look": "the south end of the same two-storey low white-plaster house (Dinara house), four bays: an upper floor of tall white-framed windows with a bay-window oriel with a small balustrade at the LEFT, a decorative arched relief under the roof, red-tiled roof with a dormer above, ground floor: rusticated white base with a small shop door; a round white sign with the number '11' next to the door. Only that. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. The reference is a blurry, stretched rectification: use it only for colours, storeys and window rhythm and draw crisp clean architecture; ignore smeared or striped areas."
+  },
+  {
+   "name": "gajeva_b_vranyczany",
+   "photo": ".art/streetview/gajeva/p_b_vran.png",
+   "edges": [
+    "w446076404_e11"
+   ],
+   "bays": 4,
+   "storeys": 2,
+   "place": "Gajeva ulica",
+   "source": "Street View Jul 2024 (D pano frames)",
+   "look": "the south end of the Vranyczany-Dobrinovic palace: white-cream stucco, two storeys shown: a rusticated white stone ground floor with two round-arched windows with fanlights, a moulded stringcourse, upper floor with tall windows in white frames with triangular pediments, a deep cornice. At the far RIGHT a rust-brown neighbour edge. No lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. The reference is a blurry, stretched rectification: use it only for colours, storeys and window rhythm and draw crisp clean architecture; ignore smeared or striped areas."
+  },
+  {
+   "name": "gajeva_b_d_east",
+   "photo": ".art/streetview/gajeva/p_b_d_east.png",
+   "edges": [
+    "w579294879_e6"
+   ],
+   "bays": 6,
+   "storeys": 3,
+   "place": "Gajeva ulica",
+   "source": "Street View Jul 2024 (D and E pano frames)",
+   "look": "a three-storey historicist house in warm peach-ochre stucco on the EAST side of Gajeva, six bays: rusticated ground floor with arched shop and door openings with small pediments and a forged balcony at the far LEFT, first-floor windows on bracket sills with ornamental panels beneath, second-floor windows in plain frames, a heavy cornice; a flower-decked ground-floor shop entrance in the middle. No lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. The reference is a blurry, stretched rectification: use it only for colours, storeys and window rhythm and draw crisp clean architecture; ignore smeared or striped areas."
+  },
+  {
+   "name": "gajeva_b_e_west",
+   "photo": ".art/streetview/gajeva/p_b_e_west.png",
+   "edges": [
+    "w579295102_e6"
+   ],
+   "bays": 7,
+   "storeys": 3,
+   "place": "Gajeva ulica",
+   "source": "Street View Jul 2024 (E pano frames)",
+   "look": "a three-storey historicist house in weathered grey-brown stucco on the WEST side of Gajeva, seven bays: rusticated ground floor with small barred basement windows and a round-arched doorway at the LEFT, first-floor windows with small pediment hoods on bracket sills, second-floor windows with simple frames, dentilled cornice, patchy stains. No lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. The reference is a blurry, stretched rectification: use it only for colours, storeys and window rhythm and draw crisp clean architecture; ignore smeared or striped areas."
+  },
+  {
+   "name": "gajeva_b_e_east",
+   "photo": ".art/streetview/gajeva/p_b_e_east.png",
+   "edges": [
+    "w249753108_e5"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "place": "Gajeva ulica",
+   "source": "Street View Jul 2024 (E pano frames)",
+   "look": "a four-storey historicist apartment house in light grey-beige stucco on the EAST side of Gajeva, five bays: tall windows in plain frames, deep balconies with dark railings on the right two bays at the top floors, a stone-clad ground floor with a wide glazed shopfront at the RIGHT. No lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. The reference is a blurry, stretched rectification: use it only for colours, storeys and window rhythm and draw crisp clean architecture; ignore smeared or striped areas."
+  },
+  {
+   "name": "gajeva_b_uriho_e10",
+   "photo": ".art/streetview/gajeva/p_b_e10.png",
+   "edges": [
+    "w435118933_e10"
+   ],
+   "bays": 3,
+   "storeys": 3,
+   "place": "Gajeva ulica",
+   "source": "Street View Jul 2025 (B pano frames)",
+   "look": "the south-west side wall of the Uriho house at the corner: three storeys of sand-ochre plaster with tall narrow windows in ornamental hoods on brackets, and a ground floor with white rusticated stone, a small shop with a dark awning and a black shopfront with white lettering that is too small to read (draw plain white letter-like strokes without legible words). No other lettering. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. The reference is a blurry, stretched rectification: use it only for colours, storeys and window rhythm and draw crisp clean architecture; ignore smeared or striped areas."
+  },
+  {
+   "name": "gajeva_b_w_courtyard",
+   "photo": ".art/streetview/gajeva/p_dinara.png",
+   "edges": [
+    "w435118935_e2"
+   ],
+   "bays": 4,
+   "storeys": 2,
+   "place": "Gajeva ulica",
+   "source": "INVENTED: a rear side wall not visible from the street (only a wooden gateway glimpsed in Street View)",
+   "look": "INVENTED plausible two-storey plain white-cream plaster wall of a courtyard wing, four bays of tall white-framed windows with simple sills, a plain cornice, a large round-arched dark brown wooden gateway with iron grille at the LEFT. No lettering; do not copy the reference's shop signs. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. The reference is a blurry, stretched rectification: use it only for colours, storeys and window rhythm and draw crisp clean architecture; ignore smeared or striped areas."
+  }
+ ]
+}
