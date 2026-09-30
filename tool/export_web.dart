@@ -17,8 +17,10 @@
 // Writes:
 //   web3d/public/city/zagreb.glb   one node per 200 m chunk and material
 //                                  (facade, roof, ground, rails), props,
-//                                  glass, the tree and the lamp;
-//   web3d/public/city/city.json    extent, chunks, trees, lamps, trams,
+//                                  glass and the lamp (web3d/src/trees.ts
+//                                  builds the trees);
+//   web3d/public/city/city.json    extent, chunks, trees, lamps, café
+//                                  tables (web3d/src/furniture.ts), trams,
 //                                  place names, coverage, features, walls;
 //   web3d/public/city/terrain.json, far.json   copies of data/terrain/;
 //   data/hero/coverage.json        real-facade coverage per street wall.
@@ -102,7 +104,9 @@ void main(List<String> args) {
   final ground = Ground(osm, city)..build();
   final flat = args.contains('--flat');
   final grid = flat ? null : TerrainGrid.load('data/terrain/ground.json');
-  double terrain(Vector2 p) => grid == null ? 0 : grid(p);
+  double bare(Vector2 p) => grid == null ? 0 : grid(p);
+  // Props, walls and trees stand on the terraces too.
+  double terrain(Vector2 p) => bare(p) + ground.liftAt(p);
 
   final chunks = <(int, int), BuildingMeshes>{};
   for (var j = (extent.minZ / chunkSize).floor();
@@ -162,7 +166,7 @@ void main(List<String> args) {
     final gx1 = math.min(minX + chunkSize, extent.maxX);
     final gz1 = math.min(minZ + chunkSize, extent.maxZ);
     if (gx1 > gx0 && gz1 > gz0) {
-      ground.emitGround(gx0, gz0, gx1, gz1, minX, minZ, surface, rails, terrain,
+      ground.emitGround(gx0, gz0, gx1, gz1, minX, minZ, surface, rails, bare,
           tessellate: flat ? 0 : 10);
     }
     final meshes = chunks[key]!;
@@ -176,7 +180,6 @@ void main(List<String> args) {
     }
     chunkList.add({'name': name, 'minX': minX, 'minZ': minZ});
   }
-  glb.addMesh('tree', 'tree', treeMesh());
 
   // Props: small structures, the statue and the fountain in one mesh;
   // lamps as one instanced mesh.
@@ -225,12 +228,13 @@ void main(List<String> args) {
     emitPlatform(props, line, (nearest - mid).normalized(), terrain);
     platforms++;
   }
-  // Café terraces.
+  // Café terraces: loose furniture the web simulates, so only placements.
   var terraces = 0;
+  final terraceTableList = <List<Object>>[];
   for (final area in osm.areas((t) => t['leisure'] == 'outdoor_seating')) {
     for (final polygon in area.polygons) {
       if (!extent.contains(centroid(polygon.outer))) continue;
-      emitTerrace(props, polygon, terrain);
+      terraceTableList.addAll(terraceTables(polygon, terrain));
       terraces++;
     }
   }
@@ -266,7 +270,7 @@ void main(List<String> args) {
   }
   stdout.writeln(
     'Props: $kinds, ${lamps.length} street lamps, $platforms tram platforms, '
-    '$terraces terraces, $monuments monuments',
+    '$terraces terraces (${terraceTableList.length} tables), $monuments monuments',
   );
 
   // Real-facade coverage: every street wall of 4 m or more, done or to do.
@@ -424,9 +428,13 @@ void main(List<String> args) {
       'chunks': chunkList,
       // [x, z, base y], z mirrored.
       'lamps': lamps,
+      // Café tables (each with two chairs and a parasol): [x, z, base y,
+      // yaw, parasol colour], z mirrored.
+      'terraces': terraceTableList,
       'coverage': {'done': done.length, 'walls': done.length + todo.length},
       // Roofs index assets/textures/roof_atlas.png (else the surface atlas).
       'roofSet': roofs != null,
+      'heroPages': hero.pages,
       'features': features,
       'walls': walls,
       // Tram tracks as polylines [[x, z], ...], z mirrored.

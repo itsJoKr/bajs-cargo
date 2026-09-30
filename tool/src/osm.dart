@@ -101,7 +101,33 @@ class OsmData {
           ], tags);
       }
     }
+    data._addParts('data/buildings.json');
     return data;
+  }
+
+  /// Extra building parts drawn by hand: `data/buildings.json` entries with a
+  /// `part` polygon ([x, z] in local metres) become closed ways tagged
+  /// `building:part` (plus the entry's own `tags`), for volumes OSM lacks (a
+  /// tower rising out of its podium). `zg:overlay` keeps the outline they
+  /// stand on from being replaced by them.
+  void _addParts(String path) {
+    final file = File(path);
+    if (!file.existsSync()) return;
+    final entries = jsonDecode(file.readAsStringSync()) as Map<String, dynamic>;
+    for (final MapEntry(key: key, value: entry) in entries.entries) {
+      if (entry is! Map || entry['part'] == null) continue;
+      final id = int.parse(key.substring(1));
+      final ids = <int>[];
+      for (final (i, p) in (entry['part'] as List).indexed) {
+        final node = -(id * 100 + i);
+        nodes[node] = Vector2((p[0] as num).toDouble(), (p[1] as num).toDouble());
+        ids.add(node);
+      }
+      ways[id] = OsmWay(id, [...ids, ids.first], {
+        'building:part': 'yes',
+        'zg:overlay': 'yes',
+      });
+    }
   }
 
   /// A way's points, skipping nodes the snapshot does not carry.

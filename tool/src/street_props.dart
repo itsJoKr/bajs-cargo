@@ -428,50 +428,31 @@ void emitPlatform(PropBuilder b, List<Vector2> line, Vector2 trackSide,
   b.box(head, f0, .35, .04, hy + 2.3, hy + 2.9, hex(0x1D4E9E), rough: .4);
 }
 
-/// A café terrace: tables with chairs in rows inside [area], a parasol over
-/// every table, in one colour per terrace.
-void emitTerrace(PropBuilder b, Polygon area, double Function(Vector2) terrain) {
+/// A café terrace: tables in rows inside [area], each with two chairs and a
+/// parasol, in one parasol colour per terrace. They are loose physics bodies
+/// in the web (web3d/src/furniture.ts), so this only places them:
+/// `[x, z, y, yaw, '#rrggbb']` in the web frame (z south; yaw turns +z onto
+/// the line through the two chairs).
+List<List<Object>> terraceTables(Polygon area, double Function(Vector2) terrain) {
   final (c, f, hl, hw) = orientedBox(area);
   final r = Vector2(f.y, -f.x);
-  final palettes = [hex(0xF1ECE0), hex(0x8E2B2B), hex(0x2F5A45), hex(0xE8E1CF), hex(0x33383F)];
+  const palettes = [0xF1ECE0, 0x8E2B2B, 0x2F5A45, 0xE8E1CF, 0x33383F];
   final canopy = palettes[(_hash(c.x, c.y) * palettes.length).floor() % palettes.length];
-  final wood = hex(0x7A5234), metal = hex(0x2C2F33);
+  final color = '#${canopy.toRadixString(16).padLeft(6, '0')}';
+  final yaw = math.atan2(f.x, -f.y);
   const pitch = 2.8;
   final nx = math.max(1, (2 * hl / pitch).floor()), ny = math.max(1, (2 * hw / pitch).floor());
+  final tables = <List<Object>>[];
   for (var i = 0; i < nx; i++) {
     for (var j = 0; j < ny; j++) {
       final p = c + f * (-hl + pitch * (i + .5) + (2 * hl - nx * pitch) / 2) +
           r * (-hw + pitch * (j + .5) + (2 * hw - ny * pitch) / 2);
       if (!area.contains(p)) continue;
-      final y = terrain(p) + .15;
-      // Table.
-      b.cylinder(Vector3(p.x, y, p.y), Vector3(p.x, y + .72, p.y), .04, metal, sides: 5, kind: 1, rough: .5);
-      b.cylinder(Vector3(p.x, y + .72, p.y), Vector3(p.x, y + .76, p.y), .38, wood, sides: 8, rough: .6);
-      // Two chairs across the table.
-      for (final e in [-1.0, 1.0]) {
-        final s = p + f * (.62 * e);
-        b.box(s, f, .2, .2, y + .42, y + .47, metal, kind: 1, rough: .5);
-        b.box(s + f * (.2 * e), r, .2, .02, y + .47, y + .88, metal, kind: 1, rough: .5);
-        for (final g in [-1.0, 1.0]) {
-          final leg = s + r * (.17 * g);
-          b.cylinder(Vector3(leg.x, y, leg.y), Vector3(leg.x, y + .42, leg.y), .015, metal, sides: 4, kind: 1);
-        }
-      }
-      // Parasol.
-      b.cylinder(Vector3(p.x, y + .76, p.y), Vector3(p.x, y + 2.35, p.y), .03, hex(0xD8D4CC), sides: 5, rough: .5);
-      const sides = 8, rad = 1.35;
-      final apex = Vector3(p.x, y + 2.75, p.y);
-      for (var k = 0; k < sides; k++) {
-        final a0 = k / sides * 2 * math.pi, a1 = (k + 1) / sides * 2 * math.pi;
-        final e0 = Vector3(p.x + math.cos(a0) * rad, y + 2.25, p.y + math.sin(a0) * rad);
-        final e1 = Vector3(p.x + math.cos(a1) * rad, y + 2.25, p.y + math.sin(a1) * rad);
-        final n = (e1 - apex).cross(e0 - apex);
-        n.y >= 0 ? b.quad(apex, e1, e0, e0, canopy, rough: .9) : b.quad(apex, e0, e1, e1, canopy, rough: .9);
-        // Underside, so it is not see-through from below.
-        n.y >= 0 ? b.quad(apex, e0, e1, e1, canopy, rough: .9) : b.quad(apex, e1, e0, e0, canopy, rough: .9);
-      }
+      double r3(double v) => (v * 1000).roundToDouble() / 1000;
+      tables.add([r3(p.x), r3(-p.y), r3(terrain(p) + .15), r3(yaw), color]);
     }
   }
+  return tables;
 }
 
 /// A standing figure [height] tall at [p] facing [f], for statues whose

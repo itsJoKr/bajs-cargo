@@ -9,6 +9,8 @@
 // ignore_for_file: depend_on_referenced_packages
 library;
 
+import 'dart:convert';
+import 'dart:io';
 import 'dart:math' as math;
 
 import 'package:vector_math/vector_math.dart';
@@ -21,6 +23,20 @@ import 'geom.dart';
 import 'osm.dart';
 
 const kerbHeight = .15;
+
+/// Nested levels of raised ground; level k is `k * rise` above the sidewalk.
+class Terrace {
+  Terrace(this.levels, this.rise, this.run)
+      : polygons = [for (final l in levels) l.polygons],
+        flats = [for (final l in levels) l.inflate(-run)];
+  final List<Shape> levels;
+
+  /// Each level shrunk by [run]: the flat top. The band between the two is
+  /// the slope up from the level below, so the car can climb it.
+  final List<Shape> flats;
+  final double rise, run;
+  final List<List<Polygon>> polygons;
+}
 
 /// Standard gauge, and the width of one rail's visible strip.
 const gauge = 1.435, railWidth = .11;
@@ -182,6 +198,55 @@ class Ground {
       }
     }
     trees.sort((a, b) => a.y != b.y ? a.y.compareTo(b.y) : a.x.compareTo(b.x));
+    _buildTerraces();
+  }
+
+  /// Raised, stepped ground (`data/raised.json`): each terrace is nested
+  /// levels, level k [Terrace.rise] * k above the sidewalk, cut out of the
+  /// carriageways. Lets the car climb the steps: they are small.
+  final terraces = <Terrace>[];
+
+  void _buildTerraces() {
+    final file = File('data/raised.json');
+    if (!file.existsSync()) return;
+    for (final e in jsonDecode(file.readAsStringSync()) as List) {
+      Vector2 pt(String k) =>
+          Vector2((e[k][0] as num).toDouble(), (e[k][1] as num).toDouble());
+      final from = pt('from'), to = pt('to');
+      final steps = e['steps'] as int;
+      final rise = (e['rise'] as num).toDouble();
+      final tread = (e['tread'] as num).toDouble();
+      final inset = (e['inset'] as num).toDouble();
+      final depth = (e['depth'] as num).toDouble();
+      final dir = (to - from).normalized();
+      final north = Vector2(-dir.y, dir.x);
+      final levels = <Shape>[];
+      for (var k = 1; k <= steps; k++) {
+        final south = inset + (steps - k) * tread;
+        final quad = Shape.of([
+          Polygon([
+            from - north * south,
+            to - north * south,
+            to + north * depth,
+            from + north * depth,
+          ], const []),
+        ]);
+        levels.add(quad - road);
+      }
+      terraces.add(Terrace(levels, rise, (e['run'] as num).toDouble()));
+    }
+  }
+
+  /// How far the ground at [p] is lifted above the sidewalk by a terrace.
+  double liftAt(Vector2 p) {
+    for (final t in terraces) {
+      for (var k = t.polygons.length; k >= 1; k--) {
+        if (t.polygons[k - 1].any((polygon) => polygon.contains(p))) {
+          return k * t.rise;
+        }
+      }
+    }
+    return 0;
   }
 
   /// Emits the ground inside ([minX], [minZ])-([maxX], [maxZ]) into
@@ -267,11 +332,47 @@ class Ground {
       }
     }
 
+    // Terraces: every level of every terrace, and each level minus the one
+    // above it (the tread you stand on).
+    final treads = <(Shape, double)>[];
+    var raisedHere = Shape.empty();
+    final slopes = <(Polygon, double, double, double)>[]; // polygon, y0, y1, run
+    for (final t in terraces) {
+      final here = [
+        for (final l in t.levels) l.clipRect(minX, minZ, maxX, maxZ),
+      ];
+      final flats = [
+        for (final f in t.flats) f.clipRect(minX, minZ, maxX, maxZ),
+      ];
+      for (var k = 1; k <= here.length; k++) {
+        if (here[k - 1].isEmpty) continue;
+        final flat = k < here.length ? flats[k - 1] - here[k] : flats[k - 1];
+        treads.add((flat, k * t.rise));
+        for (final polygon in here[k - 1].polygons) {
+          slopes.add((polygon, kerbHeight + (k - 1) * t.rise,
+              kerbHeight + k * t.rise, t.run));
+        }
+      }
+      if (!here.first.isEmpty) raisedHere = raisedHere | here.first;
+    }
+
     fill(roadHere, Surface.asphalt, 0);
-    fill(sidewalk, Surface.sidewalk, kerbHeight);
-    fill(pavingHere, Surface.paving, kerbHeight);
-    fill(grassHere, Surface.grass, kerbHeight);
-    fill(gravelHere, Surface.gravel, kerbHeight);
+    fill(sidewalk - raisedHere, Surface.sidewalk, kerbHeight);
+    fill(pavingHere - raisedHere, Surface.paving, kerbHeight);
+    fill(grassHere - raisedHere, Surface.grass, kerbHeight);
+    fill(gravelHere - raisedHere, Surface.gravel, kerbHeight);
+    for (final (tread, lift) in treads) {
+      for (final (kind, area) in [
+        (Surface.sidewalk, sidewalk),
+        (Surface.paving, pavingHere),
+        (Surface.grass, grassHere),
+        (Surface.gravel, gravelHere),
+      ]) {
+        if (area.isEmpty) continue;
+        final part = area & tread;
+        if (!part.isEmpty) fill(part, kind, kerbHeight + lift);
+      }
+    }
 
     // Kerbs: a vertical face along every road edge that is not the chunk
     // border, facing into the road (the road is on each ring's left).
@@ -315,6 +416,36 @@ class Ground {
             s + length, kerbHeight, u1: tile, v1: rough, color: kerbColor);
         final v3 = surface.vertex(Vector3(a.x, ha + kerbHeight, a.y), normal,
             s, kerbHeight, u1: tile, v1: rough, color: kerbColor);
+        surface.triangle(v0, v1, v2, normal);
+        surface.triangle(v0, v2, v3, normal);
+      }
+    }
+
+    // Terrace slopes: along every edge of a level, an incline from the level
+    // below up to the flat top [run] metres inside (outer rings are
+    // counter-clockwise, so walking an edge backwards puts the outside on
+    // its left, as for the kerbs).
+    for (final (polygon, y0, y1, run) in slopes) {
+      for (final (a0, b0) in kerbEdges(Polygon(polygon.outer, const []))) {
+        final a = b0, b = a0;
+        final d = b - a;
+        final length = d.length;
+        if (length < .01) continue;
+        final out = Vector2(-d.y, d.x) / length;
+        final ai = a - out * run, bi = b - out * run;
+        final normal =
+            Vector3(out.x * (y1 - y0), run, out.y * (y1 - y0)).normalized();
+        final s = (a - Vector2(originX, originZ)).dot(d / length);
+        final ha = height(a), hb = height(b);
+        const tile = 5.0, rough = .7;
+        final v0 = surface.vertex(Vector3(a.x, ha + y0, a.y), normal, s, 0,
+            u1: tile, v1: rough, color: kerbColor);
+        final v1 = surface.vertex(Vector3(b.x, hb + y0, b.y), normal,
+            s + length, 0, u1: tile, v1: rough, color: kerbColor);
+        final v2 = surface.vertex(Vector3(bi.x, hb + y1, bi.y), normal,
+            s + length, run, u1: tile, v1: rough, color: kerbColor);
+        final v3 = surface.vertex(Vector3(ai.x, ha + y1, ai.y), normal, s,
+            run, u1: tile, v1: rough, color: kerbColor);
         surface.triangle(v0, v1, v2, normal);
         surface.triangle(v0, v2, v3, normal);
       }

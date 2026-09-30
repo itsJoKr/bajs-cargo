@@ -15,27 +15,34 @@ import 'osm.dart';
 /// [u0]..[u1] (left to right as seen from the street) and its rows [top]
 /// (the eave) .. [bottom] (the pavement), in texture coordinates.
 class HeroSpan {
-  const HeroSpan(this.u0, this.u1, this.top, this.bottom);
+  const HeroSpan(this.u0, this.u1, this.top, this.bottom, this.page);
   final double u0, u1, top, bottom;
+
+  /// The atlas page (`assets/textures/hero_atlas_N.png`).
+  final int page;
 }
 
 class HeroFacade {
-  HeroFacade(this.name, this.rect, this.edges, this.storeys);
+  HeroFacade(this.name, this.rect, this.edges, this.storeys, this.page);
   final String name;
   final List<double> rect;
 
   /// `<building id>_e<edge index>` in `Polygon.edges` order.
   final List<String> edges;
   final int storeys;
+  final int page;
 }
 
 class HeroAtlas {
-  HeroAtlas._(this.facades, this.storey, this.groundExtra);
+  HeroAtlas._(this.facades, this.storey, this.groundExtra, this.pages);
 
   /// No hero facades: every building wears the style kit.
-  HeroAtlas.none() : facades = const [], storey = 0, groundExtra = 0;
+  HeroAtlas.none() : facades = const [], storey = 0, groundExtra = 0, pages = 0;
 
   final List<HeroFacade> facades;
+
+  /// Number of atlas pages.
+  final int pages;
 
   /// The storey height the pictures were drawn at, and the ground floor's
   /// extra: a hero building's eave is `storeys * storey + groundExtra`, so
@@ -58,11 +65,13 @@ class HeroAtlas {
               [for (final v in e['rect']! as List) (v as num).toDouble()],
               [for (final v in e['edges']! as List) v as String],
               e['storeys']! as int,
+              (e['page'] as int?) ?? 0,
             );
           }(),
       ],
       (json['storey']! as num).toDouble(),
       (json['groundExtra']! as num).toDouble(),
+      (json['pages'] as List).length,
     );
   }
 
@@ -114,6 +123,7 @@ class HeroAtlas {
           r[0] + (r[2] - r[0]) * (s + l) / total,
           r[1],
           r[3],
+          f.page,
         );
         s += l;
       }

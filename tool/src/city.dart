@@ -236,13 +236,14 @@ class City {
 
     final outlines = osm.areas(isBuilding);
     final parts = osm.areas(isPart);
+    final replacing = parts.where((p) => p.tags['zg:overlay'] != 'yes');
 
     // A building drawn as parts renders the parts, not its outline.
     final replaced = <String>{};
     for (final outline in outlines) {
       for (final polygon in outline.polygons) {
         var covered = 0.0;
-        for (final part in parts) {
+        for (final part in replacing) {
           for (final pp in part.polygons) {
             if (polygon.contains(centroid(pp.outer))) covered += pp.area;
           }

@@ -438,7 +438,7 @@ const clayRoofTile = 6, flatRoofTile = 7, copperRoofTile = 8, stoneTile = 14;
 /// wall from the sidewalk to the eave.
 ///
 /// A wall [hero] has a Street View picture for wears that picture instead,
-/// once, from the sidewalk to the eave (UV1.x = -1 selects the hero atlas
+/// once, from the sidewalk to the eave (UV1.x = -1 - page selects a hero atlas page
 /// in `city_atlas.fmat`, UV0 is the atlas coordinate itself).
 void emitBuilding(
   Building b,
@@ -547,10 +547,10 @@ void emitBuilding(
         final hu0 = span.u0 + (span.u1 - span.u0) * ts[i];
         final hu1 = span.u0 + (span.u1 - span.u0) * ts[i + 1];
         quad(p0, p1, baseY, baseY, sidewalkY, sidewalkY, hu0, hu1,
-            span.bottom, span.bottom, span.bottom, span.bottom, -1,
+            span.bottom, span.bottom, span.bottom, span.bottom, -1.0 - span.page,
             color: white);
         quad(p0, p1, sidewalkY, sidewalkY, eaveY, eaveY, hu0, hu1,
-            span.bottom, span.bottom, span.top, span.top, -1,
+            span.bottom, span.bottom, span.top, span.top, -1.0 - span.page,
             color: white);
         continue;
       }

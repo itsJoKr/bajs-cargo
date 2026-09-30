@@ -41,3 +41,4 @@ artifacts/
 .venv/
 __pycache__/
 .fvm/
+assets/textures/.hero_cache/

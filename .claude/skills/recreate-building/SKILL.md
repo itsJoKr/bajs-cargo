@@ -24,7 +24,7 @@ into several edges); never wrap one picture around a corner.
 | Facade entries (photo, crop, walls, bays, storeys, description) | `data/hero/<section>.json` (committed, hand-written) |
 | Street View screenshots | `.art/streetview/frames/fNN.jpg`, `.art/streetview/shots/<wall>.jpg` (git-ignored) |
 | Photo crop, gen-image output, prompt, verdicts | `.art/facades/<name>/{photo,raw,prompt}.*`, `.art/facades/manifest.json` |
-| Packed facades | `assets/textures/hero_atlas.png` + `data/hero/atlas.json` |
+| Packed facades | `assets/textures/hero_atlas_<n>.png` pages + `data/hero/atlas.json` |
 | Roof coverings (the set to choose from) | `data/roofs.json`, `assets/textures/roof_atlas.png` |
 | Per-building corrections and 3D features | `data/buildings.json` (committed, hand-written) |
 | Feature images (signs, logos) | `web3d/public/features/<name>.png` (committed) |
@@ -85,6 +85,40 @@ for Street View only; never point it at the game page (it froze there, use
 Look at every frame yourself. Note the capture date (it is in the frame's
 panel); prefer the newest imagery that shows the side clearly.
 
+## 2b. Narrow streets and long walls: rectify several frames (tool/sv_rectify.py)
+
+When a wall does not fit one frame (a 30 m facade on a 9 m street, or a
+tall one seen from 5 m), photograph it from ONE panorama at several
+headings / pitches and let `tool/sv_rectify.py` turn them into a straight-on
+elevation (exact, no feature matching: a pure-rotation camera model).
+
+1. Snap to the street panorama: `python3 tool/sv_street_url.py TODO WALL`
+   prints the named street(s) in front of the wall and a Maps pano URL on
+   its centreline (`sv_url.py` puts the eye D metres out along the wall's
+   heading instead). Maps snaps to the nearest panorama, **indoor
+   photospheres included** (shop interiors, a toilet, a dentist): check the
+   title in the screenshot. On pedestrian streets the nearest pano is often
+   on the pavement at the wall (1-3 m): too close to be useful.
+2. The tab URL after it loaded gives `@lat,lng,...!1s<PANO>!2e<0|10>`.
+   `python3 tool/sv_shots.py TODO WALL LAT LNG PANO 0 HEIGHT TAB` prints the
+   browser_batch actions (pano URL with 90y fov, headings and tilts 93-130
+   covering the wall). Batches of 2 shots, waits of 10 + 6-8 s: longer
+   batches time out, a black frame means wait 10 s more.
+3. Copy the screenshots into `.art/streetview/<x>/`, write a spec (see the
+   docstring: cam, shots with heading/tilt/fov, `height`, `ppm` 50,
+   `out_m` to put the plane at a portico's columns) and run
+   `.venv/bin/python tool/sv_rectify.py spec.json`. Shots from a second
+   pano may be added with their own `cam`.
+4. A facade entry then says `"photo": ".art/streetview/rect/<name>.png"`
+   instead of frame + crop. The picture may include neighbours if the OSM
+   wall does (OSM and Google are often 5-10 m apart along a narrow street:
+   check that the elevation covers the wall's extent, not the real
+   building's).
+5. Camera model (calibrated 2026-09-29 on the 1568 x 652 window): URL `y` is
+   the VERTICAL fov, f = (H/2)/tan(y/2) px; tilt 90 = level, pitch = tilt-90
+   (up positive, useful range 70-130); camera height 2.5 m. `sv_project.py`
+   uses the same model.
+
 ## 3. Describe each facade (data/hero/<section>.json)
 
 One entry per straight run of wall, in the section file for the area
@@ -136,12 +170,14 @@ Record rejections in `.art/facades/manifest.json` via the script's
 verdicts. Then:
 
 ```sh
-.venv/bin/python tool/prepare_facades.py pack   # hero_atlas.png + data/hero/atlas.json
+.venv/bin/python tool/prepare_facades.py pack   # hero_atlas_<n>.png + data/hero/atlas.json
 ```
 
-The atlas is 768 px per facade height, 4096 wide. When it gets too tall
-for the GPU budget (it grows with every building), split it into pages
-before continuing - do not lower the resolution, the lettering needs it.
+The atlas is 768 px per facade height, 4096 wide, in pages of at most
+4096 x 4096 (`hero_atlas_<n>.png`; the exporter, the web material and
+`sync-assets.mjs` handle any number of pages). Do not lower the resolution,
+the lettering needs it. A building's hero facades must agree on `storeys`
+(its eave comes from the tallest).
 
 ## 5. The roof
 
@@ -184,12 +220,20 @@ Record where it came from in a `source` field.
 | type | fields | for |
 |---|---|---|
 | `sign` | `image`, `width` (m), `height` (default from the image), `at`, `y`/`aboveEave`, `mount`: `wall` (flat on it), `projecting` (blade sign), `roof` (standing on the roof on posts), `out`, `glow` | shop names, blade signs, rooftop brand signs, clocks |
-| `awning` | `from`, `to`, `y` (bottom, ~2.6), `depth`, `color` | shop awnings with real depth (the facade picture has them flat) |
-| `terrace` | `from`, `to`, `depth`, `color` (parasols) | a café's tables, chairs, parasols in front of it |
+| `awning` | `from`, `to`, `y` (front bar, above the valance), `drop` (wall to front bar, default 0.7), `depth`, `color` | shop awnings with real depth over the flat one in the picture: measure the painted awning on `raw.png` (pavement to eave), `drop` + `y` = its top, `y` - 0.28 = its bottom |
+| `terrace` | `from`, `to`, `depth`, `color` (parasols) | a café's tables, chairs, parasols in front of it (loose physics bodies the car scatters, `web3d/src/furniture.ts`) |
 | `scaffolding` | `from`, `to`, `height` or `aboveEave`, `depth`, `net` (colour) | scaffolds and netting |
 | `dome` | `at` (1 = right corner), `radius`, `height` (drum), `aboveEave`, `out`, `shape`: `dome`/`onion`/`cone`, `color` | corner domes, turrets, tower caps |
 | `box` | `at`, `out`, `width`, `depth`, `height`, `y`, `color` | dormers, chimneys, kiosk-like blocks, planters, anything boxy |
 | `model` | `url` (GLB under `web3d/public/`), `at`, `out`, `y`, `yaw` (deg), `scale` | anything else: statues, benches, vehicles, special structures |
+
+**Textures on decorations.** `awning`, `box`, `dome` (its cap) and `scaffolding`
+(its net) also take `texture` (file under `web3d/public/features/tex/`, jpg, or
+png when it needs alpha) and `repeat` (metres per tile, default 1); `color`
+then tints the texture (white when omitted). Without `texture` they are flat
+colour as before. `terrace` and `sign` do not use them (signs have `image`).
+A tile is `repeat` m square on every face, so make the texture seamless and
+give a name-carrying awning a `repeat` equal to its span.
 
 Sign images: crop the sign from the sharpest frame, redraw it flat with
 gen-image on a green screen, key it out:
@@ -239,5 +283,5 @@ wall id that does not exist. Iterate until it matches.
   faces it (sv_plan's `facing` > 0.6) or a narrow-fov shot from farther.
 - The model sometimes "improves" text or adds a sign from a neighbour; the
   review step is not optional.
-- Do not edit baked outputs (`hero_atlas.png`, `atlas.json`,
+- Do not edit baked outputs (`hero_atlas_<n>.png`, `atlas.json`,
   `coverage.json`, `web3d/public/city/*`); change the inputs and rerun.

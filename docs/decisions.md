@@ -270,3 +270,29 @@ city pipeline stayed, as a plain Dart CLI package (`pubspec.yaml`:
 `geo.dart` to `tool/src/`. The export was byte-identical before and after
 the split. Entries above that talk about the Flutter build, Slim_1, the
 probe or `generate_zagreb.dart` describe history.
+
+## Café furniture is loose; the car launches it (2026-09-29)
+
+The user asked for chairs and parasols that fly when the car hits them; lamps
+and the other props stay fixed. Terraces are no longer baked into the prop mesh:
+`terraceTables` exports placements (`city.json` `terraces`, 351 tables from OSM
+outdoor seating) and `terrace` features add theirs; `web3d/src/furniture.ts`
+makes each table, chair and parasol a dynamic body (1500 in all, asleep until
+touched, four instanced meshes). Tables go too: the parasol pole stands through
+the table, and a table that stays while its chairs fly looks wrong. Pieces sit in
+a lower dominance group, so they never slow or lift the car. A car at speed
+cannot shove them through the solver (see the rules file), so a moving car
+launches whatever its next step reaches: its speed plus some, a lift, a spray to
+the side and a spin. That is arcade physics on purpose. Dropping the baked
+furniture also shrank `zagreb.glb` from 29 MB to 16.5 MB.
+
+Driving through a terrace tanked the frame rate: each flying piece added
+~0.3-0.5 ms to every physics step (60 pieces: 1 -> 17 ms a step, and the loop
+runs up to six steps a frame to catch up). Measured in the city, nearly all of it
+was cylinder and cone colliders against the city trimeshes (CCD cost nothing
+measurable), so every piece is boxes now (30 flying: 12 -> 2 ms). A launched piece
+stops colliding with other furniture, so a spray no longer wakes the next terrace.
+And the user's trick: with more than 4 pieces flying a hit piece vanishes with a
+30% chance, and every one past 24 does (`zg.furniture.stats()`). Driving down
+Bogovićeva's terraces now holds 60 fps with the step at its ~1 ms baseline.
+

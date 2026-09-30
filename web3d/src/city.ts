@@ -1,21 +1,28 @@
 // Loads the city tool/export_web.dart bakes: buildings, roofs, streets and
-// rails as one glTF, the atlas material that paints them, the street trees,
-// and the static colliders the car drives on and into.
+// rails as one glTF, the atlas material that paints them, the street trees
+// (trees.ts), and the static colliders the car drives on and into.
 
 import * as THREE from 'three';
 import type RAPIER_NS from '@dimforge/rapier3d-compat';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { KTX2Loader } from 'three/addons/loaders/KTX2Loader.js';
 import { gridGeometry, type Grid } from './terrain.ts';
 import { buildFeatures, type Feature } from './features.ts';
+import { buildTrees, type TreeInstance } from './trees.ts';
+import type { TerraceTable } from './furniture.ts';
 
 export interface CityData {
   extent: [number, number, number, number];
-  trees: [number, number, number, number, number][];
+  trees: TreeInstance[];
   lamps: [number, number, number][];
+  /** Café tables, each with two chairs and a parasol (furniture.ts). */
+  terraces?: TerraceTable[];
   trams: [number, number][][];
   coverage?: { done: number; walls: number };
   /** Roofs index the roof set's atlas (tool/prepare_roofs.py). */
   roofSet?: boolean;
+  /** Number of hero atlas pages (textures/hero_atlas_<n>.png). */
+  heroPages?: number;
   features?: Feature[];
   /** Street walls: id -> [ax, az, bx, bz, nx, nz, sidewalk y, eave y]. */
   walls?: Record<string, number[]>;
@@ -27,6 +34,8 @@ export interface City {
   /** The ground grid (null when exported --flat). */
   ground: Grid | null;
   far: Grid | null;
+  /** Café tables from OSM and from terrace features, for furniture.ts. */
+  tables: TerraceTable[];
 }
 
 /**
@@ -60,7 +69,8 @@ function propMaterial() {
  * The city's one surface material, ported from
  * assets/materials/city_atlas.fmat: UV1 = (tile, roughness), UV0 counts
  * tile repeats and the shader wraps it inside the tile's padded atlas cell;
- * UV1.x < 0 samples the Street View hero atlas at UV0 directly. The atlas
+ * UV1.x = -1 - page (down to -50) samples that layer of the Street View hero
+ * atlas (one block-compressed KTX2 array texture) at UV0 directly. The atlas
  * alpha is a tint mask for the vertex colour (stucco and asphalt take the
  * paint, glass and stone keep their own colour).
  */
@@ -110,7 +120,7 @@ function atlasMaterial(
         '#include <common>',
         `#include <common>
         uniform sampler2D atlas;
-        uniform sampler2D heroAtlas;
+        uniform highp sampler2DArray heroAtlas;
         uniform sampler2D surfaceAtlas;
         uniform float columns;
         uniform float padding;
@@ -141,7 +151,10 @@ function atlasMaterial(
           float scale = inner / 4.0;
           tex = textureGrad(surfaceAtlas, atlasUv, dFdx(flipped) * scale, dFdy(flipped) * scale);
         } else if (vInfo.x < -0.5) {
-          tex = texture2D(heroAtlas, vAtlasUv);
+          // Derivatives outside the page branches: they are not uniform flow.
+          vec2 hdx = dFdx(vAtlasUv), hdy = dFdy(vAtlasUv);
+          float page = -vInfo.x - 1.0;
+          tex = textureGrad(heroAtlas, vec3(vAtlasUv, floor(page + 0.5)), hdx, hdy);
         } else {
           float tile = floor(vInfo.x + 0.5);
           vec2 cell = vec2(mod(tile, columns), floor(tile / columns));
@@ -172,6 +185,52 @@ function atlasMaterial(
   return material;
 }
 
+/**
+ * The hero atlas: `textures/hero_atlas_<n>.ktx2`, one block-compressed page each (only the pages
+ * that changed are re-encoded by tool/prepare_facades.py pack), merged here into ONE array
+ * texture (layer = page), so the shader needs one texture unit however many pages there are.
+ * The merge fills preallocated per-mip buffers a few pages at a time, so the JS heap holds the
+ * array once, not every page plus a copy; the CPU copy is dropped after the GPU upload.
+ */
+async function loadHeroAtlas(loader: KTX2Loader, pages: number, anisotropy: number) {
+  let mips: { data: Uint8Array; width: number; height: number }[] = [];
+  let first: THREE.CompressedTexture | null = null;
+  for (let start = 0; start < pages; start += 4) {
+    const batch = await Promise.all(
+      Array.from({ length: Math.min(4, pages - start) }, (_, j) =>
+        loader.loadAsync(`textures/hero_atlas_${start + j}.ktx2`),
+      ),
+    );
+    batch.forEach((page, j) => {
+      if (!first) {
+        first = page;
+        mips = page.mipmaps.map((m) => ({
+          data: new Uint8Array(m.data.byteLength * pages),
+          width: m.width,
+          height: m.height,
+        }));
+      }
+      page.mipmaps.forEach((m, level) => mips[level].data.set(m.data as Uint8Array, (start + j) * m.data.byteLength));
+      if (page !== first) page.dispose();
+    });
+  }
+  const f = first!;
+  const atlas = new THREE.CompressedArrayTexture(mips, f.image.width, f.image.height, pages, f.format as THREE.CompressedPixelFormat, f.type);
+  atlas.colorSpace = f.colorSpace;
+  atlas.minFilter = THREE.LinearMipmapLinearFilter;
+  atlas.magFilter = THREE.LinearFilter;
+  atlas.generateMipmaps = false;
+  atlas.wrapS = atlas.wrapT = THREE.ClampToEdgeWrapping;
+  atlas.anisotropy = anisotropy;
+  atlas.needsUpdate = true;
+  // The GPU has it now; free the (hundreds of MB) CPU copy.
+  atlas.onUpdate = () => {
+    atlas.mipmaps = [];
+  };
+  f.dispose();
+  return atlas;
+}
+
 function loadTexture(loader: THREE.TextureLoader, url: string, anisotropy: number) {
   return loader.loadAsync(url).catch(() => {
     throw new Error(`could not load ${url}`);
@@ -196,13 +255,15 @@ export async function loadCity(
   const textures = new THREE.TextureLoader();
   onProgress('textures');
   const data = await fetch('city/city.json').then((r) => r.json() as Promise<CityData>);
-  const [facadeAtlas, surfaceAtlas, heroAtlas, roofAtlas] = await Promise.all([
+  // The hero pages: one KTX2 array texture (UASTC, mips), transcoded to what the GPU has.
+  const ktx2 = new KTX2Loader().setTranscoderPath('basis/').detectSupport(renderer);
+  const [facadeAtlas, surfaceAtlas, roofAtlas, heroAtlas] = await Promise.all([
     loadTexture(textures, 'textures/facade_atlas.png', anisotropy),
     loadTexture(textures, 'textures/surface_atlas.png', anisotropy),
-    loadTexture(textures, 'textures/hero_atlas.png', anisotropy),
     data.roofSet ? loadTexture(textures, 'textures/roof_atlas.png', anisotropy) : Promise.resolve(null),
+    loadHeroAtlas(ktx2, Math.max(1, data.heroPages ?? 1), anisotropy),
   ]);
-  heroAtlas.wrapS = heroAtlas.wrapT = THREE.ClampToEdgeWrapping;
+  ktx2.dispose();
   const materials: Record<string, THREE.Material> = {
     facade: atlasMaterial(facadeAtlas, heroAtlas, surfaceAtlas, 8),
     // The roof set (tool/prepare_roofs.py): 3 x 3 cells of 512 px.
@@ -220,7 +281,6 @@ export async function loadCity(
   const [groundGrid, farGrid] = await Promise.all([optionalGrid('city/terrain.json'), optionalGrid('city/far.json')]);
   const root = new THREE.Group();
   root.name = 'city';
-  let treeGeometry: THREE.BufferGeometry | undefined;
   let lampGeometry: THREE.BufferGeometry | undefined;
   const propMat = propMaterial();
   const meshes: THREE.Mesh[] = [];
@@ -232,10 +292,6 @@ export async function loadCity(
     // placeholder material the exporter named.
     const kind = (mesh.material as THREE.Material).name;
     const g = mesh.geometry;
-    if (kind === 'tree') {
-      treeGeometry = g;
-      continue;
-    }
     if (kind === 'lamp') {
       lampGeometry = g;
       continue;
@@ -295,29 +351,7 @@ export async function loadCity(
   }
 
   onProgress('trees');
-  if (treeGeometry) {
-    const trees = new THREE.InstancedMesh(
-      treeGeometry,
-      new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.92, metalness: 0 }),
-      data.trees.length,
-    );
-    const m = new THREE.Matrix4();
-    const q = new THREE.Quaternion();
-    const up = new THREE.Vector3(0, 1, 0);
-    data.trees.forEach(([x, z, y, s, yaw], i) => {
-      q.setFromAxisAngle(up, yaw);
-      m.compose(new THREE.Vector3(x, y, z), q, new THREE.Vector3(s, s, s));
-      trees.setMatrixAt(i, m);
-    });
-    trees.castShadow = true;
-    trees.receiveShadow = true;
-    trees.computeBoundingSphere();
-    root.add(trees);
-    // Trunks only: crowns are soft to the camera and to the car's roof.
-    for (const [x, z, y, s] of data.trees) {
-      world.createCollider(R.ColliderDesc.cylinder(2.3 * s, 0.25 * s).setTranslation(x, y + 2.3 * s, z));
-    }
-  }
+  root.add(await buildTrees(data.trees, R, world, anisotropy));
 
   if (lampGeometry) {
     lampGeometry.setAttribute('aInfo', lampGeometry.getAttribute('uv1'));
@@ -333,9 +367,10 @@ export async function loadCity(
   }
 
   // Hand-placed features from data/buildings.json (signs, awnings...).
+  const tables = [...(data.terraces ?? [])];
   if (data.features?.length) {
     onProgress('features');
-    root.add(await buildFeatures(data.features, R, world, anisotropy));
+    root.add(await buildFeatures(data.features, R, world, anisotropy, tables));
   }
 
   // The ground past the baked extent (the rest of the centre, not built
@@ -378,5 +413,5 @@ export async function loadCity(
   ]) {
     world.createCollider(R.ColliderDesc.cuboid(sx, 120, sz).setTranslation(x, 0, z));
   }
-  return { root, data, ground: groundGrid, far: farGrid };
+  return { root, data, ground: groundGrid, far: farGrid, tables };
 }

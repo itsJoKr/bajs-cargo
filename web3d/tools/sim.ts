@@ -9,6 +9,7 @@
 import RAPIER from '@dimforge/rapier3d-compat';
 import { Vehicle, type DriveInput } from '../src/vehicle.ts';
 import { ferrariWheels } from './wheels.ts';
+import { Furniture, type TerraceTable } from '../src/furniture.ts';
 
 await RAPIER.init();
 
@@ -179,6 +180,87 @@ const gas: DriveInput = { ...idle, throttle: 1 };
   run(world, car, 3, { ...idle, handbrake: true });
   const drift = Math.abs(car.body.translation().z - z0);
   check('handbrake holds on the ramp', drift < 0.5, `rolled ${drift.toFixed(2)} m in 3 s`);
+}
+
+// Café furniture: stands still when woken, and flies when the car hits it
+// without slowing or lifting the car. Built as main.ts builds it: settled
+// once, then asleep.
+function terrace(world: RAPIER.World) {
+  const tables: TerraceTable[] = [[0, -40, 0, Math.PI / 2, '#ffffff'], [6, -40, 0, 0, '#ffffff']];
+  const furniture = new Furniture(RAPIER, world, tables);
+  furniture.settle();
+  const bodies: RAPIER.RigidBody[] = [];
+  world.forEachRigidBody((b) => void (b.isDynamic() && bodies.push(b)));
+  const home = bodies.map((b) => ({ ...b.translation() }));
+  const moved = (b: RAPIER.RigidBody) => {
+    const t = b.translation(), h = home[bodies.indexOf(b)];
+    return Math.hypot(t.x - h.x, t.y - h.y, t.z - h.z);
+  };
+  return { furniture, bodies, home, moved };
+}
+{
+  const world = makeWorld();
+  const { furniture, bodies, moved } = terrace(world);
+  for (const b of bodies) b.wakeUp();
+  for (let i = 0; i < 180; i++) {
+    furniture.step();
+    world.step();
+  }
+  const settle = Math.max(...bodies.map(moved));
+  check('furniture stands still', settle < 0.02, `${bodies.length} pieces, max drift ${(settle * 100).toFixed(1)} cm in 3 s`);
+}
+{
+  // The car, 40 m south of the first table, drives north through it at
+  // about 70 km/h; the second table is 6 m to the side.
+  const world = makeWorld();
+  const { furniture, bodies, home, moved } = terrace(world);
+  const car = new Vehicle(RAPIER, world, ferrariWheels, { x: 0, y: 0.1, z: 0 }, 0);
+  run(world, car, 1, idle);
+  const near = bodies.filter((_, i) => home[i].x < 3);
+  const peak = new Map<RAPIER.RigidBody, number>();
+  let before = 0, after = 0, carPeak = 0;
+  run(world, car, 8, gas, () => {
+    furniture.step(dt, car.body);
+    const z = car.body.translation().z;
+    if (z > -36) before = car.speed;
+    else if (z < -44 && !after) after = car.speed;
+    carPeak = Math.max(carPeak, car.body.translation().y);
+    for (const b of near) peak.set(b, Math.max(peak.get(b) ?? 0, b.translation().y));
+    return z < -60;
+  });
+  run(world, car, 4, idle, () => void furniture.step(dt, car.body));
+  const flew = near.filter((b) => (peak.get(b) ?? 0) > 0.8).length;
+  const far = Math.min(...near.map(moved));
+  check('car scatters a café table', flew >= 3 && far > 3, `${flew} of ${near.length} pieces rose past 0.8 m, all moved >= ${far.toFixed(1)} m`);
+  check('furniture does not stop the car', after >= before && carPeak < 0.35, `${(before * 3.6).toFixed(0)} -> ${(after * 3.6).toFixed(0)} km/h through it, car peak y ${carPeak.toFixed(2)}`);
+  const side = Math.max(...bodies.filter((_, i) => home[i].x >= 3).map(moved));
+  check('the table beside the road stays put', side < 0.02, `moved ${(side * 100).toFixed(1)} cm`);
+}
+
+{
+  // Down a row of ten terraces at speed: past a few pieces in the air, hit
+  // pieces start to vanish, so the flying crowd stays small.
+  const world = makeWorld();
+  const tables: TerraceTable[] = Array.from({ length: 10 }, (_, i) => [0, -30 - 3 * i, 0, Math.PI / 2, '#ffffff']);
+  const furniture = new Furniture(RAPIER, world, tables);
+  furniture.settle();
+  const car = new Vehicle(RAPIER, world, ferrariWheels, { x: 0, y: 0.1, z: 0 }, 0);
+  run(world, car, 1, idle);
+  let peak = 0, before = 0, after = 0;
+  run(world, car, 8, gas, () => {
+    furniture.step(dt, car.body);
+    peak = Math.max(peak, furniture.stats().flying);
+    const z = car.body.translation().z;
+    if (z > -26) before = car.speed;
+    else if (z < -62 && !after) after = car.speed;
+    return z < -70;
+  });
+  const { gone } = furniture.stats();
+  check('a row of terraces thins out', gone > 0 && peak <= 24 && after >= before * 0.95,
+    `${gone} of ${furniture.count} pieces vanished, at most ${peak} flying, ${(before * 3.6).toFixed(0)} -> ${(after * 3.6).toFixed(0)} km/h`);
+  furniture.reset();
+  world.step();
+  check('reset brings them back', furniture.stats().gone === 0 && furniture.awake() === furniture.count, `${furniture.awake()} of ${furniture.count} back and awake`);
 }
 
 process.exit(failures ? 1 : 0);

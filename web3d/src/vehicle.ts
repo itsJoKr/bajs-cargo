@@ -190,7 +190,9 @@ export class Vehicle {
       this.body.applyImpulse({ x: -lv.x * k, y: -lv.y * k, z: -lv.z * k }, true);
     }
 
-    c.updateVehicle(dt);
+    // The wheels feel only static and kinematic ground: loose café chairs
+    // (furniture.ts) are shoved by the body, never driven over.
+    c.updateVehicle(dt, this.R.QueryFilterFlags.EXCLUDE_DYNAMIC);
   }
 
   /** Puts the car back on its wheels at [position], facing [heading]. */

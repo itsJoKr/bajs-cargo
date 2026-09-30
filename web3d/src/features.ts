@@ -12,6 +12,7 @@
 import * as THREE from 'three';
 import type RAPIER_NS from '@dimforge/rapier3d-compat';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import type { TerraceTable } from './furniture.ts';
 
 export interface Feature {
   type: 'sign' | 'awning' | 'scaffolding' | 'terrace' | 'model' | 'dome' | 'box';
@@ -31,9 +32,13 @@ export interface Feature {
   width?: number;
   height?: number;
   depth?: number;
+  drop?: number;
   radius?: number;
   color?: string;
   image?: string;
+  /** File under `features/tex/`; tiles every `repeat` metres, `color` tints it. */
+  texture?: string;
+  repeat?: number;
   mount?: 'wall' | 'projecting' | 'roof';
   glow?: boolean;
   url?: string;
@@ -69,11 +74,14 @@ class Wall {
 const heightOf = (f: Feature, fallback: number) =>
   f.aboveEave !== undefined ? f.eave + f.aboveEave : f.ground + (f.y ?? fallback);
 
+/** Builds [features]; terraces are not built here but appended to [tables]
+ * for furniture.ts. */
 export async function buildFeatures(
   features: Feature[],
   R: typeof RAPIER_NS,
   world: RAPIER_NS.World,
   anisotropy: number,
+  tables: TerraceTable[],
 ): Promise<THREE.Group> {
   const root = new THREE.Group();
   root.name = 'features';
@@ -88,6 +96,33 @@ export async function buildFeatures(
     });
     root.add(mesh);
     return mesh;
+  };
+  /** Tiling textures, loaded once per file; tiling is baked into the UVs
+   * (metres per tile), so one texture serves meshes of any size. */
+  const tiled = new Map<string, THREE.Texture>();
+  const tileTexture = async (file: string) => {
+    let t = tiled.get(file);
+    if (!t) {
+      t = await textures.loadAsync(`features/tex/${file}`);
+      t.colorSpace = THREE.SRGBColorSpace;
+      t.wrapS = t.wrapT = THREE.RepeatWrapping;
+      t.anisotropy = anisotropy;
+      tiled.set(file, t);
+    }
+    return t;
+  };
+  /** Material for [f]: its `texture` (tinted by `color`) or the flat [fallback]. */
+  const featureMat = async (f: Feature, fallback: string, extra: THREE.MeshStandardMaterialParameters = {}) => {
+    const map = f.texture ? await tileTexture(f.texture) : null;
+    return mat(f.color ?? (map ? '#ffffff' : fallback), { ...(map ? { map } : {}), ...extra });
+  };
+  /** Rescales the UVs of vertices [from, to) so u spans [u] metres and v [v]. */
+  const tileUV = (g: THREE.BufferGeometry, f: Feature, u: number, v: number, from = 0, to = g.attributes.uv.count) => {
+    if (!f.texture) return;
+    const rep = f.repeat ?? 1;
+    const uv = g.attributes.uv;
+    for (let i = from; i < to; i++) uv.setXY(i, (uv.getX(i) * u) / rep, (uv.getY(i) * v) / rep);
+    uv.needsUpdate = true;
   };
   /** A static box collider matching a mesh-space box. */
   const collide = (center: THREE.Vector3, half: THREE.Vector3, q: THREE.Quaternion) => {
@@ -150,15 +185,19 @@ export async function buildFeatures(
           const span = (s1 - s0) * w.length;
           const depth = f.depth ?? 1.4;
           const y = heightOf(f, 2.6);
-          const drop = 0.7;
-          const color = mat(f.color ?? '#2f5a45', { side: THREE.DoubleSide, roughness: 0.85 });
+          const drop = f.drop ?? 0.7;
+          const color = await featureMat(f, '#2f5a45', { side: THREE.DoubleSide, roughness: 0.85 });
           const mid = (s0 + s1) / 2;
           // Sloped canvas from the wall down to the front bar, and a valance.
-          const canvas = new THREE.Mesh(new THREE.PlaneGeometry(span, Math.hypot(depth, drop)), color);
+          const canvasGeo = new THREE.PlaneGeometry(span, Math.hypot(depth, drop));
+          tileUV(canvasGeo, f, span, Math.hypot(depth, drop));
+          const canvas = new THREE.Mesh(canvasGeo, color);
           canvas.position.copy(w.point(mid, depth / 2, y + drop / 2));
           canvas.quaternion.copy(q).multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), -Math.PI / 2 + Math.atan2(drop, depth)));
           add(canvas);
-          const valance = new THREE.Mesh(new THREE.PlaneGeometry(span, 0.28), color);
+          const valanceGeo = new THREE.PlaneGeometry(span, 0.28);
+          tileUV(valanceGeo, f, span, 0.28);
+          const valance = new THREE.Mesh(valanceGeo, color);
           valance.position.copy(w.point(mid, depth, y - 0.14));
           valance.quaternion.copy(q);
           add(valance);
@@ -196,9 +235,12 @@ export async function buildFeatures(
             add(deck);
           }
           if (f.net) {
+            const netGeo = new THREE.PlaneGeometry((s1 - s0) * w.length, top - f.ground);
+            tileUV(netGeo, f, (s1 - s0) * w.length, top - f.ground);
+            const netMap = f.texture ? await tileTexture(f.texture) : null;
             const net = new THREE.Mesh(
-              new THREE.PlaneGeometry((s1 - s0) * w.length, top - f.ground),
-              mat(f.net, { transparent: true, opacity: 0.55, side: THREE.DoubleSide, depthWrite: false }),
+              netGeo,
+              mat(f.net, { ...(netMap ? { map: netMap, alphaTest: 0.3 } : {}), transparent: true, opacity: netMap ? 1 : 0.55, side: THREE.DoubleSide, depthWrite: false }),
             );
             net.position.copy(w.point((s0 + s1) / 2, 0.3 + depth, (top + f.ground) / 2));
             net.quaternion.copy(q);
@@ -208,34 +250,17 @@ export async function buildFeatures(
           break;
         }
         case 'terrace': {
+          // Loose furniture (furniture.ts): tables with their chairs along
+          // the wall, a parasol over each.
           const s0 = f.from ?? 0, s1 = f.to ?? 1;
           const depth = f.depth ?? 3;
-          const canopy = mat(f.color ?? '#f1ece0', { side: THREE.DoubleSide, roughness: 0.9 });
-          const wood = mat('#7a5234'), metal = mat('#2c2f33', { metalness: 0.6 });
           const n = Math.max(1, Math.floor(((s1 - s0) * w.length) / 2.6));
           const rows = Math.max(1, Math.floor(depth / 2.4));
+          const yaw = Math.atan2(w.t.x, w.t.z);
           for (let i = 0; i < n; i++) {
             for (let r = 0; r < rows; r++) {
               const p = w.point(s0 + ((s1 - s0) * (i + 0.5)) / n, 1.2 + r * 2.4, f.ground);
-              const table = new THREE.Mesh(new THREE.CylinderGeometry(0.38, 0.38, 0.04, 10), wood);
-              table.position.copy(p).setY(f.ground + 0.74);
-              add(table);
-              const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.72, 5), metal);
-              leg.position.copy(p).setY(f.ground + 0.36);
-              add(leg);
-              for (const e of [-1, 1]) {
-                const chair = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.9, 0.42), metal);
-                chair.position.copy(p).addScaledVector(w.t, 0.62 * e).setY(f.ground + 0.45);
-                chair.quaternion.copy(q);
-                add(chair);
-              }
-              const umbrella = new THREE.Mesh(new THREE.ConeGeometry(1.35, 0.45, 8, 1, true), canopy);
-              umbrella.position.copy(p).setY(f.ground + 2.5);
-              add(umbrella);
-              const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 1.6, 5), mat('#d8d4cc'));
-              pole.position.copy(p).setY(f.ground + 1.55);
-              add(pole);
-              collide(p.clone().setY(f.ground + 0.4), new THREE.Vector3(0.4, 0.4, 0.4), q);
+              tables.push([p.x, p.z, f.ground, yaw, f.color ?? '#f1ece0']);
             }
           }
           break;
@@ -261,15 +286,18 @@ export async function buildFeatures(
           const p = w.point(f.at ?? 1, f.out ?? -r * 0.9, base);
           const drumH = f.height ?? r * 0.9;
           const stone = mat('#d8d0c0');
-          const cap = mat(f.color ?? '#6d9c86', { metalness: 0.3, roughness: 0.5 });
+          const cap = await featureMat(f, '#6d9c86', { metalness: 0.3, roughness: 0.5 });
           const drum = new THREE.Mesh(new THREE.CylinderGeometry(r, r, drumH, 20), stone);
           drum.position.copy(p).setY(base + drumH / 2);
           add(drum);
           const shape = f.shape ?? 'dome';
-          const capMesh =
+          const capGeo =
             shape === 'cone'
-              ? new THREE.Mesh(new THREE.ConeGeometry(r * 1.05, r * 2.2, 20), cap)
-              : new THREE.Mesh(new THREE.SphereGeometry(r * 1.02, 20, 12, 0, Math.PI * 2, 0, Math.PI / 2), cap);
+              ? new THREE.ConeGeometry(r * 1.05, r * 2.2, 20)
+              : new THREE.SphereGeometry(r * 1.02, 20, 12, 0, Math.PI * 2, 0, Math.PI / 2);
+          // u runs round the cap, v up its slope.
+          tileUV(capGeo, f, 2 * Math.PI * r, shape === 'cone' ? r * 2.4 : r * 1.6);
+          const capMesh = new THREE.Mesh(capGeo, cap);
           if (shape === 'onion') capMesh.scale.set(1.05, 1.5, 1.05);
           capMesh.position.copy(p).setY(base + drumH + (shape === 'cone' ? r * 1.1 : 0));
           add(capMesh);
@@ -280,7 +308,11 @@ export async function buildFeatures(
         }
         case 'box': {
           const width = f.width ?? 1, depth = f.depth ?? 1, height = f.height ?? 1;
-          const m = new THREE.Mesh(new THREE.BoxGeometry(width, height, depth), mat(f.color ?? '#888888'));
+          const boxGeo = new THREE.BoxGeometry(width, height, depth);
+          // Faces in order +x -x +y -y +z -z, four vertices each.
+          const faceSize = [[depth, height], [depth, height], [width, depth], [width, depth], [width, height], [width, height]];
+          faceSize.forEach(([u, v], i) => tileUV(boxGeo, f, u, v, i * 4, i * 4 + 4));
+          const m = new THREE.Mesh(boxGeo, await featureMat(f, '#888888'));
           const y = heightOf(f, 0);
           m.position.copy(w.point(f.at ?? 0.5, f.out ?? depth / 2, y + height / 2));
           m.quaternion.copy(q);

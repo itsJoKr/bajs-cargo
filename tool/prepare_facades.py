@@ -17,7 +17,7 @@ redo just those facades):
 2. generate .art/facades/<name>/raw.png     gen-image (Codex CLI, gpt-image-2)
             turns the photo into an orthographic, evenly lit, clean
             elevation with exactly the counted bays and storeys
-3. pack     assets/textures/hero_atlas.png + data/hero/atlas.json
+3. pack     assets/textures/hero_atlas_<n>.png (pages) + data/hero/atlas.json
             every facade scaled to 512 px tall at its real aspect (32 px/m
             at the square's 16 m eaves), shelf packed 2048 wide with a
             4 px edge-replicated gutter so mips never bleed a neighbour
@@ -39,8 +39,11 @@ gen-image output is saved unprocessed; this script only resizes it.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import math
+import os
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -57,7 +60,10 @@ SECTIONS = sorted(
     if p.stem not in ("atlas", "coverage")
 )
 # 768 px per facade height (about 40 px/m) keeps shop lettering legible.
-ROW, ATLAS, GUTTER = 768, 4096, 4
+# The hero pages are one KTX2 array texture (block-compressed, one texture unit), so the
+# page count is limited by GPU memory only: ~22 MB a 4096-px page. HERO_ROW is the knob.
+ROW, ATLAS, GUTTER = int(os.environ.get("HERO_ROW", 768)), 4096, 4
+PAGE_H = int(os.environ.get("HERO_PAGE_H", 4096))  # tests use a small one
 STOREY, GROUND_EXTRA = 3.7, 1.0
 
 PROMPT = """The attached photo is a Google Street View picture of one real building \
@@ -94,7 +100,9 @@ def edge_lengths() -> dict[str, float]:
     """OSM edge id -> length, from the facade work lists."""
     lengths = {}
     for path in (ROOT / ".art" / "streetview").glob("*_todo.json"):
-        for f in json.loads(path.read_text()):
+        data = json.loads(path.read_text())
+        # list_hero_facades writes {"section", "facades": [...]}; older files a bare list.
+        for f in data["facades"] if isinstance(data, dict) else data:
             lengths[f["id"]] = f["length"]
     return lengths
 
@@ -105,6 +113,21 @@ def size_for(f: dict) -> tuple[float, float]:
     width = sum(lengths.get(e, 15.0) for e in f["edges"])
     height = f["storeys"] * STOREY + GROUND_EXTRA
     return width, height
+
+
+CORNER = """ This picture is of a street CORNER: the building's cut, rounded or angled \
+corner face is in the exact centre of the image and takes the middle {pct}% of the \
+width; the two adjoining street faces continue flat to its left and right. Draw it as \
+ONE continuous straight-on elevation in which the corner face is unrolled flat (its \
+windows, pilasters, sign boards, shop fronts and cornice continue across it at the same \
+storey heights); {corner}"""
+
+
+def corner_frac(f: dict) -> float:
+    """Share of a 2:3 picture's width that the corner takes when the picture is drawn at
+    the wall's real scale: width / (height * 2/3)."""
+    width, height = size_for(f)
+    return min(1.0, width / (height * 2 / 3))
 
 
 def load_manifest() -> dict:
@@ -123,6 +146,15 @@ def crop(f: dict, force: bool) -> None:
     if out.exists() and not force:
         return
     out.parent.mkdir(parents=True, exist_ok=True)
+    if "photo" in f:
+        # A straight-on elevation made by tool/sv_rectify.py: no crop.
+        im = Image.open(ROOT / f["photo"]).convert("RGB")
+        if max(im.size) > 2400:
+            k = 2400 / max(im.size)
+            im = im.resize((round(im.width * k), round(im.height * k)), Image.Resampling.LANCZOS)
+        im.save(out)
+        verdict(f["name"], "cropped", photo=f["photo"], source=f.get("source"))
+        return
     im = Image.open(FRAMES / f"{f['frame']}.jpg").convert("RGB").crop(tuple(f["crop"]))
     # A little larger so the model sees detail; it is a reference, not a
     # texture.
@@ -139,9 +171,13 @@ def generate(f: dict, force: bool) -> subprocess.Popen | None:
     width, height = size_for(f)
     aspect = width / height
     w, h = (1536, 1024) if aspect > 1.25 else (1024, 1536) if aspect < 0.8 else (1024, 1024)
+    if f.get("corner"):
+        w, h = 1024, 1536
     prompt = PROMPT.format(look=f["look"], place=f.get("place", "the historic centre"),
                            bays=f["bays"], storeys=f["storeys"],
                            width=w, height=h)
+    if f.get("corner"):
+        prompt += CORNER.format(pct=round(100 * corner_frac(f)), corner=f["corner"])
     (work / "prompt.txt").write_text(prompt + "\n")
     if out.exists():
         out.unlink()
@@ -163,8 +199,42 @@ def generate(f: dict, force: bool) -> subprocess.Popen | None:
     )
 
 
+def _sha(*parts: bytes | str) -> str:
+    h = hashlib.sha1()
+    for part in parts:
+        h.update(part if isinstance(part, bytes) else part.encode())
+    return h.hexdigest()[:16]
+
+
+def encode_page(png: Path, out: Path, codec: str) -> None:
+    """One atlas page -> a Basis KTX2 texture with mips (`brew install basis_universal`). The GPU
+    keeps it block-compressed (BC7/ASTC/ETC2, 1 byte a pixel, a quarter of RGBA8)."""
+    args = ["-uastc", "-uastc_level", "2"] if codec == "uastc" else ["-q", "255", "-comp_level", "3"]
+    subprocess.run(
+        ["basisu", "-ktx2", *args, "-mipmap", "-output_file", str(out), str(png)],
+        check=True, stdout=subprocess.DEVNULL,
+    )
+
+
 def pack() -> None:
+    """Pack every raw.png into the hero atlas pages `assets/textures/hero_atlas_<n>.ktx2`.
+
+    Placement is STABLE: a facade whose picture, width and row height are unchanged keeps its
+    page and position from the previous data/hero/atlas.json; new and changed facades go into
+    free space (or a new page). Each page is encoded only when its content key changed
+    (cache: assets/textures/.hero_cache), so one changed facade re-encodes one page, not all.
+    HERO_REPACK=1 repacks from scratch; HERO_CODEC=etc1s (default, small) | uastc (crisper text,
+    5x larger, faster to encode: good while iterating)."""
     import numpy as np
+
+    codec = os.environ.get("HERO_CODEC", "etc1s")
+    tex = ROOT / "assets" / "textures"
+    cache = tex / ".hero_cache"
+    cache.mkdir(parents=True, exist_ok=True)
+    atlas_path = ROOT / "data" / "hero" / "atlas.json"
+    stride = ROW + 2 * GUTTER
+    per_page = PAGE_H // stride
+    page_h = per_page * stride
 
     items = []
     for f in facades():
@@ -174,42 +244,110 @@ def pack() -> None:
             continue
         width, height = size_for(f)
         w = min(ATLAS - 2 * GUTTER, max(64, int(round(ROW * width / height))))
-        items.append((f, raw, w))
-    # First fit, widest first: each facade goes on the first shelf with
-    # room for it.
-    cells = []
-    shelves: list[int] = []  # used width per shelf
-    stride = ROW + 2 * GUTTER
-    for f, raw, w in sorted(items, key=lambda it: (-it[2], it[0]["name"])):
+        if f.get("corner"):
+            w = max(w, 24)
+        frac = round(corner_frac(f), 4) if f.get("corner") else 0
+        key = _sha(raw.read_bytes(), f"{w}:{ROW}:{frac}:{GUTTER}")
+        items.append((f, raw, w, key))
+
+    # Previous placement.
+    old = {}
+    if atlas_path.exists() and not os.environ.get("HERO_REPACK"):
+        prev = json.loads(atlas_path.read_text())
+        if prev.get("row") == ROW and prev.get("width") == ATLAS and prev.get("pageHeight") == page_h:
+            old = prev["facades"]
+    rows: dict[int, list[tuple[int, int]]] = {}  # global row -> occupied [x0, x1)
+    place: dict[str, tuple[int, int]] = {}  # name -> (x, global row)
+    todo = []
+    for f, raw, w, key in items:
+        e = old.get(f["name"])
+        if e and e.get("key") == key:
+            x = round(e["rect"][0] * ATLAS)
+            row = e["page"] * per_page + (round(e["rect"][1] * page_h) - GUTTER) // stride
+            place[f["name"]] = (x, row)
+            rows.setdefault(row, []).append((x - GUTTER, x + w + GUTTER))
+        else:
+            todo.append((f, raw, w, key))
+    # New and changed: first fit, widest first, into any gap of any existing row.
+    for f, raw, w, key in sorted(todo, key=lambda it: (-it[2], it[0]["name"])):
         need = w + 2 * GUTTER
-        row = next((i for i, used in enumerate(shelves) if used + need <= ATLAS), None)
-        if row is None:
-            row = len(shelves)
-            shelves.append(0)
-        cells.append((f, raw, w, shelves[row] + GUTTER, row * stride + GUTTER))
-        shelves[row] += need
-    # WebGL2 mips any size: no power-of-two padding (it doubled the atlas).
-    height = len(shelves) * stride
-    atlas = np.full((height, ATLAS, 3), 128, np.uint8)
-    rects = {}
-    for f, raw, w, x, y in cells:
-        im = Image.open(raw).convert("RGB").resize((w, ROW), Image.Resampling.LANCZOS)
-        padded = np.pad(np.asarray(im), ((GUTTER, GUTTER), (GUTTER, GUTTER), (0, 0)), mode="edge")
-        atlas[y - GUTTER:y + ROW + GUTTER, x - GUTTER:x + w + GUTTER] = padded
-        rects[f["name"]] = [x / ATLAS, y / height, (x + w) / ATLAS, (y + ROW) / height]
-        verdict(f["name"], "packed", rect=rects[f["name"]])
-    out = ROOT / "assets" / "textures" / "hero_atlas.png"
-    Image.fromarray(atlas).save(out, optimize=True)
+        found = None
+        for row in range(max(rows, default=-1) + 1):
+            x = 0
+            for x0, x1 in sorted(rows.get(row, [])):
+                if x0 - x >= need:
+                    break
+                x = max(x, x1)
+            if ATLAS - x >= need and (x + need <= ATLAS):
+                found = (x, row)
+                break
+        if found is None:
+            found = (0, max(rows, default=-1) + 1)
+        x, row = found
+        rows.setdefault(row, []).append((x, x + need))
+        place[f["name"]] = (x + GUTTER, row)
+    n_pages = (max(rows, default=0) + per_page) // per_page
+
+    # Page keys: what is on each page, where, and how it is encoded.
+    by_page: dict[int, list] = {k: [] for k in range(n_pages)}
+    for f, raw, w, key in items:
+        x, row = place[f["name"]]
+        by_page[row // per_page].append((f, raw, w, key, x, (row % per_page) * stride + GUTTER))
+    page_key = {
+        k: _sha(codec, str(page_h), *sorted(f"{f['name']}:{key}:{x}:{y}" for f, _, _, key, x, y in cells))
+        for k, cells in by_page.items()
+    }
+    rects, pages, keys = {}, {}, {}
+    for k, cells in by_page.items():
+        for f, raw, w, key, x, y in cells:
+            rects[f["name"]] = [x / ATLAS, y / page_h, (x + w) / ATLAS, (y + ROW) / page_h]
+            pages[f["name"]] = k
+            keys[f["name"]] = key
+    # Encode the pages whose key has no cached KTX2 yet.
+    for k, cells in by_page.items():
+        out = cache / f"{codec}_{page_key[k]}.ktx2"
+        if out.exists():
+            continue
+        atlas = np.full((page_h, ATLAS, 3), 128, np.uint8)
+        for f, raw, w, key, x, y in cells:
+            im = Image.open(raw).convert("RGB")
+            if f.get("corner"):
+                # Keep only the middle slice: the corner face at its real width.
+                x0 = round(im.width * (1 - corner_frac(f)) / 2)
+                im = im.crop((x0, 0, im.width - x0, im.height))
+            im = im.resize((w, ROW), Image.Resampling.LANCZOS)
+            padded = np.pad(np.asarray(im), ((GUTTER, GUTTER), (GUTTER, GUTTER), (0, 0)), mode="edge")
+            atlas[y - GUTTER:y + ROW + GUTTER, x - GUTTER:x + w + GUTTER] = padded
+        png = cache / f"page_{k}.png"
+        Image.fromarray(atlas).save(png, compress_level=1)
+        print(f"encoding page {k} ({codec}, {len(cells)} facades)", flush=True)
+        encode_page(png, out.with_suffix(".tmp"), codec)
+        out.with_suffix(".tmp").rename(out)
+        png.unlink()
+    # Publish: hero_atlas_<k>.ktx2, drop stale pages, PNG pages of the old scheme and old cache entries.
+    for stale in list(tex.glob("hero_atlas*.png")) + list(tex.glob("hero_atlas*.ktx2")):
+        stale.unlink()
+    live = set()
+    for k in range(n_pages):
+        src = cache / f"{codec}_{page_key[k]}.ktx2"
+        live.add(src.name)
+        shutil.copyfile(src, tex / f"hero_atlas_{k}.ktx2")
+    for old_file in cache.glob("*.ktx2"):
+        if old_file.name not in live and old_file.name.split("_")[0] == codec:
+            old_file.unlink()
+    for name in rects:
+        verdict(name, "packed", rect=rects[name], page=pages[name])
     entries = {
-        f["name"]: {"rect": rects[f["name"]], "edges": f["edges"],
-                    "storeys": f["storeys"], "source": f.get("source")}
+        f["name"]: {"rect": rects[f["name"]], "page": pages[f["name"]], "edges": f["edges"],
+                    "storeys": f["storeys"], "source": f.get("source"), "key": keys[f["name"]]}
         for f in facades() if f["name"] in rects
     }
-    (ROOT / "data" / "hero" / "atlas.json").write_text(json.dumps(
-        {"width": ATLAS, "height": height, "storey": STOREY,
-         "groundExtra": GROUND_EXTRA, "facades": entries},
+    atlas_path.write_text(json.dumps(
+        {"width": ATLAS, "row": ROW, "pageHeight": page_h, "pages": [page_h] * n_pages,
+         "storey": STOREY, "groundExtra": GROUND_EXTRA, "facades": entries},
         indent=2, sort_keys=True) + "\n")
-    print(f"packed {len(rects)} facades into {out.relative_to(ROOT)} ({ATLAS}x{height})")
+    total = sum(p.stat().st_size for p in tex.glob("hero_atlas_*.ktx2")) / 1e6
+    print(f"packed {len(rects)} facades ({len(todo)} new or changed) into {n_pages} page(s), {total:.0f} MB {codec}")
 
 
 def main() -> None:

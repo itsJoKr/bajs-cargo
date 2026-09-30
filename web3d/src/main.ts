@@ -19,6 +19,7 @@ import { Vehicle } from './vehicle.ts';
 import { places } from './places.ts';
 import { farTerrain, sampleGrid } from './terrain.ts';
 import { Trams } from './trams.ts';
+import { Furniture } from './furniture.ts';
 
 const status = document.getElementById('status')!;
 const t0 = performance.now();
@@ -133,6 +134,19 @@ async function main() {
   );
   scene.add(trams.root);
   console.log(`[zg] ${trams.count} trams`);
+  // Café chairs, tables and parasols: loose bodies the car scatters.
+  const furniture = new Furniture(RAPIER, world, city.tables, (x, y, z) => {
+    const hit = world.castRay(
+      new RAPIER.Ray({ x, y: y + 1.2, z }, { x: 0, y: -1, z: 0 }),
+      2.5,
+      true,
+      RAPIER.QueryFilterFlags.EXCLUDE_DYNAMIC,
+    );
+    return hit ? y + 1.2 - hit.timeOfImpact : null;
+  });
+  furniture.settle();
+  scene.add(furniture.root);
+  console.log(`[zg] ${city.tables.length} café tables, ${furniture.count} furniture bodies`);
   const vehicle = new Vehicle(
     RAPIER,
     world,
@@ -142,7 +156,8 @@ async function main() {
   );
 
   const castCamera = (from: THREE.Vector3, dir: THREE.Vector3, far: number) => {
-    const hit = world.castRay(new RAPIER.Ray(from, dir), far, true, undefined, undefined, undefined, vehicle.body);
+    // Static and kinematic only: flying chairs do not yank the camera.
+    const hit = world.castRay(new RAPIER.Ray(from, dir), far, true, RAPIER.QueryFilterFlags.EXCLUDE_DYNAMIC);
     return hit ? hit.timeOfImpact : null;
   };
   const chase = new ChaseCamera(camera, castCamera);
@@ -164,7 +179,7 @@ async function main() {
   ao.updateGtaoMaterial({ radius: 1.6, distanceExponent: 1.5, thickness: 2, scale: 1.1, samples: 12 });
   ao.updatePdMaterial({ lumaPhi: 10, depthPhi: 2, normalPhi: 3, radius: 6, rings: 2, samples: 12 });
   ao.blendIntensity = 0.85;
-  ao.enabled = params.get('ao') !== '0';
+  ao.enabled = params.get('ao') === '1'; // off by default; O toggles
   composer.addPass(ao);
   composer.addPass(new OutputPass());
 
@@ -218,12 +233,14 @@ async function main() {
       vehicle.update(dt, input);
       const t = vehicle.body.translation();
       trams.step(dt, carPos.set(t.x, t.y, t.z));
+      furniture.step(dt, vehicle.body);
       world.step();
       acc -= dt;
     }
     const alpha = acc / dt;
     carModel.pose(vehicle, prev, alpha);
     trams.place(alpha);
+    furniture.place(alpha);
     const isBraking = input.brake > 0.05 && vehicle.speed > 0.5;
     if (isBraking !== braking) {
       braking = isBraking;
@@ -318,6 +335,7 @@ async function main() {
     camera,
     vehicle,
     trams,
+    furniture,
   };
   const park = params.get('park');
   if (park && parks[park]) {

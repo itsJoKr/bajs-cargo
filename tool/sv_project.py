@@ -3,13 +3,14 @@
 
     python3 tool/sv_project.py todo.json LAT LNG HEADING FOV TILT [camera_height]
 
-Screen 1568 x 718 (the Chrome viewport), pinhole camera, FOV horizontal in
+Screen 1568 x 652 (the Chrome viewport), pinhole camera, vertical FOV in
 degrees (the Maps URL's `y`), tilt the URL's `t` (90 = level). Prints each
 facade's four corners (ground/eave at both ends) in screen pixels.
 """
 import json, math, sys
 
-W, H = 1568, 718
+import os
+W, H = 1568, int(os.environ.get("SV_H", 652))  # the Chrome viewport (SV_H if the tab is shorter)
 lat0, lon0 = 45.81303, 15.97713
 phi = math.radians(lat0)
 mlat = 111132.92 - 559.82 * math.cos(2 * phi) + 1.175 * math.cos(4 * phi)
@@ -20,9 +21,9 @@ def project(todo, lat, lng, heading, fov, tilt, cam_h=2.5, ids=None):
     cx, cz = (lng - lon0) * mlon, (lat - lat0) * mlat
     yaw = math.radians(heading)
     pitch = math.radians(tilt - 90)
-    # Maps defines the URL FOV over a 900 px wide view (its thumbnail
-    # width), whatever the viewport; measured against known facades.
-    f = 450 / math.tan(math.radians(fov) / 2)
+    # The URL's `y` is the VERTICAL field of view of the viewport
+    # (calibrated 2026-09-29 on a 1568 x 652 window: f = 326 px at y = 90).
+    f = (H / 2) / math.tan(math.radians(fov) / 2)
     # Camera basis: forward, right, up (x east, y up, z north).
     fw = (math.sin(yaw) * math.cos(pitch), math.sin(pitch), math.cos(yaw) * math.cos(pitch))
     rt = (math.cos(yaw), 0.0, -math.sin(yaw))
