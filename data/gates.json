@@ -1,0 +1,84 @@
+{
+  "_comment": "Gates that stand OPEN (tool frame: x east, z north, metres from the statue): two stone posts and two iron leaves swung back along the way through. heading = direction of travel, degrees clockwise from north; width = between the posts; lanterns, arch (free edge higher by this fraction of the leaf), sideGate {width, side} (a narrow people's gate beside the main one, side 1 = right-hand when travelling). `walls`: garden walls as polylines (points, height, thick, kind rubble|plaster). Exported to city.json `gates` / `stoneWalls` (tool/export_web.dart), built by web3d/src/gates.ts. In reality the gates are shut to the public.",
+  "gates": [
+    {
+      "name": "Kaptol south: the big gate where the private road along the palace's south garden starts (Ulica Tome Bakača / Pod zidom roundabout)",
+      "x": 136.5,
+      "z": 102.3,
+      "heading": 15.3,
+      "width": 4.4,
+      "height": 2.5,
+      "lanterns": true,
+      "arch": 0.22,
+      "sideGate": {
+        "width": 1.1,
+        "side": 1
+      },
+      "source": "Street View photosphere Apr 2019 (Zagreb, G. P. Maffei) and the user's Street View frame: wrought-iron double gate between cream posts with lanterns, a narrow gate to its right, a rubble wall beyond it and a white garden wall to its left"
+    },
+    {
+      "name": "Kaptol north path: the gate by Domitrovićeva kula where the private road along the outside of the wall starts",
+      "x": 144.0,
+      "z": 226.8,
+      "heading": 90,
+      "width": 4.6,
+      "height": 2.3,
+      "source": "Google Maps satellite and OSM (service roads access=no / private from the Kaptol roundabout along the north wall)"
+    },
+    {
+      "name": "East path: the gate between the south-east tower and the glasshouse where the private road up the east side of the palace starts",
+      "x": 262.3,
+      "z": 103.0,
+      "heading": 0,
+      "width": 4.6,
+      "height": 2.3,
+      "source": "Google Maps satellite and OSM (service road access=private from Ulica Jurja Branjuga past the south-east tower to the palace's rear)"
+    }
+  ],
+  "walls": [
+    {
+      "name": "Rubble garden wall east of the big gate: along the lawn edge up to the corner of the Vlaška house (Lacković-Žigrović), into its wall",
+      "kind": "rubble",
+      "height": 2.5,
+      "thick": 0.55,
+      "points": [
+        [
+          140.55,
+          101.19
+        ],
+        [
+          143.5,
+          101.6
+        ],
+        [
+          150.5,
+          98.6
+        ],
+        [
+          158.3,
+          95.8
+        ],
+        [
+          165.3,
+          91.6
+        ]
+      ]
+    },
+    {
+      "name": "Rubble garden wall west of the big gate: straight to Kula Nebojan, into its wall, leaving the lawn with the flower bed outside (Google Maps 3D)",
+      "kind": "rubble",
+      "height": 2.5,
+      "thick": 0.55,
+      "points": [
+        [
+          133.99,
+          102.99
+        ],
+        [
+          141.6,
+          124.1
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,372 @@
+{
+  "section": "cathwalls",
+  "facades": [
+    {
+      "name": "pal_s_w",
+      "photo": ".art/streetview/cathwalls/crops/pal_s_w.png",
+      "bays": 9,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e29"
+      ],
+      "source": "Google Maps 3D view 2026 (oblique aerial, south): south front of the Archbishop's palace west of the pavilion",
+      "look": "a flat rectangular elevation of the Archbishop's palace south range: smooth pale blue-grey lime plaster, two storeys of small rectangular windows with plain white stone frames and dark glazing in a strict rhythm, a rusticated grey stone basement course, a simple eaves cornice; trees and the park in front of it are to be left out (continue the wall down to a stone plinth). No text. IMPORTANT: draw exactly as in the photo: a tall rusticated stone basement (about a third of the height), above it only TWO rows of tall windows, and a tall plain plastered band under the eaves cornice; ignore any storey count."
+    },
+    {
+      "name": "pal_pavilion",
+      "photo": ".art/streetview/cathwalls/crops/pal_pavilion.png",
+      "bays": 3,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e31"
+      ],
+      "source": "Google Maps 3D view 2026: the projecting middle pavilion of the palace's south front",
+      "look": "a flat rectangular elevation of the central pavilion of the Archbishop's palace south front: pale plaster, a rusticated ground floor, a first floor with three tall round-arched windows with stone frames and a balcony rail, pilasters at the corners, a cornice and a pediment-like attic; trees to be left out. No text."
+    },
+    {
+      "name": "pal_pav_side_30",
+      "photo": ".art/streetview/cathwalls/crops/pal_s_w.png",
+      "bays": 2,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e30"
+      ],
+      "source": "INVENTED: the pavilion's side return, slice of the south front",
+      "look": "a flat rectangular elevation of the Archbishop's palace south range: smooth pale blue-grey lime plaster, two storeys of small rectangular windows with plain white stone frames and dark glazing in a strict rhythm, a rusticated grey stone basement course, a simple eaves cornice; trees and the park in front of it are to be left out (continue the wall down to a stone plinth). No text. IMPORTANT: draw exactly as in the photo: a tall rusticated stone basement (about a third of the height), above it only TWO rows of tall windows, and a tall plain plastered band under the eaves cornice; ignore any storey count."
+    },
+    {
+      "name": "pal_pav_side_32",
+      "photo": ".art/streetview/cathwalls/crops/pal_s_w.png",
+      "bays": 2,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e32"
+      ],
+      "source": "INVENTED: the pavilion's side return, slice of the south front",
+      "look": "a flat rectangular elevation of the Archbishop's palace south range: smooth pale blue-grey lime plaster, two storeys of small rectangular windows with plain white stone frames and dark glazing in a strict rhythm, a rusticated grey stone basement course, a simple eaves cornice; trees and the park in front of it are to be left out (continue the wall down to a stone plinth). No text. IMPORTANT: draw exactly as in the photo: a tall rusticated stone basement (about a third of the height), above it only TWO rows of tall windows, and a tall plain plastered band under the eaves cornice; ignore any storey count."
+    },
+    {
+      "name": "pal_s_e",
+      "photo": ".art/streetview/cathwalls/crops/pal_s_e.png",
+      "bays": 9,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e33"
+      ],
+      "source": "Google Maps 3D view 2026 (oblique aerial, south-east): south front of the palace east of the pavilion",
+      "look": "a flat rectangular elevation of the Archbishop's palace south range: smooth pale blue-grey lime plaster, two storeys of small rectangular windows with plain white stone frames and dark glazing in a strict rhythm, a rusticated grey stone basement course, a simple eaves cornice; trees and the park in front of it are to be left out (continue the wall down to a stone plinth). No text. IMPORTANT: draw exactly as in the photo: a tall rusticated stone basement (about a third of the height), above it only TWO rows of tall windows, and a tall plain plastered band under the eaves cornice; ignore any storey count."
+    },
+    {
+      "name": "tower_se_a",
+      "photo": ".art/streetview/cathwalls/crops/tower_se.png",
+      "bays": 1,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e34",
+        "w101185039_e35",
+        "w101185039_e36",
+        "w101185039_e37",
+        "w101185039_e38",
+        "w101185039_e39",
+        "w101185039_e40",
+        "w101185039_e41",
+        "w101185039_e42"
+      ],
+      "source": "Google Maps 3D view 2026 (oblique aerial, south-east): the south-east round tower",
+      "look": "the south-east tower, first half: a round defensive tower of the Kaptol walls drawn unrolled as a flat rectangular elevation: thick white lime plaster over stone, rounded horizontal belt courses, a few small square windows with white frames and dark glazing high up, narrow slit loopholes and small dark holes lower down, a heavy stone plinth at the foot; the red roof above the top edge is not part of the wall. No text."
+    },
+    {
+      "name": "tower_se_b",
+      "photo": ".art/streetview/cathwalls/crops/tower_se.png",
+      "bays": 1,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e43",
+        "w101185039_e44",
+        "w101185039_e45",
+        "w101185039_e46",
+        "w101185039_e47",
+        "w101185039_e48",
+        "w101185039_e49",
+        "w101185039_e50"
+      ],
+      "source": "Twin of tower_se_a (second half)",
+      "look": "twin of tower_se_a"
+    },
+    {
+      "name": "pal_east_51",
+      "photo": ".art/streetview/cathwalls/crops/pal_east.png",
+      "bays": 7,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e51"
+      ],
+      "source": "Google Maps 3D view 2026 (oblique aerial, south-east): the east range",
+      "look": "a flat rectangular elevation of the east range of the Archbishop's palace: same pale blue-grey plaster, two storeys of small rectangular white-framed windows, stone basement, eaves cornice. Trees to be left out. No text. IMPORTANT: draw exactly as in the photo: a tall rusticated stone basement (about a third of the height), above it only TWO rows of tall windows, and a tall plain plastered band under the eaves cornice; ignore any storey count."
+    },
+    {
+      "name": "pal_east_53",
+      "photo": ".art/streetview/cathwalls/crops/pal_east.png",
+      "bays": 5,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e53"
+      ],
+      "source": "INVENTED: slice of pal_east_51",
+      "look": "twin of pal_east_51"
+    },
+    {
+      "name": "pal_east_55",
+      "photo": ".art/streetview/cathwalls/crops/pal_east.png",
+      "bays": 5,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e55"
+      ],
+      "source": "INVENTED: slice of pal_east_51",
+      "look": "twin of pal_east_51"
+    },
+    {
+      "name": "tower_e_a",
+      "photo": ".art/streetview/cathwalls/crops/tower_se.png",
+      "bays": 1,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e56",
+        "w101185039_e57",
+        "w101185039_e58",
+        "w101185039_e59",
+        "w101185039_e60",
+        "w101185039_e61",
+        "w101185039_e62",
+        "w101185039_e63",
+        "w101185039_e64",
+        "w101185039_e65"
+      ],
+      "source": "INVENTED twin of the south-east tower (the east tower is hidden by trees)",
+      "look": "the east tower, first half: a round defensive tower of the Kaptol walls drawn unrolled as a flat rectangular elevation: thick white lime plaster over stone, rounded horizontal belt courses, a few small square windows with white frames and dark glazing high up, narrow slit loopholes and small dark holes lower down, a heavy stone plinth at the foot; the red roof above the top edge is not part of the wall. No text."
+    },
+    {
+      "name": "tower_e_b",
+      "photo": ".art/streetview/cathwalls/crops/tower_se.png",
+      "bays": 1,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e66",
+        "w101185039_e67",
+        "w101185039_e68",
+        "w101185039_e69",
+        "w101185039_e70",
+        "w101185039_e71",
+        "w101185039_e72",
+        "w101185039_e73",
+        "w101185039_e74",
+        "w101185039_e75"
+      ],
+      "source": "Twin of tower_e_a",
+      "look": "twin of tower_e_a"
+    },
+    {
+      "name": "pal_in_0",
+      "photo": ".art/streetview/cathwalls/crops/pal_s_w.png",
+      "bays": 3,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e0"
+      ],
+      "source": "INVENTED: palace wall inside the fenced Cathedral precinct, plaster like the south front",
+      "look": "a flat rectangular elevation of the Archbishop's palace south range: smooth pale blue-grey lime plaster, two storeys of small rectangular windows with plain white stone frames and dark glazing in a strict rhythm, a rusticated grey stone basement course, a simple eaves cornice; trees and the park in front of it are to be left out (continue the wall down to a stone plinth). No text. IMPORTANT: draw exactly as in the photo: a tall rusticated stone basement (about a third of the height), above it only TWO rows of tall windows, and a tall plain plastered band under the eaves cornice; ignore any storey count.",
+      "res": 0.25
+    },
+    {
+      "name": "pal_in_1",
+      "photo": ".art/streetview/cathwalls/crops/pal_s_w.png",
+      "bays": 1,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e1"
+      ],
+      "source": "INVENTED: palace wall inside the fenced Cathedral precinct, plaster like the south front",
+      "look": "a flat rectangular elevation of the Archbishop's palace south range: smooth pale blue-grey lime plaster, two storeys of small rectangular windows with plain white stone frames and dark glazing in a strict rhythm, a rusticated grey stone basement course, a simple eaves cornice; trees and the park in front of it are to be left out (continue the wall down to a stone plinth). No text. IMPORTANT: draw exactly as in the photo: a tall rusticated stone basement (about a third of the height), above it only TWO rows of tall windows, and a tall plain plastered band under the eaves cornice; ignore any storey count.",
+      "res": 0.25
+    },
+    {
+      "name": "pal_in_2",
+      "photo": ".art/streetview/cathwalls/crops/pal_s_w.png",
+      "bays": 3,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e2"
+      ],
+      "source": "INVENTED: palace wall inside the fenced Cathedral precinct, plaster like the south front",
+      "look": "a flat rectangular elevation of the Archbishop's palace south range: smooth pale blue-grey lime plaster, two storeys of small rectangular windows with plain white stone frames and dark glazing in a strict rhythm, a rusticated grey stone basement course, a simple eaves cornice; trees and the park in front of it are to be left out (continue the wall down to a stone plinth). No text. IMPORTANT: draw exactly as in the photo: a tall rusticated stone basement (about a third of the height), above it only TWO rows of tall windows, and a tall plain plastered band under the eaves cornice; ignore any storey count.",
+      "res": 0.25
+    },
+    {
+      "name": "pal_in_3",
+      "photo": ".art/streetview/cathwalls/crops/pal_s_w.png",
+      "bays": 1,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e3"
+      ],
+      "source": "INVENTED: palace wall inside the fenced Cathedral precinct, plaster like the south front",
+      "look": "a flat rectangular elevation of the Archbishop's palace south range: smooth pale blue-grey lime plaster, two storeys of small rectangular windows with plain white stone frames and dark glazing in a strict rhythm, a rusticated grey stone basement course, a simple eaves cornice; trees and the park in front of it are to be left out (continue the wall down to a stone plinth). No text. IMPORTANT: draw exactly as in the photo: a tall rusticated stone basement (about a third of the height), above it only TWO rows of tall windows, and a tall plain plastered band under the eaves cornice; ignore any storey count.",
+      "res": 0.25
+    },
+    {
+      "name": "pal_in_4",
+      "photo": ".art/streetview/cathwalls/crops/pal_s_w.png",
+      "bays": 5,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e4"
+      ],
+      "source": "INVENTED: palace wall inside the fenced Cathedral precinct, plaster like the south front",
+      "look": "a flat rectangular elevation of the Archbishop's palace south range: smooth pale blue-grey lime plaster, two storeys of small rectangular windows with plain white stone frames and dark glazing in a strict rhythm, a rusticated grey stone basement course, a simple eaves cornice; trees and the park in front of it are to be left out (continue the wall down to a stone plinth). No text. IMPORTANT: draw exactly as in the photo: a tall rusticated stone basement (about a third of the height), above it only TWO rows of tall windows, and a tall plain plastered band under the eaves cornice; ignore any storey count.",
+      "res": 0.25
+    },
+    {
+      "name": "pal_in_5",
+      "photo": ".art/streetview/cathwalls/crops/pal_s_w.png",
+      "bays": 14,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e5"
+      ],
+      "source": "INVENTED: palace wall inside the fenced Cathedral precinct, plaster like the south front",
+      "look": "a flat rectangular elevation of the Archbishop's palace south range: smooth pale blue-grey lime plaster, two storeys of small rectangular windows with plain white stone frames and dark glazing in a strict rhythm, a rusticated grey stone basement course, a simple eaves cornice; trees and the park in front of it are to be left out (continue the wall down to a stone plinth). No text. IMPORTANT: draw exactly as in the photo: a tall rusticated stone basement (about a third of the height), above it only TWO rows of tall windows, and a tall plain plastered band under the eaves cornice; ignore any storey count.",
+      "res": 0.25
+    },
+    {
+      "name": "pal_in_76",
+      "photo": ".art/streetview/cathwalls/crops/pal_s_w.png",
+      "bays": 1,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e76"
+      ],
+      "source": "INVENTED: palace gable wall inside the fenced Cathedral precinct",
+      "look": "a flat rectangular elevation of the Archbishop's palace south range: smooth pale blue-grey lime plaster, two storeys of small rectangular windows with plain white stone frames and dark glazing in a strict rhythm, a rusticated grey stone basement course, a simple eaves cornice; trees and the park in front of it are to be left out (continue the wall down to a stone plinth). No text. IMPORTANT: draw exactly as in the photo: a tall rusticated stone basement (about a third of the height), above it only TWO rows of tall windows, and a tall plain plastered band under the eaves cornice; ignore any storey count.",
+      "res": 0.25
+    },
+    {
+      "name": "kwall_ne_1",
+      "photo": ".art/streetview/cathedral/crops/kaptol_wall.png",
+      "bays": 1,
+      "storeys": 2,
+      "place": "Kaptol",
+      "edges": [
+        "w735346958_e1"
+      ],
+      "source": "Twin of kaptol_wall_w (rubble wall; the north-east stretch behind Ribnjak park has no street view)",
+      "look": "twin of kaptol_wall_w: the Kaptol defensive wall, unrolled: ochre, brown and grey rubble stone in lime mortar with patches of plaster, a simple coping at the top; no openings. No text."
+    },
+    {
+      "name": "kwall_ne_2",
+      "photo": ".art/streetview/cathedral/crops/kaptol_wall.png",
+      "bays": 1,
+      "storeys": 2,
+      "place": "Kaptol",
+      "edges": [
+        "w735346958_e2"
+      ],
+      "source": "Twin of kaptol_wall_w (rubble wall; the north-east stretch behind Ribnjak park has no street view)",
+      "look": "twin of kaptol_wall_w: the Kaptol defensive wall, unrolled: ochre, brown and grey rubble stone in lime mortar with patches of plaster, a simple coping at the top; no openings. No text."
+    },
+    {
+      "name": "kwall_ne_56",
+      "photo": ".art/streetview/cathedral/crops/kaptol_wall.png",
+      "bays": 1,
+      "storeys": 2,
+      "place": "Kaptol",
+      "edges": [
+        "w735346958_e56"
+      ],
+      "source": "Twin of kaptol_wall_w (rubble wall; the north-east stretch behind Ribnjak park has no street view)",
+      "look": "twin of kaptol_wall_w: the Kaptol defensive wall, unrolled: ochre, brown and grey rubble stone in lime mortar with patches of plaster, a simple coping at the top; no openings. No text.",
+      "res": 0.1
+    },
+    {
+      "name": "kwall_ne_57",
+      "photo": ".art/streetview/cathedral/crops/kaptol_wall.png",
+      "bays": 1,
+      "storeys": 2,
+      "place": "Kaptol",
+      "edges": [
+        "w735346958_e57"
+      ],
+      "source": "Twin of kaptol_wall_w (rubble wall; the north-east stretch behind Ribnjak park has no street view)",
+      "look": "twin of kaptol_wall_w: the Kaptol defensive wall, unrolled: ochre, brown and grey rubble stone in lime mortar with patches of plaster, a simple coping at the top; no openings. No text.",
+      "res": 0.1
+    },
+    {
+      "name": "kwall_ne_0",
+      "photo": ".art/streetview/cathedral/crops/kaptol_wall.png",
+      "bays": 1,
+      "storeys": 2,
+      "place": "Kaptol",
+      "edges": [
+        "w735346958_e0"
+      ],
+      "source": "Twin of kaptol_wall_w (rubble wall; the north-east stretch behind Ribnjak park has no street view)",
+      "look": "twin of kaptol_wall_w: the Kaptol defensive wall, unrolled: ochre, brown and grey rubble stone in lime mortar with patches of plaster, a simple coping at the top; no openings. No text.",
+      "res": 0.1
+    },
+    {
+      "name": "greenhouse_a",
+      "photo": ".art/streetview/cathwalls/crops/greenhouse.png",
+      "bays": 5,
+      "storeys": 2,
+      "place": "Kaptol",
+      "edges": [
+        "w143329421_e0",
+        "w143329421_e1",
+        "w143329421_e2",
+        "w143329421_e3",
+        "w143329421_e4",
+        "w143329421_e5"
+      ],
+      "source": "Google Maps 3D view 2026 (oblique aerial): the glasshouse in the archbishop's garden",
+      "look": "the south half: a low nineteenth-century garden pavilion (the archbishop's glasshouse) drawn as a flat rectangular elevation: exposed brown brick and stone walls, tall round-arched openings with glazed iron frames, a stone plinth, a simple eaves course. No text.",
+      "res": 0.5
+    },
+    {
+      "name": "greenhouse_b",
+      "photo": ".art/streetview/cathwalls/crops/greenhouse.png",
+      "bays": 5,
+      "storeys": 2,
+      "place": "Kaptol",
+      "edges": [
+        "w143329421_e6",
+        "w143329421_e7",
+        "w143329421_e8",
+        "w143329421_e9",
+        "w143329421_e10",
+        "w143329421_e11"
+      ],
+      "source": "Twin of greenhouse_a",
+      "look": "twin of greenhouse_a: a low nineteenth-century garden pavilion (the archbishop's glasshouse) drawn as a flat rectangular elevation: exposed brown brick and stone walls, tall round-arched openings with glazed iron frames, a stone plinth, a simple eaves course. No text.",
+      "res": 0.5
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+ "section": "colonnade",
+ "facades": [
+  {
+   "name": "colonnade_core_front",
+   "photo": ".art/facades/colonnade_core_front/photo.png",
+   "edges": [
+    "w9000000030_e7"
+   ],
+   "bays": 8,
+   "storeys": 1,
+   "res": 0.5,
+   "place": "Trg bana Jelačića",
+   "source": "DRAWN procedurally (PIL) from the user's Street View frame (2025): the recessed dark glazed shopfronts behind the colonnade (8 bays, mezzanine glazing, bronze band, granite riser)",
+   "look": "procedural"
+  }
+ ]
+}

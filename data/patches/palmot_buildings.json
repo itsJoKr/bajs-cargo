@@ -1,0 +1,267 @@
+{
+ "w286611964": {
+  "name": "Palmotićeva 10 (cream palace with shopfronts)",
+  "roof": "slate_grey",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286611964_e1",
+    "at": 0.5,
+    "width": 20.43,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "palmot_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos): cream bracketed main cornice with attic frieze"
+   },
+   {
+    "type": "box",
+    "wall": "w286611964_e1",
+    "at": 0.33,
+    "width": 2.0,
+    "height": 0.14,
+    "depth": 0.7,
+    "out": 0.35,
+    "y": 5.6,
+    "texture": "palmot_balcony_stone.jpg",
+    "repeat": 1.5,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos): stone balustrade balcony under the first-floor window, left of centre; y measured on raw.png"
+   },
+   {
+    "type": "box",
+    "wall": "w286611964_e1",
+    "at": 0.865,
+    "width": 2.0,
+    "height": 0.14,
+    "depth": 0.7,
+    "out": 0.35,
+    "y": 5.6,
+    "texture": "palmot_balcony_stone.jpg",
+    "repeat": 1.5,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos): stone balustrade balcony under the first-floor window, right end; y measured on raw.png"
+   }
+  ]
+ },
+ "w286611962": {
+  "name": "Palmotićeva, ELFS corner house",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286611962_e7",
+    "at": 0.5,
+    "width": 27.34,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "palmot_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos): dark heavy bracketed main cornice"
+   },
+   {
+    "type": "box",
+    "wall": "w286611962_e7",
+    "at": 0.5,
+    "width": 27.2,
+    "height": 0.6,
+    "depth": 0.7,
+    "out": 0.35,
+    "y": 9.1,
+    "texture": "palmot_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos): projecting cornice band over the ground floor and loggia storey; y measured on raw.png"
+   },
+   {
+    "type": "sign",
+    "wall": "w286611962_e7",
+    "mount": "wall",
+    "image": "palmot_elfs.png",
+    "at": 0.122,
+    "width": 3.0,
+    "y": 4.2,
+    "out": 0.06,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos) (pano at Amruša crossing, h0/h315 frames): black '★ELFS★' shop fascia redrawn flat by gen-image"
+   },
+   {
+    "type": "sign",
+    "wall": "w286611962_e7",
+    "mount": "wall",
+    "image": "palmot_elfs.png",
+    "at": 0.328,
+    "width": 3.0,
+    "y": 4.2,
+    "out": 0.06,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos) (pano at Amruša crossing, h0/h315 frames): black '★ELFS★' shop fascia redrawn flat by gen-image"
+   },
+   {
+    "type": "sign",
+    "wall": "w286611962_e7",
+    "mount": "wall",
+    "image": "palmot_elfs.png",
+    "at": 0.674,
+    "width": 3.0,
+    "y": 4.2,
+    "out": 0.06,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos) (pano at Amruša crossing, h0/h315 frames): black '★ELFS★' shop fascia redrawn flat by gen-image"
+   }
+  ]
+ },
+ "r3890429": {
+  "name": "Palmotićeva, red-brick building and ochre neighbour",
+  "features": [
+   {
+    "type": "box",
+    "wall": "r3890429_e6",
+    "at": 0.5,
+    "width": 11.97,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "palmot_cornice_brick.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos): red-brick corbelled main cornice"
+   },
+   {
+    "type": "box",
+    "wall": "r3890429_e7",
+    "at": 0.5,
+    "width": 21.34,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "palmot_cornice_brick.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos): red-brick corbelled main cornice"
+   },
+   {
+    "type": "box",
+    "wall": "r3890429_e8",
+    "at": 0.5,
+    "width": 21.14,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "palmot_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos): ochre stucco main cornice (tinted)",
+    "color": "#e0c896"
+   }
+  ]
+ },
+ "w286612851": {
+  "name": "Palmotićeva 5 (dark grey-brown house with arched entrance)",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286612851_e0",
+    "at": 0.5,
+    "width": 22.04,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "palmot_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos): bracketed main cornice, weathered dark plaster"
+   },
+   {
+    "type": "box",
+    "wall": "w286612851_e0",
+    "at": 0.5,
+    "width": 22.0,
+    "height": 0.5,
+    "depth": 0.5,
+    "out": 0.25,
+    "y": 4.9,
+    "texture": "palmot_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos): string course over the rusticated ground floor; y measured on raw.png"
+   }
+  ]
+ },
+ "w286612852": {
+  "name": "Palmotićeva, dark brown house with shops",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286612852_e0",
+    "at": 0.5,
+    "width": 16.24,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "palmot_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos): bracketed main cornice, weathered dark plaster"
+   },
+   {
+    "type": "awning",
+    "wall": "w286612852_e0",
+    "from": 0.69,
+    "to": 0.875,
+    "y": 3.9,
+    "drop": 0.6,
+    "depth": 1.0,
+    "color": "#ffffff",
+    "texture": "palmot_awning_ochre.jpg",
+    "repeat": 3,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos) (pano north of Amruša, h270/h315 frames): faded yellow-ochre shop awning at the right shop; measured on raw.png"
+   }
+  ]
+ },
+ "w860324917": {
+  "name": "Palmotićeva, white palace and dark brown house south of Amruša",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w860324917_e0",
+    "at": 0.32,
+    "width": 17.4,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "palmot_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos) / photosphere Jun 2019: white palace cornice"
+   },
+   {
+    "type": "box",
+    "wall": "w860324917_e0",
+    "at": 0.82,
+    "width": 9.4,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "palmot_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "photosphere Jun 2019: dark brown house plaster cornice"
+   }
+  ]
+ },
+ "w860324918": {
+  "name": "Palmotićeva, cream corner house at Amruša",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w860324918_e0",
+    "at": 0.5,
+    "width": 20.43,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "palmot_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "photosphere Jun 2019 / Street View Jul 2024: cream bracketed main cornice"
+   }
+  ]
+ }
+}

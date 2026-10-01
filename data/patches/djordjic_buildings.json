@@ -1,0 +1,303 @@
+{
+ "w860324912": {
+  "roof": "flat_gravel",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w860324912_e1",
+    "from": 0.56,
+    "to": 0.97,
+    "y": 4.66,
+    "drop": 0.8,
+    "depth": 0.9,
+    "texture": "djordjic_awning_stripe.jpg",
+    "repeat": 2,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): grey-and-white striped fold-out awning over the hairdresser next to Voćarna Ptiček (valance bottom measured on raw.png)"
+   }
+  ]
+ },
+ "w286614558": {
+  "name": "Đorđićeva ulica 5 (secession house)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286614558_e9",
+    "at": 0.5,
+    "width": 18.46,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "djordjic_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): projecting main cornice"
+   },
+   {
+    "type": "box",
+    "wall": "w286614558_e9",
+    "at": 0.5,
+    "width": 9.7,
+    "height": 0.45,
+    "depth": 1.1,
+    "out": 0.55,
+    "y": 5.1,
+    "texture": "djordjic_balcony_stone.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): first-floor balcony slab with wrought-iron balustrade over the entrance (bottom edge measured on raw.png)"
+   }
+  ]
+ },
+ "w286614557": {
+  "name": "Đorđićeva ulica (ochre house with balcony slab)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286614557_e0",
+    "at": 0.5,
+    "width": 16.08,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "djordjic_cornice_dark.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jan 2020 (photosphere in Đorđićeva ulica): heavy dark flat cornice"
+   },
+   {
+    "type": "box",
+    "wall": "w286614557_e0",
+    "at": 0.45,
+    "width": 13.5,
+    "height": 0.45,
+    "depth": 1.4,
+    "out": 0.7,
+    "y": 11.3,
+    "texture": "djordjic_balcony_stone.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jan 2020 (photosphere + Mar 2023 pano A frames): cantilevered top-floor balcony slab between the two bay windows"
+   }
+  ]
+ },
+ "w860324913": {
+  "name": "Đorđićeva ulica (tower-gable house)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w860324913_e1",
+    "at": 0.5,
+    "width": 16.94,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "djordjic_cornice_dark.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jan 2020 (photosphere): dark stucco cornice"
+   }
+  ]
+ },
+ "w860324914": {
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w860324914_e1",
+    "at": 0.5,
+    "width": 12.93,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "djordjic_cornice_dark.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jan 2020 (photosphere): heavy dark cornice"
+   }
+  ]
+ },
+ "w860324915": {
+  "name": "Đorđićeva ulica 13",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w860324915_e0",
+    "at": 0.5,
+    "width": 19.68,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "djordjic_cornice_taupe.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): projecting main cornice"
+   }
+  ]
+ },
+ "w288920701": {
+  "roof": "flat_gravel",
+  "features": []
+ },
+ "w288920698": {
+  "name": "Đorđićeva ulica (palace, south side)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w288920698_e0",
+    "at": 0.5,
+    "width": 25.72,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "djordjic_cornice_taupe.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): projecting main cornice"
+   },
+   {
+    "type": "box",
+    "wall": "w288920698_e0",
+    "at": 0.506,
+    "width": 4.7,
+    "height": 0.5,
+    "depth": 1.0,
+    "out": 0.5,
+    "y": 6.6,
+    "texture": "djordjic_balcony_stone.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): carved stone canopy on brackets over the entrance door (measured on raw.png)"
+   }
+  ]
+ },
+ "w288920696": {
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w288920696_e0",
+    "at": 0.5,
+    "width": 26.7,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "djordjic_cornice_dark.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): dark stucco cornice"
+   }
+  ]
+ },
+ "w288920686": {
+  "name": "Đorđićeva ulica (brick-clad house)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w288920686_e0",
+    "at": 0.5,
+    "width": 19.5,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "djordjic_cornice_dark.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): heavy dark cornice over the brick frieze"
+   }
+  ]
+ },
+ "w390984148": {
+  "name": "Kuća Antolković",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w390984148_e1",
+    "at": 0.5,
+    "width": 25.66,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "djordjic_cornice_taupe.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): projecting brown eaves cornice"
+   }
+  ]
+ },
+ "w390984154": {
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w390984154_e13",
+    "at": 0.5,
+    "width": 14.86,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "djordjic_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): bracketed cornice"
+   }
+  ]
+ },
+ "w390984149": {
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w390984149_e11",
+    "at": 0.5,
+    "width": 22.04,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "djordjic_cornice_taupe.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): projecting flat cornice under the floral frieze"
+   }
+  ]
+ },
+ "r5854157": {
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "r5854157_e0",
+    "at": 0.5,
+    "width": 34.41,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "djordjic_cornice_cream.jpg",
+    "repeat": 2.4,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): projecting main cornice"
+   }
+  ]
+ },
+ "w390984158": {
+  "name": "Đorđićeva ulica (building under renovation)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "scaffolding",
+    "wall": "w390984158_e5",
+    "from": 0.0,
+    "to": 1.0,
+    "height": 15.8,
+    "depth": 1.0,
+    "net": "#ffffff",
+    "texture": "djordjic_net_green.jpg",
+    "repeat": 2,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): steel scaffold wrapped in dark green safety netting from pavement to roof"
+   }
+  ]
+ }
+}

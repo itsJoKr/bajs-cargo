@@ -1,0 +1,117 @@
+{
+  "section": "church",
+  "facades": [
+    {
+      "name": "church_south",
+      "photo": ".art/streetview/church/crops/south.png",
+      "bays": 5,
+      "storeys": 4,
+      "place": "Trg Petra Preradovića",
+      "edges": [
+        "w97165324_e0"
+      ],
+      "source": "Street View Jul 2025 (official pano 5YCmGqNQ_wpwB2T9Wbyi8w), four frames rectified with tool/sv_rectify.py: Saborna crkva Preobraženja Gospodnjeg, south side",
+      "look": "the south side of the Serbian Orthodox Cathedral of the Transfiguration: pale warm-grey rusticated ashlar stone in regular courses; vertical pilaster strips capped with small pediments and square carved rosettes; tall round-arched windows with dark leaded glass, each in a stone surround under a blind relieving arch, one narrow arched window with lattice glazing at each end; in the middle a shallow gabled porch with a small pediment holding a golden mosaic, two columns with carved capitals and a dark wooden arched door; a heavy dentilled cornice with a carved frieze along the top. The photo is an elevation with grey patches = unknown (continue the same stone there). A black wrought-iron railing and a long stone bench stand along the foot: draw the stone plinth instead. Leave out the people, the tree and the crane. No text."
+    },
+    {
+      "name": "church_north",
+      "photo": ".art/streetview/church/crops/north.png",
+      "bays": 5,
+      "storeys": 4,
+      "place": "Trg Petra Preradovića",
+      "edges": [
+        "w97165324_e14"
+      ],
+      "source": "INVENTED: the north side mirrors the south side (no street view of it)",
+      "look": "the north side of the Serbian Orthodox Cathedral of the Transfiguration, a mirror image of the south side in the photo: pale warm-grey rusticated ashlar stone, pilaster strips with small pediments and rosettes, tall round-arched windows with dark leaded glass under blind arches, a shallow gabled porch with a dark arched door in the middle, dentilled cornice. The photo is an elevation with grey patches = unknown (continue the same stone). Leave out the railing, people and the tree. No text."
+    },
+    {
+      "name": "church_west",
+      "photo": ".art/streetview/church/crops/west.png",
+      "bays": 3,
+      "storeys": 4,
+      "place": "Trg Petra Preradovića",
+      "edges": [
+        "w97165324_e15"
+      ],
+      "source": "Street View Jun 2018 (user photosphere Garaža Cvjetni), frame h90 t100: the west front",
+      "look": "the west front of the Serbian Orthodox Cathedral of the Transfiguration, straight on: pale warm-grey rusticated ashlar stone with a heavy stone plinth; in the middle a deep round-arched portal with carved colonnettes and a dark wooden double door up three stone steps, two wrought-iron lanterns on brackets beside it; above it a tall arched double window with lattice leaded glass and a rosette; on both sides a tall narrow niche with a mosaic icon of a saint; pilaster strips at the corners and beside the window with small pediments; a dentilled cornice at the top. Leave out the people, bicycles and railings. No text."
+    },
+    {
+      "name": "church_apse",
+      "photo": ".art/streetview/church/crops/swatch.png",
+      "bays": 3,
+      "storeys": 4,
+      "place": "Trg Petra Preradovića",
+      "edges": [
+        "w97165324_e1",
+        "w97165324_e2",
+        "w97165324_e3",
+        "w97165324_e4",
+        "w97165324_e5",
+        "w97165324_e6",
+        "w97165324_e7",
+        "w97165324_e8",
+        "w97165324_e9",
+        "w97165324_e10",
+        "w97165324_e11",
+        "w97165324_e12",
+        "w97165324_e13"
+      ],
+      "source": "INVENTED: the east apse (seen only from the Cvjetni trg terraces); same stone as the nave",
+      "look": "INVENTED, ignore any wording about copying a photo: the semicircular east apse of the Serbian Orthodox Cathedral of the Transfiguration drawn unrolled as a flat rectangular elevation: pale warm-grey rusticated ashlar stone in regular courses, three tall round-arched windows with dark leaded glass in stone surrounds under blind arches, vertical pilaster strips between them, a stone plinth, a dentilled cornice along the top. No text."
+    },
+    {
+      "name": "church_belfry_0",
+      "photo": ".art/streetview/church/crops/belfry_raw.png",
+      "bays": 2,
+      "storeys": 7,
+      "res": 0.25,
+      "place": "Trg Petra Preradovića",
+      "edges": [
+        "w9000000010_e0"
+      ],
+      "source": "Drawn by hand (tool: PIL) from the belfry seen in Street View Jul 2025 / Jun 2018: ashlar shaft, string courses, two arched belfry openings, cornice; high up, low-res",
+      "look": "belfry"
+    },
+    {
+      "name": "church_belfry_1",
+      "photo": ".art/streetview/church/crops/belfry_raw.png",
+      "bays": 2,
+      "storeys": 7,
+      "res": 0.25,
+      "place": "Trg Petra Preradovića",
+      "edges": [
+        "w9000000010_e1"
+      ],
+      "source": "Drawn by hand (tool: PIL) from the belfry seen in Street View Jul 2025 / Jun 2018: ashlar shaft, string courses, two arched belfry openings, cornice; high up, low-res",
+      "look": "belfry"
+    },
+    {
+      "name": "church_belfry_2",
+      "photo": ".art/streetview/church/crops/belfry_raw.png",
+      "bays": 2,
+      "storeys": 7,
+      "res": 0.25,
+      "place": "Trg Petra Preradovića",
+      "edges": [
+        "w9000000010_e2"
+      ],
+      "source": "Drawn by hand (tool: PIL) from the belfry seen in Street View Jul 2025 / Jun 2018: ashlar shaft, string courses, two arched belfry openings, cornice; high up, low-res",
+      "look": "belfry"
+    },
+    {
+      "name": "church_belfry_3",
+      "photo": ".art/streetview/church/crops/belfry_raw.png",
+      "bays": 2,
+      "storeys": 7,
+      "res": 0.25,
+      "place": "Trg Petra Preradovića",
+      "edges": [
+        "w9000000010_e3"
+      ],
+      "source": "Drawn by hand (tool: PIL) from the belfry seen in Street View Jul 2025 / Jun 2018: ashlar shaft, string courses, two arched belfry openings, cornice; high up, low-res",
+      "look": "belfry"
+    }
+  ]
+}

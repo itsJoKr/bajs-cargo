@@ -1,0 +1,73 @@
+{
+ "_comment": "Fences that close off what the player may not enter (tool frame: x east, z north, metres from the statue). points: the fence line; style: 'site' (mesh construction panels on concrete feet), tarp: true hangs a white tarp on them; height in metres; panel: max panel width. Exported to city.json `fences` (tool/export_web.dart), built by web3d/src/fences.ts. Places behind a fence get low-resolution pictures only. style 'roadblock': site panels plus red-white barrier boards, lamps and cones; `wall` (metres) raises the collider into an invisible wall that many metres tall. (The first Kaptol roadblock, on the private road north of the wall, was removed 2026-09-30: that road, its gates and Ribnjak park are open. Since 2026-10-01 a roadblock closes Kaptol itself just north of the Domitrovićeva kula gate, and the Cathedral's north side is fenced like its south side, so the precinct inside the walls behind the Cathedral is closed.) Roadblock cones stand on the right-hand side of the direction the points run.",
+ "fences": [
+  {
+   "name": "Cathedral, south side (between the south tower and the Archbishop's palace)",
+   "style": "site",
+   "tarp": true,
+   "height": 2.0,
+   "points": [
+    [
+     170.9,
+     150.3
+    ],
+    [
+     170.6,
+     142.1
+    ]
+   ],
+   "source": "White tarp-covered site fence by the palace garden, Street View Jul 2024 (pano 2 Kaptol)",
+   "wall": 12
+  },
+  {
+   "name": "Cathedral, north side (between the north tower and the north wall)",
+   "style": "site",
+   "tarp": true,
+   "height": 2.0,
+   "points": [
+    [
+     178.7,
+     185.6
+    ],
+    [
+     178.9,
+     212.8
+    ]
+   ],
+   "source": "Mirrors the south side's tarp fence; closes the precinct inside the walls behind the Cathedral (user request 2026-10-01)",
+   "wall": 12
+  },
+  {
+   "name": "Kaptol roadblock north of the Domitrovićeva kula gate (seminary palace to the canons' house opposite)",
+   "style": "roadblock",
+   "points": [
+    [
+     100.1,
+     238.0
+    ],
+    [
+     145.7,
+     238.0
+    ]
+   ],
+   "source": "User request 2026-10-01: lock the playable area north of the Cathedral right after the gate; runs west to east so the cones face south, the gate and the roundabout's south half stay open",
+   "wall": 12
+  },
+  {
+   "name": "Uspinjača street (Ulica Josipa Eugena Tomića) roadblock, 5 m in from Ilica",
+   "style": "roadblock",
+   "points": [
+    [
+     -318.4,
+     26.0
+    ],
+    [
+     -308.8,
+     26.0
+    ]
+   ],
+   "source": "User request 2026-10-01: the street up to the funicular is scenery only; closed just past the corner of Mango (Ilica 12). Runs west to east so the cones face Ilica",
+   "wall": 12
+  }
+ ]
+}

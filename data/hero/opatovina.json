@@ -109,30 +109,6 @@
    "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a two-storey Upper Town Baroque-classicist house in pale blue-grey plaster: three white-framed upper windows, a stringcourse, an arched wooden door and small barred windows below, plain cornice, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
   },
   {
-   "name": "opatovina_h375",
-   "photo": ".art/streetview/opatovina/sw_ochre.png",
-   "edges": [
-    "w735337375_e1"
-   ],
-   "bays": 3,
-   "storeys": 3,
-   "place": "Opatovina",
-   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
-   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a three-storey Upper Town historicist house in ochre plaster: three bays of white-framed windows with flat hoods on the first floor, plainer above, stringcourses, plain cornice, ground floor with a wooden door and barred windows, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
-  },
-  {
-   "name": "opatovina_h392",
-   "photo": ".art/streetview/opatovina/sw_rose.png",
-   "edges": [
-    "w735337392_e4"
-   ],
-   "bays": 3,
-   "storeys": 3,
-   "place": "Opatovina",
-   "source": "INVENTED (no usable official Street View on this footway lane; Upper Town neighbour-style)",
-   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a three-storey Upper Town historicist house in faded rose plaster: three bays of white-framed windows with hoods, pilaster strips at the corners, stringcourses, plain cornice, ground floor with a wooden door and small windows, no lettering Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
-  },
-  {
    "name": "opatovina_h644_e3",
    "photo": ".art/streetview/opatovina/sw_white.png",
    "edges": [

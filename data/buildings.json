@@ -1,5 +1,13 @@
 {
  "_comment": "Per-building corrections and 3D features, written while recreating a building from Street View (.claude/skills/recreate-building). Keys are building ids as in data/hero/coverage.json. tags: OSM tag overrides (roof:shape, roof:height, height, building:levels, ...). roof: a covering from data/roofs.json. features: 3D things on or in front of a wall; see the skill for every type.",
+ "w583253648": {
+  "omit": true,
+  "note": "OSM outline inside the Pošta building (r3890429) with the same Jurišićeva edge: coplanar walls z-fought (flicker)"
+ },
+ "w583253649": {
+  "omit": true,
+  "note": "OSM outline inside the Pošta building (r3890429) with the same Jurišićeva edge: coplanar walls z-fought (flicker)"
+ },
  "w105487407": {
   "name": "Gradska štedionica",
   "roof": "slate_grey"
@@ -169,6 +177,17 @@
     "depth": 1.1,
     "color": "#1d1d20",
     "source": "Street View Jul 2024-2026, see data/hero/ring1.json"
+   },
+   {
+    "type": "sign",
+    "wall": "w584458873_e3",
+    "mount": "wall",
+    "image": "maricev_praska.png",
+    "at": 0.669,
+    "width": 2.3,
+    "y": 3.7,
+    "out": 0.08,
+    "source": "User photo (Street View Jul 2024, 6 Praška ul.): the box sign over the Praška doorway of Marićev prolaz (data/passages.json)"
    }
   ]
  },
@@ -220,17 +239,72 @@
  "w97089760": {
   "name": "Nama",
   "roof": "clay_brown",
+  "tags": {
+   "zg:eave": "20.7"
+  },
+  "_eave": "zg:eave: the picture (19.5 m) starts at the HIGH (east) end of the arcade wall and Ilica falls 1.19 m from there to the lowest street point (data/arcades.json arches), so the eave is 19.5 + 1.19 over that point",
   "features": [
    {
     "type": "sign",
     "wall": "w97089760_e1",
     "mount": "wall",
     "image": "nama.png",
-    "at": 0.13,
-    "width": 6.0,
-    "y": 4.6,
-    "source": "Street View Jul 2024-2026, see data/hero/ring1.json",
-    "out": 0.2
+    "at": 0.7708,
+    "width": 4.61,
+    "y": 7.16,
+    "out": 0.15,
+    "source": "Street View Jul 2024 (pano '1 Ilica') and the user's frame (2026); placed on the facade picture .art/facades/ilica_nama/raw.png: the big blue 'nama' letters over the '140 godina s nama' window"
+   },
+   {
+    "type": "sign",
+    "wall": "w97089760_e1",
+    "mount": "wall",
+    "image": "nama.png",
+    "at": 0.1895,
+    "width": 2.57,
+    "y": 7.31,
+    "out": 0.12,
+    "source": "Street View Jul 2024 (pano '1 Ilica') and the user's frame (2026); placed on the facade picture .art/facades/ilica_nama/raw.png: the small 'nama' over the second arch"
+   },
+   {
+    "type": "oriel",
+    "wall": "w97089760_e1",
+    "at": 0.9095,
+    "width": 3.63,
+    "out": 1.0,
+    "y": 9.04,
+    "aboveEave": 1.2,
+    "corbel": 1.9,
+    "image": "nama_oriel.jpg",
+    "color": "#ffffff",
+    "source": "Street View Jul 2024 (pano '1 Ilica') and the user's frame (2026); placed on the facade picture .art/facades/ilica_nama/raw.png: the curved oriel over the gate, from its corbel up past the scalloped cornice (tool/make_nama.py cuts its picture)",
+    "texture": "nama_travertine.jpg",
+    "repeat": 1.4
+   },
+   {
+    "type": "dome",
+    "wall": "w97089760_e1",
+    "at": 0.105,
+    "out": -3.2,
+    "aboveEave": 0.2,
+    "radius": 1.9,
+    "height": 2.6,
+    "shape": "dome",
+    "drumColor": "#d0c0b0",
+    "color": "#8f9ea8",
+    "lantern": false,
+    "source": "Street View Jul 2024 (pano '1 Ilica', h340 t125): the round glazed drum with a grey dome at the west end of the roof"
+   },
+   {
+    "type": "sign",
+    "wall": "w97089760_e1",
+    "mount": "roof",
+    "image": "nama.png",
+    "at": 0.105,
+    "width": 3.0,
+    "aboveEave": 1.4,
+    "out": -1.1,
+    "source": "Street View Jul 2024 (pano '1 Ilica', h340 t125): the blue 'nama' letters round the roof dome's drum"
    }
   ]
  },
@@ -251,7 +325,21 @@
   "roof": "flat_gravel",
   "tags": {
    "roof:shape": "flat"
-  }
+  },
+  "features": [
+   {
+    "type": "box",
+    "wall": "w97165331_e8",
+    "at": 0.55,
+    "out": -7.5,
+    "aboveEave": 0,
+    "width": 12,
+    "depth": 8,
+    "height": 3.2,
+    "color": "#b9b6ae",
+    "source": "Google 3D (2026-09-30): pale plant rooms and the bar's superstructure on the roof"
+   }
+  ]
  },
  "w105486198": {
   "name": "Bakačeva gallery house",
@@ -400,40 +488,6 @@
  "w338688383": {
   "name": "Ilica house",
   "roof": "clay_brown"
- },
- "w9000000001": {
-  "name": "Neboder tower",
-  "part": [
-   [
-    -85.4,
-    -8.0
-   ],
-   [
-    -91.8,
-    -7.5
-   ],
-   [
-    -91.8,
-    -33.5
-   ],
-   [
-    -88.0,
-    -33.6
-   ],
-   [
-    -86.6,
-    -19.2
-   ],
-   [
-    -86.0,
-    -15.6
-   ]
-  ],
-  "roof": "flat_gravel",
-  "tags": {
-   "roof:shape": "flat",
-   "height": "68"
-  }
  },
  "w435116997": {
   "name": "Bogovićeva beige block",
@@ -1268,6 +1322,18 @@
     "depth": 2.4,
     "color": "#8d9196",
     "source": "Street View Jul 2024 (cafe with grey parasols, pano at Petrinjska 21)"
+   },
+   {
+    "type": "awning",
+    "wall": "w860324912_e1",
+    "from": 0.56,
+    "to": 0.97,
+    "y": 4.66,
+    "drop": 0.8,
+    "depth": 0.9,
+    "texture": "djordjic_awning_stripe.jpg",
+    "repeat": 2,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): grey-and-white striped fold-out awning over the hairdresser next to Voćarna Ptiček (valance bottom measured on raw.png)"
    }
   ]
  },
@@ -1497,7 +1563,22 @@
   "roof": "clay_brown"
  },
  "w390984149": {
-  "roof": "clay_brown"
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w390984149_e11",
+    "at": 0.5,
+    "width": 22.04,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "djordjic_cornice_taupe.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): projecting flat cornice under the floral frieze"
+   }
+  ]
  },
  "w286611971": {
   "roof": "clay_red",
@@ -1603,6 +1684,19 @@
     "color": "#f3ead8",
     "source": "Street View Jul 2024 (projecting main cornice)",
     "aboveEave": -0.55
+   },
+   {
+    "type": "box",
+    "wall": "r5854157_e0",
+    "at": 0.5,
+    "width": 34.41,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "djordjic_cornice_cream.jpg",
+    "repeat": 2.4,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): projecting main cornice"
    }
   ]
  },
@@ -2583,6 +2677,18 @@
     "repeat": 1.2,
     "source": "Street View Oct 2011 (official pano at Zrinjevac east road): heavy white stone main cornice",
     "aboveEave": -0.55
+   },
+   {
+    "type": "sign",
+    "wall": "w390984160_e8",
+    "mount": "wall",
+    "image": "zupanijski_sud_plaque.png",
+    "at": 0.4565,
+    "y": 2.97,
+    "width": 0.8,
+    "height": 0.45,
+    "out": 0.03,
+    "source": "Brass-on-black plaque 'Republika Hrvatska / Županijski sud u Zagrebu' at the entrance, drawn procedurally; position measured on zrinski_palace_e raw.png (pilaster right of the 3rd arch)"
    }
   ]
  },
@@ -2601,8 +2707,22 @@
     "repeat": 1.2,
     "source": "Street View Oct 2011 (official pano at Zrinjevac east road): decorated cornice",
     "aboveEave": -0.55
+   },
+   {
+    "type": "box",
+    "wall": "w390984148_e1",
+    "at": 0.5,
+    "width": 25.66,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "djordjic_cornice_taupe.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): projecting brown eaves cornice"
    }
-  ]
+  ],
+  "roof": "clay_red"
  },
  "w289863017": {
   "name": "Vlaška 12 (Babushka)",
@@ -2838,8 +2958,49 @@
     "y": 3.6,
     "out": 0.6,
     "source": "Street View Jul 2025 (pano on Jurišićeva): second yellow 'Pošta' blade sign at the west end of the ground floor, redrawn flat by gen-image"
+   },
+   {
+    "type": "box",
+    "wall": "r3890429_e6",
+    "at": 0.5,
+    "width": 11.97,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "palmot_cornice_brick.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos): red-brick corbelled main cornice"
+   },
+   {
+    "type": "box",
+    "wall": "r3890429_e7",
+    "at": 0.5,
+    "width": 21.34,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "palmot_cornice_brick.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos): red-brick corbelled main cornice"
+   },
+   {
+    "type": "box",
+    "wall": "r3890429_e8",
+    "at": 0.5,
+    "width": 21.14,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "palmot_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos): ochre stucco main cornice (tinted)",
+    "color": "#e0c896"
    }
-  ]
+  ],
+  "name": "Palmotićeva, red-brick building and ochre neighbour"
  },
  "w286611976": {
   "features": [
@@ -3067,6 +3228,65 @@
     "texture": "amrus_cornice_brown.jpg",
     "repeat": 1.2,
     "source": "Street View Jul 2024 (Ulica Milana Amruša panos): brown plaster main cornice"
+   },
+   {
+    "type": "box",
+    "wall": "w286611962_e7",
+    "at": 0.5,
+    "width": 27.34,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "palmot_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos): dark heavy bracketed main cornice"
+   },
+   {
+    "type": "box",
+    "wall": "w286611962_e7",
+    "at": 0.5,
+    "width": 27.2,
+    "height": 0.6,
+    "depth": 0.7,
+    "out": 0.35,
+    "y": 9.1,
+    "texture": "palmot_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos): projecting cornice band over the ground floor and loggia storey; y measured on raw.png"
+   },
+   {
+    "type": "sign",
+    "wall": "w286611962_e7",
+    "mount": "wall",
+    "image": "palmot_elfs.png",
+    "at": 0.122,
+    "width": 3.0,
+    "y": 4.2,
+    "out": 0.06,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos) (pano at Amruša crossing, h0/h315 frames): black '★ELFS★' shop fascia redrawn flat by gen-image"
+   },
+   {
+    "type": "sign",
+    "wall": "w286611962_e7",
+    "mount": "wall",
+    "image": "palmot_elfs.png",
+    "at": 0.328,
+    "width": 3.0,
+    "y": 4.2,
+    "out": 0.06,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos) (pano at Amruša crossing, h0/h315 frames): black '★ELFS★' shop fascia redrawn flat by gen-image"
+   },
+   {
+    "type": "sign",
+    "wall": "w286611962_e7",
+    "mount": "wall",
+    "image": "palmot_elfs.png",
+    "at": 0.674,
+    "width": 3.0,
+    "y": 4.2,
+    "out": 0.06,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos) (pano at Amruša crossing, h0/h315 frames): black '★ELFS★' shop fascia redrawn flat by gen-image"
    }
   ]
  },
@@ -3127,7 +3347,1734 @@
     "y": 2.9,
     "out": 0.5,
     "source": "Street View Jul 2024 (pano D Amruša frame h180): blue 'VIP TRAVEL' blade sign at the west end, redrawn flat by gen-image"
+   },
+   {
+    "type": "box",
+    "wall": "w860324918_e0",
+    "at": 0.5,
+    "width": 20.43,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "palmot_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "photosphere Jun 2019 / Street View Jul 2024: cream bracketed main cornice"
    }
   ]
+ },
+ "w286614558": {
+  "name": "Đorđićeva ulica 5 (secession house)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286614558_e9",
+    "at": 0.5,
+    "width": 18.46,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "djordjic_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): projecting main cornice"
+   },
+   {
+    "type": "box",
+    "wall": "w286614558_e9",
+    "at": 0.5,
+    "width": 9.7,
+    "height": 0.45,
+    "depth": 1.1,
+    "out": 0.55,
+    "y": 5.1,
+    "texture": "djordjic_balcony_stone.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): first-floor balcony slab with wrought-iron balustrade over the entrance (bottom edge measured on raw.png)"
+   }
+  ]
+ },
+ "w286614557": {
+  "name": "Đorđićeva ulica (ochre house with balcony slab)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286614557_e0",
+    "at": 0.5,
+    "width": 16.08,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "djordjic_cornice_dark.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jan 2020 (photosphere in Đorđićeva ulica): heavy dark flat cornice"
+   },
+   {
+    "type": "box",
+    "wall": "w286614557_e0",
+    "at": 0.45,
+    "width": 13.5,
+    "height": 0.45,
+    "depth": 1.4,
+    "out": 0.7,
+    "y": 11.3,
+    "texture": "djordjic_balcony_stone.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jan 2020 (photosphere + Mar 2023 pano A frames): cantilevered top-floor balcony slab between the two bay windows"
+   }
+  ]
+ },
+ "w860324913": {
+  "name": "Đorđićeva ulica (tower-gable house)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w860324913_e1",
+    "at": 0.5,
+    "width": 16.94,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "djordjic_cornice_dark.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jan 2020 (photosphere): dark stucco cornice"
+   }
+  ]
+ },
+ "w860324914": {
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w860324914_e1",
+    "at": 0.5,
+    "width": 12.93,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "djordjic_cornice_dark.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jan 2020 (photosphere): heavy dark cornice"
+   }
+  ]
+ },
+ "w860324915": {
+  "name": "Đorđićeva ulica 13",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w860324915_e0",
+    "at": 0.5,
+    "width": 19.68,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "djordjic_cornice_taupe.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): projecting main cornice"
+   }
+  ]
+ },
+ "w288920701": {
+  "roof": "flat_gravel",
+  "features": []
+ },
+ "w288920698": {
+  "name": "Đorđićeva ulica (palace, south side)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w288920698_e0",
+    "at": 0.5,
+    "width": 25.72,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "djordjic_cornice_taupe.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): projecting main cornice"
+   },
+   {
+    "type": "box",
+    "wall": "w288920698_e0",
+    "at": 0.506,
+    "width": 4.7,
+    "height": 0.5,
+    "depth": 1.0,
+    "out": 0.5,
+    "y": 6.6,
+    "texture": "djordjic_balcony_stone.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): carved stone canopy on brackets over the entrance door (measured on raw.png)"
+   }
+  ]
+ },
+ "w288920696": {
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w288920696_e0",
+    "at": 0.5,
+    "width": 26.7,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "djordjic_cornice_dark.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): dark stucco cornice"
+   }
+  ]
+ },
+ "w288920686": {
+  "name": "Đorđićeva ulica (brick-clad house)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w288920686_e0",
+    "at": 0.5,
+    "width": 19.5,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "djordjic_cornice_dark.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): heavy dark cornice over the brick frieze"
+   }
+  ]
+ },
+ "w390984154": {
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w390984154_e13",
+    "at": 0.5,
+    "width": 14.86,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "djordjic_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): bracketed cornice"
+   }
+  ]
+ },
+ "w390984158": {
+  "name": "Đorđićeva ulica (building under renovation)",
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "scaffolding",
+    "wall": "w390984158_e5",
+    "from": 0.0,
+    "to": 1.0,
+    "height": 15.8,
+    "depth": 1.0,
+    "net": "#ffffff",
+    "texture": "djordjic_net_green.jpg",
+    "repeat": 2,
+    "source": "Street View Mar 2023 (Đorđićeva ulica panos): steel scaffold wrapped in dark green safety netting from pavement to roof"
+   }
+  ]
+ },
+ "w286611964": {
+  "name": "Palmotićeva 10 (cream palace with shopfronts)",
+  "roof": "slate_grey",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286611964_e1",
+    "at": 0.5,
+    "width": 20.43,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "palmot_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos): cream bracketed main cornice with attic frieze"
+   },
+   {
+    "type": "box",
+    "wall": "w286611964_e1",
+    "at": 0.33,
+    "width": 2.0,
+    "height": 0.14,
+    "depth": 0.7,
+    "out": 0.35,
+    "y": 5.6,
+    "texture": "palmot_balcony_stone.jpg",
+    "repeat": 1.5,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos): stone balustrade balcony under the first-floor window, left of centre; y measured on raw.png"
+   },
+   {
+    "type": "box",
+    "wall": "w286611964_e1",
+    "at": 0.865,
+    "width": 2.0,
+    "height": 0.14,
+    "depth": 0.7,
+    "out": 0.35,
+    "y": 5.6,
+    "texture": "palmot_balcony_stone.jpg",
+    "repeat": 1.5,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos): stone balustrade balcony under the first-floor window, right end; y measured on raw.png"
+   }
+  ]
+ },
+ "w286612851": {
+  "name": "Palmotićeva 5 (dark grey-brown house with arched entrance)",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286612851_e0",
+    "at": 0.5,
+    "width": 22.04,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "palmot_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos): bracketed main cornice, weathered dark plaster"
+   },
+   {
+    "type": "box",
+    "wall": "w286612851_e0",
+    "at": 0.5,
+    "width": 22.0,
+    "height": 0.5,
+    "depth": 0.5,
+    "out": 0.25,
+    "y": 4.9,
+    "texture": "palmot_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos): string course over the rusticated ground floor; y measured on raw.png"
+   }
+  ]
+ },
+ "w286612852": {
+  "name": "Palmotićeva, dark brown house with shops",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w286612852_e0",
+    "at": 0.5,
+    "width": 16.24,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "palmot_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos): bracketed main cornice, weathered dark plaster"
+   },
+   {
+    "type": "awning",
+    "wall": "w286612852_e0",
+    "from": 0.69,
+    "to": 0.875,
+    "y": 3.9,
+    "drop": 0.6,
+    "depth": 1.0,
+    "color": "#ffffff",
+    "texture": "palmot_awning_ochre.jpg",
+    "repeat": 3,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos) (pano north of Amruša, h270/h315 frames): faded yellow-ochre shop awning at the right shop; measured on raw.png"
+   }
+  ]
+ },
+ "w860324917": {
+  "name": "Palmotićeva, white palace and dark brown house south of Amruša",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w860324917_e0",
+    "at": 0.32,
+    "width": 17.4,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "palmot_cornice_cream.jpg",
+    "repeat": 1.2,
+    "source": "Street View Jul 2024 (Palmotićeva ulica panos) / photosphere Jun 2019: white palace cornice"
+   },
+   {
+    "type": "box",
+    "wall": "w860324917_e0",
+    "at": 0.82,
+    "width": 9.4,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "palmot_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "photosphere Jun 2019: dark brown house plaster cornice"
+   }
+  ]
+ },
+ "w512839721": {
+  "name": "Masarykova ulica (Picard house)",
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w512839721_e4",
+    "from": 0.318,
+    "to": 0.561,
+    "y": 2.96,
+    "drop": 0.8,
+    "depth": 1.2,
+    "texture": "masaryk_awning_grey.jpg",
+    "repeat": 1,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): grey-white striped folding awning over the VITRUM shop; y/drop measured on raw.png"
+   },
+   {
+    "type": "box",
+    "wall": "w512839721_e4",
+    "at": 0.5,
+    "width": 13.0,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "masaryk_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): brown plaster main cornice"
+   }
+  ]
+ },
+ "w512839722": {
+  "name": "Masarykova ulica (Swarovski / Re Artu palace)",
+  "roof": "flat_gravel",
+  "tags": {
+   "roof:shape": "flat"
+  },
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w512839722_e4",
+    "from": 0.008,
+    "to": 0.336,
+    "y": 3.1,
+    "drop": 0.9,
+    "depth": 1.6,
+    "texture": "masaryk_awning_black.jpg",
+    "repeat": 1,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): black sloping awning left of the Swarovski shop; y/drop measured on raw.png"
+   },
+   {
+    "type": "awning",
+    "wall": "w512839722_e5",
+    "from": 0.52,
+    "to": 0.72,
+    "y": 3.9,
+    "drop": 0.5,
+    "depth": 1.0,
+    "texture": "masaryk_awning_black.jpg",
+    "repeat": 1,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): left black RE ARTU awning; y/drop measured on raw.png"
+   },
+   {
+    "type": "awning",
+    "wall": "w512839722_e5",
+    "from": 0.763,
+    "to": 0.956,
+    "y": 3.9,
+    "drop": 0.5,
+    "depth": 1.0,
+    "texture": "masaryk_awning_black.jpg",
+    "repeat": 1,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): right black RE ARTU awning; y/drop measured on raw.png"
+   },
+   {
+    "type": "box",
+    "wall": "w512839722_e4",
+    "at": 0.804,
+    "width": 2.4,
+    "height": 1.0,
+    "depth": 0.9,
+    "out": 0.45,
+    "y": 8.4,
+    "texture": "masaryk_balcony_cream.jpg",
+    "repeat": 1.5,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): curved stone-balustrade balcony under the pilasters; y measured on raw.png"
+   },
+   {
+    "type": "box",
+    "wall": "w512839722_e5",
+    "at": 0.12,
+    "width": 2.7,
+    "height": 1.0,
+    "depth": 0.9,
+    "out": 0.45,
+    "y": 8.4,
+    "texture": "masaryk_balcony_cream.jpg",
+    "repeat": 1.5,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): curved stone-balustrade balcony; y measured on raw.png"
+   },
+   {
+    "type": "box",
+    "wall": "w512839722_e5",
+    "at": 0.385,
+    "width": 2.4,
+    "height": 1.0,
+    "depth": 0.9,
+    "out": 0.45,
+    "y": 8.4,
+    "texture": "masaryk_balcony_cream.jpg",
+    "repeat": 1.5,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): curved stone-balustrade balcony; y measured on raw.png"
+   }
+  ]
+ },
+ "w512839724": {
+  "name": "Masarykova ulica (grey Maria house)",
+  "roof": "flat_gravel",
+  "tags": {
+   "roof:shape": "flat"
+  },
+  "features": []
+ },
+ "w512839725": {
+  "name": "Masarykova ulica (KOKO house)",
+  "roof": "biber_old",
+  "features": []
+ },
+ "w995892801": {
+  "name": "Masarykova ulica (ZAKS house and Wiya house)",
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w995892801_e6",
+    "at": 0.5,
+    "width": 9.1,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "masaryk_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): brown plaster main cornice of the ZAKS house"
+   },
+   {
+    "type": "box",
+    "wall": "w995892801_e7",
+    "at": 0.5,
+    "width": 8.9,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "masaryk_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): brown plaster main cornice of the ZAKS house"
+   },
+   {
+    "type": "box",
+    "wall": "w995892801_e8",
+    "at": 0.5,
+    "width": 14.7,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "masaryk_cornice_sand.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): sand-yellow plaster main cornice of the Wiya house"
+   },
+   {
+    "type": "sign",
+    "wall": "w995892801_e8",
+    "mount": "projecting",
+    "image": "masaryk_wiya.png",
+    "at": 0.62,
+    "width": 0.7,
+    "y": 4.3,
+    "out": 0.35,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): small black projecting box sign 'Wiya' on the shop pier, redrawn flat by gen-image"
+   }
+  ]
+ },
+ "w1006088864": {
+  "name": "Masarykova ulica 7 (myCORE)",
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w1006088864_e11",
+    "at": 0.295,
+    "width": 4.2,
+    "height": 0.5,
+    "depth": 1.0,
+    "out": 0.5,
+    "y": 10.0,
+    "texture": "masaryk_balcony_dark.jpg",
+    "repeat": 2.0,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): huge dark stone balcony on carved scroll consoles, left; y measured on raw.png"
+   },
+   {
+    "type": "box",
+    "wall": "w1006088864_e11",
+    "at": 0.75,
+    "width": 4.2,
+    "height": 0.5,
+    "depth": 1.0,
+    "out": 0.5,
+    "y": 10.0,
+    "texture": "masaryk_balcony_dark.jpg",
+    "repeat": 2.0,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): huge dark stone balcony on carved scroll consoles, right; y measured on raw.png"
+   }
+  ]
+ },
+ "w1005285812": {
+  "name": "Masarykova ulica (GANT / Krznarija house)",
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "sign",
+    "wall": "w1005285812_e13",
+    "mount": "projecting",
+    "image": "masaryk_krznar.png",
+    "at": 0.56,
+    "width": 0.35,
+    "y": 2.7,
+    "out": 0.3,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): slim white vertical blade sign 'KRZNAR' of the furrier, redrawn flat by gen-image"
+   }
+  ]
+ },
+ "w735337369": {
+  "name": "Zvonik sv. Marije na Dolcu (St Mary's bell tower on Dolac)",
+  "tags": {
+   "building:part": "tower",
+   "roof:shape": "flat"
+  },
+  "features": [
+   {
+    "type": "dome",
+    "wall": "w735337369_e3",
+    "at": 0.5,
+    "out": -3.3,
+    "aboveEave": 0.0,
+    "radius": 3.0,
+    "height": 0.45,
+    "shape": "onion",
+    "drumColor": "#e8e4d8",
+    "texture": "dolac_onion.jpg",
+    "repeat": 4,
+    "color": "#ffffff",
+    "source": "Street View photo from the market (user screenshot, 2026): onion, lantern, small onion, spire",
+    "neck": 0.5
+   },
+   {
+    "type": "dome",
+    "wall": "w735337369_e3",
+    "at": 0.5,
+    "out": -3.3,
+    "aboveEave": 4.65,
+    "radius": 1.3,
+    "height": 3.4,
+    "shape": "onion",
+    "drumColor": "#2c4a38",
+    "texture": "dolac_onion.jpg",
+    "repeat": 3,
+    "color": "#ffffff",
+    "source": "Street View photo from the market (user screenshot, 2026): onion, lantern, small onion, spire",
+    "neck": 0.12
+   },
+   {
+    "type": "dome",
+    "wall": "w735337369_e3",
+    "at": 0.5,
+    "out": -3.3,
+    "aboveEave": 10.07,
+    "radius": 0.3,
+    "height": 0.15,
+    "shape": "cone",
+    "drumColor": "#c9a14a",
+    "color": "#c9a14a",
+    "source": "Street View photo from the market (user screenshot, 2026): onion, lantern, small onion, spire"
+   }
+  ]
+ },
+ "w735337375": {
+  "name": "Dolac market pavilion (single storey, flat roof)",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w735337375_e1",
+    "at": 0.5,
+    "width": 11.2,
+    "height": 0.45,
+    "depth": 0.9,
+    "out": 0.3,
+    "aboveEave": -0.45,
+    "color": "#e9e7e1",
+    "source": "Street View photo (user screenshot, 2026): the white roof slab overhangs every side"
+   },
+   {
+    "type": "box",
+    "wall": "w735337375_e2",
+    "at": 0.5,
+    "width": 7.7,
+    "height": 0.45,
+    "depth": 0.9,
+    "out": 0.3,
+    "aboveEave": -0.45,
+    "color": "#e9e7e1",
+    "source": "Street View photo (user screenshot, 2026): the white roof slab overhangs every side"
+   },
+   {
+    "type": "box",
+    "wall": "w735337375_e3",
+    "at": 0.5,
+    "width": 11.3,
+    "height": 0.45,
+    "depth": 0.9,
+    "out": 0.3,
+    "aboveEave": -0.45,
+    "color": "#e9e7e1",
+    "source": "Street View photo (user screenshot, 2026): the white roof slab overhangs every side"
+   },
+   {
+    "type": "box",
+    "wall": "w735337375_e4",
+    "at": 0.5,
+    "width": 6.9,
+    "height": 0.45,
+    "depth": 0.9,
+    "out": 0.3,
+    "aboveEave": -0.45,
+    "color": "#e9e7e1",
+    "source": "Street View photo (user screenshot, 2026): the white roof slab overhangs every side"
+   }
+  ]
+ },
+ "w735337392": {
+  "name": "Dolac market pavilion (single storey, flat roof)",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w735337392_e1",
+    "at": 0.5,
+    "width": 7.3,
+    "height": 0.45,
+    "depth": 0.9,
+    "out": 0.3,
+    "aboveEave": -0.45,
+    "color": "#e9e7e1",
+    "source": "Street View photo (user screenshot, 2026): the white roof slab overhangs every side"
+   },
+   {
+    "type": "box",
+    "wall": "w735337392_e2",
+    "at": 0.5,
+    "width": 11.2,
+    "height": 0.45,
+    "depth": 0.9,
+    "out": 0.3,
+    "aboveEave": -0.45,
+    "color": "#e9e7e1",
+    "source": "Street View photo (user screenshot, 2026): the white roof slab overhangs every side"
+   },
+   {
+    "type": "box",
+    "wall": "w735337392_e3",
+    "at": 0.5,
+    "width": 7.9,
+    "height": 0.45,
+    "depth": 0.9,
+    "out": 0.3,
+    "aboveEave": -0.45,
+    "color": "#e9e7e1",
+    "source": "Street View photo (user screenshot, 2026): the white roof slab overhangs every side"
+   },
+   {
+    "type": "box",
+    "wall": "w735337392_e4",
+    "at": 0.5,
+    "width": 11.2,
+    "height": 0.45,
+    "depth": 0.9,
+    "out": 0.3,
+    "aboveEave": -0.45,
+    "color": "#e9e7e1",
+    "source": "Street View photo (user screenshot, 2026): the white roof slab overhangs every side"
+   }
+  ]
+ },
+ "w101182644": {
+  "name": "Zagrebačka katedrala",
+  "omit": true,
+  "landmark": {
+   "name": "cathedral",
+   "origin": [
+    174.69,
+    168.02
+   ],
+   "heading": 101.53
+  },
+  "source": "Modelled by hand in web3d/src/cathedral.ts (west front from Street View Jul 2024, pano 2 Kaptol, rectified; spires from a May 2018 photosphere); the OSM outline and its 40 building:parts are left out"
+ },
+ "w735346958": {
+  "name": "Kaptolske zidine (sjeverni zid s kulama)",
+  "roof": "biber_old",
+  "tags": {
+   "roof:height": "1.2"
+  },
+  "source": "The Kaptol wall north of the square: rubble stone, about 8 m to its coping (eave set by its hero facades, storeys 2); its round towers are parts w9000000002 / w9000000003"
+ },
+ "w9000000002": {
+  "name": "Domitrovićeva kula",
+  "part": [
+   [
+    161.6,
+    218.76
+   ],
+   [
+    161.38,
+    220.46
+   ],
+   [
+    160.72,
+    222.03
+   ],
+   [
+    159.68,
+    223.39
+   ],
+   [
+    158.33,
+    224.43
+   ],
+   [
+    156.75,
+    225.09
+   ],
+   [
+    155.05,
+    225.31
+   ],
+   [
+    153.35,
+    225.09
+   ],
+   [
+    151.78,
+    224.43
+   ],
+   [
+    150.42,
+    223.39
+   ],
+   [
+    149.38,
+    222.03
+   ],
+   [
+    148.72,
+    220.46
+   ],
+   [
+    148.5,
+    218.76
+   ],
+   [
+    148.72,
+    217.06
+   ],
+   [
+    149.38,
+    215.48
+   ],
+   [
+    150.42,
+    214.13
+   ],
+   [
+    151.78,
+    213.09
+   ],
+   [
+    153.35,
+    212.43
+   ],
+   [
+    155.05,
+    212.21
+   ],
+   [
+    156.75,
+    212.43
+   ],
+   [
+    158.33,
+    213.09
+   ],
+   [
+    159.68,
+    214.13
+   ],
+   [
+    160.72,
+    215.48
+   ],
+   [
+    161.38,
+    217.06
+   ]
+  ],
+  "roof": "flat_gravel",
+  "tags": {
+   "roof:shape": "flat",
+   "height": "15.8"
+  },
+  "features": [
+   {
+    "type": "dome",
+    "wall": "w9000000002_e0",
+    "at": 0.5,
+    "out": -6.49,
+    "aboveEave": 0.0,
+    "radius": 6.45,
+    "height": 0.02,
+    "capHeight": 9.5,
+    "shape": "cone",
+    "lantern": false,
+    "texture": "gajeva_tile_red.jpg",
+    "repeat": 2.0,
+    "color": "#ffffff",
+    "source": "Street View Jul 2024 (pano 2 Kaptol, frames h38 / h87 / h152): steep red-tiled cone roof, about 9.5 m, over the round rubble-stone tower"
+   }
+  ],
+  "source": "Round tower at the west end of the Kaptol north wall, taller than the wall (OSM man_made=tower w735346963); Street View Jul 2024 (pano 2 Kaptol, frames h38 / h87 / h152)"
+ },
+ "w9000000003": {
+  "name": "Kula uz Ribnjak (istočna)",
+  "part": [
+   [
+    224.79,
+    203.51
+   ],
+   [
+    224.61,
+    204.89
+   ],
+   [
+    224.07,
+    206.19
+   ],
+   [
+    223.22,
+    207.29
+   ],
+   [
+    222.12,
+    208.14
+   ],
+   [
+    220.82,
+    208.68
+   ],
+   [
+    219.44,
+    208.86
+   ],
+   [
+    218.06,
+    208.68
+   ],
+   [
+    216.76,
+    208.14
+   ],
+   [
+    215.66,
+    207.29
+   ],
+   [
+    214.81,
+    206.19
+   ],
+   [
+    214.27,
+    204.89
+   ],
+   [
+    214.09,
+    203.51
+   ],
+   [
+    214.27,
+    202.13
+   ],
+   [
+    214.81,
+    200.83
+   ],
+   [
+    215.66,
+    199.73
+   ],
+   [
+    216.76,
+    198.88
+   ],
+   [
+    218.06,
+    198.34
+   ],
+   [
+    219.44,
+    198.16
+   ],
+   [
+    220.82,
+    198.34
+   ],
+   [
+    222.12,
+    198.88
+   ],
+   [
+    223.22,
+    199.73
+   ],
+   [
+    224.07,
+    200.83
+   ],
+   [
+    224.61,
+    202.13
+   ]
+  ],
+  "roof": "flat_gravel",
+  "tags": {
+   "roof:shape": "flat",
+   "height": "12.1"
+  },
+  "features": [
+   {
+    "type": "dome",
+    "wall": "w9000000003_e0",
+    "at": 0.5,
+    "out": -5.3,
+    "aboveEave": 0.0,
+    "radius": 5.3,
+    "height": 0.02,
+    "capHeight": 7.0,
+    "shape": "cone",
+    "lantern": false,
+    "color": "#4d4843",
+    "source": "Street View Jul 2024 (pano 2 Kaptol, frames h38 / h87 / h152): dark shingled pyramid roof seen over the wall left of the north tower"
+   }
+  ],
+  "source": "Round tower on the Kaptol north wall behind the Cathedral (OSM man_made=tower w735346962); inside the fenced-off area, low-res; Street View Jul 2024 (pano 2 Kaptol, frames h38 / h87 / h152)"
+ },
+ "w101185039": {
+  "name": "Nadbiskupski dvor",
+  "roofWings": [
+   {
+    "name": "south wing (e29/e33 to e5/e6)",
+    "corners": [
+     [
+      141.62,
+      134.87
+     ],
+     [
+      249.39,
+      108.0
+     ],
+     [
+      252.84,
+      121.86
+     ],
+     [
+      145.08,
+      148.73
+     ]
+    ]
+   },
+   {
+    "name": "west pavilion, the Stepinac museum (e10 to the e7 step, to e8)",
+    "corners": [
+     [
+      141.62,
+      134.87
+     ],
+     [
+      155.14,
+      131.5
+     ],
+     [
+      159.54,
+      149.12
+     ],
+     [
+      146.02,
+      152.49
+     ]
+    ]
+   },
+   {
+    "name": "south risalit (e30-e32), hipped up to the wing ridge",
+    "corners": [
+     [
+      193.28,
+      114.91
+     ],
+     [
+      207.44,
+      111.38
+     ],
+     [
+      210.83,
+      124.97
+     ],
+     [
+      196.68,
+      128.51
+     ]
+    ]
+   },
+   {
+    "name": "east wing (e51/e55 to e4)",
+    "corners": [
+     [
+      249.39,
+      108.0
+     ],
+     [
+      292.98,
+      165.73
+     ],
+     [
+      284.06,
+      172.46
+     ],
+     [
+      240.47,
+      114.73
+     ]
+    ]
+   },
+   {
+    "name": "courtyard risalit of the east wing (e2, between the e1/e3 steps), up to the wing ridge",
+    "corners": [
+     [
+      268.09,
+      142.04
+     ],
+     [
+      277.67,
+      154.73
+     ],
+     [
+      269.1,
+      161.21
+     ],
+     [
+      259.51,
+      148.52
+     ]
+    ]
+   }
+  ],
+  "features": [
+   {
+    "type": "dome",
+    "wall": "w101185039_e16",
+    "at": 0.5,
+    "out": -9.55,
+    "aboveEave": 0.0,
+    "radius": 9.57,
+    "height": 0.02,
+    "capHeight": 12.0,
+    "shape": "cone",
+    "lantern": false,
+    "texture": "gajeva_tile_red.jpg",
+    "repeat": 2.0,
+    "color": "#ffffff",
+    "source": "Street View Jul 2024 (pano 2 Kaptol, frames h38 / h87 / h152): Kula Nebojan's red-tiled cone roof with a small dormer, about 12 m; centre and radius fitted to the tower's outline (2026-10-01)"
+   },
+   {
+    "type": "dome",
+    "wall": "w101185039_e40",
+    "at": 0.5,
+    "out": -7.83,
+    "aboveEave": 0.0,
+    "radius": 7.92,
+    "height": 0.02,
+    "capHeight": 10.0,
+    "shape": "cone",
+    "lantern": false,
+    "texture": "gajeva_tile_red.jpg",
+    "repeat": 2.0,
+    "color": "#ffffff",
+    "source": "Google Maps 3D (.art/cathedral/aerial_ref.png): the south-east corner tower's steep red cone, in proportion to Nebojan's; centre and radius fitted to its outline"
+   },
+   {
+    "type": "dome",
+    "wall": "w101185039_e64",
+    "at": 0.5,
+    "out": -6.87,
+    "aboveEave": 0.0,
+    "radius": 6.95,
+    "height": 0.02,
+    "capHeight": 8.7,
+    "shape": "cone",
+    "lantern": false,
+    "texture": "gajeva_tile_red.jpg",
+    "repeat": 2.0,
+    "color": "#ffffff",
+    "source": "No photo (behind the palace, fenced off): the same red cone as the palace's other round towers; centre and radius fitted to its outline"
+   },
+   {
+    "type": "box",
+    "wall": "w101185039_e53",
+    "at": 0.5,
+    "out": 0.04,
+    "width": 2.5,
+    "depth": 0.08,
+    "height": 3.05,
+    "y": 0.0,
+    "color": "#cfc8b4",
+    "source": "Google Maps 3D / satellite (Sep 2026): the palace's rear entrance on the east front, reached by the private road past the south-east tower"
+   },
+   {
+    "type": "box",
+    "wall": "w101185039_e53",
+    "at": 0.5,
+    "out": 0.12,
+    "width": 1.7,
+    "depth": 0.1,
+    "height": 2.6,
+    "y": 0.0,
+    "color": "#3a281e",
+    "source": "Google Maps 3D / satellite (Sep 2026): the palace's rear entrance on the east front, reached by the private road past the south-east tower"
+   },
+   {
+    "type": "box",
+    "wall": "w101185039_e53",
+    "at": 0.5,
+    "out": 0.55,
+    "width": 2.9,
+    "depth": 1.0,
+    "height": 0.16,
+    "y": 0.0,
+    "color": "#b4ada0",
+    "source": "Google Maps 3D / satellite (Sep 2026): the palace's rear entrance on the east front, reached by the private road past the south-east tower"
+   }
+  ],
+  "tags": {
+   "roof:shape": "hipped"
+  }
+ },
+ "w97165324": {
+  "name": "Saborna crkva Preobraženja Gospodnjeg",
+  "roof": "copper_green",
+  "tags": {
+   "roof:shape": "gabled",
+   "roof:height": "3.7"
+  },
+  "features": [
+   {
+    "type": "dome",
+    "wall": "w97165324_e14",
+    "at": 0.127,
+    "out": -7.7,
+    "aboveEave": 0.0,
+    "radius": 7.95,
+    "height": 0.02,
+    "capHeight": 3.7,
+    "shape": "cone",
+    "lantern": false,
+    "color": "#ffffff",
+    "source": "Top view (Google Maps 3D): the apse has a half-conical roof in the same olive copper as the nave",
+    "texture": "church_roof.jpg",
+    "repeat": 4.4
+   }
+  ],
+  "source": "Serbian Orthodox cathedral, Trg Petra Preradovića; Street View Jul 2025 (pano 5YCmGqNQ_wpwB2T9Wbyi8w), Jun 2018 photosphere; Google Maps 3D view"
+ },
+ "w9000000010": {
+  "name": "Zvonik Saborne crkve",
+  "part": [
+   [
+    -247.7,
+    -48.4
+   ],
+   [
+    -243.5,
+    -48.4
+   ],
+   [
+    -243.5,
+    -44.2
+   ],
+   [
+    -247.7,
+    -44.2
+   ]
+  ],
+  "roof": "flat_gravel",
+  "tags": {
+   "roof:shape": "flat",
+   "height": "26.9"
+  },
+  "features": [
+   {
+    "type": "dome",
+    "wall": "w9000000010_e0",
+    "at": 0.5,
+    "out": -2.1,
+    "aboveEave": 0.0,
+    "radius": 2.95,
+    "height": 0.02,
+    "capHeight": 4.6,
+    "shape": "cone",
+    "lantern": false,
+    "color": "#5f9c8e",
+    "source": "Google Maps 3D view: the belfry's turquoise copper pyramid roof"
+   }
+  ],
+  "source": "Belfry over the west end of the Serbian Orthodox cathedral; Street View Jul 2025 (south pano) and Jun 2018 (west photosphere)"
+ },
+ "w101186069": {
+  "name": "Ban centar",
+  "roof": "flat_gravel",
+  "tags": {
+   "roof:shape": "flat"
+  }
+ },
+ "w9000000030": {
+  "name": "Arkada: uvučeno prizemlje (Trg bana Jelačića, kut)",
+  "part": [
+   [
+    -39.975,
+    77.789
+   ],
+   [
+    -39.4,
+    80.86
+   ],
+   [
+    -47.02,
+    83.73
+   ],
+   [
+    -54.57,
+    86.28
+   ],
+   [
+    -60.61,
+    80.87
+   ],
+   [
+    -79.03,
+    70.97
+   ],
+   [
+    -68.72,
+    55.43
+   ],
+   [
+    -44.524,
+    50.311
+   ],
+   [
+    -38.515,
+    77.384
+   ]
+  ],
+  "roof": "flat_gravel",
+  "tags": {
+   "roof:shape": "flat",
+   "zg:eave": "6.5"
+  },
+  "source": "The recessed ground floor of the interwar corner block (w105484833): its east front stands 3.2 m behind the colonnade; user's Street View frame (2025) of the corner; its ends run to the colonnade openings (north: on the line of w105484833_e9, south: 0.1 m inside e6)"
+ },
+ "w105484833": {
+  "name": "Interwar corner block (Trg bana Jelačića, colonnade)",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w105484833_e8",
+    "at": 0.0136,
+    "out": -0.375,
+    "width": 0.75,
+    "depth": 0.75,
+    "height": 6.0,
+    "y": 0,
+    "texture": "bank_granite.jpg",
+    "repeat": 1.0,
+    "color": "#ffffff",
+    "source": "User's Street View frame (2025): the colonnade on the east side of the interwar corner block (corner pier)"
+   },
+   {
+    "type": "box",
+    "wall": "w105484833_e8",
+    "at": 0.1529,
+    "out": -0.3,
+    "width": 0.6,
+    "depth": 0.6,
+    "height": 6.0,
+    "y": 0,
+    "texture": "bank_granite.jpg",
+    "repeat": 1.0,
+    "color": "#ffffff",
+    "source": "User's Street View frame (2025): the colonnade on the east side of the interwar corner block"
+   },
+   {
+    "type": "box",
+    "wall": "w105484833_e8",
+    "at": 0.2923,
+    "out": -0.3,
+    "width": 0.6,
+    "depth": 0.6,
+    "height": 6.0,
+    "y": 0,
+    "texture": "bank_granite.jpg",
+    "repeat": 1.0,
+    "color": "#ffffff",
+    "source": "User's Street View frame (2025): the colonnade on the east side of the interwar corner block"
+   },
+   {
+    "type": "box",
+    "wall": "w105484833_e8",
+    "at": 0.4317,
+    "out": -0.3,
+    "width": 0.6,
+    "depth": 0.6,
+    "height": 6.0,
+    "y": 0,
+    "texture": "bank_granite.jpg",
+    "repeat": 1.0,
+    "color": "#ffffff",
+    "source": "User's Street View frame (2025): the colonnade on the east side of the interwar corner block"
+   },
+   {
+    "type": "box",
+    "wall": "w105484833_e8",
+    "at": 0.571,
+    "out": -0.3,
+    "width": 0.6,
+    "depth": 0.6,
+    "height": 6.0,
+    "y": 0,
+    "texture": "bank_granite.jpg",
+    "repeat": 1.0,
+    "color": "#ffffff",
+    "source": "User's Street View frame (2025): the colonnade on the east side of the interwar corner block"
+   },
+   {
+    "type": "box",
+    "wall": "w105484833_e8",
+    "at": 0.7104,
+    "out": -0.3,
+    "width": 0.6,
+    "depth": 0.6,
+    "height": 6.0,
+    "y": 0,
+    "texture": "bank_granite.jpg",
+    "repeat": 1.0,
+    "color": "#ffffff",
+    "source": "User's Street View frame (2025): the colonnade on the east side of the interwar corner block"
+   },
+   {
+    "type": "box",
+    "wall": "w105484833_e8",
+    "at": 0.8498,
+    "out": -0.3,
+    "width": 0.6,
+    "depth": 0.6,
+    "height": 6.0,
+    "y": 0,
+    "texture": "bank_granite.jpg",
+    "repeat": 1.0,
+    "color": "#ffffff",
+    "source": "User's Street View frame (2025): the colonnade on the east side of the interwar corner block"
+   },
+   {
+    "type": "box",
+    "wall": "w105484833_e8",
+    "at": 0.9892,
+    "out": -0.375,
+    "width": 0.75,
+    "depth": 0.75,
+    "height": 6.0,
+    "y": 0,
+    "texture": "bank_granite.jpg",
+    "repeat": 1.0,
+    "color": "#ffffff",
+    "source": "User's Street View frame (2025): the colonnade on the east side of the interwar corner block (end pier)"
+   },
+   {
+    "type": "box",
+    "wall": "w105484833_e8",
+    "at": 0.5,
+    "out": 0.0,
+    "width": 27.9,
+    "depth": 0.8,
+    "height": 0.5,
+    "y": 6.0,
+    "texture": "bank_granite.jpg",
+    "repeat": 1.0,
+    "color": "#cfd6d3",
+    "source": "User's Street View frame (2025): the colonnade on the east side of the interwar corner block (the ledge under the white railing)"
+   },
+   {
+    "type": "box",
+    "wall": "w105484833_e6",
+    "at": 0.9708,
+    "out": -0.2,
+    "width": 0.4,
+    "depth": 0.5,
+    "height": 6.0,
+    "y": 0,
+    "texture": "bank_granite.jpg",
+    "repeat": 1.0,
+    "color": "#ffffff",
+    "source": "User's screenshot (2026-10-01): the colonnade is open at both ends (south end pier)"
+   },
+   {
+    "type": "box",
+    "wall": "w105484833_e9",
+    "at": 0.8759,
+    "out": -0.35,
+    "width": 1.157,
+    "depth": 0.8,
+    "height": 6.0,
+    "y": 0,
+    "texture": "bank_granite.jpg",
+    "repeat": 1.0,
+    "color": "#ffffff",
+    "source": "User's screenshot (2026-10-01): the colonnade is open at both ends (north end pier)"
+   },
+   {
+    "type": "box",
+    "wall": "w105484833_e9",
+    "at": 0.5,
+    "width": 4.28,
+    "y": 6.0,
+    "height": 0.5,
+    "depth": 0.8,
+    "out": 0.0,
+    "texture": "bank_granite.jpg",
+    "repeat": 1.0,
+    "color": "#cfd6d3",
+    "source": "User's screenshot (2026-10-01): the colonnade is open at both ends (north beam)"
+   },
+   {
+    "type": "box",
+    "wall": "w105484833_e7",
+    "at": 0.5,
+    "width": 2.24,
+    "y": 6.0,
+    "height": 0.5,
+    "depth": 0.8,
+    "out": 0.0,
+    "texture": "bank_granite.jpg",
+    "repeat": 1.0,
+    "color": "#cfd6d3",
+    "source": "User's screenshot (2026-10-01): the colonnade is open at both ends (south beam)"
+   },
+   {
+    "type": "box",
+    "wall": "w105484833_e6",
+    "at": 0.9815,
+    "width": 0.95,
+    "y": 6.0,
+    "height": 0.5,
+    "depth": 0.8,
+    "out": 0.0,
+    "texture": "bank_granite.jpg",
+    "repeat": 1.0,
+    "color": "#cfd6d3",
+    "source": "User's screenshot (2026-10-01): the colonnade is open at both ends (south beam)"
+   }
+  ],
+  "source": "Colonnade side from the user's Street View frame (2025); see data/arcades.json"
+ },
+ "w735337395": {
+  "name": "Vrutak (low flat-roofed building)",
+  "roof": "flat_gravel",
+  "tags": {
+   "roof:shape": "flat",
+   "zg:eave": "4.7"
+  },
+  "source": "Google Maps 3D (Sep 2026) and the user's Street View frame: a single-storey flat-roofed building, the Vrutak shop on its north front"
+ },
+ "w9000000041": {
+  "name": "Vrata uz Vrutak (luk)",
+  "part": [
+   [
+    87.17,
+    148.03
+   ],
+   [
+    91.48,
+    148.95
+   ],
+   [
+    91.21,
+    147.37
+   ],
+   [
+    86.78,
+    146.44
+   ]
+  ],
+  "roof": "clay_red",
+  "tags": {
+   "roof:shape": "gabled",
+   "zg:eave": "4.7"
+  },
+  "source": "User's Street View frame of the Vrutak wing and Google Maps 3D (Sep 2026): the round-arched gateway fills the gap between the striped canonry house and the low Vrutak building",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w9000000041_e2",
+    "at": 0.1276,
+    "out": -0.8,
+    "width": 1.125,
+    "depth": 1.6,
+    "height": 2.84,
+    "y": 0,
+    "texture": "vrutak_jamb_l.jpg",
+    "repeat": 2.84,
+    "color": "#ffffff",
+    "source": "User's Street View frame of the Vrutak wing: the gateway's jambs below the arch's springing (white stone strip on peach plaster), cut from the redrawn picture"
+   },
+   {
+    "type": "box",
+    "wall": "w9000000041_e2",
+    "at": 0.8724,
+    "out": -0.8,
+    "width": 1.125,
+    "depth": 1.6,
+    "height": 2.84,
+    "y": 0,
+    "texture": "vrutak_jamb_r.jpg",
+    "repeat": 2.84,
+    "color": "#ffffff",
+    "source": "User's Street View frame of the Vrutak wing: the gateway's jambs below the arch's springing (white stone strip on peach plaster), cut from the redrawn picture"
+   }
+  ]
+ },
+ "w9000000050": {
+  "name": "Nama: stražnji zid arkade",
+  "part": [
+   [
+    -142.623,
+    10.321
+   ],
+   [
+    -142.023,
+    10.336
+   ],
+   [
+    -142.081,
+    12.635
+   ],
+   [
+    -120.444,
+    13.183
+   ],
+   [
+    -120.386,
+    10.883
+   ],
+   [
+    -119.786,
+    10.898
+   ],
+   [
+    -119.885,
+    14.797
+   ],
+   [
+    -142.721,
+    14.219
+   ]
+  ],
+  "roof": "flat_gravel",
+  "tags": {
+   "roof:shape": "flat",
+   "zg:eave": "8.6"
+  },
+  "source": "The back of the walkway behind Nama's seven arches (data/arcades.json w97089760): a U 3 m behind the facade line whose arms close the walkway's ends 0.7 m behind the front; taller than the arcade's ceiling, which hides its top"
+ },
+ "w1134673365": {
+  "name": "Trg Nikole Zrinskog 3/1 (dvorišna zgrada uz parkiralište Hotela Dubrovnik)",
+  "outline": [
+   [
+    80.55,
+    -139.55
+   ],
+   [
+    87.447,
+    -139.268
+   ],
+   [
+    89.025,
+    -136.323
+   ],
+   [
+    88.706,
+    -134.033
+   ],
+   [
+    108.098,
+    -131.354
+   ],
+   [
+    108.401,
+    -133.511
+   ],
+   [
+    114.922,
+    -132.61
+   ],
+   [
+    113.648,
+    -123.441
+   ],
+   [
+    78.6,
+    -123.8
+   ]
+  ],
+  "note": "Enlarged to close the car park's east side: OSM leaves a 4 m gap to the Praška corner building (w105489667) and a 2 m slot to Palača Buratti (w137106329) that led into the courtyards behind; in reality there is no passage (Google 3D, user, 2026-10-01). The west face now runs from w105489667's corner to Buratti's, both ends 0.2 m inside them; the south face runs inside Buratti."
+ },
+ "w97092198": {
+  "name": "Uspinjača, donja stanica (lower funicular station)",
+  "roof": "zinc_dark",
+  "tags": {
+   "roof:shape": "hipped",
+   "roof:height": "1.4"
+  },
+  "source": "Google 3D view (user screenshot 2026-10-01): a low cream station across the end of Tomićeva with a dark roof; the tracks climb out of its back"
  }
 }

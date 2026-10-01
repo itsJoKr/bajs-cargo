@@ -1,0 +1,41 @@
+{
+ "section": "nama",
+ "facades": [
+  {
+   "name": "nama_arcade_back",
+   "photo": ".art/facades/nama_arcade_back/raw.png",
+   "edges": [
+    "w9000000050_e2"
+   ],
+   "bays": 7,
+   "storeys": 2,
+   "place": "Ilica",
+   "source": "Composed by tool/make_nama.py from the Nama facade picture (.art/facades/ilica_nama): travertine courses, the dark lintel band, the glass door of the seventh arch and a shop window in the second, as on Street View Jul 2024 / the user's frame (2026). Do not run generate on it",
+   "look": "PROCEDURAL: the back wall of Nama's arcade walkway (see source)"
+  },
+  {
+   "name": "nama_arcade_end_w",
+   "photo": ".art/facades/nama_arcade_end_w/raw.png",
+   "edges": [
+    "w9000000050_e1"
+   ],
+   "bays": 1,
+   "storeys": 2,
+   "place": "Ilica",
+   "source": "Composed by tool/make_nama.py from the Nama facade picture (.art/facades/ilica_nama): travertine courses, the dark lintel band, the glass door of the seventh arch and a shop window in the second, as on Street View Jul 2024 / the user's frame (2026). Do not run generate on it",
+   "look": "PROCEDURAL: the west end wall of Nama's arcade walkway"
+  },
+  {
+   "name": "nama_arcade_end_e",
+   "photo": ".art/facades/nama_arcade_end_e/raw.png",
+   "edges": [
+    "w9000000050_e3"
+   ],
+   "bays": 1,
+   "storeys": 2,
+   "place": "Ilica",
+   "source": "Composed by tool/make_nama.py from the Nama facade picture (.art/facades/ilica_nama): travertine courses, the dark lintel band, the glass door of the seventh arch and a shop window in the second, as on Street View Jul 2024 / the user's frame (2026). Do not run generate on it",
+   "look": "PROCEDURAL: the east end wall of Nama's arcade walkway"
+  }
+ ]
+}

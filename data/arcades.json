@@ -1,0 +1,135 @@
+{
+ "_comment": "Colonnades: the walls of `edges` (OSM edge indices of the building) start `base` metres above the sidewalk and `soffit` (tool frame x, z) closes the underside of the overhang at that height. tool/src/buildings.dart (Arcade); the recessed ground floor is a building part in buildings.json and the columns are box features. `spans` {edge: [t0, t1]} opens only that part of a wall (the colonnade end beside a wall that stays on the ground). `arches` {edge, openings [[t0, t1]...], crown, walk [t0, t1], depth, thick, riser, soffitColor}: round arches cut into one edge (Nama on Ilica), heights in the picture's metres; the wall starts at its highest sidewalk and each bay of the walkway gets its own floor a riser above the pavement in front of it (Arches in tool/src/buildings.dart).",
+ "arcades": {
+  "w105484833": {
+   "edges": [
+    7,
+    8,
+    9
+   ],
+   "base": 6.5,
+   "soffit": [
+    [
+     -44.546,
+     50.214
+    ],
+    [
+     -43.611,
+     50.028
+    ],
+    [
+     -41.435,
+     49.516
+    ],
+    [
+     -35.458,
+     76.536
+    ],
+    [
+     -38.515,
+     77.384
+    ]
+   ],
+   "spans": {
+    "6": [
+     0.9631,
+     1.0
+    ]
+   }
+  },
+  "w9000000041": {
+   "edges": [
+    0,
+    2
+   ],
+   "base": 2.84,
+   "soffit": [
+    [
+     87.17,
+     148.03
+    ],
+    [
+     91.48,
+     148.95
+    ],
+    [
+     91.21,
+     147.37
+    ],
+    [
+     86.78,
+     146.44
+    ]
+   ]
+  },
+  "w97089760": {
+   "_source": "Nama (Ilica 4): the open arcade of seven round arches on Ilica, measured on the facade picture (.art/facades/ilica_nama/raw.png, arches at x 78-187 ... 930-1037 of 1536, crowns at 6.82 m); Street View Jul 2024: one or two steps up into each arch, the walkway about 3 m deep",
+   "edges": [],
+   "base": 7.15,
+   "soffit": [
+    [
+     -142.023,
+     10.336
+    ],
+    [
+     -120.386,
+     10.883
+    ],
+    [
+     -120.444,
+     13.183
+    ],
+    [
+     -142.081,
+     12.635
+    ]
+   ],
+   "arches": {
+    "edge": 1,
+    "openings": [
+     [
+      0.0508,
+      0.1217
+     ],
+     [
+      0.1439,
+      0.2161
+     ],
+     [
+      0.2383,
+      0.3099
+     ],
+     [
+      0.3314,
+      0.4017
+     ],
+     [
+      0.4232,
+      0.4915
+     ],
+     [
+      0.5124,
+      0.582
+     ],
+     [
+      0.6055,
+      0.6751
+     ]
+    ],
+    "crown": 6.82,
+    "walk": [
+     0.039,
+     0.687
+    ],
+    "depth": 3.0,
+    "thick": 0.7,
+    "riser": 0.15,
+    "soffitColor": [
+     0.62,
+     0.59,
+     0.54
+    ]
+   }
+  }
+ }
+}

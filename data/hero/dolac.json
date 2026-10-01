@@ -1,0 +1,149 @@
+{
+  "section": "dolac",
+  "facades": [
+    {
+      "name": "dolac_pavilion",
+      "photo": ".art/streetview/dolac/pavilion.png",
+      "bays": 4,
+      "storeys": 1,
+      "place": "Dolac market",
+      "edges": [
+        "w735337375_e3"
+      ],
+      "source": "Street View photo of the pavilion's market side (user screenshot, 2026)",
+      "look": "the white single-storey market pavilion on Dolac: flat roof with a deep overhanging white concrete slab along the top, smooth white-painted rendered walls with a darker grey plinth at the pavement, three wide rectangular windows with dark diamond-lattice iron grilles set in shallow recesses, a tall dark metal double door with a small sign above it reading ULAZ, three small grilled square windows beside the door, no other lettering. The roof slab edge is the top of the picture; draw NO air-conditioning units, NO people, NO market tables, NO trash bins, NO parasols, NO map interface overlay, NO round map icons."
+    },
+    {
+      "name": "dolac_pavilion_735337375_north",
+      "photo": ".art/streetview/dolac/pavilion.png",
+      "bays": 4,
+      "storeys": 1,
+      "place": "Dolac market",
+      "edges": [
+        "w735337375_e1"
+      ],
+      "source": "twin of dolac_pavilion (same picture, reused on every side of both pavilions)",
+      "look": "the white single-storey market pavilion on Dolac: flat roof with a deep overhanging white concrete slab along the top, smooth white-painted rendered walls with a darker grey plinth at the pavement, three wide rectangular windows with dark diamond-lattice iron grilles set in shallow recesses, a tall dark metal double door with a small sign above it reading ULAZ, three small grilled square windows beside the door, no other lettering. The roof slab edge is the top of the picture; draw NO air-conditioning units, NO people, NO market tables, NO trash bins, NO parasols, NO map interface overlay, NO round map icons."
+    },
+    {
+      "name": "dolac_pavilion_735337375_west",
+      "photo": ".art/streetview/dolac/pavilion.png",
+      "bays": 4,
+      "storeys": 1,
+      "place": "Dolac market",
+      "edges": [
+        "w735337375_e2"
+      ],
+      "source": "twin of dolac_pavilion (same picture, reused on every side of both pavilions)",
+      "look": "the white single-storey market pavilion on Dolac: flat roof with a deep overhanging white concrete slab along the top, smooth white-painted rendered walls with a darker grey plinth at the pavement, three wide rectangular windows with dark diamond-lattice iron grilles set in shallow recesses, a tall dark metal double door with a small sign above it reading ULAZ, three small grilled square windows beside the door, no other lettering. The roof slab edge is the top of the picture; draw NO air-conditioning units, NO people, NO market tables, NO trash bins, NO parasols, NO map interface overlay, NO round map icons."
+    },
+    {
+      "name": "dolac_pavilion_735337375_east",
+      "photo": ".art/streetview/dolac/pavilion.png",
+      "bays": 4,
+      "storeys": 1,
+      "place": "Dolac market",
+      "edges": [
+        "w735337375_e4"
+      ],
+      "source": "twin of dolac_pavilion (same picture, reused on every side of both pavilions)",
+      "look": "the white single-storey market pavilion on Dolac: flat roof with a deep overhanging white concrete slab along the top, smooth white-painted rendered walls with a darker grey plinth at the pavement, three wide rectangular windows with dark diamond-lattice iron grilles set in shallow recesses, a tall dark metal double door with a small sign above it reading ULAZ, three small grilled square windows beside the door, no other lettering. The roof slab edge is the top of the picture; draw NO air-conditioning units, NO people, NO market tables, NO trash bins, NO parasols, NO map interface overlay, NO round map icons."
+    },
+    {
+      "name": "dolac_pavilion_735337392_south",
+      "photo": ".art/streetview/dolac/pavilion.png",
+      "bays": 4,
+      "storeys": 1,
+      "place": "Dolac market",
+      "edges": [
+        "w735337392_e2"
+      ],
+      "source": "twin of dolac_pavilion (same picture, reused on every side of both pavilions)",
+      "look": "the white single-storey market pavilion on Dolac: flat roof with a deep overhanging white concrete slab along the top, smooth white-painted rendered walls with a darker grey plinth at the pavement, three wide rectangular windows with dark diamond-lattice iron grilles set in shallow recesses, a tall dark metal double door with a small sign above it reading ULAZ, three small grilled square windows beside the door, no other lettering. The roof slab edge is the top of the picture; draw NO air-conditioning units, NO people, NO market tables, NO trash bins, NO parasols, NO map interface overlay, NO round map icons."
+    },
+    {
+      "name": "dolac_pavilion_735337392_north",
+      "photo": ".art/streetview/dolac/pavilion.png",
+      "bays": 4,
+      "storeys": 1,
+      "place": "Dolac market",
+      "edges": [
+        "w735337392_e4"
+      ],
+      "source": "twin of dolac_pavilion (same picture, reused on every side of both pavilions)",
+      "look": "the white single-storey market pavilion on Dolac: flat roof with a deep overhanging white concrete slab along the top, smooth white-painted rendered walls with a darker grey plinth at the pavement, three wide rectangular windows with dark diamond-lattice iron grilles set in shallow recesses, a tall dark metal double door with a small sign above it reading ULAZ, three small grilled square windows beside the door, no other lettering. The roof slab edge is the top of the picture; draw NO air-conditioning units, NO people, NO market tables, NO trash bins, NO parasols, NO map interface overlay, NO round map icons."
+    },
+    {
+      "name": "dolac_pavilion_735337392_west",
+      "photo": ".art/streetview/dolac/pavilion.png",
+      "bays": 4,
+      "storeys": 1,
+      "place": "Dolac market",
+      "edges": [
+        "w735337392_e1"
+      ],
+      "source": "twin of dolac_pavilion (same picture, reused on every side of both pavilions)",
+      "look": "the white single-storey market pavilion on Dolac: flat roof with a deep overhanging white concrete slab along the top, smooth white-painted rendered walls with a darker grey plinth at the pavement, three wide rectangular windows with dark diamond-lattice iron grilles set in shallow recesses, a tall dark metal double door with a small sign above it reading ULAZ, three small grilled square windows beside the door, no other lettering. The roof slab edge is the top of the picture; draw NO air-conditioning units, NO people, NO market tables, NO trash bins, NO parasols, NO map interface overlay, NO round map icons."
+    },
+    {
+      "name": "dolac_pavilion_735337392_east",
+      "photo": ".art/streetview/dolac/pavilion.png",
+      "bays": 4,
+      "storeys": 1,
+      "place": "Dolac market",
+      "edges": [
+        "w735337392_e3"
+      ],
+      "source": "twin of dolac_pavilion (same picture, reused on every side of both pavilions)",
+      "look": "the white single-storey market pavilion on Dolac: flat roof with a deep overhanging white concrete slab along the top, smooth white-painted rendered walls with a darker grey plinth at the pavement, three wide rectangular windows with dark diamond-lattice iron grilles set in shallow recesses, a tall dark metal double door with a small sign above it reading ULAZ, three small grilled square windows beside the door, no other lettering. The roof slab edge is the top of the picture; draw NO air-conditioning units, NO people, NO market tables, NO trash bins, NO parasols, NO map interface overlay, NO round map icons."
+    },
+    {
+      "name": "dolac_tower",
+      "photo": ".art/streetview/dolac/tower.png",
+      "edges": [
+        "w735337369_e3"
+      ],
+      "bays": 1,
+      "storeys": 9,
+      "place": "Dolac",
+      "source": "PROCEDURAL from a Street View photo of the tower from the market (user screenshot, 2026); same picture on all four sides",
+      "look": "St Mary's bell tower on Dolac, drawn procedurally by tool/make_dolac_tower.py (raw.png exists; do not regenerate): yellow plaster, white rusticated corner pilasters, a clock under the cornice, an arched belfry opening, paired arched windows."
+    },
+    {
+      "name": "dolac_tower_east",
+      "photo": ".art/streetview/dolac/tower.png",
+      "edges": [
+        "w735337369_e0"
+      ],
+      "bays": 1,
+      "storeys": 9,
+      "place": "Dolac",
+      "source": "PROCEDURAL from a Street View photo of the tower from the market (user screenshot, 2026); same picture on all four sides",
+      "look": "St Mary's bell tower on Dolac, drawn procedurally by tool/make_dolac_tower.py (raw.png exists; do not regenerate): yellow plaster, white rusticated corner pilasters, a clock under the cornice, an arched belfry opening, paired arched windows."
+    },
+    {
+      "name": "dolac_tower_north",
+      "photo": ".art/streetview/dolac/tower.png",
+      "edges": [
+        "w735337369_e1"
+      ],
+      "bays": 1,
+      "storeys": 9,
+      "place": "Dolac",
+      "source": "PROCEDURAL from a Street View photo of the tower from the market (user screenshot, 2026); same picture on all four sides",
+      "look": "St Mary's bell tower on Dolac, drawn procedurally by tool/make_dolac_tower.py (raw.png exists; do not regenerate): yellow plaster, white rusticated corner pilasters, a clock under the cornice, an arched belfry opening, paired arched windows."
+    },
+    {
+      "name": "dolac_tower_west",
+      "photo": ".art/streetview/dolac/tower.png",
+      "edges": [
+        "w735337369_e2"
+      ],
+      "bays": 1,
+      "storeys": 9,
+      "place": "Dolac",
+      "source": "PROCEDURAL from a Street View photo of the tower from the market (user screenshot, 2026); same picture on all four sides",
+      "look": "St Mary's bell tower on Dolac, drawn procedurally by tool/make_dolac_tower.py (raw.png exists; do not regenerate): yellow plaster, white rusticated corner pilasters, a clock under the cornice, an arched belfry opening, paired arched windows."
+    }
+  ]
+}

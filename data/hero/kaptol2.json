@@ -1,0 +1,29 @@
+{
+ "section": "kaptol2",
+ "facades": [
+  {
+   "name": "strezoj_e11",
+   "photo": ".art/streetview/kaptol/sw_cream.png",
+   "edges": [
+    "w292203496_e11"
+   ],
+   "bays": 4,
+   "storeys": 3,
+   "place": "Kaptol",
+   "source": "INVENTED (no Street View of this wall; the house faces the Kaptol parking, seen in Google Maps 3D Sep 2026: plain pale walls, a few windows)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a three-storey Zagreb canonry house in pale peach-cream smooth plaster, four bays of small white-framed windows with grey-green shutters and simple flat sills, a plain eaves cornice, a ground floor with a low plaster plinth, two small barred windows and a plain dark wooden door Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  },
+  {
+   "name": "h735337403_e4",
+   "photo": ".art/streetview/kaptol/sw_ochre.png",
+   "edges": [
+    "w735337403_e4"
+   ],
+   "bays": 2,
+   "storeys": 3,
+   "place": "Kaptol",
+   "source": "INVENTED (no Street View of this wall; the house faces the Kaptol parking, Google Maps 3D Sep 2026)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a three-storey Zagreb canonry house in warm pale ochre-cream plaster, two bays of white-framed windows with brown shutters and simple sills, a plain eaves cornice, a ground floor with a wide dark wooden gateway at one side and a small window Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+  }
+ ]
+}

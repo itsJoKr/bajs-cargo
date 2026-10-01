@@ -1,0 +1,25 @@
+{
+  "_note": "Covered passages through buildings (tool/src/passages.dart, web3d/src/passages.ts). Tool frame (x east, z north). points: the centreline, both ends outside the buildings, seeded from OSM (Maricev prolaz w97535019, Oktogon w518259852). width/height: inside (height = the vault crown for a vaulted style); doorWidth/door: the doorway cut into every wall crossed. Ilica 3's painted carriage arch (ilica_s_arch) is 6.7..9.6 m from the east end of the 20.4 m wall; the Gajeva doorway (gajeva_maricev, lintel painted at 3.6 m) is 3.08 m from the north end of w97235510_e5; the corner doorway matches the black opening painted in oktogon_corner (2.06 x 3.65 m, centred on the chamfer w579294791_e0); the hall is the OSM octagon w579294802 (centre -170.54,-49.13, apothem 6.3-6.9, irregular: the hall stays inside the nearest face).",
+  "passages": [
+    {
+      "name": "Marićev prolaz",
+      "style": "maricev",
+      "points": [[-55.5, -108.62], [-8.0, -114.1], [2.3, -114.7], [24.4, -118.0]],
+      "width": 3.2,
+      "height": 3.6,
+      "doorWidth": 3.2,
+      "door": 3.6
+    },
+    {
+      "name": "Oktogon",
+      "style": "oktogon",
+      "points": [[-165.8, -3.0], [-170.54, -49.13], [-210.31, -84.88]],
+      "width": 3.4,
+      "height": 6.1,
+      "doorWidth": 2.2,
+      "door": 3.7,
+      "coverAll": true,
+      "hall": { "at": [-170.54, -49.13], "apothem": 6.1, "heading": 4.5, "height": 10.5, "dome": 3.4 }
+    }
+  ]
+}

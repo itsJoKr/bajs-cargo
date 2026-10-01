@@ -141,15 +141,15 @@
   },
   {
    "name": "ilica_nama",
-   "photo": ".art/streetview/rect/ilica_nama.png",
+   "photo": ".art/streetview/nama/nama_montage.png",
    "edges": [
     "w97089760_e1"
    ],
-   "bays": 8,
-   "storeys": 4,
+   "bays": 9,
+   "storeys": 5,
    "place": "Ilica",
-   "source": "Street View Jul 2024, close-up frames from the pavement (montage)",
-   "look": "the Nama department store building on the north side of Ilica, seen in several close-up photos from the pavement (combine into ONE straight-on elevation, about 33 m wide): a wide 19th-century historicist stone facade in grey-beige with rows of arched windows with pediments and carved keystones, balcony bands with pierced stone balustrades under every window row, a strong ornamented cornice, the ground floor a large arched shop window with a deep blue fascia carrying '140 godina s nama' in white italic script and the blue 'nama' logo, mannequins and a Triumph advertisement inside, sale posters with a red percent sign; at the left end the vaulted passage with the big blue 'nama' letters. Draw no people. The plate beside the passage reads '6'. Only ONE 'Triumph' poster; leave the tagline under 'nama' blank instead of inventing words"
+   "source": "Street View Jul 2024 (pano '1 Ilica', h340 t125 and h295) and the user's Street View frame (2026): Nama department store, Ilica 4",
+   "look": "the Nama department store, Ilica 4, an interwar travertine building. The image holds TWO photos of the SAME facade: the top one from across the street at an angle (the whole front, the open arcade), the bottom one looking up from the pavement at its right (east) end (the full height, the oriel, the scalloped top). The red-and-cream house with the black DOUGLAS shop on the right of the bottom photo and the lower historicist houses on the left of the top photo are NEIGHBOURS: draw none of them. Combine into ONE straight-on elevation of this front only, about 33 m wide and 19.5 m high, the whole face in weathered pale grey-beige travertine blocks with dark stains and graffiti tags low down. From LEFT to RIGHT along the ground floor: a narrow plain stone pier at the left end; then an OPEN ARCADE of EXACTLY SEVEN equal tall round arches (count them: seven open arches, the photos show seven) (about 2.5 m wide, crowns about 4.5 m above the pavement) on plain square stone piers about 1 m wide, each arch a deep dark opening showing the stone back wall of the covered walkway inside with a dark horizontal band near its top, one or two stone steps at the foot of each opening, the seventh (rightmost) arch with a dark glazed shop door inside; then a pier; then ONE round-arched shop window with a thin dark bronze frame, its arched top a deep blue panel with gold script '140', 'godina s nama', a gold 'nama' logo and the small gold line 'Tradicija zagrebačke trgovine', mannequins in summer clothes behind the glass and a blue blind; then a pier; then a TALL round-arched double gate (wider than the arches, grey-green panelled doors with a glazed grid in the arched top); then a short plain stone wall at the right end. Directly above the arched shop window, the large bright blue lowercase letters 'nama' (the store logo, rounded bold type) on the wall. Above the arches a plain stone band. Upper part: one TALL multi-pane window per arch and over the shop window (EXACTLY EIGHT tall windows: seven over the seven arches and one over the shop window), each a deep vertical recess with a grid of small panes about four panes wide and twelve to fourteen high, from about 7 m to about 15 m, with a delicate wrought-iron railing at its sill, separated by rounded half-cylinder stone pilasters running up the whole height; over each tall window a small window under a segmental curved hood, the hoods forming a SCALLOPED top edge (the top edge of the image); over the gate, at the right, a curved OVAL ORIEL bay projecting from a rounded stone corbel at about 6 m and running up the whole height with tall narrow multi-pane windows. Also on the left end pier, at the top of the arcade, a small blue 'nama' sign. No other lettering; draw no people, no tram, no cables, no lamps. COUNT AGAIN before drawing: 7 open arches + 1 arched shop window + 1 tall gate on the ground floor; 8 tall windows + the oriel above. The small blue 'nama' sign sits over the SECOND arch from the left"
   },
   {
    "name": "ilica_s_cream",
@@ -215,15 +215,15 @@
   },
   {
    "name": "inv_w105484833_e8",
-   "photo": ".art/streetview/inv/interwar_nw_corner.png",
+   "photo": ".art/streetview/colonnade/crops/right_face.png",
    "edges": [
     "w105484833_e8"
    ],
-   "bays": 8,
+   "bays": 7,
    "storeys": 8,
    "place": "Trg bana Jelačića",
-   "source": "invented from the building's known main facade (interwar_nw_corner); no Street View of this side",
-   "look": "INVENTED SIDE. The photo shows the main street front of the same building (a redraw). This picture must be a DIFFERENT side of that building, about 28 m wide: keep the same period, style, colours, render or stone, window shapes, storey heights (8 storeys), cornice and ground-floor base, but arrange it as a plainer secondary street side with regular window axes (8 bays), a simple ground floor with a door or a small dark shop window, and NO signs, NO lettering and none of the front's shop signage. Do not copy the main facade's composition, portico, tower or corner features"
+   "source": "Street View 2025 (user's frame of the corner): upper floors of the east side over the colonnade; composed with a dark filler for the hidden ground floor (data/arcades.json)",
+   "look": "upper floors over the colonnade (see .art/facades/colonnade_e8_up)"
   },
   {
    "name": "inv_w375381225_e11",
@@ -311,18 +311,6 @@
    "look": "INVENTED SIDE. The photo shows the main street front of the same building (a redraw). This picture must be a DIFFERENT side of that building, about 16 m wide: keep the same period, style, colours, render or stone, window shapes, storey heights (6 storeys), cornice and ground-floor base, but arrange it as a plainer secondary street side with regular window axes (5 bays), a simple ground floor with a door or a small dark shop window, and NO signs, NO lettering and none of the front's shop signage. Do not copy the main facade's composition, portico, tower or corner features"
   },
   {
-   "name": "inv_w288838575_e7",
-   "photo": ".art/streetview/inv/kuca_popovic.png",
-   "edges": [
-    "w288838575_e7"
-   ],
-   "bays": 5,
-   "storeys": 6,
-   "place": "Ilica",
-   "source": "invented from the building's known main facade (kuca_popovic); no Street View of this side",
-   "look": "INVENTED SIDE. The photo shows the main street front of the same building (a redraw). This picture must be a DIFFERENT side of that building, about 19 m wide: keep the same period, style, colours, render or stone, window shapes, storey heights (6 storeys), cornice and ground-floor base, but arrange it as a plainer secondary street side with regular window axes (5 bays), a simple ground floor with a door or a small dark shop window, and NO signs, NO lettering and none of the front's shop signage. Do not copy the main facade's composition, portico, tower or corner features"
-  },
-  {
    "name": "inv_w105486205_e3",
    "photo": ".art/streetview/inv/cream_corner_tower.png",
    "edges": [
@@ -394,19 +382,6 @@
    "place": "Bakačeva ulica",
    "source": "Street View Apr 2026 photosphere on Bakačeva (montage of oblique frames)",
    "look": "an early-20th-century office or bank palace in cream stucco with tall rectangular windows with stone surrounds and carved panels between the floors, arched windows on the upper floor, a round bay window (oriel) on the corner with a curved balcony band, a Croatian flag and an EU flag hanging from poles on the first floor, a modern glazed shop front with a small blue sign at the ground floor; five storeys, a heavy cornice. Combine the oblique photos into ONE straight-on elevation of the street side about 19 m wide. Draw no people, no vans. NO bank name or logo at all. The ground floor has a plain glazed shop front with a tiny blue sign with NO readable text, and no ATM. Draw FIVE storeys. Exactly ONE Croatian flag and ONE EU flag hanging together on poles from the first floor next to the oriel, no other flags"
-  },
-  {
-   "name": "ilica_neboder",
-   "photo": ".art/streetview/rect/neboder.png",
-   "edges": [
-    "w97165331_e0",
-    "w97165331_e1"
-   ],
-   "bays": 4,
-   "storeys": 8,
-   "place": "Ilica",
-   "source": "Street View Jul 2024, oblique frames from the pavement (montage); podium only (8 levels), the tower is its own part w9000000001",
-   "look": "the Neboder (skyscraper) at Ilica 1, seen in two oblique photos from below: a tall narrow modernist glass tower (about 16 storeys above a three-storey base): a curtain wall of dark blue-grey reflecting glass with a regular grid of window panes and thin horizontal spandrel bands, the tower stepping out slightly over the base; the two-storey glazed base under it with horizontal bands of windows; a low ground floor with an Erste Bank entrance covered by a large advertising picture of a person in red boxing gloves (leave the advertisement out and draw the shop entrance/ATM area glass instead), a 'MOCCA PIZZA' shop with a red fascia and white lettering 'MOCCA PIZZA', and dark glazed shop fronts. Draw the whole tower straight-on, top to bottom, about 13.5 m wide and very tall. Draw no people, no cables. Do not add any shop names other than MOCCA PIZZA (red fascia, white letters); NO 'BAŠIĆ' sign. Keep the dark glass tower in the LEFT half only; the right half is a lower beige-grey rendered block of about 7 storeys with white ribbon windows. The tower and block sit on a dark two-storey glazed base; ground floor is dark glazed shops around a central stone-piered entrance with a cross"
   },
   {
    "name": "ilica_brown",
@@ -722,92 +697,59 @@
    "name": "tower_s",
    "photo": ".art/facades/tower_s/photo.png",
    "edges": [
-    "w9000000001_e2"
-   ],
-   "bays": 8,
-   "storeys": 18,
-   "place": "Ilica",
-   "source": "drawn by tool/make_glass_tower.py after Street View Jul 2024 and Aug 2011",
-   "look": "dark blue-black glass curtain wall of the Neboder tower"
-  },
-  {
-   "name": "tower_e",
-   "photo": ".art/facades/tower_e/photo.png",
-   "edges": [
-    "w9000000001_e3",
-    "w9000000001_e4",
-    "w9000000001_e5"
-   ],
-   "bays": 8,
-   "storeys": 18,
-   "place": "Ilica",
-   "source": "drawn by tool/make_glass_tower.py after Street View Jul 2024 and Aug 2011",
-   "look": "dark blue-black glass curtain wall of the Neboder tower"
-  },
-  {
-   "name": "tower_n",
-   "photo": ".art/facades/tower_n/photo.png",
-   "edges": [
-    "w9000000001_e0"
-   ],
-   "bays": 8,
-   "storeys": 18,
-   "place": "Ilica",
-   "source": "drawn by tool/make_glass_tower.py after Street View Jul 2024 and Aug 2011",
-   "look": "dark blue-black glass curtain wall of the Neboder tower"
-  },
-  {
-   "name": "tower_w",
-   "photo": ".art/facades/tower_w/photo.png",
-   "edges": [
-    "w9000000001_e1"
-   ],
-   "bays": 8,
-   "storeys": 18,
-   "place": "Ilica",
-   "source": "drawn by tool/make_glass_tower.py after Street View Jul 2024 and Aug 2011",
-   "look": "dark blue-black glass curtain wall of the Neboder tower"
-  },
-  {
-   "name": "podium_w",
-   "photo": ".art/facades/podium_w/photo.png",
-   "edges": [
-    "w97165331_e3",
-    "w97165331_e4"
-   ],
-   "bays": 8,
-   "storeys": 8,
-   "place": "Ilica",
-   "source": "drawn by tool/make_glass_tower.py after Street View Jul 2024 (beige rendered block)",
-   "look": "beige rendered podium side of the Neboder with white-framed windows"
-  },
-  {
-   "name": "podium_s",
-   "photo": ".art/facades/podium_s/photo.png",
-   "edges": [
     "w97165331_e5",
     "w97165331_e6",
     "w97165331_e7"
    ],
    "bays": 8,
-   "storeys": 8,
+   "storeys": 18,
    "place": "Ilica",
-   "source": "drawn by tool/make_glass_tower.py after Street View Jul 2024 (beige rendered block)",
-   "look": "beige rendered podium side of the Neboder with white-framed windows"
+   "source": "drawn by tool/make_glass_tower.py after Street View Jul 2024 and Google 3D (2026-09-30): the tower is the whole outline",
+   "look": "dark blue-black glass curtain wall of the Neboder tower",
+   "res": 0.25
   },
   {
-   "name": "podium_e",
-   "photo": ".art/facades/podium_e/photo.png",
+   "name": "tower_e",
+   "photo": ".art/facades/tower_e/photo.png",
    "edges": [
     "w97165331_e8",
     "w97165331_e9",
     "w97165331_e10"
    ],
    "bays": 8,
-   "storeys": 8,
+   "storeys": 18,
    "place": "Ilica",
-   "source": "drawn by tool/make_glass_tower.py after Street View Jul 2024 (beige rendered block)",
-   "look": "beige rendered podium side of the Neboder with white-framed windows"
+   "source": "drawn by tool/make_glass_tower.py after Street View Jul 2024 and Google 3D (2026-09-30): the tower is the whole outline",
+   "look": "dark blue-black glass curtain wall of the Neboder tower",
+   "res": 0.25
+  },
+  {
+   "name": "tower_n",
+   "photo": ".art/facades/tower_n/photo.png",
+   "edges": [
+    "w97165331_e0",
+    "w97165331_e1"
+   ],
+   "bays": 8,
+   "storeys": 18,
+   "place": "Ilica",
+   "source": "drawn by tool/make_glass_tower.py after Street View Jul 2024 and Google 3D (2026-09-30): the tower is the whole outline; ground floor and mezzanine cut from the redrawn Street View montage (.art/facades/ilica_neboder/raw.png)",
+   "look": "dark blue-black glass curtain wall of the Neboder tower over its glazed lobby and mezzanine on Ilica"
+  },
+  {
+   "name": "tower_w",
+   "photo": ".art/facades/tower_w/photo.png",
+   "edges": [
+    "w97165331_e2",
+    "w97165331_e3",
+    "w97165331_e4"
+   ],
+   "bays": 8,
+   "storeys": 18,
+   "place": "Ilica",
+   "source": "drawn by tool/make_glass_tower.py after Street View Jul 2024 and Google 3D (2026-09-30): the tower is the whole outline",
+   "look": "dark blue-black glass curtain wall of the Neboder tower",
+   "res": 0.25
   }
  ]
 }

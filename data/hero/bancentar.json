@@ -1,0 +1,53 @@
+{
+ "_comment": "Ban centar (the EU building on Europski trg), drawn procedurally by tool/make_ban_centar.py.",
+ "facades": [
+  {
+   "name": "bc_e16",
+   "photo": ".art/facades/bc_e16/photo.png",
+   "edges": [
+    "w101186069_e16"
+   ],
+   "bays": 8,
+   "storeys": 7,
+   "place": "Kurelčeva ulica",
+   "source": "drawn by tool/make_ban_centar.py after Google 3D (2026-10-01): white concrete frame, dark tinted window bands, glazed ground floor, recessed glazed top storey",
+   "look": "Ban centar, white concrete and dark glass block on Europski trg"
+  },
+  {
+   "name": "bc_e17",
+   "photo": ".art/facades/bc_e17/photo.png",
+   "edges": [
+    "w101186069_e17"
+   ],
+   "bays": 8,
+   "storeys": 7,
+   "place": "Ulica Augusta Cesarca",
+   "source": "drawn by tool/make_ban_centar.py after Google 3D (2026-10-01): white concrete frame, dark tinted window bands, glazed ground floor, recessed glazed top storey",
+   "look": "Ban centar, white concrete and dark glass block on Europski trg"
+  },
+  {
+   "name": "bc_e18",
+   "photo": ".art/facades/bc_e18/photo.png",
+   "edges": [
+    "w101186069_e18"
+   ],
+   "bays": 9,
+   "storeys": 7,
+   "place": "Ulica Augusta Cesarca",
+   "source": "drawn by tool/make_ban_centar.py after Google 3D (2026-10-01): white concrete frame, dark tinted window bands, glazed ground floor, recessed glazed top storey",
+   "look": "Ban centar, white concrete and dark glass block on Europski trg"
+  },
+  {
+   "name": "bc_e19",
+   "photo": ".art/facades/bc_e19/photo.png",
+   "edges": [
+    "w101186069_e19"
+   ],
+   "bays": 10,
+   "storeys": 7,
+   "place": "Ulica Augusta Cesarca",
+   "source": "drawn by tool/make_ban_centar.py after Google 3D (2026-10-01): white concrete frame, dark tinted window bands, glazed ground floor, recessed glazed top storey",
+   "look": "Ban centar, white concrete and dark glass block on Europski trg"
+  }
+ ]
+}

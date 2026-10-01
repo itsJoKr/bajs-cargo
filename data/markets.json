@@ -1,0 +1,77 @@
+{
+  "_note": "Market stalls as loose furniture (web3d/src/furniture.ts), frame x east / z north. A grid from `origin` along `across` (the stall rows) and `along` (row after row); `aisleEvery` leaves a gap column for driving through, `empty` is the share of missing stalls, `umbrellas` the share with a parasol. Stalls falling inside a building are dropped. export_web.dart writes them to city.json `stalls`.",
+  "markets": [
+    {
+      "name": "Dolac, the upper market: rows of stalls under the red umbrellas",
+      "origin": [
+        -13.2,
+        114.0
+      ],
+      "across": [
+        0.983,
+        -0.182
+      ],
+      "along": [
+        0.182,
+        0.983
+      ],
+      "stalls": 15,
+      "rows": 13,
+      "stallSpacing": 2.45,
+      "rowSpacing": 3.35,
+      "aisleEvery": 5,
+      "empty": 0.1,
+      "umbrellas": 0.42,
+      "colour": "#c61f2b",
+      "seed": 11
+    },
+    {
+      "name": "Dolac, the row along the south edge over the market hall",
+      "origin": [
+        -9.0,
+        104.2
+      ],
+      "across": [
+        0.983,
+        -0.182
+      ],
+      "along": [
+        0.182,
+        0.983
+      ],
+      "stalls": 12,
+      "rows": 1,
+      "stallSpacing": 2.45,
+      "rowSpacing": 3.35,
+      "aisleEvery": 0,
+      "empty": 0.15,
+      "umbrellas": 0.5,
+      "colour": "#c61f2b",
+      "seed": 23
+    },
+    {
+      "name": "Dolac-style row of benches and tables in front of the colonnade (the Addiko corner block, Street View 2025)",
+      "origin": [
+        -36.71,
+        49.48
+      ],
+      "across": [
+        0.216,
+        0.976
+      ],
+      "along": [
+        0.98,
+        -0.22
+      ],
+      "stalls": 10,
+      "rows": 1,
+      "stallSpacing": 2.45,
+      "rowSpacing": 3.35,
+      "aisleEvery": 0,
+      "empty": 0.1,
+      "umbrellas": 0.4,
+      "colour": "#c61f2b",
+      "seed": 41
+    }
+  ]
+}

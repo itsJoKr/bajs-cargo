@@ -273,10 +273,10 @@
     "w735337395_e5"
    ],
    "bays": 3,
-   "storeys": 4,
+   "storeys": 1,
    "place": "Kaptol",
-   "source": "INVENTED (no Street View coverage of this wall; neighbour-style)",
-   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a tall four-storey Zagreb historicist canonry house in pale grey-beige plaster: three bays of white-framed windows with hoods, a heavy plain cornice, a ground floor with an arched gate Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+   "source": "INVENTED (no Street View of this wall): the ground floor of a plain outbuilding picture; the building is a single storey (Google Maps 3D Sep 2026)",
+   "look": "INVENTED, a plausible neighbour-style facade; ignore any wording about copying a photo. a plain two-storey Zagreb outbuilding in pale grey-beige smooth plaster: three small white-framed windows on the upper floor, a ground floor with a wide dark wooden gateway and a small door, a plain eaves line, no ornament Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
   },
   {
    "name": "kaptol_kk_e8",

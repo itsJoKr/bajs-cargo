@@ -1,0 +1,454 @@
+{
+ "items": [
+  {
+   "type": "candelabra",
+   "x": -28.8,
+   "z": 2.1,
+   "heading": 0,
+   "variant": 0
+  },
+  {
+   "type": "candelabra",
+   "x": -4.4,
+   "z": -3.3,
+   "heading": 0,
+   "variant": 1
+  },
+  {
+   "type": "candelabra",
+   "x": 20.1,
+   "z": -8.4,
+   "heading": 0,
+   "variant": 2
+  },
+  {
+   "type": "candelabra",
+   "x": 32.2,
+   "z": -11.2,
+   "heading": 0,
+   "variant": 3
+  },
+  {
+   "type": "candelabra",
+   "x": 44.6,
+   "z": -13.8,
+   "heading": 0,
+   "variant": 4
+  },
+  {
+   "type": "candelabra",
+   "x": 68.8,
+   "z": -19.2,
+   "heading": 0,
+   "variant": 5
+  },
+  {
+   "type": "candelabra",
+   "x": 83.8,
+   "z": -14.1,
+   "heading": 0,
+   "variant": 6
+  },
+  {
+   "type": "candelabra",
+   "x": 87.4,
+   "z": 1.1,
+   "heading": 0,
+   "variant": 7
+  },
+  {
+   "type": "lamp_small",
+   "x": -44.4,
+   "z": -12.7,
+   "heading": 0,
+   "variant": 0
+  },
+  {
+   "type": "lamp_small",
+   "x": -32.4,
+   "z": -15.4,
+   "heading": 0,
+   "variant": 1
+  },
+  {
+   "type": "lamp_small",
+   "x": -20.4,
+   "z": -17.9,
+   "heading": 0,
+   "variant": 2
+  },
+  {
+   "type": "lamp_small",
+   "x": -8.4,
+   "z": -20.9,
+   "heading": 0,
+   "variant": 3
+  },
+  {
+   "type": "lamp_small",
+   "x": 4.3,
+   "z": -23.7,
+   "heading": 0,
+   "variant": 4
+  },
+  {
+   "type": "lamp_small",
+   "x": 16.1,
+   "z": -26.8,
+   "heading": 0,
+   "variant": 5
+  },
+  {
+   "type": "lamp_small",
+   "x": 45.0,
+   "z": -32.6,
+   "heading": 0,
+   "variant": 6
+  },
+  {
+   "type": "lamp_medium",
+   "x": -36.8,
+   "z": 28.7,
+   "heading": 0,
+   "variant": 0
+  },
+  {
+   "type": "lamp_medium",
+   "x": -21.3,
+   "z": 33.9,
+   "heading": 0,
+   "variant": 1
+  },
+  {
+   "type": "lamp_medium",
+   "x": 3.8,
+   "z": 28.4,
+   "heading": 0,
+   "variant": 2
+  },
+  {
+   "type": "lamp_medium",
+   "x": 27.2,
+   "z": 23.2,
+   "heading": 0,
+   "variant": 3
+  },
+  {
+   "type": "lamp_medium",
+   "x": 51.7,
+   "z": 17.8,
+   "heading": 0,
+   "variant": 4
+  },
+  {
+   "type": "lamp_medium",
+   "x": 75.7,
+   "z": 12.2,
+   "heading": 0,
+   "variant": 5
+  },
+  {
+   "type": "lamp_medium",
+   "x": 105.2,
+   "z": 11.0,
+   "heading": 0,
+   "variant": 6
+  },
+  {
+   "type": "lamp_medium",
+   "x": 107.5,
+   "z": 20.5,
+   "heading": 0,
+   "variant": 7
+  },
+  {
+   "type": "flagpole",
+   "x": -15.4,
+   "z": 1.4,
+   "heading": 1.45,
+   "flag": "hr"
+  },
+  {
+   "type": "flagpole",
+   "x": 42.0,
+   "z": 25.0,
+   "heading": 1.75,
+   "flag": "blue"
+  },
+  {
+   "type": "flagpole",
+   "x": -4.0,
+   "z": 25.0,
+   "heading": 1.6,
+   "flag": "hr"
+  },
+  {
+   "type": "flagpole",
+   "x": 76.0,
+   "z": 25.0,
+   "heading": 1.4,
+   "flag": "purple"
+  },
+  {
+   "type": "adcolumn",
+   "x": -79.0,
+   "z": 15.0,
+   "heading": 0.6,
+   "style": "blue"
+  },
+  {
+   "type": "adcolumn",
+   "x": -28.0,
+   "z": 34.0,
+   "heading": 2.2,
+   "style": "mixed"
+  },
+  {
+   "type": "adcolumn",
+   "x": 77.0,
+   "z": -25.0,
+   "heading": 4.0,
+   "style": "blue"
+  },
+  {
+   "type": "adcolumn",
+   "x": 85.5,
+   "z": 12.0,
+   "heading": 5.1,
+   "style": "blue"
+  },
+  {
+   "type": "ledpost",
+   "x": -43.5,
+   "z": 2.5,
+   "heading": 0,
+   "lines": [
+    "6  ČRNOMEREC  2 min",
+    "13 ŽITNJAK   5 min",
+    "17 PREČKO    9 min"
+   ]
+  },
+  {
+   "type": "posterpanel",
+   "x": -42.0,
+   "z": 1.5,
+   "heading": 0,
+   "poster": 0
+  },
+  {
+   "type": "ledpost",
+   "x": 6.9,
+   "z": -18.8,
+   "heading": 0,
+   "lines": [
+    "11 DUBEC      1 min",
+    "12 DUBRAVA    4 min",
+    "14 MIHALJEVAC 7 min"
+   ]
+  },
+  {
+   "type": "posterpanel",
+   "x": 8.5,
+   "z": -19.5,
+   "heading": 0,
+   "poster": 1
+  },
+  {
+   "type": "bollard",
+   "x": 105.0,
+   "z": -59.3,
+   "heading": 0.0
+  },
+  {
+   "type": "bollard",
+   "x": 107.09,
+   "z": -59.98,
+   "heading": 0.0
+  },
+  {
+   "type": "bollard",
+   "x": 109.18,
+   "z": -60.66,
+   "heading": 0.0
+  },
+  {
+   "type": "bollard",
+   "x": 111.27,
+   "z": -61.34,
+   "heading": 0.0
+  },
+  {
+   "type": "chainring",
+   "x": 66.0,
+   "z": -6.0,
+   "heading": 0,
+   "rx": 7.2,
+   "rz": 4.2,
+   "count": 20
+  },
+  {
+   "type": "kiosk_banner",
+   "x": -26.14,
+   "z": -17.39,
+   "heading": 0.178,
+   "kind": "jamnica",
+   "w": 3.6,
+   "h": 0.78,
+   "y0": 1.9
+  },
+  {
+   "type": "kiosk_banner",
+   "x": 9.44,
+   "z": -25.99,
+   "heading": 0.178,
+   "kind": "novine",
+   "w": 3.0,
+   "h": 0.9,
+   "y0": 1.8
+  },
+  {
+   "type": "planter",
+   "x": -17.84,
+   "z": 34.79,
+   "heading": 1.792,
+   "size": [
+    5.76,
+    1.0,
+    0.55
+   ]
+  },
+  {
+   "type": "planter",
+   "x": -12.17,
+   "z": 33.52,
+   "heading": 1.792,
+   "size": [
+    5.76,
+    1.0,
+    0.55
+   ]
+  },
+  {
+   "type": "planter",
+   "x": -6.5,
+   "z": 32.25,
+   "heading": 1.792,
+   "size": [
+    5.76,
+    1.0,
+    0.55
+   ]
+  },
+  {
+   "type": "planter",
+   "x": 1.95,
+   "z": 30.35,
+   "heading": 1.792,
+   "size": [
+    6.36,
+    1.0,
+    0.55
+   ]
+  },
+  {
+   "type": "planter",
+   "x": 8.2,
+   "z": 28.95,
+   "heading": 1.792,
+   "size": [
+    6.36,
+    1.0,
+    0.55
+   ]
+  },
+  {
+   "type": "planter",
+   "x": 18.08,
+   "z": 26.73,
+   "heading": 1.792,
+   "size": [
+    7.64,
+    1.0,
+    0.55
+   ]
+  },
+  {
+   "type": "planter",
+   "x": 25.58,
+   "z": 25.05,
+   "heading": 1.792,
+   "size": [
+    7.64,
+    1.0,
+    0.55
+   ]
+  },
+  {
+   "type": "planter",
+   "x": 49.33,
+   "z": 19.72,
+   "heading": 1.792,
+   "size": [
+    6.1,
+    1.0,
+    0.55
+   ]
+  },
+  {
+   "type": "planter",
+   "x": 55.33,
+   "z": 18.37,
+   "heading": 1.792,
+   "size": [
+    6.1,
+    1.0,
+    0.55
+   ]
+  },
+  {
+   "type": "planter",
+   "x": 61.33,
+   "z": 17.02,
+   "heading": 1.792,
+   "size": [
+    6.1,
+    1.0,
+    0.55
+   ]
+  },
+  {
+   "type": "planter",
+   "x": 70.7,
+   "z": 14.92,
+   "heading": 1.792,
+   "size": [
+    7.89,
+    1.0,
+    0.55
+   ]
+  },
+  {
+   "type": "planter",
+   "x": 78.45,
+   "z": 13.18,
+   "heading": 1.792,
+   "size": [
+    7.89,
+    1.0,
+    0.55
+   ]
+  },
+  {
+   "type": "signpost",
+   "x": 92.0,
+   "z": -27.0,
+   "heading": -1.06
+  },
+  {
+   "type": "infoboard",
+   "x": -50.1,
+   "z": 31.3,
+   "heading": 0.35
+  }
+ ]
+}

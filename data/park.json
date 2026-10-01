@@ -1,0 +1,94 @@
+{
+ "_comment": "Hand-placed park pieces on Ulica Augusta Cesarca / Europski trg (tool frame: x east, z north). trees: extra [x, z] trees behind the Maketa grada Zagreba. props: same items as data/props.json (web3d/src/squareprops.ts): eu_garden (the ring of twelve stars on the lawn of Park medunarodnog priznanja Republike Hrvatske, with its two skylights) and wc_stairs (the closed underground toilet's stairwell with its steel-and-glass lift; its pit is the two regions 'WC stairwell' in data/levels.json). asphalt: polygons (tool frame) laid as carriageway: the Hotel Dubrovnik car park behind Praška ulica 6, closed to the walls round it (OSM's own outline stops short of them, leaving a raised sidewalk sliver); the parking_lot prop (web3d/src/parking.ts) paints its bays and parks the cars, its x, z the lot's north-west corner at the wall (bay frame: u along the north wall, v into the lot).",
+ "trees": [
+  [
+   119.5,
+   49.5
+  ],
+  [
+   123.5,
+   50.5
+  ],
+  [
+   121.0,
+   46.5
+  ],
+  [
+   127.5,
+   50.5
+  ]
+ ],
+ "props": [
+  {
+   "type": "eu_garden",
+   "x": 128.5,
+   "z": 45.0,
+   "heading": 0
+  },
+  {
+   "type": "wc_stairs",
+   "x": 151.4,
+   "z": 42.0,
+   "heading": 0
+  },
+  {
+   "type": "parking_lot",
+   "x": 44.8,
+   "z": -119.6,
+   "heading": 0
+  },
+  {
+   "type": "funicular",
+   "x": -312.5,
+   "z": 108.7,
+   "heading": 0,
+   "toX": -316.0,
+   "toZ": 160.0,
+   "_note": "Zagreb funicular (Uspinjača): tracks from the lower station's north wall up to the upper station; toX/toZ the upper end (tool frame, converted below)"
+  }
+ ],
+ "asphalt": [
+  [
+   [
+    37.1,
+    -118.2
+   ],
+   [
+    44.8,
+    -119.2
+   ],
+   [
+    79.0,
+    -123.6
+   ],
+   [
+    80.4,
+    -128.1
+   ],
+   [
+    81.7,
+    -137.4
+   ],
+   [
+    80.9,
+    -139.4
+   ],
+   [
+    81.1,
+    -156.9
+   ],
+   [
+    57.0,
+    -156.9
+   ],
+   [
+    57.0,
+    -154.5
+   ],
+   [
+    32.8,
+    -151.5
+   ]
+  ]
+ ]
+}

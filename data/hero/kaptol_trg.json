@@ -1,0 +1,191 @@
+{
+  "section": "kaptol_trg",
+  "facades": [
+    {
+      "name": "domitroviceva_s",
+      "photo": ".art/streetview/cathedral/crops/domitroviceva.png",
+      "bays": 1,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w9000000002_e12",
+        "w9000000002_e13",
+        "w9000000002_e14",
+        "w9000000002_e15",
+        "w9000000002_e16",
+        "w9000000002_e17",
+        "w9000000002_e18",
+        "w9000000002_e19",
+        "w9000000002_e20",
+        "w9000000002_e21",
+        "w9000000002_e22",
+        "w9000000002_e23"
+      ],
+      "source": "Street View Jul 2024 (pano 2 Kaptol), frame h38: Domitrovićeva kula (its south half, unrolled)",
+      "look": "round rubble-stone tower of the Kaptol walls, drawn unrolled: ochre/brown/grey rubble in lime mortar, one small stone-framed window, a tiny window, a hole; a plain eaves course. No text."
+    },
+    {
+      "name": "domitroviceva_n",
+      "photo": ".art/streetview/cathedral/crops/domitroviceva.png",
+      "bays": 1,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w9000000002_e0",
+        "w9000000002_e1",
+        "w9000000002_e2",
+        "w9000000002_e3",
+        "w9000000002_e4",
+        "w9000000002_e5",
+        "w9000000002_e6",
+        "w9000000002_e7",
+        "w9000000002_e8",
+        "w9000000002_e9",
+        "w9000000002_e10",
+        "w9000000002_e11"
+      ],
+      "source": "Twin of domitroviceva_s (the north half, facing Ribnjak park: no photo of it)",
+      "look": "twin of domitroviceva_s"
+    },
+    {
+      "name": "kaptol_wall_w",
+      "photo": ".art/streetview/cathedral/crops/kaptol_wall.png",
+      "bays": 1,
+      "storeys": 2,
+      "place": "Kaptol",
+      "edges": [
+        "w735346958_e51",
+        "w735346958_e52"
+      ],
+      "source": "Street View Jul 2024 (pano 2 Kaptol), frames h38 / h40: the Kaptol north wall between Domitrovićeva kula and the Cathedral",
+      "look": "rough rubble-stone town wall with a stone coping, no openings; containers, cars, fences, the tree and the Gothic pinnacle in front removed."
+    },
+    {
+      "name": "kaptol_wall_e",
+      "photo": ".art/streetview/cathedral/crops/fenced_wall.png",
+      "bays": 1,
+      "storeys": 2,
+      "place": "Kaptol",
+      "res": 0.1,
+      "edges": [
+        "w735346958_e55"
+      ],
+      "source": "Behind the Cathedral's north fence: very low-res (1/10) twin of kaptol_wall_w (the same rubble wall, frame h105 shows it over the lean-to)",
+      "look": "twin of kaptol_wall_w, low resolution"
+    },
+    {
+      "name": "ribnjak_tower",
+      "photo": ".art/streetview/cathedral/crops/fenced_wall.png",
+      "bays": 1,
+      "storeys": 3,
+      "place": "Kaptol / Ribnjak",
+      "edges": [
+        "w9000000003_e22",
+        "w9000000003_e23",
+        "w9000000003_e0",
+        "w9000000003_e1",
+        "w9000000003_e2",
+        "w9000000003_e3",
+        "w9000000003_e4",
+        "w9000000003_e5",
+        "w9000000003_e6",
+        "w9000000003_e7",
+        "w9000000003_e8",
+        "w9000000003_e9",
+        "w9000000003_e10",
+        "w9000000003_e11"
+      ],
+      "source": "INVENTED from Domitrovićeva kula's picture (darkened): the round tower on the wall behind the Cathedral, seen from the square over the wall (frame h105) and from Ribnjak park (no photo)",
+      "look": "round rubble-stone tower, darker stone"
+    },
+    {
+      "name": "nebojan_w",
+      "photo": ".art/streetview/cathedral/crops/nebojan.png",
+      "bays": 1,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e11",
+        "w101185039_e12",
+        "w101185039_e13",
+        "w101185039_e14",
+        "w101185039_e15",
+        "w101185039_e16",
+        "w101185039_e17",
+        "w101185039_e18",
+        "w101185039_e19"
+      ],
+      "source": "Street View Jul 2024 (pano 2 Kaptol), frame h152: Kula Nebojan, its square-facing half unrolled; the lower third is the stone plinth below the square",
+      "look": "round tower, white lime plaster over a stone plinth, a moulded band, one window with an ornate white stucco frame, a small square opening; eaves cornice. No text."
+    },
+    {
+      "name": "nebojan_s",
+      "photo": ".art/streetview/cathedral/crops/nebojan.png",
+      "bays": 1,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e20",
+        "w101185039_e21",
+        "w101185039_e22",
+        "w101185039_e23",
+        "w101185039_e24",
+        "w101185039_e25",
+        "w101185039_e26",
+        "w101185039_e27",
+        "w101185039_e28"
+      ],
+      "source": "Twin of nebojan_w (its south half, over the park: no photo of it)",
+      "look": "twin of nebojan_w"
+    },
+    {
+      "name": "muzej_west",
+      "photo": ".art/streetview/cathedral/crops/muzej_west.png",
+      "bays": 3,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e9",
+        "w101185039_e10"
+      ],
+      "source": "Street View Jul 2024 (pano 2 Kaptol), frame h145: the museum building (Muzej bl. Alojzija Stepinca) facing the square; the lower third is the basement below the square",
+      "look": "white baroque front: three round-arched ground-floor windows with green fanlights, a loggia of three arches boarded with plywood (2024), pilasters, cornice. No text."
+    },
+    {
+      "name": "muzej_north",
+      "photo": ".art/streetview/cathedral/crops/muzej_north.png",
+      "bays": 3,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e8"
+      ],
+      "source": "Street View Jul 2024 (pano 2 Kaptol), frames h105 / h145 (seen obliquely, partly hidden by scaffolding): the museum's side facing the Cathedral front",
+      "look": "white baroque side: arched ground-floor windows with green fanlights, boarded arched loggia openings above, pilasters."
+    },
+    {
+      "name": "palace_notch_e6",
+      "photo": ".art/streetview/cathedral/crops/muzej_west.png",
+      "bays": 3,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e6"
+      ],
+      "source": "INVENTED: the palace wall in the nook between the museum and the Cathedral's south tower (hidden by scaffolding in every 2024 frame)",
+      "look": "white baroque palace wall with a carriage gateway, windows with green shutters."
+    },
+    {
+      "name": "palace_notch_e7",
+      "photo": ".art/streetview/cathedral/crops/muzej_west.png",
+      "bays": 1,
+      "storeys": 4,
+      "place": "Kaptol",
+      "edges": [
+        "w101185039_e7"
+      ],
+      "source": "INVENTED: a 4.6 m slice of palace_notch_e6's picture (the nook's short east-facing wall)",
+      "look": "slice of palace_notch_e6"
+    }
+  ]
+}

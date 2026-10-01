@@ -1,0 +1,30 @@
+{
+ "facades": [
+  {
+   "name": "gajeva_maricev",
+   "photo": ".art/passages/gajeva_photo.png",
+   "edges": [
+    "w97235510_e5"
+   ],
+   "bays": 4,
+   "storeys": 6,
+   "place": "Gajeva ulica",
+   "source": "User photo (Street View Jul 2025) of the Gajeva entrance of Marićev prolaz; upper storeys invented in the same style",
+   "look": "an interwar modernist building on Gajeva ulica clad in pale beige travertine stone slabs. The photo shows only the ground floor and the first row of windows: continue the SAME design for all six storeys (horizontal ribbon windows in thin dark green metal frames on every floor, travertine bands between them, a plain flat travertine top edge). The ground floor, drawn exactly as photographed: EXACTLY in the middle of the width the open passage doorway of Marićev prolaz, a tall rectangular opening in a dark green metal frame with its green door leaves folded back against the jambs, the passage inside dark; the doorway is 28 percent of the facade width wide and exactly as tall as the ground floor shop windows; above the doorway the large raised metal letters MARIĆEV on one line and PROLAZ below it, spelled exactly like that, with a small house number plate 5 at the left of the doorway; to the right of the doorway the optician shop front with the sign OPTIKA ANDA and its eye logo; to the left of the doorway a plain travertine pier and a dark glass shop window. The glass building at the far left of the photo, the bookshop sign 'znanje' and the rubbish bin are NOT part of this building: leave them out. Graffiti on the green door leaves may stay. The blue and white circles are map interface markers: draw NO markers, NO map pin icon, NO people."
+  },
+  {
+   "name": "oktogon_corner",
+   "photo": ".art/passages/corner_ref.png",
+   "edges": [
+    "w579294791_e4",
+    "w579294791_e0"
+   ],
+   "bays": 2,
+   "storeys": 5,
+   "place": "the corner of Bogovićeva and Margaretska ulica (Trg Petra Preradovića)",
+   "source": "INVENTED (no Street View on this corner of the square): the corner turret of Palača Prve hrvatske štedionice (1899) where the Oktogon passage comes out; styled on the neighbours in the left of the reference and on the Oktogon's Ilica arch on the right",
+   "corner": "the corner is the building's cut corner turret: a narrow 2.7 m face on the LEFT (40% of the corner) and a 4 m chamfered face on the RIGHT (60% of the corner), unrolled flat. In the middle of the chamfered right face, on the ground floor, the Oktogon passage entrance: a round-arched stone portal 2.9 m wide (43% of the corner's width) whose straight jambs rise 5 m (27% of the picture height) and whose semicircular top reaches 6.5 m; below the springing line the opening is PURE FLAT BLACK, the semicircular lunette above it is a dark wrought-iron fanlight; a rusticated stone surround with a carved keystone. The narrow left face has a tall dark wooden shop door on the ground floor. Above, the turret rises five storeys with one window axis on each face, a small curved wrought-iron balcony on the first floor over the arch, cornices and string courses continuing across both faces to the neighbours",
+   "look": "a five-storey 1899 historicist palace in warm cream-beige render with a rusticated grey stone ground floor, framed windows with small pediments and a strong cornice, like the beige building on the right of the reference game screenshot; the left half of the reference is only a hint for the neighbour on the left. The right part of the reference is the palace's other passage arch on Ilica, for the portal's style. The reference is a screenshot of a 3D game: ignore the rider, the grey blank slab, the arch with the corridor inside it, the parasols, tables and the place-name label, and draw NO people, NO text, NO lettering"
+  }
+ ]
+}

@@ -1,0 +1,235 @@
+{
+ "w512839721": {
+  "name": "Masarykova ulica (Picard house)",
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w512839721_e4",
+    "from": 0.318,
+    "to": 0.561,
+    "y": 2.96,
+    "drop": 0.8,
+    "depth": 1.2,
+    "texture": "masaryk_awning_grey.jpg",
+    "repeat": 1,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): grey-white striped folding awning over the VITRUM shop; y/drop measured on raw.png"
+   },
+   {
+    "type": "box",
+    "wall": "w512839721_e4",
+    "at": 0.5,
+    "width": 13.0,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "masaryk_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): brown plaster main cornice"
+   }
+  ]
+ },
+ "w512839722": {
+  "name": "Masarykova ulica (Swarovski / Re Artu palace)",
+  "roof": "flat_gravel",
+  "tags": {
+   "roof:shape": "flat"
+  },
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w512839722_e4",
+    "from": 0.008,
+    "to": 0.336,
+    "y": 3.1,
+    "drop": 0.9,
+    "depth": 1.6,
+    "texture": "masaryk_awning_black.jpg",
+    "repeat": 1,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): black sloping awning left of the Swarovski shop; y/drop measured on raw.png"
+   },
+   {
+    "type": "awning",
+    "wall": "w512839722_e5",
+    "from": 0.52,
+    "to": 0.72,
+    "y": 3.9,
+    "drop": 0.5,
+    "depth": 1.0,
+    "texture": "masaryk_awning_black.jpg",
+    "repeat": 1,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): left black RE ARTU awning; y/drop measured on raw.png"
+   },
+   {
+    "type": "awning",
+    "wall": "w512839722_e5",
+    "from": 0.763,
+    "to": 0.956,
+    "y": 3.9,
+    "drop": 0.5,
+    "depth": 1.0,
+    "texture": "masaryk_awning_black.jpg",
+    "repeat": 1,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): right black RE ARTU awning; y/drop measured on raw.png"
+   },
+   {
+    "type": "box",
+    "wall": "w512839722_e4",
+    "at": 0.804,
+    "width": 2.4,
+    "height": 1.0,
+    "depth": 0.9,
+    "out": 0.45,
+    "y": 8.4,
+    "texture": "masaryk_balcony_cream.jpg",
+    "repeat": 1.5,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): curved stone-balustrade balcony under the pilasters; y measured on raw.png"
+   },
+   {
+    "type": "box",
+    "wall": "w512839722_e5",
+    "at": 0.12,
+    "width": 2.7,
+    "height": 1.0,
+    "depth": 0.9,
+    "out": 0.45,
+    "y": 8.4,
+    "texture": "masaryk_balcony_cream.jpg",
+    "repeat": 1.5,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): curved stone-balustrade balcony; y measured on raw.png"
+   },
+   {
+    "type": "box",
+    "wall": "w512839722_e5",
+    "at": 0.385,
+    "width": 2.4,
+    "height": 1.0,
+    "depth": 0.9,
+    "out": 0.45,
+    "y": 8.4,
+    "texture": "masaryk_balcony_cream.jpg",
+    "repeat": 1.5,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): curved stone-balustrade balcony; y measured on raw.png"
+   }
+  ]
+ },
+ "w512839724": {
+  "name": "Masarykova ulica (grey Maria house)",
+  "roof": "flat_gravel",
+  "tags": {
+   "roof:shape": "flat"
+  },
+  "features": []
+ },
+ "w512839725": {
+  "name": "Masarykova ulica (KOKO house)",
+  "roof": "biber_old",
+  "features": []
+ },
+ "w995892801": {
+  "name": "Masarykova ulica (ZAKS house and Wiya house)",
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w995892801_e6",
+    "at": 0.5,
+    "width": 9.1,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "masaryk_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): brown plaster main cornice of the ZAKS house"
+   },
+   {
+    "type": "box",
+    "wall": "w995892801_e7",
+    "at": 0.5,
+    "width": 8.9,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "masaryk_cornice_brown.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): brown plaster main cornice of the ZAKS house"
+   },
+   {
+    "type": "box",
+    "wall": "w995892801_e8",
+    "at": 0.5,
+    "width": 14.7,
+    "height": 0.55,
+    "depth": 0.6,
+    "out": 0.3,
+    "aboveEave": -0.55,
+    "texture": "masaryk_cornice_sand.jpg",
+    "repeat": 1.2,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): sand-yellow plaster main cornice of the Wiya house"
+   },
+   {
+    "type": "sign",
+    "wall": "w995892801_e8",
+    "mount": "projecting",
+    "image": "masaryk_wiya.png",
+    "at": 0.62,
+    "width": 0.7,
+    "y": 4.3,
+    "out": 0.35,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): small black projecting box sign 'Wiya' on the shop pier, redrawn flat by gen-image"
+   }
+  ]
+ },
+ "w1006088864": {
+  "name": "Masarykova ulica 7 (myCORE)",
+  "roof": "clay_brown",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w1006088864_e11",
+    "at": 0.295,
+    "width": 4.2,
+    "height": 0.5,
+    "depth": 1.0,
+    "out": 0.5,
+    "y": 10.0,
+    "texture": "masaryk_balcony_dark.jpg",
+    "repeat": 2.0,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): huge dark stone balcony on carved scroll consoles, left; y measured on raw.png"
+   },
+   {
+    "type": "box",
+    "wall": "w1006088864_e11",
+    "at": 0.75,
+    "width": 4.2,
+    "height": 0.5,
+    "depth": 1.0,
+    "out": 0.5,
+    "y": 10.0,
+    "texture": "masaryk_balcony_dark.jpg",
+    "repeat": 2.0,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): huge dark stone balcony on carved scroll consoles, right; y measured on raw.png"
+   }
+  ]
+ },
+ "w1005285812": {
+  "name": "Masarykova ulica (GANT / Krznarija house)",
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "sign",
+    "wall": "w1005285812_e13",
+    "mount": "projecting",
+    "image": "masaryk_krznar.png",
+    "at": 0.56,
+    "width": 0.35,
+    "y": 2.7,
+    "out": 0.3,
+    "source": "Street View Mar 2023 (official panoramas in Masarykova ulica): slim white vertical blade sign 'KRZNAR' of the furrier, redrawn flat by gen-image"
+   }
+  ]
+ }
+}

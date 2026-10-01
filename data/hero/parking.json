@@ -1,0 +1,381 @@
+{
+ "facades": [
+  {
+   "name": "pk_w105489667_e0",
+   "photo": ".art/facades/pk_w105489667_e0/photo.png",
+   "edges": [
+    "w105489667_e0"
+   ],
+   "bays": 11,
+   "storeys": 4,
+   "res": 0.25,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (34 m courtyard wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w105489667_e1",
+   "photo": ".art/facades/pk_w105489667_e1/photo.png",
+   "edges": [
+    "w105489667_e1"
+   ],
+   "bays": 4,
+   "storeys": 4,
+   "res": 0.1,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (12 m courtyard wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w105489667_e2",
+   "photo": ".art/facades/pk_w105489667_e2/photo.png",
+   "edges": [
+    "w105489667_e2"
+   ],
+   "bays": 8,
+   "storeys": 4,
+   "res": 0.1,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (24 m courtyard wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w105489667_e3",
+   "photo": ".art/facades/pk_w105489667_e3/photo.png",
+   "edges": [
+    "w105489667_e3"
+   ],
+   "bays": 4,
+   "storeys": 4,
+   "res": 0.1,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (12 m courtyard wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w105489667_e4",
+   "photo": ".art/facades/pk_w105489667_e4/photo.png",
+   "edges": [
+    "w105489667_e4"
+   ],
+   "bays": 3,
+   "storeys": 4,
+   "res": 0.1,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (8 m courtyard wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w105489670_e2",
+   "photo": ".art/facades/pk_w105489670_e2/photo.png",
+   "edges": [
+    "w105489670_e2"
+   ],
+   "bays": 3,
+   "storeys": 5,
+   "res": 0.1,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (10 m courtyard wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w105489670_e3",
+   "photo": ".art/facades/pk_w105489670_e3/photo.png",
+   "edges": [
+    "w105489670_e3"
+   ],
+   "bays": 4,
+   "storeys": 5,
+   "res": 0.1,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (13 m courtyard wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w105489678_e2",
+   "photo": ".art/facades/pk_w105489678_e2/photo.png",
+   "edges": [
+    "w105489678_e2"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "res": 0.1,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (10 m courtyard wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w105489678_e3",
+   "photo": ".art/facades/pk_w105489678_e3/photo.png",
+   "edges": [
+    "w105489678_e3"
+   ],
+   "bays": 2,
+   "storeys": 2,
+   "res": 0.1,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (6 m courtyard wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w105489678_e4",
+   "photo": ".art/facades/pk_w105489678_e4/photo.png",
+   "edges": [
+    "w105489678_e4"
+   ],
+   "bays": 4,
+   "storeys": 2,
+   "res": 0.1,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (13 m courtyard wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w1083574475_e0",
+   "photo": ".art/facades/pk_w1083574475_e0/photo.png",
+   "edges": [
+    "w1083574475_e0"
+   ],
+   "bays": 1,
+   "storeys": 1,
+   "res": 0.25,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (4 m courtyard wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w1083574475_e1",
+   "photo": ".art/facades/pk_w1083574475_e1/photo.png",
+   "edges": [
+    "w1083574475_e1"
+   ],
+   "bays": 1,
+   "storeys": 1,
+   "res": 0.25,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (3 m street wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w1083574475_e2",
+   "photo": ".art/facades/pk_w1083574475_e2/photo.png",
+   "edges": [
+    "w1083574475_e2"
+   ],
+   "bays": 1,
+   "storeys": 1,
+   "res": 0.1,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (4 m party wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w1083574475_e3",
+   "photo": ".art/facades/pk_w1083574475_e3/photo.png",
+   "edges": [
+    "w1083574475_e3"
+   ],
+   "bays": 1,
+   "storeys": 1,
+   "res": 0.25,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (3 m courtyard wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w1134673365_e0",
+   "photo": ".art/facades/pk_w1134673365_e0/photo.png",
+   "edges": [
+    "w1134673365_e0"
+   ],
+   "bays": 2,
+   "storeys": 2,
+   "res": 0.1,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (7 m party wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w1134673365_e1",
+   "photo": ".art/facades/pk_w1134673365_e1/photo.png",
+   "edges": [
+    "w1134673365_e1"
+   ],
+   "bays": 1,
+   "storeys": 2,
+   "res": 0.1,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (3 m courtyard wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w1134673365_e2",
+   "photo": ".art/facades/pk_w1134673365_e2/photo.png",
+   "edges": [
+    "w1134673365_e2"
+   ],
+   "bays": 1,
+   "storeys": 2,
+   "res": 0.1,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (2 m courtyard wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w1134673365_e8",
+   "photo": ".art/facades/pk_w1134673365_e8/photo.png",
+   "edges": [
+    "w1134673365_e8"
+   ],
+   "bays": 5,
+   "storeys": 2,
+   "res": 0.25,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (16 m courtyard wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w137106309_e2",
+   "photo": ".art/facades/pk_w137106309_e2/photo.png",
+   "edges": [
+    "w137106309_e2"
+   ],
+   "bays": 4,
+   "storeys": 3,
+   "res": 0.1,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (12 m party wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w137106309_e3",
+   "photo": ".art/facades/pk_w137106309_e3/photo.png",
+   "edges": [
+    "w137106309_e3"
+   ],
+   "bays": 8,
+   "storeys": 3,
+   "res": 0.25,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (23 m courtyard wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w137106309_e4",
+   "photo": ".art/facades/pk_w137106309_e4/photo.png",
+   "edges": [
+    "w137106309_e4"
+   ],
+   "bays": 5,
+   "storeys": 3,
+   "res": 0.1,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (15 m party wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w137106329_e10",
+   "photo": ".art/facades/pk_w137106329_e10/photo.png",
+   "edges": [
+    "w137106329_e10"
+   ],
+   "bays": 4,
+   "storeys": 5,
+   "res": 0.1,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (11 m courtyard wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w137106329_e11",
+   "photo": ".art/facades/pk_w137106329_e11/photo.png",
+   "edges": [
+    "w137106329_e11"
+   ],
+   "bays": 2,
+   "storeys": 5,
+   "res": 0.1,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (7 m party wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w137106329_e12",
+   "photo": ".art/facades/pk_w137106329_e12/photo.png",
+   "edges": [
+    "w137106329_e12"
+   ],
+   "bays": 6,
+   "storeys": 5,
+   "res": 0.25,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (17 m courtyard wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w137106329_e13",
+   "photo": ".art/facades/pk_w137106329_e13/photo.png",
+   "edges": [
+    "w137106329_e13"
+   ],
+   "bays": 4,
+   "storeys": 5,
+   "res": 0.1,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (12 m party wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w137106329_e8",
+   "photo": ".art/facades/pk_w137106329_e8/photo.png",
+   "edges": [
+    "w137106329_e8"
+   ],
+   "bays": 1,
+   "storeys": 5,
+   "res": 0.1,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (3 m courtyard wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w137106329_e9",
+   "photo": ".art/facades/pk_w137106329_e9/photo.png",
+   "edges": [
+    "w137106329_e9"
+   ],
+   "bays": 2,
+   "storeys": 5,
+   "res": 0.1,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (5 m courtyard wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w137106331_e4",
+   "photo": ".art/facades/pk_w137106331_e4/photo.png",
+   "edges": [
+    "w137106331_e4"
+   ],
+   "bays": 5,
+   "storeys": 4,
+   "res": 0.1,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (15 m party wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  },
+  {
+   "name": "pk_w137106331_e5",
+   "photo": ".art/facades/pk_w137106331_e5/photo.png",
+   "edges": [
+    "w137106331_e5"
+   ],
+   "bays": 1,
+   "storeys": 4,
+   "res": 0.25,
+   "place": "Praška ulica",
+   "source": "INVENTED, low-res: procedural courtyard plaster (2 m courtyard wall) round the Hotel Dubrovnik car park",
+   "look": "INVENTED low-res wall drawn procedurally"
+  }
+ ]
+}

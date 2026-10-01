@@ -1,0 +1,29 @@
+{
+ "section": "kaptol3",
+ "facades": [
+  {
+   "name": "vrutak_arch",
+   "photo": ".art/facades/vrutak_arch/photo.png",
+   "edges": [
+    "w9000000041_e2"
+   ],
+   "bays": 1,
+   "storeys": 1,
+   "place": "Kaptol",
+   "source": "Street View (user's frame of the Vrutak wing, 2025), redrawn by gen-image: the round-arched gateway with its white archivolt in the gap between the striped canonry house and the Vrutak building; below the springing (2.84 m) the wall is open (data/arcades.json) and the jambs are box features",
+   "look": "composed"
+  },
+  {
+   "name": "vrutak_shop",
+   "photo": ".art/facades/vrutak_shop/photo.png",
+   "edges": [
+    "w735337395_e4"
+   ],
+   "bays": 2,
+   "storeys": 1,
+   "place": "Kaptol",
+   "source": "same frame: the VRUTAK shopfront, the north front of the low building west of the gateway, padded with its plain peach wall",
+   "look": "composed"
+  }
+ ]
+}
