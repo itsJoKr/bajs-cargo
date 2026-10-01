@@ -10,6 +10,9 @@ export class ChaseCamera {
   height = 2.3;
   private yaw = 0;
   private pulled = 1;
+  /** Mouse look: offsets from the behind-the-vehicle view, radians. */
+  private lookYaw = 0;
+  private lookPitch = 0;
   /** Distance along a ray to the first wall or roof, or null. */
   private readonly cast: (from: THREE.Vector3, dir: THREE.Vector3, far: number) => number | null;
   private readonly eye = new THREE.Vector3();
@@ -25,7 +28,20 @@ export class ChaseCamera {
   }
 
   /** [heading]: compass radians (0 = north = -z). [speed] in m/s, signed. */
-  update(dt: number, target: THREE.Vector3, heading: number, speed: number) {
+  /** Mouse movement in pixels. */
+  orbit(dx: number, dy: number) {
+    this.lookYaw -= dx * 0.005;
+    this.lookYaw = Math.atan2(Math.sin(this.lookYaw), Math.cos(this.lookYaw));
+    this.lookPitch = Math.max(-0.2, Math.min(0.9, this.lookPitch + dy * 0.004));
+  }
+
+  /** [recenter]: the player is riding; swing the view back behind. */
+  update(dt: number, target: THREE.Vector3, heading: number, speed: number, recenter = false) {
+    if (recenter) {
+      const k = Math.min(1, dt * 2.5);
+      this.lookYaw -= this.lookYaw * k;
+      this.lookPitch -= this.lookPitch * k;
+    }
     // Follow the heading, not the velocity: in a handbrake slide the camera
     // swings with the nose, a little behind it.
     let d = heading - this.yaw;
@@ -38,10 +54,11 @@ export class ChaseCamera {
 
     const fast = Math.min(1, Math.abs(speed) / 40);
     const dist = this.distance + fast * 2.2;
-    const back = new THREE.Vector3(-Math.sin(this.yaw), 0, Math.cos(this.yaw));
+    const ay = this.yaw + this.lookYaw;
+    const back = new THREE.Vector3(-Math.sin(ay), 0, Math.cos(ay));
     const focus = this.look.set(target.x, target.y + 1.25, target.z);
     const wanted = new THREE.Vector3().copy(focus).addScaledVector(back, dist);
-    wanted.y = target.y + this.height + fast * 0.4;
+    wanted.y = target.y + this.height + fast * 0.4 + this.lookPitch * dist * 0.8;
 
     // Pull in at once when blocked; ease back out.
     const toEye = wanted.clone().sub(focus);

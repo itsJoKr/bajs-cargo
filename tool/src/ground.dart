@@ -20,6 +20,7 @@ import 'city.dart';
 import 'clip.dart';
 import 'mesh_writer.dart';
 import 'geom.dart';
+import 'levels.dart';
 import 'osm.dart';
 
 const kerbHeight = .15;
@@ -51,7 +52,11 @@ enum Surface {
   gravel(4, 0xFFFFFF, 2, .95),
   kerb(5, 0xFFFFFF, 1, .7),
   rails(9, 0xFFFFFF, 2, .35),
-  cobbles(12, 0xFFFFFF, 2, .8);
+  cobbles(12, 0xFFFFFF, 2, .8),
+  // The tram zone across the square (Street View): dark grey-brown setts either side of the track and
+  // red clinker between the rails. Same cobble tile, tinted.
+  setts(12, 0xB0A498, 1.25, .85),
+  clinker(12, 0xE0B9A8, 1.25, .8);
 
   const Surface(this.tile, this.color, this.period, this.roughness);
   final int tile;
@@ -95,6 +100,14 @@ class Ground {
   final City city;
 
   late Shape road, paving, grass, gravel;
+
+  /// Paved squares' tram zone: 2.9 m either side of a track in setts, 1.5 m in clinker.
+  late final Shape _tramSetts = Shape.lines(tramLines, 2.9) & paving;
+  late final Shape _tramClinker = Shape.lines(tramLines, 1.5) & paving;
+
+  /// Hand-shaped levels (data/levels.json), set by the exporter: they
+  /// replace the grid inside their outlines.
+  Levels? levels;
   final tramLines = <List<Vector2>>[];
   final trees = <Vector2>[];
 
@@ -173,6 +186,20 @@ class Ground {
     // the paving.
     final trams = Shape.lines(tramLines, 1.6);
     road = cars | (trams - pedestrian);
+    // Car parks laid by hand (data/park.json `asphalt`, tool frame): OSM's outline stops short of the walls.
+    final parkFile = File('data/park.json');
+    if (parkFile.existsSync()) {
+      final asphalt = (jsonDecode(parkFile.readAsStringSync())['asphalt'] as List?) ?? const [];
+      for (final ring in asphalt.cast<List>()) {
+        road = road |
+            Shape.of([
+              Polygon([
+                for (final p in ring.cast<List>())
+                  Vector2((p[0] as num).toDouble(), (p[1] as num).toDouble()),
+              ], const []),
+            ]);
+      }
+    }
     // Zrinjevac is tagged a square as well as a park: the park wins, so its
     // lawns and trees are not paved over.
     paving = pedestrian - road - parks;
@@ -263,6 +290,8 @@ class Ground {
     MeshWriter rails,
     double Function(Vector2) height, {
     double tessellate = 0,
+    MeshWriter? steps,
+    MeshWriter? ramps,
   }) {
     final rect = Shape.rect(minX, minZ, maxX, maxZ);
     final roadHere = road.clipRect(minX, minZ, maxX, maxZ);
@@ -270,6 +299,9 @@ class Ground {
     final grassHere = grass.clipRect(minX, minZ, maxX, maxZ);
     final gravelHere = gravel.clipRect(minX, minZ, maxX, maxZ);
     final sidewalk = rect - roadHere - pavingHere - grassHere - gravelHere;
+    // Where trams cross paved squares: setts, and clinker along the rails.
+    final clinkerHere = _tramClinker.clipRect(minX, minZ, maxX, maxZ);
+    final settsHere = _tramSetts.clipRect(minX, minZ, maxX, maxZ) - clinkerHere;
 
     // On sloped terrain, large polygons are cut into [tessellate]-metre
     // cells first, so the surface follows the ground between its vertices
@@ -296,7 +328,8 @@ class Ground {
       }
     }
 
-    void fill(Shape shape, Surface baseKind, double lift) {
+    void fill(Shape shape, Surface baseKind, double lift, [double Function(Vector2)? heightHere]) {
+      final height_ = heightHere ?? height;
       for (final polygon in pieces(shape)) {
         final all = [...polygon.outer, ...polygon.holes.expand((h) => h)];
         final tris = earcut(polygon.outer, polygon.holes);
@@ -305,7 +338,7 @@ class Ground {
             ids.putIfAbsent(i * 16 + kind.index, () {
               final p = all[i];
               return surface.vertex(
-                Vector3(p.x, height(p) + lift, p.y),
+                Vector3(p.x, height_(p) + lift, p.y),
                 Vector3(0, 1, 0),
                 (p.x - originX) / kind.period,
                 (p.y - originZ) / kind.period,
@@ -356,11 +389,46 @@ class Ground {
       if (!here.first.isEmpty) raisedHere = raisedHere | here.first;
     }
 
-    fill(roadHere, Surface.asphalt, 0);
-    fill(sidewalk - raisedHere, Surface.sidewalk, kerbHeight);
-    fill(pavingHere - raisedHere, Surface.paving, kerbHeight);
-    fill(grassHere - raisedHere, Surface.grass, kerbHeight);
-    fill(gravelHere - raisedHere, Surface.gravel, kerbHeight);
+    // Levels: each region's visible part (later regions win), cut out of
+    // the grid's ground and filled at the region's own height.
+    final lv = levels;
+    final regionsHere = <(int, Shape)>[];
+    var leveled = Shape.empty();
+    if (lv != null) {
+      for (var i = lv.regions.length - 1; i >= 0; i--) {
+        final r = lv.regions[i];
+        if (!r.overlaps(minX, minZ, maxX, maxZ)) continue;
+        final here = r.shape.clipRect(minX, minZ, maxX, maxZ);
+        if (here.isEmpty) continue;
+        final visible = here - leveled;
+        leveled = leveled | here;
+        if (!visible.isEmpty && r.kind != RegionKind.stairs) regionsHere.add((i, visible));
+      }
+    }
+    // The ground height at [p] as drawn: the region there, else the grid.
+    double groundAt(Vector2 p) => lv == null ? height(p) : lv.heightAt(p, below: lv.regions.length);
+
+    fill(roadHere - leveled, Surface.asphalt, 0);
+    fill(sidewalk - raisedHere - leveled, Surface.sidewalk, kerbHeight);
+    fill(pavingHere - raisedHere - leveled - settsHere - clinkerHere, Surface.paving, kerbHeight);
+    if (!settsHere.isEmpty) fill(settsHere - raisedHere - leveled, Surface.setts, kerbHeight);
+    if (!clinkerHere.isEmpty) fill(clinkerHere - raisedHere - leveled, Surface.clinker, kerbHeight);
+    fill(grassHere - raisedHere - leveled, Surface.grass, kerbHeight);
+    fill(gravelHere - raisedHere - leveled, Surface.gravel, kerbHeight);
+    for (final (i, visible) in regionsHere) {
+      double h(Vector2 p) => lv!.regionHeight(i, p);
+      for (final (kind, area, lift) in [
+        (Surface.asphalt, roadHere, 0.0),
+        (Surface.sidewalk, sidewalk, kerbHeight),
+        (Surface.paving, pavingHere, kerbHeight),
+        (Surface.grass, grassHere, kerbHeight),
+        (Surface.gravel, gravelHere, kerbHeight),
+      ]) {
+        if (area.isEmpty) continue;
+        final part = area & visible;
+        if (!part.isEmpty) fill(part, kind, lift, h);
+      }
+    }
     for (final (tread, lift) in treads) {
       for (final (kind, area) in [
         (Surface.sidewalk, sidewalk),
@@ -369,7 +437,7 @@ class Ground {
         (Surface.gravel, gravelHere),
       ]) {
         if (area.isEmpty) continue;
-        final part = area & tread;
+        final part = (area & tread) - leveled;
         if (!part.isEmpty) fill(part, kind, kerbHeight + lift);
       }
     }
@@ -387,10 +455,18 @@ class Ground {
     }
 
     final kerbColor = _color(Surface.kerb);
+    bool nearLevels(Vector2 a, Vector2 b) =>
+        lv != null &&
+        lv.regions.any((r) => r.overlaps(
+            math.min(a.x, b.x) - 1, math.min(a.y, b.y) - 1, math.max(a.x, b.x) + 1, math.max(a.y, b.y) + 1));
     Iterable<(Vector2, Vector2)> kerbEdges(Polygon polygon) sync* {
       for (final (a, b) in polygon.edges) {
         if (onBorder(a, b)) continue;
-        final n = tessellate > 0 ? (a.distanceTo(b) / tessellate).ceil() : 1;
+        final n = nearLevels(a, b)
+            ? (a.distanceTo(b) / .5).ceil()
+            : tessellate > 0
+                ? (a.distanceTo(b) / tessellate).ceil()
+                : 1;
         // Exact endpoints, so an undivided edge is bit-for-bit (a, b).
         Vector2 at(int k) => k == 0 ? a : k == n ? b : a + (b - a) * (k / n);
         for (var k = 0; k < n; k++) {
@@ -406,7 +482,17 @@ class Ground {
         if (length < .01) continue;
         final normal = Vector3(-d.y, 0, d.x) / length;
         final s = (a - Vector2(originX, originZ)).dot(d / length);
-        final ha = height(a), hb = height(b);
+        // A kerb follows the ground of the level its middle is on; none on
+        // stairs.
+        var ha = height(a), hb = height(b);
+        if (lv != null) {
+          final at = lv.top((a + b) * .5);
+          if (at >= 0) {
+            if (lv.regions[at].kind == RegionKind.stairs) continue;
+            ha = lv.regionHeight(at, a);
+            hb = lv.regionHeight(at, b);
+          }
+        }
         const tile = 5.0, rough = .7;
         final v0 = surface.vertex(Vector3(a.x, ha, a.y), normal, s, 0,
             u1: tile, v1: rough, color: kerbColor);
@@ -448,6 +534,17 @@ class Ground {
             run, u1: tile, v1: rough, color: kerbColor);
         surface.triangle(v0, v1, v2, normal);
         surface.triangle(v0, v2, v3, normal);
+      }
+    }
+
+    // Levels: retaining walls where the ground jumps, parapets, stairs.
+    if (lv != null && !lv.isEmpty) {
+      final chunk = Extent(minX, minZ, maxX, maxZ);
+      final stone = _color(Surface.kerb);
+      lv.emitWalls(chunk, surface, stone, kerbHeight);
+      lv.emitParapets(chunk, surface, stone, kerbHeight);
+      if (steps != null && ramps != null) {
+        lv.emitStairs(chunk, steps, surface, ramps, _color(Surface.paving), stone, kerbHeight);
       }
     }
 
@@ -498,7 +595,7 @@ class Ground {
               rails.vertex(
                 Vector3(
                   quad[k].x,
-                  height(quad[k]) + (_onRoad(quad[k]) ? 0 : kerbHeight),
+                  groundAt(quad[k]) + (_onRoad(quad[k]) ? 0 : kerbHeight),
                   quad[k].y,
                 ),
                 up,

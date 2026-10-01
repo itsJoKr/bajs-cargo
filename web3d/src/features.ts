@@ -13,9 +13,10 @@ import * as THREE from 'three';
 import type RAPIER_NS from '@dimforge/rapier3d-compat';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import type { TerraceTable } from './furniture.ts';
+import { mergeStatic, shareMaterials } from './merge.ts';
 
 export interface Feature {
-  type: 'sign' | 'awning' | 'scaffolding' | 'terrace' | 'model' | 'dome' | 'box';
+  type: 'sign' | 'awning' | 'scaffolding' | 'terrace' | 'model' | 'dome' | 'box' | 'oriel';
   building: string;
   wall: string;
   a: [number, number];
@@ -46,6 +47,16 @@ export interface Feature {
   scale?: number;
   net?: string;
   shape?: 'dome' | 'onion' | 'cone';
+  /** A dome's drum colour (default pale stone). */
+  drumColor?: string;
+  /** An onion's neck radius as a share of `radius` (default 0.1). */
+  neck?: number;
+  /** Cap height (m); a cone's defaults to 2.2 radii. */
+  capHeight?: number;
+  /** false: no lantern on the cap (a tower's plain cone ends in a finial instead). */
+  lantern?: boolean;
+  /** An oriel's rounded corbel under it (m, default 1.2). */
+  corbel?: number;
 }
 
 class Wall {
@@ -285,25 +296,151 @@ export async function buildFeatures(
           const base = f.aboveEave !== undefined ? f.eave + f.aboveEave : f.eave;
           const p = w.point(f.at ?? 1, f.out ?? -r * 0.9, base);
           const drumH = f.height ?? r * 0.9;
-          const stone = mat('#d8d0c0');
+          const stone = mat(f.drumColor ?? '#d8d0c0');
           const cap = await featureMat(f, '#6d9c86', { metalness: 0.3, roughness: 0.5 });
           const drum = new THREE.Mesh(new THREE.CylinderGeometry(r, r, drumH, 20), stone);
           drum.position.copy(p).setY(base + drumH / 2);
           add(drum);
           const shape = f.shape ?? 'dome';
+          // An onion bulges past its drum and pinches in to a neck (`neck`, a
+          // share of the radius) that a lantern can stand on.
+          const neck = f.neck ?? 0.1;
+          const capH = f.capHeight ?? (shape === 'cone' ? r * 2.2 : shape === 'onion' ? r * 1.4 : r);
           const capGeo =
             shape === 'cone'
-              ? new THREE.ConeGeometry(r * 1.05, r * 2.2, 20)
-              : new THREE.SphereGeometry(r * 1.02, 20, 12, 0, Math.PI * 2, 0, Math.PI / 2);
+              ? new THREE.ConeGeometry(r * 1.05, capH, 20)
+              : shape === 'onion'
+                ? new THREE.LatheGeometry(
+                    [[0.92, 0], [1.02, 0.15], [1.07, 0.32], [0.98, 0.52], [0.78, 0.7], [neck + 0.08, 0.88], [neck, 1], [0, 1]].map(
+                      ([x, y]) => new THREE.Vector2(r * x, capH * y),
+                    ),
+                    20,
+                  )
+                : new THREE.SphereGeometry(r * 1.02, 20, 12, 0, Math.PI * 2, 0, Math.PI / 2);
           // u runs round the cap, v up its slope.
           tileUV(capGeo, f, 2 * Math.PI * r, shape === 'cone' ? r * 2.4 : r * 1.6);
           const capMesh = new THREE.Mesh(capGeo, cap);
-          if (shape === 'onion') capMesh.scale.set(1.05, 1.5, 1.05);
-          capMesh.position.copy(p).setY(base + drumH + (shape === 'cone' ? r * 1.1 : 0));
+          capMesh.position.copy(p).setY(base + drumH + (shape === 'cone' ? capH / 2 : 0));
           add(capMesh);
-          const lantern = new THREE.Mesh(new THREE.CylinderGeometry(r * 0.12, r * 0.18, r * 0.8, 10), cap);
-          lantern.position.copy(p).setY(base + drumH + (shape === 'cone' ? r * 2.2 : r * (shape === 'onion' ? 1.5 : 1)) + r * 0.3);
-          add(lantern);
+          const top = base + drumH + (shape === 'cone' ? capH : shape === 'onion' ? capH : r);
+          if (f.lantern === false) {
+            // A finial: a thin metal spike with a knob.
+            const spike = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.06, 1.6, 6), mat('#3d3a36'));
+            spike.position.copy(p).setY(top + 0.6);
+            add(spike);
+            const knob = new THREE.Mesh(new THREE.SphereGeometry(0.14, 8, 6), mat('#3d3a36'));
+            knob.position.copy(p).setY(top + 0.2);
+            add(knob);
+          } else {
+            const lantern = new THREE.Mesh(new THREE.CylinderGeometry(r * 0.12, r * 0.18, r * 0.8, 10), cap);
+            lantern.position.copy(p).setY(top + r * 0.3);
+            add(lantern);
+          }
+          break;
+        }
+        case 'oriel': {
+          // A rounded bay window standing out of the wall: a half-ellipse `width` wide at the wall
+          // and `out` deep, from `y` (on a rounded corbel `corbel` m tall) up to `aboveEave` over
+          // the eave (or `height`), wearing the picture `image` round its face, capped by a cornice.
+          const width = f.width ?? 3, depth = f.out ?? width / 3;
+          // `y` is the bottom, `aboveEave` the top (heightOf would take aboveEave for both).
+          const y0 = f.ground + (f.y ?? 6);
+          const y1 = f.aboveEave !== undefined ? f.eave + f.aboveEave : y0 + (f.height ?? 10);
+          const centre = w.point(f.at ?? 0.5, 0, 0);
+          // Corbel and cap: `texture` (tiled every `repeat` m, tinted by `color`) or flat `color`.
+          const stone = await featureMat(f, '#b9ae9c', { roughness: 0.85, side: THREE.DoubleSide });
+          const rep = f.repeat ?? 1;
+          const N = 28;
+          // Half-ellipse round the wall's tangent t and normal n, [k] scaling the depth (the corbel).
+          const ring = (sx: number, sz: number) =>
+            Array.from({ length: N + 1 }, (_, i) => {
+              const phi = Math.PI * (1 - i / N);
+              return { x: (width / 2) * sx * Math.cos(phi), z: depth * sz * Math.sin(phi), phi };
+            });
+          const place = (x: number, z: number, y: number) =>
+            centre.clone().addScaledVector(w.t, x).addScaledVector(w.n, z).setY(y);
+          const normalAt = (x: number, z: number) => {
+            const a = width / 2, b = depth;
+            return w.t.clone().multiplyScalar(x / (a * a)).addScaledVector(w.n, z / (b * b)).normalize();
+          };
+          // The face: two rows of the ring, u by arc length.
+          {
+            const pts = ring(1, 1);
+            const len = [0];
+            for (let i = 1; i <= N; i++) len.push(len[i - 1] + Math.hypot(pts[i].x - pts[i - 1].x, pts[i].z - pts[i - 1].z));
+            const pos: number[] = [], nor: number[] = [], uv: number[] = [], idx: number[] = [];
+            for (const [row, y] of [[0, y0], [1, y1]] as const) {
+              pts.forEach((p, i) => {
+                const v = place(p.x, p.z, y), n = normalAt(p.x, p.z);
+                pos.push(v.x, v.y, v.z);
+                nor.push(n.x, n.y, n.z);
+                uv.push(len[i] / len[N], row);
+              });
+            }
+            for (let i = 0; i < N; i++) idx.push(i, i + 1, N + 2 + i, i, N + 2 + i, N + 1 + i);
+            const geo = new THREE.BufferGeometry();
+            geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+            geo.setAttribute('normal', new THREE.Float32BufferAttribute(nor, 3));
+            geo.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
+            geo.setIndex(idx);
+            // Wound so the outside faces out (the ring runs left to right along t, n outward).
+            const face = f.image ? await textures.loadAsync(`features/${f.image}`) : null;
+            if (face) {
+              face.colorSpace = THREE.SRGBColorSpace;
+              face.anisotropy = anisotropy;
+            }
+            add(new THREE.Mesh(geo, face ? new THREE.MeshStandardMaterial({ map: face, roughness: 0.8 }) : stone));
+          }
+          // The corbel: rings shrinking into the wall below the bay, closed at the bottom.
+          {
+            const h = f.corbel ?? 1.2, K = 7;
+            const around = Math.PI * Math.sqrt(((width / 2) ** 2 + depth ** 2) / 2);
+            const pos: number[] = [], idx: number[] = [], uv: number[] = [];
+            for (let k = 0; k <= K; k++) {
+              const s = Math.sin((Math.PI / 2) * (k / K));
+              ring(0.55 + 0.45 * s, s).forEach((p, i) => {
+                const v = place(p.x, p.z, y0 - h + (h * k) / K);
+                pos.push(v.x, v.y, v.z);
+                uv.push(((i / N) * around) / rep, ((h * k) / K) / rep);
+              });
+            }
+            for (let k = 0; k < K; k++)
+              for (let i = 0; i < N; i++) {
+                const a = k * (N + 1) + i, b = a + N + 1;
+                idx.push(a, a + 1, b + 1, a, b + 1, b);
+              }
+            const geo = new THREE.BufferGeometry();
+            geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+            geo.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
+            geo.setIndex(idx);
+            geo.computeVertexNormals();
+            add(new THREE.Mesh(geo, stone));
+          }
+          // The cap: a cornice slab a little wider than the bay, its top and rim.
+          {
+            const t = 0.35, grow = 1.12;
+            const pts = ring(grow, grow + 0.15);
+            const pos: number[] = [], idx: number[] = [], uv: number[] = [];
+            const c0 = place(0, 0, y1 + t);
+            pos.push(c0.x, c0.y, c0.z);
+            uv.push(0, 0);
+            for (const y of [y1 + t, y1]) for (const p of pts) {
+              const v = place(p.x, p.z, y);
+              pos.push(v.x, v.y, v.z);
+              uv.push(p.x / rep, (p.z + (y === y1 ? t : 0)) / rep);
+            }
+            for (let i = 0; i < N; i++) {
+              idx.push(0, 1 + i + 1, 1 + i);
+              const a = 1 + i, b = 1 + N + 1 + i;
+              idx.push(a, a + 1, b + 1, a, b + 1, b);
+            }
+            const geo = new THREE.BufferGeometry();
+            geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+            geo.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
+            geo.setIndex(idx);
+            geo.computeVertexNormals();
+            add(new THREE.Mesh(geo, stone));
+          }
           break;
         }
         case 'box': {
@@ -325,5 +462,9 @@ export async function buildFeatures(
       console.warn(`[zg] feature ${f.type} on ${f.wall} failed:`, e);
     }
   }
+  // ~480 meshes, nearly each with its own material: one draw call per look instead (merge.ts).
+  shareMaterials(root);
+  const { before, after } = mergeStatic(root);
+  console.log(`[zg] features: ${before} meshes merged into ${after}`);
   return root;
 }

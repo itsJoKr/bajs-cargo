@@ -1,3 +1,8 @@
+/* Bajs (Zagreb's bike share) brand: that blue and white. */
+:root {
+  --bajs-blue: #2f6fe0;
+  --bajs-dark: #1d4fb0;
+}
 html,
 body {
   margin: 0;
@@ -19,18 +24,46 @@ body {
   display: grid;
   place-content: center;
   text-align: center;
-  background: linear-gradient(#6d8fb3, #c7d3dd);
+  background: var(--bajs-blue);
   transition: opacity 0.6s;
 }
 #loading.hidden {
   opacity: 0;
   pointer-events: none;
 }
+#loading h1,
+#finish h1,
+#mobile h1 {
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+#loading h1 span,
+#finish h1 span,
+#mobile h1 span {
+  font-weight: 400;
+}
 #loading h1 {
   margin: 0 0 8px;
-  font-size: 44px;
-  letter-spacing: 0.02em;
-  text-shadow: 0 2px 12px #0005;
+  font-size: 56px;
+}
+#status {
+  margin: 0;
+  opacity: 0.9;
+}
+#bar {
+  width: min(360px, 70vw);
+  height: 6px;
+  margin: 14px auto 0;
+  border-radius: 3px;
+  background: #ffffff40;
+  overflow: hidden;
+}
+#bar i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: #fff;
+  transition: width 0.25s;
 }
 #hud {
   position: fixed;
@@ -74,71 +107,309 @@ body {
 }
 #help {
   position: absolute;
-  left: 16px;
-  bottom: 16px;
-  font-size: 13px;
-  opacity: 0.85;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px 16px;
+  justify-content: center;
+  padding: 9px 18px 7px;
+  border-radius: 14px;
+  background: #0006;
+  backdrop-filter: blur(8px);
+  font-size: 17px;
+  white-space: nowrap;
 }
-#touch {
-  display: none;
+#help span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
-@media (pointer: coarse) {
-  #help,
-  #meter {
-    display: none;
-  }
-  #touch {
-    display: block;
-  }
-  #touch #stick {
-    position: fixed;
-    left: 24px;
-    bottom: 24px;
-    width: 200px;
-    height: 64px;
-    border-radius: 32px;
-    background: #0004;
-    border: 2px solid #fff6;
-  }
-  #stick .knob {
-    position: absolute;
-    left: calc(50% - 26px);
-    top: 4px;
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: #fffc;
-  }
-  #pedals {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    display: flex;
-    gap: 12px;
-    align-items: flex-end;
-  }
-  .pedal {
-    display: grid;
-    place-content: center;
-    width: 78px;
-    height: 96px;
-    border-radius: 14px;
-    background: #0005;
-    border: 2px solid #fff6;
-    font-weight: 700;
-    font-size: 13px;
-  }
-  #hand {
-    height: 60px;
-  }
-  #place {
-    top: 10px;
-  }
+#help kbd {
+  min-width: 28px;
+  padding: 3px 9px;
+  border-radius: 7px;
+  border: 1px solid #fff7;
+  background: #fff2;
+  font: 600 15px system-ui, sans-serif;
+  text-align: center;
+}
+/* W and S on the bike, with "tap to go faster" under both between two rules. */
+#help .tap {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+#help .tap > div {
+  display: flex;
+  gap: 16px;
+}
+#help .tap small {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  line-height: 13px;
+  letter-spacing: 0.02em;
+  opacity: 0.75;
+}
+#help .tap small::before,
+#help .tap small::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #fff6;
 }
 #coverage {
   position: absolute;
   top: 16px;
   right: 18px;
   font-size: 13px;
+  opacity: 0.85;
+}
+#fps {
+  position: absolute;
+  top: 36px;
+  right: 18px;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.85;
+}
+#flipped {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 12px 26px;
+  border-radius: 12px;
+  background: #000a;
+  font-size: 28px;
+  font-weight: 700;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+#flipped.show {
+  opacity: 1;
+  pointer-events: auto;
+  cursor: pointer;
+}
+#flipped b {
+  display: inline-block;
+  min-width: 1.2em;
+  padding: 0 6px;
+  border: 2px solid #fff;
+  border-radius: 6px;
+}
+#penalty {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 12px 26px;
+  border-radius: 12px;
+  background: #000a;
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+#penalty.show {
+  opacity: 1;
+}
+#penalty small {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.85;
+}
+#penalty b {
+  font-variant-numeric: tabular-nums;
+}
+[hidden] {
+  display: none !important;
+}
+#mobile {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: var(--bajs-blue);
+  user-select: text;
+  -webkit-user-select: text;
+}
+#mobile .card {
+  max-width: 360px;
+  padding: 28px 24px 24px;
+  border-radius: 16px;
+  background: var(--bajs-dark);
+  text-align: center;
+  line-height: 1.45;
+  box-shadow: 0 8px 32px #0004;
+}
+#mobile h1 {
+  margin: 0 0 12px;
+  font-size: 32px;
+  text-shadow: 0 2px 12px #0005;
+}
+#mobile p {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+#mobile button {
+  margin-top: 10px;
+  padding: 10px 18px;
+  border: 1px solid #fff8;
+  border-radius: 10px;
+  background: transparent;
+  color: #fffc;
+  font: inherit;
+  font-size: 14px;
+}
+
+/* Delivery job: the business now, its street a few seconds later. */
+#job {
+  position: absolute;
+  top: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 220px;
+  padding: 8px 18px;
+  border-radius: 10px;
+  background: #0004;
+  text-align: center;
+  border-bottom: 3px solid #f6e9a6;
+}
+#job small {
+  display: block;
+  font-size: 12px;
+  opacity: 0.85;
+}
+#job b {
+  display: block;
+  font-size: 22px;
+}
+#jobStreet {
+  display: block;
+  font-size: 16px;
+  min-height: 1.3em;
+}
+#job.waiting #jobStreet {
+  opacity: 0.6;
+}
+#jobCount {
+  display: block;
+  font-size: 12px;
+  font-style: normal;
+  opacity: 0.8;
+}
+#jobCount:empty {
+  display: none;
+}
+#toast {
+  position: absolute;
+  top: 34%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  font-weight: 700;
+  color: #f6e9a6;
+  opacity: 0;
+  transition: opacity 0.4s;
+  white-space: nowrap;
+}
+#toast.show {
+  opacity: 1;
+}
+
+#timer {
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: var(--bajs-blue);
+  font-size: 22px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+#finish {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  background: #0a1f4acc;
+  backdrop-filter: blur(6px);
+}
+#finish .card {
+  min-width: 300px;
+  padding: 30px 36px;
+  border-radius: 18px;
+  background: var(--bajs-blue);
+  text-align: center;
+  box-shadow: 0 12px 40px #0006;
+}
+#finish small {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+#finish h1 {
+  margin: 4px 0 12px;
+  font-size: 40px;
+}
+#finalTime {
+  margin: 0 0 6px;
+  font-size: 34px;
+  font-weight: 700;
+}
+#finish .hint {
+  margin: 0 0 18px;
+  font-size: 16px;
+  opacity: 0.9;
+}
+#finish button {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--bajs-blue);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+#paused {
+  position: fixed;
+  inset: 0;
+  z-index: 9;
+  display: grid;
+  place-items: center;
+  background: #0a1f4a66;
+  pointer-events: none;
+}
+#paused .card {
+  padding: 18px 34px;
+  border-radius: 14px;
+  background: var(--bajs-blue);
+  font-size: 30px;
+  font-weight: 800;
+  text-align: center;
+  box-shadow: 0 12px 40px #0006;
+}
+#paused small {
+  display: block;
+  margin-top: 2px;
+  font-size: 14px;
+  font-weight: 500;
   opacity: 0.85;
 }

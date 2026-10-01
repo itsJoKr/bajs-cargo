@@ -110,18 +110,31 @@ class OsmData {
   /// `building:part` (plus the entry's own `tags`), for volumes OSM lacks (a
   /// tower rising out of its podium). `zg:overlay` keeps the outline they
   /// stand on from being replaced by them.
+  ///
+  /// An `outline` polygon instead replaces an OSM way's own ring (its tags
+  /// stay): a building enlarged to close a gap OSM leaves between it and its
+  /// neighbours. Give it counter-clockwise (x east, z north), so edge `e0` is
+  /// the first point to the second.
   void _addParts(String path) {
     final file = File(path);
     if (!file.existsSync()) return;
     final entries = jsonDecode(file.readAsStringSync()) as Map<String, dynamic>;
     for (final MapEntry(key: key, value: entry) in entries.entries) {
-      if (entry is! Map || entry['part'] == null) continue;
+      if (entry is! Map) continue;
+      final ring = (entry['part'] ?? entry['outline']) as List?;
+      if (ring == null) continue;
       final id = int.parse(key.substring(1));
       final ids = <int>[];
-      for (final (i, p) in (entry['part'] as List).indexed) {
+      for (final (i, p) in ring.indexed) {
         final node = -(id * 100 + i);
         nodes[node] = Vector2((p[0] as num).toDouble(), (p[1] as num).toDouble());
         ids.add(node);
+      }
+      if (entry['outline'] != null) {
+        final way = ways[id];
+        if (way == null) throw StateError('$path: $key has an outline but no OSM way');
+        ways[id] = OsmWay(id, [...ids, ids.first], way.tags);
+        continue;
       }
       ways[id] = OsmWay(id, [...ids, ids.first], {
         'building:part': 'yes',

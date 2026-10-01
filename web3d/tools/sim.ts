@@ -7,7 +7,7 @@
 // Exits non-zero when one is out of range.
 
 import RAPIER from '@dimforge/rapier3d-compat';
-import { Vehicle, type DriveInput } from '../src/vehicle.ts';
+import { Vehicle, bikeTuning, bikeWheels, type DriveInput } from '../src/vehicle.ts';
 import { ferrariWheels } from './wheels.ts';
 import { Furniture, type TerraceTable } from '../src/furniture.ts';
 
@@ -180,6 +180,143 @@ const gas: DriveInput = { ...idle, throttle: 1 };
   run(world, car, 3, { ...idle, handbrake: true });
   const drift = Math.abs(car.body.translation().z - z0);
   check('handbrake holds on the ramp', drift < 0.5, `rolled ${drift.toFixed(2)} m in 3 s`);
+}
+
+// The Bajs cargo bike: holding the gas vs tapping it fast (the cadence
+// Controls computes: each press adds a stroke, strokes fade over 0.35 s).
+{
+  const bike = (world: RAPIER.World, heading = 0) => new Vehicle(RAPIER, world, bikeWheels, { x: 0, y: 0.05, z: 0 }, heading, bikeTuning);
+  const tapping = (hz: number) => {
+    let strokes = 0, last = -1;
+    return (t: number): DriveInput => {
+      const k = Math.floor(t * hz);
+      if (k !== last) strokes += 1;
+      last = k;
+      strokes *= Math.exp(-dt / 0.35);
+      return { ...idle, throttle: (t * hz) % 1 < 0.5 ? 1 : 0, cadence: Math.min(1, strokes / 2.6) };
+    };
+  };
+  const to25 = (input: (t: number) => DriveInput) => {
+    const world = makeWorld();
+    const b = bike(world);
+    run(world, b, 1, idle);
+    let t = 0;
+    for (; t < 20 && b.speed < 25 / 3.6; t += dt) {
+      b.update(dt, input(t));
+      world.step();
+    }
+    for (let i = 0; i < 20 / dt; i++) {
+      b.update(dt, input(t + i * dt));
+      world.step();
+    }
+    return { t, top: b.speed * 3.6 };
+  };
+  const hold = to25(() => gas), tap = to25(tapping(7));
+  check('bike: 0-25 km/h holding', hold.t > 0.8 && hold.t < 2.5, `${hold.t.toFixed(2)} s, top ${hold.top.toFixed(1)} km/h`);
+  check('bike: tapping gets there faster', tap.t < hold.t * 0.8, `${tap.t.toFixed(2)} s at 7 taps/s`);
+  check('bike: tapping pushes past the held top speed', hold.top > 64 && hold.top < 72 && tap.top > 95 && tap.top < 110,
+    `${hold.top.toFixed(1)} km/h holding, ${tap.top.toFixed(1)} km/h tapping`);
+
+  // Backing up: S at a standstill, faster when tapped (the same strokes).
+  const backUp = (hz: number) => {
+    const world = makeWorld();
+    const b = bike(world);
+    run(world, b, 1, idle);
+    const tap = tapping(hz);
+    for (let t = 0; t < 4; t += dt) {
+      const i = tap(t);
+      b.update(dt, hz ? { ...idle, brake: i.throttle, backCadence: i.cadence } : { ...idle, brake: 1 });
+      world.step();
+    }
+    return -b.speed * 3.6;
+  };
+  const backHold = backUp(0), backTap = backUp(7);
+  check('bike: backs up holding S', backHold > 11 && backHold < 16, `${backHold.toFixed(1)} km/h after 4 s`);
+  check('bike: tapping S backs up faster', backTap > backHold * 1.4 && backTap < 28, `${backTap.toFixed(1)} km/h at 7 taps/s`);
+
+  // Full lock while sprinting at ~90 km/h.
+  const world = makeWorld();
+  const b = bike(world);
+  run(world, b, 1, idle);
+  const sprint = tapping(7);
+  let st = 0;
+  for (; st < 20 && b.speed < 90 / 3.6; st += dt) {
+    b.update(dt, sprint(st));
+    world.step();
+  }
+  let maxRoll = 0;
+  for (let i = 0; i < 3 / dt; i++) {
+    b.update(dt, { ...sprint(st + i * dt), steer: 1 });
+    world.step();
+    const q = b.body.rotation();
+    maxRoll = Math.max(maxRoll, Math.acos(Math.min(1, 1 - 2 * (q.x * q.x + q.z * q.z))));
+  }
+  check('bike: full lock at 90 km/h stays up', maxRoll < 0.15, `max tilt ${(maxRoll * 57.3).toFixed(1)} deg, now ${(b.speed * 3.6).toFixed(0)} km/h`);
+  // A kick at ~90 km/h (a kerb, a landing): 2.5 rad/s of yaw while tapping
+  // on. The slide must die out, not grow into a spin.
+  {
+    const w = makeWorld();
+    const c = bike(w);
+    run(w, c, 1, idle);
+    const tap = tapping(7);
+    let kt = 0;
+    for (; kt < 20 && c.speed < 90 / 3.6; kt += dt) {
+      c.update(dt, tap(kt));
+      w.step();
+    }
+    c.body.setAngvel({ x: 0, y: 2.5, z: 0 }, true);
+    const slip = () => {
+      const lv = c.body.linvel();
+      const d = Math.atan2(lv.x, -lv.z) - c.heading();
+      return Math.abs(Math.atan2(Math.sin(d), Math.cos(d)));
+    };
+    let peak = 0;
+    for (let i = 0; i < 1.5 / dt; i++) {
+      c.update(dt, tap(kt + i * dt));
+      w.step();
+      peak = Math.max(peak, slip());
+    }
+    check('bike: a slide at 90 km/h straightens up', slip() < 0.1 && peak < 0.6 && c.speed > 60 / 3.6,
+      `peak ${(peak * 57.3).toFixed(0)} deg, ${(slip() * 57.3).toFixed(0)} deg after 1.5 s, ${(c.speed * 3.6).toFixed(0)} km/h`);
+  }
+  const turnWith = (handbrake: boolean) => {
+    const w = makeWorld();
+    const c = bike(w);
+    run(w, c, 1, idle);
+    run(w, c, 30, gas, () => c.speed >= 22 / 3.6);
+    const start = c.heading();
+    run(w, c, 1, { ...idle, steer: 1, handbrake });
+    return c.heading() - start;
+  };
+  const plain = turnWith(false), skid = turnWith(true);
+  check('bike: rear-brake skid rotates it', skid > plain * 1.2, `${(plain * 57.3).toFixed(0)} deg plain, ${(skid * 57.3).toFixed(0)} deg skidding`);
+
+  // Onto a 12 cm kerb at 12 km/h, then stopped on a 12% ramp, let go: the
+  // rider's foot holds it.
+  const kw = makeWorld();
+  kw.createCollider(RAPIER.ColliderDesc.cuboid(20, 0.06, 20).setTranslation(0, 0.06, -30));
+  const kb = bike(kw);
+  run(kw, kb, 1, idle);
+  run(kw, kb, 10, gas, () => kb.speed > 12 / 3.6);
+  run(kw, kb, 3, gas);
+  const kp = kb.body.translation();
+  check('bike: climbs a kerb', kp.z < -12 && kp.y > 0.08, `z=${kp.z.toFixed(1)} y=${kp.y.toFixed(2)}`);
+  const rw = makeWorld();
+  const slope = Math.atan(0.12);
+  rw.createCollider(
+    RAPIER.ColliderDesc.cuboid(10, 0.5, 30)
+      .setRotation({ x: Math.sin(slope / 2), y: 0, z: 0, w: Math.cos(slope / 2) })
+      .setTranslation(0, 30 * Math.sin(slope) - 0.5 * Math.cos(slope), -5 - 30 * Math.cos(slope)),
+  );
+  const rb = bike(rw);
+  run(rw, rb, 1, idle);
+  run(rw, rb, 15, gas, () => rb.body.translation().z < -25);
+  const climbed = rb.body.translation();
+  run(rw, rb, 3, { ...idle, brake: 1 }, () => rb.speed < 0.3);
+  const z0 = rb.body.translation().z;
+  run(rw, rb, 3, idle);
+  const drift = Math.abs(rb.body.translation().z - z0);
+  check('bike: climbs a 12% ramp, held by a foot', climbed.z < -25 && drift < 0.3, `y=${climbed.y.toFixed(2)}, rolled ${drift.toFixed(2)} m in 3 s`);
 }
 
 // Café furniture: stands still when woken, and flies when the car hits it

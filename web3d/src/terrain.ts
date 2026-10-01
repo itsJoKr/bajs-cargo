@@ -83,3 +83,49 @@ export function farTerrain(far: Grid, ground: Grid, hazeColor: THREE.Color) {
   mesh.name = 'far terrain';
   return mesh;
 }
+
+/** A hollow in the ground (levels.json kind "dip"): rings and axis in the web frame. */
+export interface Dip {
+  rings: [number, number][][];
+  from: [number, number];
+  to: [number, number];
+  sinkFrom: number;
+  sinkTo: number;
+  taper: number;
+}
+
+/** How far the dip sinks the ground at web (x, z): 0 outside, easing in from the outline. */
+export function dipSink(d: Dip, x: number, z: number): number {
+  let inside = false;
+  let best = Infinity;
+  for (const ring of d.rings) {
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      const [ax, az] = ring[j], [bx, bz] = ring[i];
+      if (az > z !== bz > z && x < ((bx - ax) * (z - az)) / (bz - az) + ax) inside = !inside;
+      const ex = bx - ax, ez = bz - az;
+      const len2 = ex * ex + ez * ez;
+      const t = len2 === 0 ? 0 : Math.min(1, Math.max(0, ((x - ax) * ex + (z - az) * ez) / len2));
+      best = Math.min(best, Math.hypot(x - (ax + ex * t), z - (az + ez * t)));
+    }
+  }
+  if (!inside) return 0;
+  const k = Math.min(1, best / d.taper);
+  const ease = k * k * (3 - 2 * k);
+  const dx = d.to[0] - d.from[0], dz = d.to[1] - d.from[1];
+  const along = Math.min(1, Math.max(0, ((x - d.from[0]) * dx + (z - d.from[1]) * dz) / (dx * dx + dz * dz)));
+  return (d.sinkFrom + (d.sinkTo - d.sinkFrom) * along) * ease;
+}
+
+/** The grid with the dips' sink (plus [extra] metres, so it stays under the lowered surfaces) taken out. */
+export function sinkGrid(g: Grid, dips: Dip[], extra = 0.6): Grid {
+  const heights = g.heights.slice();
+  for (let r = 0; r < g.rows; r++) {
+    for (let c = 0; c < g.columns; c++) {
+      const x = g.x0 + c * g.cell, z = -(g.z0 + r * g.cell);
+      let sink = 0;
+      for (const d of dips) sink = Math.max(sink, dipSink(d, x, z));
+      if (sink > 0) heights[r * g.columns + c] -= sink + extra;
+    }
+  }
+  return { ...g, heights };
+}

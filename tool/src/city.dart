@@ -20,8 +20,19 @@ class Extent {
       p.x >= minX && p.x < maxX && p.y >= minZ && p.y < maxZ;
 }
 
-/// The phase 1-5 core: about 45.8100-45.8160 N, 15.9730-15.9815 E.
-const coreExtent = Extent(-322, -337, 341, 330);
+/// The playable city: about 45.8100-45.8160 N, 15.9730-15.9815 E, cut at z = -300 in the south
+/// (Zrinjevac's far end and below: far from the centre, nothing worth driving to).
+const coreExtent = Extent(-322, -300, 341, 330);
+
+/// Parts of the extent the car cannot enter (the web build fences them with invisible walls). Their
+/// buildings and terrain stay in the model as plain scenery; their walls are not on the
+/// real-facade work list. The Gornji Grad hill in the north-west: no facades, no roads worth it.
+const blockedAreas = [Extent(-322, 60, -140, 330)];
+
+/// Strips west of the extent whose buildings are kept anyway (judged by centroid): the west side of
+/// Ulica Josipa Eugena Tomića (the Uspinjača street, closed by a roadblock), whose houses stand
+/// across the extent's edge and would leave the street open on one side.
+const extentExtras = [Extent(-340, 20, -322, 100)];
 
 /// Road classes cars use, plus pedestrian streets (drivable here too).
 const streetClasses = {
@@ -254,9 +265,12 @@ class City {
 
     void add(OsmArea area, {required bool part}) {
       if (!part && replaced.contains(area.id)) return;
+      // Underground (Dolac's market hall under its plateau): not drawn.
+      if ((area.tags['layer'] ?? '').startsWith('-') || area.tags['location'] == 'underground') return;
       for (var i = 0; i < area.polygons.length; i++) {
         final polygon = area.polygons[i];
-        if (!extent.contains(centroid(polygon.outer))) continue;
+        final c = centroid(polygon.outer);
+        if (!extent.contains(c) && !extentExtras.any((e) => e.contains(c))) continue;
         if (polygon.area < 6) continue;
         final interior = !polygon.outer.any(
           (p) => streetGrid.nearest(p, 16) < 16,
@@ -275,8 +289,10 @@ class City {
           }
         }
         final id = area.polygons.length == 1 ? area.id : '${area.id}_$i';
+        // A roof-only part (Dolac's canopy over the passage to Opatovina's
+        // steps) is a canopy on posts too, not a solid block.
         if (separateSmallStructures &&
-            smallStructureKinds.contains(area.tags['building'])) {
+            (smallStructureKinds.contains(area.tags['building']) || area.tags['building:part'] == 'roof')) {
           smallStructures.add((id, area.tags, polygon));
           continue;
         }

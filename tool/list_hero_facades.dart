@@ -4,6 +4,7 @@
 //   fvm dart tool/list_hero_facades.dart [section] > .art/streetview/<section>.json
 //   fvm dart tool/list_hero_facades.dart --building w105487407,w97235393 \
 //       > .art/streetview/<name>.json
+//   ... --building <ids> --min 0.3   # short corner edges too (default 4 m)
 //
 // `--building` lists EVERY street-facing wall of those buildings (a corner
 // building is seen from two or more streets, and each side needs its own
@@ -40,6 +41,9 @@ const sections = {
 void main(List<String> args) {
   final at = args.indexOf('--building');
   final only = at >= 0 ? args[at + 1].split(',').toSet() : null;
+  // `--min <m>` lists shorter walls too (corner edges; default 4 m).
+  final minAt = args.indexOf('--min');
+  final minLength = minAt >= 0 ? double.parse(args[minAt + 1]) : 4.0;
   final section = only != null ? 'buildings' : (args.isEmpty ? 'square' : args.first);
   final osm = OsmData.load('data/osm/zagreb_centre.json');
   final city = City(osm, coreExtent, separateSmallStructures: true)..build();
@@ -62,7 +66,7 @@ void main(List<String> args) {
       if (edge >= b.walls.length || b.walls[edge] != WallKind.street) continue;
       final d = c - a;
       final length = d.length;
-      if (length < 4) continue;
+      if (length < minLength) continue;
       final n = Vector2(d.y, -d.x) / length;
       final mid = (a + c) * .5;
       if (!facesArea(mid + n * 8)) continue;

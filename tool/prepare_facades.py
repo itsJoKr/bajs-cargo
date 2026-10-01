@@ -209,7 +209,10 @@ def _sha(*parts: bytes | str) -> str:
 def encode_page(png: Path, out: Path, codec: str) -> None:
     """One atlas page -> a Basis KTX2 texture with mips (`brew install basis_universal`). The GPU
     keeps it block-compressed (BC7/ASTC/ETC2, 1 byte a pixel, a quarter of RGBA8)."""
-    args = ["-uastc", "-uastc_level", "2"] if codec == "uastc" else ["-q", "255", "-comp_level", "3"]
+    # "etc1sfast" (the HERO_DEV scratch pages) is ETC1S too: it must transcode to the same GPU format
+    # as the real pages, since loadHeroAtlas merges every page into one array texture.
+    args = (["-uastc", "-uastc_level", "2"] if codec == "uastc"
+            else ["-q", "64", "-comp_level", "0"] if codec == "etc1sfast" else ["-q", "255", "-comp_level", "3"])
     subprocess.run(
         ["basisu", "-ktx2", *args, "-mipmap", "-output_file", str(out), str(png)],
         check=True, stdout=subprocess.DEVNULL,
@@ -224,10 +227,16 @@ def pack() -> None:
     free space (or a new page). Each page is encoded only when its content key changed
     (cache: assets/textures/.hero_cache), so one changed facade re-encodes one page, not all.
     HERO_REPACK=1 repacks from scratch; HERO_CODEC=etc1s (default, small) | uastc (crisper text,
-    5x larger, faster to encode: good while iterating)."""
+    5x larger, faster to encode: good while iterating).
+    HERO_DEV=1 is the development pack: new and changed facades go onto scratch pages AFTER the last
+    real page (unoptimised, wasteful, fast low-quality ETC1S encode) and the real pages are left byte for byte
+    alone (a changed facade keeps its old picture there as a ghost, so the page key and its cached
+    encode stay valid). A normal `pack` later folds the scratch pictures back into the real pages."""
     import numpy as np
 
     codec = os.environ.get("HERO_CODEC", "etc1s")
+    dev = bool(os.environ.get("HERO_DEV"))
+    dev_codec = "etc1sfast"
     tex = ROOT / "assets" / "textures"
     cache = tex / ".hero_cache"
     cache.mkdir(parents=True, exist_ok=True)
@@ -236,6 +245,12 @@ def pack() -> None:
     per_page = PAGE_H // stride
     page_h = per_page * stride
 
+    def lanes_for(res: float) -> tuple[int, int]:
+        """(lanes per row, picture height): a low-res facade (`res` 0.5 / 0.25, for walls the player
+        cannot reach) takes one of 2 / 4 lanes stacked in a row, each with its own gutters."""
+        n = max(1, round(1 / res))
+        return n, (ROW if n == 1 else stride // n - 2 * GUTTER)
+
     items = []
     for f in facades():
         raw = WORK / f["name"] / "raw.png"
@@ -243,85 +258,110 @@ def pack() -> None:
             verdict(f["name"], "rejected", reason="no generated facade")
             continue
         width, height = size_for(f)
-        w = min(ATLAS - 2 * GUTTER, max(64, int(round(ROW * width / height))))
+        n, h = lanes_for(f.get("res", 1.0))
+        w = min(ATLAS - 2 * GUTTER, max(16 if n > 1 else 64, int(round(h * width / height))))
         if f.get("corner"):
             w = max(w, 24)
         frac = round(corner_frac(f), 4) if f.get("corner") else 0
-        key = _sha(raw.read_bytes(), f"{w}:{ROW}:{frac}:{GUTTER}")
-        items.append((f, raw, w, key))
+        key = _sha(raw.read_bytes(), f"{w}:{ROW}:{frac}:{GUTTER}" + (f":lane{h}" if n > 1 else ""))
+        items.append((f, raw, w, h, n, key))
 
-    # Previous placement.
+    # Previous placement. A lane is (global row, lanes in that row, lane index). Low-res lanes share
+    # rows with full-height facades: two pictures clash when their x ranges overlap, unless they sit
+    # in different lanes of the same lane height.
     old = {}
     if atlas_path.exists() and not os.environ.get("HERO_REPACK"):
         prev = json.loads(atlas_path.read_text())
         if prev.get("row") == ROW and prev.get("width") == ATLAS and prev.get("pageHeight") == page_h:
             old = prev["facades"]
-    rows: dict[int, list[tuple[int, int]]] = {}  # global row -> occupied [x0, x1)
-    place: dict[str, tuple[int, int]] = {}  # name -> (x, global row)
+    # Real pages: those holding non-scratch pictures (scratch pictures are placed again by a normal pack).
+    real_pages = 1 + max((e["page"] for e in old.values() if not e.get("dev")), default=-1)
+    ghosts: list[tuple] = []  # dev: changed pictures' old cells, kept so their real page stays as encoded
+    used: dict[int, list[tuple[int, int, int, int]]] = {}  # global row -> [(x0, x1, lanes, lane)]
+    place: dict[str, tuple[int, tuple[int, int, int]]] = {}  # name -> (x, lane)
+
+    def fits(row: int, n: int, k: int, x0: int, x1: int) -> bool:
+        return all(x1 <= a or x0 >= b or (n > 1 and m == n and j != k) for a, b, m, j in used.get(row, []))
+
     todo = []
-    for f, raw, w, key in items:
+    for f, raw, w, h, n, key in items:
         e = old.get(f["name"])
-        if e and e.get("key") == key:
+        if e and e.get("key") == key and (dev or not e.get("dev")):
             x = round(e["rect"][0] * ATLAS)
-            row = e["page"] * per_page + (round(e["rect"][1] * page_h) - GUTTER) // stride
-            place[f["name"]] = (x, row)
-            rows.setdefault(row, []).append((x - GUTTER, x + w + GUTTER))
+            y = round(e["rect"][1] * page_h) - GUTTER
+            row = e["page"] * per_page + y // stride
+            lane = (row, n, (y % stride) // (h + 2 * GUTTER))
+            place[f["name"]] = (x, lane)
+            used.setdefault(row, []).append((x - GUTTER, x + w + GUTTER, n, lane[2]))
         else:
-            todo.append((f, raw, w, key))
-    # New and changed: first fit, widest first, into any gap of any existing row.
-    for f, raw, w, key in sorted(todo, key=lambda it: (-it[2], it[0]["name"])):
+            todo.append((f, raw, w, h, n, key))
+            if dev and e and not e.get("dev"):
+                ox = round(e["rect"][0] * ATLAS)
+                oy = round(e["rect"][1] * page_h)
+                ow = round((e["rect"][2] - e["rect"][0]) * ATLAS)
+                oh = round((e["rect"][3] - e["rect"][1]) * page_h)
+                ghosts.append((f, raw, ow, oh, e["key"], ox, oy, e["page"]))
+    # New and changed: first fit, widest first, into any free stretch of any row (dev: scratch pages only).
+    for f, raw, w, h, n, key in sorted(todo, key=lambda it: (it[4], -it[2], it[0]["name"])):
         need = w + 2 * GUTTER
         found = None
-        for row in range(max(rows, default=-1) + 1):
-            x = 0
-            for x0, x1 in sorted(rows.get(row, [])):
-                if x0 - x >= need:
+        for row in range(real_pages * per_page if dev else 0, max(used, default=-1) + 2 + (real_pages * per_page if dev else 0)):
+            for k in range(n):
+                starts = sorted({0} | {b for a, b, _, _ in used.get(row, [])})
+                x = next((x for x in starts if x + need <= ATLAS and fits(row, n, k, x, x + need)), None)
+                if x is not None:
+                    found = (x, (row, n, k))
                     break
-                x = max(x, x1)
-            if ATLAS - x >= need and (x + need <= ATLAS):
-                found = (x, row)
+            if found:
                 break
-        if found is None:
-            found = (0, max(rows, default=-1) + 1)
-        x, row = found
-        rows.setdefault(row, []).append((x, x + need))
-        place[f["name"]] = (x + GUTTER, row)
-    n_pages = (max(rows, default=0) + per_page) // per_page
+        x, lane = found
+        used.setdefault(lane[0], []).append((x, x + need, n, lane[2]))
+        place[f["name"]] = (x + GUTTER, lane)
+    n_pages = (max(used, default=0) + per_page) // per_page
+    if dev:
+        n_pages = max(n_pages, real_pages)
 
     # Page keys: what is on each page, where, and how it is encoded.
     by_page: dict[int, list] = {k: [] for k in range(n_pages)}
-    for f, raw, w, key in items:
-        x, row = place[f["name"]]
-        by_page[row // per_page].append((f, raw, w, key, x, (row % per_page) * stride + GUTTER))
+    for f, raw, w, h, n, key in items:
+        x, (row, _, k) = place[f["name"]]
+        y = (row % per_page) * stride + GUTTER + k * (h + 2 * GUTTER)
+        by_page[row // per_page].append((f, raw, w, h, key, x, y))
+    ghost_by_page: dict[int, list] = {}
+    for f, raw, w, h, key, x, y, page in ghosts:
+        ghost_by_page.setdefault(page, []).append((f, raw, w, h, key, x, y))
+    page_codec = {k: (dev_codec if dev and k >= real_pages else codec) for k in by_page}
     page_key = {
-        k: _sha(codec, str(page_h), *sorted(f"{f['name']}:{key}:{x}:{y}" for f, _, _, key, x, y in cells))
+        k: _sha(page_codec[k], str(page_h), *sorted(
+            f"{f['name']}:{key}:{x}:{y}" for f, _, _, _, key, x, y in cells + ghost_by_page.get(k, [])))
         for k, cells in by_page.items()
     }
     rects, pages, keys = {}, {}, {}
     for k, cells in by_page.items():
-        for f, raw, w, key, x, y in cells:
-            rects[f["name"]] = [x / ATLAS, y / page_h, (x + w) / ATLAS, (y + ROW) / page_h]
+        for f, raw, w, h, key, x, y in cells:
+            rects[f["name"]] = [x / ATLAS, y / page_h, (x + w) / ATLAS, (y + h) / page_h]
             pages[f["name"]] = k
             keys[f["name"]] = key
     # Encode the pages whose key has no cached KTX2 yet.
     for k, cells in by_page.items():
-        out = cache / f"{codec}_{page_key[k]}.ktx2"
+        pc = page_codec[k]
+        out = cache / f"{pc}_{page_key[k]}.ktx2"
         if out.exists():
             continue
         atlas = np.full((page_h, ATLAS, 3), 128, np.uint8)
-        for f, raw, w, key, x, y in cells:
+        for f, raw, w, h, key, x, y in cells + ghost_by_page.get(k, []):
             im = Image.open(raw).convert("RGB")
             if f.get("corner"):
                 # Keep only the middle slice: the corner face at its real width.
                 x0 = round(im.width * (1 - corner_frac(f)) / 2)
                 im = im.crop((x0, 0, im.width - x0, im.height))
-            im = im.resize((w, ROW), Image.Resampling.LANCZOS)
+            im = im.resize((w, h), Image.Resampling.LANCZOS if h == ROW else Image.Resampling.BOX)
             padded = np.pad(np.asarray(im), ((GUTTER, GUTTER), (GUTTER, GUTTER), (0, 0)), mode="edge")
-            atlas[y - GUTTER:y + ROW + GUTTER, x - GUTTER:x + w + GUTTER] = padded
+            atlas[y - GUTTER:y + h + GUTTER, x - GUTTER:x + w + GUTTER] = padded
         png = cache / f"page_{k}.png"
         Image.fromarray(atlas).save(png, compress_level=1)
-        print(f"encoding page {k} ({codec}, {len(cells)} facades)", flush=True)
-        encode_page(png, out.with_suffix(".tmp"), codec)
+        print(f"encoding page {k} ({pc}, {len(cells)} facades)", flush=True)
+        encode_page(png, out.with_suffix(".tmp"), pc)
         out.with_suffix(".tmp").rename(out)
         png.unlink()
     # Publish: hero_atlas_<k>.ktx2, drop stale pages, PNG pages of the old scheme and old cache entries.
@@ -329,17 +369,18 @@ def pack() -> None:
         stale.unlink()
     live = set()
     for k in range(n_pages):
-        src = cache / f"{codec}_{page_key[k]}.ktx2"
+        src = cache / f"{page_codec[k]}_{page_key[k]}.ktx2"
         live.add(src.name)
         shutil.copyfile(src, tex / f"hero_atlas_{k}.ktx2")
     for old_file in cache.glob("*.ktx2"):
-        if old_file.name not in live and old_file.name.split("_")[0] == codec:
+        if old_file.name not in live and old_file.name.split("_")[0] in (codec, dev_codec, "uastc"):
             old_file.unlink()
     for name in rects:
         verdict(name, "packed", rect=rects[name], page=pages[name])
     entries = {
         f["name"]: {"rect": rects[f["name"]], "page": pages[f["name"]], "edges": f["edges"],
-                    "storeys": f["storeys"], "source": f.get("source"), "key": keys[f["name"]]}
+                    "storeys": f["storeys"], "source": f.get("source"), "key": keys[f["name"]],
+                    **({"dev": True} if dev and pages[f["name"]] >= real_pages else {})}
         for f in facades() if f["name"] in rects
     }
     atlas_path.write_text(json.dumps(
@@ -347,7 +388,8 @@ def pack() -> None:
          "storey": STOREY, "groundExtra": GROUND_EXTRA, "facades": entries},
         indent=2, sort_keys=True) + "\n")
     total = sum(p.stat().st_size for p in tex.glob("hero_atlas_*.ktx2")) / 1e6
-    print(f"packed {len(rects)} facades ({len(todo)} new or changed) into {n_pages} page(s), {total:.0f} MB {codec}")
+    print(f"packed {len(rects)} facades ({len(todo)} new or changed) into {n_pages} page(s), {total:.0f} MB {codec}"
+          + (f" (dev: {n_pages - real_pages} scratch page(s) after {real_pages} real)" if dev else ""))
 
 
 def main() -> None:

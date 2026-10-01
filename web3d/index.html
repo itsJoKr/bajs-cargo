@@ -3,28 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>Zagreb Drive</title>
+    <title>Bajs Cargo</title>
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
     <div id="app"></div>
     <div id="loading">
-      <h1>Zagreb Drive</h1>
+      <h1>Bajs <span>Cargo</span></h1>
       <p id="status">Loading…</p>
+      <div id="bar"><i></i></div>
     </div>
+    <div id="mobile" hidden>
+      <div class="card">
+        <h1>Bajs <span>Cargo</span></h1>
+        <p>This one is really made for a laptop or desktop: a keyboard (or a gamepad), a real graphics card and a big screen.</p>
+        <p>Open it on your computer to ride around Zagreb.</p>
+        <button id="anyway" type="button">Try it here anyway</button>
+      </div>
+    </div>
+    <div id="finish" hidden>
+      <div class="card">
+        <small>All 8 delivered</small>
+        <h1>Bajs <span>Cargo</span></h1>
+        <p id="finalTime"></p>
+        <p class="hint">Screenshot and share your score!</p>
+        <button id="again" type="button">Ride again</button>
+      </div>
+    </div>
+    <div id="paused" hidden><div class="card">Paused<small>Click to ride on</small></div></div>
     <div id="hud">
       <div id="place"></div>
+      <div id="job"><small>Deliver the package to</small><b id="jobName"></b><span id="jobStreet"></span><i id="jobCount"></i></div>
+      <div id="timer"></div>
+      <div id="toast"></div>
       <div id="coverage"></div>
+      <div id="fps"></div>
       <div id="meter"><span id="speed">0</span><small>km/h</small><b id="gear">D</b></div>
-      <div id="help">W/↑ gas · S/↓ brake &amp; reverse · A/D steer · Space handbrake · R reset · 0 spawn · O occlusion</div>
-    </div>
-    <div id="touch">
-      <div id="stick"><div class="knob"></div></div>
-      <div id="pedals">
-        <div id="hand" class="pedal">HB</div>
-        <div id="brake" class="pedal">BRAKE</div>
-        <div id="gas" class="pedal">GAS</div>
-      </div>
+      <div id="flipped">Press <b>R</b> to reset</div>
+      <div id="penalty">Back at base<small>ride on in <b id="penaltyLeft">5</b></small></div>
+      <div id="help"></div>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>

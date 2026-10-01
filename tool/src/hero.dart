@@ -105,13 +105,24 @@ class HeroAtlas {
           if (_split(e).$1 == id) _split(e).$2,
       };
       if (mine.isEmpty) continue;
+      // Edges index the outer ring, then each hole: a chain wraps within
+      // the ring of its edges (a courtyard's walls are a hole).
+      var lo = 0, n = polygon.outer.length;
+      final first = mine.reduce(math.min);
+      for (final h in polygon.holes) {
+        if (first < lo + n) break;
+        lo += n;
+        n = h.length;
+      }
+      int prev(int i) => lo + (i - lo - 1 + n) % n;
       // The chain starts at the edge whose predecessor is not in it.
-      final n = polygon.outer.length;
       final start = mine.firstWhere(
-        (i) => !mine.contains((i - 1 + n) % n),
-        orElse: () => mine.reduce(math.min),
+        (i) => !mine.contains(prev(i)),
+        orElse: () => first,
       );
-      final chain = [for (var k = 0; k < mine.length; k++) (start + k) % n];
+      final chain = [
+        for (var k = 0; k < mine.length; k++) lo + (start - lo + k) % n,
+      ];
       double lengthOf(int i) => edges[i].$1.distanceTo(edges[i].$2);
       final total = chain.fold(0.0, (s, i) => s + lengthOf(i));
       final r = f.rect;

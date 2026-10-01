@@ -16,7 +16,9 @@ crowns, and at 21 x 31 m per pixel a narrow street is mostly roof. So:
 3. a normalised Gaussian (sigma 25 m) over the weighted estimates, which
    also smooths the 1 m radar noise;
 4. resample onto a 10 m grid in local metres, relative to the ground at the
-   Ban Jelačić statue.
+   Ban Jelačić statue;
+5. hand corrections (`FILLS`): hollows that step 1 dug under dense blocks
+   are filled smoothly from the grid round them.
 
 Writes data/terrain/ground.json (the full box plus a margin, 10 m cells)
 and data/terrain/far.json (a 200 m grid, 24 x 24 km, DSM minimum-filtered and smoothed, for
@@ -215,6 +217,38 @@ GX, GZ = np.meshgrid(gx0 + np.arange(cols) * CELL, gz0 + np.arange(rows) * CELL)
 g_lon = lon0 + GX / mlon
 g_lat = lat0 + GZ / mlat
 heights = bilinear(ground, lats, lons, g_lat, g_lon) - origin
+
+# Hand corrections: closed hollows that step 1 digs under dense, tall blocks
+# (it takes too much roof off where the radar saw less of it). Inside each
+# polygon (local metres, x east, z north) the grid is replaced by the
+# harmonic fill of the grid round it: the smoothest surface that meets its
+# surroundings. Rerunning is idempotent, the fill only reads cells outside.
+FILLS = {
+    # Ilica 4-14 and the blocks either side of it: the grid fell 6 m in the
+    # 50 m west of the square (20% in front of Nama, Ilica 4) into a 3.5 m pit
+    # under the north blocks; Street View (Jul 2024) shows a gentle fall, two or
+    # three steps under Nama's arcade. Ilica now falls about 3% from the square.
+    'Ilica west of the square': [(-95, -48), (-95, 98), (-305, 98), (-305, -48)],
+}
+
+
+def inside(x, zz, poly):
+    odd = np.zeros_like(x, dtype=bool)
+    for (ax, az), (bx, bz) in zip(poly, poly[1:] + poly[:1]):
+        if az == bz:
+            continue
+        cross = (az > zz) != (bz > zz)
+        odd ^= cross & (x < ax + (zz - az) / (bz - az) * (bx - ax))
+    return odd
+
+
+for name, poly in FILLS.items():
+    mask = inside(GX, GZ, poly)
+    for _ in range(4000):
+        pad = np.pad(heights, 1, mode='edge')
+        mean = (pad[:-2, 1:-1] + pad[2:, 1:-1] + pad[1:-1, :-2] + pad[1:-1, 2:]) / 4
+        heights = np.where(mask, mean, heights)
+    print(f'  filled {name}: {int(mask.sum())} cells')
 
 known = {
     'Trg bana Jelačića': (45.8131, 15.9772),

@@ -296,3 +296,139 @@ And the user's trick: with more than 4 pieces flying a hit piece vanishes with a
 30% chance, and every one past 24 does (`zg.furniture.stats()`). Driving down
 Bogovićeva's terraces now holds 60 fps with the step at its ~1 ms baseline.
 
+## Hand-shaped levels over the terrain grid (2026-09-30)
+
+The terrain grid is Copernicus GLO-30 filtered and smoothed at 25 m: it cannot hold a 5 m step like Dolac's
+plateau over Pod zidom, so the market read as a gentle slope with the market hall extruded on top.
+`data/levels.json` overrides the grid inside hand-drawn outlines (flat, ramp or stairs; later wins), and the
+export cuts every ground surface along them, so no triangle straddles a step, and puts a retaining wall
+wherever the ground jumps. Heights come from OSM step counts (24 + 20 steps up from Pod zidom, 16 wooden
+ones to Opatovina), not from the DEM, which is too coarse and roof-polluted here.
+
+Stairs are drawn as steps but driven as a straight ramp: steps would stop the car (a 0.18 m riser does), and
+the car climbs even 45% from a standstill. The risers sit half a tread in from both ends, so the ramp runs
+floor to floor through the middle of every riser: a first try that lifted the ramp half a riser above the
+floor left a 6 cm lip that, on the 31% wooden flight, caught the car's nose.
+
+## The Bajs cargo bike (2026-09-30)
+
+A second ride next to the Ferrari: Zagreb's public e-cargo bike (nextbike's Bajs, a Dolly long john), ridden by
+a man in a suit. It is the same `Vehicle` (Rapier raycast vehicle) with its own `VehicleTuning`, so steering,
+brake-then-reverse and the handbrake slide work as in the car. Two rays would need an active balance
+controller to stay up, so four rays sit close together (±0.2 m) under the real wheels and the body stays
+upright; `bikeModel.ts` leans the picture into turns (atan(v·yaw rate / g), about the tyre line) instead.
+Pedalling: holding the gas is the e-assist; each press also adds a pedal stroke that fades over 0.35 s
+(`Controls`), and the stroke cadence adds up to 1.8x more drive, so tapping 7-8 times a second reaches
+25 km/h in ~2.9 s against ~5.9 s holding, with the same ~28 km/h top. Letting go below 0.5 m/s holds the bike
+(the rider's foot goes down), since a freewheeling bike otherwise creeps down every slope. The model is
+built from primitives with the livery painted on a canvas at load, not a glTF: no model of this bike exists,
+and it keeps the rider's IK (legs to the turning pedals, hands to the steering grips) simple.
+
+Round 2 (same day): the bike is what you ride by default (the car stays on B). Holding the gas tops out at
+~33 km/h; the tap cadence also raises the ceiling (`sprintTopSpeed`, 45 km/h at full cadence), so tapping
+at full speed goes faster still (~44 km/h at 7 taps a second). The black plastic, frame paint, tyre tread,
+suit wool and coat cloth are gen-image textures (`.art/bike`, made seamless by `tool/prepare_bike.py`), each
+also its own bump map; the livery is painted over the plastic grain. The rider moved to `rider.ts`: lathed
+torso and tapered limbs instead of capsules, a camel overcoat whose tails hang from the pelvis (not the
+torso, so they stay down when he leans), gloves, and extruded oxfords with the ball of the foot on the pedal.
+
+Round 3: tapping goes much faster still: `sprintTopSpeed` 20 m/s and `pedalBoost` 2.6, so 7 taps a second reach
+~67 km/h (25 km/h in 1.7 s) while holding stays at ~33 km/h; full lock at 60 km/h still stays up. The rider's
+hair is 3D: tapered, flattened tubes laid on the skull ellipsoid (`hairGeometry` in rider.ts, merged into one
+mesh) sweeping from a left part, over a close cap, textured with a 128 px gen-image strand texture
+(`bike_hair.jpg`; the locks use a copy turned 90 degrees, since a tube's u runs along it).
+
+Round 4: arcade speeds. Holding the gas tops out at 68 km/h (`topSpeed` 19 m/s) and tapping at ~100 km/h
+(`sprintTopSpeed` 28.9 m/s), with `engineForce` 800 N (0-25 km/h in 1.3 s holding, 0.8 s tapping), less drag
+(0.2) and stronger brakes (7). The four rays keep it up in corners (full lock at 90 km/h tilts ~5 degrees), but a
+hard hit or a kerb at speed can roll it; rather than a self-righting hack, the HUD says "Press R to reset" (also
+a tap target) once the vehicle has been on its side or roof, nearly still, for 0.8 s. The car gets it too.
+
+Round 5: the fast bike slid out and spun in turns at 90 km/h with no way back. Tapping asked the rear tyre for
+up to 2240 N (800 N x 2.8) where it holds ~900 N, and since drive scales with FORWARD speed, a slide (forward
+speed falling) brought back full power and spun it further; bumps at speed also lifted all four rays and the
+landings kicked the yaw. Fixes in `bikeTuning`: traction control (`tractionShare` 0.75 of each rear ray's
+suspension force x friction slip), a rider-balance `gripAssist` that bleeds off sideways velocity while a
+wheel is down and the handbrake is not held, grippier arcade tyres (1.9 / 1.8, which keep the acceleration
+under the traction cap), longer softer suspension (0.18 m rest, 0.14 m travel, stiffness 45), and the physics
+centre of mass at 0.1 m: with four rays 0.4 m apart and the COM at 0.4 m it tipped at ~0.5 g, which is why it
+flipped so easily. `sim.ts` kicks it sideways at 90 km/h and requires it to straighten up (the old tuning spun
+round to -47 km/h).
+
+## Frame rate: no post-processing, adaptive resolution (2026-09-30)
+
+The frame cost is per pixel: full screen on a large Retina display (5120x2880 at pixel ratio 2) was ~7x
+slower than a 1280x720 window with the same draw calls. Measured with `zg.bench` in headless Chrome (Metal):
+the EffectComposer (half-float 4x MSAA target, OutputPass copy) cost 2-2.5x at 4K-5K (47 -> 23 ms, 82 -> 32 ms);
+GTAO doubled it again. GTAO and the composer are gone: the far scene and the city render straight to the
+canvas (its own MSAA, tone mapping in the materials; screenshots match). The pixel ratio starts under a
+4.2 MP budget and follows the frame rate (down a 0.85 step after two seconds under 55 fps or one under 40, up after 4 s over 58,
+never back to a step that dropped frames; 0.6 to min(devicePixelRatio, 2)); the HUD shows fps and the buffer
+size. Sun shadows cost 1.5-3.5 ms at 720p-4K (4096 vs 2048 map: no difference) and stay. The hero atlas
+(ETC1S, transcoded to ETC2 on Apple GPUs, 0.5 byte a pixel, mipmapped) is not a frame-rate cost.
+
+## The Cathedral is modelled by hand; low-res where nobody looks (2026-09-30)
+
+- OSM's building:parts gave floating tower blocks and no Gothic shape; the hero atlas gives every picture one fixed
+  row height, so a 62 m tower front would get 12 px/m. The Cathedral is therefore a hand-built model with its own
+  textures, the OSM outline left out of the export (`omit`), placed through city.json `landmarks`.
+- Spires as before the 2020 earthquake (the user's reference and the city's silhouette), not the 2024 scaffolding.
+- Texture budget (the user's rule): full resolution only at street level where the player can drive; anything high
+  up super low-res; anything the player cannot reach very low-res and closed off with a visible fence, not an
+  invisible wall. Hero facades got `res` (atlas lanes of 1/2, 1/4, 1/10 height) so such pictures cost little.
+
+## Covered passages: doorways in the export, interiors in the game (2026-09-30)
+
+- Buildings are hollow shells, so a passage is two things: `tool/src/passages.dart` cuts a doorway into every wall edge
+  its corridor crosses (facades at the passage's ends get the doorway size from `data/passages.json`, inner party and
+  courtyard walls are cut to the full corridor so no jambs stand in it), and `web3d/src/passages.ts` builds the inside
+  from city.json `passages`: side walls, a flat ceiling or a glass barrel vault, a floor draped on the ground, lamps,
+  colliders, and for the Oktogon the eight-sided hall and its stained-glass dome.
+- No real lights: every three.js light costs every pixel of the city. The interiors are unlit materials with the lamps'
+  light baked into vertex colours; lamps are small glowing meshes.
+- Textures are low-res gen-image redrawings of the user's photos of the real interiors (`public/models/passages/`,
+  256-512 px): the Oktogon's hall faces, its arch face, the dome seen from below (projected onto the dome), the corridor
+  wall and the glass roof, and Marićev prolaz's travertine wall with posters. Floors are procedural canvases.
+- The Oktogon's Ilica arm runs through a courtyard in the model; it has a glass roof in reality, so `coverAll` roofs it
+  from the first facade to the last.
+
+## Delivery destinations are data, not baked (2026-09-30)
+
+`data/deliveries.json` is resolved against `city.json` walls at load in the browser (no Dart rebake): a wall id plus
+`at`/`out` survives facade re-exports as long as the wall id does. Pads are pale yellow, `MeshBasicMaterial`, not tone
+mapped (white washes out under this sun). Delivering needs the vehicle within 2.4 m of the pad at under 9 m/s.
+The Google Maps sweep the brief asked for was not done street by street: businesses come from the lettering already on
+our textures, cross-checked against Maps only for Pod zidom 3.
+
+## Terrain hollows are filled in the terrain tool, not by levels (2026-10-01)
+
+The grid's 6 m drop at the start of Ilica was not a slope to reshape locally but a closed pit under dense blocks: step 1 of
+`tool/prepare_terrain.py` takes ~65% of the OSM building height off each radar pixel, too much where tall deep blocks (Nama, Ilica 6-14)
+stand at the foot of the Gornji grad escarpment. A `levels.json` region would have needed a hand-made profile and the client's bare grid
+to follow it (as `dip` does); a harmonic fill in the terrain tool keeps one source of truth, follows whatever surrounds the polygon,
+is idempotent, and reaches the exporter and the game alike through `data/terrain/ground.json`. Street View agrees: two or three steps
+under Nama's arcade over 25 m, not a 20% street.
+
+## Arches are cut in the export; the arcade's back is a part (2026-10-01)
+
+Nama's arcade could have stayed painted. Cutting the arches out of the wall (`Arches`) keeps the facade picture as the one source of the
+look (the piers and spandrels ARE the picture) and makes the arcade walkable and its depth visible; the steps follow from a wall that
+starts at its highest sidewalk. The walkway's back wall is an ordinary building part with pictures, so it uses the hero pipeline.
+
+## The download is compressed losslessly where it can be (2026-10-01)
+
+For public hosting the build was 176 MB a first visit. The city glb (19 MB of floats and indices) ships gzipped and is unzipped
+in the browser: lossless, so the colliders, the hero UVs (`-1 - page` in UV1.x) and the chunk seams stay bit-exact, which mesh
+quantization (Draco, meshopt) would not guarantee; 2.6 MB is as small as those would get. Hosts do not compress `.glb` on their own.
+The tiled facade/surface/roof atlases went from PNG (10.8 MB) to ETC1S KTX2 (1.7 MB, also a quarter of the GPU memory); side-by-side
+renders differ by 1-3 levels in 255. The hero pages (130 MB) are already ETC1S at -q 255 and smaller than JPEG at quality 85: their
+size is the picture area (41 pages), not the format.
+
+## Frame rate: cut CPU and draw calls, not picture quality (2026-10-01)
+
+The game ran ~60 fps on the M1 Pro; the aim was cheaper laptops. Measured, the frame was bound by the CPU (three.js submitting ~850
+draw calls, program lookups, Rapier's bookkeeping), not by pixels, so the cuts went there and nothing visible changed: merging static
+meshes, one program per material, the bare physics pipeline. MSAA, anisotropic filtering and the 4096 shadow map stayed, since turning
+them down measured as noise here; on a weak GPU the adaptive resolution trades pixels instead, and it now refuses to blur a picture
+when fewer pixels do not help. Skipping Rapier's `mapNewSoftBodies` sweep is safe because the game never makes bodies inside wasm
+(no soft bodies, no snapshots): JS-made bodies are mapped at creation and unmapped at removal.

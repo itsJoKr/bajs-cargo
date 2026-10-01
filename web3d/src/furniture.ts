@@ -1,7 +1,8 @@
 // Café terraces as loose furniture: every table with its two chairs and its
 // parasol is a set of Rapier bodies the car can scatter. Tables come from
 // city.json `terraces` (OSM outdoor seating, tool/src/street_props.dart) and
-// from `terrace` features (features.ts).
+// from `terrace` features (features.ts). Market stalls (city.json `stalls`,
+// data/markets.json) are trestle tables, some under a parasol.
 //
 // Each piece sleeps until something touches it and sits in a lower dominance
 // group than the car, so it never slows or lifts the car. A slow car simply
@@ -31,7 +32,10 @@ import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 /** [x, z, base y, yaw, parasol colour]: yaw turns +z onto the chairs' line. */
 export type TerraceTable = [number, number, number, number, string];
 
-type Kind = 'chair' | 'table' | 'parasol';
+/** [x, z, base y, yaw, parasol colour or '']: yaw turns +x onto the long side. */
+export type MarketStall = [number, number, number, number, string];
+
+type Kind = 'chair' | 'table' | 'parasol' | 'stall';
 
 /** Collision groups: (membership << 16) | filter. */
 const TABLE = 0x0002, PARASOL = 0x0004, CHAIR = 0x0008;
@@ -39,6 +43,7 @@ const FURNITURE = CHAIR | TABLE | PARASOL;
 const groups = {
   chair: (CHAIR << 16) | 0xffff,
   table: (TABLE << 16) | (0xffff & ~PARASOL),
+  stall: (TABLE << 16) | (0xffff & ~PARASOL),
   parasol: (PARASOL << 16) | (0xffff & ~(PARASOL | TABLE)),
 };
 
@@ -79,6 +84,18 @@ function tableGeometry() {
   ])!;
 }
 
+/** A market stall: a 2 x 1 m board on two trestles. */
+function stallGeometry() {
+  const wood = '#8a6644', frame = '#4a4f55';
+  const parts = [painted(new THREE.BoxGeometry(2, 0.05, 1), wood, 0.83)];
+  for (const x of [-0.85, 0.85]) {
+    parts.push(painted(new THREE.BoxGeometry(0.05, 0.8, 0.05).translate(x, 0, -0.42), frame, 0.4));
+    parts.push(painted(new THREE.BoxGeometry(0.05, 0.8, 0.05).translate(x, 0, 0.42), frame, 0.4));
+    parts.push(painted(new THREE.BoxGeometry(0.04, 0.04, 0.9).translate(x, 0, 0), frame, 0.2));
+  }
+  return mergeGeometries(parts)!;
+}
+
 function parasolGeometry() {
   return mergeGeometries([
     painted(new THREE.CylinderGeometry(0.3, 0.3, 0.06, 10), '#3a3d40', 0.03),
@@ -115,6 +132,8 @@ export class Furniture {
   private readonly q = new THREE.Quaternion();
   private readonly one = new THREE.Vector3(1, 1, 1);
 
+  /** Called when the car sends a piece flying (for the sound). */
+  onHit: ((kind: Kind, x: number, y: number, z: number, speed: number) => void) | null = null;
   private readonly R: typeof RAPIER_NS;
   private readonly world: RAPIER_NS.World;
 
@@ -128,12 +147,14 @@ export class Furniture {
     world: RAPIER_NS.World,
     tables: TerraceTable[],
     groundBelow: (x: number, y: number, z: number) => number | null = () => null,
+    stalls: MarketStall[] = [],
   ) {
     this.R = R;
     this.world = world;
     this.root.name = 'furniture';
     const frame = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.55, metalness: 0.35 });
     const n = tables.length;
+    const shaded = stalls.filter((s) => s[4]).length;
     const instanced = (g: THREE.BufferGeometry, material: THREE.Material, count: number) => {
       const mesh = new THREE.InstancedMesh(g, material, count);
       mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
@@ -146,15 +167,16 @@ export class Furniture {
     this.meshes = {
       chair: instanced(chairGeometry(), frame, 2 * n),
       table: instanced(tableGeometry(), frame, n),
-      parasol: instanced(parasolGeometry(), frame, n),
+      parasol: instanced(parasolGeometry(), frame, n + shaded),
+      stall: instanced(stallGeometry(), frame, stalls.length),
     };
     this.canopies = instanced(
       new THREE.ConeGeometry(1.35, 0.5, 8, 1, true).translate(0, 2.5, 0),
       new THREE.MeshStandardMaterial({ side: THREE.DoubleSide, roughness: 0.9 }),
-      n,
+      n + shaded,
     );
 
-    const counts: Record<Kind, number> = { chair: 0, table: 0, parasol: 0 };
+    const counts: Record<Kind, number> = { chair: 0, table: 0, parasol: 0, stall: 0 };
     const color = new THREE.Color();
     const up = new THREE.Vector3(0, 1, 0);
     for (const [x, z, y, yaw, canopy] of tables) {
@@ -171,11 +193,48 @@ export class Furniture {
       this.add('parasol', at(x, z), new THREE.Quaternion(), i);
       this.canopies.setColorAt(i, color.set(canopy));
     }
+    for (const [x, z, y, yaw, canopy] of stalls) {
+      const at = (px: number, pz: number) => new THREE.Vector3(px, (groundBelow(px, y, pz) ?? y) + 0.01, pz);
+      this.add('stall', at(x, z), new THREE.Quaternion().setFromAxisAngle(up, yaw), counts.stall++);
+      if (!canopy) continue;
+      // Behind the seller's side of the board, so the board stays in the shade.
+      const bx = x + Math.sin(yaw) * 0.35, bz = z + Math.cos(yaw) * 0.35;
+      const i = counts.parasol++;
+      this.add('parasol', at(bx, bz), new THREE.Quaternion(), i);
+      this.canopies.setColorAt(i, color.set(canopy));
+    }
     this.place(1);
   }
 
   get count() {
     return this.pieces.length;
+  }
+
+  /** Every chair as a place to sit (people.ts): where it stands, which way a sitter faces
+   * (toward the table), and whether it has been knocked off its spot. */
+  seats() {
+    const out: { x: number; y: number; z: number; heading: number; disturbed: () => boolean }[] = [];
+    for (const piece of this.pieces) {
+      if (piece.kind !== 'chair') continue;
+      const q = piece.homeQ;
+      out.push({
+        x: piece.home.x,
+        y: piece.home.y,
+        z: piece.home.z,
+        heading: 2 * Math.atan2(q.y, q.w) + Math.PI,
+        disturbed: () => {
+          if (piece.gone || piece.kicked) return true;
+          const t = piece.body.translation();
+          return Math.hypot(t.x - piece.home.x, t.z - piece.home.z) > 0.12 || Math.abs(t.y - piece.home.y) > 0.1;
+        },
+      });
+    }
+    return out;
+  }
+
+  /** Where the tables and chairs stand, [x, z, radius], for walkers to keep clear of. */
+  spots(): [number, number, number][] {
+    return this.pieces.filter((p) => p.kind !== 'parasol').map((p) => [p.home.x, p.home.z, p.kind === 'stall' ? 1.4 : 0.6]);
   }
 
   private add(kind: Kind, home: THREE.Vector3, homeQ: THREE.Quaternion, index: number) {
@@ -195,9 +254,9 @@ export class Furniture {
     };
     this.pieces.push(piece);
     this.byBody.set(body.handle, piece);
-    const collider = (desc: RAPIER_NS.ColliderDesc, y: number, mass: number, z = 0) => {
+    const collider = (desc: RAPIER_NS.ColliderDesc, y: number, mass: number, z = 0, x = 0) => {
       const c = this.world.createCollider(
-        desc.setTranslation(0, y, z).setMass(mass).setFriction(0.5).setRestitution(0.2).setCollisionGroups(groups[kind]),
+        desc.setTranslation(x, y, z).setMass(mass).setFriction(0.5).setRestitution(0.2).setCollisionGroups(groups[kind]),
         body,
       );
       this.byCollider.set(c.handle, piece);
@@ -210,6 +269,9 @@ export class Furniture {
       collider(R.ColliderDesc.cuboid(0.34, 0.02, 0.34), 0.74, 6);
       collider(R.ColliderDesc.cuboid(0.04, 0.345, 0.04), 0.375, 3);
       collider(R.ColliderDesc.cuboid(0.2, 0.03, 0.2), 0.03, 8);
+    } else if (kind === 'stall') {
+      collider(R.ColliderDesc.cuboid(1, 0.025, 0.5), 0.83, 14);
+      for (const x of [-0.85, 0.85]) collider(R.ColliderDesc.cuboid(0.03, 0.4, 0.45), 0.4, 4, 0, x);
     } else {
       collider(R.ColliderDesc.cuboid(0.27, 0.04, 0.27), 0.04, 18);
       collider(R.ColliderDesc.cuboid(0.025, 1.27, 0.025), 1.33, 2);
@@ -260,6 +322,8 @@ export class Furniture {
   private launch(piece: Piece, v: RAPIER_NS.Vector, speed: number, carPos: RAPIER_NS.Vector) {
     const b = piece.body;
     const n = this.flying.size;
+    const at = b.translation();
+    this.onHit?.(piece.kind, at.x, at.y, at.z, speed);
     if (n >= maxFlying || (n > crowd && Math.random() < vanish)) {
       piece.gone = true;
       b.setEnabled(false);

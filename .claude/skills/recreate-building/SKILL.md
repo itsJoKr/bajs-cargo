@@ -141,6 +141,9 @@ areas - `tool/prepare_facades.py` reads every section file):
   **main cornice** (mezzanines and the ground floor count; attic floors in
   the roof do not). The wall's eave becomes `storeys * 3.7 + 1.0` m so the
   picture is never stretched - count carefully.
+- `res` (optional, 0.5 / 0.25 / 0.1): walls the player cannot reach (behind a fence in
+  `data/fences.json`) get a low-res picture packed into a fraction of an atlas row. Anything
+  high up or unreachable is deliberately low-res; only street level deserves full resolution.
 - `look`: a precise description the image model reads next to the photo:
   style and period, colours, window shapes, balconies, ornament, **and
   every piece of text verbatim** ("red 'SINGER' letters over both corner
@@ -205,6 +208,13 @@ Look at the roof from above and from the street. Correct it in
 - Street walls always meet the roof at the eave (the roof slopes down to
   every street wall); a gable end facing the street needs
   `roof:shape: gabled` with the ridge across it.
+- An L, T or U-shaped building gets one roof over its whole minimum-area
+  box, which fits none of its wings (a plateau with stucco bands on the
+  walls): give it `"roofWings": [{"name": ..., "corners": [[x, z] x4]}]`,
+  one rectangle per wing (tool frame) with its sides on the wing's wall
+  lines and overlapping where wings meet. The roof is the highest wing;
+  what no wing covers (a round corner tower) is flat at the eave and
+  takes a cone `dome` feature (the archbishop's palace, `w101185039`).
 - Domes, towers, rooftop signs and other things on the roof are
   **features** (next step).
 
@@ -226,6 +236,7 @@ Record where it came from in a `source` field.
 | `dome` | `at` (1 = right corner), `radius`, `height` (drum), `aboveEave`, `out`, `shape`: `dome`/`onion`/`cone`, `color` | corner domes, turrets, tower caps |
 | `box` | `at`, `out`, `width`, `depth`, `height`, `y`, `color` | dormers, chimneys, kiosk-like blocks, planters, anything boxy |
 | `model` | `url` (GLB under `web3d/public/`), `at`, `out`, `y`, `yaw` (deg), `scale` | anything else: statues, benches, vehicles, special structures |
+| `oriel` | `at`, `width` (at the wall), `out` (depth), `y` (bottom), `aboveEave` (top), `corbel` (m), `image` (strip wrapped round the face), `texture`/`repeat`/`color` (corbel and cap) | a rounded bay window standing out of the wall (Nama's over its gate; strip cut from the facade raw by `tool/make_nama.py`) |
 
 **Textures on decorations.** `awning`, `box`, `dome` (its cap) and `scaffolding`
 (its net) also take `texture` (file under `web3d/public/features/tex/`, jpg, or
@@ -250,6 +261,12 @@ cd .art/features/<name> && codex exec -m gpt-5.5 --sandbox workspace-write --ski
 more input.) Check the spelling in the result against the photo; rerun if
 wrong. A new 3D model: prefer an existing CC0/CC-BY model (note the licence
 in `web3d/ATTRIBUTION.md`), or build it from `box`/`dome` features.
+
+**Arcades.** An open arcade or colonnade is `data/arcades.json`: `edges` lift whole walls, `spans` open part of
+one, `arches` cut round arches into one edge (openings t0..t1 and the crown measured on `raw.png`, in the picture's
+metres). The wall then starts at its HIGHEST sidewalk so the arches stay level, and each bay of the walkway gets a
+floor one riser above its own pavement. The back of the walkway is a hand-made `part` (a U whose arms close the ends)
+with its own pictures; see Nama (w97089760, w9000000050).
 
 ## 7. Export and verify in the game
 

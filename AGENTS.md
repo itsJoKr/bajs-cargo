@@ -1,6 +1,6 @@
-# Zagreb Drive project guide
+# Bajs Cargo project guide (formerly Zagreb Drive)
 
-Zagreb Drive is a free-roam driving game set in a recognisable 3D model of
+Bajs Cargo is a free-roam driving game set in a recognisable 3D model of
 central Zagreb, built with three.js and Rapier in the browser (`web3d/`). A
 personal pet project. This file is the next session's only memory: keep it
 current. `docs/decisions.md` records why things are the way they are;
@@ -13,8 +13,12 @@ pipeline lives on here in `tool/` as a plain Dart CLI.
 ## Layout
 
 - `web3d/` — the game: Vite + TypeScript + three.js + Rapier.
-  - `src/vehicle.ts` (the Rapier raycast-vehicle car, no three.js, runs under
-    Node), `carModel.ts` (the Ferrari model posed from it), `city.ts` (the
+  - `src/vehicle.ts` (the Rapier raycast vehicle with the car's and the
+    Bajs cargo bike's tunings, no three.js, runs under Node), `carModel.ts`
+    (the Ferrari model posed from it), `bikeModel.ts` (the Bajs cargo bike,
+    what you ride by default; B swaps to the car, `?ride=car` starts in it),
+    `rider.ts` (its rider: overcoat over a suit, lathed body, IK legs and
+    arms), `city.ts` (the
     exported glTF, the atlas material, props, colliders), `features.ts`
     (`data/buildings.json` features), `terrain.ts` (ground grid and far
     horizon), `trees.ts` (three instanced species built at load: plane,
@@ -22,15 +26,51 @@ pipeline lives on here in `tool/` as a plain Dart CLI.
     (ZET TMK 2200 trams on the real tracks, textured from
     `public/models/tram_atlas.png`; `tramLayout.ts` is generated),
     `furniture.ts` (café tables, chairs and parasols as loose Rapier bodies
-    the car scatters; from city.json `terraces` and `terrace` features),
+    the car scatters; from city.json `terraces` and `terrace` features, plus
+    market stalls from `stalls`),
+    `people.ts` (the crowd: instanced pedestrians walking city.json `walk`, café guests on the chairs; the car/bike
+    knocks them flying, `Crowd.onHit` -> sound; 87 walkers on and around the square plus 30 kept to `AREAS` further out
+    (Dolac's plateau, Kaptol before the Cathedral, Praška, Vlaška, Tkalčićeva...), `?people=N` sets the total),
+    `birds.ts` (pigeon flocks that scatter), `squareprops.ts` (hand-placed props from `data/props.json`:
+    candelabra, flagpoles, ad columns, clock, bins, planters...), `catenary.ts` (tram overhead wires,
+    masts, span wires),
+    `cathedral.ts` (Zagreb Cathedral built by hand: the OSM outline is `omit`ted, city.json
+    `landmarks` places it; textures from `tool/make_cathedral.py`), `fences.ts` (site fences from
+    `data/fences.json` round what the player may not enter, with colliders),
+    `passages.ts` (covered passages through the blocks from `data/passages.json`: Marićev
+    prolaz and the Oktogon's glass-domed hall; walls, ceilings, lamps baked into vertex colours,
+    colliders; the export cuts the doorways, `tool/src/passages.dart`),
+    `gates.ts` (open iron gates with plaster posts and lanterns, plus rubble / plaster garden walls, from `data/gates.json`: the private road along the Kaptol walls),
+    `parkprops.ts` (the EU star garden and the closed toilet's stairwell, gate and lift on the Cesarca lawn, from `data/park.json`,
+    which also lists extra trees),
+    `deliveries.ts` (the delivery game: a random business by name, its street 5 s later, pale yellow pads on
+    the floor at every door from `data/deliveries.json`; drive onto the current pad to deliver),
+    `audio.ts` (sound synthesised with Web Audio, except the pigeon recordings: freewheel ticks and tyre hiss, the car's
+    engine, handbrake squeal, positional tram rumble/whine and a school-bell ring while a tram is held up
+    (`Trams.audioSources()`, `blocked`), furniture crashes via `Furniture.onHit`, the delivery chime, the cathedral's low bell once a minute (a real CC0 recording, BigSoundBank s3446 `bell.mp3`, slowed to 0.45x; positional, `CATHEDRAL_BELL`, carries to the
+    main square), a city murmur that swells over the square, a crunch on hard stops, pigeon wing flaps (real CC0 recordings from BigSoundBank "Flight of a Pigeon" s0840 / s0476 in
+    `web3d/public/sounds/`; a scattering flock layers ~7 of them, nearby flocks flutter now and then) when a flock
+    scatters; starts on the
+    first key/click, M mutes; `zg.audio`),
     `chaseCamera.ts`,
-    `input.ts` (keyboard, gamepad, touch), `places.ts` (HUD place names),
-    `main.ts` (loop, sky, lighting, GTAO, HUD, `window.zg` debug surface).
-  - `tools/sim.ts` physics checks, `tools/shot.mjs` headless Chrome over CDP,
+    `merge.ts` (`mergeStatic`: static meshes under one parent with one material become one draw call, posed
+    meshes flagged `userData.moves` stay; `shareMaterials`: colour-only material variants share one, tint in
+    the vertices; used by the bike/rider and features),
+    `input.ts` (keyboard, gamepad; no touch controls: desktop only, phones and
+    tablets get a "made for a laptop" dialog from `main.ts`, `?desktop` skips it), `places.ts` (HUD place names),
+    `main.ts` (loop, sky, lighting, adaptive render resolution, HUD with fps, `window.zg` debug surface; pauses
+    world, timer and sound while the tab is hidden or the window unfocused, carries on when the player is back;
+    stops them for good after the 8th delivery (the finish card says "Screenshot and share your score!"); 0 goes back to
+    base and holds the rider there for 5 s while the clock runs, so it is no shortcut).
+  - `tools/sim.ts` physics checks, `tools/tram_sim.ts` tram traffic (junction
+    lockups, overlaps), `tools/shot.mjs` headless Chrome over CDP,
     `tools/compare_sv.py` renders from Street View cameras beside the photos,
     `tools/sync-assets.mjs` copies the atlases (hero pages
-    `hero_atlas_<n>.png`) and the Draco decoder into `public/` before
-    `dev`/`build`.
+    `hero_atlas_<n>.ktx2`) and the Draco decoder into `public/` before
+    `dev`/`build`; it encodes the facade/surface/roof PNG atlases to ETC1S
+    KTX2 (`basisu`) when a PNG's hash differs from `assets/textures/atlas_ktx2.json`.
+    `npm run build` ships `city/zagreb.glb.gz` (gzipped in `vite.config.ts`,
+    unzipped by `city.ts`); dev serves the plain glb.
   - `public/city/` is generated by `tool/export_web.dart`; `public/features/`
     holds feature images; `public/models/` the car.
 - `tool/` — the city pipeline (Dart CLI, `pubspec.yaml` at the root) and the
@@ -40,11 +80,23 @@ pipeline lives on here in `tool/` as a plain Dart CLI.
   `buildings.dart` heights, walls and roofs, `ground.dart` streets, squares,
   kerbs, rails, trees, `hero.dart` the Street View facades, `roofs.dart` the
   roof set, `street_props.dart` kiosks, platforms, terraces, monuments,
-  lamps, `props.dart` tree instances, `terrain_grid.dart`, `mesh_writer.dart`.
+  lamps, `props.dart` tree instances, `terrain_grid.dart`, `levels.dart`
+  (hand-shaped plateaus, ramps, stairs, retaining walls), `passages.dart` (doorways cut
+  for covered passages, city.json `passages`), `mesh_writer.dart`.
 - `data/` — committed inputs: `osm/` (the OSM snapshot), `terrain/` (ground
   and far grids), `hero/` (facade entries per section, `atlas.json`,
   `coverage.json`), `buildings.json` (per-building corrections and
-  features), `roofs.json`, `facade_styles.json`.
+  features; `part` adds a hand-drawn volume, `outline` replaces an OSM way's ring), `roofs.json`, `facade_styles.json`, `levels.json` (flat
+  plateaus, ramps, stairs and `dip` hollows that override the terrain grid: Dolac, its
+  stairs, Kerempuh/Opatovina, Ribnjak park; pedestrians walk all but dips and `"crowd": false`), `markets.json` (market stall grids, loose
+  furniture), `raised.json` (the square's stepped frontage), `fences.json`
+  (fence lines closing off unreachable places, e.g. the Cathedral's sides and the roadblock on the Kaptol road; walls behind them: `tool/make_behind_fence.py`), `passages.json`
+  (covered passages: centreline, width/height, doorway size, the Oktogon's hall), `arcades.json` (colonnades: walls lifted over an open ground floor plus a soffit, `spans` for part of an edge; `arches`: round arches cut into one edge with a stepped walkway behind them, Nama on Ilica; `Arcade`/`Arches` in `tool/src/buildings.dart`),
+  `rear_walls.json` (wall ids that wear the
+  seamless weathered-plaster tile 49 (no windows) instead of plain stucco: back walls seen from the private roads; found with `PTS="x,z;..." tool/plain_scan.py`).
+- `data/deliveries.json` — delivery destinations: `wall` + `at` (0..1 along the wall, left to right as in its
+  facade picture) + `out` (m, default 1.1), or tool-frame `x`,`z` (+`y`, `probe`) for interiors. Copied to
+  `web3d/public/city/` by `sync-assets.mjs` (rerun it after an edit). `docs/MISSING_BUSINESSES.md` lists what lacks a sign.
 - `assets/textures/` — the atlases the web build samples (facade, surface,
   hero, roof). `docs/` — decisions and progress.
 
@@ -65,19 +117,35 @@ pipeline lives on here in `tool/` as a plain Dart CLI.
 cd web3d && npm install && npm run dev      # http://localhost:5180/
 npm run check                               # typecheck
 npm run build                               # production build
-node tools/sim.ts                           # 20 physics checks
+node tools/sim.ts                           # 32 physics checks (car, bike, furniture)
+node tools/tram_sim.ts 30 150               # 30 min of trams at 4x the game's density
 fvm dart tool/export_web.dart               # rebake the city after any tool/src or data change
-.venv/bin/python tool/prepare_terrain.py    # rebuild data/terrain from .art/dem (Copernicus GLO-30)
+tool/export_locked.sh                       # the same under a lock + asset sync (use it when workers run in parallel)
+fvm dart tool/export_web.dart --dump-walls  # also writes .art/walls_all.json (every wall edge; audits)
+.venv/bin/python tool/plain_scan.py         # which plain walls are visible from the square (dev server up)
+.venv/bin/python tool/make_firewalls.py     # weathered plaster / corner strips for those (data/hero/firewall.json)
+.venv/bin/python tool/prepare_terrain.py    # rebuild data/terrain from .art/dem (Copernicus GLO-30); FILLS smooths hollows (Ilica)
 .venv/bin/python tool/prepare_roofs.py      # repack the roof set
-.venv/bin/python tool/prepare_facades.py crop|generate|pack [name...]
+.venv/bin/python tool/prepare_facades.py crop|generate|pack [name...]   # HERO_DEV=1 pack: fast, unoptimised scratch pages while iterating
 .venv/bin/python tool/prepare_tram.py      # .art/tram views -> tram atlas + tramLayout.ts
 .venv/bin/python tool/prepare_trees.py     # .art/trees gen-image raws -> leaf atlas + barks
+.venv/bin/python tool/prepare_bike.py      # .art/bike gen-image raws -> seamless public/models/bike_*.jpg
 .venv/bin/python tool/sv_rectify.py spec.json   # several Street View frames -> one straight-on wall photo
-.venv/bin/python tool/make_glass_tower.py       # Neboder tower + podium sides (procedural)
+.venv/bin/python tool/make_glass_tower.py       # Neboder tower sides (procedural glass, real lobby on Ilica)
+.venv/bin/python tool/make_ban_centar.py        # Ban centar (the EU building) facades, procedural
+.venv/bin/python tool/make_cathedral.py         # Cathedral textures (.art/cathedral gen-image raws -> public/models/cathedral)
+.venv/bin/python tool/make_nama.py              # Nama's oriel strip, travertine tile, arcade back walls (from its facade raw)
 ```
 
 After `export_web.dart`, reload the page. The export prints the real-facade
 coverage ("Real facades: N of 859 street walls").
+
+## Texture budget
+
+Full resolution only where the player looks closely: street level, the lower ~20 m of a facade.
+Anything high up (towers, spires, upper stages) is super low-res (~3.5 px/m), and anything the
+player cannot reach is very low-res and fenced off (`data/fences.json`). Hero facades of such
+walls take `"res": 0.25` (or 0.1) and pack into quarter- (tenth-) height atlas lanes.
 
 ## Coordinates
 
@@ -103,10 +171,14 @@ is the done/todo list.
 
 - Screenshots of the game: `node web3d/tools/shot.mjs --eval "..." --sleep 800
   --shot out.png` (its own headless Chrome over CDP; prints the page
-  console). Never drive the game page with the Chrome extension.
+  console; `--mobile` emulates a touch-only phone, which gets the desktop-only dialog). Never drive the game page with the Chrome extension.
 - `window.zg`: `look(eye, target, fov?)`, `lookAtWall(id, distance?,
-  eyeHeight?)`, `drive()`, `teleport(x, z, heading)`, `groundAt(x, z)`,
-  `vehicle`, `trams`, `furniture` (`reset()`, `awake()`, `stats()`), `renderer`, `scene`, `camera`. URL: `?park=square`
-  parks the camera, `?ao=1` enables GTAO (off by default; O toggles), `?pause` stops before the loop.
+  eyeHeight?)`, `drive()`, `teleport(x, z, heading)`, `groundAt(x, z)`, `ride('bike' | 'car')`,
+  `vehicle`, `trams`, `deliveries`, `job(id)` (force the current job), `furniture` (`reset()`, `awake()`, `stats()`), `renderer`, `scene`, `camera`. URL: `?park=square`
+  parks the camera, `?dpr=1.5` fixes the render pixel ratio (else it adapts to the frame rate), `?pause` stops before
+  the loop. `zg.bench(n)` renders n frames waited out on the GPU (ms a frame, draw calls); `shot.mjs --dpr 2` emulates Retina.
+- Frame rate: `shot.mjs --uncapped --eval "zg.fps(8)"` rides for 8 s at whatever the machine can draw (fps, p50/p95/p99 ms);
+  add `--throttle 4` (a step, after the load) for a cheap laptop's CPU, `?dpr=1` to hold the resolution. Baseline 2026-10-01 on the
+  M1 Pro, 1920x1080 `?dpr=1`: ~240 fps, ~75 fps at `--throttle 4`.
 - `.claude/rules/zagreb-web.md` holds the traps; add to it whenever
   something costs time.

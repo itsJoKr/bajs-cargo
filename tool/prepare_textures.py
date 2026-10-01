@@ -66,6 +66,8 @@ STYLES = [
     "courtyard",
 ]
 PLAIN_TILE = 48
+# Weathered whitewashed plaster, seamless: the back walls seen from the private roads (data/rear_walls.json).
+PLASTER_TILE = 49
 
 # Surface atlas tile ids; tool/src/ground.dart's Surface enum and the tree
 # mesh use the same numbers.
@@ -245,6 +247,39 @@ def procedural(kind: str) -> np.ndarray:
     return np.clip(base + noise(8, 20)[..., None], 0, 255)
 
 
+def plaster_tile() -> np.ndarray:
+    """A seamless weathered-plaster tile (INNER px): cream-grey whitewash with damp mottling, bare ochre
+    patches, fine grain and a few rain streaks. About 3 m a tile, so ~75 px/m."""
+    rng = np.random.default_rng(49)
+    n = INNER
+
+    def noise(scale: int, amp: float, sx: int = 0) -> np.ndarray:
+        # Periodic: the grid is tiled 3 x 3, enlarged, and the middle ninth kept.
+        g = rng.random((scale, sx or scale))
+        big = np.tile(g, (3, 3))
+        im = Image.fromarray((big * 255).astype(np.uint8)).resize(
+            (3 * n, 3 * n), Image.Resampling.BICUBIC
+        )
+        return (np.asarray(im)[n : 2 * n, n : 2 * n].astype(np.float32) / 255 - 0.5) * amp
+
+    base = np.full((n, n, 3), [238.0, 232.0, 220.0])
+    mottle = noise(6, 12) + noise(18, 10) + noise(56, 8)
+    img = base + mottle[..., None]
+    # Damp grey-brown patches and a few bare plaster (warm ochre) patches, soft-edged.
+    damp = np.clip(noise(9, 50) - 10, 0, None)[..., None] * np.array([1.0, 1.0, 1.05])
+    bare = np.clip(noise(11, 60) - 22, 0, None)[..., None] * np.array([0.35, 0.65, 1.0])
+    img = img - damp - bare
+    # A few soft rain streaks, periodic in x (blurred columns).
+    cols = (rng.random(n) > 0.975).astype(np.float32)
+    k = np.exp(-0.5 * (np.arange(-6, 7) / 2.2) ** 2)
+    cols = np.convolve(np.tile(cols, 3), k / k.sum(), mode="same")[n : 2 * n]
+    fade = 0.55 + 0.45 * noise(3, 2.0)[..., None]  # streaks come and go down the wall
+    img = img - (cols[None, :, None] * 30) * fade
+    grain = (rng.random((n, n)) - 0.5) * 11
+    img = img + grain[..., None]
+    return np.clip(img, 0, 255)
+
+
 def surface_cell(tile_id: int, name: str) -> np.ndarray:
     if name.startswith("@"):
         rgb = procedural(name[1:])
@@ -252,6 +287,14 @@ def surface_cell(tile_id: int, name: str) -> np.ndarray:
         rgb = resize(seamless(load(name)), INNER, INNER)
     padded = np.pad(rgb, ((PAD, PAD), (PAD, PAD), (0, 0)), mode="wrap")
     return np.dstack([padded, np.full(padded.shape[:2], 255.0)])
+
+
+def put_plaster(facade: np.ndarray) -> None:
+    rgb = plaster_tile()
+    padded = np.pad(rgb, ((PAD, PAD), (PAD, PAD), (0, 0)), mode="wrap")
+    cell = np.dstack([padded, np.full(padded.shape[:2], 255.0)])
+    y, x = (PLASTER_TILE // 8) * CELL, (PLASTER_TILE % 8) * CELL
+    facade[y : y + CELL, x : x + CELL] = cell
 
 
 def save(atlas: np.ndarray, path: Path) -> None:
@@ -262,6 +305,14 @@ def save(atlas: np.ndarray, path: Path) -> None:
 
 
 def main() -> None:
+    if "--plaster-only" in sys.argv:
+        # Adds just the plaster tile to the committed atlas (no raws needed).
+        path = ROOT / "assets" / "textures" / "facade_atlas.png"
+        facade = np.asarray(Image.open(path).convert("RGBA")).astype(np.float32)
+        put_plaster(facade)
+        save(facade, path)
+        print("added tile", PLASTER_TILE, "to", path.name)
+        return
     overrides = json.loads((ROOT / "tool" / "facade_overrides.json").read_text())
     facade = np.zeros((8 * CELL, 8 * CELL, 4), dtype=np.float32)
     styles = {}
@@ -280,6 +331,7 @@ def main() -> None:
     plain = surface_cell(PLAIN_TILE, "surf_stucco")
     y, x = (PLAIN_TILE // 8) * CELL, (PLAIN_TILE % 8) * CELL
     facade[y : y + CELL, x : x + CELL] = plain
+    put_plaster(facade)
     save(facade, ROOT / "assets" / "textures" / "facade_atlas.png")
 
     surface = np.zeros((4 * CELL, 4 * CELL, 4), dtype=np.float32)

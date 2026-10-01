@@ -5,11 +5,16 @@
 import * as THREE from 'three';
 import type RAPIER_NS from '@dimforge/rapier3d-compat';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import type { WalkData } from './people.ts';
 import { KTX2Loader } from 'three/addons/loaders/KTX2Loader.js';
-import { gridGeometry, type Grid } from './terrain.ts';
+import { gridGeometry, sinkGrid, type Dip, type Grid } from './terrain.ts';
 import { buildFeatures, type Feature } from './features.ts';
 import { buildTrees, type TreeInstance } from './trees.ts';
-import type { TerraceTable } from './furniture.ts';
+import type { MarketStall, TerraceTable } from './furniture.ts';
+import { buildCathedral, type Landmark } from './cathedral.ts';
+import { buildFences, type FenceData } from './fences.ts';
+import { buildGates, type GateData, type StoneWallData } from './gates.ts';
+import { buildPassages, type PassageData } from './passages.ts';
 
 export interface CityData {
   extent: [number, number, number, number];
@@ -17,15 +22,35 @@ export interface CityData {
   lamps: [number, number, number][];
   /** Café tables, each with two chairs and a parasol (furniture.ts). */
   terraces?: TerraceTable[];
+  /** Market stalls (data/markets.json), some under a parasol (furniture.ts). */
+  stalls?: MarketStall[];
   trams: [number, number][][];
   coverage?: { done: number; walls: number };
   /** Roofs index the roof set's atlas (tool/prepare_roofs.py). */
   roofSet?: boolean;
   /** Number of hero atlas pages (textures/hero_atlas_<n>.png). */
   heroPages?: number;
+  /** Areas the car cannot enter: [minX, minZ, maxX, maxZ], web frame. */
+  blocked?: number[][];
   features?: Feature[];
+  /** Where a pedestrian can stand (people.ts). */
+  walk?: WalkData;
+  /** Hand-placed free-standing props (data/props.json; squareprops.ts). */
+  props?: import('./squareprops.ts').PropItem[];
   /** Street walls: id -> [ax, az, bx, bz, nx, nz, sidewalk y, eave y]. */
   walls?: Record<string, number[]>;
+  /** Fences round what the player may not enter (data/fences.json; fences.ts). */
+  fences?: FenceData[];
+  /** Gates that stand open (data/gates.json; gates.ts). */
+  gates?: GateData[];
+  /** Garden walls beside the gates (data/gates.json `walls`; gates.ts). */
+  stoneWalls?: StoneWallData[];
+  /** Hollows in the ground (levels.json "dip"): the bare terrain grid sinks with them. */
+  dips?: Dip[];
+  /** Buildings the game models by hand instead of the export (the Cathedral; cathedral.ts). */
+  landmarks?: Landmark[];
+  /** Covered passages through the blocks (data/passages.json; passages.ts). */
+  passages?: PassageData[];
 }
 
 export interface City {
@@ -192,7 +217,7 @@ function atlasMaterial(
  * The merge fills preallocated per-mip buffers a few pages at a time, so the JS heap holds the
  * array once, not every page plus a copy; the CPU copy is dropped after the GPU upload.
  */
-async function loadHeroAtlas(loader: KTX2Loader, pages: number, anisotropy: number) {
+async function loadHeroAtlas(loader: KTX2Loader, pages: number, anisotropy: number, onFraction: (f: number) => void = () => {}) {
   let mips: { data: Uint8Array; width: number; height: number }[] = [];
   let first: THREE.CompressedTexture | null = null;
   for (let start = 0; start < pages; start += 4) {
@@ -213,6 +238,7 @@ async function loadHeroAtlas(loader: KTX2Loader, pages: number, anisotropy: numb
       page.mipmaps.forEach((m, level) => mips[level].data.set(m.data as Uint8Array, (start + j) * m.data.byteLength));
       if (page !== first) page.dispose();
     });
+    onFraction(Math.min(1, (start + batch.length) / pages));
   }
   const f = first!;
   const atlas = new THREE.CompressedArrayTexture(mips, f.image.width, f.image.height, pages, f.format as THREE.CompressedPixelFormat, f.type);
@@ -231,12 +257,11 @@ async function loadHeroAtlas(loader: KTX2Loader, pages: number, anisotropy: numb
   return atlas;
 }
 
-function loadTexture(loader: THREE.TextureLoader, url: string, anisotropy: number) {
+function loadTexture(loader: KTX2Loader, url: string, anisotropy: number) {
   return loader.loadAsync(url).catch(() => {
     throw new Error(`could not load ${url}`);
   }).then((t) => {
-    // The atlases address rows from the top (v = 0 is the first row).
-    t.flipY = false;
+    // The atlases address rows from the top (v = 0 is the first row), as a KTX2 stores them.
     t.colorSpace = THREE.SRGBColorSpace;
     t.anisotropy = anisotropy;
     t.wrapS = t.wrapT = THREE.ClampToEdgeWrapping;
@@ -245,23 +270,37 @@ function loadTexture(loader: THREE.TextureLoader, url: string, anisotropy: numbe
   });
 }
 
+// The production build ships the city gzipped (vite.config.ts: 19 MB -> 2.6 MB); a host may also
+// have undone the gzip already (Content-Encoding), so look at the bytes, not the name.
+async function loadGlb(url: string) {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`could not load ${url}`);
+  let bytes = await response.arrayBuffer();
+  const head = new Uint8Array(bytes, 0, 2);
+  if (head[0] === 0x1f && head[1] === 0x8b) {
+    bytes = await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer();
+  }
+  return new GLTFLoader().parseAsync(bytes, '');
+}
+
 export async function loadCity(
   renderer: THREE.WebGLRenderer,
   R: typeof RAPIER_NS,
   world: RAPIER_NS.World,
   onProgress: (label: string) => void,
+  onFraction: (f: number) => void = () => {},
 ): Promise<City> {
   const anisotropy = renderer.capabilities.getMaxAnisotropy();
-  const textures = new THREE.TextureLoader();
   onProgress('textures');
   const data = await fetch('city/city.json').then((r) => r.json() as Promise<CityData>);
-  // The hero pages: one KTX2 array texture (UASTC, mips), transcoded to what the GPU has.
+  // The tiled atlases and the hero pages (one array texture) are ETC1S KTX2 with mips,
+  // transcoded to what the GPU has.
   const ktx2 = new KTX2Loader().setTranscoderPath('basis/').detectSupport(renderer);
   const [facadeAtlas, surfaceAtlas, roofAtlas, heroAtlas] = await Promise.all([
-    loadTexture(textures, 'textures/facade_atlas.png', anisotropy),
-    loadTexture(textures, 'textures/surface_atlas.png', anisotropy),
-    data.roofSet ? loadTexture(textures, 'textures/roof_atlas.png', anisotropy) : Promise.resolve(null),
-    loadHeroAtlas(ktx2, Math.max(1, data.heroPages ?? 1), anisotropy),
+    loadTexture(ktx2, 'textures/facade_atlas.ktx2', anisotropy),
+    loadTexture(ktx2, 'textures/surface_atlas.ktx2', anisotropy),
+    data.roofSet ? loadTexture(ktx2, 'textures/roof_atlas.ktx2', anisotropy) : Promise.resolve(null),
+    loadHeroAtlas(ktx2, Math.max(1, data.heroPages ?? 1), anisotropy, onFraction),
   ]);
   ktx2.dispose();
   const materials: Record<string, THREE.Material> = {
@@ -275,10 +314,11 @@ export async function loadCity(
   };
 
   onProgress('city');
-  const gltf = await new GLTFLoader().loadAsync('city/zagreb.glb');
+  const gltf = await loadGlb(import.meta.env.PROD ? 'city/zagreb.glb.gz' : 'city/zagreb.glb');
   const optionalGrid = (url: string) =>
     fetch(url).then((r) => (r.ok ? (r.json() as Promise<Grid>) : null)).catch(() => null);
-  const [groundGrid, farGrid] = await Promise.all([optionalGrid('city/terrain.json'), optionalGrid('city/far.json')]);
+  const [groundGrid0, farGrid] = await Promise.all([optionalGrid('city/terrain.json'), optionalGrid('city/far.json')]);
+  const groundGrid = groundGrid0 && data.dips?.length ? sinkGrid(groundGrid0, data.dips) : groundGrid0;
   const root = new THREE.Group();
   root.name = 'city';
   let lampGeometry: THREE.BufferGeometry | undefined;
@@ -315,6 +355,16 @@ export async function loadCity(
       world.createCollider(R.ColliderDesc.trimesh(new Float32Array(pos), new Uint32Array(g.getIndex()!.array)));
       continue;
     }
+    if (kind === 'ramp') {
+      // The smooth slope under a flight of steps (data/levels.json): the car
+      // drives on it, nobody sees it.
+      const pos = g.getAttribute('position').array as Float32Array;
+      world.createCollider(
+        R.ColliderDesc.trimesh(new Float32Array(pos), new Uint32Array(g.getIndex()!.array)).setFriction(1),
+      );
+      g.dispose();
+      continue;
+    }
     if (kind === 'prop') {
       g.setAttribute('aInfo', g.getAttribute('uv1'));
       mesh.material = propMat;
@@ -334,7 +384,8 @@ export async function loadCity(
     g.deleteAttribute('uv');
     g.deleteAttribute('uv1');
     g.deleteAttribute('color');
-    mesh.material = materials[kind];
+    // Steps are drawn like the ground; the ramp under them collides instead.
+    mesh.material = materials[kind === 'steps' ? 'ground' : kind];
     mesh.castShadow = kind === 'facade' || kind === 'roof';
     mesh.receiveShadow = true;
     mesh.matrixAutoUpdate = false;
@@ -355,7 +406,9 @@ export async function loadCity(
 
   if (lampGeometry) {
     lampGeometry.setAttribute('aInfo', lampGeometry.getAttribute('uv1'));
-    const lamps = new THREE.InstancedMesh(lampGeometry, propMat, data.lamps.length);
+    // Its own material: one shared with the (not instanced) props mesh made three rebuild the
+    // program parameters at every switch, every frame.
+    const lamps = new THREE.InstancedMesh(lampGeometry, propMaterial(), data.lamps.length);
     const m = new THREE.Matrix4();
     data.lamps.forEach(([x, z, y], i) => {
       lamps.setMatrixAt(i, m.makeTranslation(x, y, z));
@@ -413,5 +466,24 @@ export async function loadCity(
   ]) {
     world.createCollider(R.ColliderDesc.cuboid(sx, 120, sz).setTranslation(x, 0, z));
   }
+  // Fenced-off scenery (the Gornji Grad hill): the buildings stay, the car cannot get in.
+  for (const [bx0, bz0, bx1, bz1] of data.blocked ?? []) {
+    const bcx = (bx0 + bx1) / 2, bcz = (bz0 + bz1) / 2, bhx = (bx1 - bx0) / 2, bhz = (bz1 - bz0) / 2;
+    for (const [x, z, sx, sz] of [
+      [bcx, bz0, bhx, 0.5],
+      [bcx, bz1, bhx, 0.5],
+      [bx0, bcz, 0.5, bhz],
+      [bx1, bcz, 0.5, bhz],
+    ]) {
+      world.createCollider(R.ColliderDesc.cuboid(sx, 120, sz).setTranslation(x, 0, z));
+    }
+  }
+  // Hand-built landmarks and the fences round what the player may not enter.
+  for (const l of data.landmarks ?? []) {
+    if (l.name === 'cathedral') root.add(buildCathedral(l, R, world));
+  }
+  if (data.fences?.length) root.add(buildFences(data.fences, R, world));
+  if (data.gates?.length || data.stoneWalls?.length) root.add(buildGates(data.gates ?? [], data.stoneWalls ?? [], R, world));
+  if (data.passages?.length) root.add(buildPassages(data.passages, R, world, anisotropy));
   return { root, data, ground: groundGrid, far: farGrid, tables };
 }

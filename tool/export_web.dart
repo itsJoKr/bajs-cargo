@@ -38,14 +38,18 @@ import 'src/buildings.dart';
 import 'src/city.dart';
 import 'src/facades.dart';
 import 'src/mesh_writer.dart';
-import 'src/geom.dart' show centroid;
+import 'src/geom.dart' show OrientedBox, centroid;
+import 'src/geom.dart' as geom show orientedBox;
 import 'src/ground.dart';
 import 'src/hero.dart';
+import 'src/levels.dart';
 import 'src/osm.dart';
+import 'src/passages.dart';
 import 'src/props.dart';
 import 'src/roofs.dart';
 import 'src/street_props.dart';
 import 'src/terrain_grid.dart';
+import 'src/walk.dart';
 
 const chunkSize = 200.0;
 
@@ -82,6 +86,34 @@ void main(List<String> args) {
     }
     target.addAll(tags.cast<String, String>());
   }
+  // `omit`: a building the game models by hand (the Cathedral, web3d/src/cathedral.ts). Its outline
+  // and every building:part whose centre lies inside it are left out of the city; `landmark` places
+  // the game's model ({name, origin [x, z] tool frame, heading deg}, ground from the terrain).
+  final landmarkSpecs = <Map>[];
+  for (final MapEntry(key: id, value: entry) in overrides.entries) {
+    if (id.startsWith('_') || entry is! Map || entry['omit'] != true) continue;
+    final way = osm.ways[int.parse(id.substring(1))]!;
+    final ring = osm.points(way);
+    bool inside(Vector2 p) {
+      var odd = false;
+      for (var i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+        final a = ring[i], b = ring[j];
+        if ((a.y > p.y) != (b.y > p.y) && p.x < a.x + (p.y - a.y) / (b.y - a.y) * (b.x - a.x)) odd = !odd;
+      }
+      return odd;
+    }
+    var parts = 0;
+    for (final w in osm.ways.values) {
+      if (w.tags['building:part'] == null) continue;
+      final pts = osm.points(w);
+      if (pts.isEmpty || !inside(centroid(pts))) continue;
+      w.tags.remove('building:part');
+      parts++;
+    }
+    way.tags.remove('building');
+    stdout.writeln('Omitted $id and $parts parts (modelled in the game)');
+    if (entry['landmark'] is Map) landmarkSpecs.add(entry['landmark'] as Map);
+  }
   final styles = FacadeStyles.load('data/facade_styles.json');
   final hero = HeroAtlas.load('data/hero/atlas.json');
   final roofs = File('data/roofs.json').existsSync()
@@ -105,8 +137,12 @@ void main(List<String> args) {
   final flat = args.contains('--flat');
   final grid = flat ? null : TerrainGrid.load('data/terrain/ground.json');
   double bare(Vector2 p) => grid == null ? 0 : grid(p);
-  // Props, walls and trees stand on the terraces too.
-  double terrain(Vector2 p) => bare(p) + ground.liftAt(p);
+  // Hand-shaped levels (data/levels.json: Dolac's plateau, its stairs, the
+  // rise to Opatovina) replace the grid inside their outlines. Props, walls
+  // and trees stand on them and on the terraces.
+  final levels = Levels.load('data/levels.json', (p) => bare(p) + ground.liftAt(p));
+  ground.levels = levels;
+  double terrain(Vector2 p) => levels.heightAt(p);
 
   final chunks = <(int, int), BuildingMeshes>{};
   for (var j = (extent.minZ / chunkSize).floor();
@@ -137,16 +173,103 @@ void main(List<String> args) {
     return low.isFinite ? low : terrain(b.center);
   }
 
+  // The lowest terrain (levels included) under an outline, as
+  // TerrainGrid.lowest does for the grid.
+  double lowest(Polygon polygon) {
+    var low = double.infinity;
+    final ring = polygon.outer;
+    for (var i = 0; i < ring.length; i++) {
+      low = math.min(low, math.min(terrain(ring[i]), terrain((ring[i] + ring[(i + 1) % ring.length]) * .5)));
+    }
+    return low;
+  }
+
+  // Covered passages (data/passages.json): a doorway in every wall they
+  // cross; the game builds the inside.
+  final passages = Passages.load('data/passages.json', (p) => terrain(p) + kerbHeight)
+    ..buildings = [for (final b in city.buildings) b.polygon];
+  final doorways = <String>[];
+  for (final b in city.buildings) {
+    if (passages.isEmpty) break;
+    var e = 0;
+    for (final (a, c) in b.polygon.edges) {
+      final holes = passages.openings(a, c);
+      if (holes.isNotEmpty) {
+        final len = a.distanceTo(c);
+        doorways.add('${b.id}_e$e ${[for (final (t0, t1, _) in holes) '${(t0 * len).toStringAsFixed(1)}-${(t1 * len).toStringAsFixed(1)}/${len.toStringAsFixed(1)} m'].join(', ')}');
+      }
+      e++;
+    }
+  }
+  if (doorways.isNotEmpty) stdout.writeln('Passage doorways:\n  ${doorways.join('\n  ')}');
+  // Back walls that wear the courtyard style's repeating rows instead of plain stucco.
+  final rearFile = File('data/rear_walls.json');
+  final rearWalls = <String>{
+    if (rearFile.existsSync())
+      ...((jsonDecode(rearFile.readAsStringSync()) as Map)['walls'] as List).cast<String>(),
+  };
+  // Colonnades (data/arcades.json): walls that start above the ground, with a soffit under them.
+  final arcadeFile = File('data/arcades.json');
+  final arcades = <String, Arcade>{};
+  if (arcadeFile.existsSync()) {
+    final j = jsonDecode(arcadeFile.readAsStringSync()) as Map<String, dynamic>;
+    for (final e in (j['arcades'] as Map<String, dynamic>).entries) {
+      final v = e.value as Map<String, dynamic>;
+      double n(Object? x) => (x as num).toDouble();
+      final arch = v['arches'] as Map<String, dynamic>?;
+      arcades[e.key] = Arcade(
+        arches: arch == null
+            ? null
+            : Arches(
+                (arch['edge'] as num).toInt(),
+                [for (final o in (arch['openings'] as List).cast<List>()) (n(o[0]), n(o[1]))],
+                n(arch['crown']),
+                walk: (n(arch['walk'][0]), n(arch['walk'][1])),
+                depth: n(arch['depth'] ?? 3),
+                thick: n(arch['thick'] ?? .7),
+                riser: n(arch['riser'] ?? .15),
+                soffitColor: arch['soffitColor'] == null
+                    ? null
+                    : Vector4(n(arch['soffitColor'][0]), n(arch['soffitColor'][1]), n(arch['soffitColor'][2]), 1),
+              ),
+        {for (final i in (v['edges'] as List)) (i as num).toInt()},
+        (v['base'] as num).toDouble(),
+        [for (final p in (v['soffit'] as List).cast<List>()) Vector2((p[0] as num).toDouble(), (p[1] as num).toDouble())],
+        spans: {
+          for (final s in ((v['spans'] ?? const <String, dynamic>{}) as Map<String, dynamic>).entries)
+            int.parse(s.key): ((s.value[0] as num).toDouble(), (s.value[1] as num).toDouble()),
+        },
+      );
+    }
+  }
+  // `roofWings` (data/buildings.json): one roof per wing of a building whose single box roof
+  // fits none of them (the archbishop's palace, an L with round corner towers). Each wing is
+  // the rectangle of its `corners` (tool x, z); RoofModel takes the highest wing.
+  final roofWings = <String, List<OrientedBox>>{
+    for (final MapEntry(key: id, value: entry) in overrides.entries)
+      if (entry is Map && entry['roofWings'] is List)
+        id: [
+          for (final wing in (entry['roofWings'] as List).cast<Map>())
+            geom.orientedBox([
+              for (final p in (wing['corners'] as List).cast<List>())
+                Vector2((p[0] as num).toDouble(), (p[1] as num).toDouble()),
+            ]),
+        ],
+  };
   for (final b in city.buildings) {
     final c = b.center;
     final key = ((c.x / chunkSize).floor(), (c.y / chunkSize).floor());
     emitBuilding(
+      openings: passages.isEmpty ? null : passages.openings,
       b,
       chunks.putIfAbsent(key, BuildingMeshes.new),
       ground: streetGround(b),
-      foot: grid?.lowest(b.polygon),
+      foot: grid == null ? null : math.min(grid.lowest(b.polygon), lowest(b.polygon)),
       terrain: grid == null ? null : terrain,
       plainWalls: plainWalls,
+      rearWalls: rearWalls,
+      arcade: arcades[b.id],
+      roofWings: roofWings[b.id] ?? const [],
       roofCover: roofs?.pick(b),
       styles: styles,
       hero: hero,
@@ -162,12 +285,13 @@ void main(List<String> args) {
     final name = chunkName(i, j);
     final minX = i * chunkSize, minZ = j * chunkSize;
     final surface = MeshWriter(), rails = MeshWriter();
+    final steps = MeshWriter(), ramps = MeshWriter();
     final gx0 = math.max(minX, extent.minX), gz0 = math.max(minZ, extent.minZ);
     final gx1 = math.min(minX + chunkSize, extent.maxX);
     final gz1 = math.min(minZ + chunkSize, extent.maxZ);
     if (gx1 > gx0 && gz1 > gz0) {
       ground.emitGround(gx0, gz0, gx1, gz1, minX, minZ, surface, rails, bare,
-          tessellate: flat ? 0 : 10);
+          tessellate: flat ? 0 : 10, steps: steps, ramps: ramps);
     }
     final meshes = chunks[key]!;
     for (final (part, mesh) in [
@@ -175,6 +299,9 @@ void main(List<String> args) {
       ('roof', meshes.roofs),
       ('ground', surface),
       ('rails', rails),
+      // Stairs: the steps are drawn, the smooth ramp under them collides.
+      ('steps', steps),
+      ('ramp', ramps),
     ]) {
       glb.addMesh('$name/$part', part, mesh);
     }
@@ -187,7 +314,7 @@ void main(List<String> args) {
   final props = PropBuilder(propMesh, glassMesh);
   final kinds = <String, int>{};
   for (final (_, tags, polygon) in city.smallStructures) {
-    final kind = tags['building']!;
+    final kind = tags['building'] ?? tags['building:part']!;
     kinds[kind] = (kinds[kind] ?? 0) + 1;
     final g = terrain(centroid(polygon.outer));
     if (kind == 'kiosk') {
@@ -238,6 +365,40 @@ void main(List<String> args) {
       terraces++;
     }
   }
+  // Market stalls (data/markets.json): loose furniture as well, a grid per
+  // market with seeded gaps and umbrellas, never inside a building.
+  final stallList = <List<Object>>[];
+  final marketsFile = File('data/markets.json');
+  if (marketsFile.existsSync()) {
+    final markets = (jsonDecode(marketsFile.readAsStringSync()) as Map)['markets'] as List;
+    Vector2 v2(Object? v) => Vector2(((v as List)[0] as num).toDouble(), (v[1] as num).toDouble());
+    for (final m in markets.cast<Map<String, dynamic>>()) {
+      final origin = v2(m['origin']), across = v2(m['across']).normalized(), along = v2(m['along']).normalized();
+      final seed = m['seed'] as int, aisle = m['aisleEvery'] as int? ?? 0;
+      final empty = (m['empty'] as num).toDouble(), umbrellas = (m['umbrellas'] as num).toDouble();
+      // A stable pseudo-random 0..1 per stall.
+      double hash(int i, int j, int salt) {
+        final s = math.sin((i * 127.1 + j * 311.7 + seed * 74.7 + salt * 19.3)) * 43758.5453;
+        return s - s.floorToDouble();
+      }
+
+      // The long side along the row: yaw turns the stall's +x onto `across`
+      // (web frame, z mirrored).
+      final yaw = math.atan2(across.y, across.x);
+      for (var j = 0; j < (m['rows'] as int); j++) {
+        for (var i = 0; i < (m['stalls'] as int); i++) {
+          if (aisle > 0 && i % aisle == aisle - 1) continue;
+          if (hash(i, j, 1) < empty) continue;
+          final p = origin +
+              across * (i * (m['stallSpacing'] as num).toDouble()) +
+              along * (j * (m['rowSpacing'] as num).toDouble());
+          if (!extent.contains(p) || city.buildings.any((b) => b.polygon.contains(p))) continue;
+          final colour = hash(i, j, 2) < umbrellas ? m['colour'] as String : '';
+          stallList.add([r2(p.x), r2(-p.y), r2(terrain(p) + kerbHeight), r2(yaw), colour]);
+        }
+      }
+    }
+  }
   // Monuments: nodes, and small areas by their centre.
   var monuments = 0;
   bool isMonument(Tags t) =>
@@ -270,7 +431,8 @@ void main(List<String> args) {
   }
   stdout.writeln(
     'Props: $kinds, ${lamps.length} street lamps, $platforms tram platforms, '
-    '$terraces terraces (${terraceTableList.length} tables), $monuments monuments',
+    '$terraces terraces (${terraceTableList.length} tables), ${stallList.length} market stalls, '
+    '$monuments monuments',
   );
 
   // Real-facade coverage: every street wall of 4 m or more, done or to do.
@@ -297,6 +459,8 @@ void main(List<String> args) {
         r2(a.x), r2(-a.y), r2(c.x), r2(-c.y), r2(nrm.x), r2(-nrm.y),
         r2(lowW + kerbHeight), r2(streetGround(b) + b.eave),
       ];
+      // Fenced-off scenery (blockedAreas) is not part of the work list.
+      if (blockedAreas.any((e) => e.contains(mid))) continue;
       final entry = {
         'wall': '${b.id}_e$edge',
         'name': b.tags['name'],
@@ -311,6 +475,48 @@ void main(List<String> args) {
         todoMetres += length;
       }
     }
+  }
+  if (args.contains('--dump-walls')) {
+    // Every wall edge of every building (any kind), with what it looks onto: the audit of plain walls
+    // (.art/walls_all.json). A party wall shows only above its lower neighbour.
+    final dump = <Map<String, Object?>>[];
+    for (final b in city.buildings) {
+      final spans = hero.spansFor(b.id, b.polygon);
+      var i = 0;
+      for (final (a, c) in b.polygon.edges) {
+        final edge = i++;
+        final length = a.distanceTo(c);
+        if (length < .3) continue;
+        final mid = (a + c) * .5;
+        final dv = c - a;
+        var nrm = Vector2(dv.y, -dv.x).normalized();
+        if (b.polygon.contains(mid + nrm * .2)) nrm = -nrm;
+        double? other;
+        for (final o in city.buildings) {
+          if (identical(o, b)) continue;
+          if (o.polygon.contains(mid + nrm * .7)) {
+            other = o.eave;
+            break;
+          }
+        }
+        dump.add({
+          'wall': '${b.id}_e$edge',
+          'kind': edge < b.walls.length ? b.walls[edge].name : 'street',
+          'len': r2(length),
+          'eave': r2(b.eave),
+          'other': other == null ? null : r2(other),
+          'hero': spans.containsKey(edge),
+          'outer': edge < b.polygon.outer.length,
+          'mid': [r2(mid.x), r2(mid.y)],
+          'n': [r2(nrm.x), r2(nrm.y)],
+          'name': b.tags['name'],
+          'paint': [b.paint.x, b.paint.y, b.paint.z],
+          'ground': r2(streetGround(b)),
+        });
+      }
+    }
+    Directory('.art').createSync(recursive: true);
+    File('.art/walls_all.json').writeAsStringSync(jsonEncode(dump));
   }
   File('data/hero/coverage.json').writeAsStringSync(
     '${const JsonEncoder.withIndent('  ').convert({
@@ -332,6 +538,7 @@ void main(List<String> args) {
   // the export resolves it to web-frame ends, outward normal, sidewalk and
   // eave heights, which web3d/src/features.ts builds from.
   final features = <Map<String, Object?>>[];
+  final skippedFeatures = <String>{};
   final byId = {for (final b in city.buildings) b.id: b};
   for (final MapEntry(key: id, value: entry) in overrides.entries) {
     if (entry is! Map) continue;
@@ -342,6 +549,11 @@ void main(List<String> args) {
       final b = cut < 0 ? null : byId[wall.substring(0, cut)];
       final edge = cut < 0 ? -1 : int.tryParse(wall.substring(cut + 2)) ?? -1;
       final edges = b?.polygon.edges.toList() ?? const [];
+      if (b == null && cut >= 0) {
+        // The building is outside the extent (cut away): its features go with it.
+        skippedFeatures.add(wall);
+        continue;
+      }
       if (b == null || edge < 0 || edge >= edges.length) {
         stderr.writeln('data/buildings.json ($id): no wall "$wall"');
         exit(1);
@@ -350,7 +562,11 @@ void main(List<String> args) {
       final d = c - a;
       var n = Vector2(d.y, -d.x).normalized();
       if (b.polygon.contains((a + c) * .5 + n * .2)) n = -n;
-      final low = math.min(terrain(a), math.min(terrain(c), terrain((a + c) * .5)));
+      var low = math.min(terrain(a), math.min(terrain(c), terrain((a + c) * .5)));
+      // A wall with arches starts its picture at its highest sidewalk (Arches): so do its features.
+      if (arcades[b.id]?.arches?.edge == edge) {
+        low = math.max(terrain(a), math.max(terrain(c), terrain((a + c) * .5)));
+      }
       features.add({
         ...feature,
         'building': id,
@@ -363,11 +579,165 @@ void main(List<String> args) {
     }
   }
   if (features.isNotEmpty) stdout.writeln('Features: ${features.length}');
+  if (skippedFeatures.isNotEmpty) {
+    stdout.writeln(
+      'Features skipped (building outside the extent): ${skippedFeatures.length} walls, '
+      '${skippedFeatures.take(4).join(', ')}...',
+    );
+  }
 
+  // Hand-placed park pieces (data/park.json, tool frame): extra `trees` [x, z] and `props` (same items
+  // as data/props.json: the EU garden, the toilet stairwell by the Cesarca lawn).
+  final parkFile = File('data/park.json');
+  final park = parkFile.existsSync()
+      ? jsonDecode(parkFile.readAsStringSync()) as Map<String, dynamic>
+      : <String, dynamic>{};
   final trees = [
     for (final t in ground.trees)
       if (extent.contains(t)) treeInstance(t, terrain(t) + kerbHeight),
+    for (final t in (park['trees'] as List? ?? const []).cast<List>())
+      () {
+        final p = Vector2((t[0] as num).toDouble(), (t[1] as num).toDouble());
+        return treeInstance(p, terrain(p) + kerbHeight);
+      }(),
   ];
+  // Free-standing props placed by hand (data/props.json, tool frame): the game builds the textured
+  // ones (web3d/src/squareprops.ts). Each gets its web position, ground height and heading.
+  final propFile = File('data/props.json');
+  final props2 = <Map<String, Object?>>[];
+  if (propFile.existsSync()) {
+    final j = jsonDecode(propFile.readAsStringSync()) as Map<String, dynamic>;
+    for (final e in [...(j['items'] as List), ...(park['props'] as List? ?? const [])]) {
+      final m = Map<String, Object?>.from(e as Map);
+      final p = Vector2((m['x'] as num).toDouble(), (m['z'] as num).toDouble());
+      if (!extent.contains(p)) continue;
+      m['x'] = r2(p.x);
+      m['z'] = r2(-p.y);
+      m['y'] = r2(terrain(p) + kerbHeight);
+      // An item with a far end (the funicular's `toX`, `toZ`) is given in the tool frame too.
+      if (m['toZ'] is num) m['toZ'] = r2(-(m['toZ'] as num).toDouble());
+      props2.add(m);
+    }
+    // A hand-modelled lamp (candelabra, medium or small ornate) replaces the plain lantern on its OSM node.
+    final custom = [
+      for (final m in props2)
+        if ((m['type'] as String).startsWith('candelabra') || (m['type'] as String).startsWith('lamp_'))
+          Vector2((m['x'] as num).toDouble(), (m['z'] as num).toDouble()),
+    ];
+    final before = lamps.length;
+    lamps.removeWhere((l) => custom.any((c) => (c.x - l[0]).abs() < 1.6 && (c.y - l[1]).abs() < 1.6));
+    if (before != lamps.length) stdout.writeln('Lamps replaced by props: ${before - lamps.length}');
+  }
+  // Fences that close off what the player may not enter (data/fences.json, tool frame): each
+  // polyline is cut into panels of at most `panel` metres, every post as [x, y, z] in the web frame
+  // (web3d/src/fences.ts builds and collides them).
+  final fences = <Map<String, Object?>>[];
+  final fenceFile = File('data/fences.json');
+  if (fenceFile.existsSync()) {
+    final j = jsonDecode(fenceFile.readAsStringSync()) as Map<String, dynamic>;
+    for (final f in (j['fences'] as List).cast<Map>()) {
+      final pts = [
+        for (final p in (f['points'] as List).cast<List>())
+          Vector2((p[0] as num).toDouble(), (p[1] as num).toDouble()),
+      ];
+      final panel = (f['panel'] as num?)?.toDouble() ?? 3.5;
+      final posts = <List<double>>[];
+      for (var k = 0; k + 1 < pts.length; k++) {
+        final a = pts[k], b = pts[k + 1];
+        final n = math.max(1, (a.distanceTo(b) / panel).ceil());
+        for (var q = k == 0 ? 0 : 1; q <= n; q++) {
+          final p = q == n ? b : a + (b - a) * (q / n);
+          posts.add([r2(p.x), r2(terrain(p)), r2(-p.y)]);
+        }
+      }
+      fences.add({...Map<String, Object?>.from(f)..remove('points'), 'posts': posts});
+    }
+  }
+  // Hollows (data/levels.json kind "dip"): the web build sinks its bare terrain grid the same
+  // way, or the grid would roof over the lowered ground. Web frame.
+  final dips = [
+    for (final r in levels.regions)
+      if (r.kind == RegionKind.dip)
+        {
+          'rings': [
+            for (final polygon in r.polygons) [for (final q in polygon.outer) [r2(q.x), r2(-q.y)]],
+          ],
+          'from': [r2(r.from!.x), r2(-r.from!.y)],
+          'to': [r2(r.to!.x), r2(-r.to!.y)],
+          'sinkFrom': r.sinkFrom,
+          'sinkTo': r.sinkTo,
+          'taper': r.taper,
+        },
+  ];
+  // Open gates and the garden walls beside them (data/gates.json, tool frame): gates as
+  // {name, x, y, z (web), heading deg, width, height, lanterns?, arch?, sideGate?}, walls as
+  // {kind, height, thick, posts: [[x, y, z], ...]} with a post at least every 2 m (web frame).
+  final gates = <Map<String, Object?>>[];
+  final stoneWalls = <Map<String, Object?>>[];
+  final gateFile = File('data/gates.json');
+  if (gateFile.existsSync()) {
+    final j = jsonDecode(gateFile.readAsStringSync()) as Map<String, dynamic>;
+    for (final g in (j['gates'] as List).cast<Map>()) {
+      final p = Vector2((g['x'] as num).toDouble(), (g['z'] as num).toDouble());
+      gates.add({
+        'name': g['name'],
+        'x': r2(p.x),
+        'y': r2(terrain(p)),
+        'z': r2(-p.y),
+        'heading': (g['heading'] as num).toDouble(),
+        'width': (g['width'] as num?)?.toDouble() ?? 4.0,
+        'height': (g['height'] as num?)?.toDouble() ?? 2.2,
+        if (g['lanterns'] == true) 'lanterns': true,
+        if (g['arch'] != null) 'arch': (g['arch'] as num).toDouble(),
+        if (g['sideGate'] != null) 'sideGate': g['sideGate'],
+      });
+    }
+    for (final w in ((j['walls'] as List?) ?? const []).cast<Map>()) {
+      final pts = [
+        for (final p in (w['points'] as List).cast<List>()) Vector2((p[0] as num).toDouble(), (p[1] as num).toDouble()),
+      ];
+      final posts = <List<double>>[];
+      for (var k = 0; k + 1 < pts.length; k++) {
+        final a = pts[k], b = pts[k + 1];
+        final n = math.max(1, (a.distanceTo(b) / 2).ceil());
+        for (var q = k == 0 ? 0 : 1; q <= n; q++) {
+          final p = q == n ? b : a + (b - a) * (q / n);
+          posts.add([r2(p.x), r2(terrain(p)), r2(-p.y)]);
+        }
+      }
+      stoneWalls.add({
+        'name': w['name'],
+        'kind': w['kind'] ?? 'plaster',
+        'height': (w['height'] as num?)?.toDouble() ?? 2.4,
+        'thick': (w['thick'] as num?)?.toDouble() ?? .45,
+        'posts': posts,
+      });
+    }
+  }
+  final landmarks = [
+    for (final l in landmarkSpecs)
+      () {
+        final o = (l['origin'] as List).cast<num>();
+        final p = Vector2(o[0].toDouble(), o[1].toDouble());
+        return {'name': l['name'], 'x': r2(p.x), 'y': r2(terrain(p)), 'z': r2(-p.y), 'heading': l['heading']};
+      }(),
+  ];
+  // Where the crowd may walk (web3d/src/people.ts).
+  final walk = walkGrid(
+    city,
+    ground,
+    extent,
+    blockedAreas,
+    levels,
+    passages: passages.floors(),
+    obstacles: [
+      for (final t in ground.trees)
+        if (extent.contains(t)) (t, .55),
+      for (final t in (park['trees'] as List? ?? const []).cast<List>())
+        (Vector2((t[0] as num).toDouble(), (t[1] as num).toDouble()), .55),
+      for (final l in lamps) (Vector2(l[0], -l[1]), .35),
+    ],
+  );
   // Place names for the HUD: points along named streets every 8 m, and a
   // 10 m grid inside named squares and parks (which win where they overlap).
   final names = <List<Object>>[];
@@ -381,6 +751,17 @@ void main(List<String> args) {
       for (var q = 0; q < steps; q++) {
         final p = a + (b - a) * (q / steps);
         if (extent.contains(p)) names.add([r1(p.x), r1(-p.y), name, 0]);
+      }
+    }
+  }
+  // Covered passages, every 4 m inside (the streets' samples win at their doors).
+  for (final p in passages.list) {
+    for (var k = 0; k + 1 < p.points.length; k++) {
+      final a = p.points[k], b = p.points[k + 1];
+      final steps = math.max(1, (a.distanceTo(b) / 4).ceil());
+      for (var q = 1; q < steps; q++) {
+        final at = a + (b - a) * (q / steps);
+        names.add([r1(at.x), r1(-at.y), p.name, 0]);
       }
     }
   }
@@ -424,6 +805,10 @@ void main(List<String> args) {
     '${jsonEncode({
       'note': 'web frame: x east, y up, z SOUTH',
       'extent': [extent.minX, -extent.maxZ, extent.maxX, -extent.minZ],
+      // Areas the car cannot enter, [minX, minZ, maxX, maxZ] in the web frame (z mirrored).
+      'blocked': [
+        for (final e in blockedAreas) [e.minX, -e.maxZ, e.maxX, -e.minZ],
+      ],
       'chunkSize': chunkSize,
       'chunks': chunkList,
       // [x, z, base y], z mirrored.
@@ -431,12 +816,29 @@ void main(List<String> args) {
       // Café tables (each with two chairs and a parasol): [x, z, base y,
       // yaw, parasol colour], z mirrored.
       'terraces': terraceTableList,
+      // Market stalls: [x, z, base y, yaw, umbrella colour or ''], z mirrored.
+      'stalls': stallList,
       'coverage': {'done': done.length, 'walls': done.length + todo.length},
       // Roofs index assets/textures/roof_atlas.png (else the surface atlas).
       'roofSet': roofs != null,
       'heroPages': hero.pages,
       'features': features,
       'walls': walls,
+      // Walkable 1 m cells for pedestrians (see tool/src/walk.dart).
+      'walk': walk,
+      // Hand-placed free-standing props (data/props.json): {type, x, z (web), y, heading (rad clockwise from north), ...}.
+      'props': props2,
+      // Fences (data/fences.json): {style, height, ..., posts: [[x, y, z], ...]} in the web frame.
+      'fences': fences,
+      // Open gates (data/gates.json): {name, x, y, z (web), heading deg clockwise from north (direction of travel), width, height}.
+      'gates': gates,
+      'stoneWalls': stoneWalls,
+      'dips': dips,
+      // Buildings the game models itself (buildings.json `omit` + `landmark`): {name, x, y, z, heading deg}.
+      'landmarks': landmarks,
+      // Covered passages (data/passages.json, web3d/src/passages.ts): {name, style, width, height,
+      // doorWidth, door, samples: [[x, floor y, z], ...], covered: [[s0, s1, facade dir at s0 (x, z), at s1], ...], hall?: {x, y, z, apothem, heading deg, height, dome}}.
+      'passages': passages.toJson([for (final b in city.buildings) b.polygon]),
       // Tram tracks as polylines [[x, z], ...], z mirrored.
       'trams': [
         for (final line in ground.tramLines)

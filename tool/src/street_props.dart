@@ -199,14 +199,18 @@ void emitKiosk(PropBuilder b, Tags tags, Polygon footprint, double ground) {
   final (c, f, hl, hw) = orientedBox(footprint);
   final name = (tags['name'] ?? tags['brand'] ?? tags['operator'] ?? '').toLowerCase();
   // Brand colours: Tisak red, iNovine blue, anything else bottle green.
-  final brand = name.contains('tisak')
+  // The two newsstands on the square's south frontage are dark green (Street View Jul 2024).
+  final onSquare = [Vector2(-24, -14.5), Vector2(9.6, -27)].any((p) => p.distanceTo(c) < 7);
+  final brand = onSquare
+      ? hex(0x1F4A36)
+      : name.contains('tisak')
       ? hex(0xC4262E)
       : name.contains('novine')
           ? hex(0x1E5AA8)
           : hex(0x2E6B45);
   final y = ground + .15;
   b.box(c, f, hl, hw, y - .3, y + .25, hex(0x55585C), rough: .7);
-  b.box(c, f, hl - .03, hw - .03, y + .25, y + .95, hex(0xE8E6E0), rough: .5);
+  b.box(c, f, hl - .03, hw - .03, y + .25, y + .95, onSquare ? hex(0x24503A) : hex(0xE8E6E0), rough: .5);
   b.box(c, f, hl - .08, hw - .08, y + .95, y + 2.05, hex(0x2A3440), kind: 5, rough: .08);
   // Mullions at the corners and the long sides' middles.
   final r = Vector2(f.y, -f.x);
@@ -262,15 +266,27 @@ void emitJelacic(PropBuilder b, Polygon footprint, double ground) {
   // Face south (z north, so forward.z < 0).
   if (f.y > 0) f = -f;
   final r = Vector2(f.y, -f.x);
-  final stone = hex(0x9E978A), stoneDark = hex(0x837D72);
-  final bronze = hex(0x3E4636), bronzeLight = hex(0x55604A);
+  // Dark grey-brown granite pedestal with bronze plaques, dark bronze (Street View Jul 2024).
+  final stone = hex(0x5E5750), stoneDark = hex(0x4A443E), step = hex(0x6E675F);
+  final bronze = hex(0x35302A), bronzeLight = hex(0x4A4237);
   var y = ground + .15;
-  b.box(c, f, hl + .9, hw + .9, y - .3, y + .25, stoneDark, rough: .85);
+  b.box(c, f, hl + .9, hw + .9, y - .3, y + .25, step, rough: .85);
   y += .25;
-  b.box(c, f, hl + .45, hw + .45, y, y + .3, stoneDark, rough: .85);
+  b.box(c, f, hl + .45, hw + .45, y, y + .3, step, rough: .85);
   y += .3;
   b.box(c, f, hl, hw, y, y + 2.7, stone, rough: .8);
   b.box(c, f, hl + .12, hw + .12, y + 2.7, y + 3.0, stoneDark, rough: .8);
+  b.box(c, f, hl + .1, hw + .1, y, y + .35, stoneDark, rough: .8);
+  // Bronze relief plaques on the four faces.
+  for (final (centre, dir, halfWide) in [
+    (c + f * (hl + .03), f, hw * .62),
+    (c - f * (hl + .03), -f, hw * .62),
+    (c + r * (hw + .03), r, hl * .62),
+    (c - r * (hw + .03), -r, hl * .62),
+  ]) {
+    b.box(centre, dir, .03, halfWide, y + .75, y + 2.3, bronze, kind: 1, rough: .4);
+    b.box(centre + dir * .03, dir, .02, halfWide - .12, y + .9, y + 2.15, bronzeLight, kind: 1, rough: .5);
+  }
   final top = y + 3.0;
 
   Vector3 at(double fw, double side, double h) {
@@ -340,6 +356,37 @@ void emitFountain(PropBuilder b, Polygon footprint, double ground) {
       rough: .1, radiusB: .02);
 }
 
+/// Manduševac as Street View shows it (survey, Jul 2024 / Aug 2011): a low stepped OVAL basin about
+/// 10 x 5 m, its long axis east-west, centred near (66, -6) (OSM puts a 4 m disc at (66, -10.6)). The
+/// chain posts around it are placed by data/props.json (web3d/src/squareprops.ts).
+void emitManduse(PropBuilder b, double ground) {
+  final c = Vector2(66, -6);
+  final y = ground + .15;
+  const n = 40;
+  List<Vector2> oval(double a, double bb) => [
+    for (var i = 0; i < n; i++) c + Vector2(math.cos(i / n * 2 * math.pi) * a, math.sin(i / n * 2 * math.pi) * bb),
+  ];
+  final granite = hex(0x8F8A82), rim = hex(0xB8B2A6);
+  // Two low steps, the rim wall, water inside.
+  for (final (a0, b0, a1, b1, h) in [
+    (6.1, 3.3, 5.5, 2.7, .12),
+    (5.5, 2.7, 5.0, 2.2, .26),
+  ]) {
+    final o = oval(a0, b0), i = oval(a1, b1);
+    for (var k = 0; k < n; k++) {
+      b.prism([o[k], o[(k + 1) % n], i[(k + 1) % n], i[k]], y - .1, y + h, granite, rough: .85);
+    }
+  }
+  final ro = oval(5.0, 2.2), ri = oval(4.55, 1.85);
+  for (var k = 0; k < n; k++) {
+    b.prism([ro[k], ro[(k + 1) % n], ri[(k + 1) % n], ri[k]], y - .1, y + .55, rim, rough: .8);
+  }
+  b.prism(oval(4.6, 1.9), y - .1, y + .3, hex(0x2C5F6E), kind: 3, rough: .05);
+  // A low jet in the middle.
+  b.cylinder(Vector3(c.x, y + .3, c.y), Vector3(c.x, y + 1.05, c.y), .06, hex(0xDDEBF0), sides: 6, kind: 3,
+      rough: .1, radiusB: .02);
+}
+
 /// One street lamp at the origin: the square's dark cast-iron post with a
 /// lantern, 4.6 m. Instanced by the web app.
 MeshWriter lampMesh() {
@@ -365,19 +412,80 @@ double _hash(double a, double b) {
 /// vector toward the rails), and a stop sign at the head.
 void emitPlatform(PropBuilder b, List<Vector2> line, Vector2 trackSide,
     double Function(Vector2) terrain) {
-  const half = 1.4, lift = .22;
+  const half = 1.4, lift = .22, edge = .3;
+  // OSM platforms are one long segment over a slope: cut it into 2.5 m pieces
+  // so the slab's top follows the ground. The slab is ONE continuous strip
+  // (it used to be a flat box per piece, stepped, with a darker box for the
+  // rails' edge whose side lay in the slab's side: both flickered).
+  line = [
+    for (var i = 0; i + 1 < line.length; i++)
+      for (var k = 0, n = math.max(1, (line[i].distanceTo(line[i + 1]) / 2.5).ceil()); k < n; k++)
+        k == 0 ? line[i] : line[i] + (line[i + 1] - line[i]) * (k / n),
+    line.last,
+  ];
   final kerb = hex(0xA9A59C), top = hex(0xBDB8AE);
-  for (var i = 0; i + 1 < line.length; i++) {
-    final a = line[i], c = line[i + 1];
-    final d = (c - a).normalized();
-    final n = Vector2(d.y, -d.x);
-    final quad = [a + n * half, c + n * half, c - n * half, a - n * half];
-    final y0 = math.min(terrain(a), terrain(c)) + .15;
-    b.prism(quad, y0 - .1, y0 + lift, top, rough: .8);
-    // A darker edge along the rails' side.
-    final s = n.dot(trackSide) > 0 ? 1.0 : -1.0;
-    b.prism([a + n * (half * s), c + n * (half * s), c + n * ((half - .3) * s), a + n * ((half - .3) * s)],
-        y0 - .1, y0 + lift + .01, kerb, rough: .8);
+  final count0 = line.length;
+  // Per point: the unit normal (+90 deg from the direction), mitred at bends.
+  final dirs = [for (var i = 0; i + 1 < count0; i++) (line[i + 1] - line[i]).normalized()];
+  final normals = [
+    for (var i = 0; i < count0; i++)
+      () {
+        final a = dirs[math.max(0, i - 1)], c = dirs[math.min(dirs.length - 1, i)];
+        final na = Vector2(a.y, -a.x), nc = Vector2(c.y, -c.x);
+        final m = (na + nc).normalized();
+        return m / math.max(.5, m.dot(nc));
+      }(),
+  ];
+  // Which side the rails are on (+1: along the normals).
+  var lean = 0.0;
+  for (final n in normals) {
+    lean += n.dot(trackSide);
+  }
+  final s = lean > 0 ? 1.0 : -1.0;
+  // The top is level across, at the highest ground under it plus the lift;
+  // the sides reach below the lowest.
+  final topY = <double>[], footY = <double>[];
+  for (var i = 0; i < count0; i++) {
+    final g = [terrain(line[i]), terrain(line[i] + normals[i] * half), terrain(line[i] - normals[i] * half)];
+    topY.add(g.reduce(math.max) + .15 + lift);
+    footY.add(g.reduce(math.min) + .05);
+  }
+  Vector3 at3(int i, double offset, double y) {
+    final p = line[i] + normals[i] * offset;
+    return Vector3(p.x, y, p.y);
+  }
+
+  // A quad whose winding faces [want].
+  void face(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, Vector3 want, Vector4 color) {
+    if ((p1 - p0).cross(p2 - p0).dot(want) >= 0) {
+      b.quad(p0, p1, p2, p3, color);
+    } else {
+      b.quad(p0, p3, p2, p1, color);
+    }
+  }
+
+  // Bands across the top: the pale walking surface and a darker edge along
+  // the rails, side by side (never overlapping), at one height.
+  final bands = s > 0
+      ? [(-half, half - edge, top), (half - edge, half, kerb)]
+      : [(-half, -half + edge, kerb), (-half + edge, half, top)];
+  final up = Vector3(0, 1, 0);
+  for (var i = 0; i + 1 < count0; i++) {
+    final j = i + 1;
+    for (final (o0, o1, color) in bands) {
+      face(at3(i, o0, topY[i]), at3(j, o0, topY[j]), at3(j, o1, topY[j]), at3(i, o1, topY[i]), up, color);
+    }
+    final n = Vector3(dirs[i].y, 0, -dirs[i].x);
+    for (final side in [1.0, -1.0]) {
+      face(at3(i, half * side, footY[i]), at3(j, half * side, footY[j]), at3(j, half * side, topY[j]),
+          at3(i, half * side, topY[i]), n * side, side == s ? kerb : top);
+    }
+  }
+  // End caps.
+  for (final (i, sign) in [(0, -1.0), (count0 - 1, 1.0)]) {
+    final d = dirs[math.min(i, dirs.length - 1)];
+    face(at3(i, -half, footY[i]), at3(i, half, footY[i]), at3(i, half, topY[i]), at3(i, -half, topY[i]),
+        Vector3(d.x, 0, d.y) * sign, top);
   }
   // Shelters every ~18 m along the whole line.
   var total = 0.0;
@@ -394,7 +502,19 @@ void emitPlatform(PropBuilder b, List<Vector2> line, Vector2 trackSide,
     return line.last;
   }
 
-  final glass = hex(0x9DB4C0), frame = hex(0x3B4046), roof = hex(0xDADDE0);
+  // Platform top under arc length [s0, s1]: the lowest top there, so posts
+  // never hang above the sloping slab.
+  double topUnder(double s0, double s1) {
+    var best = double.infinity, at0 = 0.0;
+    for (var i = 0; i + 1 < line.length; i++) {
+      final l = line[i].distanceTo(line[i + 1]);
+      if (at0 + l >= s0 && at0 <= s1) best = math.min(best, math.min(topY[i], topY[i + 1]));
+      at0 += l;
+    }
+    return best.isFinite ? best : topY.first;
+  }
+
+  final glass = hex(0x9DB4C0), frame = hex(0x3B4046);
   final count = math.max(1, (total / 18).floor());
   for (var k = 0; k < count; k++) {
     final s = total * (k + .5) / count;
@@ -402,28 +522,25 @@ void emitPlatform(PropBuilder b, List<Vector2> line, Vector2 trackSide,
     final f = (q - p).normalized();
     final r = Vector2(f.y, -f.x);
     final away = r.dot(trackSide) > 0 ? -r : r;
-    final c = p + away * .8;
-    final y = terrain(p) + .15 + lift;
     const hl = 3.0, depth = .7;
-    // Back glass wall and two side panes.
-    b.box(c + away * depth, f, hl, .03, y, y + 2.4, glass, kind: 2, rough: .05);
-    for (final e in [-1.0, 1.0]) {
-      b.box(c + f * (hl * e) + away * (depth / 2), away, depth / 2, .03, y, y + 2.4, glass, kind: 2, rough: .05);
-      b.cylinder(Vector3((c + f * (hl * e) + away * depth).x, y, (c + f * (hl * e) + away * depth).y),
-          Vector3((c + f * (hl * e) + away * depth).x, y + 2.5, (c + f * (hl * e) + away * depth).y), .05, frame,
-          sides: 6, kind: 1, rough: .4);
+    final y = topUnder(s - hl, s + hl);
+    // Open glass-roofed canopy on thin steel posts, no walls (Street View, Jul 2024),
+    // centred on the platform's centreline.
+    final roofC = p;
+    for (final e in [-1.0, 0.0, 1.0]) {
+      for (final side in [-1.0, 1.0]) {
+        final q = roofC + f * (hl * e) + away * ((depth / 2 + .35) * side);
+        b.cylinder(Vector3(q.x, y - .08, q.y), Vector3(q.x, y + 2.9, q.y), .045, frame, sides: 6, kind: 1, rough: .4);
+      }
     }
-    b.box(c + away * (depth / 2 - .1), f, hl + .2, depth / 2 + .5, y + 2.5, y + 2.65, roof, rough: .5);
-    // Bench.
-    b.box(c + away * (depth - .25), f, hl - .5, .22, y + .42, y + .48, hex(0x6B4B32), rough: .7);
-    for (final e in [-1.0, 1.0]) {
-      b.box(c + away * (depth - .25) + f * ((hl - .8) * e), f, .04, .2, y, y + .42, frame, kind: 1, rough: .4);
-    }
+    b.box(roofC, f, hl + .25, depth / 2 + .55, y + 2.9, y + 2.95, glass, kind: 2, rough: .05);
+    b.box(roofC + away * (depth / 2 + .55), f, hl + .25, .04, y + 2.86, y + 2.99, frame, kind: 1, rough: .4);
+    b.box(roofC - away * (depth / 2 + .55), f, hl + .25, .04, y + 2.86, y + 2.99, frame, kind: 1, rough: .4);
   }
   // The stop sign (a ZET blue post) at the head of the platform.
   final head = line.first;
-  final hy = terrain(head) + .15 + lift;
-  b.cylinder(Vector3(head.x, hy, head.y), Vector3(head.x, hy + 2.9, head.y), .05, frame, sides: 6, kind: 1);
+  final hy = topUnder(0, 1);
+  b.cylinder(Vector3(head.x, hy - .08, head.y), Vector3(head.x, hy + 2.9, head.y), .05, frame, sides: 6, kind: 1);
   final f0 = (line[1] - line[0]).normalized();
   b.box(head, f0, .35, .04, hy + 2.3, hy + 2.9, hex(0x1D4E9E), rough: .4);
 }
@@ -545,7 +662,7 @@ bool emitMonument(PropBuilder b, Tags t, Vector2 c, double ground) {
 /// mushroom on Zrinjevac) gets its pillar and cap.
 void emitBasin(PropBuilder b, Polygon footprint, double ground, {String? name}) {
   if (name == 'Manduševac') {
-    emitFountain(b, footprint, ground);
+    emitManduse(b, ground);
     return;
   }
   emitFountain(b, footprint, ground);

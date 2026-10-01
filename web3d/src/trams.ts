@@ -2,7 +2,8 @@
 // routes, and five-module ZET TMK 2200 low-floor trams run along them, each
 // module following the rails on its own (so they bend through curves), each a
 // kinematic Rapier body the car can hit. A tram slows and stops for the car
-// when it is on the track ahead.
+// or a tram on the track ahead, and takes turns at junctions (merges and
+// crossings) with trams on routes that foul its own.
 
 import * as THREE from 'three';
 import type RAPIER_NS from '@dimforge/rapier3d-compat';
@@ -16,47 +17,67 @@ interface Route {
   y: Float32Array;
   z: Float32Array;
   length: number;
+  /** The junctions it passes, in order along it. */
+  gates: Gate[];
+}
+
+/** Where routes merge or cross. A tram may only enter while no tram of a
+ * route that fouls its own there holds it (so two trams never both nose into
+ * a merge and wait for each other forever). */
+interface Junction {
+  holders: Set<Tram>;
+  fouls: Map<Route, Set<Route>>;
+}
+
+/** A junction on one route: [enter] is where a tram without the right of way
+ * stops, [exit] where its tail clears the last fouling point. */
+interface Gate {
+  junction: Junction;
+  enter: number;
+  exit: number;
 }
 
 const CRUISE = 9; // m/s, about 32 km/h
+/** Centre lines closer than this share track space (2.3 m wide trams; the
+ * two tracks of a street run 2.6-5 m apart). */
+const FOUL = 2;
+/** How far before its first fouling point a tram waits for the right of way. */
+const GATE = 12;
+/** How far ahead a tram claims the junctions it is coming to. */
+const LOOK = 40;
 
-/** Joins track ways that meet end to start into long chains. */
-function chain(lines: P[][]): P[][] {
+/** Every way through the network: track ways that meet end to start, joined
+ * into chains that take every branch at a switch (so ways are shared between
+ * routes, and no route stops at a junction because another one took the way on). */
+function chains(lines: P[][]): P[][] {
   const key = (p: P) => `${Math.round(p[0] * 2)},${Math.round(p[1] * 2)}`;
+  const heading = (a: P, b: P) => Math.atan2(b[1] - a[1], b[0] - a[0]);
   const starts = new Map<string, number[]>();
   lines.forEach((l, i) => {
     const k = key(l[0]);
     starts.set(k, [...(starts.get(k) ?? []), i]);
   });
   const ends = new Set(lines.map((l) => key(l[l.length - 1])));
-  const used = new Set<number>();
+  const walked = new Set<number>();
   const out: P[][] = [];
-  // Start where nothing leads in, then pick up the loops.
-  const order = [...lines.keys()].sort((a, b) => Number(ends.has(key(lines[a][0]))) - Number(ends.has(key(lines[b][0]))));
-  for (const i of order) {
-    if (used.has(i)) continue;
-    used.add(i);
-    const c = [...lines[i]];
-    for (;;) {
-      const tail = c[c.length - 1], prev = c[c.length - 2];
-      const dir = Math.atan2(tail[1] - prev[1], tail[0] - prev[0]);
-      let best = -1, bestTurn = 0.9;
-      for (const j of starts.get(key(tail)) ?? []) {
-        if (used.has(j)) continue;
-        const l = lines[j];
-        const d2 = Math.atan2(l[1][1] - l[0][1], l[1][0] - l[0][0]);
-        const turn = Math.abs(Math.atan2(Math.sin(d2 - dir), Math.cos(d2 - dir)));
-        if (turn < bestTurn) {
-          bestTurn = turn;
-          best = j;
-        }
-      }
-      if (best < 0) break;
-      used.add(best);
-      c.push(...lines[best].slice(1));
+  const walk = (path: number[]) => {
+    if (out.length >= 64) return;
+    const last = lines[path[path.length - 1]];
+    const tail = last[last.length - 1], dir = heading(last[last.length - 2], tail);
+    const next = (starts.get(key(tail)) ?? []).filter((j) => {
+      const d = heading(lines[j][0], lines[j][1]) - dir;
+      return !path.includes(j) && Math.abs(Math.atan2(Math.sin(d), Math.cos(d))) < 0.9;
+    });
+    if (next.length) {
+      for (const j of next) walk([...path, j]);
+      return;
     }
-    out.push(c);
-  }
+    path.forEach((i) => walked.add(i));
+    out.push(path.flatMap((i, n) => (n ? lines[i].slice(1) : lines[i])));
+  };
+  // Start where nothing leads in, then pick up the loops.
+  for (const i of lines.keys()) if (!ends.has(key(lines[i][0]))) walk([i]);
+  for (const i of lines.keys()) if (!walked.has(i)) walk([i]);
   return out;
 }
 
@@ -86,7 +107,7 @@ function resample(line: P[], inside: (x: number, z: number) => boolean, height: 
   }
   const n = bestB - bestA;
   if (n < 2) return null;
-  const route: Route = { x: new Float32Array(n), y: new Float32Array(n), z: new Float32Array(n), length: n - 1 };
+  const route: Route = { x: new Float32Array(n), y: new Float32Array(n), z: new Float32Array(n), length: n - 1, gates: [] };
   for (let i = 0; i < n; i++) {
     route.x[i] = xs[bestA + i];
     route.z[i] = zs[bestA + i];
@@ -106,6 +127,72 @@ function resample(line: P[], inside: (x: number, z: number) => boolean, height: 
     route.y[i] = sum / cnt;
   }
   return route;
+}
+
+/** Finds where routes foul each other (closer than FOUL, other than running
+ * along the same track the same way) and gives every route its gates. */
+function junctions(routes: Route[]) {
+  const cellOf = (x: number, z: number, size: number) => `${Math.floor(x / size)},${Math.floor(z / size)}`;
+  const grid = new Map<string, [number, number][]>();
+  routes.forEach((r, a) => {
+    for (let i = 0; i <= r.length; i++) {
+      const c = cellOf(r.x[i], r.z[i], FOUL);
+      grid.set(c, [...(grid.get(c) ?? []), [a, i]]);
+    }
+  });
+  const dir = (r: Route, i: number) => {
+    const h = Math.max(i - 1, 0), j = Math.min(i + 1, r.length);
+    return Math.atan2(r.z[j] - r.z[h], r.x[j] - r.x[h]);
+  };
+  const points: { a: number; b: number; s: number; x: number; z: number }[] = [];
+  routes.forEach((r, a) => {
+    for (let i = 0; i <= r.length; i++) {
+      const fouled = new Set<number>(), same = new Set<number>();
+      const cx = Math.floor(r.x[i] / FOUL), cz = Math.floor(r.z[i] / FOUL);
+      for (let dx = -1; dx <= 1; dx++)
+        for (let dz = -1; dz <= 1; dz++)
+          for (const [b, j] of grid.get(`${cx + dx},${cz + dz}`) ?? []) {
+            if (b === a) continue;
+            const q = routes[b];
+            const d = Math.hypot(q.x[j] - r.x[i], q.z[j] - r.z[i]);
+            if (d >= FOUL) continue;
+            const turn = dir(q, j) - dir(r, i);
+            if (d < 0.7 && Math.abs(Math.atan2(Math.sin(turn), Math.cos(turn))) < 0.35) same.add(b);
+            else fouled.add(b);
+          }
+      for (const b of fouled) if (!same.has(b)) points.push({ a, b, s: i, x: r.x[i], z: r.z[i] });
+    }
+  });
+  // Fouling points within 30 m of each other make one junction.
+  const parent = points.map((_, i) => i);
+  const root = (i: number): number => (parent[i] === i ? i : (parent[i] = root(parent[i])));
+  const cells = new Map<string, number[]>();
+  points.forEach((p, i) => {
+    const c = cellOf(p.x, p.z, 30);
+    cells.set(c, [...(cells.get(c) ?? []), i]);
+  });
+  points.forEach((p, i) => {
+    const cx = Math.floor(p.x / 30), cz = Math.floor(p.z / 30);
+    for (let dx = -1; dx <= 1; dx++)
+      for (let dz = -1; dz <= 1; dz++)
+        for (const j of cells.get(`${cx + dx},${cz + dz}`) ?? [])
+          if (Math.hypot(points[j].x - p.x, points[j].z - p.z) < 30) parent[root(i)] = root(j);
+  });
+  const groups = new Map<number, typeof points>();
+  points.forEach((p, i) => groups.set(root(i), [...(groups.get(root(i)) ?? []), p]));
+  for (const group of groups.values()) {
+    const junction: Junction = { holders: new Set(), fouls: new Map() };
+    const span = new Map<Route, [number, number]>();
+    for (const { a, b, s } of group) {
+      const ra = routes[a], rb = routes[b];
+      if (!junction.fouls.has(ra)) junction.fouls.set(ra, new Set());
+      junction.fouls.get(ra)!.add(rb);
+      const [s0, s1] = span.get(ra) ?? [s, s];
+      span.set(ra, [Math.min(s0, s), Math.max(s1, s)]);
+    }
+    for (const [r, [s0, s1]] of span) r.gates.push({ junction, enter: s0 - GATE, exit: s1 + 2 });
+  }
+  for (const r of routes) r.gates.sort((g, h) => g.enter - h.enter);
 }
 
 function sample(r: Route, s: number, out: THREE.Vector3) {
@@ -345,6 +432,14 @@ interface Tram {
   s: number; // the nose tip, metres along the route
   prevS: number;
   speed: number;
+  /** Off the map: it ran off the end of its route and waits for the start to clear. */
+  hidden: boolean;
+  /** Moved in one jump (left or came back): the bodies teleport, not sweep. */
+  jumped: boolean;
+  /** Seconds it has waited at a junction (the longest waiting goes first). */
+  wait: number;
+  /** Held up by the car or another tram (not a junction gate): it rings its bell. */
+  blocked: boolean;
   meshes: THREE.Mesh[]; // modules, then bellows
   bodies: RAPIER_NS.RigidBody[]; // modules
 }
@@ -367,6 +462,7 @@ export class Trams {
     lines: P[][],
     inside: (x: number, z: number) => boolean,
     height: (x: number, z: number) => number,
+    spacing = 400, // metres of route per tram
   ) {
     this.root.name = 'trams';
     const atlas = new THREE.TextureLoader().load('models/tram_atlas.png');
@@ -381,12 +477,15 @@ export class Trams {
       metalness: 0.1,
     });
     const geos = [...MODULES.map(([a, b]) => moduleGeometry(a, b)), ...BELLOWS.map(([a, b]) => bellowsGeometry(a, b))];
-    const routes = chain(lines)
+    const local = lines.filter((l) => l.some(([x, z]) => inside(x, z)));
+    const routes = chains(local)
       .map((c) => resample(c, inside, height))
       .filter((r): r is Route => !!r && r.length > 120);
+    junctions(routes);
+    const placed: THREE.Vector3[] = [];
     for (const route of routes) {
-      // One tram per ~400 m of route, spread out.
-      const count = Math.max(1, Math.floor(route.length / 400));
+      // One tram per [spacing] of route, spread out.
+      const count = Math.max(1, Math.floor(route.length / spacing));
       for (let k = 0; k < count; k++) {
         const meshes = geos.map((g) => {
           const mesh = new THREE.Mesh(g, material);
@@ -400,7 +499,12 @@ export class Trams {
           return body;
         });
         const s = TRAM.length + ((route.length - TRAM.length) * (k + 0.3)) / count;
-        this.trams.push({ route, s, prevS: s, speed: CRUISE, meshes, bodies });
+        // Routes share track: one that would start on top of another tram
+        // starts off the map instead.
+        const pts = Array.from({ length: Math.ceil(TRAM.length / 2) + 1 }, (_, i) => sample(route, s - i * 2, new THREE.Vector3()));
+        const hidden = pts.some((p) => placed.some((q) => p.distanceTo(q) < 4));
+        if (!hidden) placed.push(...pts);
+        this.trams.push({ route, s, prevS: s, speed: CRUISE, hidden, jumped: true, wait: 0, blocked: false, meshes, bodies });
       }
     }
     this.place(1);
@@ -411,58 +515,121 @@ export class Trams {
     return this.trams.length;
   }
 
+  /** Pushes what the trams occupy (every 2 m of each body) and the track just ahead
+   * of each nose, as [x, z] pairs, for pedestrians to keep off. */
+  hazards(push: (x: number, z: number) => void) {
+    this.trams.forEach((t, k) => {
+      if (t.hidden || !this.bodyPts[k] || !this.nextPts[k]) return;
+      for (const p of this.bodyPts[k]) push(p.x, p.z);
+      for (const p of this.nextPts[k]) push(p.x, p.z);
+    });
+  }
+
+  /** Where each tram on the map is (its middle) and how fast it goes, for the sound. */
+  audioSources(): { id: number; x: number; y: number; z: number; speed: number; blocked: boolean }[] {
+    const out: { id: number; x: number; y: number; z: number; speed: number; blocked: boolean }[] = [];
+    this.trams.forEach((t, k) => {
+      const pts = this.bodyPts[k];
+      if (t.hidden || !pts) return;
+      const p = pts[pts.length >> 1];
+      out.push({ id: k, x: p.x, y: p.y, z: p.z, speed: t.speed, blocked: t.blocked });
+    });
+    return out;
+  }
+
   /** One physics step. [car] is the car's position, to stop for it. */
   step(dt: number, car: THREE.Vector3) {
     // What every tram occupies: points every 2 m along its body, and the
     // 10 m of track just ahead of its nose (where it is about to go).
     this.trams.forEach((t, k) => {
       const pts = (this.bodyPts[k] ??= Array.from({ length: Math.ceil(TRAM.length / 2) + 1 }, () => new THREE.Vector3()));
-      pts.forEach((p, i) => sample(t.route, t.s - Math.min(i * 2, TRAM.length), p));
       const next = (this.nextPts[k] ??= Array.from({ length: 6 }, () => new THREE.Vector3()));
+      if (t.hidden) {
+        for (const p of [...pts, ...next]) p.set(1e9, 0, 1e9);
+        return;
+      }
+      pts.forEach((p, i) => sample(t.route, t.s - Math.min(i * 2, TRAM.length), p));
       next.forEach((p, i) => sample(t.route, t.s + 2 + i * 2, p));
     });
     const near = (p: THREE.Vector3, pts: THREE.Vector3[]) => pts.some((q) => Math.hypot(q.x - p.x, q.z - p.z) < 2 && Math.abs(q.y - p.y) < 3);
+
+    // Right of way at junctions, the longest waiting first: claim each
+    // junction coming up unless a tram from a fouling route holds it or
+    // already waits for it, and hold it until the tail is clear; without it,
+    // wait before it.
+    const waitAt = new Map<Tram, number>();
+    const queued = new Map<Junction, Tram[]>();
+    for (const t of [...this.trams].sort((a, b) => b.wait - a.wait)) {
+      if (t.hidden) continue;
+      for (const g of t.route.gates) {
+        const { holders, fouls } = g.junction;
+        if (t.s - TRAM.length > g.exit) {
+          holders.delete(t);
+          continue;
+        }
+        if (holders.has(t)) continue;
+        if (t.s + LOOK < g.enter) break;
+        const foul = fouls.get(t.route)!;
+        // (Already past the gate, say placed there at the start: go on.)
+        const ahead = [...holders, ...(queued.get(g.junction) ?? [])];
+        if (t.s < g.enter && ahead.some((u) => foul.has(u.route))) {
+          waitAt.set(t, g.enter);
+          queued.set(g.junction, [...(queued.get(g.junction) ?? []), t]);
+          break;
+        }
+        holders.add(t);
+      }
+    }
+
     this.trams.forEach((t, k) => {
       t.prevS = t.s;
+      if (t.hidden) {
+        // Come back in at the start once it is clear.
+        let blocked = false;
+        for (let d = 0; d < TRAM.length + 30 && !blocked; d += 2) {
+          const p = sample(t.route, d, this.tmpB);
+          blocked = this.bodyPts.some((pts, u) => u !== k && near(p, pts));
+        }
+        if (!blocked) {
+          t.hidden = false;
+          t.jumped = true;
+          t.s = t.prevS = TRAM.length;
+          t.speed = CRUISE;
+          // (Occupied at once, for the next tram waiting at the same start.)
+          this.bodyPts[k].forEach((p, i) => sample(t.route, t.s - Math.min(i * 2, TRAM.length), p));
+        }
+        return;
+      }
       // Something on the rails ahead, within braking distance? Slow to a
       // stop a few metres short of it. Walking this tram's own track catches
-      // trams in front on curves and at crossings, and never the one passing
-      // on the parallel track back the other way.
+      // trams in front on curves, and never the one passing on the parallel
+      // track back the other way.
       let target = CRUISE;
-      const nose = t.route.length > t.s ? sample(t.route, t.s, this.tmpA) : this.tmpA.set(1e9, 0, 1e9);
+      t.blocked = false;
+      const nose = sample(t.route, t.s, this.tmpA);
       const others = this.trams
         .map((_, u) => u)
         .filter((u) => u !== k && this.bodyPts[u][0].distanceTo(nose) < 90);
       for (let d = 0; d <= 45; d += 1) {
         if (t.s + d > t.route.length) break;
         const p = sample(t.route, t.s + d, this.tmpB);
-        // The car on the rails, or another tram's body; at a crossing also the
-        // track a tram with a lower index is about to take (so two trams
-        // arriving together never wait for each other).
         const car2 = Math.hypot(car.x - p.x, car.z - p.z) < 2.6 && Math.abs(car.y - p.y) < 3 && d < 28;
-        if (car2 || others.some((u) => near(p, this.bodyPts[u]) || (u < k && near(p, this.nextPts[u])))) {
-          target = Math.max(0, (d - 6) * 0.45);
+        if (car2 || others.some((u) => near(p, this.bodyPts[u]))) {
+          target = Math.min(CRUISE, Math.max(0, (d - 6) * 0.45));
+          t.blocked = true;
           break;
         }
       }
+      const gate = waitAt.get(t);
+      if (gate !== undefined) target = Math.min(target, Math.max(0, (gate - t.s - 2) * 0.45));
+      t.wait = gate !== undefined ? t.wait + dt : 0;
       const accel = target < t.speed ? 3.2 : 1.1;
       t.speed += Math.max(-accel * dt, Math.min(accel * dt, target - t.speed));
       t.s += t.speed * dt;
       if (t.s > t.route.length) {
-        // Leave the city at the far end and come back in at the start, but
-        // only once the start of the track is clear; until then wait.
-        let blocked = false;
-        for (let d = 0; d < TRAM.length + 15 && !blocked; d += 2) {
-          const p = sample(t.route, d, this.tmpB);
-          blocked = this.bodyPts.some((pts, u) => u !== k && near(p, pts));
-        }
-        if (blocked) {
-          t.s = t.route.length;
-          t.speed = 0;
-        } else {
-          t.s = TRAM.length;
-          t.prevS = t.s;
-        }
+        // Leave the city at the far end.
+        t.hidden = t.jumped = true;
+        for (const g of t.route.gates) g.junction.holders.delete(t);
       }
     });
     this.syncBodies(false);
@@ -486,10 +653,14 @@ export class Trams {
   private readonly quat = new THREE.Quaternion();
 
   private syncBodies(teleport: boolean) {
-    for (const t of this.trams) {
+    this.trams.forEach((t, k) => {
+      const jump = teleport || t.jumped;
+      t.jumped = false;
       t.bodies.forEach((body, i) => {
         this.partPose(t, t.s, i, this.pos, this.quat);
-        if (teleport) {
+        // Off the map: parked far under the city, apart.
+        if (t.hidden) this.pos.set(k * 50, -1000 - i * 10, 0);
+        if (jump) {
           body.setTranslation(this.pos, true);
           body.setRotation(this.quat, true);
         } else {
@@ -497,12 +668,14 @@ export class Trams {
           body.setNextKinematicRotation(this.quat);
         }
       });
-    }
+    });
   }
 
   /** Poses the meshes between the last two steps. */
   place(alpha: number) {
     for (const t of this.trams) {
+      for (const mesh of t.meshes) mesh.visible = !t.hidden;
+      if (t.hidden) continue;
       const jumped = t.s < t.prevS;
       const s = jumped ? t.s : t.prevS + (t.s - t.prevS) * alpha;
       t.meshes.forEach((mesh, i) => {

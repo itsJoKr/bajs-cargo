@@ -106,7 +106,7 @@ function tube(b: Builder, points: THREE.Vector3[], radii: number[], sides: numbe
   for (let k = 0; k < points.length - 1; k++) {
     for (let i = 0; i < sides; i++) {
       const a = rings[k] + i, c = rings[k + 1] + i;
-      b.index.push(a, c, a + 1, a + 1, c, c + 1);
+      b.index.push(a, a + 1, c, a + 1, c + 1, c);
     }
   }
 }
