@@ -645,3 +645,196 @@ body {
   font-weight: 500;
   opacity: 0.85;
 }
+
+/* Touch controls (html.touch: phones and tablets, boot.ts). The steering pad bottom left, the
+   pedals bottom right, Reset / Base top right (no car on touch); the keyboard help and the debug lines go. */
+#touch {
+  display: none;
+}
+.touch #touch {
+  display: block;
+}
+.touch #help,
+.touch #coverage,
+.touch #fps {
+  display: none;
+}
+#touch button,
+#steer {
+  pointer-events: auto;
+  touch-action: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  border: 1px solid #fff6;
+  background: #0005;
+  color: #fff;
+  font: 600 14px system-ui, sans-serif;
+  text-shadow: 0 1px 3px #0008;
+  backdrop-filter: blur(6px);
+}
+#touch button.on,
+#steer.on {
+  background: #2f6fe0cc;
+  border-color: #fff;
+}
+html:not([data-ride='car']) #touch .car,
+html[data-ride='car'] #touch .bike {
+  display: none;
+}
+#steer {
+  position: absolute;
+  left: max(16px, env(safe-area-inset-left));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  width: min(42vw, 260px);
+  height: 92px;
+  box-sizing: border-box;
+  border-radius: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  font-size: 20px;
+}
+#steer span {
+  opacity: 0.7;
+}
+#steer .knob {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 64px;
+  height: 64px;
+  margin: -32px 0 0 -32px;
+  border-radius: 50%;
+  background: #fffc;
+  box-shadow: 0 2px 10px #0006;
+}
+#pedals {
+  position: absolute;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  gap: 10px;
+  align-items: end;
+}
+#pedals button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  border-radius: 22px;
+}
+#pedals b {
+  font-size: 26px;
+  line-height: 1;
+}
+#pedals small {
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0.9;
+}
+/* Pedal over brake on the right, under the thumb; skid (handbrake) beside the brake. */
+#fwd {
+  grid-column: 2;
+  grid-row: 1;
+  width: 96px;
+  height: 104px;
+}
+#back {
+  grid-column: 2;
+  grid-row: 2;
+  width: 96px;
+  height: 76px;
+}
+#skid {
+  grid-column: 1;
+  grid-row: 2;
+  width: 76px;
+  height: 64px;
+}
+#actions {
+  position: absolute;
+  top: max(14px, env(safe-area-inset-top));
+  right: max(14px, env(safe-area-inset-right));
+  display: flex;
+  gap: 8px;
+}
+#actions button {
+  min-width: 58px;
+  height: 44px;
+  padding: 0 12px;
+  border-radius: 12px;
+}
+/* The speed sits bottom centre between the thumbs, smaller. */
+.touch #meter {
+  right: auto;
+  left: 50%;
+  bottom: max(14px, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+.touch #speed {
+  font-size: 34px;
+}
+.touch #gear {
+  font-size: 16px;
+}
+/* Phones: the job card shrinks into the top row between the timer and the buttons, the place name
+   goes over the speed. */
+@media (max-height: 500px), (max-width: 500px) {
+  .touch #place {
+    top: auto;
+    bottom: calc(max(14px, env(safe-area-inset-bottom)) + 48px);
+    font-size: 13px;
+    padding: 3px 10px;
+  }
+  .touch #job {
+    top: max(10px, env(safe-area-inset-top));
+    min-width: 0;
+    max-width: calc(100vw - 2 * 228px);
+    padding: 4px 12px;
+  }
+  .touch #job small {
+    font-size: 11px;
+  }
+  .touch #job b {
+    font-size: 16px;
+  }
+  .touch #jobStreet {
+    font-size: 13px;
+  }
+  .touch #timer {
+    font-size: 17px;
+    top: max(14px, env(safe-area-inset-top));
+    left: max(14px, env(safe-area-inset-left));
+  }
+}
+/* Portrait phone: the buttons take the top row, the job card goes under it. */
+@media (max-width: 500px) {
+  .touch #job {
+    top: calc(max(14px, env(safe-area-inset-top)) + 54px);
+    max-width: calc(100vw - 32px);
+  }
+  .touch #steer {
+    height: 84px;
+  }
+  /* Skid beside the pedal; the speed and the place name stand over the steering pad. */
+  .touch #skid {
+    grid-row: 1;
+  }
+  .touch #meter {
+    left: max(16px, env(safe-area-inset-left));
+    bottom: calc(max(16px, env(safe-area-inset-bottom)) + 92px);
+    transform: none;
+  }
+  .touch #place {
+    left: max(16px, env(safe-area-inset-left));
+    bottom: calc(max(16px, env(safe-area-inset-bottom)) + 140px);
+    transform: none;
+  }
+}

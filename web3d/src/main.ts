@@ -249,7 +249,10 @@ async function main(lobby: Lobby) {
   const chase = new ChaseCamera(camera, castCamera);
   addEventListener('mousemove', (e) => chase.orbit(e.movementX, e.movementY));
   [chase.distance, chase.height] = rides[ride].camera;
-  const controls = new Controls();
+  const controls = new Controls(document.getElementById('touch'));
+  controls.onLook = (dx, dy) => chase.orbit(dx, dy);
+  // The touch buttons' labels follow the ride (style.css: html[data-ride]).
+  document.documentElement.dataset.ride = ride;
 
   // Delivery jobs: pale pads in front of every business's door, one of them the current job.
   // Static ground only: a tram standing at a door at load time must not lift its pad onto the roof.
@@ -374,6 +377,7 @@ async function main(lobby: Lobby) {
     vehicle = makeVehicle(p.x, groundAt(p.x, p.z) + 0.3, p.z, heading);
     [chase.distance, chase.height] = rides[ride].camera;
     hudHelp.innerHTML = rides[ride].help + helpTail;
+    document.documentElement.dataset.ride = ride;
     braking = false;
     model.setBraking(false);
     snapshot(vehicle, prev);
@@ -382,6 +386,10 @@ async function main(lobby: Lobby) {
 
   let resetTapped = false;
   hudFlipped.addEventListener('pointerdown', () => (resetTapped = true));
+  if (document.documentElement.classList.contains('touch')) {
+    hudFlipped.textContent = 'Tap here to reset';
+    document.querySelector('#paused small')!.textContent = 'Tap to ride on';
+  }
 
   // Frame rate and render resolution. The GPU cost is per pixel (a 5K Retina screen has 16x the
   // pixels of a 1280x720 window), so the pixel ratio starts under a pixel budget (startRatio) and
@@ -562,7 +570,7 @@ async function main(lobby: Lobby) {
       camera.position.copy(freeLook.eye);
       camera.lookAt(freeLook.target);
     } else {
-      chase.update(elapsed, carPos, vehicle.heading(), vehicle.speed, input.throttle > 0 || input.brake > 0 || Math.abs(vehicle.speed) > 1);
+      chase.update(elapsed, carPos, vehicle.heading(), vehicle.speed, !controls.looking && (input.throttle > 0 || input.brake > 0 || Math.abs(vehicle.speed) > 1));
     }
 
     // The shadow camera follows the car, snapped to whole shadow texels so

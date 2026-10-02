@@ -65,8 +65,11 @@ pipeline lives on here in `tool/` as a plain Dart CLI.
     `merge.ts` (`mergeStatic`: static meshes under one parent with one material become one draw call, posed
     meshes flagged `userData.moves` stay; `shareMaterials`: colour-only material variants share one, tint in
     the vertices; used by the bike/rider and features),
-    `input.ts` (keyboard, gamepad; no touch controls: desktop only, phones and
-    tablets get a "made for a laptop" dialog from `boot.ts`, `?desktop` skips it), `places.ts` (HUD place names),
+    `input.ts` (keyboard, gamepad and touch: phones and tablets (`html.touch`, set by
+    `boot.ts`; `?touch` forces it) get a steering pad, pedal / brake / skid buttons that press the
+    same virtual keys (a tap is a pedal stroke), Reset and Base, and a drag on the game turns the
+    view; no car on touch. They first get a "made for a laptop" dialog with "Play here anyway",
+    `?desktop` skips it), `places.ts` (HUD place names),
     `main.ts` (`run(lobby)`: loop, sky, lighting, adaptive render resolution, HUD with fps, `window.zg` debug surface; pauses
     world, timer and sound while the tab is hidden or the window unfocused, carries on when the player is back;
     stops them for good after the 8th delivery (the finish card shows the time and pedestrians hit; "Copy score image" puts a 1200x630 PNG of the last frame under
@@ -193,7 +196,9 @@ is the done/todo list.
 
 - Screenshots of the game: `node web3d/tools/shot.mjs --eval "..." --sleep 800
   --shot out.png` (its own headless Chrome over CDP; prints the page
-  console; `--mobile` emulates a touch-only phone, which gets the desktop-only dialog). Never drive the game page with the Chrome extension.
+  console; `--mobile` emulates a touch-only phone, which gets the desktop-only dialog unless the URL
+  has `?desktop`; `--touch "x,y;x,y*8:ms"` holds fingers (a `*n` point is tapped n times meanwhile),
+  `--swipe "x,y>x,y:ms"` drags one). Never drive the game page with the Chrome extension.
 - `window.zg`: `look(eye, target, fov?)`, `lookAtWall(id, distance?,
   eyeHeight?)`, `drive()`, `teleport(x, z, heading)`, `groundAt(x, z)`, `ride('bike' | 'car')`,
   `vehicle`, `trams`, `deliveries`, `job(id)` (force the current job), `dress({ coat, fabric, hair })` (outfit.ts ids), `furniture` (`reset()`, `awake()`, `stats()`), `renderer`, `scene`, `camera`. URL: `?park=square`

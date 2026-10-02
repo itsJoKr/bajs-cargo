@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
     <title>Bajs Cargo</title>
     <meta name="description" content="Ride the cargo bike and deliver 8 packages around central Zagreb, as fast as you can." />
     <meta name="theme-color" content="#2f6fe0" />
@@ -57,8 +57,8 @@
       <div class="card">
         <h1>Bajs <span>Cargo</span></h1>
         <p>This one is really made for a laptop or desktop: a keyboard (or a gamepad), a real graphics card and a big screen.</p>
-        <p>Open it on your computer to ride around Zagreb.</p>
-        <button id="anyway" type="button">Try it here anyway</button>
+        <p>It does work here with touch controls, but it is a big city for a small device. Hold it sideways.</p>
+        <button id="anyway" type="button">Play here anyway</button>
       </div>
     </div>
     <div id="finish" hidden>
@@ -83,6 +83,19 @@
       <div id="flipped">Press <b>R</b> to reset</div>
       <div id="penalty">Back at base<small>ride on in <b id="penaltyLeft">5</b></small></div>
       <div id="help"></div>
+      <!-- Phones and tablets (html.touch): steer on the left, pedal and brake on the right, a drag on the game turns the view. -->
+      <div id="touch">
+        <div id="steer" aria-label="Steer"><span>◀</span><i class="knob"></i><span>▶</span></div>
+        <div id="pedals">
+          <button id="skid" type="button" data-key="Space"><small class="bike">Skid</small><small class="car">Hand­brake</small></button>
+          <button id="back" type="button" data-key="KeyS"><b>▼</b><small>Brake</small></button>
+          <button id="fwd" type="button" data-key="KeyW"><b>▲</b><small class="bike">Tap to pedal</small><small class="car">Gas</small></button>
+        </div>
+        <div id="actions">
+          <button type="button" data-tap="KeyR">Reset</button>
+          <button type="button" data-tap="Digit0">Base</button>
+        </div>
+      </div>
     </div>
     <script type="module" src="/src/boot.ts"></script>
   </body>

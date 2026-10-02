@@ -22,9 +22,13 @@ function start() {
     });
 }
 
-// The game is made for a desktop: on a phone or tablet say so instead of loading the whole city
+// Phones and tablets get the touch controls (index.html #touch); `?touch` shows them anywhere.
+const mobile = onMobile();
+if (mobile || params.has('touch')) document.documentElement.classList.add('touch');
+
+// The game is made for a desktop: on a phone or tablet say so before loading the whole city
 // (the button, or `?desktop`, loads it anyway).
-if (onMobile() && !params.has('desktop')) {
+if (mobile && !params.has('desktop')) {
   const loading = document.getElementById('loading')!;
   const dialog = document.getElementById('mobile')!;
   loading.hidden = true;

@@ -1,5 +1,6 @@
-// Keyboard and gamepad controls, merged into one DriveInput. No touch
-// controls: the game is desktop only (main.ts turns phones and tablets away).
+// Keyboard, gamepad and touch controls, merged into one DriveInput. Touch buttons press the same
+// virtual keys as the keyboard (a tap on the pedal button is a pedal stroke, like a tap on W); the
+// steering pad on the left is a stick, and a drag anywhere else turns the camera like the mouse.
 
 import type { DriveInput } from './vehicle.ts';
 
@@ -17,18 +18,105 @@ export class Controls {
   private backStrokes = 0;
   private padGas = false;
   private padBrake = false;
+  /** The touch steering pad, -1..1 while a finger is on it, else null. */
+  private touchSteer: number | null = null;
+  /** Fingers dragging the view (pointer id -> last position). */
+  private drags = new Map<number, { x: number; y: number }>();
+  /** Called with the movement of a finger dragging the view, like mouse movement. */
+  onLook: (dx: number, dy: number) => void = () => {};
 
-  constructor() {
+  constructor(touchRoot?: HTMLElement | null) {
     addEventListener('keydown', (e) => {
       if (e.repeat) return;
-      this.keys.add(e.code);
-      this.pressed.add(e.code);
-      if (e.code === 'KeyW' || e.code === 'ArrowUp') this.taps++;
-      if (e.code === 'KeyS' || e.code === 'ArrowDown') this.backTaps++;
+      this.down(e.code);
       if (e.code.startsWith('Arrow') || e.code === 'Space') e.preventDefault();
     });
     addEventListener('keyup', (e) => this.keys.delete(e.code));
-    addEventListener('blur', () => this.keys.clear());
+    addEventListener('blur', () => {
+      this.keys.clear();
+      this.touchSteer = null;
+      this.drags.clear();
+    });
+    if (touchRoot) this.bindTouch(touchRoot);
+  }
+
+  /** A finger is turning the view: the chase camera should not swing back behind yet. */
+  get looking() {
+    return this.drags.size > 0;
+  }
+
+  private down(code: string) {
+    this.keys.add(code);
+    this.pressed.add(code);
+    if (code === 'KeyW' || code === 'ArrowUp') this.taps++;
+    if (code === 'KeyS' || code === 'ArrowDown') this.backTaps++;
+  }
+
+  /** Buttons with `data-key` hold that key while pressed; `data-tap` presses it once. The `#steer`
+   * pad steers by where the finger is across it; touches on the game itself turn the view. */
+  private bindTouch(root: HTMLElement) {
+    root.addEventListener('contextmenu', (e) => e.preventDefault());
+    for (const el of root.querySelectorAll<HTMLElement>('[data-key]')) {
+      const code = el.dataset.key!;
+      el.addEventListener('pointerdown', (e) => {
+        e.preventDefault();
+        el.setPointerCapture(e.pointerId);
+        el.classList.add('on');
+        this.down(code);
+      });
+      const up = () => {
+        el.classList.remove('on');
+        this.keys.delete(code);
+      };
+      for (const ev of ['pointerup', 'pointercancel', 'lostpointercapture']) el.addEventListener(ev, up);
+    }
+    for (const el of root.querySelectorAll<HTMLElement>('[data-tap]')) {
+      el.addEventListener('pointerdown', (e) => {
+        e.preventDefault();
+        this.pressed.add(el.dataset.tap!);
+      });
+    }
+    const pad = root.querySelector<HTMLElement>('#steer');
+    if (pad) {
+      const knob = pad.querySelector<HTMLElement>('.knob')!;
+      const move = (e: PointerEvent) => {
+        const r = pad.getBoundingClientRect();
+        const v = (e.clientX - (r.left + r.width / 2)) / (r.width * 0.4);
+        // A small dead zone round the middle, full lock short of the ends.
+        const s = Math.max(-1, Math.min(1, Math.sign(v) * Math.max(0, Math.abs(v) - 0.08) / 0.92));
+        this.touchSteer = s;
+        knob.style.transform = `translateX(${s * (r.width / 2 - knob.offsetWidth / 2 - 6)}px)`;
+      };
+      pad.addEventListener('pointerdown', (e) => {
+        e.preventDefault();
+        pad.setPointerCapture(e.pointerId);
+        pad.classList.add('on');
+        move(e);
+      });
+      pad.addEventListener('pointermove', (e) => {
+        if (pad.hasPointerCapture(e.pointerId)) move(e);
+      });
+      const up = () => {
+        this.touchSteer = null;
+        pad.classList.remove('on');
+        knob.style.transform = '';
+      };
+      for (const ev of ['pointerup', 'pointercancel', 'lostpointercapture']) pad.addEventListener(ev, up);
+    }
+    // The view: a finger on the game (not on a control) drags the camera round the rider.
+    addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'touch' || !(e.target instanceof HTMLCanvasElement)) return;
+      this.drags.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    });
+    addEventListener('pointermove', (e) => {
+      const was = this.drags.get(e.pointerId);
+      if (!was) return;
+      // A finger moves the view about twice as far as the mouse would: screens are small.
+      this.onLook((e.clientX - was.x) * 1.6, (e.clientY - was.y) * 1.6);
+      was.x = e.clientX;
+      was.y = e.clientY;
+    });
+    for (const ev of ['pointerup', 'pointercancel']) addEventListener(ev, (e) => this.drags.delete((e as PointerEvent).pointerId));
   }
 
   /** True once per press of [code]. */
@@ -52,6 +140,7 @@ export class Controls {
       steer: this.keySteer,
       handbrake: k('Space'),
     };
+    if (this.touchSteer !== null) input.steer = this.touchSteer;
     const pad = navigator.getGamepads?.().find((p) => p);
     let padTap = false;
     let padBackTap = false;

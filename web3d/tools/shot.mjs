@@ -4,11 +4,14 @@
 //   node tools/shot.mjs [--url http://localhost:5180/] [--out shot.png]
 //        [--wait-ready 60] [--eval "js"]... [--hold KeyW:3000]...
 //        [--size 1280x720] [--dpr 2] [--mobile] [--uncapped] [--throttle 4]
+//        [--touch "x,y;x,y*8:ms"]... [--swipe "x,y>x,y:ms"]...
 //
 // Steps run in order: every --eval, --hold (key held for ms), --throttle
 // (CPU slowed n times, a cheap laptop) and --shot <file> (a screenshot at
 // that point) is executed as it appears. --uncapped lifts the 60 fps vsync
-// cap, so zg.fps() measures what the machine could draw.
+// cap, so zg.fps() measures what the machine could draw. --touch (with --mobile) holds fingers
+// at CSS pixels x,y for ms; a point ending *n is tapped n times meanwhile (the pedal button while
+// the other finger steers). --swipe drags one finger from one point to the other over ms.
 
 import { spawn } from 'node:child_process';
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
@@ -32,6 +35,8 @@ for (let i = 0; i < args.length; i++) {
   else if (a === '--wait-ready') waitReady = Number(args[++i]);
   else if (a === '--eval') steps.push({ eval: args[++i] });
   else if (a === '--hold') steps.push({ hold: args[++i] });
+  else if (a === '--touch') steps.push({ touch: args[++i] });
+  else if (a === '--swipe') steps.push({ swipe: args[++i] });
   else if (a === '--sleep') steps.push({ sleep: Number(args[++i]) });
   else if (a === '--uncapped') uncapped = true;
   else if (a === '--throttle') steps.push({ throttle: Number(args[++i]) });
@@ -132,6 +137,38 @@ for (const step of steps) {
       const [key, vk] = keyInfo[code];
       await send('Input.dispatchKeyEvent', { type: 'keyUp', code, key, windowsVirtualKeyCode: vk });
     }
+  } else if (step.touch) {
+    const [spec, ms] = step.touch.split(':');
+    const pts = spec.split(';').map((p, i) => {
+      const [xy, taps] = p.split('*');
+      const [x, y] = xy.split(',').map(Number);
+      return { id: i + 1, x, y, taps: Number(taps) || 0 };
+    });
+    const held = pts.filter((p) => !p.taps);
+    const touch = (type, list) => send('Input.dispatchTouchEvent', { type, touchPoints: list.map(({ id, x, y }) => ({ id, x, y })) });
+    if (held.length) await touch('touchStart', held);
+    const tapper = pts.find((p) => p.taps);
+    if (tapper) {
+      const each = Number(ms) / tapper.taps;
+      for (let n = 0; n < tapper.taps; n++) {
+        await touch('touchStart', [...held, tapper]);
+        await sleep(each * 0.4);
+        if (held.length) await touch('touchMove', held);
+        else await touch('touchEnd', []);
+        await sleep(each * 0.6);
+      }
+    } else await sleep(Number(ms));
+    await touch('touchEnd', []);
+  } else if (step.swipe) {
+    const [spec, ms] = step.swipe.split(':');
+    const [[x0, y0], [x1, y1]] = spec.split('>').map((p) => p.split(',').map(Number));
+    await send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ id: 1, x: x0, y: y0 }] });
+    for (let n = 1; n <= 20; n++) {
+      await sleep(Number(ms) / 20);
+      const t = n / 20;
+      await send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ id: 1, x: x0 + (x1 - x0) * t, y: y0 + (y1 - y0) * t }] });
+    }
+    await send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
   } else if (step.shot) {
     const r = await send('Page.captureScreenshot', { format: 'png' });
     writeFileSync(step.shot, Buffer.from(r.result.data, 'base64'));
