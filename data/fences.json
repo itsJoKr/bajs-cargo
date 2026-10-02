@@ -68,6 +68,70 @@
    ],
    "source": "User request 2026-10-01: the street up to the funicular is scenery only; closed just past the corner of Mango (Ilica 12). Runs west to east so the cones face Ilica",
    "wall": 12
+  },
+  {
+   "name": "Tkalčićeva roadblock before the Cesarec bust",
+   "style": "roadblock",
+   "points": [
+    [
+     -55.0,
+     306.0
+    ],
+    [
+     -41.5,
+     306.0
+    ]
+   ],
+   "source": "User request 2026-10-02: Tkalčićeva closed near the end of the map, just before the August Cesarec bust. Runs west to east so the cones face south",
+   "wall": 12
+  },
+  {
+   "name": "Pavla Radića roadblock just north of Kravata (Radiona and the street end behind it closed)",
+   "style": "roadblock",
+   "points": [
+    [
+     -122.5,
+     264.0
+    ],
+    [
+     -109.5,
+     264.0
+    ]
+   ],
+   "source": "User request 2026-10-02: closed a few metres past Kravata (Pavla Radića 21, ends z 261); Radiona is removed from the deliveries. Runs west to east so the cones face south",
+   "wall": 12
+  },
+  {
+   "name": "Pavla Radića, side path opposite the Selfie & Memories Museum",
+   "style": "roadblock",
+   "points": [
+    [
+     -118.0,
+     149.8
+    ],
+    [
+     -118.0,
+     163.8
+    ]
+   ],
+   "source": "User request 2026-10-02: the open path on the west side across from the museum, closed ~5 m in. Runs south to north so the cones face the street",
+   "wall": 12
+  },
+  {
+   "name": "Ilica, side path opposite Calliope and Farmacia (towards the funicular)",
+   "style": "roadblock",
+   "points": [
+    [
+     -292.0,
+     23.0
+    ],
+    [
+     -278.0,
+     23.0
+    ]
+   ],
+   "source": "User request 2026-10-02: the passage on the north side of Ilica opposite Ilica 11, open for ~5 m then closed. Runs west to east so the cones face Ilica",
+   "wall": 12
   }
  ]
 }

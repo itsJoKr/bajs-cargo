@@ -10,7 +10,76 @@
  },
  "w105487407": {
   "name": "Gradska štedionica",
-  "roof": "slate_grey"
+  "roof": "slate_grey",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w105487407_e5",
+    "from": 0.033,
+    "to": 0.36,
+    "y": 3.3,
+    "drop": 0.5,
+    "depth": 2.8,
+    "color": "#1c1c1e",
+    "source": "2026-10-02 delivery place (data/deliveries.json); Johann Franck black canopy over its winter garden (Lice Grada photo)"
+   },
+   {
+    "type": "sign",
+    "wall": "w105487407_e5",
+    "mount": "wall",
+    "image": "place_franck_fascia.png",
+    "at": 0.196,
+    "width": 5.0,
+    "y": 3.0,
+    "out": 2.84,
+    "source": "2026-10-02 delivery place (data/deliveries.json); Johann Franck fascia, copper letters on black"
+   },
+   {
+    "type": "box",
+    "wall": "w105487407_e5",
+    "at": 0.04,
+    "width": 0.14,
+    "depth": 0.14,
+    "height": 3.0,
+    "out": 2.74,
+    "y": 0,
+    "color": "#9a7a55",
+    "source": "2026-10-02 delivery place (data/deliveries.json); Johann Franck canopy post"
+   },
+   {
+    "type": "box",
+    "wall": "w105487407_e5",
+    "at": 0.196,
+    "width": 0.14,
+    "depth": 0.14,
+    "height": 3.0,
+    "out": 2.74,
+    "y": 0,
+    "color": "#9a7a55",
+    "source": "2026-10-02 delivery place (data/deliveries.json); Johann Franck canopy post"
+   },
+   {
+    "type": "box",
+    "wall": "w105487407_e5",
+    "at": 0.353,
+    "width": 0.14,
+    "depth": 0.14,
+    "height": 3.0,
+    "out": 2.74,
+    "y": 0,
+    "color": "#9a7a55",
+    "source": "2026-10-02 delivery place (data/deliveries.json); Johann Franck canopy post"
+   },
+   {
+    "type": "terrace",
+    "wall": "w105487407_e5",
+    "from": 0.05,
+    "to": 0.34,
+    "depth": 2.6,
+    "color": "#3a332c",
+    "source": "2026-10-02 delivery place (data/deliveries.json); Johann Franck tables under the canopy"
+   }
+  ]
  },
  "w375381225": {
   "name": "Allianz corner (Trg bana Jelačića / Ilica)",
@@ -483,7 +552,42 @@
  },
  "w338686824": {
   "name": "Ilica house",
-  "roof": "clay_red"
+  "roof": "clay_red",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w338686824_e2",
+    "from": 0.03,
+    "to": 0.84,
+    "y": 3.3,
+    "drop": 0.35,
+    "depth": 1.3,
+    "color": "#efe8d8",
+    "source": "2026-10-02 delivery place (data/deliveries.json); Vincek cream awning with small VINCEK logos (Tripadvisor photo)"
+   },
+   {
+    "type": "sign",
+    "wall": "w338686824_e2",
+    "mount": "wall",
+    "image": "place_vincek_valance.png",
+    "at": 0.24,
+    "width": 0.9,
+    "y": 3.04,
+    "out": 1.32,
+    "source": "2026-10-02 delivery place (data/deliveries.json); VINCEK on the valance"
+   },
+   {
+    "type": "sign",
+    "wall": "w338686824_e2",
+    "mount": "wall",
+    "image": "place_vincek_valance.png",
+    "at": 0.63,
+    "width": 0.9,
+    "y": 3.04,
+    "out": 1.32,
+    "source": "2026-10-02 delivery place (data/deliveries.json); VINCEK on the valance"
+   }
+  ]
  },
  "w338688383": {
   "name": "Ilica house",
@@ -2395,7 +2499,84 @@
  },
  "w289908875": {
   "name": "Kuća Rade",
-  "roof": "biber_old"
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w289908875_e9",
+    "from": 0.5,
+    "to": 0.97,
+    "y": 3.45,
+    "drop": 0.4,
+    "depth": 1.4,
+    "color": "#ece6d6",
+    "source": "2026-10-02 delivery place (data/deliveries.json); Kozel Pub Tkalča awning (Kult Plave Kamenice photo)"
+   },
+   {
+    "type": "sign",
+    "wall": "w289908875_e9",
+    "mount": "wall",
+    "image": "place_kozel_valance.png",
+    "at": 0.735,
+    "width": 0.8,
+    "y": 3.18,
+    "out": 1.42,
+    "source": "2026-10-02 delivery place (data/deliveries.json); \"Kozel\" printed on the awning valance"
+   },
+   {
+    "type": "terrace",
+    "wall": "w289908875_e9",
+    "from": 0.55,
+    "to": 0.98,
+    "depth": 2.6,
+    "color": "#3a3a3a",
+    "source": "2026-10-02 delivery place (data/deliveries.json); Kozel Pub Tkalča terrace"
+   },
+   {
+    "type": "awning",
+    "wall": "w289908875_e7",
+    "from": 0.005,
+    "to": 0.155,
+    "y": 3.7,
+    "drop": 0.25,
+    "depth": 1.6,
+    "color": "#ece4cc",
+    "source": "2026-10-02 delivery place (data/deliveries.json); Nokturno awnings over its terrace on the Skalinska steps (Erasmusu photo)"
+   },
+   {
+    "type": "awning",
+    "wall": "w289908875_e7",
+    "from": 0.165,
+    "to": 0.32,
+    "y": 3.7,
+    "drop": 0.25,
+    "depth": 1.6,
+    "color": "#ece4cc",
+    "source": "2026-10-02 delivery place (data/deliveries.json); Nokturno awnings"
+   },
+   {
+    "type": "sign",
+    "wall": "w289908875_e7",
+    "mount": "wall",
+    "image": "place_nokturno_valance.png",
+    "at": 0.08,
+    "width": 1.5,
+    "y": 3.45,
+    "out": 1.62,
+    "source": "2026-10-02 delivery place (data/deliveries.json); \"NOKTURNO\" printed on the awning valance"
+   },
+   {
+    "type": "sign",
+    "wall": "w289908875_e7",
+    "mount": "wall",
+    "image": "place_nokturno_valance.png",
+    "at": 0.2425,
+    "width": 1.5,
+    "y": 3.45,
+    "out": 1.62,
+    "source": "2026-10-02 delivery place (data/deliveries.json); \"NOKTURNO\" printed on the awning valance"
+   }
+  ]
  },
  "w293352156": {
   "name": "Kuća Kinderman",
@@ -2405,7 +2586,20 @@
   "roof": "clay_red"
  },
  "w299519686": {
-  "roof": "biber_old"
+  "roof": "biber_old",
+  "features": [
+   {
+    "type": "sign",
+    "wall": "w299519686_e6",
+    "mount": "projecting",
+    "image": "place_lastruk_blade.png",
+    "at": 0.02,
+    "width": 1.0,
+    "y": 2.9,
+    "out": 0.15,
+    "source": "2026-10-02 delivery place (data/deliveries.json); La Štruk hanging sign (My Guide Croatia photo), drawn by tool/make_place_signs.py"
+   }
+  ]
  },
  "w299519685": {
   "roof": "clay_brown"
@@ -5076,5 +5270,139 @@
    "roof:height": "1.4"
   },
   "source": "Google 3D view (user screenshot 2026-10-01): a low cream station across the end of Tomićeva with a dark roof; the tracks climb out of its back"
+ },
+ "w289908814": {
+  "name": "Tkalčićeva 12 (Submarine Burger)",
+  "features": [
+   {
+    "type": "sign",
+    "wall": "w289908814_e2",
+    "mount": "projecting",
+    "image": "place_submarine_round.png",
+    "at": 0.67,
+    "width": 0.8,
+    "y": 2.9,
+    "out": 0.25,
+    "source": "2026-10-02 delivery place (data/deliveries.json); Submarine Burger round blade sign (press photo, Jutarnji list), drawn by tool/make_place_signs.py"
+   },
+   {
+    "type": "terrace",
+    "wall": "w289908814_e2",
+    "from": 0.84,
+    "to": 0.99,
+    "depth": 2.5,
+    "color": "#2b2b2b",
+    "source": "2026-10-02 delivery place (data/deliveries.json); Submarine Burger terrace"
+   }
+  ]
+ },
+ "w293357441": {
+  "name": "Kuća Plavić (Pivnica Mali Medo)",
+  "features": [
+   {
+    "type": "awning",
+    "wall": "w293357441_e2",
+    "from": 0.02,
+    "to": 0.98,
+    "y": 4.75,
+    "drop": 0.4,
+    "depth": 1.4,
+    "color": "#ece6d6",
+    "source": "2026-10-02 delivery place (data/deliveries.json); Pivnica Mali Medo awning (Restaurant Guru photo)"
+   },
+   {
+    "type": "sign",
+    "wall": "w293357441_e2",
+    "mount": "wall",
+    "image": "place_malimedo_valance.png",
+    "at": 0.5,
+    "width": 2.2,
+    "y": 4.48,
+    "out": 1.42,
+    "source": "2026-10-02 delivery place (data/deliveries.json); \"Pivnica Mali Medo\" printed on the awning valance"
+   }
+  ]
+ },
+ "w290024543": {
+  "features": [
+   {
+    "type": "sign",
+    "wall": "w290024543_e9",
+    "mount": "projecting",
+    "image": "place_capuciner_blade.png",
+    "at": 0.93,
+    "width": 1.0,
+    "y": 2.6,
+    "out": 0.15,
+    "source": "2026-10-02 delivery place (data/deliveries.json); Capuciner red hanging sign PIZZA SPAGHETTERIA (Facebook photo)"
+   },
+   {
+    "type": "terrace",
+    "wall": "w290024543_e9",
+    "from": 0.12,
+    "to": 0.4,
+    "depth": 2.5,
+    "color": "#d9c9b0",
+    "source": "2026-10-02 delivery place (data/deliveries.json); Capuciner tables in the lane"
+   }
+  ]
+ },
+ "w435118932": {
+  "name": "Teslina 10 (Vinodol)",
+  "features": [
+   {
+    "type": "box",
+    "wall": "w435118932_e0",
+    "at": 0.436,
+    "width": 2.6,
+    "depth": 0.3,
+    "height": 0.62,
+    "out": 0.15,
+    "y": 3.75,
+    "color": "#2e3032",
+    "source": "2026-10-02 delivery place (data/deliveries.json); Vinodol sign box over the gateway (Tripadvisor photo)"
+   },
+   {
+    "type": "sign",
+    "wall": "w435118932_e0",
+    "mount": "wall",
+    "image": "place_vinodol_board.png",
+    "at": 0.436,
+    "width": 2.5,
+    "y": 3.77,
+    "out": 0.31,
+    "source": "2026-10-02 delivery place (data/deliveries.json); \"restoran vinodol\" board"
+   },
+   {
+    "type": "sign",
+    "wall": "w435118932_e0",
+    "mount": "projecting",
+    "image": "place_vinodol_blade.png",
+    "at": 0.49,
+    "width": 0.5,
+    "y": 3.0,
+    "out": 0.15,
+    "source": "2026-10-02 delivery place (data/deliveries.json); Vinodol vertical blade sign with the red top"
+   }
+  ]
+ },
+ "w435117000": {
+  "name": "Bogovićeva 7 (Slastičarnica Millennium)"
+ },
+ "w584464569": {
+  "name": "Hotel Dubrovnik (Gajeva 1)",
+  "features": [
+   {
+    "type": "sign",
+    "wall": "w584464569_e2",
+    "mount": "projecting",
+    "image": "place_dubrovnik_blade.png",
+    "at": 0.99,
+    "width": 0.9,
+    "y": 4.5,
+    "out": 0.2,
+    "source": "2026-10-02 delivery place (data/deliveries.json); Hotel Dubrovnik vertical blade sign HOTEL dubrovnik at the corner by the Gajeva entrance (TDC photo)"
+   }
+  ]
  }
 }

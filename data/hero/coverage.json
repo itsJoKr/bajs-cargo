@@ -1,20 +1,12 @@
 {
-  "note": "Street walls (>= 4 m) of the web export, frame x east / z north. Written by tool/export_web.dart; done = has a Street View facade.",
-  "done": 722,
+  "note": "Street walls (>= 4 m) of the web export, frame x east / z north. Written by tool/export_web.dart; done = has a Street View facade, generic = a shared generic style or plaster tile (data/generic_walls.json, data/plaster_walls.json).",
+  "done": 498,
+  "generic": 224,
   "todo": 5,
   "doneMetres": 10405,
   "todoMetres": 68,
   "walls": {
     "done": [
-      {
-        "wall": "w97010879_e11",
-        "name": "Grkokatoličko sjemenište",
-        "length": 8.89,
-        "mid": [
-          -325.37,
-          212.92
-        ]
-      },
       {
         "wall": "w97079940_e2",
         "name": null,
@@ -103,15 +95,6 @@
         "mid": [
           -205.36,
           11.08
-        ]
-      },
-      {
-        "wall": "w97089769_e0",
-        "name": "Mango",
-        "length": 45.12,
-        "mid": [
-          -309.14,
-          41.91
         ]
       },
       {
@@ -223,42 +206,6 @@
         ]
       },
       {
-        "wall": "w97091855_e2",
-        "name": "Kuća Kovačić",
-        "length": 9.45,
-        "mid": [
-          -129.6,
-          321.78
-        ]
-      },
-      {
-        "wall": "w97091855_e3",
-        "name": "Kuća Kovačić",
-        "length": 5.67,
-        "mid": [
-          -135.23,
-          319.18
-        ]
-      },
-      {
-        "wall": "w97091855_e4",
-        "name": "Kuća Kovačić",
-        "length": 11.3,
-        "mid": [
-          -137.8,
-          311.09
-        ]
-      },
-      {
-        "wall": "w97091857_e6",
-        "name": null,
-        "length": 11.9,
-        "mid": [
-          -120.39,
-          162.67
-        ]
-      },
-      {
         "wall": "w97091857_e7",
         "name": null,
         "length": 15.47,
@@ -286,39 +233,12 @@
         ]
       },
       {
-        "wall": "w97091860_e9",
-        "name": null,
-        "length": 4.55,
-        "mid": [
-          -129.39,
-          202.41
-        ]
-      },
-      {
         "wall": "w97091861_e0",
         "name": null,
         "length": 13.19,
         "mid": [
           -123.54,
           298.38
-        ]
-      },
-      {
-        "wall": "w97091861_e3",
-        "name": null,
-        "length": 5.43,
-        "mid": [
-          -132.98,
-          300.9
-        ]
-      },
-      {
-        "wall": "w97091861_e5",
-        "name": null,
-        "length": 5.88,
-        "mid": [
-          -133.18,
-          297.46
         ]
       },
       {
@@ -382,15 +302,6 @@
         "mid": [
           -112.31,
           148.08
-        ]
-      },
-      {
-        "wall": "w97091865_e2",
-        "name": null,
-        "length": 14.65,
-        "mid": [
-          -120.0,
-          150.34
         ]
       },
       {
@@ -610,15 +521,6 @@
         ]
       },
       {
-        "wall": "w105484833_e9",
-        "name": null,
-        "length": 4.28,
-        "mid": [
-          -37.52,
-          77.11
-        ]
-      },
-      {
         "wall": "w105485745_e0",
         "name": "Kuća Rado",
         "length": 17.01,
@@ -790,15 +692,6 @@
         ]
       },
       {
-        "wall": "w105489667_e8",
-        "name": null,
-        "length": 7.65,
-        "mid": [
-          40.94,
-          -119.08
-        ]
-      },
-      {
         "wall": "w105489668_e8",
         "name": "Kuća Živković",
         "length": 27.84,
@@ -907,33 +800,6 @@
         ]
       },
       {
-        "wall": "w105490847_e0",
-        "name": "crkva svete Marije",
-        "length": 6.52,
-        "mid": [
-          -56.11,
-          154.66
-        ]
-      },
-      {
-        "wall": "w105490847_e2",
-        "name": "crkva svete Marije",
-        "length": 4.63,
-        "mid": [
-          -57.34,
-          149.07
-        ]
-      },
-      {
-        "wall": "w105490847_e4",
-        "name": "crkva svete Marije",
-        "length": 6.8,
-        "mid": [
-          -57.42,
-          143.12
-        ]
-      },
-      {
         "wall": "w105490847_e5",
         "name": "crkva svete Marije",
         "length": 10.64,
@@ -967,15 +833,6 @@
         "mid": [
           161.18,
           -155.26
-        ]
-      },
-      {
-        "wall": "w137106308_e5",
-        "name": null,
-        "length": 20.13,
-        "mid": [
-          168.37,
-          -141.27
         ]
       },
       {
@@ -1042,15 +899,6 @@
         ]
       },
       {
-        "wall": "w137106331_e0",
-        "name": null,
-        "length": 20.5,
-        "mid": [
-          31.77,
-          -161.3
-        ]
-      },
-      {
         "wall": "w137106331_e2",
         "name": null,
         "length": 15.1,
@@ -1078,15 +926,6 @@
         ]
       },
       {
-        "wall": "w138251851_e14",
-        "name": null,
-        "length": 6.9,
-        "mid": [
-          63.14,
-          142.1
-        ]
-      },
-      {
         "wall": "w138251852_e8",
         "name": "Kanonička kurija",
         "length": 12.8,
@@ -1102,24 +941,6 @@
         "mid": [
           97.87,
           147.51
-        ]
-      },
-      {
-        "wall": "w138251853_e4",
-        "name": null,
-        "length": 5.81,
-        "mid": [
-          49.13,
-          124.54
-        ]
-      },
-      {
-        "wall": "w138251853_e11",
-        "name": null,
-        "length": 5.43,
-        "mid": [
-          57.45,
-          144.49
         ]
       },
       {
@@ -1159,66 +980,12 @@
         ]
       },
       {
-        "wall": "w181315771_e4",
-        "name": null,
-        "length": 19.42,
-        "mid": [
-          -289.37,
-          -188.71
-        ]
-      },
-      {
-        "wall": "w181315771_e5",
-        "name": null,
-        "length": 34.33,
-        "mid": [
-          -289.55,
-          -161.84
-        ]
-      },
-      {
-        "wall": "w227152836_e0",
-        "name": "Kuća Kereković",
-        "length": 17.39,
-        "mid": [
-          182.99,
-          28.19
-        ]
-      },
-      {
-        "wall": "w227152836_e1",
-        "name": "Kuća Kereković",
-        "length": 6.83,
-        "mid": [
-          191.9,
-          30.97
-        ]
-      },
-      {
-        "wall": "w227152836_e2",
-        "name": "Kuća Kereković",
-        "length": 5.83,
-        "mid": [
-          193.78,
-          36.79
-        ]
-      },
-      {
         "wall": "w227152836_e3",
         "name": "Kuća Kereković",
         "length": 15.96,
         "mid": [
           188.72,
           43.54
-        ]
-      },
-      {
-        "wall": "w227152836_e7",
-        "name": "Kuća Kereković",
-        "length": 8.16,
-        "mid": [
-          174.94,
-          32.84
         ]
       },
       {
@@ -1258,15 +1025,6 @@
         ]
       },
       {
-        "wall": "w249753112_e4",
-        "name": "Palača Ožegović",
-        "length": 14.62,
-        "mid": [
-          21.61,
-          -321.41
-        ]
-      },
-      {
         "wall": "w249753112_e5",
         "name": "Palača Ožegović",
         "length": 22.5,
@@ -1282,15 +1040,6 @@
         "mid": [
           25.65,
           -289.95
-        ]
-      },
-      {
-        "wall": "w249753112_e7",
-        "name": "Palača Ožegović",
-        "length": 4.48,
-        "mid": [
-          23.01,
-          -280.15
         ]
       },
       {
@@ -1510,30 +1259,12 @@
         ]
       },
       {
-        "wall": "w286612853_e2",
-        "name": null,
-        "length": 15.22,
-        "mid": [
-          265.28,
-          -7.62
-        ]
-      },
-      {
         "wall": "w286612854_e9",
         "name": null,
         "length": 25.72,
         "mid": [
           281.57,
           18.33
-        ]
-      },
-      {
-        "wall": "w286612854_e12",
-        "name": null,
-        "length": 9.96,
-        "mid": [
-          266.24,
-          7.35
         ]
       },
       {
@@ -1546,30 +1277,12 @@
         ]
       },
       {
-        "wall": "w286612857_e6",
-        "name": null,
-        "length": 18.32,
-        "mid": [
-          248.02,
-          -24.99
-        ]
-      },
-      {
         "wall": "w286612858_e8",
         "name": null,
         "length": 25.04,
         "mid": [
           231.1,
           -61.83
-        ]
-      },
-      {
-        "wall": "w286612858_e10",
-        "name": null,
-        "length": 26.42,
-        "mid": [
-          246.95,
-          -47.33
         ]
       },
       {
@@ -1816,24 +1529,6 @@
         ]
       },
       {
-        "wall": "w289863009_e5",
-        "name": null,
-        "length": 8.7,
-        "mid": [
-          -93.14,
-          145.9
-        ]
-      },
-      {
-        "wall": "w289863011_e2",
-        "name": null,
-        "length": 4.19,
-        "mid": [
-          -96.08,
-          161.53
-        ]
-      },
-      {
         "wall": "w289863011_e6",
         "name": null,
         "length": 15.1,
@@ -1921,15 +1616,6 @@
         "mid": [
           -80.62,
           73.79
-        ]
-      },
-      {
-        "wall": "w289863031_e6",
-        "name": null,
-        "length": 6.36,
-        "mid": [
-          -59.94,
-          87.56
         ]
       },
       {
@@ -2050,15 +1736,6 @@
         ]
       },
       {
-        "wall": "w289908814_e6",
-        "name": null,
-        "length": 7.8,
-        "mid": [
-          -62.86,
-          161.3
-        ]
-      },
-      {
         "wall": "w289908814_e10",
         "name": null,
         "length": 9.61,
@@ -2086,111 +1763,12 @@
         ]
       },
       {
-        "wall": "w289908815_e18",
-        "name": null,
-        "length": 5.83,
-        "mid": [
-          -62.59,
-          119.78
-        ]
-      },
-      {
-        "wall": "w289908815_e19",
-        "name": null,
-        "length": 4.97,
-        "mid": [
-          -60.18,
-          114.96
-        ]
-      },
-      {
-        "wall": "w289908815_e20",
-        "name": null,
-        "length": 4.38,
-        "mid": [
-          -57.6,
-          111.08
-        ]
-      },
-      {
-        "wall": "w289908815_e21",
-        "name": null,
-        "length": 5.79,
-        "mid": [
-          -54.31,
-          107.2
-        ]
-      },
-      {
-        "wall": "w289908815_e22",
-        "name": null,
-        "length": 5.37,
-        "mid": [
-          -50.33,
-          103.31
-        ]
-      },
-      {
-        "wall": "w289908815_e23",
-        "name": null,
-        "length": 4.03,
-        "mid": [
-          -46.67,
-          100.36
-        ]
-      },
-      {
-        "wall": "w289908817_e2",
-        "name": "Zgrada Prve hrvatske štedionice",
-        "length": 10.46,
-        "mid": [
-          -74.79,
-          288.06
-        ]
-      },
-      {
-        "wall": "w289908817_e3",
-        "name": "Zgrada Prve hrvatske štedionice",
-        "length": 18.83,
-        "mid": [
-          -68.65,
-          296.96
-        ]
-      },
-      {
         "wall": "w289908817_e5",
         "name": "Zgrada Prve hrvatske štedionice",
         "length": 14.12,
         "mid": [
           -115.65,
           301.52
-        ]
-      },
-      {
-        "wall": "w289908817_e6",
-        "name": "Zgrada Prve hrvatske štedionice",
-        "length": 4.11,
-        "mid": [
-          -113.9,
-          294.14
-        ]
-      },
-      {
-        "wall": "w289908817_e7",
-        "name": "Zgrada Prve hrvatske štedionice",
-        "length": 7.69,
-        "mid": [
-          -111.86,
-          289.96
-        ]
-      },
-      {
-        "wall": "w289908823_e1",
-        "name": "Kuća Mihoković",
-        "length": 7.47,
-        "mid": [
-          -59.49,
-          175.4
         ]
       },
       {
@@ -2203,33 +1781,6 @@
         ]
       },
       {
-        "wall": "w289908854_e0",
-        "name": "Kuća Golli",
-        "length": 13.27,
-        "mid": [
-          -67.67,
-          250.8
-        ]
-      },
-      {
-        "wall": "w289908854_e1",
-        "name": "Kuća Golli",
-        "length": 4.73,
-        "mid": [
-          -65.77,
-          244.06
-        ]
-      },
-      {
-        "wall": "w289908854_e2",
-        "name": "Kuća Golli",
-        "length": 4.47,
-        "mid": [
-          -61.18,
-          243.79
-        ]
-      },
-      {
         "wall": "w289908854_e3",
         "name": "Kuća Golli",
         "length": 8.84,
@@ -2239,57 +1790,12 @@
         ]
       },
       {
-        "wall": "w289908854_e4",
-        "name": "Kuća Golli",
-        "length": 4.25,
-        "mid": [
-          -59.07,
-          254.59
-        ]
-      },
-      {
-        "wall": "w289908854_e5",
-        "name": "Kuća Golli",
-        "length": 8.0,
-        "mid": [
-          -63.22,
-          257.06
-        ]
-      },
-      {
         "wall": "w289908857_e0",
         "name": "Kuća Plemenitaš - Gorenc",
         "length": 8.3,
         "mid": [
           -52.35,
           279.09
-        ]
-      },
-      {
-        "wall": "w289908857_e2",
-        "name": "Kuća Plemenitaš - Gorenc",
-        "length": 8.98,
-        "mid": [
-          -64.57,
-          279.21
-        ]
-      },
-      {
-        "wall": "w289908870_e2",
-        "name": null,
-        "length": 7.79,
-        "mid": [
-          100.19,
-          289.58
-        ]
-      },
-      {
-        "wall": "w289908875_e0",
-        "name": "Kuća Rade",
-        "length": 4.46,
-        "mid": [
-          -48.04,
-          194.55
         ]
       },
       {
@@ -2320,24 +1826,6 @@
         ]
       },
       {
-        "wall": "w289908881_e1",
-        "name": "Kuća Veszel",
-        "length": 8.22,
-        "mid": [
-          -58.37,
-          312.72
-        ]
-      },
-      {
-        "wall": "w289908881_e2",
-        "name": "Kuća Veszel",
-        "length": 16.61,
-        "mid": [
-          -63.07,
-          304.61
-        ]
-      },
-      {
         "wall": "w289908898_e0",
         "name": "Kuća Vran",
         "length": 13.86,
@@ -2347,57 +1835,12 @@
         ]
       },
       {
-        "wall": "w289908898_e2",
-        "name": "Kuća Vran",
-        "length": 12.64,
-        "mid": [
-          -63.96,
-          290.01
-        ]
-      },
-      {
         "wall": "w289908903_e0",
         "name": "Kuća Klemenčić",
         "length": 12.74,
         "mid": [
           -53.33,
           264.28
-        ]
-      },
-      {
-        "wall": "w289908903_e1",
-        "name": "Kuća Klemenčić",
-        "length": 4.7,
-        "mid": [
-          -55.01,
-          270.51
-        ]
-      },
-      {
-        "wall": "w289908903_e2",
-        "name": "Kuća Klemenčić",
-        "length": 4.45,
-        "mid": [
-          -57.29,
-          272.63
-        ]
-      },
-      {
-        "wall": "w289908903_e4",
-        "name": "Kuća Klemenčić",
-        "length": 14.52,
-        "mid": [
-          -66.1,
-          267.58
-        ]
-      },
-      {
-        "wall": "w289908903_e5",
-        "name": "Kuća Klemenčić",
-        "length": 13.56,
-        "mid": [
-          -60.65,
-          259.18
         ]
       },
       {
@@ -2428,24 +1871,6 @@
         ]
       },
       {
-        "wall": "w289908918_e3",
-        "name": "Kuća Cerovšek",
-        "length": 5.1,
-        "mid": [
-          -105.53,
-          193.71
-        ]
-      },
-      {
-        "wall": "w289908918_e4",
-        "name": "Kuća Cerovšek",
-        "length": 9.04,
-        "mid": [
-          -98.49,
-          193.05
-        ]
-      },
-      {
         "wall": "w289908927_e11",
         "name": null,
         "length": 16.9,
@@ -2461,24 +1886,6 @@
         "mid": [
           30.53,
           317.73
-        ]
-      },
-      {
-        "wall": "w289908932_e2",
-        "name": null,
-        "length": 4.13,
-        "mid": [
-          32.29,
-          310.72
-        ]
-      },
-      {
-        "wall": "w289908936_e4",
-        "name": null,
-        "length": 10.49,
-        "mid": [
-          -110.83,
-          280.97
         ]
       },
       {
@@ -2563,24 +1970,6 @@
         ]
       },
       {
-        "wall": "w290024644_e10",
-        "name": null,
-        "length": 5.53,
-        "mid": [
-          33.76,
-          209.36
-        ]
-      },
-      {
-        "wall": "w290024644_e12",
-        "name": null,
-        "length": 6.64,
-        "mid": [
-          39.74,
-          206.32
-        ]
-      },
-      {
         "wall": "w290024699_e10",
         "name": "Turistička zajednica grada Zagreba",
         "length": 25.34,
@@ -2644,15 +2033,6 @@
         ]
       },
       {
-        "wall": "w292203492_e3",
-        "name": null,
-        "length": 10.04,
-        "mid": [
-          102.76,
-          115.25
-        ]
-      },
-      {
         "wall": "w292203493_e0",
         "name": null,
         "length": 20.38,
@@ -2668,33 +2048,6 @@
         "mid": [
           75.26,
           94.4
-        ]
-      },
-      {
-        "wall": "w292203494_e1",
-        "name": null,
-        "length": 4.29,
-        "mid": [
-          82.41,
-          100.43
-        ]
-      },
-      {
-        "wall": "w292203494_e2",
-        "name": null,
-        "length": 4.75,
-        "mid": [
-          82.13,
-          104.61
-        ]
-      },
-      {
-        "wall": "w292203495_e3",
-        "name": "Kanonička kurija Dijeneševiću-Abantniju",
-        "length": 6.77,
-        "mid": [
-          35.97,
-          178.78
         ]
       },
       {
@@ -2752,39 +2105,12 @@
         ]
       },
       {
-        "wall": "w292203496_e7",
-        "name": "Kanonička kurija Strezoj",
-        "length": 6.49,
-        "mid": [
-          46.22,
-          182.76
-        ]
-      },
-      {
         "wall": "w292203496_e8",
         "name": "Kanonička kurija Strezoj",
         "length": 13.03,
         "mid": [
           53.02,
           183.51
-        ]
-      },
-      {
-        "wall": "w292203496_e9",
-        "name": "Kanonička kurija Strezoj",
-        "length": 6.12,
-        "mid": [
-          57.97,
-          178.25
-        ]
-      },
-      {
-        "wall": "w293352156_e1",
-        "name": "Kuća Kinderman",
-        "length": 5.47,
-        "mid": [
-          -43.26,
-          220.34
         ]
       },
       {
@@ -2905,15 +2231,6 @@
         ]
       },
       {
-        "wall": "w293357440_e2",
-        "name": null,
-        "length": 5.14,
-        "mid": [
-          -33.88,
-          290.9
-        ]
-      },
-      {
         "wall": "w293357440_e7",
         "name": null,
         "length": 8.58,
@@ -2929,15 +2246,6 @@
         "mid": [
           -42.61,
           300.83
-        ]
-      },
-      {
-        "wall": "w293357492_e3",
-        "name": null,
-        "length": 4.18,
-        "mid": [
-          -40.39,
-          315.46
         ]
       },
       {
@@ -3058,48 +2366,12 @@
         ]
       },
       {
-        "wall": "w296513277_e0",
-        "name": null,
-        "length": 7.57,
-        "mid": [
-          10.63,
-          326.69
-        ]
-      },
-      {
         "wall": "w296513280_e0",
         "name": null,
         "length": 16.45,
         "mid": [
           10.96,
           314.69
-        ]
-      },
-      {
-        "wall": "w297346435_e3",
-        "name": null,
-        "length": 7.49,
-        "mid": [
-          -169.2,
-          341.74
-        ]
-      },
-      {
-        "wall": "w297346435_e4",
-        "name": null,
-        "length": 16.88,
-        "mid": [
-          -173.93,
-          334.08
-        ]
-      },
-      {
-        "wall": "w297346435_e11",
-        "name": null,
-        "length": 18.29,
-        "mid": [
-          -146.74,
-          330.08
         ]
       },
       {
@@ -3139,48 +2411,12 @@
         ]
       },
       {
-        "wall": "w299519687_e4",
-        "name": null,
-        "length": 4.37,
-        "mid": [
-          -30.14,
-          215.39
-        ]
-      },
-      {
         "wall": "w299519688_e0",
         "name": null,
         "length": 9.73,
         "mid": [
           18.38,
           215.2
-        ]
-      },
-      {
-        "wall": "w299520898_e0",
-        "name": null,
-        "length": 6.43,
-        "mid": [
-          7.55,
-          255.92
-        ]
-      },
-      {
-        "wall": "w299520898_e1",
-        "name": null,
-        "length": 6.13,
-        "mid": [
-          10.93,
-          258.8
-        ]
-      },
-      {
-        "wall": "w299520898_e2",
-        "name": null,
-        "length": 6.42,
-        "mid": [
-          7.89,
-          262.05
         ]
       },
       {
@@ -3202,60 +2438,6 @@
         ]
       },
       {
-        "wall": "w338686824_e4",
-        "name": "Slastičarnica Vincek",
-        "length": 18.32,
-        "mid": [
-          -290.4,
-          26.98
-        ]
-      },
-      {
-        "wall": "w338688378_e15",
-        "name": "Supernova Cvjetni",
-        "length": 4.62,
-        "mid": [
-          -334.62,
-          -107.11
-        ]
-      },
-      {
-        "wall": "w338688378_e29",
-        "name": "Supernova Cvjetni",
-        "length": 14.92,
-        "mid": [
-          -263.35,
-          -66.59
-        ]
-      },
-      {
-        "wall": "w338688378_e30",
-        "name": "Supernova Cvjetni",
-        "length": 24.64,
-        "mid": [
-          -263.59,
-          -46.82
-        ]
-      },
-      {
-        "wall": "w338688379_e0",
-        "name": "Kuća Centralne eskomptne i mjenjačke banke",
-        "length": 16.42,
-        "mid": [
-          -265.06,
-          -26.43
-        ]
-      },
-      {
-        "wall": "w338688380_e2",
-        "name": "Zgrada SCPO",
-        "length": 17.32,
-        "mid": [
-          -265.14,
-          -8.39
-        ]
-      },
-      {
         "wall": "w338688380_e3",
         "name": "Zgrada SCPO",
         "length": 13.12,
@@ -3265,48 +2447,12 @@
         ]
       },
       {
-        "wall": "w338688380_e7",
-        "name": "Zgrada SCPO",
-        "length": 7.76,
-        "mid": [
-          -276.19,
-          -7.21
-        ]
-      },
-      {
-        "wall": "w338688380_e16",
-        "name": "Zgrada SCPO",
-        "length": 7.07,
-        "mid": [
-          -275.67,
-          -14.85
-        ]
-      },
-      {
         "wall": "w338688381_e1",
         "name": "Kuća Vasić",
         "length": 16.06,
         "mid": [
           -286.37,
           4.96
-        ]
-      },
-      {
-        "wall": "w338688381_e17",
-        "name": "Kuća Vasić",
-        "length": 4.16,
-        "mid": [
-          -279.3,
-          -20.43
-        ]
-      },
-      {
-        "wall": "w338688381_e20",
-        "name": "Kuća Vasić",
-        "length": 5.78,
-        "mid": [
-          -281.9,
-          -12.23
         ]
       },
       {
@@ -3337,78 +2483,6 @@
         ]
       },
       {
-        "wall": "w338689072_e11",
-        "name": null,
-        "length": 9.07,
-        "mid": [
-          -317.54,
-          -113.77
-        ]
-      },
-      {
-        "wall": "w338689072_e12",
-        "name": null,
-        "length": 31.25,
-        "mid": [
-          -301.89,
-          -117.81
-        ]
-      },
-      {
-        "wall": "w338689073_e0",
-        "name": null,
-        "length": 6.36,
-        "mid": [
-          -283.12,
-          -105.33
-        ]
-      },
-      {
-        "wall": "w338689073_e4",
-        "name": null,
-        "length": 22.5,
-        "mid": [
-          -275.04,
-          -116.92
-        ]
-      },
-      {
-        "wall": "w338689073_e7",
-        "name": null,
-        "length": 11.61,
-        "mid": [
-          -260.96,
-          -107.49
-        ]
-      },
-      {
-        "wall": "w338689073_e9",
-        "name": null,
-        "length": 5.48,
-        "mid": [
-          -270.01,
-          -104.73
-        ]
-      },
-      {
-        "wall": "w338689073_e11",
-        "name": null,
-        "length": 5.56,
-        "mid": [
-          -273.93,
-          -104.92
-        ]
-      },
-      {
-        "wall": "w338689074_e0",
-        "name": null,
-        "length": 27.7,
-        "mid": [
-          -262.22,
-          -87.87
-        ]
-      },
-      {
         "wall": "w365493822_e0",
         "name": "Kuća Stanković",
         "length": 40.89,
@@ -3436,60 +2510,6 @@
         ]
       },
       {
-        "wall": "w371764534_e1",
-        "name": null,
-        "length": 5.3,
-        "mid": [
-          328.46,
-          107.24
-        ]
-      },
-      {
-        "wall": "w371764534_e2",
-        "name": null,
-        "length": 6.14,
-        "mid": [
-          326.55,
-          110.81
-        ]
-      },
-      {
-        "wall": "w371764536_e0",
-        "name": null,
-        "length": 8.91,
-        "mid": [
-          328.45,
-          155.28
-        ]
-      },
-      {
-        "wall": "w371764536_e2",
-        "name": null,
-        "length": 8.91,
-        "mid": [
-          328.89,
-          159.19
-        ]
-      },
-      {
-        "wall": "w371766186_e1",
-        "name": "kapelica svetog Ivana Nepomuka",
-        "length": 4.27,
-        "mid": [
-          340.01,
-          200.87
-        ]
-      },
-      {
-        "wall": "w371766186_e3",
-        "name": "kapelica svetog Ivana Nepomuka",
-        "length": 4.26,
-        "mid": [
-          341.83,
-          203.63
-        ]
-      },
-      {
         "wall": "w375221481_e0",
         "name": null,
         "length": 11.45,
@@ -3505,51 +2525,6 @@
         "mid": [
           315.11,
           46.07
-        ]
-      },
-      {
-        "wall": "w375221482_e1",
-        "name": null,
-        "length": 7.91,
-        "mid": [
-          323.66,
-          53.96
-        ]
-      },
-      {
-        "wall": "w375221516_e1",
-        "name": null,
-        "length": 5.64,
-        "mid": [
-          334.76,
-          60.68
-        ]
-      },
-      {
-        "wall": "w375221516_e2",
-        "name": null,
-        "length": 29.23,
-        "mid": [
-          331.77,
-          76.61
-        ]
-      },
-      {
-        "wall": "w375221517_e7",
-        "name": null,
-        "length": 5.28,
-        "mid": [
-          329.58,
-          58.59
-        ]
-      },
-      {
-        "wall": "w375369553_e7",
-        "name": null,
-        "length": 14.53,
-        "mid": [
-          -279.67,
-          -29.77
         ]
       },
       {
@@ -3571,24 +2546,6 @@
         ]
       },
       {
-        "wall": "w375375951_e3",
-        "name": null,
-        "length": 5.89,
-        "mid": [
-          -78.3,
-          -66.54
-        ]
-      },
-      {
-        "wall": "w375375951_e8",
-        "name": null,
-        "length": 5.97,
-        "mid": [
-          -88.89,
-          -74.82
-        ]
-      },
-      {
         "wall": "w375375951_e11",
         "name": null,
         "length": 16.08,
@@ -3607,15 +2564,6 @@
         ]
       },
       {
-        "wall": "w375381008_e1",
-        "name": null,
-        "length": 5.21,
-        "mid": [
-          -90.41,
-          -75.14
-        ]
-      },
-      {
         "wall": "w375381008_e11",
         "name": null,
         "length": 7.22,
@@ -3631,15 +2579,6 @@
         "mid": [
           -94.03,
           -85.87
-        ]
-      },
-      {
-        "wall": "w375381009_e4",
-        "name": "Stambeno poslovna zgrada Grunsberg",
-        "length": 4.32,
-        "mid": [
-          -110.62,
-          -71.06
         ]
       },
       {
@@ -3688,30 +2627,12 @@
         ]
       },
       {
-        "wall": "w375381225_e4",
-        "name": null,
-        "length": 4.21,
-        "mid": [
-          -110.48,
-          -18.34
-        ]
-      },
-      {
         "wall": "w375381225_e6",
         "name": null,
         "length": 7.12,
         "mid": [
           -103.76,
           -16.86
-        ]
-      },
-      {
-        "wall": "w375381225_e7",
-        "name": null,
-        "length": 4.31,
-        "mid": [
-          -101.3,
-          -13.3
         ]
       },
       {
@@ -3886,15 +2807,6 @@
         ]
       },
       {
-        "wall": "w431186024_e9",
-        "name": null,
-        "length": 9.08,
-        "mid": [
-          -83.63,
-          191.54
-        ]
-      },
-      {
         "wall": "w435116996_e4",
         "name": "Adidas",
         "length": 10.61,
@@ -3940,48 +2852,12 @@
         ]
       },
       {
-        "wall": "w435117001_e0",
-        "name": null,
-        "length": 16.98,
-        "mid": [
-          -197.16,
-          -98.42
-        ]
-      },
-      {
-        "wall": "w435117001_e1",
-        "name": null,
-        "length": 7.68,
-        "mid": [
-          -209.47,
-          -97.97
-        ]
-      },
-      {
         "wall": "w435117001_e2",
         "name": null,
         "length": 23.1,
         "mid": [
           -214.74,
           -109.45
-        ]
-      },
-      {
-        "wall": "w435118922_e0",
-        "name": null,
-        "length": 4.91,
-        "mid": [
-          -216.31,
-          -123.36
-        ]
-      },
-      {
-        "wall": "w435118922_e1",
-        "name": null,
-        "length": 12.99,
-        "mid": [
-          -216.62,
-          -132.3
         ]
       },
       {
@@ -4090,24 +2966,6 @@
         "mid": [
           -68.66,
           -125.8
-        ]
-      },
-      {
-        "wall": "w435118933_e21",
-        "name": null,
-        "length": 5.57,
-        "mid": [
-          -78.55,
-          -173.23
-        ]
-      },
-      {
-        "wall": "w435118933_e23",
-        "name": null,
-        "length": 4.83,
-        "mid": [
-          -81.49,
-          -173.75
         ]
       },
       {
@@ -4318,66 +3176,12 @@
         ]
       },
       {
-        "wall": "w446076669_e4",
-        "name": null,
-        "length": 4.57,
-        "mid": [
-          -202.49,
-          -218.93
-        ]
-      },
-      {
         "wall": "w446076669_e6",
         "name": null,
         "length": 23.22,
         "mid": [
           -213.55,
           -231.32
-        ]
-      },
-      {
-        "wall": "w512839700_e1",
-        "name": "Kino Europa",
-        "length": 5.02,
-        "mid": [
-          -283.35,
-          -144.14
-        ]
-      },
-      {
-        "wall": "w512839700_e4",
-        "name": "Kino Europa",
-        "length": 8.44,
-        "mid": [
-          -281.48,
-          -132.98
-        ]
-      },
-      {
-        "wall": "w512839700_e5",
-        "name": "Kino Europa",
-        "length": 33.4,
-        "mid": [
-          -302.4,
-          -133.47
-        ]
-      },
-      {
-        "wall": "w512839700_e6",
-        "name": "Kino Europa",
-        "length": 11.74,
-        "mid": [
-          -319.12,
-          -139.77
-        ]
-      },
-      {
-        "wall": "w512839701_e5",
-        "name": null,
-        "length": 19.02,
-        "mid": [
-          -267.56,
-          -128.48
         ]
       },
       {
@@ -4417,15 +3221,6 @@
         ]
       },
       {
-        "wall": "w512839721_e3",
-        "name": null,
-        "length": 6.87,
-        "mid": [
-          -316.7,
-          -232.35
-        ]
-      },
-      {
         "wall": "w512839721_e4",
         "name": null,
         "length": 12.96,
@@ -4453,30 +3248,12 @@
         ]
       },
       {
-        "wall": "w512839722_e10",
-        "name": null,
-        "length": 9.88,
-        "mid": [
-          -288.4,
-          -208.69
-        ]
-      },
-      {
         "wall": "w512839724_e0",
         "name": null,
         "length": 15.55,
         "mid": [
           -262.58,
           -211.51
-        ]
-      },
-      {
-        "wall": "w512839724_e2",
-        "name": null,
-        "length": 5.9,
-        "mid": [
-          -270.18,
-          -193.34
         ]
       },
       {
@@ -4507,51 +3284,6 @@
         ]
       },
       {
-        "wall": "w512839727_e1",
-        "name": null,
-        "length": 9.34,
-        "mid": [
-          -228.34,
-          -184.52
-        ]
-      },
-      {
-        "wall": "w512839729_e10",
-        "name": null,
-        "length": 58.68,
-        "mid": [
-          -280.68,
-          -173.08
-        ]
-      },
-      {
-        "wall": "w512840002_e1",
-        "name": null,
-        "length": 6.87,
-        "mid": [
-          -301.21,
-          -211.66
-        ]
-      },
-      {
-        "wall": "w512840002_e3",
-        "name": null,
-        "length": 11.2,
-        "mid": [
-          -293.2,
-          -204.27
-        ]
-      },
-      {
-        "wall": "w544516553_e2",
-        "name": null,
-        "length": 4.29,
-        "mid": [
-          -17.56,
-          128.98
-        ]
-      },
-      {
         "wall": "w544516553_e3",
         "name": null,
         "length": 29.28,
@@ -4561,66 +3293,12 @@
         ]
       },
       {
-        "wall": "w544516553_e32",
-        "name": null,
-        "length": 5.64,
-        "mid": [
-          -27.37,
-          133.82
-        ]
-      },
-      {
-        "wall": "w579101705_e33",
-        "name": null,
-        "length": 5.87,
-        "mid": [
-          -225.83,
-          -295.79
-        ]
-      },
-      {
-        "wall": "w579101705_e34",
-        "name": null,
-        "length": 6.76,
-        "mid": [
-          -223.27,
-          -292.03
-        ]
-      },
-      {
         "wall": "w579101705_e35",
         "name": null,
         "length": 16.68,
         "mid": [
           -224.63,
           -280.39
-        ]
-      },
-      {
-        "wall": "w579294813_e0",
-        "name": null,
-        "length": 4.16,
-        "mid": [
-          -137.78,
-          -56.5
-        ]
-      },
-      {
-        "wall": "w579294813_e2",
-        "name": null,
-        "length": 21.72,
-        "mid": [
-          -136.49,
-          -43.67
-        ]
-      },
-      {
-        "wall": "w579294816_e2",
-        "name": null,
-        "length": 24.82,
-        "mid": [
-          -136.29,
-          -20.4
         ]
       },
       {
@@ -4678,15 +3356,6 @@
         ]
       },
       {
-        "wall": "w579294884_e1",
-        "name": null,
-        "length": 4.8,
-        "mid": [
-          22.17,
-          -265.58
-        ]
-      },
-      {
         "wall": "w579294884_e2",
         "name": null,
         "length": 19.26,
@@ -4705,30 +3374,12 @@
         ]
       },
       {
-        "wall": "w579294888_e3",
-        "name": null,
-        "length": 4.47,
-        "mid": [
-          5.22,
-          -269.54
-        ]
-      },
-      {
         "wall": "w579294895_e0",
         "name": null,
         "length": 19.66,
         "mid": [
           -39.02,
           -190.28
-        ]
-      },
-      {
-        "wall": "w579294895_e1",
-        "name": null,
-        "length": 5.37,
-        "mid": [
-          -50.66,
-          -192.69
         ]
       },
       {
@@ -4765,15 +3416,6 @@
         "mid": [
           15.9,
           -197.09
-        ]
-      },
-      {
-        "wall": "w579294902_e6",
-        "name": null,
-        "length": 4.49,
-        "mid": [
-          13.11,
-          -189.16
         ]
       },
       {
@@ -4828,24 +3470,6 @@
         "mid": [
           2.66,
           -177.27
-        ]
-      },
-      {
-        "wall": "w584458872_e8",
-        "name": "Kuća Betelheim",
-        "length": 26.09,
-        "mid": [
-          17.11,
-          -159.52
-        ]
-      },
-      {
-        "wall": "w584458873_e3",
-        "name": "Kuća Shell",
-        "length": 5.0,
-        "mid": [
-          21.44,
-          -118.41
         ]
       },
       {
@@ -4921,51 +3545,6 @@
         ]
       },
       {
-        "wall": "w695917788_e11",
-        "name": null,
-        "length": 6.19,
-        "mid": [
-          -109.69,
-          -36.35
-        ]
-      },
-      {
-        "wall": "w695917788_e13",
-        "name": null,
-        "length": 4.48,
-        "mid": [
-          -108.89,
-          -44.94
-        ]
-      },
-      {
-        "wall": "w735313510_e3",
-        "name": null,
-        "length": 4.08,
-        "mid": [
-          -88.66,
-          149.34
-        ]
-      },
-      {
-        "wall": "w735313510_e4",
-        "name": null,
-        "length": 4.77,
-        "mid": [
-          -86.34,
-          147.13
-        ]
-      },
-      {
-        "wall": "w735313510_e5",
-        "name": null,
-        "length": 4.54,
-        "mid": [
-          -88.3,
-          144.4
-        ]
-      },
-      {
         "wall": "w735313510_e10",
         "name": null,
         "length": 15.33,
@@ -4975,57 +3554,12 @@
         ]
       },
       {
-        "wall": "w735313511_e0",
-        "name": null,
-        "length": 4.53,
-        "mid": [
-          -84.19,
-          184.26
-        ]
-      },
-      {
-        "wall": "w735313511_e2",
-        "name": null,
-        "length": 4.16,
-        "mid": [
-          -88.56,
-          184.32
-        ]
-      },
-      {
-        "wall": "w735313511_e27",
-        "name": null,
-        "length": 4.14,
-        "mid": [
-          -104.28,
-          186.05
-        ]
-      },
-      {
         "wall": "w735313511_e29",
         "name": null,
         "length": 15.97,
         "mid": [
           -107.39,
           176.41
-        ]
-      },
-      {
-        "wall": "w735313511_e31",
-        "name": null,
-        "length": 5.8,
-        "mid": [
-          -98.54,
-          172.55
-        ]
-      },
-      {
-        "wall": "w735313511_e39",
-        "name": null,
-        "length": 4.75,
-        "mid": [
-          -92.12,
-          172.38
         ]
       },
       {
@@ -5047,42 +3581,6 @@
         ]
       },
       {
-        "wall": "w735313512_e3",
-        "name": null,
-        "length": 4.72,
-        "mid": [
-          -94.59,
-          169.89
-        ]
-      },
-      {
-        "wall": "w735313514_e2",
-        "name": null,
-        "length": 4.42,
-        "mid": [
-          -94.41,
-          206.75
-        ]
-      },
-      {
-        "wall": "w735313515_e1",
-        "name": null,
-        "length": 5.44,
-        "mid": [
-          -97.37,
-          209.36
-        ]
-      },
-      {
-        "wall": "w735313516_e6",
-        "name": null,
-        "length": 4.16,
-        "mid": [
-          -95.52,
-          214.23
-        ]
-      },
-      {
         "wall": "w735313538_e0",
         "name": null,
         "length": 7.61,
@@ -5092,39 +3590,12 @@
         ]
       },
       {
-        "wall": "w735337377_e1",
-        "name": null,
-        "length": 4.45,
-        "mid": [
-          -46.29,
-          160.66
-        ]
-      },
-      {
-        "wall": "w735337379_e3",
-        "name": null,
-        "length": 4.99,
-        "mid": [
-          -37.49,
-          192.01
-        ]
-      },
-      {
         "wall": "w735337381_e3",
         "name": null,
         "length": 9.89,
         "mid": [
           -43.55,
           192.47
-        ]
-      },
-      {
-        "wall": "w735337383_e2",
-        "name": null,
-        "length": 5.37,
-        "mid": [
-          -53.55,
-          172.51
         ]
       },
       {
@@ -5164,30 +3635,12 @@
         ]
       },
       {
-        "wall": "w735337391_e27",
-        "name": null,
-        "length": 5.94,
-        "mid": [
-          -32.94,
-          93.8
-        ]
-      },
-      {
         "wall": "w735337391_e32",
         "name": null,
         "length": 10.9,
         "mid": [
           -24.56,
           96.79
-        ]
-      },
-      {
-        "wall": "w735337391_e33",
-        "name": null,
-        "length": 7.51,
-        "mid": [
-          -22.8,
-          105.83
         ]
       },
       {
@@ -5200,48 +3653,12 @@
         ]
       },
       {
-        "wall": "w735337399_e10",
-        "name": null,
-        "length": 13.62,
-        "mid": [
-          105.61,
-          126.67
-        ]
-      },
-      {
         "wall": "w735337403_e0",
         "name": null,
         "length": 14.73,
         "mid": [
           58.29,
           194.45
-        ]
-      },
-      {
-        "wall": "w735339086_e0",
-        "name": null,
-        "length": 6.46,
-        "mid": [
-          -64.04,
-          142.81
-        ]
-      },
-      {
-        "wall": "w735339086_e1",
-        "name": null,
-        "length": 4.58,
-        "mid": [
-          -67.04,
-          145.47
-        ]
-      },
-      {
-        "wall": "w735339086_e3",
-        "name": null,
-        "length": 7.76,
-        "mid": [
-          -70.94,
-          144.31
         ]
       },
       {
@@ -5254,30 +3671,12 @@
         ]
       },
       {
-        "wall": "w735339086_e5",
-        "name": null,
-        "length": 5.67,
-        "mid": [
-          -61.22,
-          139.62
-        ]
-      },
-      {
         "wall": "w776168864_e0",
         "name": null,
         "length": 14.78,
         "mid": [
           -212.57,
           -250.29
-        ]
-      },
-      {
-        "wall": "w780992318_e0",
-        "name": null,
-        "length": 6.37,
-        "mid": [
-          99.92,
-          296.65
         ]
       },
       {
@@ -5389,24 +3788,6 @@
         ]
       },
       {
-        "wall": "w860324918_e5",
-        "name": null,
-        "length": 6.33,
-        "mid": [
-          333.27,
-          -165.16
-        ]
-      },
-      {
-        "wall": "w995892440_e2",
-        "name": null,
-        "length": 6.03,
-        "mid": [
-          -314.09,
-          -264.53
-        ]
-      },
-      {
         "wall": "w995892801_e6",
         "name": null,
         "length": 9.07,
@@ -5434,48 +3815,12 @@
         ]
       },
       {
-        "wall": "w1004713585_e1",
-        "name": null,
-        "length": 4.47,
-        "mid": [
-          -240.89,
-          -251.58
-        ]
-      },
-      {
         "wall": "w1061535097_e4",
         "name": null,
         "length": 21.05,
         "mid": [
           -74.85,
           -11.51
-        ]
-      },
-      {
-        "wall": "w1073971965_e1",
-        "name": null,
-        "length": 5.72,
-        "mid": [
-          29.22,
-          244.28
-        ]
-      },
-      {
-        "wall": "w1073971966_e2",
-        "name": null,
-        "length": 6.61,
-        "mid": [
-          96.79,
-          214.72
-        ]
-      },
-      {
-        "wall": "w1083565866_e2",
-        "name": "752",
-        "length": 4.4,
-        "mid": [
-          -80.5,
-          -152.83
         ]
       },
       {
@@ -5542,48 +3887,12 @@
         ]
       },
       {
-        "wall": "w1106372268_e20",
-        "name": null,
-        "length": 5.27,
-        "mid": [
-          16.81,
-          367.72
-        ]
-      },
-      {
-        "wall": "w1134673364_e2",
-        "name": null,
-        "length": 9.91,
-        "mid": [
-          333.75,
-          -105.6
-        ]
-      },
-      {
         "wall": "w1141515259_e3",
         "name": null,
         "length": 9.75,
         "mid": [
           -333.71,
           66.07
-        ]
-      },
-      {
-        "wall": "w1265244131_e0",
-        "name": null,
-        "length": 4.79,
-        "mid": [
-          119.73,
-          299.52
-        ]
-      },
-      {
-        "wall": "w1265244133_e1",
-        "name": null,
-        "length": 4.32,
-        "mid": [
-          122.54,
-          289.79
         ]
       },
       {
@@ -5623,66 +3932,12 @@
         ]
       },
       {
-        "wall": "w1498441663_e7",
-        "name": null,
-        "length": 5.5,
-        "mid": [
-          48.12,
-          77.18
-        ]
-      },
-      {
-        "wall": "r1397601_e0",
-        "name": "Zgrada Srpske pravoslavne crkvene opštine",
-        "length": 17.48,
-        "mid": [
-          -216.78,
-          -25.47
-        ]
-      },
-      {
-        "wall": "r1397601_e1",
-        "name": "Zgrada Srpske pravoslavne crkvene opštine",
-        "length": 14.45,
-        "mid": [
-          -215.03,
-          -9.64
-        ]
-      },
-      {
         "wall": "r1397601_e2",
         "name": "Zgrada Srpske pravoslavne crkvene opštine",
         "length": 39.37,
         "mid": [
           -234.43,
           -1.47
-        ]
-      },
-      {
-        "wall": "r1397601_e3",
-        "name": "Zgrada Srpske pravoslavne crkvene opštine",
-        "length": 35.71,
-        "mid": [
-          -251.81,
-          -18.23
-        ]
-      },
-      {
-        "wall": "r3853043_e0",
-        "name": "Palača Dömöthorfy",
-        "length": 31.43,
-        "mid": [
-          -66.52,
-          322.01
-        ]
-      },
-      {
-        "wall": "r3853043_e3",
-        "name": "Palača Dömöthorfy",
-        "length": 15.47,
-        "mid": [
-          -109.04,
-          337.16
         ]
       },
       {
@@ -5737,24 +3992,6 @@
         "mid": [
           -79.36,
           52.06
-        ]
-      },
-      {
-        "wall": "r3890429_e0",
-        "name": null,
-        "length": 15.53,
-        "mid": [
-          264.37,
-          -22.97
-        ]
-      },
-      {
-        "wall": "r3890429_e1",
-        "name": null,
-        "length": 33.05,
-        "mid": [
-          262.39,
-          -47.18
         ]
       },
       {
@@ -5821,15 +4058,6 @@
         ]
       },
       {
-        "wall": "r3937036_e14",
-        "name": "Palača Raffay-Plavšić",
-        "length": 14.34,
-        "mid": [
-          -324.34,
-          268.53
-        ]
-      },
-      {
         "wall": "r6414116_e4",
         "name": "Kuća Demeter-Corvin",
         "length": 18.68,
@@ -5854,24 +4082,6 @@
         "mid": [
           -110.38,
           237.68
-        ]
-      },
-      {
-        "wall": "r6414121_e2",
-        "name": "Tiskara Albrecht",
-        "length": 10.65,
-        "mid": [
-          -70.0,
-          255.25
-        ]
-      },
-      {
-        "wall": "r6414121_e3",
-        "name": "Tiskara Albrecht",
-        "length": 10.34,
-        "mid": [
-          -69.63,
-          265.73
         ]
       },
       {
@@ -5902,15 +4112,6 @@
         ]
       },
       {
-        "wall": "r8256760_e0",
-        "name": null,
-        "length": 25.81,
-        "mid": [
-          19.63,
-          -133.71
-        ]
-      },
-      {
         "wall": "r9374001_e0",
         "name": "Kuća Mirović-Korlin",
         "length": 5.5,
@@ -5926,15 +4127,6 @@
         "mid": [
           -101.43,
           100.28
-        ]
-      },
-      {
-        "wall": "r10165079_e10",
-        "name": null,
-        "length": 5.88,
-        "mid": [
-          -91.07,
-          192.29
         ]
       },
       {
@@ -5965,30 +4157,12 @@
         ]
       },
       {
-        "wall": "r10165667_e2",
-        "name": "Kuća Miletić",
-        "length": 4.04,
-        "mid": [
-          -10.1,
-          179.83
-        ]
-      },
-      {
         "wall": "r10165667_e4",
         "name": "Kuća Miletić",
         "length": 23.25,
         "mid": [
           3.46,
           179.24
-        ]
-      },
-      {
-        "wall": "r10165667_e6",
-        "name": "Kuća Miletić",
-        "length": 4.5,
-        "mid": [
-          15.42,
-          180.65
         ]
       },
       {
@@ -6019,33 +4193,6 @@
         ]
       },
       {
-        "wall": "r10165667_e13",
-        "name": "Kuća Miletić",
-        "length": 7.94,
-        "mid": [
-          -10.7,
-          184.43
-        ]
-      },
-      {
-        "wall": "r10165667_e14",
-        "name": "Kuća Miletić",
-        "length": 4.12,
-        "mid": [
-          -14.45,
-          186.79
-        ]
-      },
-      {
-        "wall": "r10165667_e15",
-        "name": "Kuća Miletić",
-        "length": 7.8,
-        "mid": [
-          -10.41,
-          188.11
-        ]
-      },
-      {
         "wall": "r20144619_e0",
         "name": null,
         "length": 23.62,
@@ -6073,93 +4220,12 @@
         ]
       },
       {
-        "wall": "w296067735_e6",
-        "name": null,
-        "length": 14.71,
-        "mid": [
-          -338.52,
-          289.41
-        ]
-      },
-      {
-        "wall": "w296067735_e7",
-        "name": null,
-        "length": 5.73,
-        "mid": [
-          -336.16,
-          282.1
-        ]
-      },
-      {
-        "wall": "w579294765_e1",
-        "name": null,
-        "length": 20.95,
-        "mid": [
-          -209.74,
-          -69.59
-        ]
-      },
-      {
-        "wall": "w579294765_e5",
-        "name": null,
-        "length": 15.74,
-        "mid": [
-          -199.12,
-          -84.73
-        ]
-      },
-      {
-        "wall": "w579294765_e6",
-        "name": null,
-        "length": 9.1,
-        "mid": [
-          -186.7,
-          -84.96
-        ]
-      },
-      {
-        "wall": "w579294768_e5",
-        "name": null,
-        "length": 17.46,
-        "mid": [
-          -187.05,
-          -4.41
-        ]
-      },
-      {
-        "wall": "w579294768_e9",
-        "name": null,
-        "length": 23.27,
-        "mid": [
-          -202.57,
-          -19.76
-        ]
-      },
-      {
-        "wall": "w579294788_e2",
-        "name": null,
-        "length": 6.14,
-        "mid": [
-          -198.18,
-          -6.37
-        ]
-      },
-      {
         "wall": "w579294791_e0",
         "name": null,
         "length": 4.11,
         "mid": [
           -208.79,
           -83.58
-        ]
-      },
-      {
-        "wall": "w579294793_e2",
-        "name": null,
-        "length": 24.5,
-        "mid": [
-          -169.91,
-          -85.52
         ]
       },
       {
@@ -6178,15 +4244,6 @@
         "mid": [
           -172.26,
           -4.65
-        ]
-      },
-      {
-        "wall": "w579294810_e4",
-        "name": null,
-        "length": 26.49,
-        "mid": [
-          -206.23,
-          -44.36
         ]
       },
       {
@@ -6262,15 +4319,6 @@
         ]
       },
       {
-        "wall": "w585938445_e3",
-        "name": "Springfield",
-        "length": 18.92,
-        "mid": [
-          -279.24,
-          26.41
-        ]
-      },
-      {
         "wall": "w585938445_e4",
         "name": "Springfield",
         "length": 10.65,
@@ -6313,69 +4361,6 @@
         "mid": [
           10.72,
           166.73
-        ]
-      },
-      {
-        "wall": "w735337387_e0",
-        "name": null,
-        "length": 7.14,
-        "mid": [
-          23.06,
-          98.07
-        ]
-      },
-      {
-        "wall": "w735337387_e1",
-        "name": null,
-        "length": 4.04,
-        "mid": [
-          21.64,
-          101.96
-        ]
-      },
-      {
-        "wall": "w735337388_e1",
-        "name": null,
-        "length": 4.62,
-        "mid": [
-          17.39,
-          102.78
-        ]
-      },
-      {
-        "wall": "w735337388_e2",
-        "name": null,
-        "length": 7.06,
-        "mid": [
-          14.43,
-          99.76
-        ]
-      },
-      {
-        "wall": "w735337389_e0",
-        "name": null,
-        "length": 6.99,
-        "mid": [
-          -10.4,
-          104.25
-        ]
-      },
-      {
-        "wall": "w735337389_e1",
-        "name": null,
-        "length": 5.14,
-        "mid": [
-          -12.18,
-          108.11
-        ]
-      },
-      {
-        "wall": "w735337389_e2",
-        "name": null,
-        "length": 6.86,
-        "mid": [
-          -15.42,
-          105.19
         ]
       },
       {
@@ -6502,6 +4487,2024 @@
         "mid": [
           -291.2,
           -237.22
+        ]
+      }
+    ],
+    "generic": [
+      {
+        "wall": "w97010879_e11",
+        "name": "Grkokatoličko sjemenište",
+        "length": 8.89,
+        "mid": [
+          -325.37,
+          212.92
+        ]
+      },
+      {
+        "wall": "w97089769_e0",
+        "name": "Mango",
+        "length": 45.12,
+        "mid": [
+          -309.14,
+          41.91
+        ]
+      },
+      {
+        "wall": "w97091855_e2",
+        "name": "Kuća Kovačić",
+        "length": 9.45,
+        "mid": [
+          -129.6,
+          321.78
+        ]
+      },
+      {
+        "wall": "w97091855_e3",
+        "name": "Kuća Kovačić",
+        "length": 5.67,
+        "mid": [
+          -135.23,
+          319.18
+        ]
+      },
+      {
+        "wall": "w97091855_e4",
+        "name": "Kuća Kovačić",
+        "length": 11.3,
+        "mid": [
+          -137.8,
+          311.09
+        ]
+      },
+      {
+        "wall": "w97091857_e6",
+        "name": null,
+        "length": 11.9,
+        "mid": [
+          -120.39,
+          162.67
+        ]
+      },
+      {
+        "wall": "w97091860_e9",
+        "name": null,
+        "length": 4.55,
+        "mid": [
+          -129.39,
+          202.41
+        ]
+      },
+      {
+        "wall": "w97091861_e3",
+        "name": null,
+        "length": 5.43,
+        "mid": [
+          -132.98,
+          300.9
+        ]
+      },
+      {
+        "wall": "w97091861_e5",
+        "name": null,
+        "length": 5.88,
+        "mid": [
+          -133.18,
+          297.46
+        ]
+      },
+      {
+        "wall": "w97091865_e2",
+        "name": null,
+        "length": 14.65,
+        "mid": [
+          -120.0,
+          150.34
+        ]
+      },
+      {
+        "wall": "w105484833_e9",
+        "name": null,
+        "length": 4.28,
+        "mid": [
+          -37.52,
+          77.11
+        ]
+      },
+      {
+        "wall": "w105489667_e8",
+        "name": null,
+        "length": 7.65,
+        "mid": [
+          40.94,
+          -119.08
+        ]
+      },
+      {
+        "wall": "w105490847_e0",
+        "name": "crkva svete Marije",
+        "length": 6.52,
+        "mid": [
+          -56.11,
+          154.66
+        ]
+      },
+      {
+        "wall": "w105490847_e2",
+        "name": "crkva svete Marije",
+        "length": 4.63,
+        "mid": [
+          -57.34,
+          149.07
+        ]
+      },
+      {
+        "wall": "w105490847_e4",
+        "name": "crkva svete Marije",
+        "length": 6.8,
+        "mid": [
+          -57.42,
+          143.12
+        ]
+      },
+      {
+        "wall": "w137106308_e5",
+        "name": null,
+        "length": 20.13,
+        "mid": [
+          168.37,
+          -141.27
+        ]
+      },
+      {
+        "wall": "w137106331_e0",
+        "name": null,
+        "length": 20.5,
+        "mid": [
+          31.77,
+          -161.3
+        ]
+      },
+      {
+        "wall": "w138251851_e14",
+        "name": null,
+        "length": 6.9,
+        "mid": [
+          63.14,
+          142.1
+        ]
+      },
+      {
+        "wall": "w138251853_e4",
+        "name": null,
+        "length": 5.81,
+        "mid": [
+          49.13,
+          124.54
+        ]
+      },
+      {
+        "wall": "w138251853_e11",
+        "name": null,
+        "length": 5.43,
+        "mid": [
+          57.45,
+          144.49
+        ]
+      },
+      {
+        "wall": "w181315771_e4",
+        "name": null,
+        "length": 19.42,
+        "mid": [
+          -289.37,
+          -188.71
+        ]
+      },
+      {
+        "wall": "w181315771_e5",
+        "name": null,
+        "length": 34.33,
+        "mid": [
+          -289.55,
+          -161.84
+        ]
+      },
+      {
+        "wall": "w227152836_e0",
+        "name": "Kuća Kereković",
+        "length": 17.39,
+        "mid": [
+          182.99,
+          28.19
+        ]
+      },
+      {
+        "wall": "w227152836_e1",
+        "name": "Kuća Kereković",
+        "length": 6.83,
+        "mid": [
+          191.9,
+          30.97
+        ]
+      },
+      {
+        "wall": "w227152836_e2",
+        "name": "Kuća Kereković",
+        "length": 5.83,
+        "mid": [
+          193.78,
+          36.79
+        ]
+      },
+      {
+        "wall": "w227152836_e7",
+        "name": "Kuća Kereković",
+        "length": 8.16,
+        "mid": [
+          174.94,
+          32.84
+        ]
+      },
+      {
+        "wall": "w249753112_e4",
+        "name": "Palača Ožegović",
+        "length": 14.62,
+        "mid": [
+          21.61,
+          -321.41
+        ]
+      },
+      {
+        "wall": "w249753112_e7",
+        "name": "Palača Ožegović",
+        "length": 4.48,
+        "mid": [
+          23.01,
+          -280.15
+        ]
+      },
+      {
+        "wall": "w286612853_e2",
+        "name": null,
+        "length": 15.22,
+        "mid": [
+          265.28,
+          -7.62
+        ]
+      },
+      {
+        "wall": "w286612854_e12",
+        "name": null,
+        "length": 9.96,
+        "mid": [
+          266.24,
+          7.35
+        ]
+      },
+      {
+        "wall": "w286612857_e6",
+        "name": null,
+        "length": 18.32,
+        "mid": [
+          248.02,
+          -24.99
+        ]
+      },
+      {
+        "wall": "w286612858_e10",
+        "name": null,
+        "length": 26.42,
+        "mid": [
+          246.95,
+          -47.33
+        ]
+      },
+      {
+        "wall": "w289863009_e5",
+        "name": null,
+        "length": 8.7,
+        "mid": [
+          -93.14,
+          145.9
+        ]
+      },
+      {
+        "wall": "w289863011_e2",
+        "name": null,
+        "length": 4.19,
+        "mid": [
+          -96.08,
+          161.53
+        ]
+      },
+      {
+        "wall": "w289863031_e6",
+        "name": null,
+        "length": 6.36,
+        "mid": [
+          -59.94,
+          87.56
+        ]
+      },
+      {
+        "wall": "w289908814_e6",
+        "name": null,
+        "length": 7.8,
+        "mid": [
+          -62.86,
+          161.3
+        ]
+      },
+      {
+        "wall": "w289908815_e18",
+        "name": null,
+        "length": 5.83,
+        "mid": [
+          -62.59,
+          119.78
+        ]
+      },
+      {
+        "wall": "w289908815_e19",
+        "name": null,
+        "length": 4.97,
+        "mid": [
+          -60.18,
+          114.96
+        ]
+      },
+      {
+        "wall": "w289908815_e20",
+        "name": null,
+        "length": 4.38,
+        "mid": [
+          -57.6,
+          111.08
+        ]
+      },
+      {
+        "wall": "w289908815_e21",
+        "name": null,
+        "length": 5.79,
+        "mid": [
+          -54.31,
+          107.2
+        ]
+      },
+      {
+        "wall": "w289908815_e22",
+        "name": null,
+        "length": 5.37,
+        "mid": [
+          -50.33,
+          103.31
+        ]
+      },
+      {
+        "wall": "w289908815_e23",
+        "name": null,
+        "length": 4.03,
+        "mid": [
+          -46.67,
+          100.36
+        ]
+      },
+      {
+        "wall": "w289908817_e2",
+        "name": "Zgrada Prve hrvatske štedionice",
+        "length": 10.46,
+        "mid": [
+          -74.79,
+          288.06
+        ]
+      },
+      {
+        "wall": "w289908817_e3",
+        "name": "Zgrada Prve hrvatske štedionice",
+        "length": 18.83,
+        "mid": [
+          -68.65,
+          296.96
+        ]
+      },
+      {
+        "wall": "w289908817_e6",
+        "name": "Zgrada Prve hrvatske štedionice",
+        "length": 4.11,
+        "mid": [
+          -113.9,
+          294.14
+        ]
+      },
+      {
+        "wall": "w289908817_e7",
+        "name": "Zgrada Prve hrvatske štedionice",
+        "length": 7.69,
+        "mid": [
+          -111.86,
+          289.96
+        ]
+      },
+      {
+        "wall": "w289908823_e1",
+        "name": "Kuća Mihoković",
+        "length": 7.47,
+        "mid": [
+          -59.49,
+          175.4
+        ]
+      },
+      {
+        "wall": "w289908854_e0",
+        "name": "Kuća Golli",
+        "length": 13.27,
+        "mid": [
+          -67.67,
+          250.8
+        ]
+      },
+      {
+        "wall": "w289908854_e1",
+        "name": "Kuća Golli",
+        "length": 4.73,
+        "mid": [
+          -65.77,
+          244.06
+        ]
+      },
+      {
+        "wall": "w289908854_e2",
+        "name": "Kuća Golli",
+        "length": 4.47,
+        "mid": [
+          -61.18,
+          243.79
+        ]
+      },
+      {
+        "wall": "w289908854_e4",
+        "name": "Kuća Golli",
+        "length": 4.25,
+        "mid": [
+          -59.07,
+          254.59
+        ]
+      },
+      {
+        "wall": "w289908854_e5",
+        "name": "Kuća Golli",
+        "length": 8.0,
+        "mid": [
+          -63.22,
+          257.06
+        ]
+      },
+      {
+        "wall": "w289908857_e2",
+        "name": "Kuća Plemenitaš - Gorenc",
+        "length": 8.98,
+        "mid": [
+          -64.57,
+          279.21
+        ]
+      },
+      {
+        "wall": "w289908870_e2",
+        "name": null,
+        "length": 7.79,
+        "mid": [
+          100.19,
+          289.58
+        ]
+      },
+      {
+        "wall": "w289908875_e0",
+        "name": "Kuća Rade",
+        "length": 4.46,
+        "mid": [
+          -48.04,
+          194.55
+        ]
+      },
+      {
+        "wall": "w289908881_e1",
+        "name": "Kuća Veszel",
+        "length": 8.22,
+        "mid": [
+          -58.37,
+          312.72
+        ]
+      },
+      {
+        "wall": "w289908881_e2",
+        "name": "Kuća Veszel",
+        "length": 16.61,
+        "mid": [
+          -63.07,
+          304.61
+        ]
+      },
+      {
+        "wall": "w289908898_e2",
+        "name": "Kuća Vran",
+        "length": 12.64,
+        "mid": [
+          -63.96,
+          290.01
+        ]
+      },
+      {
+        "wall": "w289908903_e1",
+        "name": "Kuća Klemenčić",
+        "length": 4.7,
+        "mid": [
+          -55.01,
+          270.51
+        ]
+      },
+      {
+        "wall": "w289908903_e2",
+        "name": "Kuća Klemenčić",
+        "length": 4.45,
+        "mid": [
+          -57.29,
+          272.63
+        ]
+      },
+      {
+        "wall": "w289908903_e4",
+        "name": "Kuća Klemenčić",
+        "length": 14.52,
+        "mid": [
+          -66.1,
+          267.58
+        ]
+      },
+      {
+        "wall": "w289908903_e5",
+        "name": "Kuća Klemenčić",
+        "length": 13.56,
+        "mid": [
+          -60.65,
+          259.18
+        ]
+      },
+      {
+        "wall": "w289908918_e3",
+        "name": "Kuća Cerovšek",
+        "length": 5.1,
+        "mid": [
+          -105.53,
+          193.71
+        ]
+      },
+      {
+        "wall": "w289908918_e4",
+        "name": "Kuća Cerovšek",
+        "length": 9.04,
+        "mid": [
+          -98.49,
+          193.05
+        ]
+      },
+      {
+        "wall": "w289908932_e2",
+        "name": null,
+        "length": 4.13,
+        "mid": [
+          32.29,
+          310.72
+        ]
+      },
+      {
+        "wall": "w289908936_e4",
+        "name": null,
+        "length": 10.49,
+        "mid": [
+          -110.83,
+          280.97
+        ]
+      },
+      {
+        "wall": "w290024644_e10",
+        "name": null,
+        "length": 5.53,
+        "mid": [
+          33.76,
+          209.36
+        ]
+      },
+      {
+        "wall": "w290024644_e12",
+        "name": null,
+        "length": 6.64,
+        "mid": [
+          39.74,
+          206.32
+        ]
+      },
+      {
+        "wall": "w292203492_e3",
+        "name": null,
+        "length": 10.04,
+        "mid": [
+          102.76,
+          115.25
+        ]
+      },
+      {
+        "wall": "w292203494_e1",
+        "name": null,
+        "length": 4.29,
+        "mid": [
+          82.41,
+          100.43
+        ]
+      },
+      {
+        "wall": "w292203494_e2",
+        "name": null,
+        "length": 4.75,
+        "mid": [
+          82.13,
+          104.61
+        ]
+      },
+      {
+        "wall": "w292203495_e3",
+        "name": "Kanonička kurija Dijeneševiću-Abantniju",
+        "length": 6.77,
+        "mid": [
+          35.97,
+          178.78
+        ]
+      },
+      {
+        "wall": "w292203496_e7",
+        "name": "Kanonička kurija Strezoj",
+        "length": 6.49,
+        "mid": [
+          46.22,
+          182.76
+        ]
+      },
+      {
+        "wall": "w292203496_e9",
+        "name": "Kanonička kurija Strezoj",
+        "length": 6.12,
+        "mid": [
+          57.97,
+          178.25
+        ]
+      },
+      {
+        "wall": "w293352156_e1",
+        "name": "Kuća Kinderman",
+        "length": 5.47,
+        "mid": [
+          -43.26,
+          220.34
+        ]
+      },
+      {
+        "wall": "w293357440_e2",
+        "name": null,
+        "length": 5.14,
+        "mid": [
+          -33.88,
+          290.9
+        ]
+      },
+      {
+        "wall": "w293357492_e3",
+        "name": null,
+        "length": 4.18,
+        "mid": [
+          -40.39,
+          315.46
+        ]
+      },
+      {
+        "wall": "w296513277_e0",
+        "name": null,
+        "length": 7.57,
+        "mid": [
+          10.63,
+          326.69
+        ]
+      },
+      {
+        "wall": "w297346435_e3",
+        "name": null,
+        "length": 7.49,
+        "mid": [
+          -169.2,
+          341.74
+        ]
+      },
+      {
+        "wall": "w297346435_e4",
+        "name": null,
+        "length": 16.88,
+        "mid": [
+          -173.93,
+          334.08
+        ]
+      },
+      {
+        "wall": "w297346435_e11",
+        "name": null,
+        "length": 18.29,
+        "mid": [
+          -146.74,
+          330.08
+        ]
+      },
+      {
+        "wall": "w299519687_e4",
+        "name": null,
+        "length": 4.37,
+        "mid": [
+          -30.14,
+          215.39
+        ]
+      },
+      {
+        "wall": "w299520898_e0",
+        "name": null,
+        "length": 6.43,
+        "mid": [
+          7.55,
+          255.92
+        ]
+      },
+      {
+        "wall": "w299520898_e1",
+        "name": null,
+        "length": 6.13,
+        "mid": [
+          10.93,
+          258.8
+        ]
+      },
+      {
+        "wall": "w299520898_e2",
+        "name": null,
+        "length": 6.42,
+        "mid": [
+          7.89,
+          262.05
+        ]
+      },
+      {
+        "wall": "w338686824_e4",
+        "name": "Slastičarnica Vincek",
+        "length": 18.32,
+        "mid": [
+          -290.4,
+          26.98
+        ]
+      },
+      {
+        "wall": "w338688378_e15",
+        "name": "Supernova Cvjetni",
+        "length": 4.62,
+        "mid": [
+          -334.62,
+          -107.11
+        ]
+      },
+      {
+        "wall": "w338688378_e29",
+        "name": "Supernova Cvjetni",
+        "length": 14.92,
+        "mid": [
+          -263.35,
+          -66.59
+        ]
+      },
+      {
+        "wall": "w338688378_e30",
+        "name": "Supernova Cvjetni",
+        "length": 24.64,
+        "mid": [
+          -263.59,
+          -46.82
+        ]
+      },
+      {
+        "wall": "w338688379_e0",
+        "name": "Kuća Centralne eskomptne i mjenjačke banke",
+        "length": 16.42,
+        "mid": [
+          -265.06,
+          -26.43
+        ]
+      },
+      {
+        "wall": "w338688380_e2",
+        "name": "Zgrada SCPO",
+        "length": 17.32,
+        "mid": [
+          -265.14,
+          -8.39
+        ]
+      },
+      {
+        "wall": "w338688380_e7",
+        "name": "Zgrada SCPO",
+        "length": 7.76,
+        "mid": [
+          -276.19,
+          -7.21
+        ]
+      },
+      {
+        "wall": "w338688380_e16",
+        "name": "Zgrada SCPO",
+        "length": 7.07,
+        "mid": [
+          -275.67,
+          -14.85
+        ]
+      },
+      {
+        "wall": "w338688381_e17",
+        "name": "Kuća Vasić",
+        "length": 4.16,
+        "mid": [
+          -279.3,
+          -20.43
+        ]
+      },
+      {
+        "wall": "w338688381_e20",
+        "name": "Kuća Vasić",
+        "length": 5.78,
+        "mid": [
+          -281.9,
+          -12.23
+        ]
+      },
+      {
+        "wall": "w338689072_e11",
+        "name": null,
+        "length": 9.07,
+        "mid": [
+          -317.54,
+          -113.77
+        ]
+      },
+      {
+        "wall": "w338689072_e12",
+        "name": null,
+        "length": 31.25,
+        "mid": [
+          -301.89,
+          -117.81
+        ]
+      },
+      {
+        "wall": "w338689073_e0",
+        "name": null,
+        "length": 6.36,
+        "mid": [
+          -283.12,
+          -105.33
+        ]
+      },
+      {
+        "wall": "w338689073_e4",
+        "name": null,
+        "length": 22.5,
+        "mid": [
+          -275.04,
+          -116.92
+        ]
+      },
+      {
+        "wall": "w338689073_e7",
+        "name": null,
+        "length": 11.61,
+        "mid": [
+          -260.96,
+          -107.49
+        ]
+      },
+      {
+        "wall": "w338689073_e9",
+        "name": null,
+        "length": 5.48,
+        "mid": [
+          -270.01,
+          -104.73
+        ]
+      },
+      {
+        "wall": "w338689073_e11",
+        "name": null,
+        "length": 5.56,
+        "mid": [
+          -273.93,
+          -104.92
+        ]
+      },
+      {
+        "wall": "w338689074_e0",
+        "name": null,
+        "length": 27.7,
+        "mid": [
+          -262.22,
+          -87.87
+        ]
+      },
+      {
+        "wall": "w371764534_e1",
+        "name": null,
+        "length": 5.3,
+        "mid": [
+          328.46,
+          107.24
+        ]
+      },
+      {
+        "wall": "w371764534_e2",
+        "name": null,
+        "length": 6.14,
+        "mid": [
+          326.55,
+          110.81
+        ]
+      },
+      {
+        "wall": "w371764536_e0",
+        "name": null,
+        "length": 8.91,
+        "mid": [
+          328.45,
+          155.28
+        ]
+      },
+      {
+        "wall": "w371764536_e2",
+        "name": null,
+        "length": 8.91,
+        "mid": [
+          328.89,
+          159.19
+        ]
+      },
+      {
+        "wall": "w371766186_e1",
+        "name": "kapelica svetog Ivana Nepomuka",
+        "length": 4.27,
+        "mid": [
+          340.01,
+          200.87
+        ]
+      },
+      {
+        "wall": "w371766186_e3",
+        "name": "kapelica svetog Ivana Nepomuka",
+        "length": 4.26,
+        "mid": [
+          341.83,
+          203.63
+        ]
+      },
+      {
+        "wall": "w375221482_e1",
+        "name": null,
+        "length": 7.91,
+        "mid": [
+          323.66,
+          53.96
+        ]
+      },
+      {
+        "wall": "w375221516_e1",
+        "name": null,
+        "length": 5.64,
+        "mid": [
+          334.76,
+          60.68
+        ]
+      },
+      {
+        "wall": "w375221516_e2",
+        "name": null,
+        "length": 29.23,
+        "mid": [
+          331.77,
+          76.61
+        ]
+      },
+      {
+        "wall": "w375221517_e7",
+        "name": null,
+        "length": 5.28,
+        "mid": [
+          329.58,
+          58.59
+        ]
+      },
+      {
+        "wall": "w375369553_e7",
+        "name": null,
+        "length": 14.53,
+        "mid": [
+          -279.67,
+          -29.77
+        ]
+      },
+      {
+        "wall": "w375375951_e3",
+        "name": null,
+        "length": 5.89,
+        "mid": [
+          -78.3,
+          -66.54
+        ]
+      },
+      {
+        "wall": "w375375951_e8",
+        "name": null,
+        "length": 5.97,
+        "mid": [
+          -88.89,
+          -74.82
+        ]
+      },
+      {
+        "wall": "w375381008_e1",
+        "name": null,
+        "length": 5.21,
+        "mid": [
+          -90.41,
+          -75.14
+        ]
+      },
+      {
+        "wall": "w375381009_e4",
+        "name": "Stambeno poslovna zgrada Grunsberg",
+        "length": 4.32,
+        "mid": [
+          -110.62,
+          -71.06
+        ]
+      },
+      {
+        "wall": "w375381225_e4",
+        "name": null,
+        "length": 4.21,
+        "mid": [
+          -110.48,
+          -18.34
+        ]
+      },
+      {
+        "wall": "w375381225_e7",
+        "name": null,
+        "length": 4.31,
+        "mid": [
+          -101.3,
+          -13.3
+        ]
+      },
+      {
+        "wall": "w431186024_e9",
+        "name": null,
+        "length": 9.08,
+        "mid": [
+          -83.63,
+          191.54
+        ]
+      },
+      {
+        "wall": "w435117001_e0",
+        "name": null,
+        "length": 16.98,
+        "mid": [
+          -197.16,
+          -98.42
+        ]
+      },
+      {
+        "wall": "w435117001_e1",
+        "name": null,
+        "length": 7.68,
+        "mid": [
+          -209.47,
+          -97.97
+        ]
+      },
+      {
+        "wall": "w435118922_e0",
+        "name": null,
+        "length": 4.91,
+        "mid": [
+          -216.31,
+          -123.36
+        ]
+      },
+      {
+        "wall": "w435118922_e1",
+        "name": null,
+        "length": 12.99,
+        "mid": [
+          -216.62,
+          -132.3
+        ]
+      },
+      {
+        "wall": "w435118933_e21",
+        "name": null,
+        "length": 5.57,
+        "mid": [
+          -78.55,
+          -173.23
+        ]
+      },
+      {
+        "wall": "w435118933_e23",
+        "name": null,
+        "length": 4.83,
+        "mid": [
+          -81.49,
+          -173.75
+        ]
+      },
+      {
+        "wall": "w446076669_e4",
+        "name": null,
+        "length": 4.57,
+        "mid": [
+          -202.49,
+          -218.93
+        ]
+      },
+      {
+        "wall": "w512839700_e1",
+        "name": "Kino Europa",
+        "length": 5.02,
+        "mid": [
+          -283.35,
+          -144.14
+        ]
+      },
+      {
+        "wall": "w512839700_e4",
+        "name": "Kino Europa",
+        "length": 8.44,
+        "mid": [
+          -281.48,
+          -132.98
+        ]
+      },
+      {
+        "wall": "w512839700_e5",
+        "name": "Kino Europa",
+        "length": 33.4,
+        "mid": [
+          -302.4,
+          -133.47
+        ]
+      },
+      {
+        "wall": "w512839700_e6",
+        "name": "Kino Europa",
+        "length": 11.74,
+        "mid": [
+          -319.12,
+          -139.77
+        ]
+      },
+      {
+        "wall": "w512839701_e5",
+        "name": null,
+        "length": 19.02,
+        "mid": [
+          -267.56,
+          -128.48
+        ]
+      },
+      {
+        "wall": "w512839721_e3",
+        "name": null,
+        "length": 6.87,
+        "mid": [
+          -316.7,
+          -232.35
+        ]
+      },
+      {
+        "wall": "w512839722_e10",
+        "name": null,
+        "length": 9.88,
+        "mid": [
+          -288.4,
+          -208.69
+        ]
+      },
+      {
+        "wall": "w512839724_e2",
+        "name": null,
+        "length": 5.9,
+        "mid": [
+          -270.18,
+          -193.34
+        ]
+      },
+      {
+        "wall": "w512839727_e1",
+        "name": null,
+        "length": 9.34,
+        "mid": [
+          -228.34,
+          -184.52
+        ]
+      },
+      {
+        "wall": "w512839729_e10",
+        "name": null,
+        "length": 58.68,
+        "mid": [
+          -280.68,
+          -173.08
+        ]
+      },
+      {
+        "wall": "w512840002_e1",
+        "name": null,
+        "length": 6.87,
+        "mid": [
+          -301.21,
+          -211.66
+        ]
+      },
+      {
+        "wall": "w512840002_e3",
+        "name": null,
+        "length": 11.2,
+        "mid": [
+          -293.2,
+          -204.27
+        ]
+      },
+      {
+        "wall": "w544516553_e2",
+        "name": null,
+        "length": 4.29,
+        "mid": [
+          -17.56,
+          128.98
+        ]
+      },
+      {
+        "wall": "w544516553_e32",
+        "name": null,
+        "length": 5.64,
+        "mid": [
+          -27.37,
+          133.82
+        ]
+      },
+      {
+        "wall": "w579101705_e33",
+        "name": null,
+        "length": 5.87,
+        "mid": [
+          -225.83,
+          -295.79
+        ]
+      },
+      {
+        "wall": "w579101705_e34",
+        "name": null,
+        "length": 6.76,
+        "mid": [
+          -223.27,
+          -292.03
+        ]
+      },
+      {
+        "wall": "w579294813_e0",
+        "name": null,
+        "length": 4.16,
+        "mid": [
+          -137.78,
+          -56.5
+        ]
+      },
+      {
+        "wall": "w579294813_e2",
+        "name": null,
+        "length": 21.72,
+        "mid": [
+          -136.49,
+          -43.67
+        ]
+      },
+      {
+        "wall": "w579294816_e2",
+        "name": null,
+        "length": 24.82,
+        "mid": [
+          -136.29,
+          -20.4
+        ]
+      },
+      {
+        "wall": "w579294884_e1",
+        "name": null,
+        "length": 4.8,
+        "mid": [
+          22.17,
+          -265.58
+        ]
+      },
+      {
+        "wall": "w579294888_e3",
+        "name": null,
+        "length": 4.47,
+        "mid": [
+          5.22,
+          -269.54
+        ]
+      },
+      {
+        "wall": "w579294895_e1",
+        "name": null,
+        "length": 5.37,
+        "mid": [
+          -50.66,
+          -192.69
+        ]
+      },
+      {
+        "wall": "w579294902_e6",
+        "name": null,
+        "length": 4.49,
+        "mid": [
+          13.11,
+          -189.16
+        ]
+      },
+      {
+        "wall": "w584458872_e8",
+        "name": "Kuća Betelheim",
+        "length": 26.09,
+        "mid": [
+          17.11,
+          -159.52
+        ]
+      },
+      {
+        "wall": "w584458873_e3",
+        "name": "Kuća Shell",
+        "length": 5.0,
+        "mid": [
+          21.44,
+          -118.41
+        ]
+      },
+      {
+        "wall": "w695917788_e11",
+        "name": null,
+        "length": 6.19,
+        "mid": [
+          -109.69,
+          -36.35
+        ]
+      },
+      {
+        "wall": "w695917788_e13",
+        "name": null,
+        "length": 4.48,
+        "mid": [
+          -108.89,
+          -44.94
+        ]
+      },
+      {
+        "wall": "w735313510_e3",
+        "name": null,
+        "length": 4.08,
+        "mid": [
+          -88.66,
+          149.34
+        ]
+      },
+      {
+        "wall": "w735313510_e4",
+        "name": null,
+        "length": 4.77,
+        "mid": [
+          -86.34,
+          147.13
+        ]
+      },
+      {
+        "wall": "w735313510_e5",
+        "name": null,
+        "length": 4.54,
+        "mid": [
+          -88.3,
+          144.4
+        ]
+      },
+      {
+        "wall": "w735313511_e0",
+        "name": null,
+        "length": 4.53,
+        "mid": [
+          -84.19,
+          184.26
+        ]
+      },
+      {
+        "wall": "w735313511_e2",
+        "name": null,
+        "length": 4.16,
+        "mid": [
+          -88.56,
+          184.32
+        ]
+      },
+      {
+        "wall": "w735313511_e27",
+        "name": null,
+        "length": 4.14,
+        "mid": [
+          -104.28,
+          186.05
+        ]
+      },
+      {
+        "wall": "w735313511_e31",
+        "name": null,
+        "length": 5.8,
+        "mid": [
+          -98.54,
+          172.55
+        ]
+      },
+      {
+        "wall": "w735313511_e39",
+        "name": null,
+        "length": 4.75,
+        "mid": [
+          -92.12,
+          172.38
+        ]
+      },
+      {
+        "wall": "w735313512_e3",
+        "name": null,
+        "length": 4.72,
+        "mid": [
+          -94.59,
+          169.89
+        ]
+      },
+      {
+        "wall": "w735313514_e2",
+        "name": null,
+        "length": 4.42,
+        "mid": [
+          -94.41,
+          206.75
+        ]
+      },
+      {
+        "wall": "w735313515_e1",
+        "name": null,
+        "length": 5.44,
+        "mid": [
+          -97.37,
+          209.36
+        ]
+      },
+      {
+        "wall": "w735313516_e6",
+        "name": null,
+        "length": 4.16,
+        "mid": [
+          -95.52,
+          214.23
+        ]
+      },
+      {
+        "wall": "w735337377_e1",
+        "name": null,
+        "length": 4.45,
+        "mid": [
+          -46.29,
+          160.66
+        ]
+      },
+      {
+        "wall": "w735337379_e3",
+        "name": null,
+        "length": 4.99,
+        "mid": [
+          -37.49,
+          192.01
+        ]
+      },
+      {
+        "wall": "w735337383_e2",
+        "name": null,
+        "length": 5.37,
+        "mid": [
+          -53.55,
+          172.51
+        ]
+      },
+      {
+        "wall": "w735337391_e27",
+        "name": null,
+        "length": 5.94,
+        "mid": [
+          -32.94,
+          93.8
+        ]
+      },
+      {
+        "wall": "w735337391_e33",
+        "name": null,
+        "length": 7.51,
+        "mid": [
+          -22.8,
+          105.83
+        ]
+      },
+      {
+        "wall": "w735337399_e10",
+        "name": null,
+        "length": 13.62,
+        "mid": [
+          105.61,
+          126.67
+        ]
+      },
+      {
+        "wall": "w735339086_e0",
+        "name": null,
+        "length": 6.46,
+        "mid": [
+          -64.04,
+          142.81
+        ]
+      },
+      {
+        "wall": "w735339086_e1",
+        "name": null,
+        "length": 4.58,
+        "mid": [
+          -67.04,
+          145.47
+        ]
+      },
+      {
+        "wall": "w735339086_e3",
+        "name": null,
+        "length": 7.76,
+        "mid": [
+          -70.94,
+          144.31
+        ]
+      },
+      {
+        "wall": "w735339086_e5",
+        "name": null,
+        "length": 5.67,
+        "mid": [
+          -61.22,
+          139.62
+        ]
+      },
+      {
+        "wall": "w780992318_e0",
+        "name": null,
+        "length": 6.37,
+        "mid": [
+          99.92,
+          296.65
+        ]
+      },
+      {
+        "wall": "w860324918_e5",
+        "name": null,
+        "length": 6.33,
+        "mid": [
+          333.27,
+          -165.16
+        ]
+      },
+      {
+        "wall": "w995892440_e2",
+        "name": null,
+        "length": 6.03,
+        "mid": [
+          -314.09,
+          -264.53
+        ]
+      },
+      {
+        "wall": "w1004713585_e1",
+        "name": null,
+        "length": 4.47,
+        "mid": [
+          -240.89,
+          -251.58
+        ]
+      },
+      {
+        "wall": "w1073971965_e1",
+        "name": null,
+        "length": 5.72,
+        "mid": [
+          29.22,
+          244.28
+        ]
+      },
+      {
+        "wall": "w1073971966_e2",
+        "name": null,
+        "length": 6.61,
+        "mid": [
+          96.79,
+          214.72
+        ]
+      },
+      {
+        "wall": "w1083565866_e2",
+        "name": "752",
+        "length": 4.4,
+        "mid": [
+          -80.5,
+          -152.83
+        ]
+      },
+      {
+        "wall": "w1106372268_e20",
+        "name": null,
+        "length": 5.27,
+        "mid": [
+          16.81,
+          367.72
+        ]
+      },
+      {
+        "wall": "w1134673364_e2",
+        "name": null,
+        "length": 9.91,
+        "mid": [
+          333.75,
+          -105.6
+        ]
+      },
+      {
+        "wall": "w1265244131_e0",
+        "name": null,
+        "length": 4.79,
+        "mid": [
+          119.73,
+          299.52
+        ]
+      },
+      {
+        "wall": "w1265244133_e1",
+        "name": null,
+        "length": 4.32,
+        "mid": [
+          122.54,
+          289.79
+        ]
+      },
+      {
+        "wall": "w1498441663_e7",
+        "name": null,
+        "length": 5.5,
+        "mid": [
+          48.12,
+          77.18
+        ]
+      },
+      {
+        "wall": "r1397601_e0",
+        "name": "Zgrada Srpske pravoslavne crkvene opštine",
+        "length": 17.48,
+        "mid": [
+          -216.78,
+          -25.47
+        ]
+      },
+      {
+        "wall": "r1397601_e1",
+        "name": "Zgrada Srpske pravoslavne crkvene opštine",
+        "length": 14.45,
+        "mid": [
+          -215.03,
+          -9.64
+        ]
+      },
+      {
+        "wall": "r1397601_e3",
+        "name": "Zgrada Srpske pravoslavne crkvene opštine",
+        "length": 35.71,
+        "mid": [
+          -251.81,
+          -18.23
+        ]
+      },
+      {
+        "wall": "r3853043_e0",
+        "name": "Palača Dömöthorfy",
+        "length": 31.43,
+        "mid": [
+          -66.52,
+          322.01
+        ]
+      },
+      {
+        "wall": "r3853043_e3",
+        "name": "Palača Dömöthorfy",
+        "length": 15.47,
+        "mid": [
+          -109.04,
+          337.16
+        ]
+      },
+      {
+        "wall": "r3890429_e0",
+        "name": null,
+        "length": 15.53,
+        "mid": [
+          264.37,
+          -22.97
+        ]
+      },
+      {
+        "wall": "r3890429_e1",
+        "name": null,
+        "length": 33.05,
+        "mid": [
+          262.39,
+          -47.18
+        ]
+      },
+      {
+        "wall": "r3937036_e14",
+        "name": "Palača Raffay-Plavšić",
+        "length": 14.34,
+        "mid": [
+          -324.34,
+          268.53
+        ]
+      },
+      {
+        "wall": "r6414121_e2",
+        "name": "Tiskara Albrecht",
+        "length": 10.65,
+        "mid": [
+          -70.0,
+          255.25
+        ]
+      },
+      {
+        "wall": "r6414121_e3",
+        "name": "Tiskara Albrecht",
+        "length": 10.34,
+        "mid": [
+          -69.63,
+          265.73
+        ]
+      },
+      {
+        "wall": "r8256760_e0",
+        "name": null,
+        "length": 25.81,
+        "mid": [
+          19.63,
+          -133.71
+        ]
+      },
+      {
+        "wall": "r10165079_e10",
+        "name": null,
+        "length": 5.88,
+        "mid": [
+          -91.07,
+          192.29
+        ]
+      },
+      {
+        "wall": "r10165667_e2",
+        "name": "Kuća Miletić",
+        "length": 4.04,
+        "mid": [
+          -10.1,
+          179.83
+        ]
+      },
+      {
+        "wall": "r10165667_e6",
+        "name": "Kuća Miletić",
+        "length": 4.5,
+        "mid": [
+          15.42,
+          180.65
+        ]
+      },
+      {
+        "wall": "r10165667_e13",
+        "name": "Kuća Miletić",
+        "length": 7.94,
+        "mid": [
+          -10.7,
+          184.43
+        ]
+      },
+      {
+        "wall": "r10165667_e14",
+        "name": "Kuća Miletić",
+        "length": 4.12,
+        "mid": [
+          -14.45,
+          186.79
+        ]
+      },
+      {
+        "wall": "r10165667_e15",
+        "name": "Kuća Miletić",
+        "length": 7.8,
+        "mid": [
+          -10.41,
+          188.11
+        ]
+      },
+      {
+        "wall": "w296067735_e6",
+        "name": null,
+        "length": 14.71,
+        "mid": [
+          -338.52,
+          289.41
+        ]
+      },
+      {
+        "wall": "w296067735_e7",
+        "name": null,
+        "length": 5.73,
+        "mid": [
+          -336.16,
+          282.1
+        ]
+      },
+      {
+        "wall": "w579294765_e1",
+        "name": null,
+        "length": 20.95,
+        "mid": [
+          -209.74,
+          -69.59
+        ]
+      },
+      {
+        "wall": "w579294765_e5",
+        "name": null,
+        "length": 15.74,
+        "mid": [
+          -199.12,
+          -84.73
+        ]
+      },
+      {
+        "wall": "w579294765_e6",
+        "name": null,
+        "length": 9.1,
+        "mid": [
+          -186.7,
+          -84.96
+        ]
+      },
+      {
+        "wall": "w579294768_e5",
+        "name": null,
+        "length": 17.46,
+        "mid": [
+          -187.05,
+          -4.41
+        ]
+      },
+      {
+        "wall": "w579294768_e9",
+        "name": null,
+        "length": 23.27,
+        "mid": [
+          -202.57,
+          -19.76
+        ]
+      },
+      {
+        "wall": "w579294788_e2",
+        "name": null,
+        "length": 6.14,
+        "mid": [
+          -198.18,
+          -6.37
+        ]
+      },
+      {
+        "wall": "w579294793_e2",
+        "name": null,
+        "length": 24.5,
+        "mid": [
+          -169.91,
+          -85.52
+        ]
+      },
+      {
+        "wall": "w579294810_e4",
+        "name": null,
+        "length": 26.49,
+        "mid": [
+          -206.23,
+          -44.36
+        ]
+      },
+      {
+        "wall": "w585938445_e3",
+        "name": "Springfield",
+        "length": 18.92,
+        "mid": [
+          -279.24,
+          26.41
+        ]
+      },
+      {
+        "wall": "w735337387_e0",
+        "name": null,
+        "length": 7.14,
+        "mid": [
+          23.06,
+          98.07
+        ]
+      },
+      {
+        "wall": "w735337387_e1",
+        "name": null,
+        "length": 4.04,
+        "mid": [
+          21.64,
+          101.96
+        ]
+      },
+      {
+        "wall": "w735337388_e1",
+        "name": null,
+        "length": 4.62,
+        "mid": [
+          17.39,
+          102.78
+        ]
+      },
+      {
+        "wall": "w735337388_e2",
+        "name": null,
+        "length": 7.06,
+        "mid": [
+          14.43,
+          99.76
+        ]
+      },
+      {
+        "wall": "w735337389_e0",
+        "name": null,
+        "length": 6.99,
+        "mid": [
+          -10.4,
+          104.25
+        ]
+      },
+      {
+        "wall": "w735337389_e1",
+        "name": null,
+        "length": 5.14,
+        "mid": [
+          -12.18,
+          108.11
+        ]
+      },
+      {
+        "wall": "w735337389_e2",
+        "name": null,
+        "length": 6.86,
+        "mid": [
+          -15.42,
+          105.19
         ]
       }
     ],

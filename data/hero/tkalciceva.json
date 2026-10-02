@@ -274,8 +274,8 @@
    "bays": 7,
    "storeys": 2,
    "place": "Tkalčićeva ulica",
-   "source": "INVENTED (no usable Street View or Maps photo; style of the neighbouring real facades)",
-   "look": "INVENTED facade (no photograph exists of this house): the attached picture is only a flat swatch of the wall colour, so ignore any wording about copying a photo and design this building freely and plausibly, as a real old-town house of Tkalčićeva street in Zagreb: a long two-storey baroque house in warm yellow plaster, seven bays, first-floor windows with white casements, brown shutters and white surrounds, a simple cornice, ground floor with an arched carriage gate in dark brown wood and small shuttered windows. No lettering at all. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons."
+   "source": "INVENTED (no usable Street View or Maps photo; style of the neighbouring real facades); 2026-10-02: ground floor right of the gate redrawn as Submarine Burger (Tkalčićeva 12) from a press photo (Jutarnji list), gen-image edit of this raw",
+   "look": "INVENTED facade (no photograph exists of this house): the attached picture is only a flat swatch of the wall colour, so ignore any wording about copying a photo and design this building freely and plausibly, as a real old-town house of Tkalčićeva street in Zagreb: a long two-storey baroque house in warm yellow plaster, seven bays, first-floor windows with white casements, brown shutters and white surrounds, a simple cornice, ground floor with an arched carriage gate in dark brown wood and small shuttered windows. No lettering at all. Draw NO people, NO parked cars, NO trees, NO street furniture, NO map interface overlay, NO round map icons. The three ground-floor bays right of the arched gateway are the Submarine Burger shopfront: salmon-pink render, black board SUBMARINE in yellow, glass door, shop window, black menu board."
   },
   {
    "name": "tkalciceva_b_yellow_side_a",

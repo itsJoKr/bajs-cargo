@@ -5,6 +5,9 @@ but are missing a readable sign or a proper facade texture, so they have no pad
 yet. Add the sign or facade (see the `recreate-building` skill), then add an
 entry to `data/deliveries.json`, and remove the line here.
 
+**Superseded in part by `docs/DELIVERY_LOCATIONS.md` (2026-10-02):** only places locals know by name
+are worth a pad now; that file has the Google Maps pass, what to remove and where to add.
+
 ## How this list was made (and what it does not cover)
 
 - **Delivered so far:** every business whose name is lettered on a hero facade

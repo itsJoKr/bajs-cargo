@@ -10,7 +10,8 @@ every party wall near the square that has no hero picture yet and is visible
 (taller than its neighbour), writes `.art/facades/fw_<wall>/{raw,photo}.png`,
 `data/hero/firewall.json` and `.art/streetview/firewall_todo.json` (true lengths for
 `prepare_facades.py pack`). Deterministic per wall; rerun freely, then `pack` and
-export. Options: RADIUS=<m> (default 150), MINVIS=<m> (3), WALLS=<wall>[=<donor>|=plaster],... (extra
+export. Walls in data/plaster_walls.json or data/generic_walls.json (tool/shared_walls.py) count as
+covered and are never drawn. Options: RADIUS=<m> (default 150), MINVIS=<m> (3), WALLS=<wall>[=<donor>|=plaster],... (extra
 walls at any distance: a strip of the named donor picture, else of the building's own real facade, else of
 its filler, else plaster; courtyard walls of an inner ring work too).
 """
@@ -176,20 +177,44 @@ def main() -> None:
     # What a real (or filler) picture already covers; our own fw_ pictures do not count, so a rerun
     # gives the same answer whatever an earlier run produced.
     covered = {e for name, f in atlas.items() if not name.startswith("fw_") for e in f["edges"]}
+    # Walls on shared tiles (tool/shared_walls.py) are covered too: never draw them again, WALLS= included.
+    for shared in ("plaster_walls.json", "generic_walls.json"):
+        path = ROOT / "data" / shared
+        if path.exists():
+            covered |= set(json.loads(path.read_text())["walls"])
     # Candidates: (a) party walls above a lower neighbour near the square, (b) the short edges of a
     # rounded or chamfered corner of a building that has a real facade, (c) every plain wall the last
     # scan saw, (d) whatever an earlier run already gave a picture (kept, so the set only grows).
     picks: dict[str, str] = {}
     # A wall -> the donor picture it was told to take its strip from.
     forced: dict[str, str] = {}
+    # Buildings of the playable work list (coverage.json: street walls outside the blocked areas). Beyond RADIUS a
+    # short street edge still gets a corner strip when it touches a covered street wall of its building (a corner
+    # 175 m out at Praška/Teslina stayed plain stucco between a real facade and a generic one).
+    coverage = json.loads((ROOT / "data" / "hero" / "coverage.json").read_text())["walls"]
+    playable = {w["wall"].rsplit("_e", 1)[0] for kind in ("done", "generic", "todo") for w in coverage.get(kind, [])}
+    def ends(w: dict) -> list[tuple[float, float]]:
+        (mx, mz), (nx, nz), h = w["mid"], w["n"], w["len"] / 2
+        return [(mx + nz * h, mz - nx * h), (mx - nz * h, mz + nx * h)]
+
+    by_building: dict[str, list[dict]] = {}
+    for w in walls:
+        by_building.setdefault(w["wall"].rsplit("_e", 1)[0], []).append(w)
+
+    def between_covered(w: dict, b: str) -> bool:
+        """A corner: the edge touches a covered (real, filler-era generic or plaster) street wall of its building."""
+        return any(o is not w and o["kind"] == "street" and o["wall"] in covered
+                   and min(math.dist(p, q) for p in ends(w) for q in ends(o)) < 0.3 for o in by_building[b])
+
     for w in walls:
         x, z = w["mid"]
-        if w["wall"] in covered or math.hypot(x, z) > radius:
-            continue
         b = w["wall"].rsplit("_e", 1)[0]
-        if w["kind"] == "party" and w["eave"] - (w["other"] or 0) >= min_vis and w["len"] >= 5:
+        near = math.hypot(x, z) <= radius
+        if w["wall"] in covered or not (near or b in playable):
+            continue
+        if near and w["kind"] == "party" and w["eave"] - (w["other"] or 0) >= min_vis and w["len"] >= 5:
             picks[w["wall"]] = "plaster"
-        elif w["kind"] == "street" and w["len"] < 6 and b in donors:
+        elif w["kind"] == "street" and w["len"] < 6 and b in donors and (near or between_covered(w, b)):
             picks[w["wall"]] = "crop"
     seen = ROOT / ".art" / "plain_visible.json"
     if seen.exists():

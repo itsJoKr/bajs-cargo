@@ -10,6 +10,7 @@
     "build": "tsc --noEmit && vite build",
     "check": "tsc --noEmit",
     "sim": "node tools/sim.ts",
+    "perf": "node tools/perf.mjs",
     "city": "cd .. && fvm dart tool/export_web.dart",
     "preview": "vite preview"
   },

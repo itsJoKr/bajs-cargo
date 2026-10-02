@@ -20,7 +20,7 @@
      "source": "Street View Jul 2024",
      "look": "an 1880s historicist building with an old-rose pink upper facade and cream-coloured window surrounds with small pediments, three upper storeys of regular windows, and a cream rusticated ground floor that is an arcade of round arches"},
     {"name": "gradska_stedionica", "frame": "f14", "crop": [528, 140, 1022, 470], "edges": ["w105487407_e5"], "bays": 11, "storeys": 6,
-     "source": "Street View Sep 2022 photosphere",
+     "source": "Street View Sep 2022 photosphere; 2026-10-02: the cream awning over the north portico repainted as Johann Franck's black canopy with copper lettering (tool/PIL, a 3D canopy stands in front, data/buildings.json)",
      "look": "the 1920s Gradska štedionica (city savings bank) palace: pale grey stone facade with regular windows, the large letters GRADSKA ŠTEDIONICA across the third floor, a heavy cornice, and a monumental ground floor with a colonnade of tall stone columns in front of a recessed arcade"},
     {"name": "feller_stern_white", "frame": "f14", "crop": [1012, 60, 1368, 465], "edges": ["r3853100_e3"], "bays": 6, "storeys": 7,
      "source": "Street View Sep 2022 photosphere",

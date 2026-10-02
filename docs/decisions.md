@@ -432,3 +432,23 @@ meshes, one program per material, the bare physics pipeline. MSAA, anisotropic f
 them down measured as noise here; on a weak GPU the adaptive resolution trades pixels instead, and it now refuses to blur a picture
 when fewer pixels do not help. Skipping Rapier's `mapNewSoftBodies` sweep is safe because the game never makes bodies inside wasm
 (no soft bodies, no snapshots): JS-made bodies are mapped at creation and unmapped at removal.
+
+## Generic walls go back on shared tiles to cut the download (2026-10-02)
+
+The hero atlas was 41 pages (130 MB of a 158 MB build), and about a third of its area was not real buildings: 49 duplicate
+pictures (twins), 95 procedural plaster firewalls and 219 `fill_` crops of neighbouring facades. Those now cost almost nothing:
+
+- Twins are stored once (`pack` gives every picture with the same key the same cell).
+- Plaster firewalls wear facade-atlas tile 49, the seamless plaster the rear walls already used, in a per-wall tint that reproduces
+  the picture's mean colour (`data/plaster_walls.json`). Lost: the bricked-up window ghosts and downpipes the pictures had.
+- Fillers are laid out again in rows of a style, as the 2026-09-29 style kit did, but with six generic styles cut from the most-used
+  filler donors (`gen_cottage`, `gen_shutters`, `gen_arched`, `gen_tenement`, `gen_yellow`, `gen_tall`, cells 0-23) and painted in
+  the building's own paint (`data/generic_walls.json`, one style per building by storeys; neighbours alternate).
+
+This brings back the style kit only for walls that never had a photograph of their own; every real or invented picture of a real
+facade stays a hero picture, and delivery buildings get proper pictures with their signs. Generic walls count as covered in
+`coverage.json` (`generic`), so the filler and firewall tools leave them alone. `tool/shared_walls.py` moves any new plaster
+or filler pictures the same way.
+Measured after one `HERO_REPACK`: 41 pages / 130.3 MB of hero atlas became 28 pages / 92.3 MB (1,213 pictures, 49 twins sharing
+a cell), and the build went from 158.5 MB to 120.7 MB. Then 73 corner strips (short corner edges beyond 150 m of the square that had
+always been plain, conspicuous next to a generic wall) opened a 29th page: 94.1 MB.

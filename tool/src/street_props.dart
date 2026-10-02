@@ -412,7 +412,7 @@ double _hash(double a, double b) {
 /// vector toward the rails), and a stop sign at the head.
 void emitPlatform(PropBuilder b, List<Vector2> line, Vector2 trackSide,
     double Function(Vector2) terrain) {
-  const half = 1.4, lift = .22, edge = .3;
+  const half = 1.4, lift = .22, edge = .3, ramp = 1.5;
   // OSM platforms are one long segment over a slope: cut it into 2.5 m pieces
   // so the slab's top follows the ground. The slab is ONE continuous strip
   // (it used to be a flat box per piece, stepped, with a darker box for the
@@ -444,11 +444,15 @@ void emitPlatform(PropBuilder b, List<Vector2> line, Vector2 trackSide,
   final s = lean > 0 ? 1.0 : -1.0;
   // The top is level across, at the highest ground under it plus the lift;
   // the sides reach below the lowest.
-  final topY = <double>[], footY = <double>[];
+  final topY = <double>[], footY = <double>[], rampY = <List<double>>[];
   for (var i = 0; i < count0; i++) {
     final g = [terrain(line[i]), terrain(line[i] + normals[i] * half), terrain(line[i] - normals[i] * half)];
     topY.add(g.reduce(math.max) + .15 + lift);
     footY.add(g.reduce(math.min) + .05);
+    rampY.add([
+      for (final side in [1.0, -1.0])
+        math.min(terrain(line[i] + normals[i] * ((half + ramp) * side)) - .02, topY[i] - .05),
+    ]);
   }
   Vector3 at3(int i, double offset, double y) {
     final p = line[i] + normals[i] * offset;
@@ -475,17 +479,24 @@ void emitPlatform(PropBuilder b, List<Vector2> line, Vector2 trackSide,
     for (final (o0, o1, color) in bands) {
       face(at3(i, o0, topY[i]), at3(j, o0, topY[j]), at3(j, o1, topY[j]), at3(i, o1, topY[i]), up, color);
     }
+    // Both flanks are ramps ([ramp] m run, ~14 deg) so the bike can ride up
+    // onto the slab from either side; they reach down to the ground there.
     final n = Vector3(dirs[i].y, 0, -dirs[i].x);
     for (final side in [1.0, -1.0]) {
-      face(at3(i, half * side, footY[i]), at3(j, half * side, footY[j]), at3(j, half * side, topY[j]),
-          at3(i, half * side, topY[i]), n * side, side == s ? kerb : top);
+      face(at3(i, half * side, topY[i]), at3(j, half * side, topY[j]), at3(j, (half + ramp) * side, rampY[j][side > 0 ? 0 : 1]),
+          at3(i, (half + ramp) * side, rampY[i][side > 0 ? 0 : 1]), n * side + up * 1.5, side == s ? kerb : top);
     }
   }
-  // End caps.
+  // End caps, with the ramps' end triangles.
   for (final (i, sign) in [(0, -1.0), (count0 - 1, 1.0)]) {
     final d = dirs[math.min(i, dirs.length - 1)];
-    face(at3(i, -half, footY[i]), at3(i, half, footY[i]), at3(i, half, topY[i]), at3(i, -half, topY[i]),
-        Vector3(d.x, 0, d.y) * sign, top);
+    final want = Vector3(d.x, 0, d.y) * sign;
+    face(at3(i, -half, footY[i]), at3(i, half, footY[i]), at3(i, half, topY[i]), at3(i, -half, topY[i]), want, top);
+    for (final side in [1.0, -1.0]) {
+      final gy = rampY[i][side > 0 ? 0 : 1];
+      face(at3(i, half * side, footY[i]), at3(i, (half + ramp) * side, gy), at3(i, half * side, topY[i]),
+          at3(i, half * side, topY[i]), want, top);
+    }
   }
   // Shelters every ~18 m along the whole line.
   var total = 0.0;
@@ -602,6 +613,48 @@ void emitPedestal(PropBuilder b, Vector2 c, Vector2 f, double ground, double w, 
   b.box(c, f, w / 2 + .08, w / 2 + .08, ground + h - .15, ground + h, dark, rough: .8);
 }
 
+/// Kožarić's Crvena vertikala on Gajeva: a red square steel tube 5.5 m tall,
+/// bent three times in one plane (Street View, Commons photo). [c] is its
+/// foot, [g] the pavement. The bends face the Ghetaldus corner across the
+/// street: they run north-north-east (u), the flat sides face w.
+void emitRedVertical(PropBuilder b, Vector2 c, double g) {
+  final u = Vector3(.62, 0, .79).normalized();
+  final w = Vector3(u.z, 0, -u.x);
+  const half = .14;
+  // Centreline (along u, height): a short foot, a long lean south-west, a
+  // long lean back and a short top leaning south-west again.
+  const line = [[-.03, -.3], [.03, .55], [-.45, 2.6], [-.03, 4.9], [-.2, 5.5]];
+  final p = [for (final q in line) Vector3(c.x, g + q[1], c.y) + u * q[0]];
+  final d = [for (var i = 0; i + 1 < p.length; i++) (p[i + 1] - p[i]).normalized()];
+  final n = [for (final s in d) s.cross(w).normalized()];
+  // Mitred rings: two runs meet in the plane that halves their bend.
+  final rings = <List<Vector3>>[];
+  for (var i = 0; i < p.length; i++) {
+    final k = math.min(i, n.length - 1);
+    final m = i == 0 || i == n.length ? n[k] : (n[i - 1] + n[i]).normalized();
+    final s = half / m.dot(n[k]);
+    rings.add([
+      for (final (a, e) in const [(1, 1), (-1, 1), (-1, -1), (1, -1)]) p[i] + m * (s * a) + w * (half * e),
+    ]);
+  }
+  final red = hex(0xB0201E);
+  void side(Vector3 a, Vector3 b2, Vector3 c2, Vector3 d2, Vector3 out) {
+    (b2 - a).cross(d2 - a).dot(out) >= 0
+        ? b.quad(a, b2, c2, d2, red, rough: .45)
+        : b.quad(a, d2, c2, b2, red, rough: .45);
+  }
+
+  for (var i = 0; i + 1 < rings.length; i++) {
+    final axis = (p[i] + p[i + 1]) / 2;
+    for (var j = 0; j < 4; j++) {
+      final a = rings[i][j], b2 = rings[i][(j + 1) % 4], c2 = rings[i + 1][(j + 1) % 4], d2 = rings[i + 1][j];
+      side(a, b2, c2, d2, (a + b2 + c2 + d2) / 4 - axis);
+    }
+  }
+  final top = rings.last;
+  side(top[0], top[1], top[2], top[3], d.last);
+}
+
 /// Monuments and sculptures from their OSM node (or the centre of their
 /// small area). The well-known ones get their own shape; the rest a figure
 /// or bust on a pedestal. Returns false when it drew nothing.
@@ -618,7 +671,10 @@ bool emitMonument(PropBuilder b, Tags t, Vector2 c, double ground) {
     return true;
   }
   if (name == 'Crvena vertikala') {
-    b.box(c, f, .35, .35, g, g + 7.5, hex(0xB0201E), kind: 1, rough: .4);
+    // OSM's node stands 3 m off Hotel Dubrovnik's wall; the sculpture stands
+    // nearer the middle of Gajeva. The pavement there is ~6 cm lower: the
+    // tube starts underground.
+    emitRedVertical(b, c + Vector2(-3.85, 0), g);
     return true;
   }
   if (name == 'Maketa grada Zagreba') {

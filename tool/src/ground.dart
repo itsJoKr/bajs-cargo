@@ -115,8 +115,23 @@ class Ground {
     final carLines = <(List<Vector2>, double)>[];
     final pedestrianLines = <List<Vector2>>[];
     final parkPaths = <List<Vector2>>[];
+    // Lanes laid by hand (data/streets.json, tool frame): a centreline and a width, square ends.
+    // `replaces` drops OSM ways' own carriageways (Teslina's 8.4 m tertiary road).
+    final lanes = <(List<Vector2>, double)>[];
+    final replaced = <int>{};
+    final streetsFile = File('data/streets.json');
+    if (streetsFile.existsSync()) {
+      for (final e in ((jsonDecode(streetsFile.readAsStringSync()) as Map)['lanes'] as List).cast<Map>()) {
+        lanes.add((
+          [for (final p in (e['line'] as List).cast<List>()) Vector2((p[0] as num).toDouble(), (p[1] as num).toDouble())],
+          (e['width'] as num).toDouble(),
+        ));
+        replaced.addAll(((e['replaces'] as List?) ?? const []).cast<int>());
+      }
+    }
     final ids = osm.ways.keys.toList()..sort();
     for (final id in ids) {
+      if (replaced.contains(id)) continue;
       final way = osm.ways[id]!;
       final t = way.tags;
       if (t['tunnel'] == 'yes' || t['location'] == 'underground') continue;
@@ -151,6 +166,9 @@ class Ground {
     var cars = Shape.empty();
     for (final width in byWidth.keys.toList()..sort()) {
       cars = cars | Shape.lines(byWidth[width]!, width / 2);
+    }
+    for (final (line, width) in lanes) {
+      cars = cars | Shape.lines([line], width / 2, round: false);
     }
 
     final pedestrianAreas = osm.areas(

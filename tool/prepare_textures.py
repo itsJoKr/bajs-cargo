@@ -289,6 +289,86 @@ def surface_cell(tile_id: int, name: str) -> np.ndarray:
     return np.dstack([padded, np.full(padded.shape[:2], 255.0)])
 
 
+# Generic styles for walls without a picture of their own (data/generic_walls.json, which replaced the
+# `fill_` crops in the hero atlas on 2026-10-02 to cut the download). Each is one bay of the most-used
+# filler donor of its height class (`.art/facades/<donor>/raw.png`, a hero raw), cut at the donor's true
+# aspect: x range of the bay (between two window centres' midpoints), rows in pixels of that picture
+# (cornice [0, c), the repeating upper storey [u, f), first floor [f, g), ground floor [g, h)), and an
+# own x range for the ground floor where the donor's shopfronts do not follow the bays (squeezed or
+# stretched into one bay; no lettering). They take cells 0..23, which the old style kit used (unused in the
+# web build since 2026-09-29; its entries stay in facade_styles.json, so buildings naming them still export).
+GENERIC = {
+    "gen_cottage": {"donor": "skalinska_h381", "x": (490, 1130), "c": 133, "u": 133, "f": 959, "g": 133, "h": 959},
+    "gen_shutters": {"donor": "tkalciceva_b_cream_three", "x": (356, 688), "gx": (294, 517),
+                     "c": 69, "u": 69, "f": 420, "g": 823, "h": 1218},
+    "gen_arched": {"donor": "tesle_inv_n_c_a", "x": (502, 742), "c": 65, "u": 65, "f": 305, "g": 575, "h": 985},
+    "gen_tenement": {"donor": "tesle_inv_s_e9", "x": (387, 566), "c": 55, "u": 283, "f": 490, "g": 740, "h": 1008},
+    "gen_yellow": {"donor": "tkalciceva_b_east_tenement", "x": (259, 497), "gx": (400, 735),
+                   "c": 115, "u": 615, "f": 880, "g": 1160, "h": 1495},
+    "gen_tall": {"donor": "masaryk_n726", "x": (168, 313), "gx": (398, 595),
+                 "c": 100, "u": 585, "f": 860, "g": 1160, "h": 1510},
+}
+STOREY_M, GROUND_EXTRA_M = 3.7, 1.0  # tool/prepare_facades.py: a hero picture is storeys * 3.7 + 1 m tall
+
+
+def donor_true_aspect(name: str) -> tuple[np.ndarray, float]:
+    """A hero raw at its wall's true aspect (as `prepare_facades.py pack` squeezes it), and its px per metre."""
+    atlas = json.loads((ROOT / "data" / "hero" / "atlas.json").read_text())["facades"]
+    lengths = {}
+    for path in (ROOT / ".art" / "streetview").glob("*_todo.json"):
+        data = json.loads(path.read_text())
+        for f in data["facades"] if isinstance(data, dict) else data:
+            lengths[f["id"]] = f["length"]
+    e = atlas[name]
+    width = sum(lengths.get(x, 15.0) for x in e["edges"])
+    height = e["storeys"] * STOREY_M + GROUND_EXTRA_M
+    im = Image.open(ROOT / ".art" / "facades" / name / "raw.png").convert("RGB")
+    im = im.resize((round(im.height * width / height), im.height), Image.Resampling.LANCZOS)
+    return np.asarray(im).astype(np.float32), im.height / height
+
+
+def generic_cells(spec: dict) -> tuple[list[np.ndarray], dict]:
+    img, pxm = donor_true_aspect(spec["donor"])
+    img = np.clip(img * (STUCCO / wall_colour(img)), 0, 255)
+    x0, x1 = spec["x"]
+    column = seam_blend_x(img, x0, x1 - x0)
+    gx0, gx1 = spec.get("gx", spec["x"])
+    ground_column = seam_blend_x(img, gx0, gx1 - gx0)
+    c, u, f, g, h = (spec[k] for k in "cufgh")
+    rows = [
+        (ground_column[g:h] if g < h else ground_column[c:f], False),
+        (column[f:g] if f < g else column[u:f], False),
+        (seam_blend_y(column, u, f), True),
+        (column[0:c], False),
+    ]
+    cells = []
+    for rgb, wrap_y in rows:
+        rgb_cell = cell(rgb, True, wrap_y)
+        cells.append(np.dstack([rgb_cell, tint_mask(rgb_cell, STUCCO)]))
+    info = {
+        "bay": round((x1 - x0) / pxm, 3),
+        "ground": round((h - g if g < h else f - c) / pxm, 3),
+        "first": round((g - f if f < g else f - u) / pxm, 3),
+        "upper": round((f - u) / pxm, 3),
+        "cornice": round(c / pxm, 3),
+    }
+    return cells, info
+
+
+def put_generic(facade: np.ndarray) -> dict:
+    """Writes the GENERIC styles into cells 0.. of [facade]; returns their facade_styles.json entries."""
+    styles = {}
+    for k, (name, spec) in enumerate(GENERIC.items()):
+        cells, info = generic_cells(spec)
+        for r, c in enumerate(cells):
+            index = k * 4 + r
+            y, x = (index // 8) * CELL, (index % 8) * CELL
+            facade[y : y + CELL, x : x + CELL] = c
+        styles[name] = {**info, "tiles": [k * 4 + r for r in range(4)]}
+        print(f"{name:14s} {styles[name]}")
+    return styles
+
+
 def put_plaster(facade: np.ndarray) -> None:
     rgb = plaster_tile()
     padded = np.pad(rgb, ((PAD, PAD), (PAD, PAD), (0, 0)), mode="wrap")
@@ -305,6 +385,19 @@ def save(atlas: np.ndarray, path: Path) -> None:
 
 
 def main() -> None:
+    if "--generic-only" in sys.argv:
+        # Writes just the generic styles into the committed atlas and facade_styles.json (needs the donors'
+        # hero raws in .art/facades, not the style kit's .art/gen raws).
+        path = ROOT / "assets" / "textures" / "facade_atlas.png"
+        facade = np.asarray(Image.open(path).convert("RGBA")).astype(np.float32)
+        generic = put_generic(facade)
+        save(facade, path)
+        out = ROOT / "data" / "facade_styles.json"
+        data = json.loads(out.read_text())
+        data["styles"].update(generic)
+        out.write_text(json.dumps(data, indent=2) + "\n")
+        print("wrote", len(generic), "generic styles into cells 0..", 4 * len(generic) - 1)
+        return
     if "--plaster-only" in sys.argv:
         # Adds just the plaster tile to the committed atlas (no raws needed).
         path = ROOT / "assets" / "textures" / "facade_atlas.png"
@@ -332,6 +425,7 @@ def main() -> None:
     y, x = (PLAIN_TILE // 8) * CELL, (PLAIN_TILE % 8) * CELL
     facade[y : y + CELL, x : x + CELL] = plain
     put_plaster(facade)
+    styles.update(put_generic(facade))
     save(facade, ROOT / "assets" / "textures" / "facade_atlas.png")
 
     surface = np.zeros((4 * CELL, 4 * CELL, 4), dtype=np.float32)

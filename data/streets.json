@@ -1,0 +1,29 @@
+{
+ "_comment": "Carriageways laid by hand (tool frame: x east, z north), read by tool/src/ground.dart: each lane's centreline `line` thickened to `width` (kerb to kerb, square ends) and added to OSM's roads; `replaces` lists OSM ways whose own carriageway is dropped. Ulica Nikole Tesle: one narrow lane from Trg Petra Preradovića (x -214.5) to Praška, 1.25 m south of OSM's centreline, so the café terraces (leisure=outdoor_seating) stay on the wider north sidewalk, 0.45 m or more off the lane; it replaces the 8.4 m tertiary road east of Gajeva. West of Gajeva OSM's pedestrian way still paves the sidewalks. Gajeva's road from the south and two driveways south into courtyards ended on OSM's centreline with round caps that bulged into the north sidewalk: they are re-laid to end square on the lane (widths as the export buckets OSM's: 8.5 and 4.0 m).",
+ "lanes": [
+  {
+   "name": "Ulica Nikole Tesle",
+   "width": 3.4,
+   "replaces": [169484120],
+   "line": [[-214.5, -200.38], [-186.57, -198.62], [-96.74, -191.47], [-81.83, -190.14], [-59.91, -187.54], [24.51, -183.3]]
+  },
+  {
+   "name": "Gajeva ulica, the stretch south of Teslina",
+   "width": 8.5,
+   "replaces": [838385678],
+   "line": [[-56.8, -203.6], [-57.5, -199.9], [-58.5, -194.4], [-59.0, -191.9], [-59.65, -187.6]]
+  },
+  {
+   "name": "Teslina driveway south, x -130",
+   "width": 4.0,
+   "replaces": [605833236],
+   "line": [[-130.3, -198.1], [-130.7, -194.2]]
+  },
+  {
+   "name": "Teslina driveway south, x -186",
+   "width": 4.0,
+   "replaces": [714072884],
+   "line": [[-186.2, -201.5], [-186.6, -198.6]]
+  }
+ ]
+}

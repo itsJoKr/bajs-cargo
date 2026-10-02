@@ -519,6 +519,8 @@ export class Crowd {
   floor: ((x: number, y: number, z: number) => number) | null = null;
   /** Called when a vehicle sends somebody flying, with the speed of the blow (the sound). */
   onHit: ((x: number, y: number, z: number, speed: number) => void) | null = null;
+  /** People knocked over so far (somebody already lying in the way, hit again, does not count twice). */
+  hits = 0;
 
   /** [count] walkers on and around the square, [around] more in `AREAS`. */
   constructor(
@@ -1112,6 +1114,7 @@ export class Crowd {
     p.leader = -1;
     p.speed = 0;
     p.lost = false;
+    if (!down) this.hits++;
     this.onHit?.(p.x, p.y + 1, p.z, sp);
   }
 

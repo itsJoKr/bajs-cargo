@@ -232,8 +232,14 @@ def pack() -> None:
     real page (unoptimised, wasteful, fast low-quality ETC1S encode) and the real pages are left byte for byte
     alone (a changed facade keeps its old picture there as a ghost, so the page key and its cached
     encode stay valid). A normal `pack` later folds the scratch pictures back into the real pages."""
+    import fcntl
+
     import numpy as np
 
+    # One pack at a time (parallel workers, other sessions): they all write atlas.json and the pages.
+    (ROOT / ".art").mkdir(exist_ok=True)
+    lock = open(ROOT / ".art" / "pack.lock", "w")
+    fcntl.flock(lock, fcntl.LOCK_EX)
     codec = os.environ.get("HERO_CODEC", "etc1s")
     dev = bool(os.environ.get("HERO_DEV"))
     dev_codec = "etc1sfast"
@@ -252,7 +258,11 @@ def pack() -> None:
         return n, (ROW if n == 1 else stride // n - 2 * GUTTER)
 
     items = []
+    seen = set()
     for f in facades():
+        if f["name"] in seen:
+            continue  # listed twice (ring6.json repeats three): the first entry wins
+        seen.add(f["name"])
         raw = WORK / f["name"] / "raw.png"
         if not raw.exists():
             verdict(f["name"], "rejected", reason="no generated facade")
@@ -283,24 +293,58 @@ def pack() -> None:
     def fits(row: int, n: int, k: int, x0: int, x1: int) -> bool:
         return all(x1 <= a or x0 >= b or (n > 1 and m == n and j != k) for a, b, m, j in used.get(row, []))
 
+    # Twins: pictures with the same key (identical raw, size and lane) are stored once; every twin gets
+    # the cell of the first one placed (`holder`). A normal pack keeps one old cell per key and frees the
+    # rest; a dev pack keeps every old cell (real pages stay byte for byte) and only new or changed
+    # pictures reuse a placed sibling's cell, never a ghost.
+    holder: dict[str, str] = {}  # key -> name whose cell holds that picture
+    twin_of: dict[str, str] = {}  # name -> holder name, for pictures that share another's cell
     todo = []
-    for f, raw, w, h, n, key in items:
+    rest = []
+    for it in items:
+        f, raw, w, h, n, key = it
         e = old.get(f["name"])
-        if e and e.get("key") == key and (dev or not e.get("dev")):
+        if e and e.get("key") == key and (dev or not e.get("dev")) and (dev or key not in holder):
             x = round(e["rect"][0] * ATLAS)
             y = round(e["rect"][1] * page_h) - GUTTER
             row = e["page"] * per_page + y // stride
             lane = (row, n, (y % stride) // (h + 2 * GUTTER))
+            if (x, lane) in place.values():
+                # An earlier pack already shares this cell (a twin): one owner.
+                twin_of[f["name"]] = next(k for k, v in place.items() if v == (x, lane))
+                continue
             place[f["name"]] = (x, lane)
+            holder.setdefault(key, f["name"])
             used.setdefault(row, []).append((x - GUTTER, x + w + GUTTER, n, lane[2]))
         else:
+            rest.append(it)
+    for f, raw, w, h, n, key in rest:
+        e = old.get(f["name"])
+        if dev and e and not e.get("dev") and e.get("key") != key:
+            ox = round(e["rect"][0] * ATLAS)
+            oy = round(e["rect"][1] * page_h)
+            ow = round((e["rect"][2] - e["rect"][0]) * ATLAS)
+            oh = round((e["rect"][3] - e["rect"][1]) * page_h)
+            ghosts.append((f, raw, ow, oh, e["key"], ox, oy, e["page"]))
+        if key in holder:
+            twin_of[f["name"]] = holder[key]
+        elif any(t[5] == key for t in todo):
+            twin_of[f["name"]] = next(t[0]["name"] for t in todo if t[5] == key)
+        else:
             todo.append((f, raw, w, h, n, key))
-            if dev and e and not e.get("dev"):
-                ox = round(e["rect"][0] * ATLAS)
-                oy = round(e["rect"][1] * page_h)
-                ow = round((e["rect"][2] - e["rect"][0]) * ATLAS)
-                oh = round((e["rect"][3] - e["rect"][1]) * page_h)
-                ghosts.append((f, raw, ow, oh, e["key"], ox, oy, e["page"]))
+    if dev:
+        # Removed pictures stay on their real page as ghosts too, so the page (and its cached encode) is
+        # unchanged; a normal pack frees their cells.
+        live_names = {f["name"] for f, *_ in items}
+        live_cells = {(e["page"], tuple(e["rect"])) for name, e in old.items() if name in live_names}
+        for name, e in old.items():
+            if (name in live_names or e.get("dev") or (e["page"], tuple(e["rect"])) in live_cells
+                    or not (WORK / name / "raw.png").exists()):
+                continue
+            ox, oy = round(e["rect"][0] * ATLAS), round(e["rect"][1] * page_h)
+            ow = round((e["rect"][2] - e["rect"][0]) * ATLAS)
+            oh = round((e["rect"][3] - e["rect"][1]) * page_h)
+            ghosts.append(({"name": name}, WORK / name / "raw.png", ow, oh, e["key"], ox, oy, e["page"]))
     # New and changed: first fit, widest first, into any free stretch of any row (dev: scratch pages only).
     for f, raw, w, h, n, key in sorted(todo, key=lambda it: (it[4], -it[2], it[0]["name"])):
         need = w + 2 * GUTTER
@@ -324,6 +368,8 @@ def pack() -> None:
     # Page keys: what is on each page, where, and how it is encoded.
     by_page: dict[int, list] = {k: [] for k in range(n_pages)}
     for f, raw, w, h, n, key in items:
+        if f["name"] in twin_of:
+            continue
         x, (row, _, k) = place[f["name"]]
         y = (row % per_page) * stride + GUTTER + k * (h + 2 * GUTTER)
         by_page[row // per_page].append((f, raw, w, h, key, x, y))
@@ -342,6 +388,8 @@ def pack() -> None:
             rects[f["name"]] = [x / ATLAS, y / page_h, (x + w) / ATLAS, (y + h) / page_h]
             pages[f["name"]] = k
             keys[f["name"]] = key
+    for name, owner in twin_of.items():
+        rects[name], pages[name], keys[name] = rects[owner], pages[owner], keys[owner]
     # Encode the pages whose key has no cached KTX2 yet.
     for k, cells in by_page.items():
         pc = page_codec[k]
@@ -388,7 +436,7 @@ def pack() -> None:
          "storey": STOREY, "groundExtra": GROUND_EXTRA, "facades": entries},
         indent=2, sort_keys=True) + "\n")
     total = sum(p.stat().st_size for p in tex.glob("hero_atlas_*.ktx2")) / 1e6
-    print(f"packed {len(rects)} facades ({len(todo)} new or changed) into {n_pages} page(s), {total:.0f} MB {codec}"
+    print(f"packed {len(rects)} facades ({len(todo)} new or changed, {len(twin_of)} twins sharing a cell) into {n_pages} page(s), {total:.0f} MB {codec}"
           + (f" (dev: {n_pages - real_pages} scratch page(s) after {real_pages} real)" if dev else ""))
 
 

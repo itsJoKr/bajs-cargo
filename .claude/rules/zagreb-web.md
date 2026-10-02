@@ -3,8 +3,7 @@
 Hard-won gotchas. Keep entries to one or two lines, and add a new one
 whenever a session learns something a future session would waste time
 rediscovering. `AGENTS.md` holds the setup; this file holds the traps.
-(Flutter / flutter_scene traps went with the app to the `flutter-archive`
-branch.)
+(Flutter / flutter_scene traps went with the app; see git history, commit 6d27cdb.)
 
 ## City pipeline (tool/)
 
@@ -354,6 +353,15 @@ branch.)
   check with the audit idea: cast down at the centroid of every pad triangle and compare.
 - `zg.groundAt` on a fence line returns the top of its invisible `wall` (12 m up), not the ground: aim cameras off the line.
 - Facade `at` = pixel x / picture width only for single-edge facades; multi-edge ones split the picture by edge length.
+- city.json `walls` holds street walls only: a pad on a courtyard edge (Capuciner's lane, `w290024543_e9`) needs `x`/`z`.
+  Features (data/buildings.json) resolve any edge, courtyard ones included.
+- Shopfronts on streets without Street View (Tkalčićeva, Skalinska): Google Images (`/search?udm=2&q=<place> <address>`)
+  shows press / Tripadvisor photos of the front; open a preview and `zoom` + `save_to_disk` it as the gen-image reference.
+- To put a business on an existing picture, run gen-image with the old raw AND the reference photo ("redraw this SAME
+  facade ... CHANGE: ...") instead of a new picture; it adds a flat painted hanging sign unless told "no hanging sign"
+  (say so when the blade is a 3D feature). Wide stitched raws: edit a crop at a house joint and paste it back.
+- A building's eave is the max `storeys` of ALL its pictures, `behind_` low-res ones too: lowering Vincek to 2 storeys
+  needed `behind_w338686824_e1` set to 2 as well.
 
 ## Fences and the walls behind them
 
@@ -477,6 +485,10 @@ branch.)
 
 ## Frame rate
 
+- `npm run perf` is the check (AGENTS.md). GPU memory is counted by wrapping WebGL's upload calls (`texImage*`, `texStorage*`,
+  `bufferData`) in `Page.addScriptToEvaluateOnNewDocument`: three's `renderer.info` only counts textures, and the atlas material's
+  textures live in `onBeforeCompile` uniforms, invisible to a material traversal. A KTX2 page costs 0.5 B/px on the Mac (ETC1) but
+  1 B/px where the GPU gets BC7, so the check counts every compressed format at 1. 2026-10-02: ~1 GB, the hero atlas 615 MB of it.
 - On the M1 Pro the game is bound by CPU and draw calls, not pixels: a quarter of the pixels saves ~2 of ~6 GPU ms, and MSAA off,
   anisotropy 4 or a 2048 shadow map change nothing measurable (a tile GPU). Measure CPU wins with `--throttle`, not by guessing.
 - Every Mesh is a draw call, two when it casts a shadow. Hand-built models of many primitives (bike, features) go through `merge.ts`;
@@ -491,3 +503,27 @@ branch.)
   `EXT_disjoint_timer_query_webgl2` (headless Chrome has it; it counts the GPU idling while the CPU submits). Profile the CPU with CDP
   `Profiler.start/stop` and attribute samples to the innermost `src/` frame.
 - A headless window under 500 px either way is a "phone" (`onMobile`): the game never loads (`zg is not defined`).
+
+## Shared tiles for generic walls (download size, 2026-10-02)
+
+- The export takes hero rects from `data/hero/atlas.json`, not from the section files: a picture removed from `fill.json` /
+  `firewall.json` keeps showing until a `pack`. `HERO_DEV=1` packs keep removed pictures as ghosts on their real pages (no re-encode);
+  a normal pack frees the cells, and only `HERO_REPACK=1` closes the holes.
+- `data/hero/ring6.json` lists `bogo_sw_palace`, `bogo_bulldog`, `bogo_bulldog_lane` twice; `pack` now takes the first. A repeated
+  name used to enter its page key twice, so changing that re-encoded two pages once.
+- `pack` stores twins (same key: same raw, width, lane) once; every twin's rect in atlas.json is the holder's. Removing the holder
+  moves the cell to the next twin at the next pack, not a hole.
+- `make_firewalls.py` and `mk_fill.py` read coverage/atlas: walls in `data/plaster_walls.json` / `data/generic_walls.json` count as
+  covered (export `generic`), so they are never given a picture again. Run `tool/shared_walls.py` after either tool adds pictures.
+- Generic styles (`gen_*`, facade-atlas cells 0-23) took the cells of the old style kit: the old entries stay in
+  `facade_styles.json` because buildings still name them (`b.style`) and `emitBuilding` computes their rows; deleting one
+  crashes the export. A full `prepare_textures.py` rerun writes the generic styles after the kit, so they survive it.
+
+## Hand-laid lanes (data/streets.json)
+
+- OSM carriageways have ROUND ends at their last node (`Shape.lines` default): a road or driveway that ends on a street's OSM centreline
+  bulges ~half its width past a lane laid off that centreline (Teslina: Gajeva's 8.5 m road, two driveways). Re-lay the joining ways in
+  `streets.json` with `replaces`, ending square inside the lane. Widths there are as drawn: the export buckets OSM widths to 0.5 m (8.4 -> 8.5).
+- `make_firewalls.py` drew corner strips only within RADIUS (150 m) of the square: 82 short corner edges further out (Praška/
+  Teslina, Kuća Betelheim's chamfer) stayed plain stucco, which shows next to a generic wall. It now draws them for every building
+  of the playable work list (coverage.json); `shared_walls.py` gives the short edges of generic-only buildings their style.

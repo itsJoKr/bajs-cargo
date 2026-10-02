@@ -1,0 +1,20 @@
+{
+  "chase calls": 509,
+  "chase triangles": 3.77,
+  "square calls": 534,
+  "square triangles": 3.76,
+  "ilica calls": 609,
+  "ilica triangles": 3.83,
+  "cathedral calls": 148,
+  "cathedral triangles": 3.38,
+  "overview calls": 659,
+  "overview triangles": 3.85,
+  "roof calls": 472,
+  "roof triangles": 3.78,
+  "meshes": 520,
+  "programs": 64,
+  "textureMB": 1190,
+  "bufferMB": 35,
+  "perFrameMaterialUpdates": 0,
+  "sharedInstancedMaterials": 0
+}

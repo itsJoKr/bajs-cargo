@@ -3,3 +3,4 @@ dist/
 public/draco/
 public/textures/
 public/basis/
+.perf-baseline.json

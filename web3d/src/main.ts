@@ -14,10 +14,11 @@ import { ChaseCamera } from './chaseCamera.ts';
 import { Controls } from './input.ts';
 import { Vehicle, bikeTuning, carTuning, type VehicleTuning } from './vehicle.ts';
 import { places } from './places.ts';
-import { loadDeliveries, TOTAL_JOBS } from './deliveries.ts';
+import { COMPASS_DELAY, loadDeliveries, TOTAL_JOBS } from './deliveries.ts';
 import { farTerrain, sampleGrid } from './terrain.ts';
 import { Trams } from './trams.ts';
 import { GameAudio } from './audio.ts';
+import { scoreImage, shareImage } from './scoreCard.ts';
 import { Pigeons } from './birds.ts';
 import { Catenary } from './catenary.ts';
 import { SquareProps } from './squareprops.ts';
@@ -294,6 +295,9 @@ async function main() {
   const hudJobName = document.getElementById('jobName')!;
   const hudJobStreet = document.getElementById('jobStreet')!;
   const hudJobCount = document.getElementById('jobCount')!;
+  const hudCompass = document.getElementById('compass')!;
+  const hudCompassArrow = hudCompass.firstElementChild as SVGElement;
+  const viewDir = new THREE.Vector3();
   const hudToast = document.getElementById('toast')!;
   const hudTimer = document.getElementById('timer')!;
   const finishEl = document.getElementById('finish')!;
@@ -310,6 +314,16 @@ async function main() {
     return s >= 60 ? `${Math.floor(s / 60)} min ${s % 60} sec` : `${s} sec`;
   };
   document.getElementById('again')!.addEventListener('click', () => location.reload());
+  const hitsText = (n: number) => (n === 0 ? 'No pedestrians hit' : `${n} pedestrian${n === 1 ? '' : 's'} hit`);
+  /** The share picture: the last frame under the score, drawn right after that frame's render. */
+  let scoreCard: HTMLCanvasElement | null = null;
+  const copyScore = document.getElementById('copyScore') as HTMLButtonElement;
+  copyScore.addEventListener('click', async () => {
+    if (!scoreCard) return;
+    const how = await shareImage(scoreCard);
+    copyScore.textContent = how === 'copied' ? 'Copied! Paste it anywhere' : 'Saved as an image';
+    setTimeout(() => (copyScore.textContent = 'Copy score image'), 2500);
+  });
   let toastFor = 0;
   let jobShown: unknown = null;
   /** Seconds spent on the side or roof; past ~1 s the HUD offers a reset. */
@@ -571,6 +585,11 @@ async function main() {
       if (deliveries.delivered >= TOTAL_JOBS && !finished) {
         finished = true;
         document.getElementById('finalTime')!.textContent = fmtTime(runTime);
+        if (crowd) {
+          const el = document.getElementById('finalHits')!;
+          el.textContent = hitsText(crowd.hits);
+          el.hidden = false;
+        }
         finishEl.hidden = false;
         hudPenalty.classList.remove('show');
         // Game over: from the next frame on nothing moves; the sound stops once the chime has rung.
@@ -591,6 +610,15 @@ async function main() {
       const wait = deliveries.streetIn();
       hudJobStreet.textContent = wait > 0 ? `street in ${Math.ceil(wait)}…` : job.street;
       hudJob.classList.toggle('waiting', wait > 0);
+      // A late hint too: an arrow from the rider to the pad, turned so that up is the way the camera looks.
+      const compass = deliveries.age >= COMPASS_DELAY;
+      hudCompass.classList.toggle('show', compass);
+      if (compass) {
+        camera.getWorldDirection(viewDir);
+        const bearing = Math.atan2(job.pos.x - carPos.x, carPos.z - job.pos.z); // clockwise from north (-z)
+        const view = Math.atan2(viewDir.x, -viewDir.z);
+        hudCompassArrow.style.transform = `rotate(${(bearing - view).toFixed(3)}rad)`;
+      }
     }
     audio.update(elapsed, { ride, speed: vehicle.speed, drive: vehicle.drive, cadence: vehicle.cadence, throttle: input.throttle, handbrake: input.handbrake }, camera, trams.audioSources(), pigeons ? pigeons.flockSpots() : []);
     const place = places.nearest(carPos.x, carPos.z);
@@ -601,6 +629,13 @@ async function main() {
 
     const r0 = performance.now();
     render();
+    if (finished && !scoreCard) {
+      scoreCard = scoreImage(renderer.domElement, {
+        done: `All ${TOTAL_JOBS} delivered`,
+        time: fmtTime(runTime),
+        hits: crowd ? hitsText(crowd.hits) : null,
+      });
+    }
     frames++;
     if (frames <= 5 || frames % 300 === 0) {
       console.log(`[zg] frame ${frames}: render ${(performance.now() - r0).toFixed(1)} ms, total ${(performance.now() - now).toFixed(1)} ms`);

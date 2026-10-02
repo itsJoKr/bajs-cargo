@@ -1,0 +1,56 @@
+Bajs Cargo (formerly Zagreb Drive)
+Copyright (c) 2026 itsJoKr, released under the MIT License (see LICENSE).
+
+The MIT License covers the original code (web3d/src, web3d/tools, tool/) and
+the data files written for this project (data/*.json except data/osm and
+data/terrain). The third-party material below keeps its own terms.
+
+MAP DATA
+  data/osm/ and everything baked from it (web3d/public/city/) derive from
+  OpenStreetMap data, (c) OpenStreetMap contributors, available under the Open
+  Database License (ODbL 1.0): https://www.openstreetmap.org/copyright
+  The derived database stays under the ODbL; keep this attribution with it.
+
+TERRAIN
+  data/terrain/ is derived from Copernicus GLO-30 (c) DLR e.V. 2010-2014 and
+  (c) Airbus Defence and Space GmbH 2014-2018, provided under COPERNICUS by the
+  European Union and ESA. Filtered to ground by tool/prepare_terrain.py.
+
+STREET VIEW FACADES
+  The hero facade atlases (assets/textures/hero_atlas_*) and the feature
+  images (web3d/public/features/) are redrawings, by an image model, of
+  Google Street View and Google Maps imagery (c) Google. The source screenshots
+  are not distributed. These images show real shops, signs and logos whose
+  names and marks belong to their owners; they appear only to depict the real
+  street. The author has chosen to publish them; they are not covered by the
+  MIT License.
+
+3D MODEL
+  web3d/public/models/ferrari.glb and ferrari_ao.png: "Ferrari 458 Italia" by
+  vicent091036 (Sketchfab), CC BY 4.0
+  (https://creativecommons.org/licenses/by/4.0/), as shipped in the three.js
+  examples. Ferrari is a trademark of Ferrari S.p.A.; this project is not
+  affiliated with it.
+
+SOUNDS
+  web3d/public/sounds/ are recordings from BigSoundBank (https://bigsoundbank.com),
+  released under CC0: "Flight of a Pigeon" (s0840, s0476) and "Bell 1 O'clock"
+  (s3446). Modified (slowed down / layered) in audio.ts.
+
+GENERATED IMAGES
+  The roof set, tree, bark and bike textures, the tram atlas and the cathedral
+  and passage textures were generated or redrawn with an image model (OpenAI
+  gpt-image, via the Codex CLI) from the author's prompts and reference
+  photographs. ZET and the Zagreb tram livery, the Cathedral and the other real
+  places depicted belong to their owners.
+
+LIBRARIES
+  npm and pub packages are not bundled in this repository; each keeps its own
+  licence (web3d/package.json, pubspec.yaml): three.js (MIT), Rapier
+  (@dimforge/rapier3d-compat, Apache-2.0), Vite and TypeScript (MIT / Apache-2.0),
+  clipper2 (Boost) and vector_math (Zlib / BSD) for the Dart pipeline.
+  web3d/public/draco and web3d/public/basis hold the Draco decoder (Google,
+  Apache-2.0) and the Basis Universal transcoder (Binomial, Apache-2.0), copied
+  from the three.js package and tools by tools/sync-assets.mjs.
+
+Details also in assets/ATTRIBUTION.md and web3d/ATTRIBUTION.md.

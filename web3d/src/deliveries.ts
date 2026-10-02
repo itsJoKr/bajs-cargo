@@ -7,6 +7,8 @@ import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 
 export const STREET_DELAY = 5;
+/** Seconds into a job before the HUD compass (an arrow to the pad, relative to the view) shows. */
+export const COMPASS_DELAY = 15;
 /** A run is this many deliveries; after the last one there is no next job. */
 export const TOTAL_JOBS = 8;
 /** Metres from the pad's centre that count as arriving, and the top speed (m/s) to deliver at. */

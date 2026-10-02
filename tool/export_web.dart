@@ -208,6 +208,20 @@ void main(List<String> args) {
     if (rearFile.existsSync())
       ...((jsonDecode(rearFile.readAsStringSync()) as Map)['walls'] as List).cast<String>(),
   };
+  // Firewalls in weathered plaster (tile 49) in their own linear tint, and walls laid out in a
+  // generic style: they replaced hero pictures (plaster `fw_`, `fill_`) to cut the download
+  // (tool/shared_walls.py).
+  Map<String, dynamic> wallMap(String path) => File(path).existsSync()
+      ? (jsonDecode(File(path).readAsStringSync()) as Map)['walls'] as Map<String, dynamic>
+      : const {};
+  final plasterWalls = <String, Vector4>{
+    for (final MapEntry(key: id, value: c) in wallMap('data/plaster_walls.json').entries)
+      id: Vector4((c[0] as num).toDouble(), (c[1] as num).toDouble(), (c[2] as num).toDouble(), 1),
+  };
+  final genericWalls = wallMap('data/generic_walls.json').cast<String, String>();
+  for (final name in genericWalls.values.toSet()) {
+    if (!styles.styles.containsKey(name)) throw StateError('data/generic_walls.json: unknown style $name');
+  }
   // Colonnades (data/arcades.json): walls that start above the ground, with a soffit under them.
   final arcadeFile = File('data/arcades.json');
   final arcades = <String, Arcade>{};
@@ -268,6 +282,8 @@ void main(List<String> args) {
       terrain: grid == null ? null : terrain,
       plainWalls: plainWalls,
       rearWalls: rearWalls,
+      plasterWalls: plasterWalls,
+      genericWalls: genericWalls,
       arcade: arcades[b.id],
       roofWings: roofWings[b.id] ?? const [],
       roofCover: roofs?.pick(b),
@@ -437,7 +453,9 @@ void main(List<String> args) {
 
   // Real-facade coverage: every street wall of 4 m or more, done or to do.
   // data/hero/coverage.json is the work list for the next Street View pass.
-  final done = <Map<String, Object?>>[], todo = <Map<String, Object?>>[];
+  // Generic walls (plaster tile or a generic style, no picture of their own) count as covered: they are
+  // not work for the next Street View pass, and mk_fill.py must not give them fillers again.
+  final done = <Map<String, Object?>>[], todo = <Map<String, Object?>>[], generic = <Map<String, Object?>>[];
   // Every street wall's geometry for the web's zg.lookAtWall (web frame):
   // [ax, az, bx, bz, outward nx, nz, sidewalk y, eave y].
   final walls = <String, List<double>>{};
@@ -469,6 +487,9 @@ void main(List<String> args) {
       };
       if (spans.containsKey(edge)) {
         done.add(entry);
+        doneMetres += length;
+      } else if (genericWalls.containsKey('${b.id}_e$edge') || plasterWalls.containsKey('${b.id}_e$edge')) {
+        generic.add(entry);
         doneMetres += length;
       } else {
         todo.add(entry);
@@ -506,6 +527,7 @@ void main(List<String> args) {
           'eave': r2(b.eave),
           'other': other == null ? null : r2(other),
           'hero': spans.containsKey(edge),
+          'generic': genericWalls.containsKey('${b.id}_e$edge') || plasterWalls.containsKey('${b.id}_e$edge'),
           'outer': edge < b.polygon.outer.length,
           'mid': [r2(mid.x), r2(mid.y)],
           'n': [r2(nrm.x), r2(nrm.y)],
@@ -521,17 +543,19 @@ void main(List<String> args) {
   File('data/hero/coverage.json').writeAsStringSync(
     '${const JsonEncoder.withIndent('  ').convert({
       'note': 'Street walls (>= 4 m) of the web export, frame x east / z north. '
-          'Written by tool/export_web.dart; done = has a Street View facade.',
+          'Written by tool/export_web.dart; done = has a Street View facade, generic = a shared '
+          'generic style or plaster tile (data/generic_walls.json, data/plaster_walls.json).',
       'done': done.length,
+      'generic': generic.length,
       'todo': todo.length,
       'doneMetres': doneMetres.round(),
       'todoMetres': todoMetres.round(),
-      'walls': {'done': done, 'todo': todo},
+      'walls': {'done': done, 'generic': generic, 'todo': todo},
     })}\n',
   );
   stdout.writeln(
-    'Real facades: ${done.length} of ${done.length + todo.length} street walls '
-    '(${doneMetres.round()} of ${(doneMetres + todoMetres).round()} m)',
+    'Real facades: ${done.length} of ${done.length + generic.length + todo.length} street walls, '
+    '${generic.length} generic (${(doneMetres + todoMetres).round()} m, ${todoMetres.round()} m to do)',
   );
 
   // Features (data/buildings.json): each names a wall `<building>_e<edge>`;
@@ -818,7 +842,7 @@ void main(List<String> args) {
       'terraces': terraceTableList,
       // Market stalls: [x, z, base y, yaw, umbrella colour or ''], z mirrored.
       'stalls': stallList,
-      'coverage': {'done': done.length, 'walls': done.length + todo.length},
+      'coverage': {'done': done.length + generic.length, 'walls': done.length + generic.length + todo.length},
       // Roofs index assets/textures/roof_atlas.png (else the surface atlas).
       'roofSet': roofs != null,
       'heroPages': hero.pages,

@@ -1,51 +1,39 @@
 {
  "facades": [
   {
-   "name": "fw_r10165667_e12",
-   "photo": ".art/facades/fw_r10165667_e12/photo.png",
+   "name": "fw_r10165079_e2",
+   "photo": ".art/facades/fw_r10165079_e2/photo.png",
    "edges": [
-    "r10165667_e12"
+    "r10165079_e2"
+   ],
+   "bays": 1,
+   "storeys": 3,
+   "place": "",
+   "source": "INVENTED corner: strip of behind_r10165079_e3 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_r10165667_e1",
+   "photo": ".art/facades/fw_r10165667_e1/photo.png",
+   "edges": [
+    "r10165667_e1"
    ],
    "bays": 1,
    "storeys": 4,
    "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (3 m street wall)",
+   "source": "INVENTED corner: strip of skalinska_miletic_w (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_r10165667_e13",
-   "photo": ".art/facades/fw_r10165667_e13/photo.png",
+   "name": "fw_r10165667_e3",
+   "photo": ".art/facades/fw_r10165667_e3/photo.png",
    "edges": [
-    "r10165667_e13"
-   ],
-   "bays": 3,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (8 m street wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_r10165667_e14",
-   "photo": ".art/facades/fw_r10165667_e14/photo.png",
-   "edges": [
-    "r10165667_e14"
+    "r10165667_e3"
    ],
    "bays": 1,
    "storeys": 4,
    "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (4 m street wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_r10165667_e15",
-   "photo": ".art/facades/fw_r10165667_e15/photo.png",
-   "edges": [
-    "r10165667_e15"
-   ],
-   "bays": 3,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (8 m street wall)",
+   "source": "INVENTED corner: strip of skalinska_miletic_n (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
@@ -61,30 +49,6 @@
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_r20144619_e2",
-   "photo": ".art/facades/fw_r20144619_e2/photo.png",
-   "edges": [
-    "r20144619_e2"
-   ],
-   "bays": 5,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (16 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_r20144619_e4",
-   "photo": ".art/facades/fw_r20144619_e4/photo.png",
-   "edges": [
-    "r20144619_e4"
-   ],
-   "bays": 2,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (6 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
    "name": "fw_r20144619_e8",
    "photo": ".art/facades/fw_r20144619_e8/photo.png",
    "edges": [
@@ -94,30 +58,6 @@
    "storeys": 4,
    "place": "",
    "source": "INVENTED corner: strip of praska_w_glass (the same building's facade continued round the corner)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_r3853100_e2",
-   "photo": ".art/facades/fw_r3853100_e2/photo.png",
-   "edges": [
-    "r3853100_e2"
-   ],
-   "bays": 15,
-   "storeys": 7,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (45 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_r8256760_e4",
-   "photo": ".art/facades/fw_r8256760_e4/photo.png",
-   "edges": [
-    "r8256760_e4"
-   ],
-   "bays": 5,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (15 m party wall)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
@@ -133,18 +73,6 @@
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_w105484833_e4",
-   "photo": ".art/facades/fw_w105484833_e4/photo.png",
-   "edges": [
-    "w105484833_e4"
-   ],
-   "bays": 7,
-   "storeys": 8,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (21 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
    "name": "fw_w105484833_e7",
    "photo": ".art/facades/fw_w105484833_e7/photo.png",
    "edges": [
@@ -154,258 +82,6 @@
    "storeys": 8,
    "place": "",
    "source": "INVENTED corner: strip of inv_w105484833_e8 (the same building's facade continued round the corner)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w105485745_e1",
-   "photo": ".art/facades/fw_w105485745_e1/photo.png",
-   "edges": [
-    "w105485745_e1"
-   ],
-   "bays": 10,
-   "storeys": 6,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (31 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w105486195_e1",
-   "photo": ".art/facades/fw_w105486195_e1/photo.png",
-   "edges": [
-    "w105486195_e1"
-   ],
-   "bays": 3,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (10 m courtyard wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w105486195_e3",
-   "photo": ".art/facades/fw_w105486195_e3/photo.png",
-   "edges": [
-    "w105486195_e3"
-   ],
-   "bays": 8,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (25 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w105486198_e0",
-   "photo": ".art/facades/fw_w105486198_e0/photo.png",
-   "edges": [
-    "w105486198_e0"
-   ],
-   "bays": 4,
-   "storeys": 5,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (11 m courtyard wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w105486198_e1",
-   "photo": ".art/facades/fw_w105486198_e1/photo.png",
-   "edges": [
-    "w105486198_e1"
-   ],
-   "bays": 5,
-   "storeys": 5,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (16 m courtyard wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w105486198_e9",
-   "photo": ".art/facades/fw_w105486198_e9/photo.png",
-   "edges": [
-    "w105486198_e9"
-   ],
-   "bays": 4,
-   "storeys": 5,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (11 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w105486200_e0",
-   "photo": ".art/facades/fw_w105486200_e0/photo.png",
-   "edges": [
-    "w105486200_e0"
-   ],
-   "bays": 7,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (20 m courtyard wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w105486204_e0",
-   "photo": ".art/facades/fw_w105486204_e0/photo.png",
-   "edges": [
-    "w105486204_e0"
-   ],
-   "bays": 6,
-   "storeys": 5,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (19 m courtyard wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w105486204_e1",
-   "photo": ".art/facades/fw_w105486204_e1/photo.png",
-   "edges": [
-    "w105486204_e1"
-   ],
-   "bays": 4,
-   "storeys": 5,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (13 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w105486205_e1",
-   "photo": ".art/facades/fw_w105486205_e1/photo.png",
-   "edges": [
-    "w105486205_e1"
-   ],
-   "bays": 8,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (25 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w105486205_e4",
-   "photo": ".art/facades/fw_w105486205_e4/photo.png",
-   "edges": [
-    "w105486205_e4"
-   ],
-   "bays": 10,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (31 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w105489667_e6",
-   "photo": ".art/facades/fw_w105489667_e6/photo.png",
-   "edges": [
-    "w105489667_e6"
-   ],
-   "bays": 3,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (10 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w105489668_e0",
-   "photo": ".art/facades/fw_w105489668_e0/photo.png",
-   "edges": [
-    "w105489668_e0"
-   ],
-   "bays": 2,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (6 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w105489668_e1",
-   "photo": ".art/facades/fw_w105489668_e1/photo.png",
-   "edges": [
-    "w105489668_e1"
-   ],
-   "bays": 2,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (6 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w105489668_e10",
-   "photo": ".art/facades/fw_w105489668_e10/photo.png",
-   "edges": [
-    "w105489668_e10"
-   ],
-   "bays": 4,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (11 m courtyard wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w105489668_e9",
-   "photo": ".art/facades/fw_w105489668_e9/photo.png",
-   "edges": [
-    "w105489668_e9"
-   ],
-   "bays": 3,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (10 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w105489670_e0",
-   "photo": ".art/facades/fw_w105489670_e0/photo.png",
-   "edges": [
-    "w105489670_e0"
-   ],
-   "bays": 4,
-   "storeys": 5,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (13 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w105489670_e6",
-   "photo": ".art/facades/fw_w105489670_e6/photo.png",
-   "edges": [
-    "w105489670_e6"
-   ],
-   "bays": 4,
-   "storeys": 5,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (13 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w105489670_e8",
-   "photo": ".art/facades/fw_w105489670_e8/photo.png",
-   "edges": [
-    "w105489670_e8"
-   ],
-   "bays": 5,
-   "storeys": 5,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (14 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w105489688_e5",
-   "photo": ".art/facades/fw_w105489688_e5/photo.png",
-   "edges": [
-    "w105489688_e5"
-   ],
-   "bays": 5,
-   "storeys": 5,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (16 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w105490828_e4",
-   "photo": ".art/facades/fw_w105490828_e4/photo.png",
-   "edges": [
-    "w105490828_e4"
-   ],
-   "bays": 10,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (31 m party wall)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
@@ -517,27 +193,51 @@
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_w1061535097_e6",
-   "photo": ".art/facades/fw_w1061535097_e6/photo.png",
+   "name": "fw_w1106372268_e2",
+   "photo": ".art/facades/fw_w1106372268_e2/photo.png",
    "edges": [
-    "w1061535097_e6"
+    "w1106372268_e2"
    ],
-   "bays": 8,
-   "storeys": 6,
+   "bays": 1,
+   "storeys": 4,
    "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (25 m party wall)",
+   "source": "INVENTED corner: strip of behind_w1106372268_e18 (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_w137106331_e6",
-   "photo": ".art/facades/fw_w137106331_e6/photo.png",
+   "name": "fw_w1106372268_e9",
+   "photo": ".art/facades/fw_w1106372268_e9/photo.png",
    "edges": [
-    "w137106331_e6"
+    "w1106372268_e9"
    ],
-   "bays": 8,
+   "bays": 1,
    "storeys": 4,
    "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (25 m courtyard wall)",
+   "source": "INVENTED corner: strip of opatovina_g8 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w137106308_e4",
+   "photo": ".art/facades/fw_w137106308_e4/photo.png",
+   "edges": [
+    "w137106308_e4"
+   ],
+   "bays": 1,
+   "storeys": 4,
+   "place": "",
+   "source": "INVENTED corner: strip of amrus_n308 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w137106331_e1",
+   "photo": ".art/facades/fw_w137106331_e1/photo.png",
+   "edges": [
+    "w137106331_e1"
+   ],
+   "bays": 1,
+   "storeys": 4,
+   "place": "",
+   "source": "INVENTED corner: strip of zrinski_inv_n2 (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
@@ -697,87 +397,123 @@
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_w1548110731_e0",
-   "photo": ".art/facades/fw_w1548110731_e0/photo.png",
+   "name": "fw_w249753110_e6",
+   "photo": ".art/facades/fw_w249753110_e6/photo.png",
    "edges": [
-    "w1548110731_e0"
-   ],
-   "bays": 11,
-   "storeys": 2,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (33 m courtyard wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w1548110731_e4",
-   "photo": ".art/facades/fw_w1548110731_e4/photo.png",
-   "edges": [
-    "w1548110731_e4"
-   ],
-   "bays": 3,
-   "storeys": 2,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (9 m courtyard wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w1548111398_e1",
-   "photo": ".art/facades/fw_w1548111398_e1/photo.png",
-   "edges": [
-    "w1548111398_e1"
-   ],
-   "bays": 2,
-   "storeys": 3,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (7 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w1548111398_e5",
-   "photo": ".art/facades/fw_w1548111398_e5/photo.png",
-   "edges": [
-    "w1548111398_e5"
-   ],
-   "bays": 2,
-   "storeys": 3,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (7 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w1548111398_e6",
-   "photo": ".art/facades/fw_w1548111398_e6/photo.png",
-   "edges": [
-    "w1548111398_e6"
-   ],
-   "bays": 7,
-   "storeys": 3,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (21 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w1548111399_e2",
-   "photo": ".art/facades/fw_w1548111399_e2/photo.png",
-   "edges": [
-    "w1548111399_e2"
+    "w249753110_e6"
    ],
    "bays": 1,
    "storeys": 4,
    "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (4 m party wall)",
+   "source": "INVENTED corner: strip of berislavic_s110 (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_w1548111399_e3",
-   "photo": ".art/facades/fw_w1548111399_e3/photo.png",
+   "name": "fw_w286611964_e0",
+   "photo": ".art/facades/fw_w286611964_e0/photo.png",
    "edges": [
-    "w1548111399_e3"
+    "w286611964_e0"
    ],
-   "bays": 6,
+   "bays": 1,
    "storeys": 4,
    "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (17 m party wall)",
+   "source": "INVENTED corner: strip of palmot_n964 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w286611964_e3",
+   "photo": ".art/facades/fw_w286611964_e3/photo.png",
+   "edges": [
+    "w286611964_e3"
+   ],
+   "bays": 1,
+   "storeys": 4,
+   "place": "",
+   "source": "INVENTED corner: strip of jurisic_s964 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w286611971_e4",
+   "photo": ".art/facades/fw_w286611971_e4/photo.png",
+   "edges": [
+    "w286611971_e4"
+   ],
+   "bays": 1,
+   "storeys": 4,
+   "place": "",
+   "source": "INVENTED corner: strip of petrinjska_koracell (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w286611971_e5",
+   "photo": ".art/facades/fw_w286611971_e5/photo.png",
+   "edges": [
+    "w286611971_e5"
+   ],
+   "bays": 1,
+   "storeys": 4,
+   "place": "",
+   "source": "INVENTED corner: strip of amrus_n971 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w286611974_e5",
+   "photo": ".art/facades/fw_w286611974_e5/photo.png",
+   "edges": [
+    "w286611974_e5"
+   ],
+   "bays": 1,
+   "storeys": 4,
+   "place": "",
+   "source": "INVENTED corner: strip of jurisic_s974 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w286612854_e10",
+   "photo": ".art/facades/fw_w286612854_e10/photo.png",
+   "edges": [
+    "w286612854_e10"
+   ],
+   "bays": 1,
+   "storeys": 4,
+   "place": "",
+   "source": "INVENTED corner: strip of vlaska_e854 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w286612854_e11",
+   "photo": ".art/facades/fw_w286612854_e11/photo.png",
+   "edges": [
+    "w286612854_e11"
+   ],
+   "bays": 1,
+   "storeys": 4,
+   "place": "",
+   "source": "INVENTED corner: strip of vlaska_e854 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w286612854_e13",
+   "photo": ".art/facades/fw_w286612854_e13/photo.png",
+   "edges": [
+    "w286612854_e13"
+   ],
+   "bays": 1,
+   "storeys": 4,
+   "place": "",
+   "source": "INVENTED corner: strip of vlaska_e854 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w286612858_e9",
+   "photo": ".art/facades/fw_w286612858_e9/photo.png",
+   "edges": [
+    "w286612858_e9"
+   ],
+   "bays": 1,
+   "storeys": 4,
+   "place": "",
+   "source": "INVENTED corner: strip of jurisic_n858 (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
@@ -889,27 +625,39 @@
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_w289863013_e1",
-   "photo": ".art/facades/fw_w289863013_e1/photo.png",
+   "name": "fw_w289863009_e4",
+   "photo": ".art/facades/fw_w289863009_e4/photo.png",
    "edges": [
-    "w289863013_e1"
+    "w289863009_e4"
    ],
-   "bays": 8,
+   "bays": 1,
    "storeys": 3,
    "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (24 m party wall)",
+   "source": "INVENTED corner: strip of pavlaradica_grey14 (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_w289863031_e0",
-   "photo": ".art/facades/fw_w289863031_e0/photo.png",
+   "name": "fw_w289863009_e6",
+   "photo": ".art/facades/fw_w289863009_e6/photo.png",
    "edges": [
-    "w289863031_e0"
+    "w289863009_e6"
    ],
-   "bays": 6,
-   "storeys": 5,
+   "bays": 1,
+   "storeys": 3,
    "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (19 m party wall)",
+   "source": "INVENTED corner: strip of pavlaradica_grey14 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w289863011_e1",
+   "photo": ".art/facades/fw_w289863011_e1/photo.png",
+   "edges": [
+    "w289863011_e1"
+   ],
+   "bays": 1,
+   "storeys": 3,
+   "place": "",
+   "source": "INVENTED corner: strip of pavlaradica_museum (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
@@ -937,75 +685,15 @@
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_w289863031_e9",
-   "photo": ".art/facades/fw_w289863031_e9/photo.png",
+   "name": "fw_w289908814_e1",
+   "photo": ".art/facades/fw_w289908814_e1/photo.png",
    "edges": [
-    "w289863031_e9"
+    "w289908814_e1"
    ],
-   "bays": 2,
-   "storeys": 5,
+   "bays": 1,
+   "storeys": 2,
    "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (7 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w289863169_e1",
-   "photo": ".art/facades/fw_w289863169_e1/photo.png",
-   "edges": [
-    "w289863169_e1"
-   ],
-   "bays": 6,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (17 m courtyard wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w289863169_e3",
-   "photo": ".art/facades/fw_w289863169_e3/photo.png",
-   "edges": [
-    "w289863169_e3"
-   ],
-   "bays": 4,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (12 m courtyard wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w289863169_e4",
-   "photo": ".art/facades/fw_w289863169_e4/photo.png",
-   "edges": [
-    "w289863169_e4"
-   ],
-   "bays": 2,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (5 m courtyard wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w289863169_e5",
-   "photo": ".art/facades/fw_w289863169_e5/photo.png",
-   "edges": [
-    "w289863169_e5"
-   ],
-   "bays": 2,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (7 m courtyard wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w289863169_e6",
-   "photo": ".art/facades/fw_w289863169_e6/photo.png",
-   "edges": [
-    "w289863169_e6"
-   ],
-   "bays": 4,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (11 m courtyard wall)",
+   "source": "INVENTED corner: strip of tkalciceva_b_low_yellow_long (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
@@ -1030,6 +718,18 @@
    "storeys": 2,
    "place": "",
    "source": "INVENTED corner: strip of tkalciceva_b_yellow_side_a (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w289908814_e7",
+   "photo": ".art/facades/fw_w289908814_e7/photo.png",
+   "edges": [
+    "w289908814_e7"
+   ],
+   "bays": 1,
+   "storeys": 2,
+   "place": "",
+   "source": "INVENTED corner: strip of tkalciceva_b_yellow_side_b (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
@@ -1105,6 +805,126 @@
    "look": "INVENTED wall drawn procedurally"
   },
   {
+   "name": "fw_w289908823_e0",
+   "photo": ".art/facades/fw_w289908823_e0/photo.png",
+   "edges": [
+    "w289908823_e0"
+   ],
+   "bays": 1,
+   "storeys": 2,
+   "place": "",
+   "source": "INVENTED corner: strip of tkalciceva_b_mihokovic (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w289908875_e8",
+   "photo": ".art/facades/fw_w289908875_e8/photo.png",
+   "edges": [
+    "w289908875_e8"
+   ],
+   "bays": 1,
+   "storeys": 2,
+   "place": "",
+   "source": "INVENTED corner: strip of skalinska_rade_b (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w289908918_e2",
+   "photo": ".art/facades/fw_w289908918_e2/photo.png",
+   "edges": [
+    "w289908918_e2"
+   ],
+   "bays": 1,
+   "storeys": 2,
+   "place": "",
+   "source": "INVENTED corner: strip of pavlaradica_bacura (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w290024543_e11",
+   "photo": ".art/facades/fw_w290024543_e11/photo.png",
+   "edges": [
+    "w290024543_e11"
+   ],
+   "bays": 1,
+   "storeys": 3,
+   "place": "",
+   "source": "INVENTED corner: strip of behind_w290024543_e12 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w290024543_e13",
+   "photo": ".art/facades/fw_w290024543_e13/photo.png",
+   "edges": [
+    "w290024543_e13"
+   ],
+   "bays": 1,
+   "storeys": 3,
+   "place": "",
+   "source": "INVENTED corner: strip of behind_w290024543_e12 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w290024543_e14",
+   "photo": ".art/facades/fw_w290024543_e14/photo.png",
+   "edges": [
+    "w290024543_e14"
+   ],
+   "bays": 1,
+   "storeys": 3,
+   "place": "",
+   "source": "INVENTED corner: strip of behind_w290024543_e12 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w290024644_e11",
+   "photo": ".art/facades/fw_w290024644_e11/photo.png",
+   "edges": [
+    "w290024644_e11"
+   ],
+   "bays": 1,
+   "storeys": 2,
+   "place": "",
+   "source": "INVENTED corner: strip of behind_w290024644_e5 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w290024644_e9",
+   "photo": ".art/facades/fw_w290024644_e9/photo.png",
+   "edges": [
+    "w290024644_e9"
+   ],
+   "bays": 1,
+   "storeys": 2,
+   "place": "",
+   "source": "INVENTED corner: strip of opatovina_h644_e8 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w290024699_e11",
+   "photo": ".art/facades/fw_w290024699_e11/photo.png",
+   "edges": [
+    "w290024699_e11"
+   ],
+   "bays": 1,
+   "storeys": 2,
+   "place": "",
+   "source": "INVENTED corner: strip of behind_w290024699_e0 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w290024702_e7",
+   "photo": ".art/facades/fw_w290024702_e7/photo.png",
+   "edges": [
+    "w290024702_e7"
+   ],
+   "bays": 1,
+   "storeys": 3,
+   "place": "",
+   "source": "INVENTED corner: strip of opatovina_h702 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
    "name": "fw_w290551252_e2",
    "photo": ".art/facades/fw_w290551252_e2/photo.png",
    "edges": [
@@ -1117,15 +937,15 @@
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_w292203492_e1",
-   "photo": ".art/facades/fw_w292203492_e1/photo.png",
+   "name": "fw_w292203495_e2",
+   "photo": ".art/facades/fw_w292203495_e2/photo.png",
    "edges": [
-    "w292203492_e1"
+    "w292203495_e2"
    ],
-   "bays": 3,
+   "bays": 1,
    "storeys": 4,
    "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (10 m party wall)",
+   "source": "INVENTED corner: strip of kaptol_kd_e4 (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
@@ -1141,27 +961,15 @@
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_w295793324_e0",
-   "photo": ".art/facades/fw_w295793324_e0/photo.png",
+   "name": "fw_w292203496_e4",
+   "photo": ".art/facades/fw_w292203496_e4/photo.png",
    "edges": [
-    "w295793324_e0"
+    "w292203496_e4"
    ],
-   "bays": 6,
-   "storeys": 4,
+   "bays": 1,
+   "storeys": 3,
    "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (19 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w295793324_e3",
-   "photo": ".art/facades/fw_w295793324_e3/photo.png",
-   "edges": [
-    "w295793324_e3"
-   ],
-   "bays": 4,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (12 m party wall)",
+   "source": "INVENTED corner: strip of kaptol_strezoj_e5 (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
@@ -1177,123 +985,75 @@
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_w331291327_e11",
-   "photo": ".art/facades/fw_w331291327_e11/photo.png",
+   "name": "fw_w338686824_e3",
+   "photo": ".art/facades/fw_w338686824_e3/photo.png",
    "edges": [
-    "w331291327_e11"
+    "w338686824_e3"
    ],
-   "bays": 4,
+   "bays": 1,
+   "storeys": 2,
+   "place": "",
+   "source": "INVENTED corner: strip of ilica_vincek (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w338688380_e1",
+   "photo": ".art/facades/fw_w338688380_e1/photo.png",
+   "edges": [
+    "w338688380_e1"
+   ],
+   "bays": 1,
    "storeys": 6,
    "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (11 m party wall)",
+   "source": "INVENTED corner: strip of ilw_terranova (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_w331291327_e8",
-   "photo": ".art/facades/fw_w331291327_e8/photo.png",
+   "name": "fw_w338688380_e15",
+   "photo": ".art/facades/fw_w338688380_e15/photo.png",
    "edges": [
-    "w331291327_e8"
+    "w338688380_e15"
    ],
-   "bays": 3,
+   "bays": 1,
    "storeys": 6,
    "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (9 m courtyard wall)",
+   "source": "INVENTED corner: strip of ilw_terranova (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_w365493822_e3",
-   "photo": ".art/facades/fw_w365493822_e3/photo.png",
+   "name": "fw_w338688380_e8",
+   "photo": ".art/facades/fw_w338688380_e8/photo.png",
    "edges": [
-    "w365493822_e3"
+    "w338688380_e8"
    ],
-   "bays": 14,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (40 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w375375279_e1",
-   "photo": ".art/facades/fw_w375375279_e1/photo.png",
-   "edges": [
-    "w375375279_e1"
-   ],
-   "bays": 3,
-   "storeys": 7,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (9 m courtyard wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w375375279_e2",
-   "photo": ".art/facades/fw_w375375279_e2/photo.png",
-   "edges": [
-    "w375375279_e2"
-   ],
-   "bays": 2,
-   "storeys": 7,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (6 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w375375279_e3",
-   "photo": ".art/facades/fw_w375375279_e3/photo.png",
-   "edges": [
-    "w375375279_e3"
-   ],
-   "bays": 2,
-   "storeys": 7,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (6 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w375375279_e4",
-   "photo": ".art/facades/fw_w375375279_e4/photo.png",
-   "edges": [
-    "w375375279_e4"
-   ],
-   "bays": 8,
-   "storeys": 7,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (25 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w375375279_e6",
-   "photo": ".art/facades/fw_w375375279_e6/photo.png",
-   "edges": [
-    "w375375279_e6"
-   ],
-   "bays": 4,
-   "storeys": 7,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (11 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w375375950_e0",
-   "photo": ".art/facades/fw_w375375950_e0/photo.png",
-   "edges": [
-    "w375375950_e0"
-   ],
-   "bays": 8,
+   "bays": 1,
    "storeys": 6,
    "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (25 m party wall)",
+   "source": "INVENTED corner: strip of ilw_terranova (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_w375375950_e1",
-   "photo": ".art/facades/fw_w375375950_e1/photo.png",
+   "name": "fw_w338688381_e0",
+   "photo": ".art/facades/fw_w338688381_e0/photo.png",
    "edges": [
-    "w375375950_e1"
+    "w338688381_e0"
    ],
-   "bays": 6,
-   "storeys": 6,
+   "bays": 1,
+   "storeys": 5,
    "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (18 m party wall)",
+   "source": "INVENTED corner: strip of ilw_calliope (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w338688383_e0",
+   "photo": ".art/facades/fw_w338688383_e0/photo.png",
+   "edges": [
+    "w338688383_e0"
+   ],
+   "bays": 1,
+   "storeys": 5,
+   "place": "",
+   "source": "INVENTED corner: strip of inv_w338688383_e1 (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
@@ -1321,18 +1081,6 @@
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_w375375951_e18",
-   "photo": ".art/facades/fw_w375375951_e18/photo.png",
-   "edges": [
-    "w375375951_e18"
-   ],
-   "bays": 3,
-   "storeys": 7,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (10 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
    "name": "fw_w375375951_e6",
    "photo": ".art/facades/fw_w375375951_e6/photo.png",
    "edges": [
@@ -1354,18 +1102,6 @@
    "storeys": 7,
    "place": "",
    "source": "INVENTED corner: strip of bogo_n008 (the same building's facade continued round the corner)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w375381009_e10",
-   "photo": ".art/facades/fw_w375381009_e10/photo.png",
-   "edges": [
-    "w375381009_e10"
-   ],
-   "bays": 3,
-   "storeys": 7,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (10 m party wall)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
@@ -1402,18 +1138,6 @@
    "storeys": 7,
    "place": "",
    "source": "INVENTED corner: strip of bogo_q_store_lane (the same building's facade continued round the corner)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w375381223_e1",
-   "photo": ".art/facades/fw_w375381223_e1/photo.png",
-   "edges": [
-    "w375381223_e1"
-   ],
-   "bays": 6,
-   "storeys": 6,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (17 m party wall)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
@@ -1459,7 +1183,7 @@
     "w375381225_e1"
    ],
    "bays": 1,
-   "storeys": 6,
+   "storeys": 5,
    "place": "",
    "source": "INVENTED corner: strip of inv_w375381225_e6 (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
@@ -1471,21 +1195,117 @@
     "w375381225_e3"
    ],
    "bays": 1,
-   "storeys": 6,
+   "storeys": 5,
    "place": "",
    "source": "INVENTED corner: strip of inv_w375381225_e6 (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_w435116996_e5",
-   "photo": ".art/facades/fw_w435116996_e5/photo.png",
+   "name": "fw_w390984149_e12",
+   "photo": ".art/facades/fw_w390984149_e12/photo.png",
    "edges": [
-    "w435116996_e5"
+    "w390984149_e12"
    ],
-   "bays": 3,
-   "storeys": 7,
+   "bays": 1,
+   "storeys": 5,
    "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (8 m party wall)",
+   "source": "INVENTED corner: strip of petrinjska_havana_a (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w431186024_e4",
+   "photo": ".art/facades/fw_w431186024_e4/photo.png",
+   "edges": [
+    "w431186024_e4"
+   ],
+   "bays": 1,
+   "storeys": 3,
+   "place": "",
+   "source": "INVENTED corner: strip of behind_w431186024_e3 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w435118933_e20",
+   "photo": ".art/facades/fw_w435118933_e20/photo.png",
+   "edges": [
+    "w435118933_e20"
+   ],
+   "bays": 1,
+   "storeys": 3,
+   "place": "",
+   "source": "INVENTED corner: strip of tesle_inv_n_c_b (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w435118933_e22",
+   "photo": ".art/facades/fw_w435118933_e22/photo.png",
+   "edges": [
+    "w435118933_e22"
+   ],
+   "bays": 1,
+   "storeys": 3,
+   "place": "",
+   "source": "INVENTED corner: strip of tesle_inv_n_c_b (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w435118933_e4",
+   "photo": ".art/facades/fw_w435118933_e4/photo.png",
+   "edges": [
+    "w435118933_e4"
+   ],
+   "bays": 1,
+   "storeys": 3,
+   "place": "",
+   "source": "INVENTED corner: strip of tesle_inv_n_c_a (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w446076402_e6",
+   "photo": ".art/facades/fw_w446076402_e6/photo.png",
+   "edges": [
+    "w446076402_e6"
+   ],
+   "bays": 1,
+   "storeys": 4,
+   "place": "",
+   "source": "INVENTED corner: strip of gajeva_no12 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w512839721_e2",
+   "photo": ".art/facades/fw_w512839721_e2/photo.png",
+   "edges": [
+    "w512839721_e2"
+   ],
+   "bays": 1,
+   "storeys": 3,
+   "place": "",
+   "source": "INVENTED corner: strip of masaryk_n721 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w512839721_e5",
+   "photo": ".art/facades/fw_w512839721_e5/photo.png",
+   "edges": [
+    "w512839721_e5"
+   ],
+   "bays": 1,
+   "storeys": 3,
+   "place": "",
+   "source": "INVENTED corner: strip of masaryk_n721 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w512839722_e9",
+   "photo": ".art/facades/fw_w512839722_e9/photo.png",
+   "edges": [
+    "w512839722_e9"
+   ],
+   "bays": 1,
+   "storeys": 5,
+   "place": "",
+   "source": "INVENTED corner: strip of masaryk_n722 (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
@@ -1597,135 +1417,207 @@
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_w579294813_e3",
-   "photo": ".art/facades/fw_w579294813_e3/photo.png",
+   "name": "fw_w579101705_e32",
+   "photo": ".art/facades/fw_w579101705_e32/photo.png",
    "edges": [
-    "w579294813_e3"
+    "w579101705_e32"
    ],
-   "bays": 2,
-   "storeys": 6,
+   "bays": 1,
+   "storeys": 3,
    "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (7 m party wall)",
+   "source": "INVENTED corner: strip of prad_ovals (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_w579294813_e4",
-   "photo": ".art/facades/fw_w579294813_e4/photo.png",
+   "name": "fw_w579294879_e7",
+   "photo": ".art/facades/fw_w579294879_e7/photo.png",
    "edges": [
-    "w579294813_e4"
-   ],
-   "bays": 2,
-   "storeys": 6,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (6 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w584458873_e6",
-   "photo": ".art/facades/fw_w584458873_e6/photo.png",
-   "edges": [
-    "w584458873_e6"
-   ],
-   "bays": 2,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (8 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w584458873_e8",
-   "photo": ".art/facades/fw_w584458873_e8/photo.png",
-   "edges": [
-    "w584458873_e8"
-   ],
-   "bays": 2,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (6 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w584464569_e0",
-   "photo": ".art/facades/fw_w584464569_e0/photo.png",
-   "edges": [
-    "w584464569_e0"
-   ],
-   "bays": 11,
-   "storeys": 7,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (33 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w584464569_e3",
-   "photo": ".art/facades/fw_w584464569_e3/photo.png",
-   "edges": [
-    "w584464569_e3"
-   ],
-   "bays": 9,
-   "storeys": 7,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (26 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w586039526_e0",
-   "photo": ".art/facades/fw_w586039526_e0/photo.png",
-   "edges": [
-    "w586039526_e0"
-   ],
-   "bays": 6,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (17 m courtyard wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w586039526_e6",
-   "photo": ".art/facades/fw_w586039526_e6/photo.png",
-   "edges": [
-    "w586039526_e6"
-   ],
-   "bays": 3,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (9 m courtyard wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w674631582_e1",
-   "photo": ".art/facades/fw_w674631582_e1/photo.png",
-   "edges": [
-    "w674631582_e1"
-   ],
-   "bays": 13,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (38 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w695917788_e6",
-   "photo": ".art/facades/fw_w695917788_e6/photo.png",
-   "edges": [
-    "w695917788_e6"
-   ],
-   "bays": 2,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (6 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w695917788_e7",
-   "photo": ".art/facades/fw_w695917788_e7/photo.png",
-   "edges": [
-    "w695917788_e7"
+    "w579294879_e7"
    ],
    "bays": 1,
    "storeys": 4,
    "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (4 m party wall)",
+   "source": "INVENTED corner: strip of berislavic_yellow_n (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w579295111_e2",
+   "photo": ".art/facades/fw_w579295111_e2/photo.png",
+   "edges": [
+    "w579295111_e2"
+   ],
+   "bays": 1,
+   "storeys": 3,
+   "place": "",
+   "source": "INVENTED corner: strip of berislavic_s111 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w584458872_e6",
+   "photo": ".art/facades/fw_w584458872_e6/photo.png",
+   "edges": [
+    "w584458872_e6"
+   ],
+   "bays": 1,
+   "storeys": 3,
+   "place": "",
+   "source": "INVENTED corner: strip of tesle_betelheim (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w584458872_e7",
+   "photo": ".art/facades/fw_w584458872_e7/photo.png",
+   "edges": [
+    "w584458872_e7"
+   ],
+   "bays": 1,
+   "storeys": 3,
+   "place": "",
+   "source": "INVENTED corner: strip of tesle_betelheim (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w586039525_e0",
+   "photo": ".art/facades/fw_w586039525_e0/photo.png",
+   "edges": [
+    "w586039525_e0"
+   ],
+   "bays": 1,
+   "storeys": 4,
+   "place": "",
+   "source": "INVENTED corner: strip of vlaska_e525 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w586039526_e3",
+   "photo": ".art/facades/fw_w586039526_e3/photo.png",
+   "edges": [
+    "w586039526_e3"
+   ],
+   "bays": 1,
+   "storeys": 4,
+   "place": "",
+   "source": "INVENTED corner: strip of vlaska_e526 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w735313510_e2",
+   "photo": ".art/facades/fw_w735313510_e2/photo.png",
+   "edges": [
+    "w735313510_e2"
+   ],
+   "bays": 1,
+   "storeys": 4,
+   "place": "",
+   "source": "INVENTED corner: strip of tkalciceva_b_saphira_block (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w735313510_e6",
+   "photo": ".art/facades/fw_w735313510_e6/photo.png",
+   "edges": [
+    "w735313510_e6"
+   ],
+   "bays": 1,
+   "storeys": 4,
+   "place": "",
+   "source": "INVENTED corner: strip of tkalciceva_b_saphira_block (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w735313511_e24",
+   "photo": ".art/facades/fw_w735313511_e24/photo.png",
+   "edges": [
+    "w735313511_e24"
+   ],
+   "bays": 1,
+   "storeys": 3,
+   "place": "",
+   "source": "INVENTED corner: strip of pavlaradica_ochre_balcony (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w735313511_e28",
+   "photo": ".art/facades/fw_w735313511_e28/photo.png",
+   "edges": [
+    "w735313511_e28"
+   ],
+   "bays": 1,
+   "storeys": 3,
+   "place": "",
+   "source": "INVENTED corner: strip of pavlaradica_ochre_balcony (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w735313511_e3",
+   "photo": ".art/facades/fw_w735313511_e3/photo.png",
+   "edges": [
+    "w735313511_e3"
+   ],
+   "bays": 1,
+   "storeys": 3,
+   "place": "",
+   "source": "INVENTED corner: strip of tkalciceva_b_cream_three (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w735313511_e32",
+   "photo": ".art/facades/fw_w735313511_e32/photo.png",
+   "edges": [
+    "w735313511_e32"
+   ],
+   "bays": 1,
+   "storeys": 3,
+   "place": "",
+   "source": "INVENTED corner: strip of pavlaradica_ochre_balcony (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w735313511_e38",
+   "photo": ".art/facades/fw_w735313511_e38/photo.png",
+   "edges": [
+    "w735313511_e38"
+   ],
+   "bays": 1,
+   "storeys": 3,
+   "place": "",
+   "source": "INVENTED corner: strip of tkalciceva_b_cream_three (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w735313511_e42",
+   "photo": ".art/facades/fw_w735313511_e42/photo.png",
+   "edges": [
+    "w735313511_e42"
+   ],
+   "bays": 1,
+   "storeys": 3,
+   "place": "",
+   "source": "INVENTED corner: strip of tkalciceva_b_cream_three (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w735313514_e1",
+   "photo": ".art/facades/fw_w735313514_e1/photo.png",
+   "edges": [
+    "w735313514_e1"
+   ],
+   "bays": 1,
+   "storeys": 1,
+   "place": "",
+   "source": "INVENTED corner: strip of behind_w735313514_e8 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w735313514_e3",
+   "photo": ".art/facades/fw_w735313514_e3/photo.png",
+   "edges": [
+    "w735313514_e3"
+   ],
+   "bays": 1,
+   "storeys": 1,
+   "place": "",
+   "source": "INVENTED corner: strip of behind_w735313514_e8 (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
@@ -1750,66 +1642,6 @@
    "storeys": 4,
    "place": "",
    "source": "INVENTED corner: strip of skalinska_h385_b (the same building's facade continued round the corner)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w735337387_e1",
-   "photo": ".art/facades/fw_w735337387_e1/photo.png",
-   "edges": [
-    "w735337387_e1"
-   ],
-   "bays": 1,
-   "storeys": 1,
-   "place": "",
-   "source": "INVENTED corner: strip of fill_w735337387_e0 (the same building's facade continued round the corner)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w735337388_e1",
-   "photo": ".art/facades/fw_w735337388_e1/photo.png",
-   "edges": [
-    "w735337388_e1"
-   ],
-   "bays": 2,
-   "storeys": 1,
-   "place": "",
-   "source": "INVENTED corner: strip of fill_w735337389_e2 (the same building's facade continued round the corner)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w735337388_e2",
-   "photo": ".art/facades/fw_w735337388_e2/photo.png",
-   "edges": [
-    "w735337388_e2"
-   ],
-   "bays": 2,
-   "storeys": 1,
-   "place": "",
-   "source": "INVENTED corner: strip of fill_w735337389_e2 (the same building's facade continued round the corner)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w735337389_e0",
-   "photo": ".art/facades/fw_w735337389_e0/photo.png",
-   "edges": [
-    "w735337389_e0"
-   ],
-   "bays": 2,
-   "storeys": 1,
-   "place": "",
-   "source": "INVENTED corner: strip of fill_w735337389_e2 (the same building's facade continued round the corner)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w735337389_e1",
-   "photo": ".art/facades/fw_w735337389_e1/photo.png",
-   "edges": [
-    "w735337389_e1"
-   ],
-   "bays": 2,
-   "storeys": 1,
-   "place": "",
-   "source": "INVENTED corner: strip of fill_w735337389_e2 (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
@@ -1894,30 +1726,6 @@
    "storeys": 2,
    "place": "",
    "source": "INVENTED corner: strip of podzidom_dolac_s_b (the same building's facade continued round the corner)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w735337390_e8",
-   "photo": ".art/facades/fw_w735337390_e8/photo.png",
-   "edges": [
-    "w735337390_e8"
-   ],
-   "bays": 2,
-   "storeys": 2,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (5 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w735337391_e1",
-   "photo": ".art/facades/fw_w735337391_e1/photo.png",
-   "edges": [
-    "w735337391_e1"
-   ],
-   "bays": 2,
-   "storeys": 6,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (5 m party wall)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
@@ -2449,18 +2257,6 @@
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_w735337391_e63",
-   "photo": ".art/facades/fw_w735337391_e63/photo.png",
-   "edges": [
-    "w735337391_e63"
-   ],
-   "bays": 2,
-   "storeys": 6,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (5 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
    "name": "fw_w735337391_e66",
    "photo": ".art/facades/fw_w735337391_e66/photo.png",
    "edges": [
@@ -2749,30 +2545,6 @@
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_w735337399_e11",
-   "photo": ".art/facades/fw_w735337399_e11/photo.png",
-   "edges": [
-    "w735337399_e11"
-   ],
-   "bays": 1,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED corner: strip of fill_w735337399_e10 (the same building's facade continued round the corner)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w735337399_e9",
-   "photo": ".art/facades/fw_w735337399_e9/photo.png",
-   "edges": [
-    "w735337399_e9"
-   ],
-   "bays": 1,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED corner: strip of fill_w735337399_e10 (the same building's facade continued round the corner)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
    "name": "fw_w735339086_e2",
    "photo": ".art/facades/fw_w735339086_e2/photo.png",
    "edges": [
@@ -2785,15 +2557,51 @@
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_w97089760_e3",
-   "photo": ".art/facades/fw_w97089760_e3/photo.png",
+   "name": "fw_w780992318_e1",
+   "photo": ".art/facades/fw_w780992318_e1/photo.png",
    "edges": [
-    "w97089760_e3"
+    "w780992318_e1"
    ],
-   "bays": 6,
-   "storeys": 4,
+   "bays": 1,
+   "storeys": 1,
    "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (17 m party wall)",
+   "source": "INVENTED corner: strip of behind_w780992318_e2 (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w9000000030_e0",
+   "photo": ".art/facades/fw_w9000000030_e0/photo.png",
+   "edges": [
+    "w9000000030_e0"
+   ],
+   "bays": 1,
+   "storeys": 1,
+   "place": "",
+   "source": "INVENTED corner: strip of colonnade_core_front (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w9000000030_e8",
+   "photo": ".art/facades/fw_w9000000030_e8/photo.png",
+   "edges": [
+    "w9000000030_e8"
+   ],
+   "bays": 1,
+   "storeys": 1,
+   "place": "",
+   "source": "INVENTED corner: strip of colonnade_core_front (the same building's facade continued round the corner)",
+   "look": "INVENTED wall drawn procedurally"
+  },
+  {
+   "name": "fw_w9000000050_e4",
+   "photo": ".art/facades/fw_w9000000050_e4/photo.png",
+   "edges": [
+    "w9000000050_e4"
+   ],
+   "bays": 1,
+   "storeys": 2,
+   "place": "",
+   "source": "INVENTED corner: strip of nama_arcade_end_e (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
@@ -2809,195 +2617,39 @@
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_w97235393_e2",
-   "photo": ".art/facades/fw_w97235393_e2/photo.png",
+   "name": "fw_w97091860_e8",
+   "photo": ".art/facades/fw_w97091860_e8/photo.png",
    "edges": [
-    "w97235393_e2"
+    "w97091860_e8"
    ],
    "bays": 1,
-   "storeys": 3,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (3 m courtyard wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w97235393_e3",
-   "photo": ".art/facades/fw_w97235393_e3/photo.png",
-   "edges": [
-    "w97235393_e3"
-   ],
-   "bays": 3,
-   "storeys": 3,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (8 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w97235393_e4",
-   "photo": ".art/facades/fw_w97235393_e4/photo.png",
-   "edges": [
-    "w97235393_e4"
-   ],
-   "bays": 1,
-   "storeys": 3,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (3 m courtyard wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w97235393_e5",
-   "photo": ".art/facades/fw_w97235393_e5/photo.png",
-   "edges": [
-    "w97235393_e5"
-   ],
-   "bays": 5,
-   "storeys": 3,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (14 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w97235393_e8",
-   "photo": ".art/facades/fw_w97235393_e8/photo.png",
-   "edges": [
-    "w97235393_e8"
-   ],
-   "bays": 4,
-   "storeys": 3,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (12 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w97235396_e0",
-   "photo": ".art/facades/fw_w97235396_e0/photo.png",
-   "edges": [
-    "w97235396_e0"
-   ],
-   "bays": 9,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (26 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w97235396_e4",
-   "photo": ".art/facades/fw_w97235396_e4/photo.png",
-   "edges": [
-    "w97235396_e4"
-   ],
-   "bays": 5,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (14 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w97235396_e5",
-   "photo": ".art/facades/fw_w97235396_e5/photo.png",
-   "edges": [
-    "w97235396_e5"
-   ],
-   "bays": 8,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (25 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w97235397_e10",
-   "photo": ".art/facades/fw_w97235397_e10/photo.png",
-   "edges": [
-    "w97235397_e10"
-   ],
-   "bays": 3,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (8 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w97235397_e6",
-   "photo": ".art/facades/fw_w97235397_e6/photo.png",
-   "edges": [
-    "w97235397_e6"
-   ],
-   "bays": 5,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (14 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w97235397_e8",
-   "photo": ".art/facades/fw_w97235397_e8/photo.png",
-   "edges": [
-    "w97235397_e8"
-   ],
-   "bays": 4,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (11 m courtyard wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w97235397_e9",
-   "photo": ".art/facades/fw_w97235397_e9/photo.png",
-   "edges": [
-    "w97235397_e9"
-   ],
-   "bays": 3,
-   "storeys": 4,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (10 m courtyard wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w97235399_e13",
-   "photo": ".art/facades/fw_w97235399_e13/photo.png",
-   "edges": [
-    "w97235399_e13"
-   ],
-   "bays": 2,
    "storeys": 2,
    "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (7 m party wall)",
+   "source": "INVENTED corner: strip of pavlaradica_moda21 (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_w97235510_e0",
-   "photo": ".art/facades/fw_w97235510_e0/photo.png",
+   "name": "fw_w97235509_e0",
+   "photo": ".art/facades/fw_w97235509_e0/photo.png",
    "edges": [
-    "w97235510_e0"
+    "w97235509_e0"
    ],
-   "bays": 15,
-   "storeys": 6,
+   "bays": 1,
+   "storeys": 2,
    "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (45 m party wall)",
+   "source": "INVENTED corner: strip of gajeva_boban (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   },
   {
-   "name": "fw_w97235510_e1",
-   "photo": ".art/facades/fw_w97235510_e1/photo.png",
+   "name": "fw_w97235511_e3",
+   "photo": ".art/facades/fw_w97235511_e3/photo.png",
    "edges": [
-    "w97235510_e1"
+    "w97235511_e3"
    ],
-   "bays": 2,
-   "storeys": 6,
+   "bays": 1,
+   "storeys": 4,
    "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (5 m party wall)",
-   "look": "INVENTED wall drawn procedurally"
-  },
-  {
-   "name": "fw_w97235510_e4",
-   "photo": ".art/facades/fw_w97235510_e4/photo.png",
-   "edges": [
-    "w97235510_e4"
-   ],
-   "bays": 7,
-   "storeys": 6,
-   "place": "",
-   "source": "INVENTED firewall: procedural weathered plaster (22 m party wall)",
+   "source": "INVENTED corner: strip of gajeva_b_boban_s (the same building's facade continued round the corner)",
    "look": "INVENTED wall drawn procedurally"
   }
  ]

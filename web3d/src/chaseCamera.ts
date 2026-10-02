@@ -13,6 +13,8 @@ export class ChaseCamera {
   /** Mouse look: offsets from the behind-the-vehicle view, radians. */
   private lookYaw = 0;
   private lookPitch = 0;
+  /** Seconds the player has been riding without a break. */
+  private riding = 0;
   /** Distance along a ray to the first wall or roof, or null. */
   private readonly cast: (from: THREE.Vector3, dir: THREE.Vector3, far: number) => number | null;
   private readonly eye = new THREE.Vector3();
@@ -30,15 +32,17 @@ export class ChaseCamera {
   /** [heading]: compass radians (0 = north = -z). [speed] in m/s, signed. */
   /** Mouse movement in pixels. */
   orbit(dx: number, dy: number) {
-    this.lookYaw -= dx * 0.005;
+    this.lookYaw += dx * 0.005;
     this.lookYaw = Math.atan2(Math.sin(this.lookYaw), Math.cos(this.lookYaw));
     this.lookPitch = Math.max(-0.2, Math.min(0.9, this.lookPitch + dy * 0.004));
   }
 
-  /** [recenter]: the player is riding; swing the view back behind. */
+  /** [recenter]: the player is riding; after a second of it, swing the view back behind. */
   update(dt: number, target: THREE.Vector3, heading: number, speed: number, recenter = false) {
-    if (recenter) {
-      const k = Math.min(1, dt * 2.5);
+    this.riding = recenter ? this.riding + dt : 0;
+    if (this.riding > 1) {
+      // Eased in over half a second, so the swing does not start with a jerk.
+      const k = Math.min(1, dt * 2.5 * Math.min(1, (this.riding - 1) / 0.5));
       this.lookYaw -= this.lookYaw * k;
       this.lookPitch -= this.lookPitch * k;
     }

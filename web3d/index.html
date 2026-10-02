@@ -26,14 +26,15 @@
         <small>All 8 delivered</small>
         <h1>Bajs <span>Cargo</span></h1>
         <p id="finalTime"></p>
-        <p class="hint">Screenshot and share your score!</p>
-        <button id="again" type="button">Ride again</button>
+        <p id="finalHits" hidden></p>
+        <button id="copyScore" type="button">Copy score image</button>
+        <button id="again" class="ghost" type="button">Ride again</button>
       </div>
     </div>
     <div id="paused" hidden><div class="card">Paused<small>Click to ride on</small></div></div>
     <div id="hud">
       <div id="place"></div>
-      <div id="job"><small>Deliver the package to</small><b id="jobName"></b><span id="jobStreet"></span><i id="jobCount"></i></div>
+      <div id="job"><small>Deliver the package to</small><b><span id="compass"><svg viewBox="-10 -10 20 20"><path d="M0 -7 L5 5 L0 2.5 L-5 5 Z" /></svg></span><span id="jobName"></span></b><span id="jobStreet"></span><i id="jobCount"></i></div>
       <div id="timer"></div>
       <div id="toast"></div>
       <div id="coverage"></div>

@@ -7,7 +7,7 @@ current. `docs/decisions.md` records why things are the way they are;
 `docs/progress.md` records what each phase delivered.
 
 The original Flutter / flutter_scene app was removed on 2026-09-29; the last
-state with it is the `flutter-archive` branch (commit 6d27cdb). Its city
+state with it is commit 6d27cdb. Its city
 pipeline lives on here in `tool/` as a plain Dart CLI.
 
 ## Layout
@@ -29,7 +29,7 @@ pipeline lives on here in `tool/` as a plain Dart CLI.
     the car scatters; from city.json `terraces` and `terrace` features, plus
     market stalls from `stalls`),
     `people.ts` (the crowd: instanced pedestrians walking city.json `walk`, café guests on the chairs; the car/bike
-    knocks them flying, `Crowd.onHit` -> sound; 87 walkers on and around the square plus 30 kept to `AREAS` further out
+    knocks them flying, `Crowd.onHit` -> sound, `Crowd.hits` counts them for the finish card; 87 walkers on and around the square plus 30 kept to `AREAS` further out
     (Dolac's plateau, Kaptol before the Cathedral, Praška, Vlaška, Tkalčićeva...), `?people=N` sets the total),
     `birds.ts` (pigeon flocks that scatter), `squareprops.ts` (hand-placed props from `data/props.json`:
     candelabra, flagpoles, ad columns, clock, bins, planters...), `catenary.ts` (tram overhead wires,
@@ -43,7 +43,7 @@ pipeline lives on here in `tool/` as a plain Dart CLI.
     `gates.ts` (open iron gates with plaster posts and lanterns, plus rubble / plaster garden walls, from `data/gates.json`: the private road along the Kaptol walls),
     `parkprops.ts` (the EU star garden and the closed toilet's stairwell, gate and lift on the Cesarca lawn, from `data/park.json`,
     which also lists extra trees),
-    `deliveries.ts` (the delivery game: a random business by name, its street 5 s later, pale yellow pads on
+    `deliveries.ts` (the delivery game: a random business by name, its street 5 s later, an arrow to it before its name 15 s in (relative to the view, `COMPASS_DELAY`), pale yellow pads on
     the floor at every door from `data/deliveries.json`; drive onto the current pad to deliver),
     `audio.ts` (sound synthesised with Web Audio, except the pigeon recordings: freewheel ticks and tyre hiss, the car's
     engine, handbrake squeal, positional tram rumble/whine and a school-bell ring while a tram is held up
@@ -60,7 +60,8 @@ pipeline lives on here in `tool/` as a plain Dart CLI.
     tablets get a "made for a laptop" dialog from `main.ts`, `?desktop` skips it), `places.ts` (HUD place names),
     `main.ts` (loop, sky, lighting, adaptive render resolution, HUD with fps, `window.zg` debug surface; pauses
     world, timer and sound while the tab is hidden or the window unfocused, carries on when the player is back;
-    stops them for good after the 8th delivery (the finish card says "Screenshot and share your score!"); 0 goes back to
+    stops them for good after the 8th delivery (the finish card shows the time and pedestrians hit; "Copy score image" puts a 1200x630 PNG of the last frame under
+    the score on the clipboard, or downloads it where the clipboard refuses, `scoreCard.ts`); 0 goes back to
     base and holds the rider there for 5 s while the clock runs, so it is no shortcut).
   - `tools/sim.ts` physics checks, `tools/tram_sim.ts` tram traffic (junction
     lockups, overlaps), `tools/shot.mjs` headless Chrome over CDP,
@@ -89,14 +90,21 @@ pipeline lives on here in `tool/` as a plain Dart CLI.
   features; `part` adds a hand-drawn volume, `outline` replaces an OSM way's ring), `roofs.json`, `facade_styles.json`, `levels.json` (flat
   plateaus, ramps, stairs and `dip` hollows that override the terrain grid: Dolac, its
   stairs, Kerempuh/Opatovina, Ribnjak park; pedestrians walk all but dips and `"crowd": false`), `markets.json` (market stall grids, loose
-  furniture), `raised.json` (the square's stepped frontage), `fences.json`
+  furniture), `raised.json` (the square's stepped frontage), `streets.json` (carriageways laid by hand: a centreline +
+  width, square ends, `replaces` drops OSM ways' own; Teslina's one narrow lane south of the café terraces), `fences.json`
   (fence lines closing off unreachable places, e.g. the Cathedral's sides and the roadblock on the Kaptol road; walls behind them: `tool/make_behind_fence.py`), `passages.json`
   (covered passages: centreline, width/height, doorway size, the Oktogon's hall), `arcades.json` (colonnades: walls lifted over an open ground floor plus a soffit, `spans` for part of an edge; `arches`: round arches cut into one edge with a stepped walkway behind them, Nama on Ilica; `Arcade`/`Arches` in `tool/src/buildings.dart`),
   `rear_walls.json` (wall ids that wear the
-  seamless weathered-plaster tile 49 (no windows) instead of plain stucco: back walls seen from the private roads; found with `PTS="x,z;..." tool/plain_scan.py`).
+  seamless weathered-plaster tile 49 (no windows) instead of plain stucco: back walls seen from the private roads; found with `PTS="x,z;..." tool/plain_scan.py`),
+  `plaster_walls.json` (firewalls on that tile 49 in their own linear tint) and `generic_walls.json` (walls without a picture of their
+  own laid out in rows of a generic style `gen_*`, cells 0-23 of the facade atlas, in the building's paint): both written by
+  `tool/shared_walls.py`, which moves plaster `fw_` and `fill_` pictures out of the hero atlas (download size); a hero picture on
+  the same wall wins, and `coverage.json` counts them as `generic`.
 - `data/deliveries.json` — delivery destinations: `wall` + `at` (0..1 along the wall, left to right as in its
   facade picture) + `out` (m, default 1.1), or tool-frame `x`,`z` (+`y`, `probe`) for interiors. Copied to
-  `web3d/public/city/` by `sync-assets.mjs` (rerun it after an edit). `docs/MISSING_BUSINESSES.md` lists what lacks a sign.
+  `web3d/public/city/` by `sync-assets.mjs` (rerun it after an edit). `docs/MISSING_BUSINESSES.md` lists what lacks a sign;
+  `docs/DELIVERY_LOCATIONS.md` (2026-10-02) is the keep/remove/add review: destinations must be places locals know
+  by name (~1,000+ Google Maps reviews or a landmark), never a brand on a sign or a chain branch.
 - `assets/textures/` — the atlases the web build samples (facade, surface,
   hero, roof). `docs/` — decisions and progress.
 
@@ -118,12 +126,15 @@ cd web3d && npm install && npm run dev      # http://localhost:5180/
 npm run check                               # typecheck
 npm run build                               # production build
 node tools/sim.ts                           # 32 physics checks (car, bike, furniture)
+npm run perf                                # performance budgets + fps vs your baseline (dev server up; ~45 s)
 node tools/tram_sim.ts 30 150               # 30 min of trams at 4x the game's density
 fvm dart tool/export_web.dart               # rebake the city after any tool/src or data change
 tool/export_locked.sh                       # the same under a lock + asset sync (use it when workers run in parallel)
 fvm dart tool/export_web.dart --dump-walls  # also writes .art/walls_all.json (every wall edge; audits)
 .venv/bin/python tool/plain_scan.py         # which plain walls are visible from the square (dev server up)
 .venv/bin/python tool/make_firewalls.py     # weathered plaster / corner strips for those (data/hero/firewall.json)
+.venv/bin/python tool/shared_walls.py       # then: plaster fw_ and fill_ pictures -> plaster_walls.json / generic_walls.json
+.venv/bin/python tool/prepare_textures.py --generic-only   # recut the gen_* styles (GENERIC: donor bay and rows) into the facade atlas
 .venv/bin/python tool/prepare_terrain.py    # rebuild data/terrain from .art/dem (Copernicus GLO-30); FILLS smooths hollows (Ilica)
 .venv/bin/python tool/prepare_roofs.py      # repack the roof set
 .venv/bin/python tool/prepare_facades.py crop|generate|pack [name...]   # HERO_DEV=1 pack: fast, unoptimised scratch pages while iterating
@@ -180,5 +191,11 @@ is the done/todo list.
 - Frame rate: `shot.mjs --uncapped --eval "zg.fps(8)"` rides for 8 s at whatever the machine can draw (fps, p50/p95/p99 ms);
   add `--throttle 4` (a step, after the load) for a cheap laptop's CPU, `?dpr=1` to hold the resolution. Baseline 2026-10-01 on the
   M1 Pro, 1920x1080 `?dpr=1`: ~240 fps, ~75 fps at `--throttle 4`.
+- Performance check: `npm run perf` (`tools/perf.mjs`) after any change that adds geometry, materials, textures or per-frame
+  work. Budgets in `web3d/perf-budget.json` are the same on every machine (draw calls and triangles from six cameras, programs,
+  meshes, GPU MB with compressed textures at 1 B/px, and two counts that must stay 0); over budget fails: merge or instance, or
+  raise the number in the same change and say why (`--update-budget` rewrites it at +15%). Timings (fps riding, and with the CPU
+  4x slower) compare with your own `web3d/.perf-baseline.json` (`--save`, gitignored): 15% slower fails, 20% for the slow CPU,
+  which wanders +-10% run to run (rerun before believing it). `--no-timing` for budgets only, `--shots dir` saves the six views.
 - `.claude/rules/zagreb-web.md` holds the traps; add to it whenever
   something costs time.

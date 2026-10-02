@@ -2588,19 +2588,6 @@
    "look": "INVENTED low-res crop of fill_w292203496_e9"
   },
   {
-   "name": "behind_w290024543_e9",
-   "photo": ".art/facades/behind_w290024543_e9/photo.png",
-   "edges": [
-    "w290024543_e9"
-   ],
-   "bays": 4,
-   "storeys": 3,
-   "res": 0.25,
-   "place": "Kaptol",
-   "source": "INVENTED, very low-res: random crop of fill_w292203496_e9 for a wall north of the Kaptol road closure",
-   "look": "INVENTED low-res crop of fill_w292203496_e9"
-  },
-  {
    "name": "behind_w290024555_e0",
    "photo": ".art/facades/behind_w290024555_e0/photo.png",
    "edges": [
@@ -5883,7 +5870,7 @@
     "w338686824_e1"
    ],
    "bays": 6,
-   "storeys": 4,
+   "storeys": 2,
    "res": 0.25,
    "place": "Ulica Josipa Eugena Tomića",
    "source": "INVENTED, very low-res: random crop of fill_w338686824_e4 for a wall behind a road closure (Kaptol, or the Uspinjača street)",

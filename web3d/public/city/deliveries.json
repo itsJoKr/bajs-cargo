@@ -2,22 +2,6 @@
  "_comment": "Delivery destinations (web3d/src/deliveries.ts). wall+at+out: a street wall from city.json walls (at = 0..1 along it as in the facade picture, left to right; out = metres in front). x,z: tool frame (z north), y optional floor height. Copied to public/city/ by sync-assets.mjs. Measure `at` on .art/facades/<name>/raw.png.",
  "items": [
   {
-   "id": "calliope",
-   "name": "Calliope",
-   "street": "Ilica 11",
-   "wall": "w338688381_e1",
-   "at": 0.145,
-   "out": 1.8
-  },
-  {
-   "id": "farmacia_ilica11",
-   "name": "Farmacia",
-   "street": "Ilica 11",
-   "wall": "w338688381_e1",
-   "at": 0.74,
-   "out": 1.8
-  },
-  {
    "id": "mueller",
    "name": "Müller",
    "street": "Trg bana Jelačića 8",
@@ -52,63 +36,6 @@
    "probe": 14
   },
   {
-   "id": "mondis",
-   "name": "Mondiš",
-   "street": "Pod zidom 3",
-   "wall": "w292203493_e0",
-   "at": 0.355,
-   "note": "Google Maps: Mondiš (shoe shop) is Pod zidom 3; the 'Prodavaonica Pod Zidom' name is not on any sign"
-  },
-  {
-   "id": "amrus_n316_sisters",
-   "name": "Sisters Kurtoš & Ice Cream",
-   "street": "Ulica Milana Amruša 1",
-   "wall": "w137106316_e2",
-   "at": 0.906,
-   "out": 1.1
-  },
-  {
-   "id": "djordjic_n912_pticek",
-   "name": "Voćarna Ptiček",
-   "street": "Đorđićeva ulica",
-   "wall": "w860324912_e1",
-   "at": 0.272,
-   "out": 1.1,
-   "note": "shopfront window centre"
-  },
-  {
-   "id": "gajeva_uriho_uriho",
-   "name": "Uriho",
-   "street": "Gajeva ulica",
-   "wall": "w435118933_e8",
-   "at": 0.612,
-   "out": 1.1
-  },
-  {
-   "id": "gajeva_uriho_lei",
-   "name": "Lei",
-   "street": "Gajeva ulica",
-   "wall": "w435118933_e8",
-   "at": 0.895,
-   "out": 1.1
-  },
-  {
-   "id": "gajeva_uriho_crvenac",
-   "name": "Crvenac",
-   "street": "Gajeva ulica",
-   "wall": "w435118933_e9",
-   "at": 0.548,
-   "out": 1.1
-  },
-  {
-   "id": "jurisic_s976_fes_nobl",
-   "name": "Feš & Nobl",
-   "street": "Jurišićeva ulica",
-   "wall": "w286611976_e2",
-   "at": 0.895,
-   "out": 1.1
-  },
-  {
    "id": "jurisic_post_posta",
    "name": "Pošta",
    "street": "Jurišićeva ulica 13",
@@ -118,92 +45,11 @@
    "note": "entrance under canopy"
   },
   {
-   "id": "jurisic_n859_igrec",
-   "name": "Salon cipela Igrec",
-   "street": "Jurišićeva ulica",
-   "wall": "w286612859_e10",
-   "at": 0.415,
-   "out": 1.1
-  },
-  {
-   "id": "masaryk_n724_maria",
-   "name": "Maria",
-   "street": "Masarykova ulica",
-   "wall": "w512839724_e0",
-   "at": 0.375,
-   "out": 1.1
-  },
-  {
-   "id": "masaryk_s1005_gant",
-   "name": "Gant",
-   "street": "Masarykova ulica",
-   "wall": "w1005285812_e13",
-   "at": 0.171,
-   "out": 1.1
-  },
-  {
-   "id": "masaryk_s1005_krznarija",
-   "name": "Krznarija",
-   "street": "Masarykova ulica",
-   "wall": "w1005285812_e13",
-   "at": 0.726,
-   "out": 1.1
-  },
-  {
-   "id": "gajeva_maricev_optika_anda",
-   "name": "Optika Anda",
-   "street": "Gajeva ulica 5",
-   "wall": "w97235510_e5",
-   "at": 0.649,
-   "out": 1.1
-  },
-  {
-   "id": "pavlaradica_galerie_ana",
-   "name": "Galerie Ana",
-   "street": "Ulica Pavla Radića 19",
-   "wall": "w97091864_e1",
-   "at": 0.125,
-   "out": 1.1
-  },
-  {
-   "id": "pavlaradica_bacura",
-   "name": "Ivana Bačura",
-   "street": "Ulica Pavla Radića",
-   "wall": "w289908918_e0",
-   "at": 0.319,
-   "out": 1.1
-  },
-  {
-   "id": "pavlaradica_feniks",
-   "name": "Feniks",
-   "street": "Ulica Pavla Radića 12",
-   "wall": "w289863012_e0",
-   "at": 0.846,
-   "out": 1.1,
-   "note": "right shopfront door"
-  },
-  {
    "id": "petrinjska_artotel",
    "name": "art'otel",
    "street": "Petrinjska ulica 7",
    "wall": "w286614548_e14",
    "at": 0.715,
-   "out": 1.1
-  },
-  {
-   "id": "prad_sira",
-   "name": "Šira",
-   "street": "Preradovićeva ulica",
-   "wall": "w446076411_e3",
-   "at": 0.12,
-   "out": 1.1
-  },
-  {
-   "id": "prad_burgeraj",
-   "name": "Burgeraj",
-   "street": "Preradovićeva ulica 13",
-   "wall": "w446076411_e3",
-   "at": 0.722,
    "out": 1.1
   },
   {
@@ -215,32 +61,6 @@
    "out": 1.1
   },
   {
-   "id": "prad_zaba",
-   "name": "Zagrebačka banka",
-   "street": "Preradovićeva ulica 3",
-   "wall": "w435118927_e0",
-   "at": 0.231,
-   "out": 1.1,
-   "note": "ATM position; branch window to its left"
-  },
-  {
-   "id": "praska_met",
-   "name": "MET Boutique Hotel",
-   "street": "Praška ulica 4",
-   "wall": "r20144619_e0",
-   "at": 0.684,
-   "out": 1.1
-  },
-  {
-   "id": "praska_pinsider",
-   "name": "Pinsider",
-   "street": "Praška ulica",
-   "wall": "r20144619_e0",
-   "at": 0.872,
-   "out": 1.1,
-   "note": "shop window centre"
-  },
-  {
    "id": "ilica_nama",
    "name": "Nama",
    "street": "Ilica 4",
@@ -248,83 +68,6 @@
    "at": 0.64,
    "out": 1.6,
    "note": "the store's glass door in the seventh arch of the arcade; the pad on the pavement in front of its step"
-  },
-  {
-   "id": "pet_hpb",
-   "name": "HPB",
-   "street": "Petrinjska ulica",
-   "wall": "w105488043_e0",
-   "at": 0.632,
-   "out": 1.1,
-   "note": "guess: door not visible, at HPB sign"
-  },
-  {
-   "id": "ilw_franchi",
-   "name": "Elisabetta Franchi",
-   "street": "Ilica",
-   "wall": "w338688382_e0",
-   "at": 0.459,
-   "out": 1.1
-  },
-  {
-   "id": "bogo_qstore",
-   "name": "Q Store",
-   "street": "Bogovićeva ulica",
-   "wall": "w375381009_e13",
-   "at": 0.181,
-   "out": 1.1,
-   "note": "window centre"
-  },
-  {
-   "id": "bogo_zlatarna_maric",
-   "name": "Zlatarna Zvonko Marić",
-   "street": "Bogovićeva ulica",
-   "wall": "w375381009_e13",
-   "at": 0.591,
-   "out": 1.1
-  },
-  {
-   "id": "tesle_konzum",
-   "name": "Konzum",
-   "street": "Ulica Nikole Tesle",
-   "wall": "w584458872_e5",
-   "at": 0.254,
-   "out": 1.1,
-   "note": "guess: which arch is the door"
-  },
-  {
-   "id": "tesle_erbolario",
-   "name": "L'Erbolario",
-   "street": "Ulica Nikole Tesle",
-   "wall": "w579294902_e7",
-   "at": 0.401,
-   "out": 1.1,
-   "note": "window centre"
-  },
-  {
-   "id": "tesle_verbum",
-   "name": "Knjižara Verbum",
-   "street": "Ulica Nikole Tesle",
-   "wall": "w446071213_e4",
-   "at": 0.085,
-   "out": 1.1
-  },
-  {
-   "id": "tesle_miva",
-   "name": "Miva",
-   "street": "Ulica Nikole Tesle",
-   "wall": "w446071213_e4",
-   "at": 0.332,
-   "out": 1.1
-  },
-  {
-   "id": "tesle_vaudoom",
-   "name": "Vaudoom",
-   "street": "Ulica Nikole Tesle",
-   "wall": "w446071213_e4",
-   "at": 0.807,
-   "out": 1.1,
-   "note": "window centre"
   },
   {
    "id": "tkalc_otto_frank",
@@ -335,90 +78,6 @@
    "out": 1.1
   },
   {
-   "id": "tkalc_lapis",
-   "name": "Lapis Art Jewelry",
-   "street": "Tkalčićeva ulica 32",
-   "wall": "w293357439_e5",
-   "at": 0.124,
-   "out": 1.1,
-   "note": "shop window centre"
-  },
-  {
-   "id": "tkalc_naive_art",
-   "name": "Croatian Naive Art Gallery Mirko Virius",
-   "street": "Tkalčićeva ulica",
-   "wall": "w289908823_e19",
-   "at": 0.176,
-   "out": 1.1,
-   "note": "guess: arched door left of sign"
-  },
-  {
-   "id": "amrus_s549_poliklinika",
-   "name": "Poliklinika Amruševa",
-   "street": "Ulica Milana Amruša 6",
-   "wall": "w286614549_e2",
-   "at": 0.319,
-   "note": "glass frontage, no door visible"
-  },
-  {
-   "id": "amrus_yezi_yezi",
-   "name": "YEZI",
-   "street": "Ulica Milana Amruša 4",
-   "wall": "w286614548_e12",
-   "at": 0.698
-  },
-  {
-   "id": "djordjic_s701_fotokopiranje",
-   "name": "Fotokopiranje",
-   "street": "Đorđićeva ulica",
-   "wall": "w288920701_e0",
-   "at": 0.718
-  },
-  {
-   "id": "djordjic_s701_panasonic",
-   "name": "Panasonic",
-   "street": "Đorđićeva ulica",
-   "wall": "w288920701_e0",
-   "at": 0.918,
-   "note": "shop window centre"
-  },
-  {
-   "id": "gajeva_dinara_picard",
-   "name": "Manuela Picard",
-   "street": "Gajeva ulica",
-   "wall": "w579294918_e15",
-   "at": 0.355
-  },
-  {
-   "id": "gajeva_dinara_skaro",
-   "name": "Škaro Frizer",
-   "street": "Gajeva 37",
-   "wall": "w579294918_e15",
-   "at": 0.483
-  },
-  {
-   "id": "gajeva_dinara_dinara",
-   "name": "Pekarnica Dinara",
-   "street": "Gajeva ulica",
-   "wall": "w579294918_e15",
-   "at": 0.64
-  },
-  {
-   "id": "jurisic_s966_nera",
-   "name": "NERA",
-   "street": "Jurišićeva ulica",
-   "wall": "w286611966_e0",
-   "at": 0.537
-  },
-  {
-   "id": "jurisic_post_e4_spar",
-   "name": "SPAR",
-   "street": "Jurišićeva ulica",
-   "wall": "r3890429_e4",
-   "at": 0.117,
-   "note": "shares door with Pošta"
-  },
-  {
    "id": "kaptol_klet_klet",
    "name": "Kaptolska klet",
    "street": "Kaptol 5",
@@ -426,195 +85,12 @@
    "at": 0.113
   },
   {
-   "id": "masaryk_n725_koko",
-   "name": "Koko",
-   "street": "Masarykova ulica",
-   "wall": "w512839725_e0",
-   "at": 0.14
-  },
-  {
-   "id": "masaryk_e8_mephisto",
-   "name": "Mephisto",
-   "street": "Masarykova ulica",
-   "wall": "w995892801_e8",
-   "at": 0.14,
-   "note": "shop window centre"
-  },
-  {
    "id": "masaryk_e8_bestijak",
-   "name": "Beštijak",
-   "street": "Masarykova 3",
+   "name": "Beštija",
+   "street": "Masarykova 11",
    "wall": "w995892801_e8",
    "at": 0.347,
-   "note": "passage entrance"
-  },
-  {
-   "id": "masaryk_e8_wiya",
-   "name": "Wiya",
-   "street": "Masarykova ulica",
-   "wall": "w995892801_e8",
-   "at": 0.566
-  },
-  {
-   "id": "pavlaradica_blau_line_blau",
-   "name": "Blau-Line",
-   "street": "Ulica Pavla Radića",
-   "wall": "r9374001_e9",
-   "at": 0.413
-  },
-  {
-   "id": "pavlaradica_moda21_moda",
-   "name": "Moda",
-   "street": "Ulica Pavla Radića",
-   "wall": "w97091860_e0",
-   "at": 0.57,
-   "note": "door of right-hand shopfront"
-  },
-  {
-   "id": "pavlaradica_ochre_balcony_cover",
-   "name": "Cover Store",
-   "street": "Ulica Pavla Radića",
-   "wall": "w735313511_e29",
-   "at": 0.501
-  },
-  {
-   "id": "pavlaradica_snogu_snogu",
-   "name": "Snogu street wok bar",
-   "street": "Ulica Pavla Radića",
-   "wall": "w289863031_e1",
-   "at": 0.331
-  },
-  {
-   "id": "podzidom_printshop_print",
-   "name": "Print-Shop",
-   "street": "Pod zidom",
-   "wall": "w292203493_e0",
-   "at": 0.602
-  },
-  {
-   "id": "prad_karlo_east_banka",
-   "name": "Karlovačka banka",
-   "street": "Preradovićeva ulica 15",
-   "wall": "w446076410_e7",
-   "at": 0.711
-  },
-  {
-   "id": "prad_cream_east_cloud",
-   "name": "Cloud",
-   "street": "Preradovićeva ulica",
-   "wall": "w446076669_e6",
-   "at": 0.195
-  },
-  {
-   "id": "jur_hpb_nekretnine",
-   "name": "HPB Nekretnine",
-   "street": "Jurišićeva ulica 4",
-   "wall": "w105488043_e5",
-   "at": 0.063
-  },
-  {
-   "id": "bak_gallery_branimir",
-   "name": "Galerija Branimir",
-   "street": "Bakačeva ulica",
-   "wall": "w105486198_e3",
-   "at": 0.152,
-   "note": "open shopfront"
-  },
-  {
-   "id": "ilw_prahir_prahir",
-   "name": "Prahir",
-   "street": "Ilica",
-   "wall": "w97089764_e0",
-   "at": 0.736
-  },
-  {
-   "id": "ilw_prahir_fotocopy",
-   "name": "Foto Copy",
-   "street": "Ilica",
-   "wall": "w97089764_e0",
-   "at": 0.348,
-   "note": "passage entrance"
-  },
-  {
-   "id": "ilw_prahir_hogl",
-   "name": "högl",
-   "street": "Ilica",
-   "wall": "w97089764_e0",
-   "at": 0.065,
-   "note": "window centre, door not visible"
-  },
-  {
-   "id": "ilw_terranova_terranova",
-   "name": "Terranova",
-   "street": "Ilica",
-   "wall": "w338688380_e3",
-   "at": 0.498
-  },
-  {
-   "id": "tesle_n_erker_ovac",
-   "name": "Ovac",
-   "street": "Ulica Nikole Tesle",
-   "wall": "w584460759_e0",
-   "at": 0.929
-  },
-  {
-   "id": "tesle_s_hikultura_hikultura",
-   "name": "hikultura",
-   "street": "Ulica Nikole Tesle",
-   "wall": "w137106314_e2",
-   "at": 0.638
-  },
-  {
-   "id": "tesle_s_dark_time",
-   "name": "Time",
-   "street": "Ulica Nikole Tesle",
-   "wall": "w446070853_e13",
-   "at": 0.729
-  },
-  {
-   "id": "tesle_s_dark_furla",
-   "name": "Furla",
-   "street": "Ulica Nikole Tesle",
-   "wall": "w446070853_e13",
-   "at": 0.898,
-   "note": "window centre"
-  },
-  {
-   "id": "tkalciceva_al_paso_alpaso",
-   "name": "Al Paso",
-   "street": "Tkalčićeva ulica",
-   "wall": "w293357016_e4",
-   "at": 0.486
-  },
-  {
-   "id": "tkalciceva_stretto_stretto",
-   "name": "Stretto",
-   "street": "Tkalčićeva ulica",
-   "wall": "w293357440_e7",
-   "at": 0.303
-  },
-  {
-   "id": "amrus_hpzs",
-   "name": "Hrvatski poljoprivredni zadružni savez",
-   "street": "Ulica Milana Amruša",
-   "wall": "w286614550_e6",
-   "at": 0.513
-  },
-  {
-   "id": "djordjic_videntis",
-   "name": "Videntis",
-   "street": "Đorđićeva ulica",
-   "wall": "w390984148_e1",
-   "at": 0.297,
-   "note": "no door; centre of a shop window"
-  },
-  {
-   "id": "gajeva_obzor_putovanja",
-   "name": "Obzor putovanja",
-   "street": "Gajeva ulica",
-   "wall": "w579294895_e2",
-   "at": 0.246,
-   "note": "door position a guess (dark shop window under the sign)"
+   "note": "passage entrance; the round Beštija sign (Maps: Masarykova 11/1)"
   },
   {
    "id": "gajeva_croatia_airlines",
@@ -624,84 +100,11 @@
    "at": 0.43
   },
   {
-   "id": "gajeva_dolce_gabbana",
-   "name": "Dolce & Gabbana",
-   "street": "Gajeva ulica",
-   "wall": "w375375950_e4",
-   "at": 0.278
-  },
-  {
-   "id": "jurisic_mikronis",
-   "name": "Mikronis",
-   "street": "Jurišićeva ulica",
-   "wall": "w255524303_e9",
-   "at": 0.161
-  },
-  {
-   "id": "masaryk_vitrum",
-   "name": "Vitrum",
-   "street": "Masarykova ulica",
-   "wall": "w512839721_e4",
-   "at": 0.423,
-   "note": "shutter-covered shopfront centre"
-  },
-  {
-   "id": "masaryk_picard",
-   "name": "Picard",
-   "street": "Masarykova ulica",
-   "wall": "w512839721_e4",
-   "at": 0.715
-  },
-  {
-   "id": "masaryk_zaks",
-   "name": "Zaks",
-   "street": "Masarykova ulica",
-   "wall": "w995892801_e7",
-   "at": 0.63,
-   "note": "shop window centre"
-  },
-  {
    "id": "pavlaradica_joyful_kitchen",
    "name": "Joyful Kitchen",
    "street": "Ulica Pavla Radića 9",
    "wall": "w97091852_e19",
    "at": 0.713
-  },
-  {
-   "id": "pavlaradica_kravata",
-   "name": "Kravata",
-   "street": "Ulica Pavla Radića 21",
-   "wall": "w97091863_e6",
-   "at": 0.263
-  },
-  {
-   "id": "pavlaradica_selfie_museum",
-   "name": "Selfie & Memories Museum Zagreb",
-   "street": "Ulica Pavla Radića 19",
-   "wall": "w289863011_e6",
-   "at": 0.439
-  },
-  {
-   "id": "pavlaradica_barefoot",
-   "name": "Barefoot Shoes",
-   "street": "Ulica Pavla Radića",
-   "wall": "w289863011_e6",
-   "at": 0.104,
-   "note": "door under the blade sign, a guess"
-  },
-  {
-   "id": "petrinjska_koracell",
-   "name": "Koracell",
-   "street": "Petrinjska ulica",
-   "wall": "w286611971_e3",
-   "at": 0.485
-  },
-  {
-   "id": "prad_ella",
-   "name": "Ella",
-   "street": "Preradovićeva ulica",
-   "wall": "w512839704_e8",
-   "at": 0.635
   },
   {
    "id": "feller_visitor_center",
@@ -712,33 +115,11 @@
    "note": "shop window centre, a guess"
   },
   {
-   "id": "feller_camea",
-   "name": "Camea",
-   "street": "Jurišićeva ulica",
-   "wall": "r3853100_e0",
-   "at": 0.524
-  },
-  {
-   "id": "jur_stern_rodea",
-   "name": "Rodea",
-   "street": "Jurišićeva ulica",
-   "wall": "r3853099_e0",
-   "at": 0.332
-  },
-  {
    "id": "jur_stern_mcdonalds",
    "name": "McDonald's",
    "street": "Jurišićeva ulica 3",
    "wall": "r3853099_e0",
    "at": 0.92
-  },
-  {
-   "id": "bak_suveniri_sirok",
-   "name": "Suveniri Zagreb - Širok",
-   "street": "Bakačeva ulica",
-   "wall": "w289863169_e0",
-   "at": 0.213,
-   "note": "shop window; sign says it moved across the street"
   },
   {
    "id": "bogo_bulldog",
@@ -756,17 +137,10 @@
   },
   {
    "id": "tesle_pizzeria_lira",
-   "name": "Pizzeria Lira",
+   "name": "Thai Me Up by Lira",
    "street": "Ulica Nikole Tesle 5",
    "wall": "w579294895_e0",
    "at": 0.104
-  },
-  {
-   "id": "tesle_karla",
-   "name": "Karla",
-   "street": "Ulica Nikole Tesle",
-   "wall": "w446070852_e10",
-   "at": 0.417
   },
   {
    "id": "tkalciceva_royal_india",
@@ -776,42 +150,6 @@
    "at": 0.51
   },
   {
-   "id": "tkalciceva_meet_eat",
-   "name": "Meet & Eat",
-   "street": "Tkalčićeva ulica 31",
-   "wall": "w289908898_e0",
-   "at": 0.628
-  },
-  {
-   "id": "vlaska_only_croatia",
-   "name": "Only Croatia",
-   "street": "Vlaška ulica",
-   "wall": "w289863017_e0",
-   "at": 0.484
-  },
-  {
-   "id": "vlaska_babushka",
-   "name": "Babushka",
-   "street": "Vlaška ulica",
-   "wall": "w289863017_e0",
-   "at": 0.84
-  },
-  {
-   "id": "amrus_chrisma",
-   "name": "Chrisma Exclusive",
-   "street": "Ulica Milana Amruša",
-   "wall": "w286614547_e0",
-   "at": 0.448
-  },
-  {
-   "id": "berislavic_schwarzkopf",
-   "name": "Schwarzkopf Professional",
-   "street": "Berislavićeva ulica",
-   "wall": "w446076408_e10",
-   "at": 0.902,
-   "note": "shop window, no door"
-  },
-  {
    "id": "gajeva_boban",
    "name": "Boban",
    "street": "Gajeva ulica 9",
@@ -819,97 +157,11 @@
    "at": 0.085
   },
   {
-   "id": "jurisic_rosafaia",
-   "name": "Rosa Faia",
-   "street": "Jurišićeva ulica",
-   "wall": "w286611965_e0",
-   "at": 0.301
-  },
-  {
-   "id": "masaryk_swarovski",
-   "name": "Swarovski",
-   "street": "Masarykova ulica",
-   "wall": "w512839722_e4",
-   "at": 0.75,
-   "note": "shop window centre"
-  },
-  {
-   "id": "masaryk_reartu",
-   "name": "Re Artù",
-   "street": "Masarykova ulica",
-   "wall": "w512839722_e5",
-   "at": 0.622
-  },
-  {
-   "id": "masaryk_mycore",
-   "name": "myCORE",
-   "street": "Masarykova ulica 7",
-   "wall": "w1006088864_e11",
-   "at": 0.546
-  },
-  {
-   "id": "pavlaradica_hairlife",
-   "name": "HairLife by Kostino",
-   "street": "Ulica Pavla Radića",
-   "wall": "w97091865_e0",
-   "at": 0.837
-  },
-  {
-   "id": "pavlaradica_radiona",
-   "name": "Radiona",
-   "street": "Ulica Pavla Radića",
-   "wall": "w97091855_e0",
-   "at": 0.569
-  },
-  {
-   "id": "petrinjska_orna_lavanda",
-   "name": "Lavanda-Mia",
-   "street": "Petrinjska ulica",
-   "wall": "w286614545_e0",
-   "at": 0.322
-  },
-  {
-   "id": "petrinjska_orna_lush",
-   "name": "Lush",
-   "street": "Petrinjska ulica",
-   "wall": "w286614545_e0",
-   "at": 0.713
-  },
-  {
-   "id": "podzidom_jadran",
-   "name": "Jadran Zagreb",
-   "street": "Pod zidom 12",
-   "wall": "w105486200_e2",
-   "at": 0.391,
-   "note": "shop window; twin shop at 0.63"
-  },
-  {
-   "id": "prad_arbanas_lutrija",
-   "name": "Lutrija",
-   "street": "Preradovićeva ulica",
-   "wall": "w446070851_e5",
-   "at": 0.893
-  },
-  {
-   "id": "prad_arbanas_martin",
-   "name": "Martin Arbanas",
-   "street": "Preradovićeva ulica",
-   "wall": "w446070851_e6",
-   "at": 0.274
-  },
-  {
    "id": "prad_citaonica",
    "name": "Knjižnica i čitaonica",
    "street": "Preradovićeva ulica 5a",
    "wall": "r6451028_e0",
    "at": 0.443
-  },
-  {
-   "id": "praska_generalturist",
-   "name": "Generalturist",
-   "street": "Praška ulica",
-   "wall": "w105489667_e7",
-   "at": 0.531
   },
   {
    "id": "pet_sol",
@@ -924,85 +176,6 @@
    "street": "Petrinjska ulica 2",
    "wall": "w105489688_e3",
    "at": 0.469
-  },
-  {
-   "id": "pet_inovine",
-   "name": "iNovine",
-   "street": "Petrinjska ulica",
-   "wall": "w105489688_e3",
-   "at": 0.661
-  },
-  {
-   "id": "pet_rollo",
-   "name": "Rollo",
-   "street": "Petrinjska ulica",
-   "wall": "w105489688_e3",
-   "at": 0.906
-  },
-  {
-   "id": "ilw_pandora",
-   "name": "Pandora",
-   "street": "Ilica",
-   "wall": "r1397601_e2",
-   "at": 0.168,
-   "note": "shop window centre"
-  },
-  {
-   "id": "ilw_jomalone",
-   "name": "Jo Malone London",
-   "street": "Ilica",
-   "wall": "r1397601_e2",
-   "at": 0.449
-  },
-  {
-   "id": "ilw_optotim",
-   "name": "Optotim",
-   "street": "Ilica",
-   "wall": "r1397601_e2",
-   "at": 0.944
-  },
-  {
-   "id": "harmica_harmica",
-   "name": "Harmica",
-   "street": "Trg bana Jelačića",
-   "wall": "w105490828_e3",
-   "at": 0.585
-  },
-  {
-   "id": "tesle_n_dermacare",
-   "name": "DermaCare",
-   "street": "Ulica Nikole Tesle 12",
-   "wall": "w435118930_e4",
-   "at": 0.454
-  },
-  {
-   "id": "tesle_n_costa",
-   "name": "Costa Coffee",
-   "street": "Ulica Nikole Tesle 12",
-   "wall": "w435118930_e5",
-   "at": 0.79
-  },
-  {
-   "id": "tesle_s_agm",
-   "name": "AGM knjižara",
-   "street": "Ulica Nikole Tesle 1",
-   "wall": "w579294918_e17",
-   "at": 0.493,
-   "note": "shop window centre"
-  },
-  {
-   "id": "tkalciceva_pizzagelato",
-   "name": "Pizza Gelato Jamnica",
-   "street": "Tkalčićeva ulica 28",
-   "wall": "w293357169_e3",
-   "at": 0.478
-  },
-  {
-   "id": "zrinski_adria",
-   "name": "Adria",
-   "street": "Trg Nikole Šubića Zrinskog",
-   "wall": "w579294902_e4",
-   "at": 0.745
   },
   {
    "id": "zupanijski_sud",
@@ -1046,6 +219,130 @@
    "x": 153.9,
    "z": 40.4,
    "note": "the closed underground toilet (data/park.json wc_stairs at 151.4, 42): pad at its lift door and the shut gate, on the lawn east of the lift"
+  },
+  {
+   "id": "nokturno",
+   "name": "Nokturno",
+   "street": "Skalinska ulica 4",
+   "wall": "w289908875_e7",
+   "at": 0.125,
+   "out": 1.2,
+   "note": "the glazed entrance of the coral-red house (skalinska_rade_a, first 13 m); 12,312 Maps reviews"
+  },
+  {
+   "id": "la_struk",
+   "name": "La Štruk",
+   "street": "Skalinska ulica 5",
+   "wall": "w299519686_e6",
+   "at": 0.109,
+   "out": 1.1,
+   "note": "the door under the black hanging sign; 9,495 reviews"
+  },
+  {
+   "id": "trznica_dolac",
+   "name": "Tržnica Dolac",
+   "street": "Dolac",
+   "x": 3.0,
+   "z": 106.5,
+   "probe": 10,
+   "note": "the open aisle on the market plateau between the south row of stalls and the grid (plateau 7.45 m); 8,601 reviews"
+  },
+  {
+   "id": "capuciner",
+   "name": "Capuciner",
+   "street": "Kaptol 6",
+   "x": 91.6,
+   "z": 222.9,
+   "note": "the restaurant door on the lane side of Kaptol 6 (w290024543_e9, a courtyard edge, so an x/z pad), off Kaptol between the canons' houses; 7,827 reviews"
+  },
+  {
+   "id": "mali_medo",
+   "name": "Pivnica Mali Medo",
+   "street": "Tkalčićeva ulica 36",
+   "wall": "w293357441_e2",
+   "at": 0.5,
+   "out": 1.1,
+   "note": "the portal of Kuća Plavić, south of the Tkalčićeva roadblock (z 306); 7,785 reviews"
+  },
+  {
+   "id": "johann_franck",
+   "name": "Johann Franck",
+   "street": "Trg bana Jelačića 9",
+   "wall": "w105487407_e5",
+   "at": 0.41,
+   "out": 1.6,
+   "note": "just south of the black canopy on the square front of Gradska štedionica; 6,906 reviews"
+  },
+  {
+   "id": "vinodol",
+   "name": "Vinodol",
+   "street": "Ulica Nikole Tesle 10",
+   "wall": "w435118932_e0",
+   "at": 0.436,
+   "out": 1.2,
+   "note": "the gateway under the 'restoran vinodol' sign; 6,836 reviews"
+  },
+  {
+   "id": "vincek",
+   "name": "Vincek",
+   "street": "Ilica 18",
+   "wall": "w338686824_e2",
+   "at": 0.45,
+   "out": 1.6,
+   "note": "the cake shop's glass front; 6,353 reviews"
+  },
+  {
+   "id": "millennium",
+   "name": "Millennium",
+   "street": "Bogovićeva ulica 7",
+   "wall": "w435117000_e0",
+   "at": 0.5,
+   "out": 1.3,
+   "note": "the gap between the two halves of the terrace; 5,005 reviews"
+  },
+  {
+   "id": "hotel_dubrovnik",
+   "name": "Hotel Dubrovnik",
+   "street": "Gajeva ulica 1",
+   "wall": "w97235396_e1",
+   "at": 0.09,
+   "out": 1.5,
+   "note": "the hotel entrance under the HOTEL DUBROVNIK board at the north end of the glass building, by the blade sign on the old building's corner; 4,002 reviews"
+  },
+  {
+   "id": "kozel",
+   "name": "Kozel Pub Tkalča",
+   "street": "Tkalčićeva ulica 16",
+   "wall": "w289908875_e9",
+   "at": 0.18,
+   "out": 1.2,
+   "note": "the arched door of Kuća Rade on Tkalčićeva, at the corner of Skalinska; 2,961 reviews"
+  },
+  {
+   "id": "submarine",
+   "name": "Submarine Burger",
+   "street": "Tkalčićeva ulica 12",
+   "wall": "w289908814_e2",
+   "at": 0.764,
+   "out": 1.2,
+   "note": "the glass door under the SUBMARINE board; 1,486 reviews"
+  },
+  {
+   "id": "tesle_verbum",
+   "name": "Knjižara Verbum",
+   "street": "Ulica Nikole Tesle 11",
+   "wall": "w446071213_e4",
+   "at": 0.085,
+   "out": 1.1
+  },
+  {
+   "id": "praska_met",
+   "name": "MET Boutique Hotel",
+   "street": "Praška ulica 4",
+   "wall": "r20144619_e0",
+   "at": 0.684,
+   "out": 1.1,
+   "note": "the revolving doors under the MET BOUTIQUE HOTEL letters (praska_w_glass)"
   }
  ]
 }

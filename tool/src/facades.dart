@@ -58,11 +58,14 @@ class FacadeStyles {
 
   /// Rows for a facade [height] metres tall (sidewalk to eave): ground
   /// floor, first floor, as many upper storeys as fit, cornice, all
-  /// stretched a little so they fill the height exactly.
-  static List<FacadeRow> rows(FacadeStyle s, double height) {
+  /// stretched a little so they fill the height exactly. Below
+  /// [firstShare] of a first floor over the ground floor the wall is one
+  /// ground-floor row (a generic wall passes less: a two-storey house on
+  /// the uphill side keeps both storeys, squashed, as its old picture did).
+  static List<FacadeRow> rows(FacadeStyle s, double height, {double firstShare = .6}) {
     final c = math.min(s.cornice, height * .12);
     final spec = <(double, int, double)>[]; // natural height, tile, repeats
-    if (height < s.ground + c + s.first * .6) {
+    if (height < s.ground + c + s.first * firstShare) {
       spec.add((height - c, s.tiles[0], 1));
     } else {
       spec.add((s.ground, s.tiles[0], 1));

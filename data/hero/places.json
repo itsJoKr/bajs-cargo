@@ -1,0 +1,52 @@
+{
+ "facades": [
+  {
+   "name": "tkalciceva_mali_medo",
+   "photo": ".art/facades/tkalciceva_mali_medo/photo.png",
+   "edges": [
+    "w293357441_e2"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Tkalčićeva ulica",
+   "source": "2026-10-02: Pivnica Mali Medo (Tkalčićeva 36, Kuća Plavić) from a web photo (Restaurant Guru), drawn straight-on by gen-image (.art/deliveries/gen/malimedo)",
+   "look": "Pivnica Mali Medo: ochre two-storey house, three first-floor windows in grey-blue surrounds; dark wooden portal with the board PIVNICA MALI MEDO, boards SINCE 1994 and BREWERY, wooden gate on the right. The cream awning is a 3D feature."
+  },
+  {
+   "name": "kaptol_capuciner",
+   "photo": ".art/facades/kaptol_capuciner/photo.png",
+   "edges": [
+    "w290024543_e9"
+   ],
+   "bays": 4,
+   "storeys": 3,
+   "place": "Kaptol",
+   "source": "2026-10-02: INVENTED lane side of Kanonička kurija (Kaptol 6) in the style of kaptol_brick_a, its ground floor the Capuciner pizzeria after a Facebook photo (black board CAPUCINER pizzeria & spaghetteria, red tile canopy); gen-image (.art/deliveries/gen/capuciner)",
+   "look": "INVENTED red-brick lane front of Kaptol 6 with the Capuciner pizzeria on the ground floor"
+  },
+  {
+   "name": "ilica_vincek",
+   "photo": ".art/facades/ilica_vincek/photo.png",
+   "edges": [
+    "w338686824_e2"
+   ],
+   "bays": 3,
+   "storeys": 2,
+   "place": "Ilica",
+   "source": "2026-10-02: Slastičarnica Vincek (Ilica 18) from a Tripadvisor photo, drawn straight-on by gen-image (.art/deliveries/gen/vincek); the real house has two storeys (the building was 4 storeys from the invented front before)",
+   "look": "Vincek: low pale-ochre house, three first-floor windows, cream fascia with metal letters VINCEK and Slastičarnica, full-width glass shopfront"
+  },
+  {
+   "name": "bogo_millennium",
+   "photo": ".art/facades/bogo_millennium/photo.png",
+   "edges": [
+    "w435117000_e0"
+   ],
+   "bays": 8,
+   "storeys": 3,
+   "place": "Bogovićeva ulica",
+   "source": "2026-10-02: Slastičarnica Millennium (Bogovićeva 7) from a Mapstr photo (steep angle), drawn straight-on by gen-image (.art/deliveries/gen/millennium)",
+   "look": "Millennium: cream historicist house over a full-width frameless glass shopfront, green moss fascia with black letters MILLENNIUM"
+  }
+ ]
+}

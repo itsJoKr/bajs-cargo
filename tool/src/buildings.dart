@@ -723,6 +723,8 @@ void emitBuilding(
   double Function(Vector2)? terrain,
   Vector4? plainWalls,
   Set<String> rearWalls = const {},
+  Map<String, Vector4> plasterWalls = const {},
+  Map<String, String> genericWalls = const {},
   Arcade? arcade,
   RoofChoice? roofCover,
   List<(double, double, double)> Function(Vector2 a, Vector2 b)? openings,
@@ -778,10 +780,21 @@ void emitBuilding(
     // stucco in that colour, so the photographed buildings stand out and
     // nothing pretends to be a real facade that is not.
     // [rearWalls] (data/rear_walls.json): back walls along the private roads wear a repeating
-    // weathered-plaster tile (3 m a tile, no windows) instead of plain stucco.
-    final rear = !stone && rearWalls.contains('${b.id}_e$edgeIndex');
-    final rows = kind == WallKind.party || stone || plainWalls != null ? null : wallRows;
-    final bays = math.max(1, (length / style.bay).round());
+    // weathered-plaster tile (3 m a tile, no windows) instead of plain stucco; [plasterWalls]
+    // (data/plaster_walls.json) the same tile in their own tint (firewalls that had a picture).
+    final wallId = '${b.id}_e$edgeIndex';
+    final rear = !stone && (rearWalls.contains(wallId) || plasterWalls.containsKey(wallId));
+    final rearColor = plasterWalls[wallId] ?? rearTint;
+    // [genericWalls] (data/generic_walls.json): a wall without a picture of its own laid out in the
+    // rows of a generic style (gen_*) in the building's paint, where it once had a filler picture.
+    final genericName = spans.containsKey(edgeIndex) || stone ? null : genericWalls[wallId];
+    final generic = genericName == null ? null : styles[genericName];
+    final rows = generic != null
+        ? FacadeStyles.rows(generic, eaveY - sidewalkY, firstShare: .15)
+        : kind == WallKind.party || stone || plainWalls != null
+            ? null
+            : wallRows;
+    final bays = math.max(1, (length / (generic ?? style).bay).round());
     // Doorways of covered passages (tool/src/passages.dart): (t0, t1, top y)
     // along the wall; every piece of wall inside one starts at its top, which for an arch
     // ([Arches]) follows its curve: (t0, t1, top at t).
@@ -872,7 +885,7 @@ void emitBuilding(
         quad(p0, p1, eaveY, eaveY, top0, top1, s0 / 3, s1 / 3,
             (eaveY - sidewalkY) / 3, (eaveY - sidewalkY) / 3,
             (top0 - sidewalkY) / 3, (top1 - sidewalkY) / 3, rear ? plasterTile : plain,
-            color: rear ? rearTint : plainWalls);
+            color: rear ? rearColor : plainWalls);
       }
       final span = spans[edgeIndex];
       if (span != null) {
@@ -913,17 +926,25 @@ void emitBuilding(
             (bottom - sidewalkY) / 3, (bottom - sidewalkY) / 3,
             (eaveY - sidewalkY) / 3, (eaveY - sidewalkY) / 3,
             stone ? -(100.0 + stoneTile) : rear ? plasterTile : plain,
-            color: stone ? null : rear ? rearTint : plainWalls);
+            color: stone ? null : rear ? rearColor : plainWalls);
         continue;
       }
       final u0 = ts[i] * bays, u1 = ts[i + 1] * bays;
+      // A generic wall's base below its sidewalk is a darker stucco plinth: where the ground in front
+      // falls away (a slope, the map's edge) its ground floor would repeat downward.
+      final plinth = generic != null && sidewalkY - baseY > .3;
+      if (plinth) {
+        quad(p0, p1, baseY, baseY, sidewalkY, sidewalkY, s0 / 3, s1 / 3,
+            (baseY - sidewalkY) / 3, (baseY - sidewalkY) / 3, 0, 0, plain,
+            color: Vector4(b.paint.x * .72, b.paint.y * .72, b.paint.z * .72, 1));
+      }
       for (var r = 0; r < rows.length; r++) {
         final row = rows[r];
         // The ground floor also covers the few centimetres below the
         // sidewalk down to the wall's base, which the sidewalk hides.
-        final y0 = r == 0 ? baseY : sidewalkY + row.y0;
+        final y0 = r == 0 && !plinth ? baseY : sidewalkY + row.y0;
         final y1 = sidewalkY + row.y1;
-        final v0 = r == 0 ? (baseY - sidewalkY) / (row.y1 - row.y0) : 0.0;
+        final v0 = r == 0 && !plinth ? (baseY - sidewalkY) / (row.y1 - row.y0) : 0.0;
         quad(p0, p1, y0, y0, y1, y1, u0, u1, v0 * row.repeats, v0 * row.repeats,
             row.repeats, row.repeats, row.tile.toDouble());
       }
