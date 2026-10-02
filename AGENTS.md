@@ -133,7 +133,8 @@ pipeline lives on here in `tool/` as a plain Dart CLI.
 ```sh
 cd web3d && npm install && npm run dev      # http://localhost:5180/
 npm run check                               # typecheck
-npm run build                               # production build
+npm run build                               # production build (Cloudflare Pages runs it: https://bajs-cargo.pages.dev/)
+tools/og-image.sh                           # the link preview public/og.jpg (dev server up); index.html's og: tags use absolute URLs
 node tools/sim.ts                           # 32 physics checks (car, bike, furniture)
 npm run perf                                # performance budgets + fps vs your baseline (dev server up; ~45 s)
 node tools/tram_sim.ts 30 150               # 30 min of trams at 4x the game's density
