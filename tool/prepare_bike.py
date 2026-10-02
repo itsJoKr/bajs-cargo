@@ -2,6 +2,7 @@
 
 Each raw is made seamless (cross-faded with a copy shifted by half its size, so the seams fall in
 the copy's middle) and downscaled.  .venv/bin/python tool/prepare_bike.py
+The coat and hair raws go into the outfit atlas instead (tool/make_outfits.py).
 """
 from pathlib import Path
 
@@ -11,7 +12,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / '.art' / 'bike'
 DST = ROOT / 'web3d' / 'public' / 'models'
-SIZE = {'plastic': 512, 'frame': 256, 'wool': 512, 'coat': 512, 'tyre': 256, 'hair': 128}
+SIZE = {'plastic': 512, 'frame': 256, 'wool': 512, 'tyre': 256}
 
 
 def seamless(a: np.ndarray) -> np.ndarray:

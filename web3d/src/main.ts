@@ -1,5 +1,6 @@
 // Bajs Cargo in three.js: the city around Trg bana Jelačića, a Rapier
-// raycast-vehicle car, a chase camera and a small HUD.
+// raycast-vehicle car, a chase camera and a small HUD. boot.ts loads it as a
+// chunk of its own behind the lobby (lobby.ts) and calls `run`.
 //
 // World frame: x east, y up, z SOUTH (north = -z), metres, origin at the
 // Ban Jelačić statue. Headings are compass radians (0 = north, pi/2 = east).
@@ -26,6 +27,8 @@ import { ParkProps, PARK_TYPES } from './parkprops.ts';
 import { ParkingLot, PARKING_TYPES } from './parking.ts';
 import { Crowd, type Striker, type Threat } from './people.ts';
 import { Furniture } from './furniture.ts';
+import type { Lobby } from './lobby.ts';
+import type { Outfit } from './outfit.ts';
 
 const status = document.getElementById('status')!;
 const t0 = performance.now();
@@ -48,7 +51,7 @@ const spawn = { x: -70, z: -6, heading: Math.PI / 2 };
 /** Late-afternoon sun from the south-west (direction TO the sun). */
 const sunDirection = new THREE.Vector3(-0.45, 0.62, 0.64).normalize();
 
-async function main() {
+async function main(lobby: Lobby) {
   const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
   renderer.setPixelRatio(startRatio());
   renderer.setSize(innerWidth, innerHeight);
@@ -282,7 +285,13 @@ async function main() {
   for (const r of Object.values(rides)) r.model.root.visible = r.model === model;
   setBar(1);
   setStatus('Ready');
+  // The player sets off from the lobby in what they chose there. A driven browser (shot.mjs, perf.mjs)
+  // or `?go` starts at once; `?lobby` waits for the button even then.
+  const outfit = await lobby.ready((navigator.webdriver || params.has('go')) && !params.has('lobby'));
+  bikeModel.dress(outfit);
+  lobby.close();
   document.getElementById('loading')!.classList.add('hidden');
+  document.getElementById('hud')!.hidden = false;
   if (params.has('pause')) return;
 
   const hudSpeed = document.getElementById('speed')!;
@@ -661,8 +670,10 @@ async function main() {
   //   zg.drive()                            back to the chase camera
   //   zg.teleport(x, z, heading)
   //   zg.ride('bike' | 'car')               swap what you ride
+  //   zg.dress({ coat, fabric, hair })      the rider's outfit (ids from outfit.ts)
   (window as unknown as { zg: unknown }).zg = {
     ride: (to: Ride) => switchRide(to),
+    dress: (o: Partial<Outfit>) => bikeModel.dress({ ...outfit, ...o }),
     look(eye: number[], target: number[], fov?: number) {
       freeLook = { eye: new THREE.Vector3(...eye), target: new THREE.Vector3(...target) };
       if (fov) {
@@ -824,32 +835,11 @@ const parks: Record<string, [[number, number, number], [number, number, number]]
   overview: [[-230, 230, 330], [10, 0, -20]],
 };
 
-/** Phones and tablets: the browser says so, no mouse or trackpad at all, or a phone-sized screen. */
-function onMobile() {
-  const nav = navigator as Navigator & { userAgentData?: { mobile?: boolean } };
-  return nav.userAgentData?.mobile === true || !matchMedia('(any-pointer: fine)').matches || Math.min(screen.width, screen.height) < 500;
-}
-
-function start() {
-  main().catch((e) => {
+/** Loads the city behind the lobby, then runs the game. */
+export function run(lobby: Lobby) {
+  main(lobby).catch((e) => {
     console.error(e);
     const reason = e instanceof Error ? e.message : e instanceof Event ? `failed to load ${(e.target as { src?: string } | null)?.src ?? 'a resource'}` : String(e);
     setStatus(`Failed to start: ${reason}`);
   });
-}
-
-// The game is made for a desktop: on a phone or tablet say so instead of loading the whole city
-// (the button, or `?desktop`, loads it anyway).
-if (onMobile() && !params.has('desktop')) {
-  const loading = document.getElementById('loading')!;
-  const dialog = document.getElementById('mobile')!;
-  loading.hidden = true;
-  dialog.hidden = false;
-  document.getElementById('anyway')!.addEventListener('click', () => {
-    dialog.hidden = true;
-    loading.hidden = false;
-    start();
-  });
-} else {
-  start();
 }

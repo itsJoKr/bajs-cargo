@@ -757,3 +757,11 @@ entries are guesses (see `docs/MISSING_BUSINESSES.md`).
   instead of ~9 s on a simulated slow GPU), and a step that does not make it faster (the CPU is the limit) is undone and becomes the
   floor: a slow CPU kept 2592x1620 instead of sliding to 864x540 for nothing.
 - Tooling: `shot.mjs --uncapped --throttle N`, `zg.fps(secs)`.
+
+## Loading screen lobby (2026-10-02)
+
+- The loading screen: logo at the top, "Ride the cargo bike and deliver 8 packages around central Zagreb, as fast as you can.",
+  the lobby (dress your rider: 8 coat colours, 6 cloths, 6 hair colours, "Surprise me", a turning 3D preview you can drag), and
+  progress, then a Start button (or Enter). The HUD no longer shows over it.
+- `boot.ts` entry chunk 707 KB / 185 KB gzipped comes up first; the game chunk (4.6 MB / 1.77 MB gzipped) loads behind it.
+- `models/outfits.jpg` (45 KB) replaces `bike_coat.jpg` and `bike_hair.jpg`; draw calls unchanged (perf budgets all ok).

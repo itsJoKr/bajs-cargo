@@ -452,3 +452,23 @@ or filler pictures the same way.
 Measured after one `HERO_REPACK`: 41 pages / 130.3 MB of hero atlas became 28 pages / 92.3 MB (1,213 pictures, 49 twins sharing
 a cell), and the build went from 158.5 MB to 120.7 MB. Then 73 corner strips (short corner edges beyond 150 m of the square that had
 always been plain, conspicuous next to a generic wall) opened a 29th page: 94.1 MB.
+
+## Dress the rider while the city loads (2026-10-02)
+
+Loading takes long even on a fast line (the hero atlas alone is ~94 MB), and the loading screen used to show only a bar, with the
+HUD's empty "Deliver the package to" box over it. Now the logo sits at the top with one sentence saying what the game is, and the
+middle is a small lobby: the player picks the coat's colour (8), its cloth (6: melton, tweed, herringbone, houndstooth, glen check,
+corduroy) and the hair's colour (6) on the rider pedalling on a turntable, and presses Start once the city is in. The game waits for
+that press rather than snatching the screen away mid-choice; the HUD stays hidden until then.
+
+- The lobby has to come up first, so the page's entry is `boot.ts` (three.js, the bike and rider, ~185 KB gzipped) and the game
+  (`main.ts` with Rapier, ~1.8 MB gzipped) is a dynamic chunk fetched straight behind it. Before, all 5.3 MB of JS arrived before
+  anything ran.
+- Cloths and hair are one 896x128 greyscale JPEG (45 KB, `tool/make_outfits.py`), cut into a canvas texture per cell and tinted in
+  the material (colour / the cells' mean linear value, so a swatch's colour is the coat's average). The woven cloths are
+  colour-and-weave drafts in a 2/2 twill, periodic on the tile by construction, wearing the old coat's gen-image felt; the hair is
+  the old strand texture. They replace `bike_coat.jpg` (512 px) and `bike_hair.jpg`. The default (camel melton, brown hair) is the
+  rider as he was.
+- The coat's UVs are rescaled to metres (`metricUVs` in rider.ts, one repeat per 0.3 m, a whole number round each lathe): lathes
+  and spheres map 0..1 over their own size, which printed a check three times finer on a sleeve than on the back.
+- The choice is kept in localStorage; anything unknown there falls back to the default.

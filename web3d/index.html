@@ -9,9 +9,35 @@
   <body>
     <div id="app"></div>
     <div id="loading">
-      <h1>Bajs <span>Cargo</span></h1>
-      <p id="status">Loading…</p>
-      <div id="bar"><i></i></div>
+      <header>
+        <h1>Bajs <span>Cargo</span></h1>
+        <p id="pitch">Ride the cargo bike and deliver 8 packages around central Zagreb, as fast as you can.</p>
+      </header>
+      <section id="lobby">
+        <canvas id="preview" aria-label="Your rider, turning; drag to turn"></canvas>
+        <div id="wardrobe">
+          <h2>Dress your rider</h2>
+          <div class="pick">
+            <div class="label">Coat <b id="coatName"></b></div>
+            <div class="swatches" id="coats" role="radiogroup" aria-label="Coat colour"></div>
+          </div>
+          <div class="pick">
+            <div class="label">Fabric <b id="fabricName"></b></div>
+            <div class="swatches" id="fabrics" role="radiogroup" aria-label="Coat fabric"></div>
+          </div>
+          <div class="pick">
+            <div class="label">Hair <b id="hairName"></b></div>
+            <div class="swatches" id="hairs" role="radiogroup" aria-label="Hair colour"></div>
+          </div>
+          <button id="shuffle" type="button">Surprise me</button>
+        </div>
+      </section>
+      <footer>
+        <p id="status">Loading…</p>
+        <div id="bar"><i></i></div>
+        <button id="start" type="button" hidden>Start riding <kbd>Enter</kbd></button>
+        <a id="madeBy" href="https://joe-it-solutions.com/" target="_blank" rel="noopener">Made by <b>joe</b></a>
+      </footer>
     </div>
     <div id="mobile" hidden>
       <div class="card">
@@ -32,7 +58,7 @@
       </div>
     </div>
     <div id="paused" hidden><div class="card">Paused<small>Click to ride on</small></div></div>
-    <div id="hud">
+    <div id="hud" hidden>
       <div id="place"></div>
       <div id="job"><small>Deliver the package to</small><b><span id="compass"><svg viewBox="-10 -10 20 20"><path d="M0 -7 L5 5 L0 2.5 L-5 5 Z" /></svg></span><span id="jobName"></span></b><span id="jobStreet"></span><i id="jobCount"></i></div>
       <div id="timer"></div>
@@ -44,6 +70,6 @@
       <div id="penalty">Back at base<small>ride on in <b id="penaltyLeft">5</b></small></div>
       <div id="help"></div>
     </div>
-    <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="/src/boot.ts"></script>
   </body>
 </html>

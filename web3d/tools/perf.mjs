@@ -166,6 +166,8 @@ const port = 9300 + Math.floor(Math.random() * 500);
 const profile = mkdtempSync(join(tmpdir(), 'zg-perf-'));
 const chrome = spawn(findChrome(), [
   '--headless=new',
+  // navigator.webdriver: the game skips the lobby's Start button for a driven browser (main.ts).
+  '--enable-automation',
   `--remote-debugging-port=${port}`,
   `--user-data-dir=${profile}`,
   `--window-size=${W},${H}`,

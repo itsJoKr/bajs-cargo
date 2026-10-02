@@ -374,8 +374,10 @@ rediscovering. `AGENTS.md` holds the setup; this file holds the traps.
 - Inner-ring edges of a multipolygon (seminary palace `r2617686_e10`+) can take pictures now (see the hero atlas notes).
 
 
-- Rider (`rider.ts`): the coat tail (`skirt`) hangs from the pelvis and the thigh's rear cap sits at the hip, so a too-shallow
+- Rider (`rider.ts`): the coat tails hang from the pelvis and the thigh's rear cap sits at the hip, so a too-shallow
   skirt (z scale 0.78) let a dark navy diamond of trouser show through the coat's back. Look from 1.3 m behind at y+0.5 to check.
+  The tails start inside the torso at its depth (0.66; at the old 0.92 their top stood 5 cm off the back, a ledge) and reach 0.92
+  by 7 cm under the pelvis: shallower there, the saddle's rear (14.5 cm back) shows through as a dark diamond.
 - `HERO_DEV=1 .venv/bin/python tool/prepare_facades.py pack` is the development pack: new and changed facades go onto scratch
   pages after the last real page (atlas.json `dev: true`, fast low-quality ETC1S), real pages are not re-encoded. Scratch pages MUST
   stay ETC1S: a UASTC page transcodes to another GPU format and `loadHeroAtlas` dies with "RangeError: offset is out of bounds".
@@ -527,3 +529,17 @@ rediscovering. `AGENTS.md` holds the setup; this file holds the traps.
 - `make_firewalls.py` drew corner strips only within RADIUS (150 m) of the square: 82 short corner edges further out (Praška/
   Teslina, Kuća Betelheim's chamfer) stayed plain stucco, which shows next to a generic wall. It now draws them for every building
   of the playable work list (coverage.json); `shared_walls.py` gives the short edges of generic-only buildings their style.
+
+## Loading screen and lobby (boot.ts, lobby.ts)
+
+- `HTMLElement.blur()` on `<body>` (what `document.activeElement` is when nothing has focus) takes the focus from the WINDOW:
+  the game paused itself at once (checkAway) and headless screenshots then hung. Blur only an element you know (a lobby button).
+- The game waits for the lobby's Start button; drivers get past it through `navigator.webdriver`, which headless Chrome only
+  sets with `--enable-automation` (shot.mjs and perf.mjs pass it). `?lobby` keeps the button for shots of the lobby itself.
+- CDP `Runtime.enable` replays the page's earlier console: a driver that lands on an orphaned headless Chrome (killed drivers
+  leave their Chrome running, ppid 1, holding its debugging port) sees an old "Ready" at once ("ready after 0.0 s") and shoots
+  the wrong page. Kill the Chrome of a driver you kill.
+- `shot.mjs --dpr 2 --shot` of the running game hung (Page.captureScreenshot never returns, then the page loses focus) on HEAD
+  as well as with the lobby, with the machine at load ~20-40; `--dpr 1` shots were fine. Take game shots at 1x under load.
+- The lobby's preview is a second WebGL context during loading, freed (`forceContextLoss`) at Start. It builds its own bike and
+  textures; only the outfit cell canvases are shared, so never `dispose()` a texture across the two (both renderers listen).

@@ -18,13 +18,22 @@ body {
 #app canvas {
   display: block;
 }
+/* The loading screen: the logo and what the game is about at the top, the lobby (dress the rider)
+   in the middle, progress and then the Start button at the bottom. */
 #loading {
   position: fixed;
   inset: 0;
-  display: grid;
-  place-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(20px, 4.5vh, 44px);
+  /* The bottom keeps clear of the "Made by" pill pinned there. */
+  padding: 28px 16px 76px;
+  box-sizing: border-box;
   text-align: center;
   background: var(--bajs-blue);
+  overflow-y: auto;
   transition: opacity 0.6s;
 }
 #loading.hidden {
@@ -35,16 +44,135 @@ body {
 #finish h1,
 #mobile h1 {
   font-weight: 800;
+  font-style: italic;
   letter-spacing: -0.01em;
 }
 #loading h1 span,
 #finish h1 span,
 #mobile h1 span {
   font-weight: 400;
+  font-style: normal;
 }
 #loading h1 {
-  margin: 0 0 8px;
+  margin: 0;
   font-size: 56px;
+  line-height: 1.1;
+}
+#pitch {
+  max-width: 44em;
+  margin: 10px auto 0;
+  font-size: 18px;
+  line-height: 1.4;
+  opacity: 0.95;
+}
+#lobby {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px 28px;
+  padding: 16px 28px 16px 16px;
+  border-radius: 22px;
+  background: #0a2a6e40;
+  box-shadow: inset 0 0 0 1px #ffffff1a;
+}
+#preview {
+  display: block;
+  width: min(440px, 52vh);
+  height: min(330px, 39vh);
+  border-radius: 16px;
+  background: radial-gradient(ellipse at 50% 62%, #ffffff2e, #ffffff00 68%);
+  cursor: grab;
+  touch-action: none;
+}
+#preview:active {
+  cursor: grabbing;
+}
+#wardrobe {
+  width: 296px;
+  text-align: left;
+}
+#wardrobe h2 {
+  margin: 0 0 14px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.pick {
+  margin-bottom: 14px;
+}
+.pick .label {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #ffffffd9;
+}
+.pick .label b {
+  margin-left: 4px;
+  color: #fff;
+  font-weight: 600;
+}
+.swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+.swatches button {
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  transition: transform 0.12s;
+}
+.swatches button:hover {
+  transform: scale(1.08);
+}
+.swatches button[aria-checked='true'] {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+.swatches button:focus-visible {
+  outline: 2px solid #f6e9a6;
+  outline-offset: 2px;
+}
+.dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--c);
+  box-shadow: inset 0 0 0 1px #0003;
+}
+.cloth {
+  width: 40px;
+  height: 40px;
+  border-radius: 9px;
+  overflow: hidden;
+  background: #0003;
+}
+.cloth canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+#shuffle {
+  margin-top: 2px;
+  padding: 6px 14px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: inset 0 0 0 1px #ffffff8c;
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+#shuffle:hover {
+  background: #ffffff1a;
+}
+#loading footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 #status {
   margin: 0;
@@ -64,6 +192,77 @@ body {
   width: 0;
   background: #fff;
   transition: width 0.25s;
+}
+#start {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 22px 13px 30px;
+  border: 0;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--bajs-blue);
+  font: inherit;
+  font-size: 19px;
+  font-weight: 700;
+  box-shadow: 0 6px 24px #0a1f4a59;
+  cursor: pointer;
+  animation: start-in 0.35s ease-out;
+  transition: transform 0.15s;
+}
+#start:hover {
+  transform: translateY(-1px);
+}
+#start:focus-visible {
+  outline: 2px solid #f6e9a6;
+  outline-offset: 3px;
+}
+#start kbd {
+  padding: 2px 7px;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1px #2f6fe066;
+  font: 600 12px system-ui, sans-serif;
+  opacity: 0.8;
+}
+@keyframes start-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+/* "Made by" banner: the JOE IT Solutions logo, white "joe" in its blue circle. */
+#madeBy {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 4px 4px 14px;
+  border-radius: 999px;
+  background: #fff;
+  color: #0e1530;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 16px #0003;
+  transition: transform 0.15s;
+}
+#madeBy:hover {
+  transform: translate(-50%, -1px);
+}
+#madeBy b {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #0047ff;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 #hud {
   position: fixed;

@@ -2,9 +2,10 @@
 // "Bajs", a Dolly long john), built from primitives after the city's press
 // photos: the black tub with its white "zBajsom na špicu" panel, a 20" front
 // wheel under the box, a 26" rear wheel, a mid motor. A man in a suit rides
-// it: legs on the pedals and hands on the grips by two-bone IK, a foot down
-// when stopped. Posed each frame from the Rapier vehicle; the whole bike
-// leans into turns about its tyre line (the physics body stays upright).
+// it, dressed as the player chose (`dress`): legs on the pedals and hands on
+// the grips by two-bone IK, a foot down when stopped. Posed each frame from
+// the Rapier vehicle; the whole bike leans into turns about its tyre line (the
+// physics body stays upright). `showcase` pedals it on the spot for the lobby.
 //
 // Bike frame as vehicle.ts: z forward, y up, x to the rider's LEFT, origin on
 // the road under the middle of the bike.
@@ -15,6 +16,7 @@ import { bikeAxles, bikeWheels, type Vehicle } from './vehicle.ts';
 import { snapshot, type BodyState, type CarModel } from './carModel.ts';
 import { createRider } from './rider.ts';
 import { mergeStatic } from './merge.ts';
+import { cellTexture, FABRICS, HAIR_CELL, type Outfit } from './outfit.ts';
 
 const { front: FRONT, rear: REAR } = bikeAxles;
 const BLUE = '#3a8ee0';
@@ -31,7 +33,18 @@ const CRANK = 0.17;
 const STEM_TOP = new THREE.Vector3(0, 1.1, -0.29);
 const GRIP = new THREE.Vector3(0.27, 0.03, -0.15); // left grip, handlebar frame
 
-export function buildBikeModel(): CarModel {
+export interface BikeModel extends CarModel {
+  /** Dresses the rider (outfit.ts). */
+  dress(o: Outfit): void;
+  /** Pedals on the spot at an easy cadence, [dt] seconds on: the lobby's preview. */
+  showcase(dt: number): void;
+  /** The soft contact shadow under the bike (a multiply blend, meant for the street). */
+  blob: THREE.Mesh;
+  /** Resolves once the bike's own textures are in (or failed). */
+  loaded: Promise<void>;
+}
+
+export function buildBikeModel(): BikeModel {
   const root = new THREE.Group();
   root.name = 'bike';
   // Leans about the tyre line; everything else hangs off it.
@@ -46,11 +59,17 @@ export function buildBikeModel(): CarModel {
   // Each use is a clone (its own repeat) sharing the image; a clone keeps
   // the version it was cloned at, so each is flagged once the image is in.
   const images = new Map<string, { base: THREE.Texture; uses: THREE.Texture[] }>();
+  const loads: Promise<void>[] = [];
   const tex = (name: string, repeatX: number, repeatY = repeatX, color = true) => {
     let img = images.get(name);
     if (!img) {
       const entry: { base: THREE.Texture; uses: THREE.Texture[] } = { base: null!, uses: [] };
-      entry.base = loader.load(`models/bike_${name}.jpg`, () => entry.uses.forEach((u) => (u.needsUpdate = true)));
+      loads.push(new Promise((done) => {
+        entry.base = loader.load(`models/bike_${name}.jpg`, () => {
+          entry.uses.forEach((u) => (u.needsUpdate = true));
+          done();
+        }, undefined, () => done());
+      }));
       images.set(name, (img = entry));
     }
     const t = img.base.clone();
@@ -237,11 +256,14 @@ export function buildBikeModel(): CarModel {
   add(bag, new THREE.TorusGeometry(0.045, 0.01, 6, 12, Math.PI).rotateX(-Math.PI / 2), mat(0x2b1a10, 0.5), v(0, 0.1, -0.16)).rotation.x = Math.PI / 2;
   for (const x of [-0.12, 0.12]) add(bag, new THREE.BoxGeometry(0.03, 0.02, 0.02), steel, v(x, 0.08, -0.161));
 
-  // --- The rider (rider.ts). -----------------------------------------------
-  const hairLocks = tex('hair', 1, 1);
+  // --- The rider (rider.ts), in cloths from the outfit atlas. ----------------
+  const hair = cellTexture(HAIR_CELL);
+  hair.repeat.set(3, 1);
+  const hairLocks = cellTexture(HAIR_CELL);
   hairLocks.center.set(0.5, 0.5);
   hairLocks.rotation = Math.PI / 2;
-  const rider = createRider(lean, { wool: tex('wool', 2, 1), coat: tex('coat', 2, 2), hair: tex('hair', 3, 1), hairLocks });
+  const fabrics = FABRICS.map((_, i) => cellTexture(i));
+  const rider = createRider(lean, { wool: tex('wool', 2, 1), fabrics, hair, hairLocks });
 
   // --- A soft contact shadow. ----------------------------------------------------
   const blob = new THREE.Mesh(
@@ -267,9 +289,33 @@ export function buildBikeModel(): CarModel {
   const pedals: [THREE.Vector3, THREE.Vector3] = [v(0, 0, 0), v(0, 0, 0)];
   const grips: [THREE.Vector3, THREE.Vector3] = [v(0, 0, 0), v(0, 0, 0)];
 
+  /** Sets the cranks, bars and lean, then puts the rider's feet and hands on them. */
+  function poseRider(steer: number, sprint: number, stroke: number | null) {
+    crank.rotation.x = crankAngle;
+    lean.rotation.z = leanAngle - 0.13 * footDown;
+    for (const [i, side] of [[0, 1], [1, -1]] as const) {
+      const a = crankAngle + (side > 0 ? 0 : Math.PI);
+      pedals[i].set(0.15 * side, BB.y - Math.sin(a) * CRANK, BB.z + Math.cos(a) * CRANK);
+      grips[i].set(GRIP.x * side, GRIP.y, GRIP.z).applyAxisAngle(yAxis, steer).add(STEM_TOP);
+    }
+    rider.pose({ pedals, grips, footDown, lean: lean.rotation.z, sprint, stroke });
+  }
+
   return {
     root,
     wheels: bikeWheels,
+    blob,
+    loaded: Promise.all(loads).then(() => {}),
+    dress: rider.dress,
+    showcase(dt: number) {
+      // An easy cadence on 26" (rear) and 20" (front) wheels at ~12 km/h, both feet on the pedals.
+      crankAngle += dt * 4;
+      rearWheel.rotation.x += (dt * 3.3) / REAR.radius;
+      frontWheel.rotation.x += (dt * 3.3) / FRONT.radius;
+      footDown = 0;
+      leanAngle = 0;
+      poseRider(0, 0.15, crankAngle);
+    },
     pose(vehicle: Vehicle, prev: BodyState, alpha: number) {
       const now = performance.now();
       const dt = Math.min(0.1, (now - last) / 1000);
@@ -300,7 +346,6 @@ export function buildBikeModel(): CarModel {
       const sprint = vehicle.cadence;
       if (vehicle.drive > 0) crankAngle += Math.max(dRear * 0.42 * (1 + 0.5 * sprint), dt * 2.5);
       else if (vehicle.drive < 0) crankAngle += Math.min(dRear * 0.42 * (1 + 0.5 * sprint), -dt * 2.5);
-      crank.rotation.x = crankAngle;
 
       // Lean into turns (the balance a rider finds), and put a foot down at
       // a standstill.
@@ -309,14 +354,7 @@ export function buildBikeModel(): CarModel {
       const stopped = Math.abs(speed) < 0.4 && vehicle.drive <= 0;
       footDown += ((stopped ? 1 : 0) - footDown) * Math.min(1, dt * (stopped ? 4 : 10));
       leanAngle += (want - leanAngle) * Math.min(1, dt * 6);
-      lean.rotation.z = leanAngle - 0.13 * footDown;
-
-      for (const [i, side] of [[0, 1], [1, -1]] as const) {
-        const a = crankAngle + (side > 0 ? 0 : Math.PI);
-        pedals[i].set(0.15 * side, BB.y - Math.sin(a) * CRANK, BB.z + Math.cos(a) * CRANK);
-        grips[i].set(GRIP.x * side, GRIP.y, GRIP.z).applyAxisAngle(yAxis, steer).add(STEM_TOP);
-      }
-      rider.pose({ pedals, grips, footDown, lean: lean.rotation.z, sprint, stroke: vehicle.drive !== 0 ? crankAngle : null });
+      poseRider(steer, sprint, vehicle.drive !== 0 ? crankAngle : null);
     },
     setBraking() {},
   };

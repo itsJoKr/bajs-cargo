@@ -1,19 +1,21 @@
-// The Bajs bike's rider: a man in a camel overcoat over a charcoal suit,
-// white shirt and burgundy tie, leather gloves and black oxfords. Smooth
-// lathed shapes rather than boxes; legs reach the pedals and arms the grips by
-// two-bone IK each frame.
+// The Bajs bike's rider: a man in an overcoat over a charcoal suit, white
+// shirt and burgundy tie, leather gloves and black oxfords. The coat's colour
+// and cloth and the hair's colour are the player's (outfit.ts, `dress`).
+// Smooth lathed shapes rather than boxes; legs reach the pedals and arms the
+// grips by two-bone IK each frame.
 //
 // Bike frame as vehicle.ts: z forward, y up, x to the rider's LEFT.
 
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import { coatOf, DEFAULT_OUTFIT, fabricIndex, hairOf, tint, type Outfit } from './outfit.ts';
 
 export interface RiderTextures {
   /** Charcoal suit wool, for the trousers. */
   wool?: THREE.Texture;
-  /** Camel overcoat cloth. */
-  coat?: THREE.Texture;
-  /** Hair, strands running along v (the cap) ... */
+  /** The overcoat's cloths, outfit.ts FABRICS order: neutral grey, one repeat a TILE square. */
+  fabrics?: THREE.Texture[];
+  /** Hair, neutral grey, strands running along v (the cap) ... */
   hair?: THREE.Texture;
   /** ... and the same turned to run along u (the locks). */
   hairLocks?: THREE.Texture;
@@ -40,6 +42,98 @@ const PELVIS = new THREE.Vector3(0, 0.97, -0.8);
 const THIGH = 0.45, SHIN = 0.45, UPPER_ARM = 0.3, FOREARM = 0.28;
 /** Ankle above the pedal and behind it, so the ball of the foot is on it. */
 const ANKLE_ON_PEDAL = new THREE.Vector3(0, 0.085, -0.11);
+/** Metres of coat one repeat of its cloth covers either way. */
+const TILE = 0.3;
+/** Repeats of the cloth once round the torso (~0.94 m); the tails take the same, so the pattern runs on. */
+const AROUND = 3;
+/** Height over the pelvis where the tails come out of the torso: the cloth's v is 0 there on both. */
+const JOIN = 0.05;
+/** The torso's profile (radius, height over the pelvis), and its width and depth scales. */
+const TORSO: [number, number][] = [
+  [0, -0.1], [0.12, -0.09], [0.165, -0.03], [0.162, 0.08], [0.172, 0.22], [0.185, 0.33], [0.182, 0.4], [0.15, 0.46], [0.09, 0.495], [0.06, 0.505], [0, 0.51],
+];
+const TORSO_W = 1.12, TORSO_D = 0.66;
+/** The tails' profile: the top tucked inside the torso (and as deep as it), out through its surface
+ * just under the join, then draped over the saddle: full depth (TAILS_D) 7 cm under the pelvis, where
+ * the saddle's rear (14.5 cm back) would poke through a shallower coat. Open at the front. */
+const TAILS: [number, number][] = [[0.13, 0.07], [0.172, 0], [0.184, -0.08], [0.205, -0.2], [0.22, -0.29]];
+const TAILS_FROM = Math.PI * 0.42, TAILS_SPAN = Math.PI * 1.16, TAILS_D = 0.92;
+
+/** Lays the cloth on a lathe made from [profile] (`lathe(profile, segments, from, span)`): u by angle,
+ * AROUND repeats a full turn, v by metres along the profile from the JOIN height, up positive. Torso and
+ * tails share the angle and the height, so a check runs on across the join. [radial] scales radii to
+ * metres (about the lathe's mean width and depth). */
+function clothOnLathe(g: THREE.BufferGeometry, profile: [number, number][], segments: number, from: number, span: number, radial: number) {
+  const s = [0];
+  for (let j = 1; j < profile.length; j++) {
+    s.push(s[j - 1] + Math.hypot((profile[j][0] - profile[j - 1][0]) * radial, profile[j][1] - profile[j - 1][1]));
+  }
+  let sJoin = 0;
+  for (let j = 1; j < profile.length; j++) {
+    const y0 = profile[j - 1][1], y1 = profile[j][1];
+    if (y0 !== y1 && (y0 - JOIN) * (y1 - JOIN) <= 0) {
+      sJoin = s[j - 1] + ((s[j] - s[j - 1]) * (JOIN - y0)) / (y1 - y0);
+      break;
+    }
+  }
+  const up = profile[profile.length - 1][1] > profile[0][1] ? 1 : -1;
+  const uv = g.getAttribute('uv');
+  const n = profile.length;
+  // LatheGeometry's vertices go round by segment, each up the profile.
+  for (let i = 0; i <= segments; i++) {
+    const phi = from + (i / segments) * span;
+    for (let j = 0; j < n; j++) uv.setXY(i * n + j, (phi / (Math.PI * 2)) * AROUND, (up * (s[j] - sJoin)) / TILE);
+  }
+  g.userData.cloth = true;
+  return g;
+}
+
+/** The coat's tails in the pelvis frame: TAILS, as deep as the torso down to 3 cm over the pelvis and
+ * TAILS_D from 7 cm under it. */
+function tailsGeometry() {
+  const g = lathe(TAILS, 24, TAILS_FROM, TAILS_SPAN);
+  const p = g.getAttribute('position');
+  for (let i = 0; i < p.count; i++) {
+    const drape = THREE.MathUtils.smoothstep(-p.getY(i), -0.03, 0.07);
+    p.setX(i, p.getX(i) * TORSO_W);
+    p.setZ(i, p.getZ(i) * (TORSO_D + (TAILS_D - TORSO_D) * drape));
+  }
+  g.computeVertexNormals();
+  return clothOnLathe(g, TAILS, 24, TAILS_FROM, TAILS_SPAN, (TORSO_W + TAILS_D) / 2);
+}
+
+/** Rescales [geo]'s UVs so one texture repeat covers [TILE] metres either way on the mesh (with its
+ * [scale]): lathes, spheres and extrusions each map 0..1 over their own size, which would print a
+ * check three times finer on a sleeve than on the back. u keeps a whole number of repeats, so a
+ * lathe's seam still meets. */
+function metricUVs(geo: THREE.BufferGeometry, scale: THREE.Vector3) {
+  const pos = geo.getAttribute('position'), uv = geo.getAttribute('uv');
+  const idx = geo.index;
+  const count = idx ? idx.count : pos.count;
+  const p = [new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()];
+  const e1 = new THREE.Vector3(), e2 = new THREE.Vector3(), du = new THREE.Vector3(), dv = new THREE.Vector3();
+  let su = 0, sv = 0, area = 0;
+  for (let t = 0; t + 2 < count; t += 3) {
+    const v = [0, 1, 2].map((k) => (idx ? idx.getX(t + k) : t + k));
+    v.forEach((vi, k) => p[k].fromBufferAttribute(pos, vi).multiply(scale));
+    e1.subVectors(p[1], p[0]);
+    e2.subVectors(p[2], p[0]);
+    const u1 = uv.getX(v[1]) - uv.getX(v[0]), v1 = uv.getY(v[1]) - uv.getY(v[0]);
+    const u2 = uv.getX(v[2]) - uv.getX(v[0]), v2 = uv.getY(v[2]) - uv.getY(v[0]);
+    const det = u1 * v2 - u2 * v1;
+    if (Math.abs(det) < 1e-12) continue;
+    // Metres per unit of u and of v on this triangle, weighted by its area.
+    du.copy(e1).multiplyScalar(v2).addScaledVector(e2, -v1).divideScalar(det);
+    dv.copy(e2).multiplyScalar(u1).addScaledVector(e1, -u2).divideScalar(det);
+    const a = e1.cross(e2).length();
+    su += du.length() * a;
+    sv += dv.length() * a;
+    area += a;
+  }
+  if (!area) return;
+  const ku = Math.max(1, Math.round(su / area / TILE)), kv = sv / area / TILE;
+  for (let i = 0; i < uv.count; i++) uv.setXY(i, uv.getX(i) * ku, uv.getY(i) * kv);
+}
 
 /** A rounded, tapered limb segment along +y from 0 to [len]: radius [r0] at
  * the start, [r1] at the end, [bulge] extra at [peak] (0..1) of the way. */
@@ -180,14 +274,14 @@ function hairGeometry() {
 }
 
 export function createRider(parent: THREE.Object3D, tex: RiderTextures = {}) {
-  const coat = new THREE.MeshStandardMaterial({ color: tex.coat ? 0xffffff : 0xa67c52, map: tex.coat ?? null, roughness: 0.92 });
+  const coat = new THREE.MeshStandardMaterial({ color: 0xa67c52, map: tex.fabrics?.[0] ?? null, roughness: 0.92 });
   const coatSkirt = coat.clone();
   coatSkirt.side = THREE.DoubleSide;
   const trousers = new THREE.MeshStandardMaterial({ color: tex.wool ? 0xffffff : 0x2a3040, map: tex.wool ?? null, roughness: 0.85 });
   const shirt = new THREE.MeshStandardMaterial({ color: 0xf2f2ef, roughness: 0.6 });
   const tieMat = new THREE.MeshStandardMaterial({ color: 0x7e1a26, roughness: 0.45 });
   const skin = new THREE.MeshStandardMaterial({ color: 0xdcab88, roughness: 0.6 });
-  const hair = new THREE.MeshStandardMaterial({ color: tex.hair ? 0xffffff : 0x3a2a1e, map: tex.hair ?? null, bumpMap: tex.hair ?? null, bumpScale: 0.5, roughness: 0.82, envMapIntensity: 0.25 });
+  const hair = new THREE.MeshStandardMaterial({ color: 0x3a2a1e, map: tex.hair ?? null, bumpMap: tex.hair ?? null, bumpScale: 0.05, roughness: 0.82, envMapIntensity: 0.25 });
   const locksMat = hair.clone();
   locksMat.map = locksMat.bumpMap = tex.hairLocks ?? null;
   const brows = new THREE.MeshStandardMaterial({ color: 0x33251a, roughness: 0.8 });
@@ -208,10 +302,8 @@ export function createRider(parent: THREE.Object3D, tex: RiderTextures = {}) {
   const torso = new THREE.Group();
   torso.position.copy(PELVIS);
   parent.add(torso);
-  const body = add(torso, lathe([
-    [0, -0.1], [0.12, -0.09], [0.165, -0.03], [0.162, 0.08], [0.172, 0.22], [0.185, 0.33], [0.182, 0.4], [0.15, 0.46], [0.09, 0.495], [0.06, 0.505], [0, 0.51],
-  ], 28), coat);
-  body.scale.set(1.12, 1, 0.66);
+  const body = add(torso, clothOnLathe(lathe(TORSO, 28), TORSO, 28, 0, Math.PI * 2, (TORSO_W + TORSO_D) / 2), coat);
+  body.scale.set(TORSO_W, 1, TORSO_D);
   for (const s of [1, -1]) add(torso, new THREE.SphereGeometry(0.068, 16, 12), coat, 0.185 * s, 0.415, -0.005).scale.set(1, 0.9, 0.95);
   // Shirt and tie in the V, lapels either side, a turned-up collar behind.
   const vee = new THREE.Shape([new THREE.Vector2(-0.06, 0), new THREE.Vector2(0.06, 0), new THREE.Vector2(0, -0.19)]);
@@ -230,8 +322,7 @@ export function createRider(parent: THREE.Object3D, tex: RiderTextures = {}) {
 
   // Coat tails over the saddle: open in front, where the thighs come out.
   // Hung from the pelvis, not the torso, so they stay down when he leans.
-  const skirt = add(parent, lathe([[0.176, 0.05], [0.184, -0.08], [0.205, -0.2], [0.22, -0.29]], 24, Math.PI * 0.42, Math.PI * 1.16), coatSkirt, PELVIS.x, PELVIS.y, PELVIS.z);
-  skirt.scale.set(1.12, 1, 0.92);
+  add(parent, tailsGeometry(), coatSkirt, PELVIS.x, PELVIS.y, PELVIS.z);
 
   // --- Head. ----------------------------------------------------------------
   const head = new THREE.Group();
@@ -293,6 +384,28 @@ export function createRider(parent: THREE.Object3D, tex: RiderTextures = {}) {
     return { s, ...l };
   });
 
+  // The cloth at one scale all over the coat (before bikeModel merges the meshes).
+  parent.traverse((o) => {
+    const m = o as THREE.Mesh;
+    if (m.isMesh && (m.material === coat || m.material === coatSkirt) && !m.geometry.userData.cloth) metricUVs(m.geometry, m.scale);
+  });
+
+  /** Puts the rider in [o]: the coat's colour and cloth, the hair's colour (brows a shade darker). */
+  function dress(o: Outfit) {
+    const map = tex.fabrics?.[Math.max(0, fabricIndex(o))] ?? null;
+    for (const m of [coat, coatSkirt]) {
+      m.map = map;
+      if (map) tint(coatOf(o).hex, m.color);
+      else m.color.set(coatOf(o).hex);
+    }
+    for (const m of [hair, locksMat]) {
+      if (m.map) tint(hairOf(o).hex, m.color);
+      else m.color.set(hairOf(o).hex);
+    }
+    brows.color.set(hairOf(o).hex).multiplyScalar(0.8);
+  }
+  dress(DEFAULT_OUTFIT);
+
   // --- Posing. --------------------------------------------------------------
   const tmp = { a: new THREE.Vector3(), b: new THREE.Vector3(), c: new THREE.Vector3(), d: new THREE.Vector3() };
   const yAxis = new THREE.Vector3(0, 1, 0);
@@ -316,6 +429,7 @@ export function createRider(parent: THREE.Object3D, tex: RiderTextures = {}) {
   const shoulder = new THREE.Vector3(), pole = new THREE.Vector3();
 
   return {
+    dress,
     pose(p: RiderPose) {
       // Leans forward harder in a sprint, and sways a little with each stroke.
       torso.rotation.x = 0.14 + 0.12 * p.sprint;

@@ -18,7 +18,16 @@ pipeline lives on here in `tool/` as a plain Dart CLI.
     (the Ferrari model posed from it), `bikeModel.ts` (the Bajs cargo bike,
     what you ride by default; B swaps to the car, `?ride=car` starts in it),
     `rider.ts` (its rider: overcoat over a suit, lathed body, IK legs and
-    arms), `city.ts` (the
+    arms; `dress` sets the coat's colour and cloth and the hair's colour),
+    `boot.ts` (the page's entry: opens the lobby at once and loads `main.ts` as
+    its own chunk behind it), `lobby.ts` (the loading screen's "dress your
+    rider": coat colour, fabric, hair on a turning preview of the bike with its
+    own small WebGL context, then a Start button once the city is in; a driven
+    browser (`navigator.webdriver`, shot.mjs and perf.mjs pass `--enable-automation`)
+    or `?go` starts at once, `?lobby` waits for the button anyway), `outfit.ts`
+    (the wardrobe: colours, cloths, the choice kept in localStorage; cloths and
+    hair are one greyscale atlas `public/models/outfits.jpg` from
+    `tool/make_outfits.py`, tinted in the material), `city.ts` (the
     exported glTF, the atlas material, props, colliders), `features.ts`
     (`data/buildings.json` features), `terrain.ts` (ground grid and far
     horizon), `trees.ts` (three instanced species built at load: plane,
@@ -48,7 +57,7 @@ pipeline lives on here in `tool/` as a plain Dart CLI.
     `audio.ts` (sound synthesised with Web Audio, except the pigeon recordings: freewheel ticks and tyre hiss, the car's
     engine, handbrake squeal, positional tram rumble/whine and a school-bell ring while a tram is held up
     (`Trams.audioSources()`, `blocked`), furniture crashes via `Furniture.onHit`, the delivery chime, the cathedral's low bell once a minute (a real CC0 recording, BigSoundBank s3446 `bell.mp3`, slowed to 0.45x; positional, `CATHEDRAL_BELL`, carries to the
-    main square), a city murmur that swells over the square, a crunch on hard stops, pigeon wing flaps (real CC0 recordings from BigSoundBank "Flight of a Pigeon" s0840 / s0476 in
+    main square and fades out past it, `BELL_FULL`/`BELL_GONE`), a city murmur that swells over the square, a crunch on hard stops, pigeon wing flaps (real CC0 recordings from BigSoundBank "Flight of a Pigeon" s0840 / s0476 in
     `web3d/public/sounds/`; a scattering flock layers ~7 of them, nearby flocks flutter now and then) when a flock
     scatters; starts on the
     first key/click, M mutes; `zg.audio`),
@@ -57,8 +66,8 @@ pipeline lives on here in `tool/` as a plain Dart CLI.
     meshes flagged `userData.moves` stay; `shareMaterials`: colour-only material variants share one, tint in
     the vertices; used by the bike/rider and features),
     `input.ts` (keyboard, gamepad; no touch controls: desktop only, phones and
-    tablets get a "made for a laptop" dialog from `main.ts`, `?desktop` skips it), `places.ts` (HUD place names),
-    `main.ts` (loop, sky, lighting, adaptive render resolution, HUD with fps, `window.zg` debug surface; pauses
+    tablets get a "made for a laptop" dialog from `boot.ts`, `?desktop` skips it), `places.ts` (HUD place names),
+    `main.ts` (`run(lobby)`: loop, sky, lighting, adaptive render resolution, HUD with fps, `window.zg` debug surface; pauses
     world, timer and sound while the tab is hidden or the window unfocused, carries on when the player is back;
     stops them for good after the 8th delivery (the finish card shows the time and pedestrians hit; "Copy score image" puts a 1200x630 PNG of the last frame under
     the score on the clipboard, or downloads it where the clipboard refuses, `scoreCard.ts`); 0 goes back to
@@ -141,6 +150,7 @@ fvm dart tool/export_web.dart --dump-walls  # also writes .art/walls_all.json (e
 .venv/bin/python tool/prepare_tram.py      # .art/tram views -> tram atlas + tramLayout.ts
 .venv/bin/python tool/prepare_trees.py     # .art/trees gen-image raws -> leaf atlas + barks
 .venv/bin/python tool/prepare_bike.py      # .art/bike gen-image raws -> seamless public/models/bike_*.jpg
+.venv/bin/python tool/make_outfits.py      # the rider's cloths + hair -> public/models/outfits.jpg (one row of 128 px cells)
 .venv/bin/python tool/sv_rectify.py spec.json   # several Street View frames -> one straight-on wall photo
 .venv/bin/python tool/make_glass_tower.py       # Neboder tower sides (procedural glass, real lobby on Ilica)
 .venv/bin/python tool/make_ban_centar.py        # Ban centar (the EU building) facades, procedural
@@ -185,7 +195,7 @@ is the done/todo list.
   console; `--mobile` emulates a touch-only phone, which gets the desktop-only dialog). Never drive the game page with the Chrome extension.
 - `window.zg`: `look(eye, target, fov?)`, `lookAtWall(id, distance?,
   eyeHeight?)`, `drive()`, `teleport(x, z, heading)`, `groundAt(x, z)`, `ride('bike' | 'car')`,
-  `vehicle`, `trams`, `deliveries`, `job(id)` (force the current job), `furniture` (`reset()`, `awake()`, `stats()`), `renderer`, `scene`, `camera`. URL: `?park=square`
+  `vehicle`, `trams`, `deliveries`, `job(id)` (force the current job), `dress({ coat, fabric, hair })` (outfit.ts ids), `furniture` (`reset()`, `awake()`, `stats()`), `renderer`, `scene`, `camera`. URL: `?park=square`
   parks the camera, `?dpr=1.5` fixes the render pixel ratio (else it adapts to the frame rate), `?pause` stops before
   the loop. `zg.bench(n)` renders n frames waited out on the GPU (ms a frame, draw calls); `shot.mjs --dpr 2` emulates Retina.
 - Frame rate: `shot.mjs --uncapped --eval "zg.fps(8)"` rides for 8 s at whatever the machine can draw (fps, p50/p95/p99 ms);

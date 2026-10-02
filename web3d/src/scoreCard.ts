@@ -54,10 +54,10 @@ export function scoreImage(frame: HTMLCanvasElement, score: Score): HTMLCanvasEl
   ctx.letterSpacing = '0px';
   ctx.globalAlpha = 1;
 
-  // "Bajs" heavy, "Cargo" regular, centred as one line.
+  // "Bajs" heavy italic, "Cargo" regular, centred as one line.
   y += 74;
   ctx.textAlign = 'left';
-  const bold = `800 64px ${FONT}`, light = `400 64px ${FONT}`;
+  const bold = `italic 800 64px ${FONT}`, light = `400 64px ${FONT}`;
   ctx.font = bold;
   const a = ctx.measureText('Bajs ').width;
   ctx.font = light;

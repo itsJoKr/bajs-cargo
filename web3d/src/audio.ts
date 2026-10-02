@@ -32,6 +32,9 @@ export interface TramSource {
 const TRAM_VOICES = 4;
 /** The bell in the cathedral's tower (web frame). */
 const CATHEDRAL_BELL = new THREE.Vector3(174.7, 62, -168);
+/** Distances (m) from the bell: full loudness to the main square's far side, fading to silence by BELL_GONE. */
+const BELL_FULL = 340;
+const BELL_GONE = 560;
 /** The middle of the main square, where the murmur is loudest. */
 const SQUARE = new THREE.Vector3(12, 0, -18);
 const TRAM_RANGE = 110;
@@ -464,11 +467,15 @@ export class GameAudio {
     src.start(t, Math.random() * 1.5, 0.3);
   }
 
-  /** The cathedral's great bell: one low stroke, heard across the whole centre. */
+  /** The cathedral's great bell: one low stroke, heard on Kaptol, Dolac and the main square. */
   private churchBell(camPos: THREE.Vector3) {
     const ctx = this.ctx!;
     const at = CATHEDRAL_BELL;
     const dist = camPos.distanceTo(at);
+    // The panner's roll-off alone carries it across the whole map: fade it out past the square.
+    const k = Math.min(1, Math.max(0, (dist - BELL_FULL) / (BELL_GONE - BELL_FULL)));
+    const fade = 1 - k * k * (3 - 2 * k);
+    if (fade <= 0) return;
     const p = ctx.createPanner();
     p.panningModel = 'equalpower';
     p.distanceModel = 'inverse';
@@ -490,7 +497,7 @@ export class GameAudio {
       src.buffer = this.bellBuf;
       src.playbackRate.value = 0.45;
       const g = ctx.createGain();
-      g.gain.value = 1.4;
+      g.gain.value = 1.4 * fade;
       src.connect(g).connect(air);
       src.start(t);
     } else {
@@ -503,7 +510,7 @@ export class GameAudio {
           o.frequency.value = f * ratio * beat;
           const g = ctx.createGain();
           g.gain.setValueAtTime(0.0001, t);
-          g.gain.exponentialRampToValueAtTime(lvl * 0.45, t + 0.012);
+          g.gain.exponentialRampToValueAtTime(lvl * 0.45 * fade, t + 0.012);
           g.gain.exponentialRampToValueAtTime(0.0001, t + decay);
           o.connect(g).connect(air);
           o.start(t);
